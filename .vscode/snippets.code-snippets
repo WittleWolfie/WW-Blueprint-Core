@@ -1,0 +1,71 @@
+{
+	"ActionListBuilderEx Method": {
+		"prefix": [
+			"action-m-ex"
+		],
+		"body": [
+			"/** ${3:type} */",
+			"public static ActionListBuilder ${1:funcName}(this ActionListBuilder builder)",
+			"{",
+			"\tvar ${2:varName} = ElementTool.Create<${3}>();",
+			"\treturn builder.Add($2);",
+			"}"
+		]
+	},
+	"ActionListBuilder Test": {
+		"prefix": [
+			"action-test"
+		],
+		"body": [
+			"[Fact]",
+			"public void ${1:funcName}()",
+			"{",
+			"\tvar actions = ActionListBuilder.New().$1().Build();",
+			"",
+			"\tAssert.Single(actions.Actions);",
+			"\tvar ${2:varName} = (${3:type})actions.Actions[0];",
+			"\tElementAsserts.IsValid($2);",
+			"\t$0",
+			"}"
+		]
+	},
+	"OnConfigure": {
+		"prefix": [
+			"OnConfigure",
+			"OnC"
+		],
+		"body": [
+			"OnConfigure.Add(blueprint => $0);"
+		]
+	},
+	"Configurator Method": {
+		"prefix": [
+			"config-m"
+		],
+		"body": [
+			"/** ${1:effect} */",
+			"public ${2:this} ${3:name}()",
+			"{",
+			"\t$0;",
+			"\treturn this;",
+			"}"
+		]
+	},
+	"Configurator Test": {
+		"prefix": [
+			"config-test"
+		],
+		"body": [
+			"[Fact]",
+			"public void ${1:name}()",
+			"{",
+			"\tGetConfigurator(Guid)",
+			"\t\t\t.${1}()",
+			"\t\t\t.Configure();",
+			"",
+			"\tvar ${2:var} = BlueprintTool.Get<${3:btype}>(Guid);",
+			"\t$0",
+			"}"
+		]
+	}
+}
