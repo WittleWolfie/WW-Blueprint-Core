@@ -2,8 +2,11 @@ using System.Linq;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
+using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Settlements;
@@ -208,6 +211,86 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionListBuilder EnableKingdom(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionEnable>());
+    }
+
+    /**
+     * KingdomActionFillSettlement
+     *
+     * @param settlement BlueprintSettlement
+     * @param buildList SettlementBuildList
+     */
+    public static ActionListBuilder FillSettlement(
+        this ActionListBuilder builder, string settlement, string buildList)
+    {
+      var fill = ElementTool.Create<KingdomActionFillSettlement>();
+      fill.m_SpecificSettlement =
+          BlueprintTool.GetRef<BlueprintSettlement, BlueprintSettlement.Reference>(settlement);
+      fill.m_BuildList =
+          BlueprintTool.GetRef<SettlementBuildList, SettlementBuildListReference>(buildList);
+      return builder.Add(fill);
+    }
+
+    /** 
+     * KingdomActionFillSettlementByLocation
+     *
+     * @param location BlueprintGlobalMapPoint
+     * @param buildList SettlementBuildList
+     */
+    public static ActionListBuilder FillSettlementByLocation(
+        this ActionListBuilder builder, string location, string buildList)
+    {
+      var fill = ElementTool.Create<KingdomActionFillSettlementByLocation>();
+      fill.m_SpecificSettlementLocation =
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>(location);
+      fill.m_BuildList =
+          BlueprintTool.GetRef<SettlementBuildList, SettlementBuildListReference>(buildList);
+      return builder.Add(fill);
+    }
+
+    /** KingdomActionFinishRandomBuilding */
+    public static ActionListBuilder FinishRandomBuilding(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionFinishRandomBuilding>());
+    }
+
+    /** KingdomActionFoundKingdom */
+    public static ActionListBuilder FoundKingdom(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
+    }
+
+    /** 
+     * KingdomActionFoundSettlement
+     *
+     * @param location BlueprintGlobalMapPoint
+     * @param settlement BlueprintSettlement
+     */
+    public static ActionListBuilder FoundSettlement(
+        this ActionListBuilder builder, string location, string settlement)
+    {
+      var found = ElementTool.Create<KingdomActionFoundSettlement>();
+      found.m_Location =
+          BlueprintTool
+              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
+      found.m_Settlement =
+          BlueprintTool.GetRef<BlueprintSettlement, BlueprintSettlement.Reference>(settlement);
+      return builder.Add(found);
+    }
+
+    /** KingdomActionGainLeaderExperience */
+    public static ActionListBuilder GrantLeaderExp(
+        this ActionListBuilder builder, IntEvaluator exp, float? leaderLevelMultiplier = null)
+    {
+      builder.Validate(exp);
+
+      var grantExp = ElementTool.Create<KingdomActionGainLeaderExperience>();
+      grantExp.m_Value = exp;
+      if (leaderLevelMultiplier != null)
+      {
+        grantExp.m_MultiplyByLeaderLevel = true;
+        grantExp.m_MultiplierCoefficient = leaderLevelMultiplier.Value;
+      }
+      return builder.Add(grantExp);
     }
   }
 }

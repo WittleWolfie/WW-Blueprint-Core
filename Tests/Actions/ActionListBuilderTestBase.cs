@@ -20,6 +20,7 @@ using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Settlements;
@@ -202,6 +203,11 @@ namespace BlueprintCore.Tests.Actions
         "d2702e5c-9719-460c-919b-32fa8700ddb2";
     protected readonly BlueprintSettlementBuilding SettlementBuilding =
         CreateBlueprint<BlueprintSettlementBuilding>(SettlementBuildingGuid);
+
+    //----- SettlementBuildList -----//
+    protected static readonly string BuildListGuid = "ffa499d1-db21-4c5f-9102-ab1a913633a7";
+    protected readonly SettlementBuildList BuildList =
+            CreateBlueprint<SettlementBuildList>(BuildListGuid);
 
     //----- BlueprintSharedVendorTable -----//
     protected static readonly string VendorTableGuid = "afca4171-3d2f-47b5-ac61-9886a0c735c1";

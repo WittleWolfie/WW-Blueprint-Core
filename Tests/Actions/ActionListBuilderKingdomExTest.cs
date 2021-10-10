@@ -2,6 +2,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.KingdomEx;
 using BlueprintCore.Tests.Asserts;
 using Kingmaker.Blueprints;
+using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
 using Kingmaker.RuleSystem;
@@ -316,6 +317,101 @@ namespace BlueprintCore.Tests.Actions
       Assert.Single(actions.Actions);
       var enable = (KingdomActionEnable)actions.Actions[0];
       ElementAsserts.IsValid(enable);
+    }
+
+    [Fact]
+    public void FillSettlement()
+    {
+      var actions = ActionListBuilder.New().FillSettlement(SettlementGuid, BuildListGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var fill = (KingdomActionFillSettlement)actions.Actions[0];
+      ElementAsserts.IsValid(fill);
+
+      Assert.Equal(
+          Settlement.ToReference<BlueprintSettlement.Reference>(), fill.m_SpecificSettlement);
+      Assert.Equal(BuildList.ToReference<SettlementBuildListReference>(), fill.m_BuildList);
+    }
+
+    [Fact]
+    public void FillSettlementByLocation()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .FillSettlementByLocation(GlobalMapPointGuid, BuildListGuid)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var fill = (KingdomActionFillSettlementByLocation)actions.Actions[0];
+      ElementAsserts.IsValid(fill);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPointReference>(),
+          fill.m_SpecificSettlementLocation);
+      Assert.Equal(BuildList.ToReference<SettlementBuildListReference>(), fill.m_BuildList);
+    }
+
+    [Fact]
+    public void FinishRandomBuilding()
+    {
+      var actions = ActionListBuilder.New().FinishRandomBuilding().Build();
+
+      Assert.Single(actions.Actions);
+      var finish = (KingdomActionFinishRandomBuilding)actions.Actions[0];
+      ElementAsserts.IsValid(finish);
+    }
+
+    [Fact]
+    public void FoundKingdom()
+    {
+      var actions = ActionListBuilder.New().FoundKingdom().Build();
+
+      Assert.Single(actions.Actions);
+      var found = (KingdomActionFoundKingdom)actions.Actions[0];
+      ElementAsserts.IsValid(found);
+    }
+
+    [Fact]
+    public void FoundSettlement()
+    {
+      var actions =
+          ActionListBuilder.New().FoundSettlement(GlobalMapPointGuid, SettlementGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var found = (KingdomActionFoundSettlement)actions.Actions[0];
+      ElementAsserts.IsValid(found);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), found.m_Location);
+      Assert.Equal(Settlement.ToReference<BlueprintSettlement.Reference>(), found.m_Settlement);
+    }
+
+    [Fact]
+    public void GrantLeaderExp()
+    {
+      var actions = ActionListBuilder.New().GrantLeaderExp(IntConstant).Build();
+
+      Assert.Single(actions.Actions);
+      var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
+      ElementAsserts.IsValid(grantExp);
+
+      Assert.Equal(IntConstant, grantExp.m_Value);
+      Assert.False(grantExp.m_MultiplyByLeaderLevel);
+    }
+
+    [Fact]
+    public void GrantLeaderExp_WithLeaderLevelMultiplier()
+    {
+      var actions =
+          ActionListBuilder.New().GrantLeaderExp(IntConstant, leaderLevelMultiplier: 2f).Build();
+
+      Assert.Single(actions.Actions);
+      var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
+      ElementAsserts.IsValid(grantExp);
+
+      Assert.Equal(IntConstant, grantExp.m_Value);
+      Assert.True(grantExp.m_MultiplyByLeaderLevel);
+      Assert.Equal(2f, grantExp.m_MultiplierCoefficient);
     }
   }
 }
