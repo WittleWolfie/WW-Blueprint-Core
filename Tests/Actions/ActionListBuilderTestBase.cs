@@ -20,6 +20,7 @@ using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.RandomEncounters.Settings;
@@ -148,6 +149,11 @@ namespace BlueprintCore.Tests.Actions
     protected static readonly string WeaponGuid = "9cf61faf-4ae9-47a0-b325-2fabb13bc9e2";
     protected readonly BlueprintItemWeapon Weapon = CreateBlueprint<BlueprintItemWeapon>(WeaponGuid);
 
+    //----- BlueprintKingdomArtisan -----//
+    protected static readonly string ArtisanGuid = "3ed9a1e1-c5da-4370-b673-24a8d9d9898c";
+    protected readonly BlueprintKingdomArtisan Artisan =
+        CreateBlueprint<BlueprintKingdomArtisan>(ArtisanGuid);
+
     //----- BlueprintKingdomBuff -----//
     protected static readonly string KingdomBuffGuid = "e70c1dcd-b4ef-4022-8eea-3b17d15af334";
     protected readonly BlueprintKingdomBuff KingdomBuff =
@@ -156,6 +162,11 @@ namespace BlueprintCore.Tests.Actions
     // //----- BlueprintKingdomDeck -----//
     protected static readonly string DeckGuid = "948ab7c7-5b44-415b-8fb2-8ac136d10401";
     protected readonly BlueprintKingdomDeck Deck = CreateBlueprint<BlueprintKingdomDeck>(DeckGuid);
+
+    // //----- BlueprintKingdomProject -----//
+    protected static readonly string ProjectGuid = "e489fed0-ed07-4aef-ae4e-ff99e6557edd";
+    protected readonly BlueprintKingdomProject Project =
+        CreateBlueprint<BlueprintKingdomProject>(ProjectGuid);
 
     //----- BlueprintProgression -----//
     protected static readonly string ProgressionGuid = "10305b16-4321-45ef-9937-1e4b66279220";

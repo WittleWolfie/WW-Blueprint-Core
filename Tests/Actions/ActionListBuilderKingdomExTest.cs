@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.KingdomEx;
 using BlueprintCore.Tests.Asserts;
 using Kingmaker.Blueprints;
@@ -242,6 +241,81 @@ namespace BlueprintCore.Tests.Actions
       Assert.Equal(2, addBuff.m_Buffs.Count);
       Assert.Equal(KingdomBuff.ToReference<BlueprintKingdomBuffReference>(), addBuff.m_Buffs[0]);
       Assert.Equal(KingdomBuff.ToReference<BlueprintKingdomBuffReference>(), addBuff.m_Buffs[1]);
+    }
+
+    [Fact]
+    public void ArtisanRequestHelp()
+    {
+      var actions = ActionListBuilder.New().ArtisanRequestHelp(ArtisanGuid, ProjectGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var requestHelp = (KingdomActionArtisanRequestHelp)actions.Actions[0];
+      ElementAsserts.IsValid(requestHelp);
+
+      Assert.Equal(Artisan.ToReference<BlueprintKingdomArtisanReference>(), requestHelp.m_Artisan);
+      Assert.Equal(Project.ToReference<BlueprintKingdomProjectReference>(), requestHelp.m_Project);
+    }
+
+    [Fact]
+    public void EnableAutoCrusade()
+    {
+      var actions = ActionListBuilder.New().EnableAutoCrusade().Build();
+
+      Assert.Single(actions.Actions);
+      var enableAutoCrusade = (KingdomActionChangeToAutoCrusade)actions.Actions[0];
+      ElementAsserts.IsValid(enableAutoCrusade);
+    }
+
+    [Fact]
+    public void CollectKingdomLoot()
+    {
+      var actions = ActionListBuilder.New().CollectKingdomLoot().Build();
+
+      Assert.Single(actions.Actions);
+      var collectLoot = (KingdomActionCollectLoot)actions.Actions[0];
+      ElementAsserts.IsValid(collectLoot);
+    }
+
+    [Fact]
+    public void ConquerRegion()
+    {
+      var actions = ActionListBuilder.New().ConquerRegion(RegionGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var conquer = (KingdomActionConquerRegion)actions.Actions[0];
+      ElementAsserts.IsValid(conquer);
+
+      Assert.Equal(Region.ToReference<BlueprintRegionReference>(), conquer.m_Region);
+    }
+
+    [Fact]
+    public void DestroyAllSettlements()
+    {
+      var actions = ActionListBuilder.New().DestroyAllSettlements().Build();
+
+      Assert.Single(actions.Actions);
+      var destroy = (KingdomActionDestroyAllSettlements)actions.Actions[0];
+      ElementAsserts.IsValid(destroy);
+    }
+
+    [Fact]
+    public void DisableKingdom()
+    {
+      var actions = ActionListBuilder.New().DisableKingdom().Build();
+
+      Assert.Single(actions.Actions);
+      var disable = (KingdomActionDisable)actions.Actions[0];
+      ElementAsserts.IsValid(disable);
+    }
+
+    [Fact]
+    public void EnableKingdom()
+    {
+      var actions = ActionListBuilder.New().EnableKingdom().Build();
+
+      Assert.Single(actions.Actions);
+      var enable = (KingdomActionEnable)actions.Actions[0];
+      ElementAsserts.IsValid(enable);
     }
   }
 }

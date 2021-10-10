@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.RuleSystem;
@@ -148,6 +149,65 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
               .ToList();
       addBuff.OverrideDurationDays = durationOverrideDays;
       return builder.Add(addBuff);
+    }
+
+    /**
+     * KingdomActionArtisanRequestHelp
+     *
+     * @param artisan BlueprintKingdomArtisan
+     * @param project BlueprintKingdomProject
+     */
+    public static ActionListBuilder ArtisanRequestHelp(
+        this ActionListBuilder builder, string artisan, string project)
+    {
+      var requestHelp = ElementTool.Create<KingdomActionArtisanRequestHelp>();
+      requestHelp.m_Artisan =
+          BlueprintTool.GetRef<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>(artisan);
+      requestHelp.m_Project =
+          BlueprintTool.GetRef<BlueprintKingdomProject, BlueprintKingdomProjectReference>(project);
+      return builder.Add(requestHelp);
+    }
+
+    /** KingdomActionChangeToAutoCrusade */
+    public static ActionListBuilder EnableAutoCrusade(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionChangeToAutoCrusade>());
+    }
+
+    /** KingdomActionCollectLoot */
+    public static ActionListBuilder CollectKingdomLoot(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
+    }
+
+    /**
+     * KingdomActionConquerRegion
+     *
+     * @param region BlueprintRegion
+     */
+    public static ActionListBuilder ConquerRegion(this ActionListBuilder builder, string region)
+    {
+      var conquer = ElementTool.Create<KingdomActionConquerRegion>();
+      conquer.m_Region = BlueprintTool.GetRef<BlueprintRegion, BlueprintRegionReference>(region);
+      return builder.Add(conquer);
+    }
+
+    /** KingdomActionDestroyAllSettlements */
+    public static ActionListBuilder DestroyAllSettlements(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionDestroyAllSettlements>());
+    }
+
+    /** KingdomActionDisable */
+    public static ActionListBuilder DisableKingdom(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionDisable>());
+    }
+
+    /** KingdomActionEnable */
+    public static ActionListBuilder EnableKingdom(this ActionListBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionEnable>());
     }
   }
 }
