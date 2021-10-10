@@ -333,6 +333,7 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
-# Assemblies
+# Project specific
 Assemblies/
 publicize.bat
+*.csproj
