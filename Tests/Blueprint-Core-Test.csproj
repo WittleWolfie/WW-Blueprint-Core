@@ -40,7 +40,6 @@
     <Content Include="LoggerPatch.cs" />
     <Content Include="UnityPatches.cs" />
     <Content Include="Util.cs" />
-    
     <Reference Include="0Harmony">
       <HintPath>../Assemblies/0Harmony.dll</HintPath>
     </Reference>

@@ -4,8 +4,31 @@
     <LangVersion>latest</LangVersion>
     <TargetFramework>net4.7.1</TargetFramework>
     <RootNamespace>Blueprint_Core</RootNamespace>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>../Assemblies/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../Assemblies/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>../Assemblies/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>../Assemblies/Owlcat.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>../Assemblies/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../Assemblies/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>../Assemblies/UnityModManager.dll</HintPath>
+    </Reference>
+
     <Content Include="Abilities\Restrictions\New\TargetHasBuffsFromCaster.cs" />
     <Content Include="Abilities\AbilityConfigurator.cs" />
     <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicEx.cs" />
@@ -37,27 +60,15 @@
     <Content Include="Utils\ElementTool.cs" />
     <Content Include="Utils\Extensions.cs" />
     <Content Include="Utils\Guids.cs" />
-    <Content Include="Utils\LogWrapper.cs" />
     <Content Include="Utils\PrereqTools.cs" />
     <Content Include="Utils\Validator.cs" />
-
-    <Reference Include="0Harmony">
-      <HintPath>../Assemblies/0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>../Assemblies/Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>../Assemblies/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Owlcat.Runtime.Core">
-      <HintPath>../Assemblies/Owlcat.Runtime.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>../Assemblies/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>../Assemblies/UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
+    <Content Include="Utils\Logger.cs" />
+    <Content Include="Utils\LogWrapper.cs" />
+    <Content Include="Main.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Info.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
