@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net4.7.1</TargetFramework>
+    <RootNamespace>Blueprint_Core</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Abilities\Restrictions\New\TargetHasBuffsFromCaster.cs" />
+    <Content Include="Abilities\AbilityConfigurator.cs" />
+    <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicEx.cs" />
+    <Content Include="Actions\Builder\ContextEx\ActionListBuilderContextEx.cs" />
+    <Content Include="Actions\Builder\KingdomEx\ActionListBuilderKingdomEx.cs" />
+    <Content Include="Actions\Builder\MetaEx\ActionListBuilderMetaEx.cs" />
+    <Content Include="Actions\Builder\NewEx\ActionListBuilderNewEx.cs" />
+    <Content Include="Actions\Builder\ActionListBuilder.cs" />
+    <Content Include="Actions\New\SwitchToDemoralizeTarget.cs" />
+    <Content Include="Actions\Patches\DemoralizePatch.cs" />
+    <Content Include="Blueprints\Components\ContextRankConfigEx.cs" />
+    <Content Include="Blueprints\BlueprintConfigurator.cs" />
+    <Content Include="Blueprints\BlueprintTool.cs" />
+    <Content Include="Blueprints\BlueprintUnitFactConfigurator.cs" />
+    <Content Include="Buffs\BuffConfigurator.cs" />
+    <Content Include="Conditions\New\IsDemoralizeAction.cs" />
+    <Content Include="Conditions\New\TargetInMeleeRange.cs" />
+    <Content Include="Conditions\ConditionsCheckerBuilder.cs" />
+    <Content Include="Features\CommonFeatureConfigurator.cs" />
+    <Content Include="Features\FeatureConfigurator.cs" />
+    <Content Include="Features\FeaturePrerequisiteConfig.cs" />
+    <Content Include="Features\FeatureSelectionConfig.cs" />
+    <Content Include="Features\FeatureSelectionConfigurator.cs" />
+    <Content Include="Features\ProgressionConfig.cs" />
+    <Content Include="Fixes\RuleTempModifierTooltips.cs" />
+    <Content Include="Utils\Constants.cs" />
+    <Content Include="Utils\Context.cs" />
+    <Content Include="Utils\ContextValues.cs" />
+    <Content Include="Utils\ElementTool.cs" />
+    <Content Include="Utils\Extensions.cs" />
+    <Content Include="Utils\Guids.cs" />
+    <Content Include="Utils\LogWrapper.cs" />
+    <Content Include="Utils\PrereqTools.cs" />
+    <Content Include="Utils\Validator.cs" />
+
+    <Reference Include="0Harmony">
+      <HintPath>../Assemblies/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../Assemblies/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>../Assemblies/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>../Assemblies/Owlcat.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>../Assemblies/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../Assemblies/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

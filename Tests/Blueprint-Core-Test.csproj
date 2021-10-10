@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFramework>net4.7.1</TargetFramework>
+    <RootNamespace>Blueprint_Core_Test</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <Content Include="Abilities\AbilityConfiguratorTest.cs" />
+    <Content Include="Actions\ActionListBuilderBasicExTest.cs" />
+    <Content Include="Actions\ActionListBuilderContextExTest.cs" />
+    <Content Include="Actions\ActionListBuilderKingdomExTest.cs" />
+    <Content Include="Actions\ActionListBuilderNewExTest.cs" />
+    <Content Include="Actions\ActionListBuilderMetaExTest.cs" />
+    <Content Include="Actions\ActionListBuilderTest.cs" />
+    <Content Include="Actions\ActionListBuilderTestBase.cs" />
+    <Content Include="Asserts\ElementAsserts.cs" />
+    <Content Include="Asserts\PrereqAsserts.cs" />
+    <Content Include="Blueprints\Components\ContextRankConfigsTest.cs" />
+    <Content Include="Blueprints\BlueprintConfiguratorTest.cs" />
+    <Content Include="Blueprints\BlueprintUnitFactConfiguratorTest.cs" />
+    <Content Include="Buffs\BuffConfiguratorTest.cs" />
+    <Content Include="Conditions\ConditionsCheckerBuilderTest.cs" />
+    <Content Include="Features\CommonFeatureConfiguratorTest.cs" />
+    <Content Include="Features\FeatureConfiguratorTest.cs" />
+    <Content Include="Features\FeatureSelectionConfiguratorTest.cs" />
+    <Content Include="BlueprintPatch.cs" />
+    <Content Include="HarmonyFixture.cs" />
+    <Content Include="LoggerPatch.cs" />
+    <Content Include="UnityPatches.cs" />
+    <Content Include="Util.cs" />
+    
+    <Reference Include="0Harmony">
+      <HintPath>../Assemblies/0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../Assemblies/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>../Assemblies/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>../Assemblies/Owlcat.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>../Assemblies/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../Assemblies/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
+  </ItemGroup>
+</Project>

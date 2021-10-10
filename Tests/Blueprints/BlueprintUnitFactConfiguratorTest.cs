@@ -1,0 +1,89 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
+using BlueprintCore.Blueprints;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Settings;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Xunit;
+
+namespace BlueprintCore.Tests.Blueprints
+{
+  public abstract class BlueprintUnitFactConfiguratorTest<T, TBuilder>
+      : BlueprintConfiguratorTest<T, TBuilder>
+      where T : BlueprintUnitFact
+      where TBuilder : BlueprintUnitFactConfigurator<T, TBuilder>
+  {
+    protected BlueprintUnitFactConfiguratorTest() : base() { }
+
+    [Fact]
+    public void AddFacts()
+    {
+      GetConfigurator(Guid)
+          .AddFacts(new string[] { FactGuid, ExtraFactGuid })
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var addFacts = blueprint.GetComponent<AddFacts>();
+      Assert.NotNull(addFacts);
+
+      Assert.Equal(2, addFacts.m_Facts.Length);
+      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+      Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+
+      Assert.Equal(0, addFacts.CasterLevel);
+      Assert.False(addFacts.HasDifficultyRequirements);
+      Assert.False(addFacts.InvertDifficultyRequirements);
+      Assert.Equal(GameDifficultyOption.Story, addFacts.MinDifficulty);
+    }
+
+    [Fact]
+    public void AddFacts_WithOptionalValues()
+    {
+      GetConfigurator(Guid)
+          .AddFacts(
+              new string[] { FactGuid, ExtraFactGuid },
+              casterLevel: 5,
+              hasDifficultyRequirements: true,
+              invertDifficultyRequirements: true,
+              minDifficulty: GameDifficultyOption.Hard)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var addFacts = blueprint.GetComponent<AddFacts>();
+      Assert.NotNull(addFacts);
+
+      Assert.Equal(2, addFacts.m_Facts.Length);
+      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+      Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+
+      Assert.Equal(5, addFacts.CasterLevel);
+      Assert.True(addFacts.HasDifficultyRequirements);
+      Assert.True(addFacts.InvertDifficultyRequirements);
+      Assert.Equal(GameDifficultyOption.Hard, addFacts.MinDifficulty);
+    }
+
+    [Fact]
+    public void OnSkillCheck()
+    {
+      GetConfigurator(Guid)
+          .OnSkillCheck(
+              StatType.CheckIntimidate, ActionListBuilder.New().MeleeAttack().MeleeAttack())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var onSkillCheck = blueprint.GetComponent<AddInitiatorSkillRollTrigger>();
+      Assert.NotNull(onSkillCheck);
+
+      Assert.True(onSkillCheck.OnlySuccess);
+      Assert.Equal(StatType.CheckIntimidate, onSkillCheck.Skill);
+
+      Assert.Equal(2, onSkillCheck.Action.Actions.Length);
+      Assert.IsType<ContextActionMeleeAttack>(onSkillCheck.Action.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(onSkillCheck.Action.Actions[1]);
+    }
+  }
+}
