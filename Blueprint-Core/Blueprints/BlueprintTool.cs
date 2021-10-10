@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -7,16 +8,18 @@ namespace BlueprintCore.Blueprints
   public static class BlueprintTool
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("BlueprintTool");
+
     public static T Get<T>(string name) where T : SimpleBlueprint
     {
-      var guid = Guids.Get(name);
-      var assetId = new BlueprintGuid(System.Guid.Parse(guid));
-      SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(assetId);
+      Guid assetId;
+      if (!Guid.TryParse(name, out assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+
+      SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
       T result = asset as T;
       if (result == null)
       {
         Logger.Error(
-            $"Failed to fetch blueprint: {name} - {guid}.\n"
+            $"Failed to fetch blueprint: {name} - {assetId}.\n"
             + $"Is the type correct? {typeof(T)}");
       }
       return result;

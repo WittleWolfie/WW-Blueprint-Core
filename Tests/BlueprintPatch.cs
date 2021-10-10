@@ -31,16 +31,5 @@ namespace BlueprintCore.Tests
         return false;
       }
     }
-
-    [HarmonyPatch(typeof(Guids), "Get")]
-    static class Guids_Get_Patch
-    {
-      [HarmonyPriority(Priority.First)]
-      static bool Prefix(string name, ref string __result)
-      {
-        __result = name;
-        return false;
-      }
-    }
   }
 }
