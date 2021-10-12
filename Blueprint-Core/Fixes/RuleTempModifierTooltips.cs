@@ -14,7 +14,7 @@ namespace BlueprintCore.Fixes
    */
   public static class RuleTempModifierTooltips
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("TempModifierTooltips");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("TempModifierTooltips");
 
     [HarmonyPatch(typeof(RulebookEvent), "AllBonuses", MethodType.Getter)]
     static class RulebookEvent_GetAllBonuses_Patch

@@ -11,7 +11,7 @@ namespace BlueprintCore.Conditions.New
    */
   public class IsDemoralizeAction : Condition
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("IsDemoralizeAction");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("IsDemoralizeAction");
 
     public override string GetConditionCaption()
     {

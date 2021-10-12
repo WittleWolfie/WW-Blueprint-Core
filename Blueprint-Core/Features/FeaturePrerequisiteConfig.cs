@@ -14,7 +14,7 @@ namespace BlueprintCore.Features
 {
   public static class FeaturePrerequisite
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("FeaturePrerequisite");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("FeaturePrerequisite");
     private const string CONFIG_PATH = @"Config\FeaturePrerequisites.json";
     private static FeaturePrerequisiteConfig Config { get; set; }
 

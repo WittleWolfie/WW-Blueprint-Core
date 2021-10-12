@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints
       Merge
     }
 
-    protected static readonly LogWrapper Logger = LogWrapper.Get("BlueprintConfigurator");
+    protected static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintConfigurator");
 
     private readonly List<BlueprintComponent> Components = new();
     private readonly HashSet<UniqueComponent> UniqueComponents = new();

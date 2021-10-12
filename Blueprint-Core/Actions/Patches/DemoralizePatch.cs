@@ -8,7 +8,7 @@ namespace BlueprintCore.Actions.Patches
   /** Tracks the use of Demoralize to distinguish from other uses of Initimidate skill checks. */
   public static class DemoralizePatch
   {
-    private readonly static LogWrapper Logger = LogWrapper.Get("DemoralizePatch");
+    private readonly static LogWrapper Logger = LogWrapper.GetInternal("DemoralizePatch");
 
     /** Returns whether the  game is processing a Demoralize action. */
     public static bool DemoralizeActive { get; private set; }

@@ -7,7 +7,7 @@ namespace BlueprintCore.Blueprints
 {
   public static class BlueprintTool
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("BlueprintTool");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintTool");
 
     public static T Get<T>(string name) where T : SimpleBlueprint
     {

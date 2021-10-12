@@ -11,7 +11,7 @@ namespace BlueprintCore.Features
 {
   public static class Progression
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("Progression");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("Progression");
     private const string CONFIG_PATH = @"Config\Progression.json";
     private static ProgressionConfig Config { get; set; }
 

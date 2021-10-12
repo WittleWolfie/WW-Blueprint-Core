@@ -12,7 +12,7 @@ namespace BlueprintCore.Actions.New
    */
   public class SwitchToDemoralizeTarget : GameAction
   {
-    private readonly static LogWrapper Logger = LogWrapper.Get("SwitchToDemoralizeTarget");
+    private readonly static LogWrapper Logger = LogWrapper.GetInternal("SwitchToDemoralizeTarget");
 
     public override string GetCaption()
     {

@@ -11,7 +11,7 @@ namespace BlueprintCore.Conditions.New
   /** Validates the target is in Melee Range. */
   public class TargetInMeleeRange : Condition
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("TargetInMeleeRange");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetInMeleeRange");
 
     public override string GetConditionCaption()
     {

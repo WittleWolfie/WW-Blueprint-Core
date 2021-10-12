@@ -20,7 +20,7 @@ namespace BlueprintCore.Actions.Builder
    */
   public class ActionListBuilder
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("ActionListBuilder");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("ActionListBuilder");
 
     private readonly List<GameAction> Actions = new();
     private readonly StringBuilder ValidationWarnings = new();

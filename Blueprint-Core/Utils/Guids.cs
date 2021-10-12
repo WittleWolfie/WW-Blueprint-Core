@@ -7,7 +7,7 @@ namespace BlueprintCore.Utils
 {
   public static class Guids
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("Guids");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("Guids");
     private const string CONFIG_PATH = @"Config\Guids.json";
     private static GuidsConfig Config { get; set; }
 

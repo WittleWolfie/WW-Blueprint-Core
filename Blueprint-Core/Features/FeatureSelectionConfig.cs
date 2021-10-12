@@ -13,7 +13,7 @@ namespace BlueprintCore.Features
 {
   public static class FeatureSelection
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("FeatureSelection");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("FeatureSelection");
     private const string CONFIG_PATH = @"Config\FeatureSelections.json";
     private static FeatureSelectionConfig Config { get; set; }
 

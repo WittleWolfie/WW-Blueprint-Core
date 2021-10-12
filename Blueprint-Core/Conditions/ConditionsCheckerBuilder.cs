@@ -12,7 +12,7 @@ namespace BlueprintCore.Conditions
 {
   public class ConditionsCheckerBuilder
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("ConditionsCheckerBuilder");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("ConditionsCheckerBuilder");
 
     private Operation OperationType = Operation.And;
     private readonly List<Condition> Conditions = new();

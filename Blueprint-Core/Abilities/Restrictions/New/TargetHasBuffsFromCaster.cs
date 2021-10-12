@@ -17,7 +17,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
   [AllowedOn(typeof(BlueprintAbility), false)]
   public class TargetHasBuffsFromCaster : BlueprintComponent, IAbilityTargetRestriction
   {
-    private static readonly LogWrapper Logger = LogWrapper.Get("TargetHasBuff");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetHasBuff");
 
     public ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> CheckedBuffs
     {
