@@ -78,25 +78,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       return builder.Add(changeAlignment);
     }
 
-    /** ChangeBookEventImage */
-    public static ActionListBuilder ChangeBookImage(this ActionListBuilder builder, SpriteLink image)
-    {
-      var setImage = ElementTool.Create<ChangeBookEventImage>();
-      setImage.m_Image = image;
-      return builder.Add(setImage);
-    }
-
-    /** CameratoPosition */
-    public static ActionListBuilder MoveCamera(
-        this ActionListBuilder builder, PositionEvaluator position)
-    {
-      builder.Validate(position);
-
-      var moveCamera = ElementTool.Create<CameraToPosition>();
-      moveCamera.Position = position;
-      return builder.Add(moveCamera);
-    }
-
     /** CreateCustomCompanion */
     public static ActionListBuilder CreateCustomCompanion(
         this ActionListBuilder builder,
@@ -109,15 +90,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       createCompanion.MatchPlayerXpExactly = matchPlayerXp;
       createCompanion.OnCreate = onCreate?.Build() ?? Constants.Empty.Actions;
       return builder.Add(createCompanion);
-    }
-
-    /** AddDialogNotification */
-    public static ActionListBuilder AddDialogNotification(
-        this ActionListBuilder builder, LocalizedString text)
-    {
-      var notification = ElementTool.Create<AddDialogNotification>();
-      notification.Text = text;
-      return builder.Add(notification);
     }
 
     /**
@@ -455,14 +427,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
           BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(pool);
       addSummon.Unit = unit;
       return builder.Add(addSummon);
-    }
-
-    //----- FX -----//
-
-    /** ClearBlood */
-    public static ActionListBuilder ClearBlood(this ActionListBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ClearBlood>());
     }
   }
 }

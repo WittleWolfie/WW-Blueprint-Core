@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.MetaEx;
 using BlueprintCore.Tests.Asserts;
 using BlueprintCore.Utils;
@@ -13,7 +12,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
-using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Xunit;
 
@@ -99,35 +97,6 @@ namespace BlueprintCore.Tests.Actions
     }
 
     [Fact]
-    public void ChangeBookImage()
-    {
-      var image = new SpriteLink { AssetId = "hi" };
-
-      var actions = ActionListBuilder.New().ChangeBookImage(image).Build();
-
-      Assert.Single(actions.Actions);
-      var setImage = (ChangeBookEventImage)actions.Actions[0];
-      ElementAsserts.IsValid(setImage);
-
-      Assert.Equal(image, setImage.m_Image);
-    }
-
-    [Fact]
-    public void MoveCamera()
-    {
-      var position = ElementTool.Create<UnitPosition>();
-      position.Unit = ClickedUnit;
-
-      var actions = ActionListBuilder.New().MoveCamera(position).Build();
-
-      Assert.Single(actions.Actions);
-      var moveCamera = (CameraToPosition)actions.Actions[0];
-      ElementAsserts.IsValid(moveCamera);
-
-      Assert.Equal(position, moveCamera.Position);
-    }
-
-    [Fact]
     public void CreateCustomCompanion()
     {
       var actions = ActionListBuilder.New().CreateCustomCompanion().Build();
@@ -149,7 +118,7 @@ namespace BlueprintCore.Tests.Actions
               .CreateCustomCompanion(
                   free: true,
                   matchPlayerXp: true,
-                  onCreate: ActionListBuilder.New().MeleeAttack())
+                  onCreate: ActionListBuilder.New().CustomEvent("event_id"))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -159,22 +128,7 @@ namespace BlueprintCore.Tests.Actions
       Assert.True(createCompanion.ForFree);
       Assert.True(createCompanion.MatchPlayerXpExactly);
       Assert.Single(createCompanion.OnCreate.Actions);
-      Assert.IsType<ContextActionMeleeAttack>(createCompanion.OnCreate.Actions[0]);
-    }
-
-    [Fact]
-    public void AddDialogNotification()
-    {
-      var text = new LocalizedString { Key = "test_key" };
-
-      var actions =
-          ActionListBuilder.New().AddDialogNotification(text).Build();
-
-      Assert.Single(actions.Actions);
-      var notification = (AddDialogNotification)actions.Actions[0];
-      ElementAsserts.IsValid(notification);
-
-      Assert.Equal(text.Key, notification.Text.Key);
+      Assert.IsType<CustomEvent>(createCompanion.OnCreate.Actions[0]);
     }
 
     [Fact]
@@ -665,16 +619,6 @@ namespace BlueprintCore.Tests.Actions
 
       Assert.Equal(ClickedUnit, addSummon.Unit);
       Assert.Equal(SummonPool.ToReference<BlueprintSummonPoolReference>(), addSummon.m_SummonPool);
-    }
-
-    [Fact]
-    public void ClearBlood()
-    {
-      var actions = ActionListBuilder.New().ClearBlood().Build();
-
-      Assert.Single(actions.Actions);
-      var clearBlood = (ClearBlood)actions.Actions[0];
-      ElementAsserts.IsValid(clearBlood);
     }
   }
 }

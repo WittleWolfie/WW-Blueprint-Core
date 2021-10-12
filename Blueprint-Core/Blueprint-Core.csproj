@@ -70,5 +70,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Actions\Builder\AreaEx\ActionListBuilderAreaEx.cs" />
+    <Content Include="Actions\Builder\AVEx\ActionListBuilderAVEx.cs" />
   </ItemGroup>
 </Project>
