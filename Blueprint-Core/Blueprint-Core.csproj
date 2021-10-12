@@ -28,7 +28,6 @@
     <Reference Include="UnityModManager">
       <HintPath>../Assemblies/UnityModManager.dll</HintPath>
     </Reference>
-
     <Content Include="Abilities\Restrictions\New\TargetHasBuffsFromCaster.cs" />
     <Content Include="Abilities\AbilityConfigurator.cs" />
     <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicEx.cs" />
@@ -70,5 +69,6 @@
     <None Update="Info.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Actions\Builder\AreaEx\ActionListBuilderAreaEx.cs" />
   </ItemGroup>
 </Project>
