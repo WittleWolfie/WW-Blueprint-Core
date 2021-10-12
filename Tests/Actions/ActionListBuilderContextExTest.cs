@@ -14,6 +14,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -3247,6 +3248,42 @@ namespace BlueprintCore.Tests.Actions
       Assert.Single(actions.Actions);
       var switchCompanion = (ContextActionSwitchDualCompanion)actions.Actions[0];
       ElementAsserts.IsValid(switchCompanion);
+    }
+
+    //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
+
+    [Fact]
+    public void GiveRandomTrashToPlayer()
+    {
+      var actions =
+          ActionListBuilder.New().GiveRandomTrashToPlayer(TrashLootType.Scrolls, 2).Build();
+
+      Assert.Single(actions.Actions);
+      var giveTrash = (ContextActionAddRandomTrashItem)actions.Actions[0];
+      ElementAsserts.IsValid(giveTrash);
+
+      Assert.Equal(TrashLootType.Scrolls, giveTrash.m_LootType);
+      Assert.Equal(2, giveTrash.m_MaxCost);
+      Assert.False(giveTrash.m_Identify);
+      Assert.False(giveTrash.m_Silent);
+    }
+
+    [Fact]
+    public void GiveRandomTrashToPlayer_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .GiveRandomTrashToPlayer(TrashLootType.Scrolls, 3, identify: true, silent: true)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var giveTrash = (ContextActionAddRandomTrashItem)actions.Actions[0];
+      ElementAsserts.IsValid(giveTrash);
+
+      Assert.Equal(TrashLootType.Scrolls, giveTrash.m_LootType);
+      Assert.Equal(3, giveTrash.m_MaxCost);
+      Assert.True(giveTrash.m_Identify);
+      Assert.True(giveTrash.m_Silent);
     }
   }
 }

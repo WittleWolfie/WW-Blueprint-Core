@@ -12,6 +12,7 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Quests;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -1862,6 +1863,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder SwitchDualCompanion(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
+    }
+
+    //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
+
+    /** ContextActionAddRandomTrashItem */
+    public static ActionListBuilder GiveRandomTrashToPlayer(
+        this ActionListBuilder builder,
+        TrashLootType type,
+        int maxCost,
+        bool identify = false,
+        bool silent = false)
+    {
+      var addTrash = ElementTool.Create<ContextActionAddRandomTrashItem>();
+      addTrash.m_LootType = type;
+      addTrash.m_MaxCost = maxCost;
+      addTrash.m_Identify = identify;
+      addTrash.m_Silent = silent;
+      return builder.Add(addTrash);
     }
   }
 }
