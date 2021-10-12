@@ -11,8 +11,7 @@ namespace BlueprintCore.Blueprints
 
     public static T Get<T>(string name) where T : SimpleBlueprint
     {
-      Guid assetId;
-      if (!Guid.TryParse(name, out assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
       T result = asset as T;
