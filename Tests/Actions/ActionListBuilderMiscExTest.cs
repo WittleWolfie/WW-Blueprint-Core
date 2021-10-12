@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Actions.Builder.MetaEx;
+using BlueprintCore.Actions.Builder.MiscEx;
 using BlueprintCore.Tests.Asserts;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
@@ -14,7 +14,7 @@ using Xunit;
 
 namespace BlueprintCore.Tests.Actions
 {
-  public class ActionListBuilderMetaExTest : ActionListBuilderTestBase
+  public class ActionListBuilderMiscExTest : ActionListBuilderTestBase
   {
     //----- Kingmaker.Achievements.Actions -----//
 

@@ -12,12 +12,11 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 
-namespace BlueprintCore.Actions.Builder.MetaEx
+namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /**
-   * Extension to ActionListBuilder which supports non-character actions.
-   *
-   * Examples include adjusting map encounters, modifying achievements, or granting items.
+   * Extension to ActionListBuilder for miscellaneous actions. Includes things like achievements and
+   * CustomEvent.
    */
   public static class ActionListBuilderMetaEx
   {

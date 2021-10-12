@@ -73,5 +73,6 @@
     <Content Include="Actions\Builder\AVEx\ActionListBuilderAVEx.cs" />
     <Content Include="Actions\Builder\StoryEx\ActionListBuilderStoryEx.cs" />
     <Content Include="Actions\Builder\UpgraderEx\ActionListBuilderUpgraderEx.cs" />
+    <Content Include="Actions\Builder\MiscEx\ActionListBuilderMiscEx.cs" />
   </ItemGroup>
 </Project>

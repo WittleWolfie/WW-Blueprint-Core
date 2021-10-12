@@ -22,7 +22,6 @@
     <Content Include="Actions\ActionListBuilderContextExTest.cs" />
     <Content Include="Actions\ActionListBuilderKingdomExTest.cs" />
     <Content Include="Actions\ActionListBuilderNewExTest.cs" />
-    <Content Include="Actions\ActionListBuilderMetaExTest.cs" />
     <Content Include="Actions\ActionListBuilderTest.cs" />
     <Content Include="Actions\ActionListBuilderTestBase.cs" />
     <Content Include="Asserts\ElementAsserts.cs" />
@@ -61,5 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
+    <Content Include="Actions\ActionListBuilderMiscExTest.cs" />
   </ItemGroup>
 </Project>
