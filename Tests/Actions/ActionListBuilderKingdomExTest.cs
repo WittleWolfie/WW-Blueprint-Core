@@ -1,17 +1,603 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.KingdomEx;
 using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Utils;
+using Kingmaker.Armies;
+using Kingmaker.Armies.Blueprints;
+using Kingmaker.Armies.Components;
+using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Blueprints;
+using Kingmaker.Crusade.GlobalMagic;
+using Kingmaker.Crusade.GlobalMagic.Actions;
+using Kingmaker.Crusade.GlobalMagic.Actions.DamageLogic;
+using Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.RuleSystem;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Xunit;
 
 namespace BlueprintCore.Tests.Actions
 {
   public class ActionListBuilderKingdomExTest : ActionListBuilderTestBase
   {
+    //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
+
+    [Fact]
+    public void GrantExtraArmyAction()
+    {
+      var actions = ActionListBuilder.New().GrantExtraArmyAction().Build();
+
+      Assert.Single(actions.Actions);
+      var grantAction = (ArmyAdditionalAction)actions.Actions[0];
+      ElementAsserts.IsValid(grantAction);
+
+      Assert.True(grantAction.m_InCurrentTurn);
+      Assert.True(grantAction.m_CanAddInBonusMoraleTurn);
+    }
+
+    [Fact]
+    public void GrantExtraArmyAction_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .GrantExtraArmyAction(usableInCurrentTurn: false, usableInBonusMoraleTurn: false)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var grantAction = (ArmyAdditionalAction)actions.Actions[0];
+      ElementAsserts.IsValid(grantAction);
+
+      Assert.False(grantAction.m_InCurrentTurn);
+      Assert.False(grantAction.m_CanAddInBonusMoraleTurn);
+    }
+
+    [Fact]
+    public void AddCrusadeResource()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .AddCrusadeResource(new KingdomResourcesAmount { m_Finances = 3 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var addResource = (ContextActionAddCrusadeResource)actions.Actions[0];
+      ElementAsserts.IsValid(addResource);
+
+      Assert.Equal(3, addResource.m_ResourcesAmount.m_Finances);
+    }
+
+    [Fact]
+    public void RemoveArmyFacts()
+    {
+      var actions = ActionListBuilder.New().RemoveArmyFacts(BuffGuid, AbilityGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var removeFacts = (ContextActionArmyRemoveFacts)actions.Actions[0];
+      ElementAsserts.IsValid(removeFacts);
+
+      Assert.Equal(2, removeFacts.m_FactsToRemove.Length);
+      Assert.Contains(Buff.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
+      Assert.Contains(
+          Ability.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
+    }
+
+    [Fact]
+    public void RestoreLeaderAction()
+    {
+      var actions = ActionListBuilder.New().RestoreLeaderAction().Build();
+
+      Assert.Single(actions.Actions);
+      var restoreAction = (ContextActionRestoreLeaderAction)actions.Actions[0];
+      ElementAsserts.IsValid(restoreAction);
+    }
+
+    [Fact]
+    public void StopUnit()
+    {
+      var actions = ActionListBuilder.New().StopUnit().Build();
+
+      Assert.Single(actions.Actions);
+      var stop = (ContextActionStopUnit)actions.Actions[0];
+      ElementAsserts.IsValid(stop);
+    }
+
+    //----- Kingmaker.Crusade.GlobalMagic.Actions -----//
+
+    [Fact]
+    public void BuffSquad()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .BuffSquad(
+                  BuffGuid,
+                  new GlobalMagicValue { m_SingleValue = 3 },
+                  new SquadFilter { Properties = ArmyProperties.Armored })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var buffSquad = (AddBuffToSquad)actions.Actions[0];
+      ElementAsserts.IsValid(buffSquad);
+
+      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), buffSquad.m_Buff);
+      Assert.Equal(3, buffSquad.m_HoursDuration.m_SingleValue);
+      Assert.Equal(ArmyProperties.Armored, buffSquad.m_Filter.Properties);
+    }
+
+    [Fact]
+    public void ChangeArmyMorale()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .ChangeArmyMorale(
+                  new GlobalMagicValue { m_SingleValue = 5 },
+                  new GlobalMagicValue { m_SingleValue = 2 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var changeMorale = (ChangeArmyMorale)actions.Actions[0];
+      ElementAsserts.IsValid(changeMorale);
+
+      Assert.Equal(5, changeMorale.m_Duration.m_SingleValue);
+      Assert.Equal(2, changeMorale.m_ChangeValue.m_SingleValue);
+    }
+
+    [Fact]
+    public void FakeSkipTime()
+    {
+      var actions =
+          ActionListBuilder.New().FakeSkipTime(new GlobalMagicValue { m_SingleValue = 3 }).Build();
+
+      Assert.Single(actions.Actions);
+      var skipTime = (FakeSkipTime)actions.Actions[0];
+      ElementAsserts.IsValid(skipTime);
+
+      Assert.Equal(3, skipTime.m_SkipDays.m_SingleValue);
+    }
+
+    [Fact]
+    public void GainArmyDamage()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .GainArmyDamage(
+                  new SquadFilter { Properties = ArmyProperties.Flying },
+                  new GlobalMagicValue { m_SingleValue = 7 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var gainDmg = (GainDiceArmyDamage)actions.Actions[0];
+      ElementAsserts.IsValid(gainDmg);
+
+      Assert.Equal(ArmyProperties.Flying, gainDmg.m_Filter.Properties);
+      Assert.Equal(7, gainDmg.m_DiceValue.m_SingleValue);
+    }
+
+    [Fact]
+    public void RemoveUnitsByExp()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .RemoveUnitsByExp(
+                  new SquadFilter { Properties = ArmyProperties.GrandTier },
+                  new GlobalMagicValue { m_SingleValue = 2 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var removeUnits = (RemoveUnitsByExp)actions.Actions[0];
+      ElementAsserts.IsValid(removeUnits);
+
+      Assert.Equal(ArmyProperties.GrandTier, removeUnits.m_Filter.Properties);
+      Assert.Equal(2, removeUnits.m_ExpValue.m_SingleValue);
+    }
+
+    [Fact]
+    public void GainGlobalSpell()
+    {
+      var actions = ActionListBuilder.New().GainGlobalSpell(GlobalSpellGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var gainSpell = (GainGlobalMagicSpell)actions.Actions[0];
+      ElementAsserts.IsValid(gainSpell);
+
+      Assert.Equal(
+          GlobalSpell.ToReference<BlueprintGlobalMagicSpell.Reference>(), gainSpell.m_Spell);
+    }
+
+    [Fact]
+    public void PutGlobalSpellOnCooldown()
+    {
+      var actions = ActionListBuilder.New().PutGlobalSpellOnCooldown(GlobalSpellGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var activateCooldown = (ManuallySetGlobalSpellCooldown)actions.Actions[0];
+      ElementAsserts.IsValid(activateCooldown);
+
+      Assert.Equal(
+          GlobalSpell.ToReference<BlueprintGlobalMagicSpell.Reference>(), activateCooldown.m_Spell);
+    }
+
+    [Fact]
+    public void GlobalTeleport()
+    {
+      var actions =
+          ActionListBuilder.New().GlobalTeleport(ActionListBuilder.New().EnableKingdom()).Build();
+
+      Assert.Single(actions.Actions);
+      var teleport = (OpenTeleportationInterface)actions.Actions[0];
+      ElementAsserts.IsValid(teleport);
+
+      Assert.Single(teleport.m_OnTeleportActions.Actions);
+      Assert.IsType<KingdomActionEnable>(teleport.m_OnTeleportActions.Actions[0]);
+    }
+
+    [Fact]
+    public void RemoveGlobalSpell()
+    {
+      var actions = ActionListBuilder.New().RemoveGlobalSpell(GlobalSpellGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var removespell = (RemoveGlobalMagicSpell)actions.Actions[0];
+      ElementAsserts.IsValid(removespell);
+
+      Assert.Equal(
+          GlobalSpell.ToReference<BlueprintGlobalMagicSpell.Reference>(), removespell.m_Spell);
+    }
+
+    [Fact]
+    public void RestoreLeaderMana()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .RestoreLeaderMana(new GlobalMagicValue { m_SingleValue = 5 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var restoreMana = (RepairLeaderMana)actions.Actions[0];
+      ElementAsserts.IsValid(restoreMana);
+
+      Assert.Equal(5, restoreMana.m_Value.m_SingleValue);
+    }
+
+    [Fact]
+    public void SummonMoreUnits()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .SummonMoreUnits(new GlobalMagicValue { m_SingleValue = 6 })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var summon = (SummonExistUnits)actions.Actions[0];
+      ElementAsserts.IsValid(summon);
+
+      Assert.Equal(6, summon.m_SumExpCost.m_SingleValue);
+    }
+
+    [Fact]
+    public void SummonRandomGroup()
+    {
+      var firstPair =
+          new SummonRandomGroup.SummonUnitPair
+          {
+            Count = new GlobalMagicValue { m_SingleValue = 1 }
+          };
+      var secondPair =
+          new SummonRandomGroup.SummonUnitPair
+          {
+            Count = new GlobalMagicValue { m_SingleValue = 2 }
+          };
+      var thirdPair =
+          new SummonRandomGroup.SummonUnitPair
+          {
+            Count = new GlobalMagicValue { m_SingleValue = 3 }
+          };
+
+      var actions =
+          ActionListBuilder.New()
+              .SummonRandomGroup(
+                  new SummonRandomGroup.RandomGroup
+                  {
+                    Units = new SummonRandomGroup.SummonUnitPair[] { firstPair, secondPair }
+                  },
+                  new SummonRandomGroup.RandomGroup
+                  {
+                    Units = new SummonRandomGroup.SummonUnitPair[] { thirdPair }
+                  })
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var summon = (SummonRandomGroup)actions.Actions[0];
+      ElementAsserts.IsValid(summon);
+
+      Assert.Equal(2, summon.m_RandomGroups.Length);
+
+      Assert.Equal(2, summon.m_RandomGroups[0].Units.Length);
+      Assert.Contains(firstPair, summon.m_RandomGroups[0].Units);
+      Assert.Contains(secondPair, summon.m_RandomGroups[0].Units);
+
+      Assert.Single(summon.m_RandomGroups[1].Units);
+      Assert.Contains(thirdPair, summon.m_RandomGroups[1].Units);
+    }
+
+    [Fact]
+    public void TeleportArmy()
+    {
+      var actions = ActionListBuilder.New().TeleportArmy().Build();
+
+      Assert.Single(actions.Actions);
+      var teleport = (TeleportArmyAction)actions.Actions[0];
+      ElementAsserts.IsValid(teleport);
+    }
+
+    //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
+
+    [Fact]
+    public void CreateCrusaderArmy()
+    {
+      var actions =
+          ActionListBuilder.New().CreateCrusaderArmy(ArmyGuid, GlobalMapPointGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Crusaders, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+      Assert.Equal(TravelLogicType.None, createArmy.m_MoveTarget);
+
+      Assert.Equal(60, createArmy.MovementPoints);
+      Assert.Equal(1f, createArmy.m_ArmySpeed);
+      Assert.False(createArmy.m_ApplyRecruitIncrease);
+
+      Assert.False(createArmy.WithLeader);
+      Assert.NotNull(createArmy.ArmyLeader);
+
+      Assert.NotNull(createArmy.m_TargetLocation);
+      Assert.NotNull(createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateCrusaderArmy_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateCrusaderArmy(
+                  ArmyGuid,
+                  GlobalMapPointGuid,
+                  leader: ArmyLeaderGuid,
+                  movePoints: 100,
+                  speed: 2f,
+                  applyRecruitIncrease: true)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Crusaders, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+      Assert.Equal(TravelLogicType.None, createArmy.m_MoveTarget);
+
+      Assert.Equal(100, createArmy.MovementPoints);
+      Assert.Equal(2f, createArmy.m_ArmySpeed);
+      Assert.True(createArmy.m_ApplyRecruitIncrease);
+
+      Assert.True(createArmy.WithLeader);
+      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+
+      Assert.NotNull(createArmy.m_TargetLocation);
+      Assert.NotNull(createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateDemonArmy()
+    {
+      var actions = ActionListBuilder.New().CreateDemonArmy(ArmyGuid, GlobalMapPointGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Demons, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+
+      Assert.Equal(TravelLogicType.None, createArmy.m_MoveTarget);
+      Assert.Equal(1f, createArmy.m_ArmySpeed);
+
+      Assert.False(createArmy.WithLeader);
+      Assert.NotNull(createArmy.ArmyLeader);
+
+      Assert.NotNull(createArmy.m_TargetLocation);
+      Assert.NotNull(createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateDemonArmy_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateDemonArmy(
+                  ArmyGuid,
+                  GlobalMapPointGuid,
+                  leader: ArmyLeaderGuid,
+                  targetNearestEnemy: true,
+                  speed: 2f)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Demons, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+
+      Assert.Equal(TravelLogicType.NearestEnemy, createArmy.m_MoveTarget);
+      Assert.Equal(2f, createArmy.m_ArmySpeed);
+
+      Assert.True(createArmy.WithLeader);
+      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+
+      Assert.NotNull(createArmy.m_TargetLocation);
+      Assert.NotNull(createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateCrusaderArmyFromLosses()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateCrusaderArmyFromLosses(GlobalMapPointGuid, 10, 2)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmyFromLosses)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.m_Location);
+      Assert.Equal(10, createArmy.m_SumExperience);
+      Assert.Equal(2, createArmy.m_SquadsMaxCount);
+      Assert.False(createArmy.m_ApplyRecruitIncrease);
+    }
+
+    [Fact]
+    public void CreateCrusaderArmyFromLosses_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateCrusaderArmyFromLosses(GlobalMapPointGuid, 15, 3, applyRecruitIncrease: true)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmyFromLosses)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.m_Location);
+      Assert.Equal(15, createArmy.m_SumExperience);
+      Assert.Equal(3, createArmy.m_SquadsMaxCount);
+      Assert.True(createArmy.m_ApplyRecruitIncrease);
+    }
+
+    [Fact]
+    public void CreateDemonArmyTargetingLocation()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateDemonArmyTargetingLocation(ArmyGuid, GlobalMapPointGuid, GlobalMapPointGuid)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Demons, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+
+      Assert.Equal(TravelLogicType.Location, createArmy.m_MoveTarget);
+      Assert.Equal(7, createArmy.m_DaysToDestination);
+
+      Assert.False(createArmy.WithLeader);
+      Assert.NotNull(createArmy.ArmyLeader);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(),
+          createArmy.m_TargetLocation);
+      Assert.NotNull(createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateDemonArmyTargetingLocation_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateDemonArmyTargetingLocation(
+                  ArmyGuid,
+                  GlobalMapPointGuid,
+                  GlobalMapPointGuid,
+                  onTargetReached: ActionListGuid,
+                  leader: ArmyLeaderGuid,
+                  daysToTarget: 14)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createArmy = (CreateArmy)actions.Actions[0];
+      ElementAsserts.IsValid(createArmy);
+
+      Assert.Equal(ArmyFaction.Demons, createArmy.Faction);
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createArmy.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createArmy.Location);
+
+      Assert.Equal(TravelLogicType.Location, createArmy.m_MoveTarget);
+      Assert.Equal(14, createArmy.m_DaysToDestination);
+
+      Assert.True(createArmy.WithLeader);
+      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(),
+          createArmy.m_TargetLocation);
+      Assert.Equal(
+          ActionList.ToReference<BlueprintActionList.Reference>(), createArmy.m_CompleteActions);
+    }
+
+    [Fact]
+    public void CreateGarrison()
+    {
+      var actions = ActionListBuilder.New().CreateGarrison(ArmyGuid, GlobalMapPointGuid).Build();
+
+      Assert.Single(actions.Actions);
+      var createGarrison = (CreateGarrison)actions.Actions[0];
+      ElementAsserts.IsValid(createGarrison);
+
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createGarrison.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createGarrison.Location);
+      Assert.True(createGarrison.HasNoReward);
+
+      Assert.False(createGarrison.WithLeader);
+      Assert.NotNull(createGarrison.ArmyLeader);
+    }
+
+    [Fact]
+    public void CreateGarrison_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .CreateGarrison(
+                  ArmyGuid, GlobalMapPointGuid, leader: ArmyLeaderGuid, noReward: false)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var createGarrison = (CreateGarrison)actions.Actions[0];
+      ElementAsserts.IsValid(createGarrison);
+
+      Assert.Equal(Army.ToReference<BlueprintArmyPreset.Reference>(), createGarrison.Preset);
+      Assert.Equal(
+          GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(), createGarrison.Location);
+      Assert.False(createGarrison.HasNoReward);
+
+      Assert.True(createGarrison.WithLeader);
+      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createGarrison.ArmyLeader);
+    }
+
     //----- Kingmaker.Kingdom.Actions -----//
 
     [Fact]
@@ -412,6 +998,184 @@ namespace BlueprintCore.Tests.Actions
       Assert.Equal(IntConstant, grantExp.m_Value);
       Assert.True(grantExp.m_MultiplyByLeaderLevel);
       Assert.Equal(2f, grantExp.m_MultiplierCoefficient);
+    }
+
+    //----- Kingmaker.Kingdom.Blueprints -----//
+
+    [Fact]
+    public void AddCrusadeResources()
+    {
+      var resources = KingdomResourcesAmount.Create(1, 2, 3);
+
+      var actions =
+          ActionListBuilder.New()
+              .AddCrusadeResources(resources)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var addResources = (AddCrusadeResources)actions.Actions[0];
+      ElementAsserts.IsValid(addResources);
+
+      Assert.Equal(resources, addResources._resourcesAmount);
+    }
+
+    //----- Kingmaker.UnitLogic.Mechanics.Actions -----//
+
+    [Fact]
+    public void ChangeTacticalMorale()
+    {
+      var value = ContextValues.Simple(3);
+
+      var actions = ActionListBuilder.New().ChangeTacticalMorale(value).Build();
+
+      Assert.Single(actions.Actions);
+      var changeMorale = (ChangeTacticalMorale)actions.Actions[0];
+      ElementAsserts.IsValid(changeMorale);
+
+      Assert.Equal(value, changeMorale.m_Value);
+    }
+
+    [Fact]
+    public void KillSquadLeaders()
+    {
+      var actions =
+          ActionListBuilder.New().KillSquadLeaders(new ContextDiceValue { BonusValue = 5 }).Build();
+
+      Assert.Single(actions.Actions);
+      var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
+      ElementAsserts.IsValid(kill);
+
+      Assert.False(kill.m_UseFloatValue);
+      Assert.Equal(5, kill.m_Count.BonusValue.Value);
+    }
+
+    [Fact]
+    public void KillSquadUnits()
+    {
+      var actions = ActionListBuilder.New().KillSquadUnits(0.25f).Build();
+
+      Assert.Single(actions.Actions);
+      var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
+      ElementAsserts.IsValid(kill);
+
+      Assert.True(kill.m_UseFloatValue);
+      Assert.Equal(0.25f, kill.m_FloatCount);
+    }
+
+    [Fact]
+    public void SummonSquad()
+    {
+      var actions = ActionListBuilder.New().SummonSquad(UnitGuid, 2).Build();
+
+      Assert.Single(actions.Actions);
+      var summon = (ContextActionSummonTacticalSquad)actions.Actions[0];
+      ElementAsserts.IsValid(summon);
+
+      Assert.Equal(Unit.ToReference<BlueprintUnitReference>(), summon.m_Blueprint);
+      Assert.Equal(2, summon.m_Count.Value);
+      Assert.Null(summon.m_SummonPool);
+
+      Assert.Empty(summon.m_AfterSpawn.Actions);
+    }
+
+    [Fact]
+    public void SummonSquad_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .SummonSquad(
+                  UnitGuid,
+                  3,
+                  onSpawn: ActionListBuilder.New().EnableKingdom(),
+                  summonPool: SummonPoolGuid)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var summon = (ContextActionSummonTacticalSquad)actions.Actions[0];
+      ElementAsserts.IsValid(summon);
+
+      Assert.Equal(Unit.ToReference<BlueprintUnitReference>(), summon.m_Blueprint);
+      Assert.Equal(3, summon.m_Count.Value);
+      Assert.Equal(SummonPool.ToReference<BlueprintSummonPoolReference>(), summon.m_SummonPool);
+
+      Assert.Single(summon.m_AfterSpawn.Actions);
+      Assert.IsType<KingdomActionEnable>(summon.m_AfterSpawn.Actions[0]);
+    }
+
+    [Fact]
+    public void TacticalCombatDealDamage()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .TacticalCombatDealDamage(DamageTypeDescription, DiceType.D4)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
+      ElementAsserts.IsValid(dmg);
+
+      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(DiceType.D4, dmg.DiceType);
+      Assert.Equal(1, dmg.RollsCount.Value);
+
+      Assert.False(dmg.Half);
+      Assert.False(dmg.IgnoreCritical);
+      Assert.False(dmg.UseMinHPAfterDamage);
+    }
+
+    [Fact]
+    public void TacticalCombatDealDamage_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .TacticalCombatDealDamage(
+                  DamageTypeDescription,
+                  DiceType.D4,
+                  diceRolls: 3,
+                  dealHalf: true,
+                  ignoreCrit: true,
+                  minHPAfterDmg: 1)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
+      ElementAsserts.IsValid(dmg);
+
+      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(DiceType.D4, dmg.DiceType);
+      Assert.Equal(3, dmg.RollsCount.Value);
+
+      Assert.True(dmg.Half);
+      Assert.True(dmg.IgnoreCritical);
+      Assert.True(dmg.UseMinHPAfterDamage);
+      Assert.Equal(1, dmg.MinHPAfterDamage);
+    }
+
+    [Fact]
+    public void TacticalCombatHeal()
+    {
+      var actions = ActionListBuilder.New().TacticalCombatHeal().Build();
+
+      Assert.Single(actions.Actions);
+      var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];
+      ElementAsserts.IsValid(heal);
+
+      Assert.Equal(DiceType.D6, heal.DiceType);
+      Assert.Equal(1, heal.RollsCount.Value);
+    }
+
+    [Fact]
+    public void TacticalCombatHeal_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New().TacticalCombatHeal(diceType: DiceType.D10, diceRolls: 3).Build();
+
+      Assert.Single(actions.Actions);
+      var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];
+      ElementAsserts.IsValid(heal);
+
+      Assert.Equal(DiceType.D10, heal.DiceType);
+      Assert.Equal(3, heal.RollsCount.Value);
     }
   }
 }

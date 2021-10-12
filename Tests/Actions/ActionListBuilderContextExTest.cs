@@ -9,7 +9,6 @@ using BlueprintCore.Conditions;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Asserts;
 using BlueprintCore.Utils;
-using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -17,7 +16,6 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Kingdom;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
@@ -148,20 +146,6 @@ namespace BlueprintCore.Tests.Actions
     {
       Assert.Throws<InvalidOperationException>(
           () => ActionListBuilder.New().ApplyBuff(BuffGuid).Build());
-    }
-
-    [Fact]
-    public void ChangeTacticalMorale()
-    {
-      var value = ContextValues.Simple(3);
-
-      var actions = ActionListBuilder.New().ChangeTacticalMorale(value).Build();
-
-      Assert.Single(actions.Actions);
-      var changeMorale = (ChangeTacticalMorale)actions.Actions[0];
-      ElementAsserts.IsValid(changeMorale);
-
-      Assert.Equal(value, changeMorale.m_Value);
     }
 
     [Fact]
@@ -2806,33 +2790,6 @@ namespace BlueprintCore.Tests.Actions
     }
 
     [Fact]
-    public void KillSquadLeaders()
-    {
-      var actions =
-          ActionListBuilder.New().KillSquadLeaders(new ContextDiceValue { BonusValue = 5 }).Build();
-
-      Assert.Single(actions.Actions);
-      var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
-      ElementAsserts.IsValid(kill);
-
-      Assert.False(kill.m_UseFloatValue);
-      Assert.Equal(5, kill.m_Count.BonusValue.Value);
-    }
-
-    [Fact]
-    public void KillSquadUnits()
-    {
-      var actions = ActionListBuilder.New().KillSquadUnits(0.25f).Build();
-
-      Assert.Single(actions.Actions);
-      var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
-      ElementAsserts.IsValid(kill);
-
-      Assert.True(kill.m_UseFloatValue);
-      Assert.Equal(0.25f, kill.m_FloatCount);
-    }
-
-    [Fact]
     public void StealBuffs()
     {
       var actions = ActionListBuilder.New().StealBuffs(SpellDescriptor.Chaos).Build();
@@ -2842,46 +2799,6 @@ namespace BlueprintCore.Tests.Actions
       ElementAsserts.IsValid(steal);
 
       Assert.Equal((long)SpellDescriptor.Chaos, steal.m_Descriptor.m_IntValue);
-    }
-
-    [Fact]
-    public void SummonSquad()
-    {
-      var actions = ActionListBuilder.New().SummonSquad(UnitGuid, 2).Build();
-
-      Assert.Single(actions.Actions);
-      var summon = (ContextActionSummonTacticalSquad)actions.Actions[0];
-      ElementAsserts.IsValid(summon);
-
-      Assert.Equal(Unit.ToReference<BlueprintUnitReference>(), summon.m_Blueprint);
-      Assert.Equal(2, summon.m_Count.Value);
-      Assert.Null(summon.m_SummonPool);
-
-      Assert.Empty(summon.m_AfterSpawn.Actions);
-    }
-
-    [Fact]
-    public void SummonSquad_WithOptionalValues()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .SummonSquad(
-                  UnitGuid,
-                  3,
-                  onSpawn: ActionListBuilder.New().MeleeAttack(),
-                  summonPool: SummonPoolGuid)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var summon = (ContextActionSummonTacticalSquad)actions.Actions[0];
-      ElementAsserts.IsValid(summon);
-
-      Assert.Equal(Unit.ToReference<BlueprintUnitReference>(), summon.m_Blueprint);
-      Assert.Equal(3, summon.m_Count.Value);
-      Assert.Equal(SummonPool.ToReference<BlueprintSummonPoolReference>(), summon.m_SummonPool);
-
-      Assert.Single(summon.m_AfterSpawn.Actions);
-      Assert.IsType<ContextActionMeleeAttack>(summon.m_AfterSpawn.Actions[0]);
     }
 
     [Fact]
@@ -2930,82 +2847,6 @@ namespace BlueprintCore.Tests.Actions
       ElementAsserts.IsValid(removeTarget);
 
       Assert.True(removeTarget.Remove);
-    }
-
-    [Fact]
-    public void TacticalCombatDealDamage()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .TacticalCombatDealDamage(DamageTypeDescription, DiceType.D4)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
-      ElementAsserts.IsValid(dmg);
-
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
-      Assert.Equal(DiceType.D4, dmg.DiceType);
-      Assert.Equal(1, dmg.RollsCount.Value);
-
-      Assert.False(dmg.Half);
-      Assert.False(dmg.IgnoreCritical);
-      Assert.False(dmg.UseMinHPAfterDamage);
-    }
-
-    [Fact]
-    public void TacticalCombatDealDamage_WithOptionalValues()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .TacticalCombatDealDamage(
-                  DamageTypeDescription,
-                  DiceType.D4,
-                  diceRolls: 3,
-                  dealHalf: true,
-                  ignoreCrit: true,
-                  minHPAfterDmg: 1)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
-      ElementAsserts.IsValid(dmg);
-
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
-      Assert.Equal(DiceType.D4, dmg.DiceType);
-      Assert.Equal(3, dmg.RollsCount.Value);
-
-      Assert.True(dmg.Half);
-      Assert.True(dmg.IgnoreCritical);
-      Assert.True(dmg.UseMinHPAfterDamage);
-      Assert.Equal(1, dmg.MinHPAfterDamage);
-    }
-
-    [Fact]
-    public void TacticalCombatHeal()
-    {
-      var actions = ActionListBuilder.New().TacticalCombatHeal().Build();
-
-      Assert.Single(actions.Actions);
-      var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];
-      ElementAsserts.IsValid(heal);
-
-      Assert.Equal(DiceType.D6, heal.DiceType);
-      Assert.Equal(1, heal.RollsCount.Value);
-    }
-
-    [Fact]
-    public void TacticalCombatHeal_WithOptionalValues()
-    {
-      var actions =
-          ActionListBuilder.New().TacticalCombatHeal(diceType: DiceType.D10, diceRolls: 3).Build();
-
-      Assert.Single(actions.Actions);
-      var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];
-      ElementAsserts.IsValid(heal);
-
-      Assert.Equal(DiceType.D10, heal.DiceType);
-      Assert.Equal(3, heal.RollsCount.Value);
     }
 
     [Fact]
@@ -3344,87 +3185,6 @@ namespace BlueprintCore.Tests.Actions
       Assert.Single(actions.Actions);
       var clear = (SwordlordAdaptiveTacticsClear)actions.Actions[0];
       ElementAsserts.IsValid(clear);
-    }
-
-    //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
-
-    [Fact]
-    public void GrantExtraArmyAction()
-    {
-      var actions = ActionListBuilder.New().GrantExtraArmyAction().Build();
-
-      Assert.Single(actions.Actions);
-      var grantAction = (ArmyAdditionalAction)actions.Actions[0];
-      ElementAsserts.IsValid(grantAction);
-
-      Assert.True(grantAction.m_InCurrentTurn);
-      Assert.True(grantAction.m_CanAddInBonusMoraleTurn);
-    }
-
-    [Fact]
-    public void GrantExtraArmyAction_WithOptionalValues()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .GrantExtraArmyAction(usableInCurrentTurn: false, usableInBonusMoraleTurn: false)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var grantAction = (ArmyAdditionalAction)actions.Actions[0];
-      ElementAsserts.IsValid(grantAction);
-
-      Assert.False(grantAction.m_InCurrentTurn);
-      Assert.False(grantAction.m_CanAddInBonusMoraleTurn);
-    }
-
-    [Fact]
-    public void AddCrusadeResource()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .AddCrusadeResource(new KingdomResourcesAmount { m_Finances = 3 })
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var addResource = (ContextActionAddCrusadeResource)actions.Actions[0];
-      ElementAsserts.IsValid(addResource);
-
-      Assert.Equal(3, addResource.m_ResourcesAmount.m_Finances);
-    }
-
-    [Fact]
-    public void RemoveArmyFacts()
-    {
-      var actions = ActionListBuilder.New().RemoveArmyFacts(BuffGuid, AbilityGuid).Build();
-
-      Assert.Single(actions.Actions);
-      var removeFacts = (ContextActionArmyRemoveFacts)actions.Actions[0];
-      ElementAsserts.IsValid(removeFacts);
-
-      Assert.Equal(2, removeFacts.m_FactsToRemove.Length);
-      Assert.Contains(Buff.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
-      Assert.Contains(
-          Ability.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
-    }
-
-    [Fact]
-    public void RestoreLeaderAction()
-    {
-      var actions = ActionListBuilder.New().RestoreLeaderAction().Build();
-
-      Assert.Single(actions.Actions);
-      var restoreAction = (ContextActionRestoreLeaderAction)actions.Actions[0];
-      ElementAsserts.IsValid(restoreAction);
-    }
-
-    [Fact]
-    public void StopUnit()
-    {
-      var actions = ActionListBuilder.New().StopUnit().Build();
-
-      Assert.Single(actions.Actions);
-      var stop = (ContextActionStopUnit)actions.Actions[0];
-      ElementAsserts.IsValid(stop);
     }
 
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//

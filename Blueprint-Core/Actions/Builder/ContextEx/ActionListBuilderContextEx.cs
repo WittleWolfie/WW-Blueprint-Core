@@ -3,7 +3,6 @@ using System.Linq;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions;
 using BlueprintCore.Utils;
-using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -15,10 +14,8 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Kingdom;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
-using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.GenericSlot;
@@ -39,15 +36,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
   /** Extension to ActionListBuilder which supports all ContextAction types. */
   public static class ActionListBuilderContextEx
   {
-    /** ChangeTacticalMorale */
-    public static ActionListBuilder ChangeTacticalMorale(
-        this ActionListBuilder builder, ContextValue value)
-    {
-      var changeMorale = ElementTool.Create<ChangeTacticalMorale>();
-      changeMorale.m_Value = value;
-      return builder.Add(changeMorale);
-    }
-
     /** 
      * ContextActionAddFeature
      *
@@ -1617,35 +1605,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
     }
 
-    /**
-     * ContextActionSquadUnitsKill
-     *
-     * Use this to kill non-leader units from the caster's squad. Use KillSquadLeaders for leader
-     * units.
-     *
-     * @param percent float Value from 0.0-1.0 indicating the percent of squad units to kill.
-     */
-    public static ActionListBuilder KillSquadUnits(this ActionListBuilder builder, float percent)
-    {
-      var kill = ElementTool.Create<ContextActionSquadUnitsKill>();
-      kill.m_UseFloatValue = true;
-      kill.m_FloatCount = percent;
-      return builder.Add(kill);
-    }
-
-    /**
-     * ContextActionSquadUnitsKill
-     *
-     * Use this to kill leader units from the caster's squad. Use KillSquadUnits for regular units.
-     */
-    public static ActionListBuilder KillSquadLeaders(
-        this ActionListBuilder builder, ContextDiceValue count)
-    {
-      var kill = ElementTool.Create<ContextActionSquadUnitsKill>();
-      kill.m_Count = count;
-      return builder.Add(kill);
-    }
-
     /** ContextActionStealBuffs */
     public static ActionListBuilder StealBuffs(
         this ActionListBuilder builder, SpellDescriptor descriptor)
@@ -1653,30 +1612,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var steal = ElementTool.Create<ContextActionStealBuffs>();
       steal.m_Descriptor = descriptor;
       return builder.Add(steal);
-    }
-
-    /**
-     * ContextActionSummonTacticalSquad
-     *
-     * @param unit BlueprintUnit
-     * @param summonPool BlueprintSummonPool
-     */
-    public static ActionListBuilder SummonSquad(
-        this ActionListBuilder builder,
-        string unit,
-        ContextValue count,
-        ActionListBuilder onSpawn = null,
-        string summonPool = null)
-    {
-      var summon = ElementTool.Create<ContextActionSummonTacticalSquad>();
-      summon.m_Blueprint = BlueprintTool.GetRef<BlueprintUnit, BlueprintUnitReference>(unit);
-      summon.m_Count = count;
-      summon.m_AfterSpawn = onSpawn?.Build() ?? Constants.Empty.Actions;
-      summon.m_SummonPool =
-          summonPool is null
-              ? null
-              : BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(summonPool);
-      return builder.Add(summon);
     }
 
     /**
@@ -1706,43 +1641,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var removeTarget = ElementTool.Create<ContextActionSwarmTarget>();
       removeTarget.Remove = true;
       return builder.Add(removeTarget);
-    }
-
-    /** ContextActionTacticalCombatDealDamage */
-    public static ActionListBuilder TacticalCombatDealDamage(
-        this ActionListBuilder builder,
-        DamageTypeDescription type,
-        DiceType diceType,
-        ContextValue diceRolls = null,
-        bool dealHalf = false,
-        bool ignoreCrit = false,
-        int? minHPAfterDmg = null)
-    {
-      var dmg = ElementTool.Create<ContextActionTacticalCombatDealDamage>();
-      dmg.DamageType = type;
-      dmg.DiceType = diceType;
-      dmg.RollsCount = diceRolls ?? dmg.RollsCount;
-      dmg.Half = dealHalf;
-      dmg.IgnoreCritical = ignoreCrit;
-
-      if (minHPAfterDmg != null)
-      {
-        dmg.UseMinHPAfterDamage = true;
-        dmg.MinHPAfterDamage = minHPAfterDmg.Value;
-      }
-      return builder.Add(dmg);
-    }
-
-    /** ContextActionTacticalCombatHealTarget */
-    public static ActionListBuilder TacticalCombatHeal(
-        this ActionListBuilder builder,
-        DiceType diceType = DiceType.D6,
-        ContextValue diceRolls = null)
-    {
-      var heal = ElementTool.Create<ContextActionTacticalCombatHealTarget>();
-      heal.DiceType = diceType;
-      heal.RollsCount = diceRolls ?? heal.RollsCount;
-      return builder.Add(heal);
     }
 
     /** ContextActionTranslocate */
@@ -1930,58 +1828,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder SwordlordAdaptiveTacticsClear(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<SwordlordAdaptiveTacticsClear>());
-    }
-
-    //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
-
-    /** ArmyAdditionalAction */
-    public static ActionListBuilder GrantExtraArmyAction(
-        this ActionListBuilder builder,
-        bool usableInCurrentTurn = true,
-        bool usableInBonusMoraleTurn = true)
-    {
-      var grantAction = ElementTool.Create<ArmyAdditionalAction>();
-      grantAction.m_InCurrentTurn = usableInCurrentTurn;
-      grantAction.m_CanAddInBonusMoraleTurn = usableInBonusMoraleTurn;
-      return builder.Add(grantAction);
-    }
-
-    /** ContextActionAddCrusadeResource */
-    public static ActionListBuilder AddCrusadeResource(
-        this ActionListBuilder builder, KingdomResourcesAmount amount)
-    {
-      var addResource = ElementTool.Create<ContextActionAddCrusadeResource>();
-      addResource.m_ResourcesAmount = amount;
-      return builder.Add(addResource);
-    }
-
-    /**
-     * ContextActionArmyRemoveFacts
-     *
-     * @param facts BlueprintUnitFact
-     */
-    public static ActionListBuilder RemoveArmyFacts(
-        this ActionListBuilder builder, params string[] facts)
-    {
-      var removeFacts = ElementTool.Create<ContextActionArmyRemoveFacts>();
-      removeFacts.m_FactsToRemove =
-          facts
-              .Select(
-                  fact => BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact))
-              .ToArray();
-      return builder.Add(removeFacts);
-    }
-
-    /** ContextActionRestoreLeaderAction */
-    public static ActionListBuilder RestoreLeaderAction(this ActionListBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
-    }
-
-    /** ContextActionStopUnit */
-    public static ActionListBuilder StopUnit(this ActionListBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionStopUnit>());
     }
 
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//

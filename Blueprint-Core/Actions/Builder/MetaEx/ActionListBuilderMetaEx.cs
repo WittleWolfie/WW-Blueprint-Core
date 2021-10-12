@@ -6,8 +6,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.AreaLogic.Etudes;
-using Kingmaker.Armies;
-using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
@@ -16,10 +14,6 @@ using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
-using Kingmaker.Crusade.GlobalMagic;
-using Kingmaker.Crusade.GlobalMagic.Actions;
-using Kingmaker.Crusade.GlobalMagic.Actions.DamageLogic;
-using Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
@@ -28,17 +22,12 @@ using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Globalmap.State;
-using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 
 namespace BlueprintCore.Actions.Builder.MetaEx
 {
-
   /**
    * Extension to ActionListBuilder which supports non-character actions.
    *
@@ -74,151 +63,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       unlock.m_Achievement =
           BlueprintTool.GetRef<AchievementData, AchievementDataReference>(achievement);
       return builder.Add(unlock);
-    }
-
-    //----- Kingmaker.Crusade.GlobalMagic.Actions
-
-    /**
-     * AddBuffToSquad
-     *
-     * @param buff BlueprintBuff
-     */
-    public static ActionListBuilder BuffSquad(
-        this ActionListBuilder builder,
-        string buff,
-        GlobalMagicValue durationHours,
-        SquadFilter filter)
-    {
-      var buffSquad = ElementTool.Create<AddBuffToSquad>();
-      buffSquad.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
-      buffSquad.m_HoursDuration = durationHours;
-      buffSquad.m_Filter = filter;
-      return builder.Add(buffSquad);
-    }
-
-    /** ChangeArmyMorale */
-    public static ActionListBuilder ChangeArmyMorale(
-          this ActionListBuilder builder, GlobalMagicValue duration, GlobalMagicValue change)
-    {
-      var changeMorale = ElementTool.Create<ChangeArmyMorale>();
-      changeMorale.m_Duration = duration;
-      changeMorale.m_ChangeValue = change;
-      return builder.Add(changeMorale);
-    }
-
-    /** FakeSkipTime */
-    public static ActionListBuilder FakeSkipTime(
-        this ActionListBuilder builder, GlobalMagicValue days)
-    {
-      var skipTime = ElementTool.Create<FakeSkipTime>();
-      skipTime.m_SkipDays = days;
-      return builder.Add(skipTime);
-    }
-
-    /** GainArmyDamage */
-    public static ActionListBuilder GainArmyDamage(
-        this ActionListBuilder builder, SquadFilter filter, GlobalMagicValue dmgDice)
-    {
-      var gainDmg = ElementTool.Create<GainDiceArmyDamage>();
-      gainDmg.m_Filter = filter;
-      gainDmg.m_DiceValue = dmgDice;
-      return builder.Add(gainDmg);
-    }
-
-    /** RemoveUnitsByExp */
-    public static ActionListBuilder RemoveUnitsByExp(
-        this ActionListBuilder builder, SquadFilter filter, GlobalMagicValue exp)
-    {
-      var removeUnits = ElementTool.Create<RemoveUnitsByExp>();
-      removeUnits.m_Filter = filter;
-      removeUnits.m_ExpValue = exp;
-      return builder.Add(removeUnits);
-    }
-
-    /**
-     * GainGlobalMagicSpell
-     *
-     * @param spell BlueprintGlobalMagicSpell
-     */
-    public static ActionListBuilder GainGlobalSpell(this ActionListBuilder builder, string spell)
-    {
-      var gainSpell = ElementTool.Create<GainGlobalMagicSpell>();
-      gainSpell.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
-      return builder.Add(gainSpell);
-    }
-
-    /**
-     * ManuallySetGlobalSpellCooldown
-     *
-     * @param spell BlueprintGlobalMagicSpell
-     */
-    public static ActionListBuilder PutGlobalSpellOnCooldown(
-        this ActionListBuilder builder, string spell)
-    {
-      var activateCooldown = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
-      activateCooldown.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
-      return builder.Add(activateCooldown);
-    }
-
-    /** OpenTeleportationInterface */
-    public static ActionListBuilder GlobalTeleport(
-        this ActionListBuilder builder, ActionListBuilder onTeleport)
-    {
-      var teleport = ElementTool.Create<OpenTeleportationInterface>();
-      teleport.m_OnTeleportActions = onTeleport.Build();
-      return builder.Add(teleport);
-    }
-
-    /**
-     * RemoveGlobalMagicSpell
-     *
-     * @param spell BlueprintGlobalMagicSpell
-     */
-    public static ActionListBuilder RemoveGlobalSpell(this ActionListBuilder builder, string spell)
-    {
-      var removespell = ElementTool.Create<RemoveGlobalMagicSpell>();
-      removespell.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
-      return builder.Add(removespell);
-    }
-
-    /** RepairLeaderMana */
-    public static ActionListBuilder RestoreLeaderMana(
-        this ActionListBuilder builder, GlobalMagicValue value)
-    {
-      var restoreMana = ElementTool.Create<RepairLeaderMana>();
-      restoreMana.m_Value = value;
-      return builder.Add(restoreMana);
-    }
-
-    /** SummonExistUnits */
-    public static ActionListBuilder SummonMoreUnits(
-        this ActionListBuilder builder, GlobalMagicValue expCost)
-    {
-      var summon = ElementTool.Create<SummonExistUnits>();
-      summon.m_SumExpCost = expCost;
-      return builder.Add(summon);
-    }
-
-    /** SummonRandomGroup */
-    public static ActionListBuilder SummonRandomGroup(
-        this ActionListBuilder builder,
-        params SummonRandomGroup.RandomGroup[] groups)
-    {
-      var summon = ElementTool.Create<SummonRandomGroup>();
-      summon.m_RandomGroups = groups;
-      return builder.Add(summon);
-    }
-
-    /** TeleportArmyAction */
-    public static ActionListBuilder TeleportArmy(this ActionListBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<TeleportArmyAction>());
     }
 
     //----- Kingmaker.Dungeon.Actions -----//
@@ -639,161 +483,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       return builder.Add(changeName);
     }
 
-    /**
-     * CreateArmy
-     *
-     * @param army BlueprintArmyPreset
-     * @param location BlueprintGlobalMapPoint
-     * @param leader BlueprintArmyLeader
-     */
-    public static ActionListBuilder CreateCrusaderArmy(
-        this ActionListBuilder builder,
-        string army,
-        string location,
-        string leader = null,
-        int? movePoints = null,
-        float? speed = null,
-        bool? applyRecruitIncrease = null)
-    {
-      return builder.Add(
-          CreateArmy(
-              ArmyFaction.Crusaders,
-              army,
-              location,
-              leader,
-              movePoints: movePoints,
-              speed: speed,
-              applyRecruitIncrease: applyRecruitIncrease));
-    }
-
-    /**
-     * CreateArmyFromLosses
-     *
-     * @param location BlueprintGlobalMapPoint
-     */
-    public static ActionListBuilder CreateCrusaderArmyFromLosses(
-        this ActionListBuilder builder,
-        string location,
-        int sumExperience,
-        int maxSquads,
-        bool applyRecruitIncrease = false)
-    {
-      var createArmy = ElementTool.Create<CreateArmyFromLosses>();
-      createArmy.m_Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
-      createArmy.m_SumExperience = sumExperience;
-      createArmy.m_SquadsMaxCount = maxSquads;
-      createArmy.m_ApplyRecruitIncrease = applyRecruitIncrease;
-      return builder.Add(createArmy);
-    }
-
-    /**
-     * CreateArmy
-     *
-     * @param army BlueprintArmyPreset
-     * @param location BlueprintGlobalMapPoint
-     * @param leader BlueprintArmyLeader
-     */
-    public static ActionListBuilder CreateDemonArmy(
-        this ActionListBuilder builder,
-        string army,
-        string location,
-        string leader = null,
-        bool targetNearestEnemy = false,
-        float? speed = null)
-    {
-      return builder.Add(
-          CreateArmy(
-              ArmyFaction.Demons,
-              army,
-              location,
-              leader,
-              target: targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None,
-              speed: speed));
-    }
-
-    /**
-     * CreateArmy
-     *
-     * @param army BlueprintArmyPreset
-     * @param location BlueprintGlobalMapPoint
-     * @param targetLocation BlueprintGlobalMapPoint
-     * @param onTargetReached BlueprintActionList
-     * @param leader BlueprintArmyLeader
-     */
-    public static ActionListBuilder CreateDemonArmyTargetingLocation(
-        this ActionListBuilder builder,
-        string army,
-        string location,
-        string targetLocation,
-        string onTargetReached = null,
-        string leader = null,
-        int? daysToTarget = null)
-    {
-      return builder.Add(
-          CreateArmy(
-              ArmyFaction.Demons,
-              army,
-              location,
-              leader,
-              targetLocation: targetLocation,
-              onTargetReached: onTargetReached,
-              daysToTarget: daysToTarget,
-              target: TravelLogicType.Location));
-    }
-
-    private static CreateArmy CreateArmy(
-        ArmyFaction faction,
-        string army,
-        string location,
-        string leader,
-        string targetLocation = null,
-        string onTargetReached = null,
-        int? daysToTarget = null,
-        int? movePoints = null,
-        float? speed = null,
-        bool? applyRecruitIncrease = null,
-        TravelLogicType target = TravelLogicType.None)
-    {
-      var createArmy = ElementTool.Create<CreateArmy>();
-      createArmy.Faction = faction;
-      createArmy.Preset =
-          BlueprintTool.GetRef<BlueprintArmyPreset, BlueprintArmyPreset.Reference>(army);
-      createArmy.Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
-      createArmy.m_MoveTarget = target;
-
-      createArmy.m_DaysToDestination = daysToTarget ?? 7;
-      createArmy.MovementPoints = movePoints ?? 60;
-      createArmy.m_ArmySpeed = speed ?? 1f;
-      createArmy.m_ApplyRecruitIncrease = applyRecruitIncrease ?? false;
-
-      if (leader == null)
-      {
-        createArmy.ArmyLeader = BlueprintReferenceBase.CreateTyped<ArmyLeader.Reference>(null);
-      }
-      else
-      {
-        createArmy.ArmyLeader =
-            BlueprintTool.GetRef<BlueprintArmyLeader, ArmyLeader.Reference>(leader);
-        createArmy.WithLeader = true;
-      }
-      createArmy.m_TargetLocation =
-          targetLocation == null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintGlobalMapPoint.Reference>(null)
-              : BlueprintTool
-                  .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(
-                      targetLocation);
-      createArmy.m_CompleteActions =
-          onTargetReached == null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintActionList.Reference>(null)
-              : BlueprintTool
-                  .GetRef<BlueprintActionList, BlueprintActionList.Reference>(onTargetReached);
-      return createArmy;
-    }
-
     /** ChangeBookEventImage */
     public static ActionListBuilder ChangeBookImage(this ActionListBuilder builder, SpriteLink image)
     {
@@ -849,50 +538,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       createCompanion.MatchPlayerXpExactly = matchPlayerXp;
       createCompanion.OnCreate = onCreate?.Build() ?? Constants.Empty.Actions;
       return builder.Add(createCompanion);
-    }
-
-    /** AddCrusadeResources */
-    public static ActionListBuilder AddCrusadeResources(
-        this ActionListBuilder builder, KingdomResourcesAmount resources)
-    {
-      var addResources = ElementTool.Create<AddCrusadeResources>();
-      addResources._resourcesAmount = resources;
-      return builder.Add(addResources);
-    }
-
-    /**
-     * CreateGarrison
-     *
-     * @param army BlueprintArmyPreset
-     * @param location BlueprintGlobalMapPoint
-     * @param leader BlueprintArmyLeader
-     */
-    public static ActionListBuilder CreateGarrison(
-        this ActionListBuilder builder,
-        string army,
-        string location,
-        string leader = null,
-        bool noReward = true)
-    {
-      var createGarrison = ElementTool.Create<CreateGarrison>();
-      createGarrison.Preset =
-          BlueprintTool.GetRef<BlueprintArmyPreset, BlueprintArmyPreset.Reference>(army);
-      createGarrison.Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
-      createGarrison.HasNoReward = noReward;
-
-      if (leader == null)
-      {
-        createGarrison.ArmyLeader = BlueprintReferenceBase.CreateTyped<ArmyLeader.Reference>(null);
-      }
-      else
-      {
-        createGarrison.WithLeader = true;
-        createGarrison.ArmyLeader =
-            BlueprintTool.GetRef<BlueprintArmyLeader, ArmyLeader.Reference>(leader);
-      }
-      return builder.Add(createGarrison);
     }
 
     /** AddDialogNotification */
@@ -1136,9 +781,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       changeRomance.ValueEvaluator = value;
       return builder.Add(changeRomance);
     }
-
-    // TODO: Maybe I actually can use Validate! It seems like I can just create a ValidationContext
-    // then pass it into builders. Maybe something static?
 
     /** DestroyUnit */
     public static ActionListBuilder DestroyUnit(
