@@ -1,30 +1,16 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
-using Kingmaker.Achievements.Actions;
-using Kingmaker.Achievements.Blueprints;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Loot;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
-using Kingmaker.Enums;
-using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
-using Kingmaker.RandomEncounters.Settings;
-using Kingmaker.ResourceLinks;
 
 namespace BlueprintCore.Actions.Builder.UpgraderEx
 {

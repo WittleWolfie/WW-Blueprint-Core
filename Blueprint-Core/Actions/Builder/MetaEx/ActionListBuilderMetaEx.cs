@@ -4,7 +4,6 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Achievements.Blueprints;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
@@ -12,8 +11,6 @@ using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
-using Kingmaker.ResourceLinks;
 
 namespace BlueprintCore.Actions.Builder.MetaEx
 {
@@ -90,24 +87,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       createCompanion.MatchPlayerXpExactly = matchPlayerXp;
       createCompanion.OnCreate = onCreate?.Build() ?? Constants.Empty.Actions;
       return builder.Add(createCompanion);
-    }
-
-    /**
-     * CompleteEtude
-     *
-     * @param etude BlueprintEtude
-     */
-    public static ActionListBuilder CompleteEtude(
-        this ActionListBuilder builder, string etude, BlueprintEvaluator evaluator = null)
-    {
-      var completeEtude = ElementTool.Create<CompleteEtude>();
-      completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
-      if (evaluator != null)
-      {
-        completeEtude.EtudeEvaluator = evaluator;
-        completeEtude.Evaluate = true;
-      }
-      return builder.Add(completeEtude);
     }
 
     /** CustomEvent */
@@ -308,23 +287,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       return builder.Add(advanceLevel);
     }
 
-    /**
-     * ChangeRomance
-     *
-     * @param romance BlueprintRomanceCounter
-     */
-    public static ActionListBuilder ChangeRomance(
-       this ActionListBuilder builder, string romance, IntEvaluator value)
-    {
-      builder.Validate(value);
-
-      var changeRomance = ElementTool.Create<ChangeRomance>();
-      changeRomance.m_Romance =
-          BlueprintTool.GetRef<BlueprintRomanceCounter, BlueprintRomanceCounterReference>(romance);
-      changeRomance.ValueEvaluator = value;
-      return builder.Add(changeRomance);
-    }
-
     /** DestroyUnit */
     public static ActionListBuilder DestroyUnit(
         this ActionListBuilder builder, UnitEvaluator unit, bool fadeOut = false)
@@ -348,34 +310,6 @@ namespace BlueprintCore.Actions.Builder.MetaEx
       addToGroup.TargetUnit = unit;
       addToGroup.GroupHolder = group;
       return builder.Add(addToGroup);
-    }
-
-    /** ChangeUnitName */
-    public static ActionListBuilder ChangeUnitName(
-        this ActionListBuilder builder,
-        UnitEvaluator unit,
-        LocalizedString name,
-        bool appendName = false)
-    {
-      builder.Validate(unit);
-
-      var changeName = ElementTool.Create<ChangeUnitName>();
-      changeName.Unit = unit;
-      changeName.NewName = name;
-      changeName.AddToTheName = appendName;
-      return builder.Add(changeName);
-    }
-
-    /** ChangeUnitName */
-    public static ActionListBuilder ResetUnitName(
-        this ActionListBuilder builder, UnitEvaluator unit)
-    {
-      builder.Validate(unit);
-
-      var changeName = ElementTool.Create<ChangeUnitName>();
-      changeName.Unit = unit;
-      changeName.ReturnTheOldName = true;
-      return builder.Add(changeName);
     }
 
     /** ClearUnitReturnPosition */
