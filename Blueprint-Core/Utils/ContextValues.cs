@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 
 namespace BlueprintCore.Utils
 {
+  /** Helper class for creating contextValues. */
   public static class ContextValues
   {
     public static ContextValue Simple(int value)

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -18,6 +17,15 @@ namespace BlueprintCore.Utils
   {
     private static readonly ValidationContext Context = new();
 
+    /**
+     * Runs Owlcat's validation and some on the object. Each entry in the returned list is its own
+     * validation error.
+     *
+     * All Objects: ValidationContext#ValidateFieldAttributes()
+     * Elements: Verifies there is a name.
+     * BlueprintComponents: BlueprintComponent#ApplyValidation()
+     * IValidated: IValidated#Validate()
+     */
     public static List<string> Check(object obj)
     {
       if (obj == null) { }

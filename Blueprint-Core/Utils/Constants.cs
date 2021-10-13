@@ -9,6 +9,10 @@ namespace BlueprintCore.Utils
 {
   public static class Constants
   {
+    /**
+     * Probably an unnecessary optimization, but these constants are available whenever you need an
+     * empty but non-null object.
+     */
     public static class Empty
     {
       public static readonly ActionList Actions = new() { Actions = new GameAction[0] };

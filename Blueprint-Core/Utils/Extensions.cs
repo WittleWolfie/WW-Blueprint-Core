@@ -5,8 +5,13 @@ using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Utils
 {
-  static class ExtensionMethods
+  /** Otherwise uncategorized extension methods are contained here. */
+  public static class ExtensionMethods
   {
+    /**
+     * Remember this does not modify the array in-place. Typical usage:
+     * `array = array.AppendtoArray(otherArray)`
+     */
     public static T[] AppendToArray<T>(this T[] array, params T[] values)
     {
       if (values == null) { return array; }
