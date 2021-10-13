@@ -77,5 +77,7 @@
     <Content Include="Utils\ContextDurations.cs" />
     <Content Include="Utils\ContextDuration.cs" />
     <Content Include="Conditions\Builder\ConditionsCheckerBuilder.cs" />
+    <Content Include="Conditions\Builder\ContextEx\ConditionsCheckerBuilderContextEx.cs" />
+    <Content Include="Conditions\Builder\NewEx\ConditionsCheckerBuilderNewEx.cs" />
   </ItemGroup>
 </Project>

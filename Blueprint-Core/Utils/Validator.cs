@@ -7,6 +7,13 @@ using Kingmaker.ElementsSystem;
 
 namespace BlueprintCore.Utils
 {
+  /**
+   * For APIs already implemented in BlueprintCore, this should already be called for any relevant
+   * objects.
+   *
+   * If you're instantiating objects outside of BlueprintCore you can call Check() to get
+   * a list of a validation warnings.
+   */
   public static class Validator
   {
     private static readonly ValidationContext Context = new();

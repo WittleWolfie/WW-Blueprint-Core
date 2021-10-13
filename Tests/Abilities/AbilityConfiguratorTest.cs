@@ -7,7 +7,7 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Blueprints;
 using Kingmaker.AI.Blueprints;

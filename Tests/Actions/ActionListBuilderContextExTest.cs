@@ -5,7 +5,7 @@ using BlueprintCore.Actions.Builder.BasicEx;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
-using BlueprintCore.Conditions;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Asserts;
 using BlueprintCore.Utils;

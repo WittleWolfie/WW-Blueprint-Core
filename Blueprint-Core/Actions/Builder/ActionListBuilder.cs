@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BlueprintCore.Conditions;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
@@ -14,7 +14,7 @@ namespace BlueprintCore.Actions.Builder
    * Actions are split among the various ActionListBuilder*Ex methods. Include the extension
    * namespaces with the actions you need.
    *
-   * E.g. ActionListBuilderContextEx contains extension methods for all ContextAction types. If you
+   * E.g. ActionListBuilderContextEx contains extension methods for most ContextAction types. If you
    * are configuring an ability you probably want to include that namespace:
    * `using BlueprintCore.Actions.Builder.ContextEx`
    */

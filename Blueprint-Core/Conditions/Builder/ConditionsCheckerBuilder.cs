@@ -8,8 +8,18 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 
-namespace BlueprintCore.Conditions
+namespace BlueprintCore.Conditions.Builder
 {
+  /** 
+   * Base class for building a ConditionsChecker.
+   *
+   * Conditions are split among the various ConditionsCheckerBuilder*Ex methods. Include the
+   * extension namespaces with the actions you need.
+   *
+   * E.g. ConditionsCheckerBuilderContextEx contains extension methods for most ContextAction types.
+   * If you are configuring an ability you probably want to include that namespace:
+   * `using BlueprintCore.Conditions.Builder.ContextEx`
+   */
   public class ConditionsCheckerBuilder
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("ConditionsCheckerBuilder");
@@ -50,44 +60,6 @@ namespace BlueprintCore.Conditions
       return this;
     }
 
-    /**
-     * ContextConditionHasBuffFromCaster
-     *
-     * @param buff BlueprintBuff
-     */
-    public ConditionsCheckerBuilder HasBuffFromCaster(string buff)
-    {
-      var hasBuff = ElementTool.Create<ContextConditionHasBuffFromCaster>();
-      hasBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
-      return Add(hasBuff);
-    }
-
-    /**
-     * ContextConditionCasterHasFact
-     *
-     * @param fact BlueprintUnitFact
-     */
-    public ConditionsCheckerBuilder CasterHasFact(string fact)
-    {
-      var hasFact = ElementTool.Create<ContextConditionCasterHasFact>();
-      hasFact.m_Fact =
-          BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
-      return Add(hasFact);
-    }
-
-    /**
-     * ContextConditionHasFact
-     *
-     * @param fact BlueprintUnitFact
-     */
-    public ConditionsCheckerBuilder HasFact(string fact)
-    {
-      var hasFact = ElementTool.Create<ContextConditionHasFact>();
-      hasFact.m_Fact =
-          BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
-      return Add(hasFact);
-    }
-
     /** (New) IsDemoralizeAction */
     public ConditionsCheckerBuilder IsDemoralizeAction()
     {
@@ -100,13 +72,8 @@ namespace BlueprintCore.Conditions
       return Add(ElementTool.Create<TargetInMeleeRange>());
     }
 
-    /** ContextConditionTargetIsYourself */
-    public ConditionsCheckerBuilder TargetIsYourself()
-    {
-      return Add(ElementTool.Create<ContextConditionTargetIsYourself>());
-    }
-
-    private void Validate(object obj)
+    /** Exposed for extension classes. */
+    internal void Validate(object obj)
     {
       ValidationWarnings.AddRange(Validator.Check(obj));
     }

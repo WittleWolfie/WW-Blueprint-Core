@@ -4,7 +4,7 @@ using System.Linq;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;

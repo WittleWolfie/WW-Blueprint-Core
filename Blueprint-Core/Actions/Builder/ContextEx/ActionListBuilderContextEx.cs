@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
@@ -34,7 +34,7 @@ using Kingmaker.Visual.Animation.Actions;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
-  /** Extension to ActionListBuilder which supports all ContextAction types. */
+  /** Extension to ActionListBuilder which supports most ContextAction types. */
   public static class ActionListBuilderContextEx
   {
     /** 

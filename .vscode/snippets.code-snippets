@@ -67,5 +67,36 @@
 			"\t$0",
 			"}"
 		]
+	},
+	"ConditionsCheckerBuilderEx Method": {
+		"prefix": [
+			"condition-m"
+		],
+		"body": [
+			"/** ${3:type} */",
+			"public static ConditionsCheckerBuilder ${1:funcName}(this ConditionsCheckerBuilder builder)",
+			"{",
+			"\tvar ${2:varName} = ElementTool.Create<${3}>();",
+			"\treturn builder.Add($2);",
+			"}"
+		]
+	},
+	"ConditionsCheckerBuilder Test": {
+		"prefix": [
+			"condition-test"
+		],
+		"body": [
+			"[Fact]",
+			"public void ${1:funcName}()",
+			"{",
+			"\tvar conditions = ConditionsCheckerBuilder.New().$1().Build();",
+			"",
+			"\tAssert.Equal(Operation.And, conditions.Operation);",
+			"\tAssert.Single(conditions.Conditions);",
+			"\tvar ${2:varName} = (${3:type})conditions.Conditions[0];",
+			"\tElementAsserts.IsValid($2);",
+			"\t$0",
+			"}"
+		]
 	}
 }
