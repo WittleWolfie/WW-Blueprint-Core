@@ -64,7 +64,7 @@ namespace BlueprintCore.Tests.Actions
     [Fact]
     public void ApplyBuff_WithDurationValue()
     {
-      var duration = Context.FixedDuration(2);
+      var duration = ContextDuration.Fixed(2);
 
       var actions =
           ActionListBuilder.New()
@@ -207,7 +207,7 @@ namespace BlueprintCore.Tests.Actions
 
       var actions =
           ActionListBuilder.New()
-              .ArmorEnchantPool(EnchantPoolType.ArcanePool, Context.FixedDuration(3))
+              .ArmorEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -239,7 +239,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .ArmorEnchantPool(
                 EnchantPoolType.SacredArmorPool,
-                Context.FixedDuration(6),
+                ContextDuration.Fixed(6),
                 group: ActivatableAbilityGroup.TrueMagus,
                 plusOneEnchantment: PlusTwoArmor,
                 plusTwoEnchantment: PlusThreeArmor,
@@ -275,7 +275,7 @@ namespace BlueprintCore.Tests.Actions
 
       var actions =
           ActionListBuilder.New()
-              .ShieldArmorEnchantPool(EnchantPoolType.ArcanePool, Context.FixedDuration(3))
+              .ShieldArmorEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -307,7 +307,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .ShieldArmorEnchantPool(
                 EnchantPoolType.SacredArmorPool,
-                Context.FixedDuration(6),
+                ContextDuration.Fixed(6),
                 group: ActivatableAbilityGroup.TrueMagus,
                 plusOneEnchantment: PlusTwoArmor,
                 plusTwoEnchantment: PlusThreeArmor,
@@ -360,7 +360,7 @@ namespace BlueprintCore.Tests.Actions
 
       var actions =
           ActionListBuilder.New()
-              .WeaponEnchantPool(EnchantPoolType.ArcanePool, Context.FixedDuration(3))
+              .WeaponEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -392,7 +392,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .WeaponEnchantPool(
                 EnchantPoolType.SacredWeaponPool,
-                Context.FixedDuration(6),
+                ContextDuration.Fixed(6),
                 group: ActivatableAbilityGroup.TrueMagus,
                 plusOneEnchantment: PlusTwoWeapon,
                 plusTwoEnchantment: PlusThreeWeapon,
@@ -428,7 +428,7 @@ namespace BlueprintCore.Tests.Actions
 
       var actions =
           ActionListBuilder.New()
-              .ShieldWeaponEnchantPool(EnchantPoolType.ArcanePool, Context.FixedDuration(3))
+              .ShieldWeaponEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -460,7 +460,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .ShieldWeaponEnchantPool(
                 EnchantPoolType.SacredWeaponPool,
-                Context.FixedDuration(6),
+                ContextDuration.Fixed(6),
                 group: ActivatableAbilityGroup.TrueMagus,
                 plusOneEnchantment: PlusTwoWeapon,
                 plusTwoEnchantment: PlusThreeWeapon,
@@ -1137,7 +1137,7 @@ namespace BlueprintCore.Tests.Actions
                     DiceCountValue = 2,
                     BonusValue = 3
                   },
-                  Context.FixedDuration(2))
+                  ContextDuration.Fixed(2))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1171,7 +1171,7 @@ namespace BlueprintCore.Tests.Actions
                     DiceCountValue = 1,
                     BonusValue = 1
                   },
-                  Context.FixedDuration(2),
+                  ContextDuration.Fixed(2),
                   permanentOnFailedSave: true,
                   dealHalfIfSaved: true,
                   ignoreCrit: true,
@@ -1377,7 +1377,7 @@ namespace BlueprintCore.Tests.Actions
       var actions =
           ActionListBuilder.New()
               .EnchantWornItem(
-                  EquipmentEnchantmentGuid, EquipSlotBase.SlotType.Armor, Context.FixedDuration(2))
+                  EquipmentEnchantmentGuid, EquipSlotBase.SlotType.Armor, ContextDuration.Fixed(2))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1402,7 +1402,7 @@ namespace BlueprintCore.Tests.Actions
               .EnchantWornItem(
                   EquipmentEnchantmentGuid,
                   EquipSlotBase.SlotType.Belt,
-                  Context.FixedDuration(3),
+                  ContextDuration.Fixed(3),
                   onCaster: true,
                   removeOnUnequip: true)
               .Build();
@@ -2016,7 +2016,7 @@ namespace BlueprintCore.Tests.Actions
     {
       var actions =
           ActionListBuilder.New()
-              .ChangeBuffDuration(BuffGuid, Context.FixedDuration(7), true)
+              .ChangeBuffDuration(BuffGuid, ContextDuration.Fixed(7), true)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2034,7 +2034,7 @@ namespace BlueprintCore.Tests.Actions
     {
       var actions =
           ActionListBuilder.New()
-              .ChangeBuffDuration(BuffGuid, Context.FixedDuration(3), false, true)
+              .ChangeBuffDuration(BuffGuid, ContextDuration.Fixed(3), false, true)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2585,7 +2585,7 @@ namespace BlueprintCore.Tests.Actions
     public void SpawnAOE()
     {
       var actions =
-          ActionListBuilder.New().SpawnAOE(AbilityAOEGuid, Context.FixedDuration(2)).Build();
+          ActionListBuilder.New().SpawnAOE(AbilityAOEGuid, ContextDuration.Fixed(2)).Build();
 
       Assert.Single(actions.Actions);
       var spawnAOE = (ContextActionSpawnAreaEffect)actions.Actions[0];
@@ -2639,7 +2639,7 @@ namespace BlueprintCore.Tests.Actions
               .SpawnMonster(
                   UnitGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 7 },
-                  Context.FixedDuration(6))
+                  ContextDuration.Fixed(6))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2670,7 +2670,7 @@ namespace BlueprintCore.Tests.Actions
               .SpawnMonster(
                   UnitGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 7 },
-                  Context.FixedDuration(6),
+                  ContextDuration.Fixed(6),
                   onSpawn: ActionListBuilder.New().MeleeAttack(),
                   level: 6,
                   controllable: true,
@@ -2707,7 +2707,7 @@ namespace BlueprintCore.Tests.Actions
                   UnitGuid,
                   SummonPoolGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 2 },
-                  Context.FixedDuration(3))
+                  ContextDuration.Fixed(3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2740,7 +2740,7 @@ namespace BlueprintCore.Tests.Actions
                   UnitGuid,
                   SummonPoolGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 4 },
-                  Context.FixedDuration(6),
+                  ContextDuration.Fixed(6),
                   useSummonPoolLimit: true,
                   onSpawn: ActionListBuilder.New().MeleeAttack(),
                   level: 1,
@@ -3038,7 +3038,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .MagicWeapon(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
-                  Context.FixedDuration(3),
+                  ContextDuration.Fixed(3),
                   4)
               .Build();
 
@@ -3072,7 +3072,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .MagicWeapon(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
-                  Context.FixedDuration(4),
+                  ContextDuration.Fixed(4),
                   3,
                   greater: true,
                   useSecondaryHand: true)
@@ -3108,7 +3108,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .MagicFang(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
-                  Context.FixedDuration(3),
+                  ContextDuration.Fixed(3),
                   4)
               .Build();
 
@@ -3141,7 +3141,7 @@ namespace BlueprintCore.Tests.Actions
           ActionListBuilder.New()
               .MagicFang(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
-                  Context.FixedDuration(5),
+                  ContextDuration.Fixed(5),
                   2,
                   greater: true)
               .Build();

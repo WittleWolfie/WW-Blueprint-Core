@@ -3,10 +3,9 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace BlueprintCore.Utils
 {
-  public static class Context
+  public static class ContextDuration
   {
-    public static ContextDurationValue FixedDuration(
-        int value, DurationRate rate = DurationRate.Rounds)
+    public static ContextDurationValue Fixed(int value, DurationRate rate = DurationRate.Rounds)
     {
       var duration = new ContextDurationValue
       {
