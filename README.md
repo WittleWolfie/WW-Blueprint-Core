@@ -7,10 +7,10 @@ Fluent API library for modifying Pathfinder: Wrath of the Righteous and validati
 Not ready for use as a library yet. There are a few key things that need to be finalized before I
 publish:
 
-1. Finalize ActionListBuilder extension class distinctions (DONE)
-2. Finalize ConditionsCheckerBuilder extension class distinctions (IN PROGRESS)
-3. Add Create() to BlueprintConfigurator (NOT STARTED)
-4. Cleanup Utils APIs (NOT STARTED)
+1. Finalize ActionListBuilder extension class distinctions **DONE**
+2. Finalize ConditionsCheckerBuilder extension class distinctions **IN PROGRESS**
+3. Add Create() to BlueprintConfigurator **NOT STARTED**
+4. Cleanup Utils APIs **IN_PROGRESS**
 
 Once these are done it will be usable but incomplete. Completion is dependent on implementing all
 Actions, Conditions, and Components in the appropriate Builder or Configurator API.
