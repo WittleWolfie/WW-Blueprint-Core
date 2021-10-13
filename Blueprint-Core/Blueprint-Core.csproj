@@ -76,5 +76,6 @@
     <Content Include="Actions\Builder\MiscEx\ActionListBuilderMiscEx.cs" />
     <Content Include="Utils\ContextDurations.cs" />
     <Content Include="Utils\ContextDuration.cs" />
+    <Content Include="Conditions\Builder\ConditionsCheckerBuilder.cs" />
   </ItemGroup>
 </Project>
