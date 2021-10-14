@@ -69,12 +69,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         this ActionListBuilder builder, string location, string newLocation)
     {
       var changeEntrance = ElementTool.Create<AreaEntranceChange>();
-      changeEntrance.m_Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
+      changeEntrance.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
       changeEntrance.m_NewEntrance =
-          BlueprintTool
-              .GetRef<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>(newLocation);
+          BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(newLocation);
       return builder.Add(changeEntrance);
     }
 
@@ -105,8 +102,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var addEncounter = ElementTool.Create<AddCampingEncounter>();
       addEncounter.m_Encounter =
-          BlueprintTool
-              .GetRef<BlueprintCampingEncounter, BlueprintCampingEncounterReference>(encounter);
+          BlueprintTool.GetRef<BlueprintCampingEncounterReference>(encounter);
       return builder.Add(addEncounter);
     }
 

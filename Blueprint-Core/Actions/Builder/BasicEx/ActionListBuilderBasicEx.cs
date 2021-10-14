@@ -38,7 +38,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(duration);
 
       var attachBuff = ElementTool.Create<AttachBuff>();
-      attachBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      attachBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       attachBuff.Target = target;
       attachBuff.Duration = duration;
       return builder.Add(attachBuff);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(target);
 
       var addFact = ElementTool.Create<AddFact>();
-      addFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
+      addFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       addFact.Unit = target;
       return builder.Add(addFact);
     }
@@ -238,8 +238,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(toCollection);
 
       var addItems = ElementTool.Create<AddItemsToCollection>();
-      addItems.m_BlueprintLoot =
-          BlueprintTool.GetRef<BlueprintUnitLoot, BlueprintUnitLootReference>(loot);
+      addItems.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(loot);
       addItems.ItemsCollection = toCollection;
       addItems.Silent = silent;
       addItems.Identify = identify;
@@ -432,8 +431,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(unit);
 
       var addSummon = ElementTool.Create<AddUnitToSummonPool>();
-      addSummon.m_SummonPool =
-          BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(pool);
+      addSummon.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
       addSummon.Unit = unit;
       return builder.Add(addSummon);
     }
@@ -449,8 +447,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(unit);
 
       var addSummon = ElementTool.Create<DeleteUnitFromSummonPool>();
-      addSummon.m_SummonPool =
-          BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(pool);
+      addSummon.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
       addSummon.Unit = unit;
       return builder.Add(addSummon);
     }

@@ -19,7 +19,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsCheckerBuilder builder, string buff)
     {
       var hasBuff = ElementTool.Create<ContextConditionHasBuffFromCaster>();
-      hasBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      hasBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(hasBuff);
     }
 
@@ -32,8 +32,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsCheckerBuilder builder, string fact)
     {
       var hasFact = ElementTool.Create<ContextConditionCasterHasFact>();
-      hasFact.m_Fact =
-          BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
+      hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       return builder.Add(hasFact);
     }
 
@@ -46,8 +45,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsCheckerBuilder builder, string fact)
     {
       var hasFact = ElementTool.Create<ContextConditionHasFact>();
-      hasFact.m_Fact =
-          BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
+      hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       return builder.Add(hasFact);
     }
 

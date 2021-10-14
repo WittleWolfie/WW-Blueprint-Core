@@ -24,8 +24,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionListBuilder builder, string achievement)
     {
       var increment = ElementTool.Create<ActionAchievementIncrementCounter>();
-      increment.m_Achievement =
-          BlueprintTool.GetRef<AchievementData, AchievementDataReference>(achievement);
+      increment.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
       return builder.Add(increment);
     }
 
@@ -38,8 +37,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionListBuilder builder, string achievement)
     {
       var unlock = ElementTool.Create<ActionAchievementUnlock>();
-      unlock.m_Achievement =
-          BlueprintTool.GetRef<AchievementData, AchievementDataReference>(achievement);
+      unlock.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
       return builder.Add(unlock);
     }
 

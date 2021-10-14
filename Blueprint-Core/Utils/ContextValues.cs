@@ -40,8 +40,7 @@ namespace BlueprintCore.Utils
       {
         ValueType =
             toCaster ? ContextValueType.CasterProperty : ContextValueType.TargetProperty,
-        m_CustomProperty =
-            BlueprintTool.GetRef<BlueprintUnitProperty, BlueprintUnitPropertyReference>(property)
+        m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property)
       };
     }
   }

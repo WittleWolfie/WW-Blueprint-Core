@@ -41,44 +41,27 @@ namespace BlueprintCore.Blueprints.Components
       {
         m_Type = AbilityRankType.Default,
         m_BaseValueType = valueType,
-        m_Feature =
-            feature == null
-                ? BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null)
-                : BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature),
+        m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature),
         m_FeatureList =
-            featureList?.Select(
-                feature =>
-                    BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature))
+            featureList?
+                .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
                 .ToArray(),
         m_Stat = stat,
         m_SpecificModifier = modDescriptor,
-        m_Buff =
-            buff == null
-                ? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null)
-                : BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff),
+        m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff),
         m_ExceptClasses = excludeClasses,
         m_AdditionalArchetypes =
-            archetypes?.Select(
-                archetype =>
-                    BlueprintTool
-                        .GetRef<BlueprintArchetype, BlueprintArchetypeReference>(archetype))
+            archetypes?
+                .Select(archetype => BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype))
                 .ToArray(),
         m_Class =
-            classes?.Select(
-                clazz =>
-                    BlueprintTool
-                        .GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz))
+            classes?
+                .Select(clazz => BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz))
                 .ToArray(),
-        m_CustomProperty =
-            property == null
-                ? BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null)
-                : BlueprintTool
-                    .GetRef<BlueprintUnitProperty, BlueprintUnitPropertyReference>(property),
+        m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property),
         m_CustomPropertyList =
-            propertyList?.Select(
-                property =>
-                    BlueprintTool
-                        .GetRef<BlueprintUnitProperty, BlueprintUnitPropertyReference>(property))
+            propertyList?
+                .Select(property => BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property))
                 .ToArray(),
         m_Progression = ContextRankProgression.AsIs
       };

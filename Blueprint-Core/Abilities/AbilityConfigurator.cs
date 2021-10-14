@@ -278,8 +278,7 @@ namespace BlueprintCore.Abilities
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
       if (ignoreFact != null)
       {
-        hasAlignment.m_IgnoreFact =
-            BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(ignoreFact);
+        hasAlignment.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
       }
       return AddComponent(hasAlignment);
     }
@@ -294,11 +293,7 @@ namespace BlueprintCore.Abilities
       var hasFacts = new AbilityCasterHasFacts
       {
         m_Facts =
-            facts
-                .Select(
-                    fact =>
-                        BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact))
-                .ToArray()
+            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
       };
       return AddComponent(hasFacts);
     }
@@ -313,11 +308,7 @@ namespace BlueprintCore.Abilities
       var hasNoFacts = new AbilityCasterHasNoFacts
       {
         m_Facts =
-            facts
-                .Select(
-                    fact =>
-                        BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact))
-                .ToArray()
+            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
       };
       return AddComponent(hasNoFacts);
     }
@@ -337,14 +328,12 @@ namespace BlueprintCore.Abilities
       var hasChosenWeapon = new AbilityCasterHasChosenWeapon
       {
         m_ChosenWeaponFeature =
-            BlueprintTool
-                .GetRef<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>(
-                    parameterizedWeaponFeature)
+            BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(parameterizedWeaponFeature)
       };
       if (ignoreFact != null)
       {
         hasChosenWeapon.m_IgnoreWeaponFact =
-            BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(ignoreFact);
+            BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
       }
       return AddComponent(hasChosenWeapon);
     }
@@ -374,7 +363,7 @@ namespace BlueprintCore.Abilities
       if (ignoreFeature != null)
       {
         onFavoredTerrain.m_IgnoreFeature =
-            BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(ignoreFeature);
+            BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
       }
       return AddComponent(onFavoredTerrain);
     }
@@ -389,9 +378,7 @@ namespace BlueprintCore.Abilities
       var hasBuffs = new TargetHasBuffsFromCaster
       {
         m_CheckedBuffs =
-            buffs
-                .Select(buff => BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff))
-                .ToArray()
+            buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray()
       };
       return AddComponent(hasBuffs);
     }

@@ -45,8 +45,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder AddFeature(this ActionListBuilder builder, string feature)
     {
       var addFeature = ElementTool.Create<ContextActionAddFeature>();
-      addFeature.m_PermanentFeature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      addFeature.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return builder.Add(addFeature);
     }
 
@@ -58,8 +57,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder AddLocustClone(this ActionListBuilder builder, string feature)
     {
       var addClone = ElementTool.Create<ContextActionAddLocustClone>();
-      addClone.m_CloneFeature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      addClone.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return builder.Add(addClone);
     }
 
@@ -92,7 +90,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         throw new InvalidOperationException("Missing duration.");
       }
       var applyBuff = ElementTool.Create<ContextActionApplyBuff>();
-      applyBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      applyBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       applyBuff.UseDurationSeconds = useDurationSeconds;
       applyBuff.DurationSeconds = durationSeconds;
       applyBuff.DurationValue = duration;
@@ -114,8 +112,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
     private static BlueprintItemEnchantmentReference GetItemEnchant(string enchant)
     {
-      return BlueprintTool
-          .GetRef<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>(enchant);
+      return BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchant);
     }
 
     /**
@@ -271,8 +268,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var attack = ElementTool.Create<ContextActionAttackWithWeapon>();
       attack.m_Stat = damageStat;
-      attack.m_WeaponRef =
-          BlueprintTool.GetRef<BlueprintItemWeapon, BlueprintItemWeaponReference>(weapon);
+      attack.m_WeaponRef = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
       return builder.Add(attack);
     }
 
@@ -333,7 +329,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue overrideLevel = null)
     {
       var castSpell = ElementTool.Create<ContextActionCastSpell>();
-      castSpell.m_Spell = BlueprintTool.GetRef<BlueprintAbility, BlueprintAbilityReference>(spell);
+      castSpell.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
       castSpell.CastByTarget = castByTarget;
       if (overrideDC != null)
       {
@@ -416,8 +412,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder ClearSummonPool(this ActionListBuilder builder, string pool)
     {
       var clearSummons = ElementTool.Create<ContextActionClearSummonPool>();
-      clearSummons.m_SummonPool =
-          BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(pool);
+      clearSummons.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
       return builder.Add(clearSummons);
     }
 
@@ -808,9 +803,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool removeOnUnequip = false)
     {
       var enchant = ElementTool.Create<ContextActionEnchantWornItem>();
-      enchant.m_Enchantment =
-          BlueprintTool
-              .GetRef<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>(enchantment);
+      enchant.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchantment);
       enchant.Slot = slot;
       enchant.DurationValue = duration;
       enchant.ToCaster = onCaster;
@@ -827,9 +820,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string objective)
     {
       var finish = ElementTool.Create<ContextActionFinishObjective>();
-      finish.m_Objective =
-          BlueprintTool
-              .GetRef<BlueprintQuestObjective, BlueprintQuestObjectiveReference>(objective);
+      finish.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
       return builder.Add(finish);
     }
 
@@ -859,13 +850,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var grapple = ElementTool.Create<ContextActionGrapple>();
       if (casterBuff != null)
       {
-        grapple.m_CasterBuff =
-            BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(casterBuff);
+        grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff);
       }
       if (targetBuff != null)
       {
-        grapple.m_TargetBuff =
-            BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(targetBuff);
+        grapple.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(targetBuff);
       }
       return builder.Add(grapple);
     }
@@ -1042,10 +1031,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       onUnit.Radius = new Feet(radiusInFeet);
       onUnit.NumberOfTargets = numTargets;
       onUnit.OnEnemies = targetEnemies;
-      onUnit.m_FilterNoFact =
-          ignoreFact is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null)
-              : BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(ignoreFact);
+      onUnit.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
       return builder.Add(onUnit);
     }
 
@@ -1071,8 +1057,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder ProjectileFx(this ActionListBuilder builder, string projectile)
     {
       var projectileFx = ElementTool.Create<ContextActionProjectileFx>();
-      projectileFx.m_Projectile =
-          BlueprintTool.GetRef<BlueprintProjectile, BlueprintProjectileReference>(projectile);
+      projectileFx.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
       return builder.Add(projectileFx);
     }
 
@@ -1151,8 +1136,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string item, int charges = 1)
     {
       var recoverCharges = ElementTool.Create<ContextActionRecoverItemCharges>();
-      recoverCharges.m_Item =
-          BlueprintTool.GetRef<BlueprintItemEquipment, BlueprintItemEquipmentReference>(item);
+      recoverCharges.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(item);
       recoverCharges.ChargesRecoverCount = charges;
       return builder.Add(recoverCharges);
     }
@@ -1166,8 +1150,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool onTarget = false)
     {
       var changeDuration = ElementTool.Create<ContextActionReduceBuffDuration>();
-      changeDuration.m_TargetBuff =
-          BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      changeDuration.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       changeDuration.DurationValue = duration;
       changeDuration.Increase = increase;
       changeDuration.ToTarget = onTarget;
@@ -1183,7 +1166,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string buff, bool removeRank = false, bool toCaster = false)
     {
       var removeBuff = ElementTool.Create<ContextActionRemoveBuff>();
-      removeBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      removeBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       removeBuff.RemoveRank = removeRank;
       removeBuff.ToCaster = toCaster;
       return builder.Add(removeBuff);
@@ -1207,7 +1190,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionListBuilder RemoveBuffStack(this ActionListBuilder builder, string buff)
     {
       var removeStack = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
-      removeStack.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      removeStack.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(removeStack);
     }
 
@@ -1248,10 +1231,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var restoreSpells = ElementTool.Create<ContextActionRestoreSpells>();
       restoreSpells.m_Spellbooks =
           spellbooks
-              .Select(
-                  spellbook =>
-                      BlueprintTool
-                          .GetRef<BlueprintSpellbook, BlueprintSpellbookReference>(spellbook))
+              .Select(spellbook => BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook))
               .ToArray();
       return builder.Add(restoreSpells);
     }
@@ -1281,9 +1261,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var resurrect = ElementTool.Create<ContextActionResurrect>();
       resurrect.m_CustomResurrectionBuff =
-          resurrectBuff == null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null)
-              : BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(resurrectBuff);
+          BlueprintTool.GetRef<BlueprintBuffReference>(resurrectBuff);
       resurrect.ResultHealth = healPercent;
       resurrect.FullRestore = fullRestore;
       return builder.Add(resurrect);
@@ -1467,9 +1445,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string aoe, ContextDurationValue duration)
     {
       var spawnAOE = ElementTool.Create<ContextActionSpawnAreaEffect>();
-      spawnAOE.m_AreaEffect =
-          BlueprintTool
-              .GetRef<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>(aoe);
+      spawnAOE.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(aoe);
       spawnAOE.DurationValue = duration;
       return builder.Add(spawnAOE);
     }
@@ -1485,11 +1461,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var spawnProjectile = ElementTool.Create<ContextActionSpawnControllableProjectile>();
       spawnProjectile.ControllableProjectile =
-          BlueprintTool
-              .GetRef<BlueprintControllableProjectile, BlueprintControllableProjectileReference>(
-                  projectile);
-      spawnProjectile.AssociatedCasterBuff =
-          BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+          BlueprintTool.GetRef<BlueprintControllableProjectileReference>(projectile);
+      spawnProjectile.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(spawnProjectile);
     }
 
@@ -1571,7 +1544,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool useSummonPoolLimit = false)
     {
       var spawn = ElementTool.Create<ContextActionSpawnMonster>();
-      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnit, BlueprintUnitReference>(monster);
+      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(monster);
       spawn.CountValue = count;
       spawn.DurationValue = duration;
       spawn.AfterSpawn = onSpawn?.Build() ?? Constants.Empty.Actions;
@@ -1582,7 +1555,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       spawn.m_SummonPool =
           summonPool is null
               ? null
-              : BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(summonPool);
+              : BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       spawn.UseLimitFromSummonPool = useSummonPoolLimit;
       return builder.Add(spawn);
     }
@@ -1596,7 +1569,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string monster)
     {
       var spawn = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
-      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnit, BlueprintUnitReference>(monster);
+      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(monster);
       return builder.Add(spawn);
     }
 
@@ -1626,7 +1599,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       swallow.m_TargetBuff =
           buff is null
               ? null
-              : BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+              : BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(swallow);
     }
 
@@ -1665,9 +1638,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string resource, ContextValue amount = null)
     {
       var restore = ElementTool.Create<ContextRestoreResource>();
-      restore.m_Resource =
-          BlueprintTool
-              .GetRef<BlueprintAbilityResource, BlueprintAbilityResourceReference>(resource);
+      restore.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
 
       if (amount != null)
       {
@@ -1694,9 +1665,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string resource, ContextValue amount = null)
     {
       var spend = ElementTool.Create<ContextSpendResource>();
-      spend.m_Resource =
-          BlueprintTool
-              .GetRef<BlueprintAbilityResource, BlueprintAbilityResourceReference>(resource);
+      spend.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
 
       if (amount != null)
       {
@@ -1728,16 +1697,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var demoralize = ElementTool.Create<Demoralize>();
       demoralize.Bonus = bonus;
       demoralize.DazzlingDisplay = dazzlingDisplay;
-      demoralize.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(effect);
-      demoralize.m_GreaterBuff =
-          BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(greaterEffect);
+      demoralize.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(effect);
+      demoralize.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(greaterEffect);
       demoralize.m_SwordlordProwessFeature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(swordlordProwess);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(swordlordProwess);
       demoralize.m_ShatterConfidenceFeature =
-          BlueprintTool
-              .GetRef<BlueprintFeature, BlueprintFeatureReference>(shatterConfidenceFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(shatterConfidenceFeature);
       demoralize.m_ShatterConfidenceBuff =
-          BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(shatterConfidenceBuff);
+          BlueprintTool.GetRef<BlueprintBuffReference>(shatterConfidenceBuff);
       demoralize.TricksterRank3Actions = tricksterRank3Actions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(demoralize);
     }
@@ -1801,9 +1768,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           enhancements
               .Select(
                   enhancement =>
-                      BlueprintTool
-                          .GetRef<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>(
-                              enhancement))
+                      BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enhancement))
               .ToArray();
       enhance.DurationValue = duration;
       enhance.EnchantLevel = level;
@@ -1821,7 +1786,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionListBuilder builder, string source)
     {
       var add = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
-      add.m_Source = BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(source);
+      add.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(source);
       return builder.Add(add);
     }
 

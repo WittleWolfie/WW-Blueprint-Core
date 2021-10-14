@@ -51,8 +51,7 @@ namespace BlueprintCore.Features
 
         foreach (string feature in patch.Features)
         {
-          var featureRef =
-              BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+          var featureRef = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
           Logger.Verbose($"Adding {feature}");
           if (featureRef != null && !selection.m_AllFeatures.Contains(featureRef))
           {

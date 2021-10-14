@@ -238,10 +238,8 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass =
-          BlueprintTool.GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz);
-      prereq.m_Archetype =
-          BlueprintTool.GetRef<BlueprintArchetype, BlueprintArchetypeReference>(archetype);
+      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       prereq.Level = level;
       return AddComponent(prereq);
     }
@@ -316,8 +314,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass =
-          BlueprintTool.GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz);
+      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.Level = minLevel;
       prereq.Not = negate;
       return AddComponent(prereq);
@@ -341,8 +338,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass =
-          BlueprintTool.GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz);
+      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.RequiredSpellLevel = minSpellLevel;
       return AddUniqueComponent(prereq, behavior, merge);
     }
@@ -361,7 +357,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
-      prereq.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      prereq.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       prereq.NotPlaying = !playing;
       return AddComponent(prereq);
     }
@@ -379,7 +375,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 
@@ -399,9 +395,7 @@ namespace BlueprintCore.Blueprints
           PrereqTools.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
       prereq.m_Features =
           features
-              .Select(
-                  feature =>
-                      BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature))
+              .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
               .ToArray();
       prereq.Amount = requiredNumber;
       return AddComponent(prereq);
@@ -489,10 +483,8 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass =
-          BlueprintTool.GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz);
-      prereq.m_Archetype =
-          BlueprintTool.GetRef<BlueprintArchetype, BlueprintArchetypeReference>(archetype);
+      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       return AddComponent(prereq);
     }
 
@@ -509,8 +501,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass =
-          BlueprintTool.GetRef<BlueprintCharacterClass, BlueprintCharacterClassReference>(clazz);
+      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       return AddComponent(prereq);
     }
 
@@ -527,7 +518,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 
@@ -572,10 +563,8 @@ namespace BlueprintCore.Blueprints
       // Note: There is no distinction between SpellSpecialization and LearnSpell, despite them
       // being called out independently in the component.
       prereq.ParameterType = FeatureParameterType.LearnSpell;
-      prereq.m_Feature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(spellFeature);
-      prereq.m_Spell =
-          BlueprintTool.GetRef<BlueprintAbility, BlueprintAbilityReference>(spellAbility);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(spellFeature);
+      prereq.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spellAbility);
       return AddComponent(prereq);
     }
 
@@ -593,7 +582,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       prereq.ParameterType = FeatureParameterType.WeaponCategory;
       prereq.WeaponCategory = weapon;
       return AddComponent(prereq);
@@ -613,7 +602,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       prereq.ParameterType = FeatureParameterType.SpellSchool;
       prereq.SpellSchool = school;
       return AddComponent(prereq);
@@ -634,8 +623,7 @@ namespace BlueprintCore.Blueprints
       var prereq =
           PrereqTools.Create<PrerequisiteParametrizedWeaponSubcategory>(
                 group, checkInProgression, hideInUI);
-      prereq.m_Feature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(weaponFeature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(weaponFeature);
       prereq.SubCategory = weapon;
       return AddComponent(prereq);
     }
@@ -667,7 +655,7 @@ namespace BlueprintCore.Blueprints
     {
       var prereq =
           PrereqTools.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 

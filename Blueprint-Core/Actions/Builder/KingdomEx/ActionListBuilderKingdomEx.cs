@@ -64,10 +64,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var removeFacts = ElementTool.Create<ContextActionArmyRemoveFacts>();
       removeFacts.m_FactsToRemove =
-          facts
-              .Select(
-                  fact => BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact))
-              .ToArray();
+          facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray();
       return builder.Add(removeFacts);
     }
 
@@ -97,7 +94,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SquadFilter filter)
     {
       var buffSquad = ElementTool.Create<AddBuffToSquad>();
-      buffSquad.m_Buff = BlueprintTool.GetRef<BlueprintBuff, BlueprintBuffReference>(buff);
+      buffSquad.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       buffSquad.m_HoursDuration = durationHours;
       buffSquad.m_Filter = filter;
       return builder.Add(buffSquad);
@@ -150,9 +147,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionListBuilder GainGlobalSpell(this ActionListBuilder builder, string spell)
     {
       var gainSpell = ElementTool.Create<GainGlobalMagicSpell>();
-      gainSpell.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
+      gainSpell.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
       return builder.Add(gainSpell);
     }
 
@@ -165,9 +160,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionListBuilder builder, string spell)
     {
       var activateCooldown = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
-      activateCooldown.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
+      activateCooldown.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
       return builder.Add(activateCooldown);
     }
 
@@ -188,9 +181,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionListBuilder RemoveGlobalSpell(this ActionListBuilder builder, string spell)
     {
       var removespell = ElementTool.Create<RemoveGlobalMagicSpell>();
-      removespell.m_Spell =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>(spell);
+      removespell.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
       return builder.Add(removespell);
     }
 
@@ -270,9 +261,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool applyRecruitIncrease = false)
     {
       var createArmy = ElementTool.Create<CreateArmyFromLosses>();
-      createArmy.m_Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
+      createArmy.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
       createArmy.m_SumExperience = sumExperience;
       createArmy.m_SquadsMaxCount = maxSquads;
       createArmy.m_ApplyRecruitIncrease = applyRecruitIncrease;
@@ -349,11 +338,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var createArmy = ElementTool.Create<CreateArmy>();
       createArmy.Faction = faction;
-      createArmy.Preset =
-          BlueprintTool.GetRef<BlueprintArmyPreset, BlueprintArmyPreset.Reference>(army);
-      createArmy.Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
+      createArmy.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(army);
+      createArmy.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
       createArmy.m_MoveTarget = target;
 
       createArmy.m_DaysToDestination = daysToTarget ?? 7;
@@ -367,21 +353,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       }
       else
       {
-        createArmy.ArmyLeader =
-            BlueprintTool.GetRef<BlueprintArmyLeader, ArmyLeader.Reference>(leader);
+        createArmy.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(leader);
         createArmy.WithLeader = true;
       }
       createArmy.m_TargetLocation =
-          targetLocation == null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintGlobalMapPoint.Reference>(null)
-              : BlueprintTool
-                  .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(
-                      targetLocation);
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(targetLocation);
       createArmy.m_CompleteActions =
-          onTargetReached == null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintActionList.Reference>(null)
-              : BlueprintTool
-                  .GetRef<BlueprintActionList, BlueprintActionList.Reference>(onTargetReached);
+          BlueprintTool.GetRef<BlueprintActionList.Reference>(onTargetReached);
       return createArmy;
     }
 
@@ -400,11 +378,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool noReward = true)
     {
       var createGarrison = ElementTool.Create<CreateGarrison>();
-      createGarrison.Preset =
-          BlueprintTool.GetRef<BlueprintArmyPreset, BlueprintArmyPreset.Reference>(army);
-      createGarrison.Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
+      createGarrison.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(army);
+      createGarrison.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
       createGarrison.HasNoReward = noReward;
 
       if (leader == null)
@@ -414,8 +389,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       else
       {
         createGarrison.WithLeader = true;
-        createGarrison.ArmyLeader =
-            BlueprintTool.GetRef<BlueprintArmyLeader, ArmyLeader.Reference>(leader);
+        createGarrison.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(leader);
       }
       return builder.Add(createGarrison);
     }
@@ -451,8 +425,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionListBuilder ActivateEventDeck(this ActionListBuilder builder, string deck)
     {
       var activateDeck = ElementTool.Create<KingdomActionActivateEventDeck>();
-      activateDeck.m_Deck =
-          BlueprintTool.GetRef<BlueprintKingdomDeck, BlueprintKingdomDeckReference>(deck);
+      activateDeck.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(deck);
       return builder.Add(activateDeck);
     }
 
@@ -487,13 +460,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool applyToAdjacentRegions = false)
     {
       var addBuff = ElementTool.Create<KingdomActionAddBuff>();
-      addBuff.m_Blueprint =
-          BlueprintTool.GetRef<BlueprintKingdomBuff, BlueprintKingdomBuffReference>(buff);
+      addBuff.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(buff);
       addBuff.OverrideDuration = durationOverrideDays;
-      addBuff.m_Region =
-          targetRegion is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintRegionReference>(null)
-              : BlueprintTool.GetRef<BlueprintRegion, BlueprintRegionReference>(targetRegion);
+      addBuff.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(targetRegion);
       addBuff.ApplyToRegion = applyToRegion;
       addBuff.CopyToAdjacentRegions = applyToAdjacentRegions;
       return builder.Add(addBuff);
@@ -510,9 +479,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionListBuilder builder, string building, int count = 1, string settlement = null)
     {
       var addBuilding = ElementTool.Create<KingdomActionAddFreeBuilding>();
-      addBuilding.m_Building =
-          BlueprintTool
-              .GetRef<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>(building);
+      addBuilding.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(building);
       addBuilding.Count = count;
       if (settlement == null)
       {
@@ -521,8 +488,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       else
       {
         addBuilding.Anywhere = false;
-        addBuilding.m_Settlement =
-            BlueprintTool.GetRef<BlueprintSettlement, BlueprintSettlement.Reference>(settlement);
+        addBuilding.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
       }
       return builder.Add(addBuilding);
     }
@@ -546,12 +512,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var addBuff = ElementTool.Create<KingdomActionAddRandomBuff>();
       addBuff.m_Buffs =
-          buffs
-              .Select(
-                  buff =>
-                      BlueprintTool
-                          .GetRef<BlueprintKingdomBuff, BlueprintKingdomBuffReference>(buff))
-              .ToList();
+          buffs.Select(buff => BlueprintTool.GetRef<BlueprintKingdomBuffReference>(buff)).ToList();
       addBuff.OverrideDurationDays = durationOverrideDays;
       return builder.Add(addBuff);
     }
@@ -566,10 +527,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionListBuilder builder, string artisan, string project)
     {
       var requestHelp = ElementTool.Create<KingdomActionArtisanRequestHelp>();
-      requestHelp.m_Artisan =
-          BlueprintTool.GetRef<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>(artisan);
-      requestHelp.m_Project =
-          BlueprintTool.GetRef<BlueprintKingdomProject, BlueprintKingdomProjectReference>(project);
+      requestHelp.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
+      requestHelp.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(project);
       return builder.Add(requestHelp);
     }
 
@@ -593,7 +552,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionListBuilder ConquerRegion(this ActionListBuilder builder, string region)
     {
       var conquer = ElementTool.Create<KingdomActionConquerRegion>();
-      conquer.m_Region = BlueprintTool.GetRef<BlueprintRegion, BlueprintRegionReference>(region);
+      conquer.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
       return builder.Add(conquer);
     }
 
@@ -625,10 +584,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionListBuilder builder, string settlement, string buildList)
     {
       var fill = ElementTool.Create<KingdomActionFillSettlement>();
-      fill.m_SpecificSettlement =
-          BlueprintTool.GetRef<BlueprintSettlement, BlueprintSettlement.Reference>(settlement);
-      fill.m_BuildList =
-          BlueprintTool.GetRef<SettlementBuildList, SettlementBuildListReference>(buildList);
+      fill.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
+      fill.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(buildList);
       return builder.Add(fill);
     }
 
@@ -643,9 +600,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var fill = ElementTool.Create<KingdomActionFillSettlementByLocation>();
       fill.m_SpecificSettlementLocation =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>(location);
-      fill.m_BuildList =
-          BlueprintTool.GetRef<SettlementBuildList, SettlementBuildListReference>(buildList);
+          BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(location);
+      fill.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(buildList);
       return builder.Add(fill);
     }
 
@@ -671,11 +627,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionListBuilder builder, string location, string settlement)
     {
       var found = ElementTool.Create<KingdomActionFoundSettlement>();
-      found.m_Location =
-          BlueprintTool
-              .GetRef<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>(location);
-      found.m_Settlement =
-          BlueprintTool.GetRef<BlueprintSettlement, BlueprintSettlement.Reference>(settlement);
+      found.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
+      found.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
       return builder.Add(found);
     }
 
@@ -760,13 +713,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string summonPool = null)
     {
       var summon = ElementTool.Create<ContextActionSummonTacticalSquad>();
-      summon.m_Blueprint = BlueprintTool.GetRef<BlueprintUnit, BlueprintUnitReference>(unit);
+      summon.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
       summon.m_Count = count;
       summon.m_AfterSpawn = onSpawn?.Build() ?? Constants.Empty.Actions;
       summon.m_SummonPool =
           summonPool is null
               ? null
-              : BlueprintTool.GetRef<BlueprintSummonPool, BlueprintSummonPoolReference>(summonPool);
+              : BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       return builder.Add(summon);
     }
 

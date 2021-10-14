@@ -25,7 +25,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionListBuilder builder, string etude, BlueprintEvaluator evaluator = null)
     {
       var completeEtude = ElementTool.Create<CompleteEtude>();
-      completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       if (evaluator != null)
       {
         completeEtude.EtudeEvaluator = evaluator;
@@ -45,8 +45,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       builder.Validate(value);
 
       var changeRomance = ElementTool.Create<ChangeRomance>();
-      changeRomance.m_Romance =
-          BlueprintTool.GetRef<BlueprintRomanceCounter, BlueprintRomanceCounterReference>(romance);
+      changeRomance.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
       changeRomance.ValueEvaluator = value;
       return builder.Add(changeRomance);
     }

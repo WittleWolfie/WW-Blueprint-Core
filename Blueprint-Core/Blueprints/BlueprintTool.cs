@@ -57,12 +57,21 @@ namespace BlueprintCore.Blueprints
       }
     }
 
-    public static TRef GetRef<T, TRef>(string name)
-        where T : SimpleBlueprint
-        where TRef : BlueprintReference<T>, new()
+    public static TRef GetRef<TRef>(string name)
+        where TRef : BlueprintReferenceBase, new()
     {
-      if (name == null) { return BlueprintReferenceBase.CreateTyped<TRef>(null); }
-      return Get<T>(name).ToReference<TRef>();
+      if (string.IsNullOrEmpty(name))
+      {
+        return BlueprintReferenceBase.CreateTyped<TRef>(null);
+      }
+
+      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+
+      // Copied from BlueprintReferenceBase to allow creating a reference w/o fetching a blueprint.
+      // This allows referencing a blueprint before it is added to the cache.
+      var reference = Activator.CreateInstance<TRef>();
+      reference.deserializedGuid = new BlueprintGuid(assetId);
+      return reference;
     }
   }
 

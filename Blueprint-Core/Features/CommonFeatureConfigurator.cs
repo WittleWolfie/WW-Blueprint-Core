@@ -63,9 +63,7 @@ namespace BlueprintCore.Features
     {
       EnableIsPrerequisiteFor.AddRange(
           features
-              .Select(
-                  feature =>
-                      BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature))
+              .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
               .ToArray());
       return Self;
     }
@@ -80,8 +78,7 @@ namespace BlueprintCore.Features
       DisableIsPrerequisiteFor.AddRange(
           features
               .Select(
-                  feature =>
-                      BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature))
+                  feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
               .ToArray());
       return Self;
     }

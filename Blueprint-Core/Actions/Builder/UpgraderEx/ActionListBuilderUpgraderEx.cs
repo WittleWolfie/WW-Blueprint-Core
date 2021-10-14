@@ -33,8 +33,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     {
       var addFact = ElementTool.Create<AddFactIfEtudePlaying>();
       addFact.m_Target = target;
-      addFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
-      addFact.m_Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      addFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      addFact.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       return builder.Add(addFact);
     }
 
@@ -98,14 +98,11 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string fact,
         params string[] ignoreFacts)
     {
-      var removeFact = ElementTool.Create<
-          Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact>();
-      removeFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact);
+      var removeFact = ElementTool.Create<RemoveFact>();
+      removeFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       removeFact.m_AdditionalExceptHasFacts =
           ignoreFacts
-              .Select(
-                  ignore =>
-                      BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(ignore))
+              .Select(ignore => BlueprintTool.GetRef<BlueprintUnitFactReference>(ignore))
               .ToArray();
       removeFact.m_ExceptHasFact =
           BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
@@ -131,14 +128,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         bool equipItem = false)
     {
       var fix = ElementTool.Create<FixItemInInventory>();
-      fix.m_ToAdd =
-          addItem is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintItemReference>(null)
-              : BlueprintTool.GetRef<BlueprintItem, BlueprintItemReference>(addItem);
-      fix.m_ToRemove =
-          removeItem is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintItemReference>(null)
-              : BlueprintTool.GetRef<BlueprintItem, BlueprintItemReference>(removeItem);
+      fix.m_ToAdd = BlueprintTool.GetRef<BlueprintItemReference>(addItem);
+      fix.m_ToRemove = BlueprintTool.GetRef<BlueprintItemReference>(removeItem);
       fix.m_TryEquip = equipItem;
       return builder.Add(fix);
     }
@@ -180,24 +171,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string ignoreFeature = null)
     {
       var addFeature = ElementTool.Create<AddFeatureFromProgression>();
-      addFeature.m_Feature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
-      addFeature.m_Progression =
-          BlueprintTool.GetRef<BlueprintProgression, BlueprintProgressionReference>(progression);
+      addFeature.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      addFeature.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       addFeature.m_Level = level;
-      addFeature.m_Archetype =
-          archetype is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintArchetypeReference>(null)
-              : BlueprintTool.GetRef<BlueprintArchetype, BlueprintArchetypeReference>(archetype);
+      addFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       addFeature.m_Selection =
-          selection is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintFeatureSelectionReference>(null)
-              : BlueprintTool
-                  .GetRef<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>(selection);
+          BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(selection);
       addFeature.m_ExceptHasFeature =
-          ignoreFeature is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null)
-              : BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(ignoreFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
       return builder.Add(addFeature);
     }
 
@@ -210,7 +191,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         this ActionListBuilder builder, string etude, bool redoAfterTrigger = false)
     {
       var reCheck = ElementTool.Create<RecheckEtude>();
-      reCheck.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      reCheck.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       reCheck.m_RedoOnceTriggers = redoAfterTrigger;
       return builder.Add(reCheck);
     }
@@ -241,19 +222,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string ignoreFeature = null)
     {
       var removeFeature = ElementTool.Create<RemoveFeatureFromProgression>();
-      removeFeature.m_Feature =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(feature);
+      removeFeature.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       removeFeature.m_Progression =
-          BlueprintTool.GetRef<BlueprintProgression, BlueprintProgressionReference>(progression);
+          BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       removeFeature.m_Level = level;
-      removeFeature.m_Archetype =
-          archetype is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintArchetypeReference>(null)
-              : BlueprintTool.GetRef<BlueprintArchetype, BlueprintArchetypeReference>(archetype);
+      removeFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       removeFeature.m_ExceptHasFeature =
-          ignoreFeature is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null)
-              : BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(ignoreFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
       return builder.Add(removeFeature);
     }
 
@@ -273,16 +248,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string ignoreFeature = null)
     {
       var replaceFeature = ElementTool.Create<ReplaceFeature>();
-      replaceFeature.m_ToReplace =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(oldFeature);
-      replaceFeature.m_Replacement =
-          BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(newFeature);
+      replaceFeature.m_ToReplace = BlueprintTool.GetRef<BlueprintFeatureReference>(oldFeature);
+      replaceFeature.m_Replacement = BlueprintTool.GetRef<BlueprintFeatureReference>(newFeature);
       replaceFeature.m_FromProgression =
-          BlueprintTool.GetRef<BlueprintProgression, BlueprintProgressionReference>(progression);
+          BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       replaceFeature.m_ExceptHasFeature =
-          ignoreFeature is null
-              ? BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null)
-              : BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(ignoreFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
       return builder.Add(replaceFeature);
     }
 
@@ -304,9 +275,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
 
       var setVendorTable = new SetSharedVendorTable(unit);
       ElementTool.Init(setVendorTable);
-      setVendorTable.m_Table =
-          BlueprintTool
-              .GetRef<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>(table);
+      setVendorTable.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(table);
       setVendorTable.m_Unit = unit;
       return builder.Add(setVendorTable);
     }
@@ -319,7 +288,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionListBuilder ForceStartEtude(this ActionListBuilder builder, string etude)
     {
       var startEtude = ElementTool.Create<StartEtudeForced>();
-      startEtude.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      startEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       return builder.Add(startEtude);
     }
 
@@ -331,7 +300,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionListBuilder UnStartEtude(this ActionListBuilder builder, string etude)
     {
       var unStartEtude = ElementTool.Create<UnStartEtude>();
-      unStartEtude.Etude = BlueprintTool.GetRef<BlueprintEtude, BlueprintEtudeReference>(etude);
+      unStartEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       return builder.Add(unStartEtude);
     }
   }

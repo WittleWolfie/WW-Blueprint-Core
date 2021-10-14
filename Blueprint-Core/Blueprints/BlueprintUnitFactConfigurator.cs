@@ -32,10 +32,7 @@ namespace BlueprintCore.Blueprints
       var addFacts = new AddFacts
       {
         m_Facts =
-          facts
-              .Select(
-                  fact => BlueprintTool.GetRef<BlueprintUnitFact, BlueprintUnitFactReference>(fact))
-              .ToArray(),
+            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray(),
         CasterLevel = casterLevel,
         HasDifficultyRequirements = hasDifficultyRequirements,
         InvertDifficultyRequirements = invertDifficultyRequirements,
