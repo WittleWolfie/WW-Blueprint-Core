@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Utils
 {
@@ -20,15 +17,6 @@ namespace BlueprintCore.Utils
       Array.Copy(array, result, len);
       Array.Copy(values, 0, result, len, values.Length);
       return result;
-    }
-
-    public static void AddIsPrerequisiteFor(this BlueprintFeature feature, BlueprintFeature other)
-    {
-      if (feature.IsPrerequisiteFor == null)
-      {
-        feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>();
-      }
-      feature.IsPrerequisiteFor.Add(other.ToReference<BlueprintFeatureReference>());
     }
   }
 }
