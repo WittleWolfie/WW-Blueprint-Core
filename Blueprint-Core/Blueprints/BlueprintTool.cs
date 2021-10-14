@@ -5,23 +5,56 @@ using Kingmaker.Blueprints;
 
 namespace BlueprintCore.Blueprints
 {
+  /** Utility for operating on Blueprint types. */
   public static class BlueprintTool
   {
-    private static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintTool");
+    public static T Create<T>(string name) where T : SimpleBlueprint, new()
+    {
+      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+
+      return Create<T>(name, assetId);
+    }
+
+    public static T Create<T>(string name, string assetId) where T : SimpleBlueprint, new()
+    {
+      return Create<T>(name, Guid.Parse(assetId));
+    }
+
+    private static T Create<T>(string name, Guid assetId) where T : SimpleBlueprint, new()
+    {
+      var guid = new BlueprintGuid(assetId);
+      var existingAsset = ResourcesLibrary.TryGetBlueprint(guid);
+      if (existingAsset != null)
+      {
+        throw new InvalidOperationException(
+            $"Blueprint creation failed: {name} - {assetId}.\n"
+            + $"Already in use by: {existingAsset.name}.");
+      }
+
+      T asset = new()
+      {
+        name = name,
+        AssetGuid = new BlueprintGuid(assetId)
+      };
+      ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(guid, asset);
+      return asset;
+    }
 
     public static T Get<T>(string name) where T : SimpleBlueprint
     {
       if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
-      T result = asset as T;
-      if (result == null)
+      if (asset is T result)
       {
-        Logger.Error(
+        return result;
+      }
+      else
+      {
+        throw new InvalidOperationException(
             $"Failed to fetch blueprint: {name} - {assetId}.\n"
             + $"Is the type correct? {typeof(T)}");
       }
-      return result;
     }
 
     public static TRef GetRef<T, TRef>(string name)
@@ -33,6 +66,7 @@ namespace BlueprintCore.Blueprints
     }
   }
 
+  /** Useful extension methods for Blueprints. */
   public static class BlueprintExtensions
   {
     public static BlueprintComponent GetComponentMatchingType(

@@ -90,6 +90,7 @@ namespace BlueprintCore.Blueprints
       ConfigureInternal();
 
       AddComponents();
+      Blueprint.OnEnable();
 
       Logger.Verbose($"Validating configuration for {Name}.");
       ValidateBase();
