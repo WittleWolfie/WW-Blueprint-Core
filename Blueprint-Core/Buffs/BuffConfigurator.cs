@@ -15,9 +15,34 @@ namespace BlueprintCore.Buffs
 
     private BuffConfigurator(string name) : base(name) { }
 
+    /**
+     * Creates a BuffConfigurator for the specified blueprint.
+     *
+     * Use this function if the blueprint already exists. If you're using Owlcat's
+     * WrathModificationTemplate all of your JSON blueprints already exist.
+     */
     public static BuffConfigurator For(string name)
     {
       return new BuffConfigurator(name);
+    }
+
+    /**
+     * Creates a BlueprintBuff and returns its BuffConfigurator.
+     * 
+     * Use this function to create a Blueprint if you provided a mapping to Guids with an associated
+     * guid for the given name.
+     */
+    public static BuffConfigurator New(string name)
+    {
+      BlueprintTool.Create<BlueprintBuff>(name);
+      return For(name);
+    }
+
+    /** Creates a BlueprintBuff and returns its BuffConfigurator. */
+    public static BuffConfigurator New(string name, string assetId)
+    {
+      BlueprintTool.Create<BlueprintBuff>(name, assetId);
+      return For(name);
     }
 
     /** AddEffectFastHealing */

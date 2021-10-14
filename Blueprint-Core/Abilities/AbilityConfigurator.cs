@@ -8,10 +8,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -22,7 +19,6 @@ using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
@@ -40,11 +36,35 @@ namespace BlueprintCore.Abilities
 
     private AbilityConfigurator(string name) : base(name) { }
 
+    /**
+     * Creates an AbilityConfigurator for the specified blueprint.
+     *
+     * Use this function if the blueprint already exists. If you're using Owlcat's
+     * WrathModificationTemplate all of your JSON blueprints already exist.
+     */
     public static AbilityConfigurator For(string name)
     {
       return new AbilityConfigurator(name);
     }
 
+    /**
+     * Creates a BlueprintAbility and returns its AbilityConfigurator.
+     * 
+     * Use this function to create a Blueprint if you provided a mapping to Guids with an associated
+     * guid for the given name.
+     */
+    public static AbilityConfigurator New(string name)
+    {
+      BlueprintTool.Create<BlueprintAbility>(name);
+      return For(name);
+    }
+
+    /** Creates a BlueprintAbility and returns its AbilityConfigurator. */
+    public static AbilityConfigurator New(string name, string assetId)
+    {
+      BlueprintTool.Create<BlueprintAbility>(name, assetId);
+      return For(name);
+    }
 
     /**
      * (Field) m_DefaultAiAction
