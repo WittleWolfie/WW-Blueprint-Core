@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -14,7 +12,6 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics.Components;
 
@@ -53,6 +50,8 @@ namespace BlueprintCore.Blueprints
     private readonly List<BlueprintComponent> Components = new();
     private readonly HashSet<UniqueComponent> UniqueComponents = new();
     private readonly List<BlueprintComponent> ComponentsToRemove = new();
+    private readonly List<Action<T>> InternalOnConfigure = new();
+    private readonly List<Action<T>> ExternalOnConfigure = new();
     private readonly ValidationContext Context = new();
 
     private bool Configured = false;
@@ -67,7 +66,6 @@ namespace BlueprintCore.Blueprints
     protected readonly TBuilder Self = null;
     protected readonly string Name;
     protected readonly T Blueprint;
-    protected readonly List<Action<T>> OnConfigure = new();
 
     protected BlueprintConfigurator(string name)
     {
@@ -90,6 +88,7 @@ namespace BlueprintCore.Blueprints
       ConfigureInternal();
 
       AddComponents();
+      OnConfigure();
       Blueprint.OnEnable();
 
       Logger.Verbose($"Validating configuration for {Name}.");
@@ -109,6 +108,27 @@ namespace BlueprintCore.Blueprints
     public TBuilder AddComponent(BlueprintComponent component)
     {
       Components.Add(component);
+      return Self;
+    }
+
+    /**
+     * Executes the provided action when Configure() is called. This runs as the last step of
+     * configuration, after all other configurations are applied.
+     */
+    public TBuilder OnConfigure(Action<T> action)
+    {
+      ExternalOnConfigure.Add(action);
+      return Self;
+    }
+
+    /**
+     * Protected function for running actions when Configure() is called. Executes after all
+     * configuration is applied except for changes set using OnConfigure(). All built-in functions
+     * should use this to ensure the blueprint is fully configured before user actions are run.
+     */
+    protected TBuilder OnConfigureInternal(Action<T> action)
+    {
+      InternalOnConfigure.Add(action);
       return Self;
     }
 
@@ -698,7 +718,6 @@ namespace BlueprintCore.Blueprints
 
     private void ConfigureBase()
     {
-      OnConfigure.ForEach(action => action.Invoke(Blueprint));
       ConfigurePrerequisiteAlignment();
       ConfigureSpellDescriptors();
     }
@@ -708,6 +727,12 @@ namespace BlueprintCore.Blueprints
      * called, so any configuration that would add a Component should just add to Components.
      */
     protected abstract void ConfigureInternal();
+
+    private void OnConfigure()
+    {
+      InternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
+      ExternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
+    }
 
     private void AddComponents()
     {

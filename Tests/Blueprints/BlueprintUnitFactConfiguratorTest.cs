@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Localization;
 using Kingmaker.Settings;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -18,6 +19,50 @@ namespace BlueprintCore.Tests.Blueprints
       where TBuilder : BlueprintUnitFactConfigurator<T, TBuilder>
   {
     protected BlueprintUnitFactConfiguratorTest() : base() { }
+
+    [Fact]
+    public void SetDisplayName()
+    {
+      GetConfigurator(Guid)
+          .SetDisplayName(new LocalizedString { m_Key = "name_key" })
+          .Configure();
+
+      var blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal("name_key", blueprint.m_DisplayName.m_Key);
+    }
+
+    [Fact]
+    public void SetDescription()
+    {
+      GetConfigurator(Guid)
+          .SetDescription(new LocalizedString { m_Key = "description_key" })
+          .Configure();
+
+      var blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal("description_key", blueprint.m_Description.m_Key);
+    }
+
+    [Fact]
+    public void SetDescriptionShort()
+    {
+      GetConfigurator(Guid)
+          .SetDescriptionShort(new LocalizedString { m_Key = "short_key" })
+          .Configure();
+
+      var blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal("short_key", blueprint.m_DescriptionShort.m_Key);
+    }
+
+    [Fact]
+    public void SetIcon()
+    {
+      GetConfigurator(Guid)
+          .SetIcon(Sprite)
+          .Configure();
+
+      var blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(Sprite, blueprint.m_Icon);
+    }
 
     [Fact]
     public void AddFacts()

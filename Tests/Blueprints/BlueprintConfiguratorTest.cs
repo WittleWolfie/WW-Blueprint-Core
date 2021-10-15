@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Serialization;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
@@ -21,6 +22,7 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using UnityEngine;
 using Xunit;
 
 namespace BlueprintCore.Tests.Blueprints
@@ -109,6 +111,10 @@ namespace BlueprintCore.Tests.Blueprints
     protected static readonly string ExtraFactGuid = "06d8783f-3b21-4b79-b2d0-061d13f30768";
     protected readonly BlueprintUnitFact ExtraFact =
         CreateBlueprint<BlueprintUnitFact>(ExtraFactGuid);
+
+    //----- Common Objects -----// 
+    protected readonly Sprite Sprite =
+        (Sprite)FormatterServices.GetUninitializedObject(typeof(Sprite));
 
     protected BlueprintConfiguratorTest() { }
 

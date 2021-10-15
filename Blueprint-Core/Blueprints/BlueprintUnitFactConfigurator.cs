@@ -3,9 +3,11 @@ using BlueprintCore.Actions.Builder;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Localization;
 using Kingmaker.Settings;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints
 {
@@ -16,6 +18,34 @@ namespace BlueprintCore.Blueprints
   {
 
     protected BlueprintUnitFactConfigurator(string name) : base(name) { }
+
+    /** (Field) m_DisplayName */
+    public TBuilder SetDisplayName(LocalizedString name)
+    {
+      OnConfigureInternal(blueprint => blueprint.m_DisplayName = name);
+      return Self;
+    }
+
+    /** (Field) m_Description */
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      OnConfigureInternal(blueprint => blueprint.m_Description = description);
+      return Self;
+    }
+
+    /** (Field) m_DescriptionShort */
+    public TBuilder SetDescriptionShort(LocalizedString description)
+    {
+      OnConfigureInternal(blueprint => blueprint.m_DescriptionShort = description);
+      return Self;
+    }
+
+    /** (Field) m_Icon */
+    public TBuilder SetIcon(Sprite icon)
+    {
+      OnConfigureInternal(blueprint => blueprint.m_Icon = icon);
+      return Self;
+    }
 
     /**
      * AddFacts

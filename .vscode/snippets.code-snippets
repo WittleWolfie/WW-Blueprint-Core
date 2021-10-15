@@ -35,7 +35,7 @@
 			"OnC"
 		],
 		"body": [
-			"OnConfigure.Add(blueprint => $0);"
+			"OnConfigureInternal(blueprint => $0)"
 		]
 	},
 	"Configurator Method": {
@@ -48,6 +48,19 @@
 			"{",
 			"\t$0;",
 			"\treturn this;",
+			"}"
+		]
+	},
+	"Abstract Configurator Method": {
+		"prefix": [
+			"config-m-a"
+		],
+		"body": [
+			"/** ${1:effect} */",
+			"public TBuilder ${2:name}()",
+			"{",
+			"\t$0;",
+			"\treturn Self;",
 			"}"
 		]
 	},
@@ -64,6 +77,23 @@
 			"\t\t\t.Configure();",
 			"",
 			"\tvar ${2:var} = BlueprintTool.Get<${3:btype}>(Guid);",
+			"\t$0",
+			"}"
+		]
+	},
+	"Abstract Configurator Test": {
+		"prefix": [
+			"config-test-a"
+		],
+		"body": [
+			"[Fact]",
+			"public void ${1:name}()",
+			"{",
+			"\tGetConfigurator(Guid)",
+			"\t\t\t.${1}()",
+			"\t\t\t.Configure();",
+			"",
+			"\tvar blueprint = BlueprintTool.Get<T>(Guid);",
 			"\t$0",
 			"}"
 		]

@@ -73,7 +73,7 @@ namespace BlueprintCore.Abilities
      */
     public AbilityConfigurator SetAiAction(string aiAction)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             var aiBlueprint = BlueprintTool.Get<BlueprintAiCastSpell>(aiAction);
@@ -86,7 +86,7 @@ namespace BlueprintCore.Abilities
     /** (Field) Type */
     public AbilityConfigurator SetType(AbilityType type)
     {
-      OnConfigure.Add(blueprint => blueprint.Type = type);
+      OnConfigureInternal(blueprint => blueprint.Type = type);
       return this;
     }
 
@@ -101,14 +101,14 @@ namespace BlueprintCore.Abilities
       {
         throw new InvalidOperationException("Use SetCustomRange() for AbilityRange.Custom.");
       }
-      OnConfigure.Add(blueprint => blueprint.Range = range);
+      OnConfigureInternal(blueprint => blueprint.Range = range);
       return this;
     }
 
     /** (Fields) Range, CustomRange */
     public AbilityConfigurator SetCustomRange(int rangeInFeet)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             blueprint.Range = AbilityRange.Custom;
@@ -120,7 +120,7 @@ namespace BlueprintCore.Abilities
     /** (Fields) ShowNameForVariant, OnlyForAllyCaster */
     public AbilityConfigurator ShowNameForVariant(bool showName = true, bool onlyForAlly = false)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             blueprint.ShowNameForVariant = showName;
@@ -133,7 +133,7 @@ namespace BlueprintCore.Abilities
     public AbilityConfigurator AllowTargeting(
         bool? point = null, bool? enemies = null, bool? friends = null, bool? self = null)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             blueprint.CanTargetPoint = point ?? blueprint.CanTargetPoint;
@@ -147,35 +147,35 @@ namespace BlueprintCore.Abilities
     /** (Field) SpellResistance) */
     public AbilityConfigurator ApplySpellResistance(bool applySR = true)
     {
-      OnConfigure.Add(blueprint => blueprint.SpellResistance = applySR);
+      OnConfigureInternal(blueprint => blueprint.SpellResistance = applySR);
       return this;
     }
 
     /** (Field) ActionBarAutoFillIgnored */
     public AbilityConfigurator AutoFillActionBar(bool autoFill = true)
     {
-      OnConfigure.Add(blueprint => blueprint.ActionBarAutoFillIgnored = !autoFill);
+      OnConfigureInternal(blueprint => blueprint.ActionBarAutoFillIgnored = !autoFill);
       return this;
     }
 
     /** (Field) Hidden */
     public AbilityConfigurator HideInUi(bool hide = true)
     {
-      OnConfigure.Add(blueprint => blueprint.Hidden = hide);
+      OnConfigureInternal(blueprint => blueprint.Hidden = hide);
       return this;
     }
 
     /** (Field) NeedEquipWeapons */
     public AbilityConfigurator RequireWeapon(bool requireWeapon = true)
     {
-      OnConfigure.Add(blueprint => blueprint.NeedEquipWeapons = requireWeapon);
+      OnConfigureInternal(blueprint => blueprint.NeedEquipWeapons = requireWeapon);
       return this;
     }
 
     /** (Field) NotOffensive */
     public AbilityConfigurator IsOffensive(bool offensive = true)
     {
-      OnConfigure.Add(blueprint => blueprint.NotOffensive = !offensive);
+      OnConfigureInternal(blueprint => blueprint.NotOffensive = !offensive);
       return this;
     }
 
@@ -183,7 +183,7 @@ namespace BlueprintCore.Abilities
     public AbilityConfigurator SetEffectOn(
         AbilityEffectOnUnit? onAlly = null, AbilityEffectOnUnit? onEnemy = null)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             blueprint.EffectOnAlly = onAlly ?? blueprint.EffectOnAlly;
@@ -199,7 +199,7 @@ namespace BlueprintCore.Abilities
      */
     public AbilityConfigurator SetParent(string name)
     {
-      OnConfigure.Add(blueprint => SetParent(BlueprintTool.Get<BlueprintAbility>(name)));
+      OnConfigureInternal(blueprint => SetParent(BlueprintTool.Get<BlueprintAbility>(name)));
       return this;
     }
 
@@ -210,7 +210,7 @@ namespace BlueprintCore.Abilities
      */
     public AbilityConfigurator ClearParent()
     {
-      OnConfigure.Add(blueprint => RemoveParent());
+      OnConfigureInternal(blueprint => RemoveParent());
       return this;
     }
 
@@ -218,7 +218,7 @@ namespace BlueprintCore.Abilities
     public AbilityConfigurator SetAnimationStyle(
         UnitAnimationActionCastSpell.CastAnimationStyle style)
     {
-      OnConfigure.Add(blueprint => blueprint.Animation = style);
+      OnConfigureInternal(blueprint => blueprint.Animation = style);
       return this;
     }
 
@@ -226,7 +226,7 @@ namespace BlueprintCore.Abilities
     public AbilityConfigurator SetActionType(
         UnitCommand.CommandType type, bool? hasFastAnimation = null)
     {
-      OnConfigure.Add(
+      OnConfigureInternal(
           blueprint =>
           {
             blueprint.ActionType = type;
@@ -258,21 +258,21 @@ namespace BlueprintCore.Abilities
     /** (Field) m_IsFullRoundAction */
     public AbilityConfigurator MakeFullRound(bool fullRound = true)
     {
-      OnConfigure.Add(blueprint => blueprint.m_IsFullRoundAction = fullRound);
+      OnConfigureInternal(blueprint => blueprint.m_IsFullRoundAction = fullRound);
       return this;
     }
 
     /** (Field) LocalizedDuration */
     public AbilityConfigurator SetDurationText(LocalizedString duration)
     {
-      OnConfigure.Add(blueprint => blueprint.LocalizedDuration = duration);
+      OnConfigureInternal(blueprint => blueprint.LocalizedDuration = duration);
       return this;
     }
 
     /** (Field) LocalizedSavingThrow */
     public AbilityConfigurator SetSavingThrowText(LocalizedString savingThrow)
     {
-      OnConfigure.Add(blueprint => blueprint.LocalizedSavingThrow = savingThrow);
+      OnConfigureInternal(blueprint => blueprint.LocalizedSavingThrow = savingThrow);
       return this;
     }
 
@@ -280,14 +280,14 @@ namespace BlueprintCore.Abilities
     public AbilityConfigurator SetMaterialComponent(
         BlueprintAbility.MaterialComponentData component)
     {
-      OnConfigure.Add(blueprint => blueprint.MaterialComponent = component);
+      OnConfigureInternal(blueprint => blueprint.MaterialComponent = component);
       return this;
     }
 
     /** (Field) DisableLog */
     public AbilityConfigurator HideFromLog(bool hide = true)
     {
-      OnConfigure.Add(blueprint => blueprint.DisableLog = hide);
+      OnConfigureInternal(blueprint => blueprint.DisableLog = hide);
       return this;
     }
 
@@ -515,8 +515,7 @@ namespace BlueprintCore.Abilities
     /** CantripComponent */
     public AbilityConfigurator MakeNotCantrip()
     {
-      OnConfigure.Add(blueprint => RemoveComponents(c => c is CantripComponent));
-      return this;
+      return RemoveComponents(c => c is CantripComponent);
     }
 
     /**
