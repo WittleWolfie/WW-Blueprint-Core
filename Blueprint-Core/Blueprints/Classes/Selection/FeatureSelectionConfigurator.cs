@@ -1,9 +1,8 @@
-using BlueprintCore.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 
-namespace BlueprintCore.Features
+namespace BlueprintCore.Blueprints.Classes.Selection
 {
   public class FeatureSelectionConfigurator
       : CommonFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>

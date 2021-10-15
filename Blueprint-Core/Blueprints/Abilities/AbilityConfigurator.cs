@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
@@ -23,7 +23,7 @@ using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 
-namespace BlueprintCore.Abilities
+namespace BlueprintCore.Blueprints.Abilities
 {
   public class AbilityConfigurator
       : BlueprintUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>

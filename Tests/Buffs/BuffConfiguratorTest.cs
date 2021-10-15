@@ -1,5 +1,5 @@
 using BlueprintCore.Blueprints;
-using BlueprintCore.Buffs;
+using BlueprintCore.Blueprints.Buffs;
 using BlueprintCore.Tests.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;

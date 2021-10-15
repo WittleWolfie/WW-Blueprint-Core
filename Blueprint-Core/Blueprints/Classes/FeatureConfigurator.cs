@@ -1,7 +1,6 @@
-using BlueprintCore.Blueprints;
 using Kingmaker.Blueprints.Classes;
 
-namespace BlueprintCore.Features
+namespace BlueprintCore.Blueprints.Classes
 {
   /**
    * Concrete class for configuring BlueprintFeatures. Implementation is inside of

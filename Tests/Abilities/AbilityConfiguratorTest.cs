@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using BlueprintCore.Abilities;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.Abilities;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Blueprints;

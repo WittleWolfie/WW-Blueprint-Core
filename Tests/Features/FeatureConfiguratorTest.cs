@@ -1,4 +1,4 @@
-using BlueprintCore.Features;
+using BlueprintCore.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Tests.Features

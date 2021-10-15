@@ -34,7 +34,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Abilities\Restrictions\New\TargetHasBuffsFromCaster.cs" />
-    <Content Include="Abilities\AbilityConfigurator.cs" />
     <Content Include="Actions\Builder\AreaEx\ActionListBuilderAreaEx.cs" />
     <Content Include="Actions\Builder\AVEx\ActionListBuilderAVEx.cs" />
     <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicEx.cs" />
@@ -48,20 +47,21 @@
     <Content Include="Actions\Builder\ActionListBuilder.cs" />
     <Content Include="Actions\New\SwitchToDemoralizeTarget.cs" />
     <Content Include="Actions\Patches\DemoralizePatch.cs" />
+    <Content Include="Blueprints\Abilities\AbilityConfigurator.cs" />
+    <Content Include="Blueprints\Buffs\BuffConfigurator.cs" />
+    <Content Include="Blueprints\Classes\Selection\FeatureSelectionConfigurator.cs" />
+    <Content Include="Blueprints\Classes\CommonFeatureConfigurator.cs" />
+    <Content Include="Blueprints\Classes\FeatureConfigurator.cs" />
     <Content Include="Blueprints\Components\ContextRankConfigEx.cs" />
+    <Content Include="Blueprints\Facts\BlueprintUnitFactConfigurator.cs" />
     <Content Include="Blueprints\BlueprintConfigurator.cs" />
     <Content Include="Blueprints\BlueprintTool.cs" />
-    <Content Include="Blueprints\BlueprintUnitFactConfigurator.cs" />
-    <Content Include="Buffs\BuffConfigurator.cs" />
     <Content Include="Conditions\Builder\ConditionsCheckerBuilder.cs" />
     <Content Include="Conditions\Builder\ContextEx\ConditionsCheckerBuilderContextEx.cs" />
     <Content Include="Conditions\Builder\NewEx\ConditionsCheckerBuilderNewEx.cs" />
     <Content Include="Conditions\New\IsDemoralizeAction.cs" />
     <Content Include="Conditions\New\TargetInMeleeRange.cs" />
     <Content Include="Conditions\ConditionsCheckerBuilder.cs" />
-    <Content Include="Features\CommonFeatureConfigurator.cs" />
-    <Content Include="Features\FeatureConfigurator.cs" />
-    <Content Include="Features\FeatureSelectionConfigurator.cs" />
     <Content Include="Fixes\RuleTempModifierTooltips.cs" />
     <Content Include="Utils\Constants.cs" />
     <Content Include="Utils\ContextDuration.cs" />

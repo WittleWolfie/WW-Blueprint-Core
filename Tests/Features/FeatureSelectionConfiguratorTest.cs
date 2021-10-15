@@ -1,5 +1,5 @@
-using BlueprintCore.Features;
 using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;

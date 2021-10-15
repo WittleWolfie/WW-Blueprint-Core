@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using UnityEngine;
 
-namespace BlueprintCore.Blueprints
+namespace BlueprintCore.Blueprints.Facts
 {
   public abstract class BlueprintUnitFactConfigurator<T, TBuilder>
       : BlueprintConfigurator<T, TBuilder>

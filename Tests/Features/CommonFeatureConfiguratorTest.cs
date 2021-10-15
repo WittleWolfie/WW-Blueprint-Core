@@ -1,5 +1,5 @@
 using BlueprintCore.Blueprints;
-using BlueprintCore.Features;
+using BlueprintCore.Blueprints.Classes;
 using BlueprintCore.Tests.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;

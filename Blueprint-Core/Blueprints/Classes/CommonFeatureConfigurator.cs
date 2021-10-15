@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 
-namespace BlueprintCore.Features
+namespace BlueprintCore.Blueprints.Classes
 {
   /**
    * Common class to support FeatureConfigurator and FeatureSelectionConfigurator. This is necessary
