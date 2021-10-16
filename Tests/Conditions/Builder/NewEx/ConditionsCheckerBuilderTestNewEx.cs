@@ -1,12 +1,12 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Xunit;
 
-namespace BlueprintCore.Tests.Conditions.Builder.NewEx
+namespace BlueprintCore.Test.Conditions.Builder.NewEx
 {
-  public class ConditionsCheckerBuilderNewExTest : ConditionsCheckerBuilderTestBase
+  public class ConditionsCheckerBuilderNewExTest : TestBase
   {
     [Fact]
     public void IsDemoralizeAction()

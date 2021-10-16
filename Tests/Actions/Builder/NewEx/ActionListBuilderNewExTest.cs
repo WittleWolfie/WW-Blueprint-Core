@@ -1,12 +1,12 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions.Builder.NewEx
+namespace BlueprintCore.Test.Actions.Builder.NewEx
 {
-  public class ActionListBuilderNewExTest : ActionListBuilderTestBase
+  public class ActionListBuilderNewExTest : TestBase
   {
     [Fact]
     public void SwitchToDemoralizeTarget()

@@ -3,11 +3,11 @@ using System.Reflection;
 using HarmonyLib;
 using Xunit;
 
-namespace BlueprintCore.Tests
+namespace BlueprintCore.Test
 {
   public class HarmonyFixture : IDisposable
   {
-    private const string Id = "WW_BlueprintCore.Tests";
+    private const string Id = "WW_BlueprintCore.Test";
     private readonly Harmony harmony;
 
     public HarmonyFixture()

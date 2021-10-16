@@ -1,19 +1,14 @@
-using System;
-using System.Runtime.Serialization;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
-using BlueprintCore.Tests.Asserts;
-using Kingmaker.AI.Blueprints;
-using Kingmaker.AreaLogic.Etudes;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -22,107 +17,20 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using UnityEngine;
+using System;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Blueprints
+namespace BlueprintCore.Test.Blueprints
 {
   [Collection("Harmony")]
-  public abstract class BlueprintConfiguratorTest<T, TBuilder> : IDisposable
+  public abstract class BlueprintConfiguratorTest<T, TBuilder> : TestBase
       where T : BlueprintScriptableObject
       where TBuilder : BlueprintConfigurator<T, TBuilder>
   {
     // Serves as the guid for the primary test blueprint. Concrete child classes must instantiate
     // create and register a blueprint using this guid;
     protected static readonly string Guid = "137f7548-e57f-4e4a-8d76-7f2d174c6d5d";
-
-    //----- BlueprintAbility -----//
-    protected static readonly string AbilityGuid = "0897de3e-4097-4cfa-bcfc-755119e36bf7";
-    protected readonly BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
-
-    protected static readonly string ExtraAbilityGuid = "9292a096-a5ad-446e-a199-d62014a73391";
-    protected readonly BlueprintAbility ExtraAbility =
-        BlueprintPatch.Create<BlueprintAbility>(ExtraAbilityGuid);
-
-    protected static readonly string AnotherAbilityGuid = "f3fba7a2-a64e-44a4-a6de-9333c3409807";
-    protected readonly BlueprintAbility AnotherAbility =
-        BlueprintPatch.Create<BlueprintAbility>(AnotherAbilityGuid);
-
-    //----- BlueprintAiCastSpell -----//
-    protected static readonly string AiCastSpellGuid = "ffbe7e22-1b9d-4ced-80d4-22d96887a62d";
-    protected readonly BlueprintAiCastSpell AiCastSpell =
-        BlueprintPatch.Create<BlueprintAiCastSpell>(AiCastSpellGuid);
-
-    //----- BlueprintArchetype -----//
-    protected static readonly string ArchetypeGuid = "e6a3b7d6-1a5f-4852-8dca-e50e14f57ea7";
-    protected readonly BlueprintArchetype Archetype =
-        BlueprintPatch.Create<BlueprintArchetype>(ArchetypeGuid);
-
-    protected static readonly string ExtraArchetypeGuid = "e449b280-532f-45c9-9f63-ceec44fa909c";
-    protected readonly BlueprintArchetype ExtraArchetype =
-        BlueprintPatch.Create<BlueprintArchetype>(ExtraArchetypeGuid);
-
-    //----- BlueprintBuff -----//
-    protected static readonly string BuffGuid = "efcfcdbe-2988-4ab4-941f-2d81f02e1e0b";
-    protected readonly BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
-
-    protected static readonly string ExtraBuffGuid = "4d6ceec1-c5c5-4043-a766-347fed4ed2e3";
-    protected readonly BlueprintBuff ExtraBuff = BlueprintPatch.Create<BlueprintBuff>(ExtraBuffGuid);
-
-    //----- BlueprintCharacterClass -----//
-    protected static readonly string ClassGuid = "7c05a373-6efe-4730-a0f3-c997ac1e1759";
-    protected readonly BlueprintCharacterClass Clazz =
-        BlueprintPatch.Create<BlueprintCharacterClass>(ClassGuid);
-
-    protected static readonly string ExtraClassGuid = "47a46eba-c4c6-44cc-9809-20b4d6ad8d41";
-    protected readonly BlueprintCharacterClass ExtraClass =
-        BlueprintPatch.Create<BlueprintCharacterClass>(ExtraClassGuid);
-
-    //----- BlueprintEtude -----//
-    protected static readonly string EtudeGuid = "8c1589b0-f30c-488c-bd88-4fd90ea40113";
-    protected readonly BlueprintEtude Etude = BlueprintPatch.Create<BlueprintEtude>(EtudeGuid);
-
-    protected static readonly string ExtraEtudeGuid = "284819da-8952-4ded-a2b5-cfc4aee7ba01";
-    protected BlueprintEtude ExtraEtude =
-        BlueprintPatch.Create<BlueprintEtude>(ExtraEtudeGuid);
-
-    //----- BlueprintFeature -----//
-    protected static readonly string FeatureGuid = "43a37f22-fc6a-44e9-b66e-d3dd41ef6ebc";
-    protected readonly BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
-
-    protected static readonly string ExtraFeatureGuid = "d43e5551-054a-488b-a8fa-97826b5df653";
-    protected readonly BlueprintFeature ExtraFeature =
-        BlueprintPatch.Create<BlueprintFeature>(ExtraFeatureGuid);
-
-    //----- BlueprintParametrizedFeature -----//
-    protected static readonly string ParameterizedFeatureGuid =
-        "80b7137f-2404-450b-a361-6e125297f4c3";
-    protected readonly BlueprintParametrizedFeature ParameterizedFeature =
-        BlueprintPatch.Create<BlueprintParametrizedFeature>(ParameterizedFeatureGuid);
-    protected static readonly string ExtraParameterizedFeatureGuid =
-        "0e195595-459a-405d-8c61-1e8365b12418";
-    protected readonly BlueprintParametrizedFeature ExtraParameterizedFeature =
-        BlueprintPatch.Create<BlueprintParametrizedFeature>(ExtraParameterizedFeatureGuid);
-
-    //----- BlueprintUnitFact -----//
-    protected static readonly string FactGuid = "f7dba63d-9b33-436d-9841-ca2821b89a1b";
-    protected readonly BlueprintUnitFact Fact = BlueprintPatch.Create<BlueprintUnitFact>(FactGuid);
-
-    protected static readonly string ExtraFactGuid = "06d8783f-3b21-4b79-b2d0-061d13f30768";
-    protected readonly BlueprintUnitFact ExtraFact =
-        BlueprintPatch.Create<BlueprintUnitFact>(ExtraFactGuid);
-
-    //----- Common Objects -----// 
-    protected readonly Sprite Sprite =
-        (Sprite)FormatterServices.GetUninitializedObject(typeof(Sprite));
-
-    protected BlueprintConfiguratorTest() { }
-
-    public void Dispose()
-    {
-      BlueprintPatch.Clear();
-      LoggerPatch.Logger.Reset();
-    }
 
     /**
      * Wrapper which should be called when a function is exposed to blueprint types that do not
@@ -873,7 +781,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteEtude>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
       Assert.False(prereq.NotPlaying);
     }
 
@@ -901,7 +809,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteEtude>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
       Assert.False(prereq.NotPlaying);
     }
 
@@ -925,7 +833,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteEtude>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), prereq.Etude);
       Assert.True(prereq.NotPlaying);
     }
 
@@ -951,7 +859,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     [Fact]
@@ -978,7 +886,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     //----- Start: PrerequisiteFeaturesFromList
@@ -1004,7 +912,7 @@ namespace BlueprintCore.Tests.Blueprints
       PrereqAsserts.Check(prereq);
 
       Assert.Equal(2, prereq.m_Features.Length);
-      Assert.Contains(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
+      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Equal(1, prereq.Amount);
     }
@@ -1034,7 +942,7 @@ namespace BlueprintCore.Tests.Blueprints
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
       Assert.Equal(2, prereq.m_Features.Length);
-      Assert.Contains(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
+      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Equal(1, prereq.Amount);
     }
@@ -1060,7 +968,7 @@ namespace BlueprintCore.Tests.Blueprints
       PrereqAsserts.Check(prereq);
 
       Assert.Equal(2, prereq.m_Features.Length);
-      Assert.Contains(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
+      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Features);
       Assert.Equal(2, prereq.Amount);
     }
@@ -1500,7 +1408,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteNoFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     [Fact]
@@ -1527,7 +1435,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteNoFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     //----- Start: PrerequisiteNotProficient
@@ -1665,10 +1573,10 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.LearnSpell, prereq.ParameterType);
-      Assert.Equal(Ability.ToReference<BlueprintAbilityReference>(), prereq.m_Spell);
+      Assert.Equal(TestAbility.ToReference<BlueprintAbilityReference>(), prereq.m_Spell);
     }
 
     [Fact]
@@ -1696,10 +1604,10 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.LearnSpell, prereq.ParameterType);
-      Assert.Equal(Ability.ToReference<BlueprintAbilityReference>(), prereq.m_Spell);
+      Assert.Equal(TestAbility.ToReference<BlueprintAbilityReference>(), prereq.m_Spell);
     }
 
     //----- Start: PrerequisiteParameterizedWeaponFeature
@@ -1724,7 +1632,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.WeaponCategory, prereq.ParameterType);
       Assert.Equal(WeaponCategory.Sling, prereq.WeaponCategory);
@@ -1755,7 +1663,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.WeaponCategory, prereq.ParameterType);
       Assert.Equal(WeaponCategory.Flail, prereq.WeaponCategory);
@@ -1783,7 +1691,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.SpellSchool, prereq.ParameterType);
       Assert.Equal(SpellSchool.Illusion, prereq.SpellSchool);
@@ -1814,7 +1722,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(FeatureParameterType.SpellSchool, prereq.ParameterType);
       Assert.Equal(SpellSchool.Abjuration, prereq.SpellSchool);
@@ -1842,7 +1750,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedWeaponSubcategory>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(WeaponSubCategory.Thrown, prereq.SubCategory);
     }
@@ -1872,7 +1780,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisiteParametrizedWeaponSubcategory>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
 
       Assert.Equal(WeaponSubCategory.Natural, prereq.SubCategory);
     }
@@ -1977,7 +1885,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisitePlayerHasFeature>();
       PrereqAsserts.Check(prereq);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     [Fact]
@@ -2004,7 +1912,7 @@ namespace BlueprintCore.Tests.Blueprints
       var prereq = blueprint.GetComponent<PrerequisitePlayerHasFeature>();
       PrereqAsserts.Check(prereq, Prerequisite.GroupType.Any, true, true);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), prereq.m_Feature);
     }
 
     //----- Start: PrerequisiteProficient

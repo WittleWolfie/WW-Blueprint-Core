@@ -1,7 +1,7 @@
 using BlueprintCore.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes;
 
-namespace BlueprintCore.Tests.Blueprints.Classes
+namespace BlueprintCore.Test.Blueprints.Classes
 {
   /**
    * Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with

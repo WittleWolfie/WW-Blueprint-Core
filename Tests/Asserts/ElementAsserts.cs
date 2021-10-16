@@ -1,7 +1,7 @@
 using Kingmaker.ElementsSystem;
 using Xunit;
 
-namespace BlueprintCore.Tests.Asserts
+namespace BlueprintCore.Test.Asserts
 {
   public class ElementAsserts
   {

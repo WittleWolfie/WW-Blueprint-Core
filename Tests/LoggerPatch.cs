@@ -3,7 +3,7 @@ using BlueprintCore.Utils;
 using HarmonyLib;
 using Owlcat.Runtime.Core.Logging;
 
-namespace BlueprintCore.Tests
+namespace BlueprintCore.Test
 {
   public static class LoggerPatch
   {

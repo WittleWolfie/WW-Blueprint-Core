@@ -1,13 +1,13 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.ElementsSystem;
 using Xunit;
 
-namespace BlueprintCore.Tests.Conditions.Builder
+namespace BlueprintCore.Test.Conditions.Builder
 {
-  public class ConditionsCheckerBuilderTest : ConditionsCheckerBuilderTestBase
+  public class ConditionsCheckerBuilderTest : TestBase
   {
     [Fact]
     public void UseOr()

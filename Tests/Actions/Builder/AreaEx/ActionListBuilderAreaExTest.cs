@@ -1,16 +1,17 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.AreaEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.AreaEx
+namespace BlueprintCore.Test.Actions.Builder.AreaEx
 {
-  public class ActionListBuilderAreaExTest : ActionListBuilderTestBase
+  public class ActionListBuilderAreaExTest : TestBase
   {
     //----- Kingmaker.Dungeon.Actions -----//
 
@@ -161,13 +162,13 @@ namespace BlueprintCore.Tests.Actions.Builder.AreaEx
     [Fact]
     public void DestroyMapObject()
     {
-      var actions = ActionListBuilder.New().DestroyMapObject(Trap).Build();
+      var actions = ActionListBuilder.New().DestroyMapObject(TestTrap).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyMapObject)actions.Actions[0];
       ElementAsserts.IsValid(destroy);
 
-      Assert.Equal(Trap, destroy.MapObject);
+      Assert.Equal(TestTrap, destroy.MapObject);
     }
   }
 }

@@ -3,7 +3,7 @@ using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using UnityEngine;
 
-namespace BlueprintCore.Tests
+namespace BlueprintCore.Test
 {
   /** Patches calls which require Unity Engine and cannot be called in unit tests. */
   public static class UnityPatches

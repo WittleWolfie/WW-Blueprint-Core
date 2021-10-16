@@ -1,6 +1,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.KingdomEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -21,10 +21,11 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
+namespace BlueprintCore.Test.Actions.Builder.KingdomEx
 {
-  public class ActionListBuilderKingdomExTest : ActionListBuilderTestBase
+  public class ActionListBuilderKingdomExTest : TestBase
   {
     //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
 
@@ -84,7 +85,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       Assert.Equal(2, removeFacts.m_FactsToRemove.Length);
       Assert.Contains(Buff.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
       Assert.Contains(
-          Ability.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
+          TestAbility.ToReference<BlueprintUnitFactReference>(), removeFacts.m_FactsToRemove);
     }
 
     [Fact]
@@ -393,7 +394,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       Assert.True(createArmy.m_ApplyRecruitIncrease);
 
       Assert.True(createArmy.WithLeader);
-      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+      Assert.Equal(TestArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
 
       Assert.NotNull(createArmy.m_TargetLocation);
       Assert.NotNull(createArmy.m_CompleteActions);
@@ -449,7 +450,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       Assert.Equal(2f, createArmy.m_ArmySpeed);
 
       Assert.True(createArmy.WithLeader);
-      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+      Assert.Equal(TestArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
 
       Assert.NotNull(createArmy.m_TargetLocation);
       Assert.NotNull(createArmy.m_CompleteActions);
@@ -549,7 +550,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       Assert.Equal(14, createArmy.m_DaysToDestination);
 
       Assert.True(createArmy.WithLeader);
-      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
+      Assert.Equal(TestArmyLeader.ToReference<ArmyLeader.Reference>(), createArmy.ArmyLeader);
 
       Assert.Equal(
           GlobalMapPoint.ToReference<BlueprintGlobalMapPoint.Reference>(),
@@ -595,7 +596,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       Assert.False(createGarrison.HasNoReward);
 
       Assert.True(createGarrison.WithLeader);
-      Assert.Equal(ArmyLeader.ToReference<ArmyLeader.Reference>(), createGarrison.ArmyLeader);
+      Assert.Equal(TestArmyLeader.ToReference<ArmyLeader.Reference>(), createGarrison.ArmyLeader);
     }
 
     //----- Kingmaker.Kingdom.Actions -----//
@@ -975,13 +976,13 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
     [Fact]
     public void GrantLeaderExp()
     {
-      var actions = ActionListBuilder.New().GrantLeaderExp(IntConstant).Build();
+      var actions = ActionListBuilder.New().GrantLeaderExp(TestInt).Build();
 
       Assert.Single(actions.Actions);
       var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
       ElementAsserts.IsValid(grantExp);
 
-      Assert.Equal(IntConstant, grantExp.m_Value);
+      Assert.Equal(TestInt, grantExp.m_Value);
       Assert.False(grantExp.m_MultiplyByLeaderLevel);
     }
 
@@ -989,13 +990,13 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
     public void GrantLeaderExp_WithLeaderLevelMultiplier()
     {
       var actions =
-          ActionListBuilder.New().GrantLeaderExp(IntConstant, leaderLevelMultiplier: 2f).Build();
+          ActionListBuilder.New().GrantLeaderExp(TestInt, leaderLevelMultiplier: 2f).Build();
 
       Assert.Single(actions.Actions);
       var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
       ElementAsserts.IsValid(grantExp);
 
-      Assert.Equal(IntConstant, grantExp.m_Value);
+      Assert.Equal(TestInt, grantExp.m_Value);
       Assert.True(grantExp.m_MultiplyByLeaderLevel);
       Assert.Equal(2f, grantExp.m_MultiplierCoefficient);
     }
@@ -1107,14 +1108,14 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
     {
       var actions =
           ActionListBuilder.New()
-              .TacticalCombatDealDamage(DamageTypeDescription, DiceType.D4)
+              .TacticalCombatDealDamage(TestDamageTypeDescription, DiceType.D4)
               .Build();
 
       Assert.Single(actions.Actions);
       var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
       Assert.Equal(DiceType.D4, dmg.DiceType);
       Assert.Equal(1, dmg.RollsCount.Value);
 
@@ -1129,7 +1130,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       var actions =
           ActionListBuilder.New()
               .TacticalCombatDealDamage(
-                  DamageTypeDescription,
+                  TestDamageTypeDescription,
                   DiceType.D4,
                   diceRolls: 3,
                   dealHalf: true,
@@ -1141,7 +1142,7 @@ namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
       var dmg = (ContextActionTacticalCombatDealDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
       Assert.Equal(DiceType.D4, dmg.DiceType);
       Assert.Equal(3, dmg.RollsCount.Value);
 

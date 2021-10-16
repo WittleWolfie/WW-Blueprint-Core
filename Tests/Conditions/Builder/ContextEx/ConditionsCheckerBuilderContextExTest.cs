@@ -1,13 +1,14 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Conditions.Builder.ContextEx
+namespace BlueprintCore.Test.Conditions.Builder.ContextEx
 {
-  public class ConditionsCheckerBuilderContextExTest : ConditionsCheckerBuilderTestBase
+  public class ConditionsCheckerBuilderContextExTest : TestBase
   {
     [Fact]
     public void CasterHasFact()
@@ -17,7 +18,7 @@ namespace BlueprintCore.Tests.Conditions.Builder.ContextEx
       Assert.Single(conditions.Conditions);
       var hasFact = (ContextConditionCasterHasFact)conditions.Conditions[0];
       ElementAsserts.IsValid(hasFact);
-      Assert.Equal(Fact.ToReference<BlueprintUnitFactReference>(), hasFact.m_Fact);
+      Assert.Equal(TestFact.ToReference<BlueprintUnitFactReference>(), hasFact.m_Fact);
     }
 
     [Fact]
@@ -28,7 +29,7 @@ namespace BlueprintCore.Tests.Conditions.Builder.ContextEx
       Assert.Single(conditions.Conditions);
       var hasFact = (ContextConditionHasFact)conditions.Conditions[0];
       ElementAsserts.IsValid(hasFact);
-      Assert.Equal(Fact.ToReference<BlueprintUnitFactReference>(), hasFact.m_Fact);
+      Assert.Equal(TestFact.ToReference<BlueprintUnitFactReference>(), hasFact.m_Fact);
     }
 
     [Fact]

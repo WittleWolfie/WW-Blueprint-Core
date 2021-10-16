@@ -11,8 +11,9 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Blueprints.Facts
+namespace BlueprintCore.Test.Blueprints.Facts
 {
   public abstract class BlueprintUnitFactConfiguratorTest<T, TBuilder>
       : BlueprintConfiguratorTest<T, TBuilder>
@@ -58,11 +59,11 @@ namespace BlueprintCore.Tests.Blueprints.Facts
     public void SetIcon()
     {
       GetConfigurator(Guid)
-          .SetIcon(Sprite)
+          .SetIcon(TestSprite)
           .Configure();
 
       var blueprint = BlueprintTool.Get<T>(Guid);
-      Assert.Equal(Sprite, blueprint.m_Icon);
+      Assert.Equal(TestSprite, blueprint.m_Icon);
     }
 
     [Fact]
@@ -77,7 +78,7 @@ namespace BlueprintCore.Tests.Blueprints.Facts
       Assert.NotNull(addFacts);
 
       Assert.Equal(2, addFacts.m_Facts.Length);
-      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+      Assert.Contains(TestFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
       Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
 
       Assert.Equal(0, addFacts.CasterLevel);
@@ -103,7 +104,7 @@ namespace BlueprintCore.Tests.Blueprints.Facts
       Assert.NotNull(addFacts);
 
       Assert.Equal(2, addFacts.m_Facts.Length);
-      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
+      Assert.Contains(TestFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
       Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), addFacts.m_Facts);
 
       Assert.Equal(5, addFacts.CasterLevel);

@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.Serialization;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.BasicEx;
 using BlueprintCore.Actions.Builder.ContextEx;
@@ -8,7 +6,7 @@ using BlueprintCore.Actions.New;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
@@ -18,8 +16,6 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
-using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UI.GenericSlot;
@@ -30,13 +26,13 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation;
-using Kingmaker.Visual.Animation.Actions;
+using System;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.ContextEx
+namespace BlueprintCore.Test.Actions.Builder.ContextEx
 {
-  public class ActionListBuilderContextExTest : ActionListBuilderTestBase
+  public class ActionListBuilderContextExTest : TestBase
   {
     [Fact]
     public void ApplyBuff()
@@ -159,7 +155,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       var addFeature = (ContextActionAddFeature)actions.Actions[0];
       ElementAsserts.IsValid(addFeature);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addFeature.m_PermanentFeature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addFeature.m_PermanentFeature);
     }
 
     [Fact]
@@ -171,7 +167,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       var addClone = (ContextActionAddLocustClone)actions.Actions[0];
       ElementAsserts.IsValid(addClone);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addClone.m_CloneFeature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addClone.m_CloneFeature);
     }
 
     [Fact]
@@ -828,7 +824,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       var actions =
           ActionListBuilder.New()
               .DealDamage(
-                  DamageTypeDescription,
+                  TestDamageTypeDescription,
                   new ContextDiceValue
                   {
                     DiceType = DiceType.One,
@@ -842,7 +838,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       ElementAsserts.IsValid(dmg);
 
       Assert.Equal(ContextActionDealDamage.Type.Damage, dmg.m_Type);
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
 
       Assert.False(dmg.Half);
       Assert.False(dmg.IsAoE);
@@ -865,7 +861,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       var actions =
           ActionListBuilder.New()
               .DealDamage(
-                  DamageTypeDescription,
+                  TestDamageTypeDescription,
                   new ContextDiceValue
                   {
                     DiceType = DiceType.D2,
@@ -886,7 +882,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       ElementAsserts.IsValid(dmg);
 
       Assert.Equal(ContextActionDealDamage.Type.Damage, dmg.m_Type);
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
 
       Assert.True(dmg.Half);
       Assert.True(dmg.IsAoE);
@@ -912,7 +908,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
     {
       var actions =
           ActionListBuilder.New()
-              .DealDamagePreRolled(DamageTypeDescription, AbilitySharedValue.Damage)
+              .DealDamagePreRolled(TestDamageTypeDescription, AbilitySharedValue.Damage)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -920,7 +916,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       ElementAsserts.IsValid(dmg);
 
       Assert.Equal(ContextActionDealDamage.Type.Damage, dmg.m_Type);
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
 
       Assert.False(dmg.Half);
       Assert.False(dmg.HalfIfSaved);
@@ -941,7 +937,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       var actions =
           ActionListBuilder.New()
               .DealDamagePreRolled(
-                  DamageTypeDescription,
+                  TestDamageTypeDescription,
                   AbilitySharedValue.Damage,
                   dealHalfIfSaved: true,
                   dealHalf: true,
@@ -957,7 +953,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       ElementAsserts.IsValid(dmg);
 
       Assert.Equal(ContextActionDealDamage.Type.Damage, dmg.m_Type);
-      Assert.Equal(DamageTypeDescription, dmg.DamageType);
+      Assert.Equal(TestDamageTypeDescription, dmg.DamageType);
 
       Assert.True(dmg.Half);
       Assert.True(dmg.HalfIfSaved);
@@ -1998,7 +1994,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
     [Fact]
     public void RecoverItemCharges()
     {
-      Armor.m_Ability = Ability.ToReference<BlueprintAbilityReference>();
+      Armor.m_Ability = TestAbility.ToReference<BlueprintAbilityReference>();
       Armor.SpendCharges = true;
       Armor.Charges = 5;
 
@@ -2183,7 +2179,7 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
 
       Assert.Equal(2, restoreSpells.m_Spellbooks.Length);
       Assert.Equal(
-          Spellbook.ToReference<BlueprintSpellbookReference>(), restoreSpells.m_Spellbooks[0]);
+          TestSpellbook.ToReference<BlueprintSpellbookReference>(), restoreSpells.m_Spellbooks[0]);
       Assert.Equal(
           ExtraSpellbook.ToReference<BlueprintSpellbookReference>(), restoreSpells.m_Spellbooks[1]);
     }
@@ -2240,52 +2236,6 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
 
       Assert.True(resurrect.FullRestore);
       Assert.Equal(BlueprintGuid.Empty, resurrect.m_CustomResurrectionBuff.deserializedGuid);
-    }
-
-    [Fact]
-    public void RunAnimationClip()
-    {
-      // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
-      // be constructed in unit tests.
-      var clip =
-          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
-              typeof(AnimationClipWrapper));
-
-      var actions = ActionListBuilder.New().RunAnimationClip(clip).Build();
-
-      Assert.Single(actions.Actions);
-      var animation = (ContextActionRunAnimationClip)actions.Actions[0];
-      ElementAsserts.IsValid(animation);
-
-      Assert.Equal(clip, animation.ClipWrapper);
-      Assert.Equal(ExecutionMode.Interrupted, animation.Mode);
-      Assert.Equal(0.25f, animation.TransitionIn);
-      Assert.Equal(0.25f, animation.TransitionOut);
-    }
-
-    [Fact]
-    public void RunAnimationClip_WithOptionalValues()
-    {
-      // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
-      // be constructed in unit tests.
-      var clip =
-          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
-              typeof(AnimationClipWrapper));
-
-      var actions =
-          ActionListBuilder.New()
-              .RunAnimationClip(
-                  clip, mode: ExecutionMode.Sequenced, transitionIn: 0.5f, transitionOut: 0.5f)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var animation = (ContextActionRunAnimationClip)actions.Actions[0];
-      ElementAsserts.IsValid(animation);
-
-      Assert.Equal(clip, animation.ClipWrapper);
-      Assert.Equal(ExecutionMode.Sequenced, animation.Mode);
-      Assert.Equal(0.5f, animation.TransitionIn);
-      Assert.Equal(0.5f, animation.TransitionOut);
     }
 
     [Fact]
@@ -2372,40 +2322,6 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       Assert.Equal(10, run.m_Variants[1].Value.Value);
       Assert.Single(run.m_Variants[1].Action.Actions);
       Assert.IsType<SwitchToDemoralizeTarget>(run.m_Variants[1].Action.Actions[0]);
-    }
-
-    [Fact]
-    public void Bark()
-    {
-      var actions = ActionListBuilder.New().Bark(new LocalizedString { Key = "bark" }).Build();
-
-      Assert.Single(actions.Actions);
-      var bark = (ContextActionShowBark)actions.Actions[0];
-      ElementAsserts.IsValid(bark);
-
-      Assert.Equal("bark", bark.WhatToBark.Key);
-      Assert.False(bark.ShowWhileUnconscious);
-      Assert.False(bark.BarkDurationByText);
-    }
-
-    [Fact]
-    public void Bark_WithOptionalValues()
-    {
-      var actions =
-          ActionListBuilder.New()
-              .Bark(
-                  new LocalizedString { Key = "bark" },
-                  showIfUnconcious: true,
-                  durationBasedOnTextLength: true)
-              .Build();
-
-      Assert.Single(actions.Actions);
-      var bark = (ContextActionShowBark)actions.Actions[0];
-      ElementAsserts.IsValid(bark);
-
-      Assert.Equal("bark", bark.WhatToBark.Key);
-      Assert.True(bark.ShowWhileUnconscious);
-      Assert.True(bark.BarkDurationByText);
     }
 
     [Fact]
@@ -2610,24 +2526,10 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
       ElementAsserts.IsValid(spawnProjectile);
 
       Assert.Equal(
-          ControllableProjectile.ToReference<BlueprintControllableProjectileReference>(),
+          TestControllableProjectile.ToReference<BlueprintControllableProjectileReference>(),
           spawnProjectile.ControllableProjectile);
       Assert.Equal(
           Buff.ToReference<BlueprintBuffReference>(), spawnProjectile.AssociatedCasterBuff);
-    }
-
-    [Fact]
-    public void SpawnFx()
-    {
-      var prefab = new PrefabLink();
-
-      var actions = ActionListBuilder.New().SpawnFx(prefab).Build();
-
-      Assert.Single(actions.Actions);
-      var spawnFx = (ContextActionSpawnFx)actions.Actions[0];
-      ElementAsserts.IsValid(spawnFx);
-
-      Assert.Equal(prefab, spawnFx.PrefabLink);
     }
 
     [Fact]
@@ -3190,18 +3092,6 @@ namespace BlueprintCore.Tests.Actions.Builder.ContextEx
     }
 
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
-
-    [Fact]
-    public void PlaySound()
-    {
-      var actions = ActionListBuilder.New().PlaySound("a sound").Build();
-
-      Assert.Single(actions.Actions);
-      var playSound = (ContextActionPlaySound)actions.Actions[0];
-      ElementAsserts.IsValid(playSound);
-
-      Assert.Equal("a sound", playSound.SoundName);
-    }
 
     [Fact]
     public void ResetAlignment()

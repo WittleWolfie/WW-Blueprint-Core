@@ -1,21 +1,22 @@
-using System.Linq;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.UpgraderEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
+using System.Linq;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
+namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
 {
-  public class ActionListBuilderUpgraderExTest : ActionListBuilderTestBase
+  public class ActionListBuilderUpgraderExTest : TestBase
   {
     //----- Kingmaker.EntitySystem.Persistence.Versioning.*UpgraderOnlyActions -----//
 
     [Fact]
-    public void AddFactIfEtudePlaying_()
+    public void TestAddFactIfEtudePlaying()
     {
       var actions =
           ActionListBuilder.New()
@@ -31,7 +32,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
 
       Assert.Equal(AddFactIfEtudePlaying.TargetType.AllCompanions, addFact.m_Target);
       Assert.Equal(Buff.ToReference<BlueprintUnitFactReference>(), addFact.m_Fact);
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), addFact.m_Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), addFact.m_Etude);
     }
 
     [Fact]
@@ -124,7 +125,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
 
       Assert.Single(removeFact.m_AdditionalExceptHasFacts);
       Assert.Contains(
-          Ability.ToReference<BlueprintUnitFactReference>(), removeFact.m_AdditionalExceptHasFacts);
+          TestAbility.ToReference<BlueprintUnitFactReference>(), removeFact.m_AdditionalExceptHasFacts);
     }
 
     [Fact]
@@ -206,14 +207,14 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
           m_Features =
               new BlueprintFeatureBaseReference[]
               {
-                Feature.ToReference<BlueprintFeatureBaseReference>(),
+                TestFeature.ToReference<BlueprintFeatureBaseReference>(),
                 FeatureSelection.ToReference<BlueprintFeatureBaseReference>()
               }
               .ToList()
         }
       };
       FeatureSelection.m_AllFeatures =
-          new BlueprintFeatureReference[] { Feature.ToReference<BlueprintFeatureReference>() };
+          new BlueprintFeatureReference[] { TestFeature.ToReference<BlueprintFeatureReference>() };
     }
 
     [Fact]
@@ -230,7 +231,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var addFeature = (AddFeatureFromProgression)actions.Actions[0];
       ElementAsserts.IsValid(addFeature);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
       Assert.Equal(
           Progression.ToReference<BlueprintProgressionReference>(), addFeature.m_Progression);
       Assert.Equal(5, addFeature.m_Level);
@@ -259,7 +260,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var addFeature = (AddFeatureFromProgression)actions.Actions[0];
       ElementAsserts.IsValid(addFeature);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
       Assert.Equal(
           Progression.ToReference<BlueprintProgressionReference>(), addFeature.m_Progression);
       Assert.Equal(6, addFeature.m_Level);
@@ -280,7 +281,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var reCheck = (RecheckEtude)actions.Actions[0];
       ElementAsserts.IsValid(reCheck);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), reCheck.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), reCheck.Etude);
       Assert.False(reCheck.m_RedoOnceTriggers);
     }
 
@@ -293,7 +294,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var reCheck = (RecheckEtude)actions.Actions[0];
       ElementAsserts.IsValid(reCheck);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), reCheck.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), reCheck.Etude);
       Assert.True(reCheck.m_RedoOnceTriggers);
     }
 
@@ -335,7 +336,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var addFeature = (RemoveFeatureFromProgression)actions.Actions[0];
       ElementAsserts.IsValid(addFeature);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
       Assert.Equal(
           Progression.ToReference<BlueprintProgressionReference>(), addFeature.m_Progression);
       Assert.Equal(5, addFeature.m_Level);
@@ -362,7 +363,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var addFeature = (RemoveFeatureFromProgression)actions.Actions[0];
       ElementAsserts.IsValid(addFeature);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), addFeature.m_Feature);
       Assert.Equal(
           Progression.ToReference<BlueprintProgressionReference>(), addFeature.m_Progression);
       Assert.Equal(6, addFeature.m_Level);
@@ -384,7 +385,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       ElementAsserts.IsValid(replaceFeature);
 
       Assert.Equal(
-          Feature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_ToReplace);
+          TestFeature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_ToReplace);
       Assert.Equal(
           ExtraFeature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_Replacement);
       Assert.Equal(
@@ -407,7 +408,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       ElementAsserts.IsValid(replaceFeature);
 
       Assert.Equal(
-          Feature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_ToReplace);
+          TestFeature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_ToReplace);
       Assert.Equal(
           ExtraFeature.ToReference<BlueprintFeatureReference>(), replaceFeature.m_Replacement);
       Assert.Equal(
@@ -432,7 +433,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
     {
       var actions =
           ActionListBuilder.New()
-              .SetSharedVendorTable(VendorTableGuid, ClickedUnit)
+              .SetSharedVendorTable(VendorTableGuid, TestUnit)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -441,7 +442,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
 
       Assert.Equal(
           VendorTable.ToReference<BlueprintSharedVendorTableReference>(), setVendorTable.m_Table);
-      Assert.Equal(ClickedUnit, setVendorTable.m_Unit);
+      Assert.Equal(TestUnit, setVendorTable.m_Unit);
     }
 
     [Fact]
@@ -453,7 +454,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var startEtude = (StartEtudeForced)actions.Actions[0];
       ElementAsserts.IsValid(startEtude);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), startEtude.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), startEtude.Etude);
     }
 
     [Fact]
@@ -465,7 +466,7 @@ namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
       var unStartEtude = (UnStartEtude)actions.Actions[0];
       ElementAsserts.IsValid(unStartEtude);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), unStartEtude.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), unStartEtude.Etude);
     }
   }
 }

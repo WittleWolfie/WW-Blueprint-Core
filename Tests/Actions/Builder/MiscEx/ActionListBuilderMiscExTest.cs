@@ -1,14 +1,15 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.MiscEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.MiscEx
+namespace BlueprintCore.Test.Actions.Builder.MiscEx
 {
-  public class ActionListBuilderMiscExTest : ActionListBuilderTestBase
+  public class ActionListBuilderMiscExTest : TestBase
   {
     //----- Kingmaker.Achievements.Actions -----//
 

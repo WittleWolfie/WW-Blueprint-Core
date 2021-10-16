@@ -1,6 +1,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.StoryEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -8,10 +8,11 @@ using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.StoryEx
+namespace BlueprintCore.Test.Actions.Builder.StoryEx
 {
-  public class ActionListBuilderStoryExTest : ActionListBuilderTestBase
+  public class ActionListBuilderStoryExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
@@ -24,7 +25,7 @@ namespace BlueprintCore.Tests.Actions.Builder.StoryEx
       var completeEtude = (CompleteEtude)actions.Actions[0];
       ElementAsserts.IsValid(completeEtude);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), completeEtude.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), completeEtude.Etude);
       Assert.False(completeEtude.Evaluate);
     }
 
@@ -39,7 +40,7 @@ namespace BlueprintCore.Tests.Actions.Builder.StoryEx
       var completeEtude = (CompleteEtude)actions.Actions[0];
       ElementAsserts.IsValid(completeEtude);
 
-      Assert.Equal(Etude.ToReference<BlueprintEtudeReference>(), completeEtude.Etude);
+      Assert.Equal(TestEtude.ToReference<BlueprintEtudeReference>(), completeEtude.Etude);
       Assert.Equal(evaluator, completeEtude.EtudeEvaluator);
       Assert.True(completeEtude.Evaluate);
     }
@@ -66,13 +67,13 @@ namespace BlueprintCore.Tests.Actions.Builder.StoryEx
     {
       var name = new LocalizedString { Key = "new name" };
 
-      var actions = ActionListBuilder.New().ChangeUnitName(ClickedUnit, name).Build();
+      var actions = ActionListBuilder.New().ChangeUnitName(TestUnit, name).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];
       ElementAsserts.IsValid(changeName);
 
-      Assert.Equal(ClickedUnit, changeName.Unit);
+      Assert.Equal(TestUnit, changeName.Unit);
       Assert.Equal(name, changeName.NewName);
       Assert.False(changeName.AddToTheName);
       Assert.False(changeName.ReturnTheOldName);
@@ -84,13 +85,13 @@ namespace BlueprintCore.Tests.Actions.Builder.StoryEx
       var name = new LocalizedString { Key = "new name" };
 
       var actions =
-          ActionListBuilder.New().ChangeUnitName(ClickedUnit, name, appendName: true).Build();
+          ActionListBuilder.New().ChangeUnitName(TestUnit, name, appendName: true).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];
       ElementAsserts.IsValid(changeName);
 
-      Assert.Equal(ClickedUnit, changeName.Unit);
+      Assert.Equal(TestUnit, changeName.Unit);
       Assert.Equal(name, changeName.NewName);
       Assert.True(changeName.AddToTheName);
       Assert.False(changeName.ReturnTheOldName);
@@ -99,13 +100,13 @@ namespace BlueprintCore.Tests.Actions.Builder.StoryEx
     [Fact]
     public void ResetUnitName()
     {
-      var actions = ActionListBuilder.New().ResetUnitName(ClickedUnit).Build();
+      var actions = ActionListBuilder.New().ResetUnitName(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];
       ElementAsserts.IsValid(changeName);
 
-      Assert.Equal(ClickedUnit, changeName.Unit);
+      Assert.Equal(TestUnit, changeName.Unit);
       Assert.False(changeName.AddToTheName);
       Assert.True(changeName.ReturnTheOldName);
     }

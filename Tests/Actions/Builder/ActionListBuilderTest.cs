@@ -1,21 +1,21 @@
-using System;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
-using BlueprintCore.Conditions.Builder.NewEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder
+namespace BlueprintCore.Test.Actions.Builder
 {
-  public class ActionListBuilderTest : ActionListBuilderTestBase
+  public class ActionListBuilderTest : TestBase
   {
     [Fact]
     public void Empty()

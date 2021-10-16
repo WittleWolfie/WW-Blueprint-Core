@@ -1,16 +1,22 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.AVEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
+using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.Visual.Animation;
+using Kingmaker.Visual.Animation.Actions;
+using System.Runtime.Serialization;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Actions.Builder.AVEx
+namespace BlueprintCore.Test.Actions.Builder.AVEx
 {
-  public class ActionListBuilderAVExTest : ActionListBuilderTestBase
+  public class ActionListBuilderAVExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
@@ -32,7 +38,7 @@ namespace BlueprintCore.Tests.Actions.Builder.AVEx
     public void MoveCamera()
     {
       var position = ElementTool.Create<UnitPosition>();
-      position.Unit = ClickedUnit;
+      position.Unit = TestUnit;
 
       var actions = ActionListBuilder.New().MoveCamera(position).Build();
 
@@ -66,6 +72,114 @@ namespace BlueprintCore.Tests.Actions.Builder.AVEx
       Assert.Single(actions.Actions);
       var clearBlood = (ClearBlood)actions.Actions[0];
       ElementAsserts.IsValid(clearBlood);
+    }
+
+    [Fact]
+    public void RunAnimationClip()
+    {
+      // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
+      // be constructed in unit tests.
+      var clip =
+          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
+              typeof(AnimationClipWrapper));
+
+      var actions = ActionListBuilder.New().RunAnimationClip(clip).Build();
+
+      Assert.Single(actions.Actions);
+      var animation = (ContextActionRunAnimationClip)actions.Actions[0];
+      ElementAsserts.IsValid(animation);
+
+      Assert.Equal(clip, animation.ClipWrapper);
+      Assert.Equal(ExecutionMode.Interrupted, animation.Mode);
+      Assert.Equal(0.25f, animation.TransitionIn);
+      Assert.Equal(0.25f, animation.TransitionOut);
+    }
+
+    [Fact]
+    public void RunAnimationClip_WithOptionalValues()
+    {
+      // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
+      // be constructed in unit tests.
+      var clip =
+          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
+              typeof(AnimationClipWrapper));
+
+      var actions =
+          ActionListBuilder.New()
+              .RunAnimationClip(
+                  clip, mode: ExecutionMode.Sequenced, transitionIn: 0.5f, transitionOut: 0.5f)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var animation = (ContextActionRunAnimationClip)actions.Actions[0];
+      ElementAsserts.IsValid(animation);
+
+      Assert.Equal(clip, animation.ClipWrapper);
+      Assert.Equal(ExecutionMode.Sequenced, animation.Mode);
+      Assert.Equal(0.5f, animation.TransitionIn);
+      Assert.Equal(0.5f, animation.TransitionOut);
+    }
+
+    [Fact]
+    public void Bark()
+    {
+      var actions = ActionListBuilder.New().Bark(new LocalizedString { Key = "bark" }).Build();
+
+      Assert.Single(actions.Actions);
+      var bark = (ContextActionShowBark)actions.Actions[0];
+      ElementAsserts.IsValid(bark);
+
+      Assert.Equal("bark", bark.WhatToBark.Key);
+      Assert.False(bark.ShowWhileUnconscious);
+      Assert.False(bark.BarkDurationByText);
+    }
+
+    [Fact]
+    public void Bark_WithOptionalValues()
+    {
+      var actions =
+          ActionListBuilder.New()
+              .Bark(
+                  new LocalizedString { Key = "bark" },
+                  showIfUnconcious: true,
+                  durationBasedOnTextLength: true)
+              .Build();
+
+      Assert.Single(actions.Actions);
+      var bark = (ContextActionShowBark)actions.Actions[0];
+      ElementAsserts.IsValid(bark);
+
+      Assert.Equal("bark", bark.WhatToBark.Key);
+      Assert.True(bark.ShowWhileUnconscious);
+      Assert.True(bark.BarkDurationByText);
+    }
+
+    [Fact]
+    public void SpawnFx()
+    {
+      var prefab = new PrefabLink();
+
+      var actions = ActionListBuilder.New().SpawnFx(prefab).Build();
+
+      Assert.Single(actions.Actions);
+      var spawnFx = (ContextActionSpawnFx)actions.Actions[0];
+      ElementAsserts.IsValid(spawnFx);
+
+      Assert.Equal(prefab, spawnFx.PrefabLink);
+    }
+
+    //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
+
+    [Fact]
+    public void PlaySound()
+    {
+      var actions = ActionListBuilder.New().PlaySound("a sound").Build();
+
+      Assert.Single(actions.Actions);
+      var playSound = (ContextActionPlaySound)actions.Actions[0];
+      ElementAsserts.IsValid(playSound);
+
+      Assert.Equal("a sound", playSound.SoundName);
     }
   }
 }

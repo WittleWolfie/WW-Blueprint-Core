@@ -1,71 +1,15 @@
-using System;
 using BlueprintCore.Blueprints.Components;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Properties;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Blueprints.Components
+namespace BlueprintCore.Test.Blueprints.Components
 {
-  [Collection("Harmony")]
-  public class ContextRankConfigsTest : IDisposable
+  public class ContextRankConfigsTest : TestBase
   {
-    private static readonly string FeatureGuid = "f7dba63d-9b33-436d-9841-ca2821b89a1b";
-    private static readonly BlueprintFeature Feature = Util.Create<BlueprintFeature>(FeatureGuid);
-    private static readonly string ExtraFeatureGuid = "f3b38c34-2526-4ba6-a682-a751e5c05305";
-    private static readonly BlueprintFeature ExtraFeature =
-        Util.Create<BlueprintFeature>(ExtraFeatureGuid);
-
-    private static readonly string PropertyGuid = "dfb7bafc-44bc-4d7a-9212-249e926d558d";
-    private static readonly BlueprintUnitProperty Property =
-        Util.Create<BlueprintUnitProperty>(PropertyGuid);
-    private static readonly string ExtraPropertyGuid = "aa2c1770-1ea2-4b4d-9e8f-3f05c21155a8";
-    private static readonly BlueprintUnitProperty ExtraProperty =
-        Util.Create<BlueprintUnitProperty>(ExtraPropertyGuid);
-
-    private static readonly string ClassGuid = "6757e31a-b51f-4ac9-ae00-040fe7aaf995";
-    private static readonly BlueprintCharacterClass Clazz =
-        Util.Create<BlueprintCharacterClass>(ClassGuid);
-    private static readonly string ExtraClassGuid = "3ea09864-183c-41e2-97fb-80db99d37074";
-    private static readonly BlueprintCharacterClass ExtraClass =
-        Util.Create<BlueprintCharacterClass>(ExtraClassGuid);
-
-    private static readonly string ArchetypeGuid = "88f5fd56-4340-49d9-a14f-7796aaede969";
-    private static readonly BlueprintArchetype Archetype =
-        Util.Create<BlueprintArchetype>(ArchetypeGuid);
-    private static readonly string ExtraArchetypeGuid = "d5302dc1-5cc8-4b0c-9538-5d30dc2088d2";
-    private static readonly BlueprintArchetype ExtraArchetype =
-        Util.Create<BlueprintArchetype>(ExtraArchetypeGuid);
-
-    private static readonly string BuffGuid = "eec3adc8-4d50-424f-88cb-d8f1d6c6f391";
-    private static readonly BlueprintBuff Buff = Util.Create<BlueprintBuff>(BuffGuid);
-
-    public ContextRankConfigsTest()
-    {
-      BlueprintPatch.Add(Feature);
-      BlueprintPatch.Add(ExtraFeature);
-
-      BlueprintPatch.Add(Property);
-      BlueprintPatch.Add(ExtraProperty);
-
-      BlueprintPatch.Add(Clazz);
-      BlueprintPatch.Add(ExtraClass);
-
-      BlueprintPatch.Add(Archetype);
-      BlueprintPatch.Add(ExtraArchetype);
-
-      BlueprintPatch.Add(Buff);
-    }
-
-    public void Dispose()
-    {
-      BlueprintPatch.Clear();
-    }
-
     [Fact]
     public void BaseAttack()
     {
@@ -390,7 +334,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankBaseValueType.Bombs, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
 
       Assert.Equal(2, config.m_Class.Length);
       Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
@@ -418,7 +362,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankBaseValueType.Bombs, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
 
       Assert.Equal(2, config.m_Class.Length);
       Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
@@ -441,7 +385,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankBaseValueType.FeatureRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
     }
 
     [Fact]
@@ -453,7 +397,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankBaseValueType.MasterFeatureRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Feature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
     }
 
     [Fact]
@@ -466,7 +410,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_FeatureList.Length);
-      Assert.Contains(Feature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
+      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
     }
 
@@ -482,7 +426,7 @@ namespace BlueprintCore.Tests.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_FeatureList.Length);
-      Assert.Contains(Feature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
+      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
     }
 

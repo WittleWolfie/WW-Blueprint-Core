@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
@@ -10,7 +8,7 @@ using BlueprintCore.Blueprints.Abilities;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
-using BlueprintCore.Tests.Blueprints.Facts;
+using BlueprintCore.Test.Blueprints.Facts;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -28,9 +26,12 @@ using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using System;
+using System.Collections.Generic;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Blueprints.Abilities
+namespace BlueprintCore.Test.Blueprints.Abilities
 {
   public class AbilityConfiguratorTest
       : BlueprintUnitFactConfiguratorTest<BlueprintAbility, AbilityConfigurator>
@@ -301,7 +302,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
 
       var childAbility = BlueprintTool.Get<BlueprintAbility>(Guid);
       Assert.Equal(
-          Ability.ToReference<BlueprintAbilityReference>(),
+          TestAbility.ToReference<BlueprintAbilityReference>(),
           childAbility.Parent.ToReference<BlueprintAbilityReference>());
 
       var parentVariants = childAbility.Parent.GetComponent<AbilityVariants>();
@@ -511,7 +512,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       Assert.NotNull(alignment);
 
       Assert.Equal(AlignmentMaskType.Evil, alignment.Alignment);
-      Assert.Equal(Fact.ToReference<BlueprintUnitFactReference>(), alignment.m_IgnoreFact);
+      Assert.Equal(TestFact.ToReference<BlueprintUnitFactReference>(), alignment.m_IgnoreFact);
     }
 
     [Fact]
@@ -525,7 +526,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       var hasFacts = ability.GetComponent<AbilityCasterHasFacts>();
       Assert.NotNull(hasFacts);
 
-      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), hasFacts.m_Facts);
+      Assert.Contains(TestFact.ToReference<BlueprintUnitFactReference>(), hasFacts.m_Facts);
       Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), hasFacts.m_Facts);
       Assert.Equal(2, hasFacts.m_Facts.Length);
     }
@@ -541,7 +542,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       var hasNoFacts = ability.GetComponent<AbilityCasterHasNoFacts>();
       Assert.NotNull(hasNoFacts);
 
-      Assert.Contains(Fact.ToReference<BlueprintUnitFactReference>(), hasNoFacts.m_Facts);
+      Assert.Contains(TestFact.ToReference<BlueprintUnitFactReference>(), hasNoFacts.m_Facts);
       Assert.Contains(ExtraFact.ToReference<BlueprintUnitFactReference>(), hasNoFacts.m_Facts);
       Assert.Equal(2, hasNoFacts.m_Facts.Length);
     }
@@ -580,7 +581,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
           ParameterizedFeature.ToReference<BlueprintParametrizedFeatureReference>(),
           hasChosenWeapon.m_ChosenWeaponFeature);
       Assert.Equal(
-          Fact.ToReference<BlueprintUnitFactReference>(), hasChosenWeapon.m_IgnoreWeaponFact);
+          TestFact.ToReference<BlueprintUnitFactReference>(), hasChosenWeapon.m_IgnoreWeaponFact);
     }
 
     [Fact]
@@ -654,7 +655,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       Assert.NotNull(isOnFavoredTerrain);
 
       Assert.Equal(
-          Feature.ToReference<BlueprintFeatureReference>(), isOnFavoredTerrain.m_IgnoreFeature);
+          TestFeature.ToReference<BlueprintFeatureReference>(), isOnFavoredTerrain.m_IgnoreFeature);
     }
 
     [Fact]
@@ -679,7 +680,8 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
     public void RequireTargetHasBuffsFromCaster_WithAllBuffs()
     {
       GetConfigurator(Guid)
-          .RequireTargetHasBuffsFromCaster(new string[] { BuffGuid, ExtraBuffGuid }, requireAllBuffs: true)
+          .RequireTargetHasBuffsFromCaster(
+              new string[] { BuffGuid, ExtraBuffGuid }, requireAllBuffs: true)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -1011,7 +1013,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       Assert.NotNull(variants);
 
       Assert.Equal(2, variants.m_Variants.Length);
-      Assert.Contains(Ability.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
+      Assert.Contains(TestAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
       Assert.Contains(ExtraAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
     }
 
@@ -1032,7 +1034,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       Assert.NotNull(variants);
 
       Assert.Equal(3, variants.m_Variants.Length);
-      Assert.Contains(Ability.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
+      Assert.Contains(TestAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
       Assert.Contains(ExtraAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
       Assert.Contains(AnotherAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
     }

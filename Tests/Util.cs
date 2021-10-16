@@ -1,6 +1,6 @@
 using Kingmaker.Blueprints;
 
-namespace BlueprintCore.Tests
+namespace BlueprintCore.Test
 {
   public static class Util
   {

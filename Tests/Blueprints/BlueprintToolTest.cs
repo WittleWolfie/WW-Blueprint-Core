@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Xunit;
 
-namespace BlueprintCore.Tests.Blueprints
+namespace BlueprintCore.Test.Blueprints
 {
   [Collection("Harmony")]
   public class BlueprintToolTest : IDisposable
@@ -16,20 +16,24 @@ namespace BlueprintCore.Tests.Blueprints
 
     //----- BlueprintAbility (By Name) -----//
     private static readonly string AbilityGuid = "0897de3e-4097-4cfa-bcfc-755119e36bf7";
-    private readonly BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
+    private BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
 
     //----- BlueprintBuff (By Name)  -----//
     private static readonly string BuffGuid = "efcfcdbe-2988-4ab4-941f-2d81f02e1e0b";
-    private readonly BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
+    private BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
 
     //----- BlueprintFeature -----//
     private static readonly string FeatureGuid = "43a37f22-fc6a-44e9-b66e-d3dd41ef6ebc";
-    private readonly BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
+    private BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
 
     public BlueprintToolTest() : base() { }
 
     public void Dispose()
     {
+      Ability = null;
+      Buff = null;
+      Feature = null;
+
       BlueprintPatch.Clear();
     }
 
@@ -38,8 +42,8 @@ namespace BlueprintCore.Tests.Blueprints
     {
       BlueprintTool.AddGuidsByName(("Ability", AbilityGuid), ("Buff", BuffGuid));
 
-      Assert.NotNull(BlueprintTool.Get<BlueprintAbility>("Ability"));
-      Assert.NotNull(BlueprintTool.Get<BlueprintBuff>("Buff"));
+      Assert.Equal(Ability, BlueprintTool.Get<BlueprintAbility>("Ability"));
+      Assert.Equal(Buff, BlueprintTool.Get<BlueprintBuff>("Buff"));
       Assert.ThrowsAny<Exception>(() => BlueprintTool.Get<BlueprintFeature>("Feature"));
     }
 
@@ -49,8 +53,8 @@ namespace BlueprintCore.Tests.Blueprints
       BlueprintTool.AddGuidsByName(
           new Dictionary<string, string> { { "Buff", BuffGuid }, { "Feature", FeatureGuid } });
 
-      Assert.NotNull(BlueprintTool.Get<BlueprintBuff>("Buff"));
-      Assert.NotNull(BlueprintTool.Get<BlueprintFeature>("Feature"));
+      Assert.Equal(Buff, BlueprintTool.Get<BlueprintBuff>("Buff"));
+      Assert.Equal(Feature, BlueprintTool.Get<BlueprintFeature>("Feature"));
       Assert.ThrowsAny<Exception>(() => BlueprintTool.Get<BlueprintAbility>("Ability"));
     }
 

@@ -1,13 +1,14 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Classes;
-using BlueprintCore.Tests.Blueprints.Facts;
+using BlueprintCore.Test.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Tests.Blueprints.Classes
+namespace BlueprintCore.Test.Blueprints.Classes
 {
   public abstract class CommonFeatureConfiguratorTest<T, TBuilder>
       : BlueprintUnitFactConfiguratorTest<T, TBuilder>
@@ -82,7 +83,7 @@ namespace BlueprintCore.Tests.Blueprints.Classes
       T blueprint = BlueprintTool.Get<T>(Guid);
       Assert.Equal(2, blueprint.IsPrerequisiteFor.Count);
       Assert.Contains(
-          Feature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
       Assert.Contains(
           ExtraFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
     }
@@ -102,7 +103,7 @@ namespace BlueprintCore.Tests.Blueprints.Classes
       T blueprint = BlueprintTool.Get<T>(Guid);
       Assert.Equal(2, blueprint.IsPrerequisiteFor.Count);
       Assert.Contains(
-          Feature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
       Assert.Contains(
           ExtraFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
     }
@@ -122,7 +123,7 @@ namespace BlueprintCore.Tests.Blueprints.Classes
       T blueprint = BlueprintTool.Get<T>(Guid);
       Assert.Single(blueprint.IsPrerequisiteFor);
       Assert.Contains(
-          Feature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
     }
 
     [Fact]

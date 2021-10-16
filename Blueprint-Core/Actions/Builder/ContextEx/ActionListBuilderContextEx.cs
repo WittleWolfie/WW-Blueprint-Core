@@ -1392,25 +1392,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(resurrect);
     }
 
-    // TODO: Move to AVEx.
-    /// <summary>
-    /// Adds <see cref="ContextActionRunAnimationClip">ContextActionRunAnimationClip</see>
-    /// </summary>
-    public static ActionListBuilder RunAnimationClip(
-        this ActionListBuilder builder,
-        AnimationClipWrapper clip,
-        ExecutionMode mode = ExecutionMode.Interrupted,
-        float transitionIn = 0.25f,
-        float transitionOut = 0.25f)
-    {
-      var animation = ElementTool.Create<ContextActionRunAnimationClip>();
-      animation.ClipWrapper = clip;
-      animation.Mode = mode;
-      animation.TransitionIn = transitionIn;
-      animation.TransitionOut = transitionOut;
-      return builder.Add(animation);
-    }
-
     /// <summary>
     /// Adds <see cref="ContextActionSavingThrow">ContextActionSavingThrow</see>
     /// </summary>
@@ -1469,23 +1450,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
                   })
               .ToArray();
       return builder.Add(select);
-    }
-
-    // TODO: Move to AVEx
-    /// <summary>
-    /// Adds <see cref="ContextActionShowBark">ContextActionShowBark</see>
-    /// </summary>
-    public static ActionListBuilder Bark(
-        this ActionListBuilder builder,
-        LocalizedString bark,
-        bool showIfUnconcious = false,
-        bool durationBasedOnTextLength = false)
-    {
-      var showBark = ElementTool.Create<ContextActionShowBark>();
-      showBark.WhatToBark = bark;
-      showBark.ShowWhileUnconscious = showIfUnconcious;
-      showBark.BarkDurationByText = durationBasedOnTextLength;
-      return builder.Add(showBark);
     }
 
     /// <summary>
@@ -1603,17 +1567,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           BlueprintTool.GetRef<BlueprintControllableProjectileReference>(projectile);
       spawnProjectile.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(spawnProjectile);
-    }
-
-    // TODO: Move to AVEx
-    /// <summary>
-    /// Adds <see cref="ContextActionSpawnFx">ContextActionSpawnFx</see>
-    /// </summary>
-    public static ActionListBuilder SpawnFx(this ActionListBuilder builder, PrefabLink prefab)
-    {
-      var spawnFx = ElementTool.Create<ContextActionSpawnFx>();
-      spawnFx.PrefabLink = prefab;
-      return builder.Add(spawnFx);
     }
 
     /// <summary>
@@ -1944,17 +1897,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
-
-    // TODO: Move to AVEx
-    /// <summary>
-    /// Adds <see cref="ContextActionPlaySound">ContextActionPlaySound</see>
-    /// </summary>
-    public static ActionListBuilder PlaySound(this ActionListBuilder builder, string soundName)
-    {
-      var playSound = ElementTool.Create<ContextActionPlaySound>();
-      playSound.SoundName = soundName;
-      return builder.Add(playSound);
-    }
 
     /// <summary>
     /// Adds <see cref="ContextActionResetAlignment">ContextActionResetAlignment</see>

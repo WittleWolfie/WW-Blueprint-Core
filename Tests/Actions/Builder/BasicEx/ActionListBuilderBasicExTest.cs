@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.BasicEx;
-using BlueprintCore.Tests.Asserts;
+using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
@@ -11,23 +9,26 @@ using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
+using System;
+using System.Collections.Generic;
 using Xunit;
+using static BlueprintCore.Test.TestData;
 
 
-namespace BlueprintCore.Tests.Actions.Builder.BasicEx
+namespace BlueprintCore.Test.Actions.Builder.BasicEx
 {
-  public class ActionListBuilderBasicExTest : ActionListBuilderTestBase
+  public class ActionListBuilderBasicExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
     [Fact]
     public void AttachBuff()
     {
-      IntConstant.Value = 5;
+      TestInt.Value = 5;
 
       var actions =
           ActionListBuilder.New()
-              .AttachBuff(BuffGuid, ClickedUnit, IntConstant)
+              .AttachBuff(BuffGuid, TestUnit, TestInt)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -35,7 +36,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       ElementAsserts.IsValid(attachBuff);
 
       Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), attachBuff.m_Buff);
-      Assert.Equal(ClickedUnit, attachBuff.Target);
+      Assert.Equal(TestUnit, attachBuff.Target);
       Assert.Equal(5, attachBuff.Duration.GetValue());
     }
 
@@ -45,7 +46,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       var actions =
           ActionListBuilder.New()
               .OnCreaturesAround(
-                  ActionListBuilder.New().ClearAllUnitReturnPosition(), Distance, NearestPosition)
+                  ActionListBuilder.New().ClearAllUnitReturnPosition(), TestDistance, TestPosition)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -55,8 +56,8 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       Assert.Single(onCreatures.Actions.Actions);
       Assert.IsType<ClearUnitReturnPosition>(onCreatures.Actions.Actions[0]);
 
-      Assert.Equal(Distance, onCreatures.Radius);
-      Assert.Equal(NearestPosition, onCreatures.Center);
+      Assert.Equal(TestDistance, onCreatures.Radius);
+      Assert.Equal(TestPosition, onCreatures.Center);
       Assert.False(onCreatures.CheckLos);
       Assert.False(onCreatures.IncludeDead);
     }
@@ -68,8 +69,8 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
           ActionListBuilder.New()
               .OnCreaturesAround(
                   ActionListBuilder.New().ClearAllUnitReturnPosition(),
-                  Distance,
-                  NearestPosition,
+                  TestDistance,
+                  TestPosition,
                   checkLos: true,
                   targetDead: true)
               .Build();
@@ -81,8 +82,8 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       Assert.Single(onCreatures.Actions.Actions);
       Assert.IsType<ClearUnitReturnPosition>(onCreatures.Actions.Actions[0]);
 
-      Assert.Equal(Distance, onCreatures.Radius);
-      Assert.Equal(NearestPosition, onCreatures.Center);
+      Assert.Equal(TestDistance, onCreatures.Radius);
+      Assert.Equal(TestPosition, onCreatures.Center);
       Assert.True(onCreatures.CheckLos);
       Assert.True(onCreatures.IncludeDead);
     }
@@ -90,14 +91,14 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     [Fact]
     public void AddFact()
     {
-      var actions = ActionListBuilder.New().AddFact(BuffGuid, ClickedUnit).Build();
+      var actions = ActionListBuilder.New().AddFact(BuffGuid, TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var addFact = (AddFact)actions.Actions[0];
       ElementAsserts.IsValid(addFact);
 
       Assert.Equal(Buff.ToReference<BlueprintUnitFactReference>(), addFact.m_Fact);
-      Assert.Equal(ClickedUnit, addFact.Unit);
+      Assert.Equal(TestUnit, addFact.Unit);
     }
 
     [Fact]
@@ -105,27 +106,27 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       var hours = ElementTool.Create<IntConstant>();
 
-      var actions = ActionListBuilder.New().AddFatigue(hours, ClickedUnit).Build();
+      var actions = ActionListBuilder.New().AddFatigue(hours, TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var fatigue = (AddFatigueHours)actions.Actions[0];
       ElementAsserts.IsValid(fatigue);
 
       Assert.Equal(hours, fatigue.Hours);
-      Assert.Equal(ClickedUnit, fatigue.Unit);
+      Assert.Equal(TestUnit, fatigue.Unit);
     }
 
     [Fact]
     public void ChangeAlignment()
     {
       var actions =
-          ActionListBuilder.New().ChangeAlignment(ClickedUnit, Alignment.LawfulEvil).Build();
+          ActionListBuilder.New().ChangeAlignment(TestUnit, Alignment.LawfulEvil).Build();
 
       Assert.Single(actions.Actions);
       var changeAlignment = (ChangeAlignment)actions.Actions[0];
       ElementAsserts.IsValid(changeAlignment);
 
-      Assert.Equal(ClickedUnit, changeAlignment.Unit);
+      Assert.Equal(TestUnit, changeAlignment.Unit);
       Assert.Equal(Alignment.LawfulEvil, changeAlignment.Alignment);
     }
 
@@ -161,13 +162,13 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     [Fact]
     public void DamageParty()
     {
-      var actions = ActionListBuilder.New().DamageParty(Damage).Build();
+      var actions = ActionListBuilder.New().DamageParty(TestDamage).Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DamageParty)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(Damage, dmg.Damage);
+      Assert.Equal(TestDamage, dmg.Damage);
       Assert.True(dmg.NoSource);
       Assert.False(dmg.DamageSource);
     }
@@ -177,30 +178,30 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       var actions =
           ActionListBuilder.New()
-              .DamageParty(Damage, source: ClickedUnit, enableBattleLog: false)
+              .DamageParty(TestDamage, source: TestUnit, enableBattleLog: false)
               .Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DamageParty)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(Damage, dmg.Damage);
+      Assert.Equal(TestDamage, dmg.Damage);
       Assert.False(dmg.NoSource);
       Assert.True(dmg.DamageSource);
-      Assert.Equal(ClickedUnit, dmg.DamageSource);
+      Assert.Equal(TestUnit, dmg.DamageSource);
     }
 
     [Fact]
     public void DealDamage()
     {
-      var actions = ActionListBuilder.New().DealDamage(ClickedUnit, Damage).Build();
+      var actions = ActionListBuilder.New().DealDamage(TestUnit, TestDamage).Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DealDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(Damage, dmg.Damage);
-      Assert.Equal(ClickedUnit, dmg.Target);
+      Assert.Equal(TestDamage, dmg.Damage);
+      Assert.Equal(TestUnit, dmg.Target);
       Assert.True(dmg.NoSource);
 
       Assert.False(dmg.DisableBattleLog);
@@ -213,9 +214,9 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       var actions =
           ActionListBuilder.New()
               .DealDamage(
-                  ClickedUnit,
-                  Damage,
-                  source: ClickedUnit,
+                  TestUnit,
+                  TestDamage,
+                  source: TestUnit,
                   enableBattleLog: false,
                   enableFxAndSound: false)
               .Build();
@@ -224,10 +225,10 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       var dmg = (DealDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(Damage, dmg.Damage);
-      Assert.Equal(ClickedUnit, dmg.Target);
+      Assert.Equal(TestDamage, dmg.Damage);
+      Assert.Equal(TestUnit, dmg.Target);
       Assert.False(dmg.NoSource);
-      Assert.Equal(ClickedUnit, dmg.Source);
+      Assert.Equal(TestUnit, dmg.Source);
 
       Assert.True(dmg.DisableBattleLog);
       Assert.True(dmg.DisableFxAndSound);
@@ -238,14 +239,14 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       var actions =
           ActionListBuilder.New()
-              .DealStatDamage(ClickedUnit, StatType.Strength, new DiceFormula(1, DiceType.D4))
+              .DealStatDamage(TestUnit, StatType.Strength, new DiceFormula(1, DiceType.D4))
               .Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DealStatDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(ClickedUnit, dmg.Target);
+      Assert.Equal(TestUnit, dmg.Target);
       Assert.Equal(StatType.Strength, dmg.Stat);
       Assert.Equal(1, dmg.DamageDice.Rolls);
       Assert.Equal(DiceType.D4, dmg.DamageDice.Dice);
@@ -262,7 +263,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       Assert.Throws<InvalidOperationException>(
           () =>
             ActionListBuilder.New()
-                .DealStatDamage(ClickedUnit, StatType.AC, new DiceFormula(1, DiceType.D4))
+                .DealStatDamage(TestUnit, StatType.AC, new DiceFormula(1, DiceType.D4))
                 .Build());
     }
 
@@ -272,11 +273,11 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       var actions =
           ActionListBuilder.New()
               .DealStatDamage(
-                  ClickedUnit,
+                  TestUnit,
                   StatType.Wisdom,
                   new DiceFormula(2, DiceType.D6),
                   damageBonus: 2,
-                  source: ClickedUnit,
+                  source: TestUnit,
                   drain: true,
                   enableBattleLog: false)
               .Build();
@@ -285,7 +286,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       var dmg = (DealStatDamage)actions.Actions[0];
       ElementAsserts.IsValid(dmg);
 
-      Assert.Equal(ClickedUnit, dmg.Target);
+      Assert.Equal(TestUnit, dmg.Target);
       Assert.Equal(StatType.Wisdom, dmg.Stat);
       Assert.Equal(2, dmg.DamageDice.Rolls);
       Assert.Equal(DiceType.D6, dmg.DamageDice.Dice);
@@ -294,7 +295,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
       Assert.True(dmg.IsDrain);
       Assert.True(dmg.DisableBattleLog);
       Assert.False(dmg.NoSource);
-      Assert.Equal(ClickedUnit, dmg.Source);
+      Assert.Equal(TestUnit, dmg.Source);
     }
 
     [Fact]
@@ -456,7 +457,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       Assert.Throws<InvalidOperationException>(
           () =>
-            ActionListBuilder.New().GiveEquipmentToPlayer(SimpleHandItemGuid, ClickedUnit).Build());
+            ActionListBuilder.New().GiveEquipmentToPlayer(SimpleHandItemGuid, TestUnit).Build());
     }
 
     [Fact]
@@ -467,7 +468,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
               .GiveEquipmentToPlayer(
                   ArmorGuid,
                   equip: true,
-                  equipOn: ClickedUnit,
+                  equipOn: TestUnit,
                   errorIfDidNotEquip: false,
                   count: 2,
                   silent: true,
@@ -480,7 +481,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
 
       Assert.Equal(Armor.ToReference<BlueprintItemReference>(), addItem.m_ItemToGive);
       Assert.True(addItem.Equip);
-      Assert.Equal(ClickedUnit, addItem.EquipOn);
+      Assert.Equal(TestUnit, addItem.EquipOn);
       Assert.False(addItem.ErrorIfDidNotEquip);
       Assert.Equal(0, addItem.PreferredWeaponSet);
       Assert.Equal(2, addItem.Quantity);
@@ -515,7 +516,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
               .GiveHandSlotItemToPlayer(
                   SimpleHandItemGuid,
                   equip: true,
-                  equipOn: ClickedUnit,
+                  equipOn: TestUnit,
                   errorIfDidNotEquip: false,
                   preferredHandSlot: 2,
                   count: 2,
@@ -529,7 +530,7 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
 
       Assert.Equal(SimpleHandItem.ToReference<BlueprintItemReference>(), addItem.m_ItemToGive);
       Assert.True(addItem.Equip);
-      Assert.Equal(ClickedUnit, addItem.EquipOn);
+      Assert.Equal(TestUnit, addItem.EquipOn);
       Assert.False(addItem.ErrorIfDidNotEquip);
       Assert.Equal(2, addItem.PreferredWeaponSet);
       Assert.Equal(2, addItem.Quantity);
@@ -542,39 +543,39 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       var targetLevel = ElementTool.Create<IntConstant>();
 
-      var actions = ActionListBuilder.New().AdvanceLevel(ClickedUnit, targetLevel).Build();
+      var actions = ActionListBuilder.New().AdvanceLevel(TestUnit, targetLevel).Build();
 
       Assert.Single(actions.Actions);
       var advanceLevel = (AdvanceUnitLevel)actions.Actions[0];
       ElementAsserts.IsValid(advanceLevel);
 
-      Assert.Equal(ClickedUnit, advanceLevel.Unit);
+      Assert.Equal(TestUnit, advanceLevel.Unit);
       Assert.Equal(targetLevel, advanceLevel.Level);
     }
 
     [Fact]
     public void DestroyUnit()
     {
-      var actions = ActionListBuilder.New().DestroyUnit(ClickedUnit).Build();
+      var actions = ActionListBuilder.New().DestroyUnit(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyUnit)actions.Actions[0];
       ElementAsserts.IsValid(destroy);
 
-      Assert.Equal(ClickedUnit, destroy.Target);
+      Assert.Equal(TestUnit, destroy.Target);
       Assert.False(destroy.FadeOut);
     }
 
     [Fact]
     public void DestroyUnit_WithFadeOut()
     {
-      var actions = ActionListBuilder.New().DestroyUnit(ClickedUnit, fadeOut: true).Build();
+      var actions = ActionListBuilder.New().DestroyUnit(TestUnit, fadeOut: true).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyUnit)actions.Actions[0];
       ElementAsserts.IsValid(destroy);
 
-      Assert.Equal(ClickedUnit, destroy.Target);
+      Assert.Equal(TestUnit, destroy.Target);
       Assert.True(destroy.FadeOut);
     }
 
@@ -583,26 +584,26 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     {
       var group = ElementTool.Create<PlayerCharacter>();
 
-      var actions = ActionListBuilder.New().AddUnitToGroup(ClickedUnit, group).Build();
+      var actions = ActionListBuilder.New().AddUnitToGroup(TestUnit, group).Build();
 
       Assert.Single(actions.Actions);
       var addToGroup = (CombineToGroup)actions.Actions[0];
       ElementAsserts.IsValid(addToGroup);
 
-      Assert.Equal(ClickedUnit, addToGroup.TargetUnit);
+      Assert.Equal(TestUnit, addToGroup.TargetUnit);
       Assert.Equal(group, addToGroup.GroupHolder);
     }
 
     [Fact]
     public void ClearUnitReturnPosition()
     {
-      var actions = ActionListBuilder.New().ClearUnitReturnPosition(ClickedUnit).Build();
+      var actions = ActionListBuilder.New().ClearUnitReturnPosition(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var clearReturnPosition = (ClearUnitReturnPosition)actions.Actions[0];
       ElementAsserts.IsValid(clearReturnPosition);
 
-      Assert.Equal(ClickedUnit, clearReturnPosition.Unit);
+      Assert.Equal(TestUnit, clearReturnPosition.Unit);
     }
 
     [Fact]
@@ -621,13 +622,13 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     public void AddUnitToSummonPool()
     {
       var actions =
-          ActionListBuilder.New().AddUnitToSummonPool(ClickedUnit, SummonPoolGuid).Build();
+          ActionListBuilder.New().AddUnitToSummonPool(TestUnit, SummonPoolGuid).Build();
 
       Assert.Single(actions.Actions);
       var addSummon = (AddUnitToSummonPool)actions.Actions[0];
       ElementAsserts.IsValid(addSummon);
 
-      Assert.Equal(ClickedUnit, addSummon.Unit);
+      Assert.Equal(TestUnit, addSummon.Unit);
       Assert.Equal(SummonPool.ToReference<BlueprintSummonPoolReference>(), addSummon.m_SummonPool);
     }
 
@@ -635,13 +636,13 @@ namespace BlueprintCore.Tests.Actions.Builder.BasicEx
     public void RemoveUnitFromSummonPool()
     {
       var actions =
-          ActionListBuilder.New().RemoveUnitFromSummonPool(ClickedUnit, SummonPoolGuid).Build();
+          ActionListBuilder.New().RemoveUnitFromSummonPool(TestUnit, SummonPoolGuid).Build();
 
       Assert.Single(actions.Actions);
       var addSummon = (DeleteUnitFromSummonPool)actions.Actions[0];
       ElementAsserts.IsValid(addSummon);
 
-      Assert.Equal(ClickedUnit, addSummon.Unit);
+      Assert.Equal(TestUnit, addSummon.Unit);
       Assert.Equal(SummonPool.ToReference<BlueprintSummonPoolReference>(), addSummon.m_SummonPool);
     }
   }

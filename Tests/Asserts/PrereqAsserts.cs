@@ -1,7 +1,7 @@
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Xunit;
 
-namespace BlueprintCore.Tests.Asserts
+namespace BlueprintCore.Test.Asserts
 {
   public class PrereqAsserts
   {
