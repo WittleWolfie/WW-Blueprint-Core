@@ -6,13 +6,15 @@ using Kingmaker.ResourceLinks;
 
 namespace BlueprintCore.Actions.Builder.AVEx
 {
-  /**
-   * Extension to ActionListBuilder for Audiovisual actions such as dialogs, camera, cutscenes,
-   * visual effects, and sounds.
-   */
+  /// <summary>
+  /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for actions involving audiovisual effects such
+  /// as dialogs, camera, cutscenes, and sounds.
+  /// </summary>
   public static class ActionListBuilderAVEx
   {
-    /** ChangeBookEventImage */
+    /// <summary>
+    /// Adds <see cref="ChangeBookEventImage">ChangeBookEventImage</see>
+    /// </summary>
     public static ActionListBuilder ChangeBookImage(this ActionListBuilder builder, SpriteLink image)
     {
       var setImage = ElementTool.Create<ChangeBookEventImage>();
@@ -20,9 +22,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
       return builder.Add(setImage);
     }
 
-    /** CameratoPosition */
-    public static ActionListBuilder MoveCamera(
-        this ActionListBuilder builder, PositionEvaluator position)
+    /// <summary>
+    /// Adds <see cref="CameraToPosition">CameraToPosition</see>
+    /// </summary>
+    public static ActionListBuilder MoveCamera(this ActionListBuilder builder, PositionEvaluator position)
     {
       builder.Validate(position);
 
@@ -31,9 +34,11 @@ namespace BlueprintCore.Actions.Builder.AVEx
       return builder.Add(moveCamera);
     }
 
-    /** AddDialogNotification */
-    public static ActionListBuilder AddDialogNotification(
-        this ActionListBuilder builder, LocalizedString text)
+    /// <summary>
+    /// Adds
+    /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification">AddDialogNotification</see>
+    /// </summary>
+    public static ActionListBuilder AddDialogNotification(this ActionListBuilder builder, LocalizedString text)
     {
       var notification = ElementTool.Create<AddDialogNotification>();
       notification.Text = text;
@@ -42,7 +47,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
 
     //----- FX -----//
 
-    /** ClearBlood */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ClearBlood">ClearBlood</see>
+    /// </summary>
     public static ActionListBuilder ClearBlood(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ClearBlood>());

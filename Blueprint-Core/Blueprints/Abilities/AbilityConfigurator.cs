@@ -397,7 +397,7 @@ namespace BlueprintCore.Blueprints.Abilities
     {
       var hasBuffs = new TargetHasBuffsFromCaster
       {
-        m_CheckedBuffs =
+        Buffs =
             buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray()
       };
       return AddComponent(hasBuffs);

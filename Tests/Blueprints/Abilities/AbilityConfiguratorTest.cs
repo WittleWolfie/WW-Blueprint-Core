@@ -668,9 +668,9 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       var hasBuffs = ability.GetComponent<TargetHasBuffsFromCaster>();
       Assert.NotNull(hasBuffs);
 
-      Assert.Equal(2, hasBuffs.m_CheckedBuffs.Length);
-      Assert.Contains(Buff.ToReference<BlueprintBuffReference>(), hasBuffs.m_CheckedBuffs);
-      Assert.Contains(ExtraBuff.ToReference<BlueprintBuffReference>(), hasBuffs.m_CheckedBuffs);
+      Assert.Equal(2, hasBuffs.Buffs.Length);
+      Assert.Contains(Buff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
+      Assert.Contains(ExtraBuff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
     }
 
     [Fact]

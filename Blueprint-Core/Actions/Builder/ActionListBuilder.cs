@@ -18,10 +18,9 @@ namespace BlueprintCore.Actions.Builder
   /// </para>
   /// 
   /// <para>
-  /// When <see cref="Build">Build</see> is called the <see cref="ActionList">ActionList</see> is
-  /// constructed, validated, and
-  /// returned. If any errors are detected by <see cref="Validator">Validator</see> they will be
-  /// logged as a warning.
+  /// When <see cref="Build">Build</see> is called the <see cref="ActionList">ActionList</see> is constructed,
+  /// validated, and returned. If any errors are detected by <see cref="Validator">Validator</see> they will be logged
+  /// as a warning.
   /// </para>
   /// 
   /// <para>
@@ -29,9 +28,9 @@ namespace BlueprintCore.Actions.Builder
   /// </para>
   /// 
   /// <para>
-  /// If a method calls for a string to represent any type of blueprint, you can pass the
-  /// blueprint's <see cref="Kingmaker.Blueprints.SimpleBlueprint.AssetGuid">AssetGuid</see> as a
-  /// string or as a name you already provided using
+  /// If a method calls for a string to represent any type of blueprint, you can pass the blueprint's
+  /// <see cref="Kingmaker.Blueprints.SimpleBlueprint.AssetGuid">AssetGuid</see> as a string or as a name you already
+  /// provided using
   /// <see cref="Blueprints.BlueprintTool.AddGuidsByName((string name, string guid)[])">AddGuidsByName()</see>.
   /// </para>
   /// 
@@ -41,8 +40,8 @@ namespace BlueprintCore.Actions.Builder
   ///   <term><see cref="AreaEx.ActionListBuilderAreaEx">AreaEx</see></term>
   ///   <description>
   ///     Actions involving the game map, dungeons, or locations. See also
-  ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see> for location related
-  ///     actions specifically tied to the Kingdom and Crusade system.
+  ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see> for location related actions specifically
+  ///     tied to the Kingdom and Crusade system.
   ///   </description>
   /// </item>
   /// <item>
@@ -62,8 +61,8 @@ namespace BlueprintCore.Actions.Builder
   ///   <term><see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see></term>
   ///   <description>
   ///     Most <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types. Some
-  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more
-  ///     specific extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
+  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more specific extensions such
+  ///     as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
   ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   ///   </description>
   /// </item>
@@ -88,8 +87,7 @@ namespace BlueprintCore.Actions.Builder
   /// <item>
   ///   <term><see cref="StoryEx.ActionListBuilderStoryEx">StoryEx</see></term>
   ///   <description>
-  ///     Actions related to the story such as companion stories, quests, name changes, and
-  ///     etudes.
+  ///     Actions related to the story such as companion stories, quests, name changes, and etudes.
   ///   </description>
   /// </item>
   /// <item>
@@ -127,8 +125,8 @@ namespace BlueprintCore.Actions.Builder
     public static ActionListBuilder New() { return new ActionListBuilder(); }
 
     /// <returns>
-    /// An <see cref="ActionList">ActionList</see> containing all specified actions. Any validation
-    /// errors are logged as a warning. Do not call twice on the same builder.
+    /// An <see cref="ActionList">ActionList</see> containing all specified actions. Any validation errors are logged
+    /// as a warning. Do not call twice on the same builder.
     /// </returns>
     public ActionList Build()
     {
@@ -143,8 +141,8 @@ namespace BlueprintCore.Actions.Builder
     /// 
     /// </summary>
     /// <remarks>
-    /// It is recommended to only call this from an extension class or when adding an action type
-    /// not supported by the builder.
+    /// It is recommended to only call this from an extension class or when adding an action type not supported by the
+    /// builder.
     /// </remarks>
     public ActionListBuilder Add(GameAction action)
     {
@@ -174,13 +172,13 @@ namespace BlueprintCore.Actions.Builder
     }
 
     /// <summary>
-    /// Runs the object through <see cref="Validator.Check(object)">Validator.Check()</see>, adding
-    /// any errors to the validation warnings.
+    /// Runs the object through <see cref="Validator.Check(object)">Validator.Check()</see>, adding any errors to the
+    /// validation warnings.
     /// </summary>
     /// 
     /// <remarks>
-    /// Exposed for use by extension classes to bundle warnings into the builder. Other classes can
-    /// use <see cref="Validator.Check(object)">Validator.Check()</see> directly.
+    /// Exposed for use by extension classes to bundle warnings into the builder. Other classes can use
+    /// <see cref="Validator.Check(object)">Validator.Check()</see> directly.
     /// </remarks>
     /// <param name="obj"></param>
     public void Validate(object obj)
