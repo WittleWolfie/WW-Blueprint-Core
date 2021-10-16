@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 
@@ -8,13 +9,61 @@ namespace BlueprintCore.Blueprints
   /** Utility for operating on Blueprint types. */
   public static class BlueprintTool
   {
-    public static T Create<T>(string name) where T : SimpleBlueprint, new()
-    {
-      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintTool");
+    private static readonly Dictionary<string, Guid> GuidsByName = new();
 
-      return Create<T>(name, assetId);
+    /**
+     * Creates a mapping from Name (key) to Guid (value). Once called, configurators and builders
+     * accept the given Name whenever a reference to the Blueprint with the given Guid is required.
+     */
+    public static void AddGuidsByName(Dictionary<string, string> guidsByName)
+    {
+      AddGuidsByName(guidsByName.Select(entry => (entry.Key, entry.Value)).ToArray());
     }
 
+    /**
+     * Creates a mapping from Name to Guid. Once called, configurators and builders accept the given
+     * Name whenever a reference to the Blueprint with the given Guid is required.
+     */
+    public static void AddGuidsByName(params (string name, string guid)[] guidsByName)
+    {
+      guidsByName
+          .ToList()
+          .ForEach(entry =>
+              {
+                if (GuidsByName.TryGetValue(entry.name, out Guid guid))
+                {
+                  if (guid.ToString() == entry.guid)
+                  {
+                    // Duplicate name to guid mapping, ignore
+                    return;
+                  }
+                  else
+                  {
+                    throw new InvalidOperationException(
+                        $"Duplicate GuidByName. {entry.name} - {entry.guid} requested, but"
+                        + $" {entry.name} already maps to {guid}.\n"
+                        + $"This indicates an error in single mod or an incompatibility between two"
+                        + $" mods. ");
+                  }
+                }
+
+                Logger.Verbose($"Adding GuidByName: {entry.name} - {entry.guid}");
+                guid = Guid.Parse(entry.guid);
+                GuidsByName.Add(entry.name, guid);
+              });
+    }
+
+    /**
+     * Creates a new Blueprint. The given Name must be mapped to a Guid first using
+     * AddGuidsByName().
+     */
+    public static T Create<T>(string name) where T : SimpleBlueprint, new()
+    {
+      return Create<T>(name, GuidsByName[name]);
+    }
+
+    /** Creates a new Blueprint with the specified Name and AssetId (Guid). */
     public static T Create<T>(string name, string assetId) where T : SimpleBlueprint, new()
     {
       return Create<T>(name, Guid.Parse(assetId));
@@ -40,9 +89,18 @@ namespace BlueprintCore.Blueprints
       return asset;
     }
 
-    public static T Get<T>(string name) where T : SimpleBlueprint
+    /**
+     * Returns the Blueprint from the game library with the specified nameOrId.
+     *
+     * @param nameOrId Use the name if you have specified a mapping with AddGuidsByName; use the
+     *   AssetId / Guid otherwise.
+     */
+    public static T Get<T>(string nameOrId) where T : SimpleBlueprint
     {
-      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+      if (!GuidsByName.TryGetValue(nameOrId, out Guid assetId))
+      {
+        assetId = Guid.Parse(nameOrId);
+      }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
       if (asset is T result)
@@ -52,20 +110,33 @@ namespace BlueprintCore.Blueprints
       else
       {
         throw new InvalidOperationException(
-            $"Failed to fetch blueprint: {name} - {assetId}.\n"
+            $"Failed to fetch blueprint: {nameOrId} - {assetId}.\n"
             + $"Is the type correct? {typeof(T)}");
       }
     }
 
-    public static TRef GetRef<TRef>(string name)
+    /**
+     * Returns a reference to the Blueprint with the specified nameOrId. The referenced Blueprint
+     * does not have to be in the game library, but it will throw an exception if the reference is
+     * used before the Blueprint has been added.
+     *
+     * If nameOrId is null, it will return a typed reference with a null Guid.
+     *
+     * @param nameOrId Use the name if you have specified a mapping with AddGuidsByName; use the
+     *   AssetId / Guid otherwise.
+     */
+    public static TRef GetRef<TRef>(string nameOrId)
         where TRef : BlueprintReferenceBase, new()
     {
-      if (string.IsNullOrEmpty(name))
+      if (string.IsNullOrEmpty(nameOrId))
       {
         return BlueprintReferenceBase.CreateTyped<TRef>(null);
       }
 
-      if (!Guid.TryParse(name, out Guid assetId)) { assetId = Guid.Parse(Guids.Get(name)); }
+      if (!GuidsByName.TryGetValue(nameOrId, out Guid assetId))
+      {
+        assetId = Guid.Parse(nameOrId);
+      }
 
       // Copied from BlueprintReferenceBase to allow creating a reference w/o fetching a blueprint.
       // This allows referencing a blueprint before it is added to the cache.
@@ -98,7 +169,7 @@ namespace BlueprintCore.Blueprints
       obj.SetComponents(components.AppendToArray(obj.Components));
     }
 
-    // Copied from https://github.com/Vek17/WrathMods-TabletopTweaks ExtensionMethods
+    // Modified from https://github.com/Vek17/WrathMods-TabletopTweaks ExtensionMethods
     public static void SetComponents(
         this BlueprintScriptableObject obj, params BlueprintComponent[] components)
     {
@@ -119,7 +190,6 @@ namespace BlueprintCore.Blueprints
         }
       }
       obj.Components = components;
-      obj.OnEnable(); // To make sure components are fully initialized
     }
   }
 }
