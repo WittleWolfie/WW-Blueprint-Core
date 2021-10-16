@@ -37,7 +37,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
   {
     public AbilityConfiguratorTest() : base()
     {
-      CreateBlueprint<BlueprintAbility>(Guid);
+      BlueprintPatch.Create<BlueprintAbility>(Guid);
     }
 
     protected override AbilityConfigurator GetConfigurator(string guid)

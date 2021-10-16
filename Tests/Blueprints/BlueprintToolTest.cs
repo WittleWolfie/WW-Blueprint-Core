@@ -16,27 +16,17 @@ namespace BlueprintCore.Tests.Blueprints
 
     //----- BlueprintAbility (By Name) -----//
     private static readonly string AbilityGuid = "0897de3e-4097-4cfa-bcfc-755119e36bf7";
-    private readonly BlueprintAbility Ability = CreateBlueprint<BlueprintAbility>(AbilityGuid);
+    private readonly BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
 
     //----- BlueprintBuff (By Name)  -----//
     private static readonly string BuffGuid = "efcfcdbe-2988-4ab4-941f-2d81f02e1e0b";
-    private readonly BlueprintBuff Buff = CreateBlueprint<BlueprintBuff>(BuffGuid);
+    private readonly BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
 
     //----- BlueprintFeature -----//
     private static readonly string FeatureGuid = "43a37f22-fc6a-44e9-b66e-d3dd41ef6ebc";
-    private readonly BlueprintFeature Feature = CreateBlueprint<BlueprintFeature>(FeatureGuid);
+    private readonly BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
 
-    private static T CreateBlueprint<T>(string guid) where T : SimpleBlueprint, new()
-    {
-      var blueprint = Util.Create<T>(guid);
-      BlueprintPatch.Add(blueprint);
-      return blueprint;
-    }
-
-    public BlueprintToolTest() : base()
-    {
-
-    }
+    public BlueprintToolTest() : base() { }
 
     public void Dispose()
     {

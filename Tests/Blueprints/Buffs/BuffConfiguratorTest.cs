@@ -13,7 +13,7 @@ namespace BlueprintCore.Tests.Blueprints.Buffs
   {
     public BuffConfiguratorTest() : base()
     {
-      CreateBlueprint<BlueprintBuff>(Guid);
+      BlueprintPatch.Create<BlueprintBuff>(Guid);
     }
 
     protected override BuffConfigurator GetConfigurator(string guid)

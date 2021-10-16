@@ -38,79 +38,79 @@ namespace BlueprintCore.Tests.Blueprints
 
     //----- BlueprintAbility -----//
     protected static readonly string AbilityGuid = "0897de3e-4097-4cfa-bcfc-755119e36bf7";
-    protected readonly BlueprintAbility Ability = CreateBlueprint<BlueprintAbility>(AbilityGuid);
+    protected readonly BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
 
     protected static readonly string ExtraAbilityGuid = "9292a096-a5ad-446e-a199-d62014a73391";
     protected readonly BlueprintAbility ExtraAbility =
-        CreateBlueprint<BlueprintAbility>(ExtraAbilityGuid);
+        BlueprintPatch.Create<BlueprintAbility>(ExtraAbilityGuid);
 
     protected static readonly string AnotherAbilityGuid = "f3fba7a2-a64e-44a4-a6de-9333c3409807";
     protected readonly BlueprintAbility AnotherAbility =
-        CreateBlueprint<BlueprintAbility>(AnotherAbilityGuid);
+        BlueprintPatch.Create<BlueprintAbility>(AnotherAbilityGuid);
 
     //----- BlueprintAiCastSpell -----//
     protected static readonly string AiCastSpellGuid = "ffbe7e22-1b9d-4ced-80d4-22d96887a62d";
     protected readonly BlueprintAiCastSpell AiCastSpell =
-        CreateBlueprint<BlueprintAiCastSpell>(AiCastSpellGuid);
+        BlueprintPatch.Create<BlueprintAiCastSpell>(AiCastSpellGuid);
 
     //----- BlueprintArchetype -----//
     protected static readonly string ArchetypeGuid = "e6a3b7d6-1a5f-4852-8dca-e50e14f57ea7";
     protected readonly BlueprintArchetype Archetype =
-        CreateBlueprint<BlueprintArchetype>(ArchetypeGuid);
+        BlueprintPatch.Create<BlueprintArchetype>(ArchetypeGuid);
 
     protected static readonly string ExtraArchetypeGuid = "e449b280-532f-45c9-9f63-ceec44fa909c";
     protected readonly BlueprintArchetype ExtraArchetype =
-        CreateBlueprint<BlueprintArchetype>(ExtraArchetypeGuid);
+        BlueprintPatch.Create<BlueprintArchetype>(ExtraArchetypeGuid);
 
     //----- BlueprintBuff -----//
     protected static readonly string BuffGuid = "efcfcdbe-2988-4ab4-941f-2d81f02e1e0b";
-    protected readonly BlueprintBuff Buff = CreateBlueprint<BlueprintBuff>(BuffGuid);
+    protected readonly BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
 
     protected static readonly string ExtraBuffGuid = "4d6ceec1-c5c5-4043-a766-347fed4ed2e3";
-    protected readonly BlueprintBuff ExtraBuff = CreateBlueprint<BlueprintBuff>(ExtraBuffGuid);
+    protected readonly BlueprintBuff ExtraBuff = BlueprintPatch.Create<BlueprintBuff>(ExtraBuffGuid);
 
     //----- BlueprintCharacterClass -----//
     protected static readonly string ClassGuid = "7c05a373-6efe-4730-a0f3-c997ac1e1759";
     protected readonly BlueprintCharacterClass Clazz =
-        CreateBlueprint<BlueprintCharacterClass>(ClassGuid);
+        BlueprintPatch.Create<BlueprintCharacterClass>(ClassGuid);
 
     protected static readonly string ExtraClassGuid = "47a46eba-c4c6-44cc-9809-20b4d6ad8d41";
     protected readonly BlueprintCharacterClass ExtraClass =
-        CreateBlueprint<BlueprintCharacterClass>(ExtraClassGuid);
+        BlueprintPatch.Create<BlueprintCharacterClass>(ExtraClassGuid);
 
     //----- BlueprintEtude -----//
     protected static readonly string EtudeGuid = "8c1589b0-f30c-488c-bd88-4fd90ea40113";
-    protected readonly BlueprintEtude Etude = CreateBlueprint<BlueprintEtude>(EtudeGuid);
+    protected readonly BlueprintEtude Etude = BlueprintPatch.Create<BlueprintEtude>(EtudeGuid);
 
     protected static readonly string ExtraEtudeGuid = "284819da-8952-4ded-a2b5-cfc4aee7ba01";
     protected BlueprintEtude ExtraEtude =
-        CreateBlueprint<BlueprintEtude>(ExtraEtudeGuid);
+        BlueprintPatch.Create<BlueprintEtude>(ExtraEtudeGuid);
 
     //----- BlueprintFeature -----//
     protected static readonly string FeatureGuid = "43a37f22-fc6a-44e9-b66e-d3dd41ef6ebc";
-    protected readonly BlueprintFeature Feature = CreateBlueprint<BlueprintFeature>(FeatureGuid);
+    protected readonly BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
 
     protected static readonly string ExtraFeatureGuid = "d43e5551-054a-488b-a8fa-97826b5df653";
     protected readonly BlueprintFeature ExtraFeature =
-        CreateBlueprint<BlueprintFeature>(ExtraFeatureGuid);
+        BlueprintPatch.Create<BlueprintFeature>(ExtraFeatureGuid);
 
     //----- BlueprintParametrizedFeature -----//
     protected static readonly string ParameterizedFeatureGuid =
         "80b7137f-2404-450b-a361-6e125297f4c3";
     protected readonly BlueprintParametrizedFeature ParameterizedFeature =
-        CreateBlueprint<BlueprintParametrizedFeature>(ParameterizedFeatureGuid);
+        BlueprintPatch.Create<BlueprintParametrizedFeature>(ParameterizedFeatureGuid);
     protected static readonly string ExtraParameterizedFeatureGuid =
         "0e195595-459a-405d-8c61-1e8365b12418";
     protected readonly BlueprintParametrizedFeature ExtraParameterizedFeature =
-        CreateBlueprint<BlueprintParametrizedFeature>(ExtraParameterizedFeatureGuid);
+        BlueprintPatch.Create<BlueprintParametrizedFeature>(ExtraParameterizedFeatureGuid);
 
     //----- BlueprintUnitFact -----//
     protected static readonly string FactGuid = "f7dba63d-9b33-436d-9841-ca2821b89a1b";
-    protected readonly BlueprintUnitFact Fact = CreateBlueprint<BlueprintUnitFact>(FactGuid);
+    protected readonly BlueprintUnitFact Fact = BlueprintPatch.Create<BlueprintUnitFact>(FactGuid);
 
     protected static readonly string ExtraFactGuid = "06d8783f-3b21-4b79-b2d0-061d13f30768";
     protected readonly BlueprintUnitFact ExtraFact =
-        CreateBlueprint<BlueprintUnitFact>(ExtraFactGuid);
+        BlueprintPatch.Create<BlueprintUnitFact>(ExtraFactGuid);
 
     //----- Common Objects -----// 
     protected readonly Sprite Sprite =
@@ -122,14 +122,6 @@ namespace BlueprintCore.Tests.Blueprints
     {
       BlueprintPatch.Clear();
       LoggerPatch.Logger.Reset();
-    }
-
-    protected static TBlueprint CreateBlueprint<TBlueprint>(string guid)
-        where TBlueprint : SimpleBlueprint, new()
-    {
-      var blueprint = Util.Create<TBlueprint>(guid);
-      BlueprintPatch.Add(blueprint);
-      return blueprint;
     }
 
     /**

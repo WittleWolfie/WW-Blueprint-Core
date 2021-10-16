@@ -12,7 +12,7 @@ namespace BlueprintCore.Tests.Blueprints.Classes
   {
     public FeatureConfiguratorTest() : base()
     {
-      CreateBlueprint<BlueprintFeature>(Guid);
+      BlueprintPatch.Create<BlueprintFeature>(Guid);
     }
 
     protected override FeatureConfigurator GetConfigurator(string guid)

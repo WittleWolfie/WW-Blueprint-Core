@@ -18,6 +18,13 @@ namespace BlueprintCore.Tests
       blueprint.ToList().ForEach(blueprint => Blueprints.Add(blueprint.AssetGuid, blueprint));
     }
 
+    public static T Create<T>(string assetId) where T : SimpleBlueprint, new()
+    {
+      var blueprint = Util.Create<T>(assetId);
+      Add(blueprint);
+      return blueprint;
+    }
+
     public static void Clear()
     {
       Blueprints.Clear();
