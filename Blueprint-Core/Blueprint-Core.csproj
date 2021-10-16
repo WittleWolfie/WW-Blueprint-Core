@@ -7,31 +7,26 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Actions\Builder\MetaEx\**" />
-    <EmbeddedResource Remove="Actions\Builder\MetaEx\**" />
-    <None Remove="Actions\Builder\MetaEx\**" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>../Assemblies/0Harmony.dll</HintPath>
+      <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>../Assemblies/Assembly-CSharp.dll</HintPath>
+      <HintPath>..\Assemblies\Assembly-CSharp_public.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>../Assemblies/Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
-      <HintPath>../Assemblies/Owlcat.Runtime.Core.dll</HintPath>
+      <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>../Assemblies/UnityEngine.dll</HintPath>
+      <HintPath>..\Assemblies\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>../Assemblies/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\Assemblies\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityModManager">
-      <HintPath>../Assemblies/UnityModManager.dll</HintPath>
+      <HintPath>..\Assemblies\UnityModManager.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -78,4 +73,36 @@
     <Content Include="Utils\Validator.cs" />
     <Content Include="Main.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Moq" Version="4.16.1" />
+  </ItemGroup>
+  <Target Name="CopyAssemblies" BeforeTargets="Publicise">
+    <ItemGroup>
+      <Assemblies
+        Include ="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
+  </Target>
+  <Target Name="Publicise" AfterTargets="Clean">
+    <ItemGroup>
+      <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll"/>
+    </ItemGroup>
+    <Publicise
+      InputAssemblies="@(PubliciseInputAssemblies)"
+      OutputPath="..\Assemblies\"
+      PubliciseCompilerGenerated="true"/>
+  </Target>
+  <Target Name="Deploy" AfterTargets="Build">
+    <ItemGroup>
+      <ModFiles
+        Include =
+          "..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll;
+           ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json"/>
+    </ItemGroup>
+    <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WRATH_DIR)\Mods\BlueprintCore" />
+  </Target>
 </Project>

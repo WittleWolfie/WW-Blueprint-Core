@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint-Core", "Blueprint
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint-Core-Test", "Tests\Blueprint-Core-Test.csproj", "{E2532A1C-09C3-40DA-9ED7-6CD97FAB3F30}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD057D88-69D2-4F16-B2A0-C2DDC4AB075B}"
+	ProjectSection(SolutionItems) = preProject
+		snippets\blueprintcore.snippet = snippets\blueprintcore.snippet
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
