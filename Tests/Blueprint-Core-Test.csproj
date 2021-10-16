@@ -21,7 +21,7 @@
       <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\Assemblies\Assembly-CSharp_public.dll</HintPath>
+      <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>

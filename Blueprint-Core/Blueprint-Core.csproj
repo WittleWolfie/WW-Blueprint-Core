@@ -11,7 +11,7 @@
       <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\Assemblies\Assembly-CSharp_public.dll</HintPath>
+      <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
@@ -79,21 +79,20 @@
     </PackageReference>
     <PackageReference Include="Moq" Version="4.16.1" />
   </ItemGroup>
-  <Target Name="CopyAssemblies" BeforeTargets="Publicise">
-    <ItemGroup>
-      <Assemblies Include="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
-    </ItemGroup>
-    <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
-  </Target>
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
+      <Assemblies Include="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
       <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
+      <PrivateAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
+      <PublicAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
     </ItemGroup>
+    <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
     <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="..\Assemblies\" PubliciseCompilerGenerated="true" />
+    <Move SourceFiles="@(PrivateAssembly)" DestinationFiles="@(PublicAssembly)" />
   </Target>
   <Target Name="Deploy" AfterTargets="Build">
     <ItemGroup>
-      <ModFiles Include="..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll;&#xD;&#xA;           ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json" />
+      <ModFiles Include="..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll; ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json" />
     </ItemGroup>
     <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WRATH_DIR)\Mods\BlueprintCore" />
   </Target>
