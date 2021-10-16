@@ -6,6 +6,7 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.NewEx;
 using BlueprintCore.Actions.New;
 using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Asserts;
 using BlueprintCore.Utils;
@@ -33,7 +34,7 @@ using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.ContextEx
 {
   public class ActionListBuilderContextExTest : ActionListBuilderTestBase
   {

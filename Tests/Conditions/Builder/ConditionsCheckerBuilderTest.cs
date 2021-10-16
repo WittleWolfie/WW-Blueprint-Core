@@ -1,5 +1,6 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
+using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Tests.Asserts;
 using Kingmaker.ElementsSystem;
 using Xunit;

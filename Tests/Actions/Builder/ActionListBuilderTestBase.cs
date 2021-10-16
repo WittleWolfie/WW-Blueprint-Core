@@ -30,7 +30,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder
 {
   [Collection("Harmony")]
   public abstract class ActionListBuilderTestBase : IDisposable

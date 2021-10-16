@@ -13,7 +13,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder
 {
   public class ActionListBuilderTest : ActionListBuilderTestBase
   {

@@ -8,8 +8,9 @@ using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Abilities;
 using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
-using BlueprintCore.Tests.Blueprints;
+using BlueprintCore.Tests.Blueprints.Facts;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -29,7 +30,7 @@ using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Abilities
+namespace BlueprintCore.Tests.Blueprints.Abilities
 {
   public class AbilityConfiguratorTest
       : BlueprintUnitFactConfiguratorTest<BlueprintAbility, AbilityConfigurator>

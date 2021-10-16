@@ -14,7 +14,7 @@ using Kingmaker.RuleSystem;
 using Xunit;
 
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.BasicEx
 {
   public class ActionListBuilderBasicExTest : ActionListBuilderTestBase
   {

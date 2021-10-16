@@ -6,7 +6,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.MiscEx
 {
   public class ActionListBuilderMiscExTest : ActionListBuilderTestBase
   {

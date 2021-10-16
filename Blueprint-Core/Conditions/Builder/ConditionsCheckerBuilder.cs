@@ -60,18 +60,6 @@ namespace BlueprintCore.Conditions.Builder
       return this;
     }
 
-    /** (New) IsDemoralizeAction */
-    public ConditionsCheckerBuilder IsDemoralizeAction()
-    {
-      return Add(ElementTool.Create<IsDemoralizeAction>());
-    }
-
-    /** (New) TargetInMeleeRange */
-    public ConditionsCheckerBuilder TargetInMeleeRange()
-    {
-      return Add(ElementTool.Create<TargetInMeleeRange>());
-    }
-
     /** Exposed for extension classes. */
     internal void Validate(object obj)
     {

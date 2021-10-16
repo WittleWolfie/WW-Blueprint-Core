@@ -1,12 +1,12 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Buffs;
-using BlueprintCore.Tests.Blueprints;
+using BlueprintCore.Tests.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Xunit;
 
-namespace BlueprintCore.Tests.Buffs
+namespace BlueprintCore.Tests.Blueprints.Buffs
 {
   public class BuffConfiguratorTest
       : BlueprintUnitFactConfiguratorTest<BlueprintBuff, BuffConfigurator>

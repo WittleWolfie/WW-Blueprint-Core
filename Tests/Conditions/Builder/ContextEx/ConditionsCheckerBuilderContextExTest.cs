@@ -5,7 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Conditions.Builder
+namespace BlueprintCore.Tests.Conditions.Builder.ContextEx
 {
   public class ConditionsCheckerBuilderContextExTest : ConditionsCheckerBuilderTestBase
   {

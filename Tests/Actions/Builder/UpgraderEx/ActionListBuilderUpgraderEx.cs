@@ -8,7 +8,7 @@ using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.UpgraderEx
 {
   public class ActionListBuilderUpgraderExTest : ActionListBuilderTestBase
   {

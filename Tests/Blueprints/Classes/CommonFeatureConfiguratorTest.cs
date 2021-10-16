@@ -1,13 +1,13 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Classes;
-using BlueprintCore.Tests.Blueprints;
+using BlueprintCore.Tests.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Xunit;
 
-namespace BlueprintCore.Tests.Features
+namespace BlueprintCore.Tests.Blueprints.Classes
 {
   public abstract class CommonFeatureConfiguratorTest<T, TBuilder>
       : BlueprintUnitFactConfiguratorTest<T, TBuilder>

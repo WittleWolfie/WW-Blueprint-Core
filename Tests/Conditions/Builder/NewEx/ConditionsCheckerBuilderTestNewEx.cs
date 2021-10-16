@@ -4,7 +4,7 @@ using BlueprintCore.Conditions.New;
 using BlueprintCore.Tests.Asserts;
 using Xunit;
 
-namespace BlueprintCore.Tests.Conditions.Builder
+namespace BlueprintCore.Tests.Conditions.Builder.NewEx
 {
   public class ConditionsCheckerBuilderNewExTest : ConditionsCheckerBuilderTestBase
   {

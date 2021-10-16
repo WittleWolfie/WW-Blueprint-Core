@@ -4,7 +4,7 @@ using BlueprintCore.Actions.New;
 using BlueprintCore.Tests.Asserts;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.NewEx
 {
   public class ActionListBuilderNewExTest : ActionListBuilderTestBase
   {

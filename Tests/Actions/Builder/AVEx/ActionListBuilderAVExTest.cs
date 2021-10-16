@@ -8,7 +8,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.AVEx
 {
   public class ActionListBuilderAVExTest : ActionListBuilderTestBase
   {

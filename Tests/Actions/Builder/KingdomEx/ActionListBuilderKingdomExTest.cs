@@ -22,7 +22,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.KingdomEx
 {
   public class ActionListBuilderKingdomExTest : ActionListBuilderTestBase
   {

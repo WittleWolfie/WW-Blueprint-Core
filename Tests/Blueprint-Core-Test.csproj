@@ -17,28 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <Content Include="Abilities\AbilityConfiguratorTest.cs" />
-    <Content Include="Actions\ActionListBuilderBasicExTest.cs" />
-    <Content Include="Actions\ActionListBuilderContextExTest.cs" />
-    <Content Include="Actions\ActionListBuilderKingdomExTest.cs" />
-    <Content Include="Actions\ActionListBuilderNewExTest.cs" />
-    <Content Include="Actions\ActionListBuilderTest.cs" />
-    <Content Include="Actions\ActionListBuilderTestBase.cs" />
-    <Content Include="Asserts\ElementAsserts.cs" />
-    <Content Include="Asserts\PrereqAsserts.cs" />
-    <Content Include="Blueprints\Components\ContextRankConfigsTest.cs" />
-    <Content Include="Blueprints\BlueprintConfiguratorTest.cs" />
-    <Content Include="Blueprints\BlueprintUnitFactConfiguratorTest.cs" />
-    <Content Include="Buffs\BuffConfiguratorTest.cs" />
-    <Content Include="Conditions\ConditionsCheckerBuilderTest.cs" />
-    <Content Include="Features\CommonFeatureConfiguratorTest.cs" />
-    <Content Include="Features\FeatureConfiguratorTest.cs" />
-    <Content Include="Features\FeatureSelectionConfiguratorTest.cs" />
-    <Content Include="BlueprintPatch.cs" />
-    <Content Include="HarmonyFixture.cs" />
-    <Content Include="LoggerPatch.cs" />
-    <Content Include="UnityPatches.cs" />
-    <Content Include="Util.cs" />
     <Reference Include="0Harmony">
       <HintPath>../Assemblies/0Harmony.dll</HintPath>
     </Reference>
@@ -60,6 +38,36 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
-    <Content Include="Actions\ActionListBuilderMiscExTest.cs" />
+    <Content Include="Actions\Builder\AreaEx\ActionListBuilderAreaExTest.cs" />
+    <Content Include="Actions\Builder\AVEx\ActionListBuilderAVExTest.cs" />
+    <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicExTest.cs" />
+    <Content Include="Actions\Builder\ContextEx\ActionListBuilderContextExTest.cs" />
+    <Content Include="Actions\Builder\KingdomEx\ActionListBuilderKingdomExTest.cs" />
+    <Content Include="Actions\Builder\MiscEx\ActionListBuilderMiscExTest.cs" />
+    <Content Include="Actions\Builder\NewEx\ActionListBuilderNewExTest.cs" />
+    <Content Include="Actions\Builder\StoryEx\ActionListBuilderStoryExTest.cs" />
+    <Content Include="Actions\Builder\UpgraderEx\ActionListBuilderUpgraderEx.cs" />
+    <Content Include="Actions\Builder\ActionListBuilderTest.cs" />
+    <Content Include="Actions\Builder\ActionListBuilderTestBase.cs" />
+    <Content Include="Asserts\ElementAsserts.cs" />
+    <Content Include="Asserts\PrereqAsserts.cs" />
+    <Content Include="Blueprints\Abilities\AbilityConfiguratorTest.cs" />
+    <Content Include="Blueprints\Buffs\BuffConfiguratorTest.cs" />
+    <Content Include="Blueprints\Classes\Selection\FeatureSelectionConfiguratorTest.cs" />
+    <Content Include="Blueprints\Classes\CommonFeatureConfiguratorTest.cs" />
+    <Content Include="Blueprints\Classes\FeatureConfiguratorTest.cs" />
+    <Content Include="Blueprints\Components\ContextRankConfigsTest.cs" />
+    <Content Include="Blueprints\Facts\BlueprintUnitFactConfiguratorTest.cs" />
+    <Content Include="Blueprints\BlueprintConfiguratorTest.cs" />
+    <Content Include="Blueprints\BlueprintToolTest.cs" />
+    <Content Include="Conditions\Builder\ContextEx\ConditionsCheckerBuilderContextExTest.cs" />
+    <Content Include="Conditions\Builder\NewEx\ConditionsCheckerBuilderTestNewEx.cs" />
+    <Content Include="Conditions\Builder\ConditionsCheckerBuilderTest.cs" />
+    <Content Include="Conditions\Builder\ConditionsCheckerBuilderTestBase.cs" />
+    <Content Include="BlueprintPatch.cs" />
+    <Content Include="HarmonyFixture.cs" />
+    <Content Include="LoggerPatch.cs" />
+    <Content Include="UnityPatches.cs" />
+    <Content Include="Util.cs" />
   </ItemGroup>
 </Project>

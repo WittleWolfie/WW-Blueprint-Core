@@ -9,7 +9,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.StoryEx
 {
   public class ActionListBuilderStoryExTest : ActionListBuilderTestBase
   {

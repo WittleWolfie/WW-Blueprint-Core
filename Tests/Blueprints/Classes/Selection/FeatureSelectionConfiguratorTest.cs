@@ -5,7 +5,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Xunit;
 
-namespace BlueprintCore.Tests.Features
+namespace BlueprintCore.Tests.Blueprints.Classes.Features
 {
   public class FeatureSelectionConfiguratorTest
       : CommonFeatureConfiguratorTest<BlueprintFeatureSelection, FeatureSelectionConfigurator>

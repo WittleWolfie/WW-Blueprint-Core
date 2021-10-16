@@ -8,7 +8,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Xunit;
 
-namespace BlueprintCore.Tests.Actions
+namespace BlueprintCore.Tests.Actions.Builder.AreaEx
 {
   public class ActionListBuilderAreaExTest : ActionListBuilderTestBase
   {

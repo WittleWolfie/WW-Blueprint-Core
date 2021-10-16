@@ -12,7 +12,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
 
-namespace BlueprintCore.Tests.Blueprints
+namespace BlueprintCore.Tests.Blueprints.Facts
 {
   public abstract class BlueprintUnitFactConfiguratorTest<T, TBuilder>
       : BlueprintConfiguratorTest<T, TBuilder>
