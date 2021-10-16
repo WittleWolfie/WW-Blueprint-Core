@@ -28,8 +28,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
   /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for most
-  /// <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types. Some
-  /// <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more specific
+  /// <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific
   /// extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
   /// <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
