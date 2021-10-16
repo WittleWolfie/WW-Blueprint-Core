@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -23,23 +21,25 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
+using System;
+using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
   /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for most
-  /// <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific
+  /// <see cref="ContextAction">ContextAction</see> types. Some <see cref="ContextAction"/> types are in more specific
   /// extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
   /// <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
   /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderContextEx
   {
-    /** 
-     * ContextActionAddFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionAddFeature">ContextActionAddFeature</see>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public static ActionListBuilder AddFeature(this ActionListBuilder builder, string feature)
     {
       var addFeature = ElementTool.Create<ContextActionAddFeature>();
@@ -47,11 +47,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(addFeature);
     }
 
-    /**
-     * ContextActionAddLocustClone
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionAddLocustClone">ContextActionAddLocustClone</see>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public static ActionListBuilder AddLocustClone(this ActionListBuilder builder, string feature)
     {
       var addClone = ElementTool.Create<ContextActionAddLocustClone>();
@@ -59,17 +59,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(addClone);
     }
 
-    /** ContextActionAeonRollbackToSavedState */
+    /// <summary>
+    /// Adds <see cref="ContextActionAeonRollbackToSavedState">ContextActionAeonRollbackToSavedState</see>
+    /// </summary>
     public static ActionListBuilder AeonRollbackState(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
     }
 
-    /**
-     * ContextActionApplyBuff
-     *
-     * @param buff BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionApplyBuff">ContextActionApplyBuff</see>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder ApplyBuff(
         this ActionListBuilder builder,
         string buff,
@@ -113,17 +115,30 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchant);
     }
 
-    /**
-     * ContextActionArmorEnchantPool
-     *
-     * The caster's armor is enchanted based on its available enhancement bonus.
-     * e.g. If the armor can be enchanted to +4 but already has a +1 enchantment,
-     * plusThreeEnchantment is applied.
-     *
-     * See ArcaneArmor and SacredArmor for example usages.
-     *
-     * @param plus*Enchantment BlueprintItemEnchantment Defaults to TemporaryArmorEnhancementBonus*
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionArmorEnchantPool">ContextActionArmorEnchantPool</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// The caster's armor is enchanted based on its available enhancement bonus. <br />
+    /// e.g.If the armor can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
+    /// </para>
+    /// 
+    /// <para>
+    /// See ArcaneArmor and SacredArmor blueprints for example usages.
+    /// </para>
+    /// </remarks>
+    /// 
+    /// <para>
+    /// All enchantments default to the corresponding TemporaryArmorEnhancementBonus* blueprint.
+    /// </para>
+    /// 
+    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
     public static ActionListBuilder ArmorEnchantPool(
         this ActionListBuilder builder,
         EnchantPoolType poolType,
@@ -147,17 +162,30 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(enchantArmor);
     }
 
-    /** 
-     * ContextActionShieldArmorEnchantPool
-     *
-     * The caster's shield is enchanted based on its available enhancement bonus.
-     * e.g. If the shield can be enchanted to +4 but already has a +1 enchantment,
-     * plusThreeEnchantment is applied.
-     *
-     * See SacredArmor for example usage.
-     *
-     * @param plus*Enchantment BlueprintItemEnchantment Defaults to TemporaryArmorEnhancementBonus*
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionShieldArmorEnchantPool">ContextActionShieldArmorEnchantPool</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// The caster's shield is enchanted based on its available enhancement bonus. <br />
+    /// e.g.If the shield can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
+    /// </para>
+    /// 
+    /// <para>
+    /// See the SacredArmor blueprint for example usage.
+    /// </para>
+    /// 
+    /// <para>
+    /// All enchantments default to the corresponding TemporaryArmorEnhancementBonus* blueprint.
+    /// </para>
+    /// </remarks>
+    /// 
+    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
     public static ActionListBuilder ShieldArmorEnchantPool(
         this ActionListBuilder builder,
         EnchantPoolType poolType,
@@ -188,17 +216,30 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     private const string PlusFourWeapon = "6a6a0901d799ceb49b33d4851ff72132";
     private const string PlusFiveWeapon = "746ee366e50611146821d61e391edf16";
 
-    /** 
-     * ContextActionWeaponEnchantPool
-     *
-     * The caster's weapon is enchanted based on its available enhancement bonus.
-     * e.g. If the weapon can be enchanted to +4 but already has a +1 enchantment,
-     * plusThreeEnchantment is applied.
-     *
-     * See ArcaneWeapon or SacredWeapon for example usage.
-     *
-     * @param plus*Enchantment BlueprintItemEnchantment Defaults to TemporaryEnhancement*
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionWeaponEnchantPool">ContextActionWeaponEnchantPool</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// The caster's weapon is enchanted based on its available enhancement bonus. <br />
+    /// e.g.If the weapon can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
+    /// </para>
+    /// 
+    /// <para>
+    /// See ArcaneWeapon and SacredWeapon blueprints for example usages.
+    /// </para>
+    /// 
+    /// <para>
+    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
+    /// </para>
+    /// </remarks>
+    /// 
+    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
     public static ActionListBuilder WeaponEnchantPool(
         this ActionListBuilder builder,
         EnchantPoolType poolType,
@@ -233,6 +274,30 @@ namespace BlueprintCore.Actions.Builder.ContextEx
      *
      * @param plus*Enchantment BlueprintItemEnchantment Defaults to TemporaryEnhancement*
      */
+    /// <summary>
+    /// Adds <see cref="ContextActionShieldWeaponEnchantPool">ContextActionShieldWeaponEnchantPool</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// The caster's shield is enchanted based on its available enhancement bonus. <br />
+    /// e.g.If the shield can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
+    /// </para>
+    /// 
+    /// <para>
+    /// See the SacredWeapon blueprint for example usage.
+    /// </para>
+    /// 
+    /// <para>
+    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
+    /// </para>
+    /// </remarks>
+    /// 
+    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
+    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
     public static ActionListBuilder ShieldWeaponEnchantPool(
         this ActionListBuilder builder,
         EnchantPoolType poolType,
@@ -256,13 +321,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(enchant);
     }
 
-    /**
-     * ContextActionAttackWithWeapon
-     *
-     * @param weapon BlueprintItemWeapon
-     */
-    public static ActionListBuilder AttackWithWeapon(
-        this ActionListBuilder builder, StatType damageStat, string weapon)
+    /// <summary>
+    /// Adds <see cref="ContextActionAttackWithWeapon">ContextActionAttackWithWeapon</see>
+    /// </summary>
+    /// 
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon">BlueprintItemWeapon</see></param>
+    public static ActionListBuilder AttackWithWeapon(this ActionListBuilder builder, StatType damageStat, string weapon)
     {
       var attack = ElementTool.Create<ContextActionAttackWithWeapon>();
       attack.m_Stat = damageStat;
@@ -270,16 +334,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(attack);
     }
 
-    /** ContextActionBatteringBlast */
-    public static ActionListBuilder BatteringBlast(
-        this ActionListBuilder builder, bool remove = false)
+    /// <summary>
+    /// Adds <see cref="ContextActionBatteringBlast">ContextActionBatteringBlast</see>
+    /// </summary>
+    public static ActionListBuilder BatteringBlast(this ActionListBuilder builder, bool remove = false)
     {
       var blast = ElementTool.Create<ContextActionBatteringBlast>();
       blast.Remove = remove;
       return builder.Add(blast);
     }
 
-    /** ContextActionBreakFree */
+    /// <summary>
+    /// Adds <see cref="ContextActionBreakFree">ContextActionBreakFree</see>
+    /// </summary>
     public static ActionListBuilder BreakFree(
         this ActionListBuilder builder,
         bool useCMB = false,
@@ -295,7 +362,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(breakFree);
     }
 
-    /** ContextActionBreathOfLife */
+    /// <summary>
+    /// Adds <see cref="ContextActionBreathOfLife">ContextActionBreathOfLife</see>
+    /// </summary>
     public static ActionListBuilder BreathOfLife(
         this ActionListBuilder builder, ContextDiceValue value)
     {
@@ -304,7 +373,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(breathOfLife);
     }
 
-    /** ContextActionBreathOfMoney */
+    /// <summary>
+    /// Adds <see cref="ContextActionBreathOfMoney">ContextActionBreathOfMoney</see>
+    /// </summary>
     public static ActionListBuilder BreathOfMoney(
         this ActionListBuilder builder, ContextValue minCoins, ContextValue maxCoins)
     {
@@ -314,11 +385,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(breathOfMoney);
     }
 
-    /**
-     * ContextActionCastSpell
-     *
-     * @param spell BlueprintAbility
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionCastSpell">ContextActionCastSpell</see>
+    /// </summary>
+    /// 
+    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
     public static ActionListBuilder CastSpell(
         this ActionListBuilder builder,
         string spell,
@@ -342,28 +413,30 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(castSpell);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <summary>
+    /// Adds <see cref="ContextActionChangeSharedValue">ContextActionChangeSharedValue</see>
+    /// </summary>
     public static ActionListBuilder SetSharedValue(
         this ActionListBuilder builder, AbilitySharedValue sharedValue, ContextValue setValue)
     {
       return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Set, set: setValue);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <inheritdoc cref="SetSharedValue"/>
     public static ActionListBuilder SetSharedValueToHD(
         this ActionListBuilder builder, AbilitySharedValue sharedValue)
     {
       return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.SubHD);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <inheritdoc cref="SetSharedValue"/>
     public static ActionListBuilder AddToSharedValue(
         this ActionListBuilder builder, AbilitySharedValue sharedValue, ContextValue addValue)
     {
       return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Add, add: addValue);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <inheritdoc cref="SetSharedValue"/>
     public static ActionListBuilder MultiplySharedValue(
         this ActionListBuilder builder, AbilitySharedValue sharedValue, ContextValue multiplyValue)
     {
@@ -371,14 +444,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           builder, sharedValue, SharedValueChangeType.Multiply, multiply: multiplyValue);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <inheritdoc cref="SetSharedValue"/>
     public static ActionListBuilder DivideSharedValueBy2(
         this ActionListBuilder builder, AbilitySharedValue sharedValue)
     {
       return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Div2);
     }
 
-    /** ContextActionChangeSharedValue */
+    /// <inheritdoc cref="SetSharedValue"/>
     public static ActionListBuilder DivideSharedValueBy4(
         this ActionListBuilder builder, AbilitySharedValue sharedValue)
     {
@@ -402,11 +475,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(changeValue);
     }
 
-    /**
-     * ContextActionClearSummonPool
-     *
-     * @param pool BlueprintSummonPool
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionClearSummonPool">ContextActionClearSummonPool</see>
+    /// </summary>
+    /// 
+    /// <param name="pool"><see cref="BlueprintSummonPool">BlueprintSummonPool</see></param>
     public static ActionListBuilder ClearSummonPool(this ActionListBuilder builder, string pool)
     {
       var clearSummons = ElementTool.Create<ContextActionClearSummonPool>();
@@ -414,7 +487,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(clearSummons);
     }
 
-    /** ContextActionCombatManeuver */
+    /// <summary>
+    /// Adds <see cref="ContextActionCombatManeuver">ContextActionCombatManeuver</see>
+    /// </summary>
     public static ActionListBuilder CombatManeuver(
         this ActionListBuilder builder,
         CombatManeuver type,
@@ -446,7 +521,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(maneuver);
     }
 
-    /** ContextActionCombatManeuverCustom */
+    /// <summary>
+    /// Adds <see cref="ContextActionCombatManeuverCustom">ContextActionCombatManeuverCustom</see>
+    /// </summary>
     public static ActionListBuilder CustomCombatManeuver(
         this ActionListBuilder builder,
         CombatManeuver type,
@@ -460,7 +537,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(maneuver);
     }
 
-    /** ContextActionConditionalSaved */
+    /// <summary>
+    /// Adds <see cref="ContextActionConditionalSaved">ContextActionConditionalSaved</see>
+    /// </summary>
     public static ActionListBuilder AfterSavingThrow(
         this ActionListBuilder builder,
         ActionListBuilder ifPassed = null,
@@ -472,13 +551,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(onSave);
     }
 
-    /**
-     * ContextActionDealDamage
-     *
-     * @param sharedResult If specified, the resulting damage is stored in this shared value.
-     * @param criticalSharedResult If specified and the associated attack roll is a critical, this
-     *   shared value is set to 1.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionDealDamage">ContextActionDealDamage</see>
+    /// </summary>
+    /// 
+    /// <param name="sharedResult">If specified, the resulting damage is stored in this shared value.</param>
+    /// <param name="criticalSharedResult">
+    /// If specified and the associated attack roll is a critical, this shared value is set to 1.
+    /// </param>
     public static ActionListBuilder DealDamage(
         this ActionListBuilder builder,
         DamageTypeDescription type,
@@ -505,14 +585,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           criticalSharedResult: criticalSharedResult);
     }
 
-    /**
-     * ContextActionDealDamage
-     *
-     * @param preRolledValue Deals damage equal to this shared value.
-     * @param sharedResult If specified, the resulting damage is stored in this shared value.
-     * @param criticalSharedResult If specified and the associated attack roll is a critical, this
-     *   shared value is set to 1.
-     */
+    /// <inheritdoc cref="DealDamage"/>
+    /// <param name="preRolledValue">Deals damage equal to this shared value.</param>
     public static ActionListBuilder DealDamagePreRolled(
         this ActionListBuilder builder,
         DamageTypeDescription type,
@@ -539,13 +613,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           criticalSharedResult: criticalSharedResult);
     }
 
-    /**
-     * ContextActionDealDamage
-     *
-     * @param sharedResult If specified, the resulting damage is stored in this shared value.
-     * @param criticalSharedResult If specified and the associated attack roll is a critical, this
-     *   shared value is set to 1.
-     */
+    /// <inheritdoc cref="DealDamage"/>
     public static ActionListBuilder DealAbilityDamage(
         this ActionListBuilder builder,
         StatType type,
@@ -570,13 +638,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           criticalSharedResult: criticalSharedResult);
     }
 
-    /**
-     * ContextActionDealDamage
-     *
-     * @param sharedResult If specified, the resulting damage is stored in this shared value.
-     * @param criticalSharedResult If specified and the associated attack roll is a critical, this
-     *   shared value is set to 1.
-     */
+    /// <inheritdoc cref="DealDamage"/>
     public static ActionListBuilder DealPermanentNegativeLevels(
         this ActionListBuilder builder,
         ContextDiceValue damageValue,
@@ -596,13 +658,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         criticalSharedResult: criticalSharedResult);
     }
 
-    /**
-     * ContextActionDealDamage
-     *
-     * @param sharedResult If specified, the resulting damage is stored in this shared value.
-     * @param criticalSharedResult If specified and the associated attack roll is a critical, this
-     *   shared value is set to 1.
-     */
+    /// <inheritdoc cref="DealDamage"/>
     public static ActionListBuilder DealTempNegativeLevels(
         this ActionListBuilder builder,
         ContextDiceValue damageValue,
@@ -688,54 +744,64 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(dmg);
     }
 
-    /** ContextActionDealWeaponDamage */
-    public static ActionListBuilder DealWeaponDamage(
-        this ActionListBuilder builder, bool allowRanged = false)
+    /// <summary>
+    /// Adds <see cref="ContextActionDealWeaponDamage">ContextActionDealWeaponDamage</see>
+    /// </summary>
+    public static ActionListBuilder DealWeaponDamage(this ActionListBuilder builder, bool allowRanged = false)
     {
       var dmg = ElementTool.Create<ContextActionDealWeaponDamage>();
       dmg.CanBeRanged = allowRanged;
       return builder.Add(dmg);
     }
 
-    /** ContextActionDetectSecretDoors */
+    /// <summary>
+    /// Adds <see cref="ContextActionDetectSecretDoors">ContextActionDetectSecretDoors</see>
+    /// </summary>
     public static ActionListBuilder DetectSecretDoors(this ActionListBuilder builder)
     {
-      var detectDoors = ElementTool.Create<ContextActionDetectSecretDoors>();
-      return builder.Add(detectDoors);
+      return builder.Add(ElementTool.Create<ContextActionDetectSecretDoors>());
     }
 
-    /** ContextActionDevourBySwarm */
+    /// <summary>
+    /// Adds <see cref="ContextActionDevourBySwarm">ContextActionDevourBySwarm</see>
+    /// </summary>
     public static ActionListBuilder DevourWithSwarm(this ActionListBuilder builder)
     {
-      var devour = ElementTool.Create<ContextActionDevourBySwarm>();
-      return builder.Add(devour);
+      return builder.Add(ElementTool.Create<ContextActionDevourBySwarm>());
     }
 
-    /** ContextActionDisarm */
+    /// <summary>
+    /// Adds <see cref="ContextActionDisarm">ContextActionDisarm</see>
+    /// </summary>
     public static ActionListBuilder Disarm(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDisarm>());
     }
 
-    /** ContextActionDismissAreaEffect */
+    /// <summary>
+    /// Adds <see cref="ContextActionDismissAreaEffect">ContextActionDismissAreaEffect</see>
+    /// </summary>
     public static ActionListBuilder DismissAOE(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismissAreaEffect>());
     }
 
-    /** ContextActionDismount */
+    /// <summary>
+    /// Adds <see cref="ContextActionDismount">ContextActionDismount</see>
+    /// </summary>
     public static ActionListBuilder Dismount(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismount>());
     }
 
-    /**
-     * ContextActionDispelMagic
-     *
-     * @param checkEitherSchoolOrDescriptor By default dispel only effects things matching both the
-     *   required SpellSchool and SpellDescriptor. If this is true, effects only need to satisfy one
-     *   or the other.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionDispelMagic">ContextActionDispelMagic</see>
+    /// </summary>
+    /// 
+    /// <param name="checkEitherSchoolOrDescriptor">
+    /// By default dispel only effects things matching both the required SpellSchool and SpellDescriptor. If this is
+    /// true, effects only need to satisfy one or the other.
+    /// </param>
     public static ActionListBuilder Dispel(
         this ActionListBuilder builder,
         ContextActionDispelMagic.BuffType type,
@@ -781,17 +847,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(dispel);
     }
 
-    /** ContextActionDropItems */
+    /// <summary>
+    /// Adds <see cref="ContextActionDropItems">ContextActionDropItems</see>
+    /// </summary>
     public static ActionListBuilder DropItems(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDropItems>());
     }
 
-    /**
-     * ContextActionEnchantWornItem
-     *
-     * @param enchantment BlueprintItemEnchantment
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionEnchantWornItem">ContextActionEnchantWornItem</see>
+    /// </summary>
+    /// 
+    /// <param name="enchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment">BlueprintItemEnchantment</see></param>
     public static ActionListBuilder EnchantWornItem(
         this ActionListBuilder builder,
         string enchantment,
@@ -809,20 +877,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(enchant);
     }
 
-    /**
-     * ContextActionFinishObjective
-     *
-     * @param objective BlueprintQuestObjective
-     */
-    public static ActionListBuilder FinishObjective(
-        this ActionListBuilder builder, string objective)
+    /// <summary>
+    /// Adds <see cref="ContextActionFinishObjective">ContextActionFinishObjective</see>
+    /// </summary>
+    public static ActionListBuilder FinishObjective(this ActionListBuilder builder, string objective)
     {
       var finish = ElementTool.Create<ContextActionFinishObjective>();
       finish.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
       return builder.Add(finish);
     }
 
-    /** ContextActionForEachSwallowedUnit */
+    /// <summary>
+    /// Adds <see cref="ContextActionForEachSwallowedUnit">ContextActionForEachSwallowedUnit</see>
+    /// </summary>
     public static ActionListBuilder OnEachSwallowedUnit(
         this ActionListBuilder builder, ActionListBuilder onEachUnit)
     {
@@ -831,33 +898,38 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(onUnits);
     }
 
-    /** ContextActionGiveExperience */
+    /// <summary>
+    /// Adds <see cref="ContextActionGiveExperience">ContextActionGiveExperience</see>
+    /// </summary>
     public static ActionListBuilder GiveExperience(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionGiveExperience>());
     }
 
-    /**
-     * ContextActionGrapple
-     *
-     * @param *Buff BlueprintBuff Applied for the duration of the grapple check.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionGrapple">ContextActionGrapple</see>
+    /// </summary>
+    /// 
+    /// <param name="casterBuff">
+    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> applied for the duration of
+    /// the grapple check.
+    /// </param>
+    /// <param name="targetBuff">
+    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> applied for the duration of
+    /// the grapple check.
+    /// </param>
     public static ActionListBuilder Grapple(
         this ActionListBuilder builder, string casterBuff = null, string targetBuff = null)
     {
       var grapple = ElementTool.Create<ContextActionGrapple>();
-      if (casterBuff != null)
-      {
-        grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff);
-      }
-      if (targetBuff != null)
-      {
-        grapple.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(targetBuff);
-      }
+      if (casterBuff != null) { grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff); }
+      if (targetBuff != null) { grapple.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(targetBuff); }
       return builder.Add(grapple);
     }
 
-    /** ContextActionHealEnergyDrain */
+    /// <summary>
+    /// Adds <see cref="ContextActionHealEnergyDrain">ContextActionHealEnergyDrain</see>
+    /// </summary>
     public static ActionListBuilder HealNegativeLevels(
         this ActionListBuilder builder,
         EnergyDrainHealType tempLevels = EnergyDrainHealType.None,
@@ -869,12 +941,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(heal);
     }
 
-    /**
-     * ContextActionHealStatDamage
-     *
-     * @param sharedResult If specified, the amount of healing done will be stored in this shared
-     *   value.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionHealStatDamage">ContextActionHealStatDamage</see>
+    /// </summary>
+    /// 
+    /// <param name="sharedResult">If specified, the amount of healing done is stored in this shared value.</param>
     public static ActionListBuilder HealStatDamage(
         this ActionListBuilder builder,
         ContextActionHealStatDamage.StatDamageHealType type,
@@ -901,43 +972,49 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(heal);
     }
 
-    /** ContextActionHealTarget */
-    public static ActionListBuilder HealTarget(
-        this ActionListBuilder builder, ContextDiceValue value)
+    /// <summary>
+    /// Adds <see cref="ContextActionHealTarget">ContextActionHealTarget</see>
+    /// </summary>
+    public static ActionListBuilder HealTarget(this ActionListBuilder builder, ContextDiceValue value)
     {
       var heal = ElementTool.Create<ContextActionHealTarget>();
       heal.Value = value;
       return builder.Add(heal);
     }
 
-    /** ContextActionHideInPlainSight */
+    /// <summary>
+    /// Adds <see cref="ContextActionHideInPlainSight">ContextActionHideInPlainSight</see>
+    /// </summary>
     public static ActionListBuilder HideInPlainSight(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionHideInPlainSight>());
     }
 
-    /** ContextActionKill */
+    /// <summary>
+    /// Adds <see cref="ContextActionKill">ContextActionKill</see>
+    /// </summary>
     public static ActionListBuilder Kill(
-        this ActionListBuilder builder,
-        UnitState.DismemberType dismember = UnitState.DismemberType.None)
+        this ActionListBuilder builder, UnitState.DismemberType dismember = UnitState.DismemberType.None)
     {
       var kill = ElementTool.Create<ContextActionKill>();
       kill.Dismember = dismember;
       return builder.Add(kill);
     }
 
-    /** ContextActionKnockdownTarget */
+    /// <summary>
+    /// Adds <see cref="ContextActionKnockdownTarget">ContextActionKnockdownTarget</see>
+    /// </summary>
     public static ActionListBuilder Knockdown(
         this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionKnockdownTarget>());
     }
 
-    /** ContextActionMakeKnowledgeCheck */
+    /// <summary>
+    /// Adds <see cref="ContextActionMakeKnowledgeCheck">ContextActionMakeKnowledgeCheck</see>
+    /// </summary>
     public static ActionListBuilder KnowledgeCheck(
-        this ActionListBuilder builder,
-        ActionListBuilder onSuccess = null,
-        ActionListBuilder onFail = null)
+        this ActionListBuilder builder, ActionListBuilder onSuccess = null, ActionListBuilder onFail = null)
     {
       var knowledgeCheck = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
       knowledgeCheck.SuccessActions = onSuccess?.Build() ?? Constants.Empty.Actions;
@@ -945,17 +1022,20 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(knowledgeCheck);
     }
 
-    /** ContextActionMarkForceDismemberOwner */
+    /// <summary>
+    /// Adds <see cref="ContextActionMarkForceDismemberOwner">ContextActionMarkForceDismemberOwner</see>
+    /// </summary>
     public static ActionListBuilder MarkOwnerForDismemberment(
-        this ActionListBuilder builder,
-        UnitState.DismemberType type = UnitState.DismemberType.Normal)
+        this ActionListBuilder builder, UnitState.DismemberType type = UnitState.DismemberType.Normal)
     {
       var markForDismemberment = ElementTool.Create<ContextActionMarkForceDismemberOwner>();
       markForDismemberment.ForceDismemberType = type;
       return builder.Add(markForDismemberment);
     }
 
-    /** ContextActionMeleeAttack */
+    /// <summary>
+    /// Adds <see cref="ContextActionMeleeAttack">ContextActionMeleeAttack</see>
+    /// </summary>
     public static ActionListBuilder MeleeAttack(
         this ActionListBuilder builder,
         bool autoCritThreat = false,
@@ -973,49 +1053,66 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(attack);
     }
 
-    /** ContextActionMount */
+    /// <summary>
+    /// Adds <see cref="ContextActionMount">ContextActionMount</see>
+    /// </summary>
     public static ActionListBuilder Mount(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionMount>());
     }
 
-    /** ContextActionOnContextCaster */
-    public static ActionListBuilder OnCaster(
-        this ActionListBuilder builder, ActionListBuilder actions)
+    /// <summary>
+    /// Adds <see cref="ContextActionOnContextCaster">ContextActionOnContextCaster</see>
+    /// </summary>
+    public static ActionListBuilder OnCaster(this ActionListBuilder builder, ActionListBuilder actions)
     {
       var onCaster = ElementTool.Create<ContextActionOnContextCaster>();
       onCaster.Actions = actions.Build();
       return builder.Add(onCaster);
     }
 
-    /** ContextActionOnOwner */
-    public static ActionListBuilder OnOwner(
-        this ActionListBuilder builder, ActionListBuilder actions)
+    /// <summary>
+    /// Adds <see cref="ContextActionOnOwner">ContextActionOnOwner</see>
+    /// </summary>
+    public static ActionListBuilder OnOwner(this ActionListBuilder builder, ActionListBuilder actions)
     {
       var onOwner = ElementTool.Create<ContextActionOnOwner>();
       onOwner.Actions = actions.Build();
       return builder.Add(onOwner);
     }
 
-    /**
-     * ContextActionOnRandomAreaTarget
-     *
-     * -The component's field `OnEnemies` is unused. It only targets enemies.
-     * -Only works inside of AbilityAreaEffectRunAction.
-     */
-    public static ActionListBuilder OnRandomEnemyInAOE(
-        this ActionListBuilder builder, ActionListBuilder actions)
+    /// <summary>
+    /// Adds <see cref="ContextActionOnRandomAreaTarget">ContextActionOnRandomAreaTarget</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <list type="bullet">
+    ///   <item>
+    ///     <description>The component's OnEnemies field is unused. It only targets enemies.</description>
+    ///   </item>
+    ///   <item>
+    ///     <description>
+    ///       Only works inside of
+    ///       <see cref="Kingmaker.UnitLogic.Abilities.Components.AreaEffects.AbilityAreaEffectRunAction">AbilityAreaEffectRunAction</see>
+    ///     </description>
+    ///   </item>
+    /// </list>
+    /// </remarks>
+    public static ActionListBuilder OnRandomEnemyInAOE(this ActionListBuilder builder, ActionListBuilder actions)
     {
       var onEnemy = ElementTool.Create<ContextActionOnRandomAreaTarget>();
       onEnemy.Actions = actions.Build();
       return builder.Add(onEnemy);
     }
 
-    /**
-     * ContextActionOnRandomTargetsAround
-     *
-     * @param ignoreFact BlueprintUnitFact Units with this fact are ignored.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionOnRandomTargetsAround">ContextActionOnRandomTargetsAround</see>
+    /// </summary>
+    /// 
+    /// <param name="ignoreFact">
+    /// <see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see> units with this fact are
+    /// ignored.
+    /// </param>
     public static ActionListBuilder OnRandomUnitNearTarget(
         this ActionListBuilder builder,
         ActionListBuilder actions,
@@ -1033,16 +1130,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(onUnit);
     }
 
-    /** ContextActionOnSwarmTargets */
-    public static ActionListBuilder OnSwarmTargets(
-        this ActionListBuilder builder, ActionListBuilder actions)
+    /// <summary>
+    /// Adds <see cref="ContextActionOnSwarmTargets">ContextActionOnSwarmTargets</see>
+    /// </summary>
+    public static ActionListBuilder OnSwarmTargets(this ActionListBuilder builder, ActionListBuilder actions)
     {
       var onTarget = ElementTool.Create<ContextActionOnSwarmTargets>();
       onTarget.Actions = actions.Build();
       return builder.Add(onTarget);
     }
 
-    /** ContextActionPartyMembers */
+    /// <summary>
+    /// Adds <see cref="ContextActionPartyMembers">ContextActionPartyMembers</see>
+    /// </summary>
     public static ActionListBuilder OnPartyMembers(
         this ActionListBuilder builder, ActionListBuilder actions)
     {
@@ -1051,7 +1151,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(onParty);
     }
 
-    /** ContextActionProjectileFx */
+    /// <summary>
+    /// Adds <see cref="ContextActionProjectileFx">ContextActionProjectileFx</see>
+    /// </summary>
+    /// 
+    /// <param name="projectile"><see cref="BlueprintProjectile">BlueprintProjectile</see></param>
     public static ActionListBuilder ProjectileFx(this ActionListBuilder builder, string projectile)
     {
       var projectileFx = ElementTool.Create<ContextActionProjectileFx>();
@@ -1059,14 +1163,18 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(projectileFx);
     }
 
-    /** ContextActionProvokeAttackFromCaster */
+    /// <summary>
+    /// Adds <see cref="ContextActionProvokeAttackFromCaster">ContextActionProvokeAttackFromCaster</see>
+    /// </summary>
     public static ActionListBuilder ProvokeOpportunityAttackFromCaster(
         this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionProvokeAttackFromCaster>());
     }
 
-    /** ContextActionProvokeAttackOfOpportunity */
+    /// <summary>
+    /// Adds <see cref="ContextActionProvokeAttackOfOpportunity">ContextActionProvokeAttackOfOpportunity</see>
+    /// </summary>
     public static ActionListBuilder ProvokeOpportunityAttack(
         this ActionListBuilder builder, bool casterProvokes = false)
     {
@@ -1075,7 +1183,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(attack);
     }
 
-    /** ContextActionPush */
+    /// <summary>
+    /// Adds <see cref="ContextActionPush">ContextActionPush</see>
+    /// </summary>
     public static ActionListBuilder Push(
         this ActionListBuilder builder,
         ContextValue distance,
@@ -1087,13 +1197,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(push);
     }
 
-    /**
-     * ContextActionRandomize
-     *
-     * @param weightedActions Pair of ActionListBuilder and an int representing the relative
-     *   probability of that action compared to the rest of the entries. These map to
-     *   ContextActionRandomize.ActionWrapper.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionRandomize">ContextActionRandomize</see>
+    /// </summary>
+    /// 
+    /// <param name="weightedActions">
+    /// Pair of <see cref="ActionListBuilder">ActionListBuilder</see> and an int representing the relative probability
+    /// of that action compared to the rest of the entries. These map to
+    /// <see cref="ContextActionRandomize.ActionWrapper">ContextActionRandomize.ActionWrapper</see>.
+    /// </param>
     public static ActionListBuilder RandomActions(
         this ActionListBuilder builder,
         params (ActionListBuilder actions, int weight)[] weightedActions)
@@ -1111,7 +1223,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(actions);
     }
 
-    /** ContextActionRangedAttack */
+    /// <summary>
+    /// Adds <see cref="ContextActionRangedAttack">ContextActionRangedAttack</see>
+    /// </summary>
     public static ActionListBuilder RangedAttack(
         this ActionListBuilder builder,
         bool autoCritThreat = false,
@@ -1129,9 +1243,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(attack);
     }
 
-    /** ContextActionRecoverItemCharges */
-    public static ActionListBuilder RecoverItemCharges(
-        this ActionListBuilder builder, string item, int charges = 1)
+    /// <summary>
+    /// Adds <see cref="ContextActionRecoverItemCharges">ContextActionRecoverItemCharges</see>
+    /// </summary>
+    /// 
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment">BlueprintItemEquipment</see></param>
+    public static ActionListBuilder RecoverItemCharges(this ActionListBuilder builder, string item, int charges = 1)
     {
       var recoverCharges = ElementTool.Create<ContextActionRecoverItemCharges>();
       recoverCharges.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(item);
@@ -1139,7 +1256,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(recoverCharges);
     }
 
-    /** ContextActionReduceBuffDuration */
+    /// <summary>
+    /// Adds <see cref="ContextActionReduceBuffDuration">ContextActionReduceBuffDuration</see>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder ChangeBuffDuration(
         this ActionListBuilder builder,
         string buff,
@@ -1155,11 +1276,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(changeDuration);
     }
 
-    /**
-     * ContextActionRemoveBuff
-     *
-     * @param buff BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionRemoveBuff">ContextActionRemoveBuff</see>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder RemoveBuff(
         this ActionListBuilder builder, string buff, bool removeRank = false, bool toCaster = false)
     {
@@ -1170,7 +1291,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(removeBuff);
     }
 
-    /** ContextActionRemoveBuffsByDescriptor */
+    /// <summary>
+    /// Adds <see cref="ContextActionRemoveBuffsByDescriptor">ContextActionRemoveBuffsByDescriptor</see>
+    /// </summary>
     public static ActionListBuilder RemoveBuffsWithDescriptor(
         this ActionListBuilder builder, SpellDescriptor descriptor, bool includeThisBuff = false)
     {
@@ -1180,11 +1303,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(removeBuffs);
     }
 
-    /**
-     * ContextActionRemoveBuffSingleStack
-     *
-     * @param buff BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionRemoveBuffSingleStack">ContextActionRemoveBuffSingleStack</see>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder RemoveBuffStack(this ActionListBuilder builder, string buff)
     {
       var removeStack = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
@@ -1192,23 +1315,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(removeStack);
     }
 
-    /** ContextActionRemoveDeathDoor */
+    /// <summary>
+    /// Adds <see cref="ContextActionRemoveDeathDoor">ContextActionRemoveDeathDoor</see>
+    /// </summary>
     public static ActionListBuilder RemoveDeathDoor(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveDeathDoor>());
     }
 
-    /**
-     * ContextActionRemoveSelf
-     *
-     * Only works on buffs and area effects.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionRemoveSelf">ContextActionRemoveSelf</see>
+    /// </summary>
+    /// 
+    /// <remarks>Only works on buffs and area effects.</remarks>
     public static ActionListBuilder RemoveSelf(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveSelf>());
     }
 
-    /** ContextActionRepeatedActions */
+    /// <summary>
+    /// Adds <see cref="ContextActionRepeatedActions">ContextActionRepeatedActions</see>
+    /// </summary>
     public static ActionListBuilder RepeatActions(
         this ActionListBuilder builder, ActionListBuilder actions, ContextDiceValue times)
     {
@@ -1218,13 +1345,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(repeat);
     }
 
-    /**
-     * ContextActionRestoreSpells
-     *
-     * @param spellbooks BlueprintSpellbook
-     */
-    public static ActionListBuilder RestoreSpells(
-        this ActionListBuilder builder, params string[] spellbooks)
+    /// <summary>
+    /// Adds <see cref="ContextActionRestoreSpells">ContextActionRestoreSpells</see>
+    /// </summary>
+    /// 
+    /// <param name="spellbooks"><see cref="BlueprintSpellbook">BlueprintSpellbook</see></param>
+    public static ActionListBuilder RestoreSpells(this ActionListBuilder builder, params string[] spellbooks)
     {
       var restoreSpells = ElementTool.Create<ContextActionRestoreSpells>();
       restoreSpells.m_Spellbooks =
@@ -1234,22 +1360,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(restoreSpells);
     }
 
-    /**
-     * ContextActionResurrect
-     *
-     * @param healPercent Percentage of health after resurrection as a float between 0.0 and 1.0.
-     * @param resurrectBuff BlueprintBuff Replaces the default resurrection buff. Must have a
-     *   ResurrectionLogic component.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionResurrect">ContextActionResurrect</see>
+    /// </summary>
+    /// 
+    /// <param name="healPercent">Percentage of health after resurrection as a float between 0.0 and 1.0.</param>
+    /// <param name="resurrectBuff">
+    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> which replces the default
+    /// resurrection buff. Must contain a <see cref="Kingmaker.UnitLogic.Buffs.Components.ResurrectionLogic">ResurrectionLogic</see>
+    /// </param>
     public static ActionListBuilder Resurrect(
         this ActionListBuilder builder, float healPercent, string resurrectBuff = null)
     {
       return Resurrect(builder, resurrectBuff, healPercent, false);
     }
 
-    /** ContextActionResurrect */
-    public static ActionListBuilder ResurrectAndFullRestore(
-        this ActionListBuilder builder, string resurrectBuff = null)
+    /// <inheritdoc cref="Resurrect"/>
+    public static ActionListBuilder ResurrectAndFullRestore(this ActionListBuilder builder, string resurrectBuff = null)
     {
       return Resurrect(builder, resurrectBuff, 0.0f, true);
     }
@@ -1265,7 +1392,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(resurrect);
     }
 
-    /** ContextActionRunAnimationClip */
+    // TODO: Move to AVEx.
+    /// <summary>
+    /// Adds <see cref="ContextActionRunAnimationClip">ContextActionRunAnimationClip</see>
+    /// </summary>
     public static ActionListBuilder RunAnimationClip(
         this ActionListBuilder builder,
         AnimationClipWrapper clip,
@@ -1281,13 +1411,16 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(animation);
     }
 
-    /**
-     * ContextActionSavingThrow
-     *
-     * @param fromBuff If this is true, onResult should have a ContextActionConditionalSaved with
-     *   ContextActionApplyBuff in it's Succeed ActionList. The buff associated with that component
-     *   will be attached to the RuleSavingThrow.
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionSavingThrow">ContextActionSavingThrow</see>
+    /// </summary>
+    /// 
+    /// <param name="fromBuff">
+    /// If this is true, onResult should have a <see cref="ContextActionConditionalSaved">ContextActionConditionalSaved</see>
+    /// with <see cref="ContextActionApplyBuff">ContextActionApplyBuff</see> in it's Succeed
+    /// <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see>. The buff associated with that component will
+    /// be attached to the <see cref="Kingmaker.RuleSystem.Rules.RuleSavingThrow">RuleSavingThrow</see>.
+    /// </param>
     public static ActionListBuilder SavingThrow(
         this ActionListBuilder builder,
         SavingThrowType type,
@@ -1318,10 +1451,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(savingThrow);
     }
 
-    /** ContextActionSelectByValue */
+    /// <summary>
+    /// Adds <see cref="ContextActionSelectByValue">ContextActionSelectByValue</see>
+    /// </summary>
     public static ActionListBuilder RunActionWithGreatestValue(
-        this ActionListBuilder builder,
-        params (ContextValue value, ActionListBuilder action)[] actionVariants)
+        this ActionListBuilder builder, params (ContextValue value, ActionListBuilder action)[] actionVariants)
     {
       var select = ElementTool.Create<ContextActionSelectByValue>();
       select.m_Type = ContextActionSelectByValue.SelectionType.Greatest;
@@ -1337,7 +1471,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(select);
     }
 
-    /** ContextActionShowBark */
+    // TODO: Move to AVEx
+    /// <summary>
+    /// Adds <see cref="ContextActionShowBark">ContextActionShowBark</see>
+    /// </summary>
     public static ActionListBuilder Bark(
         this ActionListBuilder builder,
         LocalizedString bark,
@@ -1351,7 +1488,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(showBark);
     }
 
-    /** ContextActionSkillCheck */
+    /// <summary>
+    /// Adds <see cref="ContextActionSkillCheck">ContextActionSkillCheck</see>
+    /// </summary>
     public static ActionListBuilder SkillCheck(
         this ActionListBuilder builder,
         StatType skill,
@@ -1364,7 +1503,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           builder, skill, customDC, false, onSuccess, onFail: onFail, dcModifiers: dcModifiers);
     }
 
-    /** ContextActionSkillCheck */
+    /// <inheritdoc cref="SkillCheck"/>
     public static ActionListBuilder SkillCheckWithFailureDegrees(
         this ActionListBuilder builder,
         StatType skill,
@@ -1420,7 +1559,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(skillCheck);
     }
 
-    /** ContextActionsOnPet */
+    /// <summary>
+    /// Adds <see cref="ContextActionsOnPet">ContextActionsOnPet</see>
+    /// </summary>
     public static ActionListBuilder OnPets(
         this ActionListBuilder builder,
         ActionListBuilder actions,
@@ -1434,11 +1575,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(onPets);
     }
 
-    /**
-     * ContextActionSpawnAreaEffect
-     *
-     * @param aoe BlueprintAbilityAreaEffect
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnAreaEffect">ContextActionSpawnAreaEffect</see>
+    /// </summary>
+    /// 
+    /// <param name="aoe"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbilityAreaEffect">BlueprintAbilityAreaEffect</see></param>
     public static ActionListBuilder SpawnAOE(
         this ActionListBuilder builder, string aoe, ContextDurationValue duration)
     {
@@ -1448,12 +1589,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(spawnAOE);
     }
 
-    /**
-     * ContextActionSpawnControllableProjectile
-     *
-     * @param projectile BlueprintControllableProjectile
-     * @param buff BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnControllableProjectile">ContextActionSpawnControllableProjectile</see>
+    /// </summary>
+    /// 
+    /// <param name="projectile"><see cref="BlueprintControllableProjectile">BlueprintControllableProjectile</see></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder SpawnControllableProjectile(
         this ActionListBuilder builder, string projectile, string buff)
     {
@@ -1464,7 +1605,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(spawnProjectile);
     }
 
-    /** ContextActionSpawnFx */
+    // TODO: Move to AVEx
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnFx">ContextActionSpawnFx</see>
+    /// </summary>
     public static ActionListBuilder SpawnFx(this ActionListBuilder builder, PrefabLink prefab)
     {
       var spawnFx = ElementTool.Create<ContextActionSpawnFx>();
@@ -1472,11 +1616,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(spawnFx);
     }
 
-    /**
-     * ContextActionSpawnMonster
-     *
-     * @param monster BlueprintUnit
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnMonster">ContextActionSpawnMonster</see>
+    /// </summary>
+    /// 
+    /// <param name="monster"><see cref="BlueprintUnit">BlueprintUnit</see></param>
     public static ActionListBuilder SpawnMonster(
         this ActionListBuilder builder,
         string monster,
@@ -1498,12 +1642,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         linkToCaster);
     }
 
-    /**
-     * ContextActionSpawnMonster
-     *
-     * @param monster BlueprintUnit
-     * @param summonPool BlueprintSummonPool
-     */
+    /// <inheritdoc cref="SpawnMonster"/>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool">BlueprintSummonPool</see></param>
     public static ActionListBuilder SpawnMonsterUsingSummonPool(
         this ActionListBuilder builder,
         string monster,
@@ -1558,39 +1698,41 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(spawn);
     }
 
-    /**
-     * ContextActionSpawnUnlinkedMonster
-     *
-     * @param monster BlueprintUnit
-     */
-    public static ActionListBuilder SpawnMonsterUnlinked(
-        this ActionListBuilder builder, string monster)
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnUnlinkedMonster">ContextActionSpawnUnlinkedMonster</see>
+    /// </summary>
+    /// 
+    /// <param name="monster"><see cref="BlueprintUnit">BlueprintUnit</see></param>
+    public static ActionListBuilder SpawnMonsterUnlinked(this ActionListBuilder builder, string monster)
     {
       var spawn = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
       spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(monster);
       return builder.Add(spawn);
     }
 
-    /** ContextActionSpendAttackOfOpportunity */
+    /// <summary>
+    /// Adds <see cref="ContextActionSpendAttackOfOpportunity">ContextActionSpendAttackOfOpportunity</see>
+    /// </summary>
     public static ActionListBuilder SpendOpportunityAttack(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
     }
 
-    /** ContextActionStealBuffs */
-    public static ActionListBuilder StealBuffs(
-        this ActionListBuilder builder, SpellDescriptor descriptor)
+    /// <summary>
+    /// Adds <see cref="ContextActionStealBuffs">ContextActionStealBuffs</see>
+    /// </summary>
+    public static ActionListBuilder StealBuffs(this ActionListBuilder builder, SpellDescriptor descriptor)
     {
       var steal = ElementTool.Create<ContextActionStealBuffs>();
       steal.m_Descriptor = descriptor;
       return builder.Add(steal);
     }
 
-    /**
-     * ContextActionSwallowWhole
-     *
-     * @param buff BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="ContextActionSwallowWhole">ContextActionSwallowWhole</see>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public static ActionListBuilder SwallowWhole(this ActionListBuilder builder, string buff = null)
     {
       var swallow = ElementTool.Create<ContextActionSwallowWhole>();
@@ -1601,13 +1743,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(swallow);
     }
 
-    /** ContextActionSwarmTarget */
+    /// <summary>
+    /// Adds <see cref="ContextActionSwarmTarget">ContextActionSwarmTarget</see>
+    /// </summary>
     public static ActionListBuilder AddToSwarmTargets(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSwarmTarget>());
     }
 
-    /** ContextActionSwarmTarget */
+    /// <inheritdoc cref="AddToSwarmTargets"/>
     public static ActionListBuilder RemoveFromSwarmTargets(this ActionListBuilder builder)
     {
       var removeTarget = ElementTool.Create<ContextActionSwarmTarget>();
@@ -1615,23 +1759,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(removeTarget);
     }
 
-    /** ContextActionTranslocate */
+    /// <summary>
+    /// Adds <see cref="ContextActionTranslocate">ContextActionTranslocate</see>
+    /// </summary>
     public static ActionListBuilder Teleport(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionTranslocate>());
     }
 
-    /** ContextActionUnsummon */
+    /// <summary>
+    /// Adds <see cref="ContextActionUnsummon">ContextActionUnsummon</see>
+    /// </summary>
     public static ActionListBuilder Unsummon(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
     }
 
-    /**
-     * ContextRestoreResource
-     *
-     * @param resource BlueprintAbilityResource
-     */
+    /// <summary>
+    /// Adds <see cref="ContextRestoreResource">ContextRestoreResource</see>
+    /// </summary>
+    /// 
+    /// <param name="resource"><see cref="BlueprintAbilityResource">BlueprintAbilityResource</see></param>
     public static ActionListBuilder RestoreResource(
         this ActionListBuilder builder, string resource, ContextValue amount = null)
     {
@@ -1646,7 +1794,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(restore);
     }
 
-    /** ContextRestoreResource */
+    /// <summary>
+    /// Adds <see cref="ContextRestoreResource">ContextRestoreResource</see>
+    /// </summary>
     public static ActionListBuilder RestoreAllResourcesToFull(this ActionListBuilder builder)
     {
       var restore = ElementTool.Create<ContextRestoreResource>();
@@ -1654,11 +1804,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(restore);
     }
 
-    /**
-     * ContextSpendResource
-     *
-     * @param resource BlueprintAbilityResource
-     */
+    /// <summary>
+    /// Adds <see cref="ContextSpendResource">ContextSpendResource</see>
+    /// </summary>
+    /// 
+    /// <param name="resource"><see cref="BlueprintAbilityResource">BlueprintAbilityResource</see></param>
     public static ActionListBuilder SpendResource(
         this ActionListBuilder builder, string resource, ContextValue amount = null)
     {
@@ -1680,7 +1830,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     private const string ShatterConfidenceFeature = "14225a2e4561bfd46874c9a4a97e7133";
     private const string ShatterConfidenceBuff = "51f5a63f1a0cb9047acdad77fc437312";
 
-    /** Demoralize */
+    /// <summary>
+    /// Adds <see cref="Demoralize">Demoralize</see>
+    /// </summary>
     public static ActionListBuilder Demoralize(
         this ActionListBuilder builder,
         int bonus = 0,
@@ -1707,11 +1859,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(demoralize);
     }
 
-    /**
-     * EnhanceWeapon
-     *
-     * @param enhancements BlueprintItemEnchantment
-     */
+    /// <summary>
+    /// Adds <see cref="EnhanceWeapon">EnhanceWeapon</see>
+    /// </summary>
+    /// 
+    /// <param name="enhancements"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment">BlueprintItemEnchantment</see></param>
     public static ActionListBuilder MagicWeapon(
         this ActionListBuilder builder,
         string[] enhancements,
@@ -1730,11 +1882,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
           useSecondaryHand: useSecondaryHand);
     }
 
-    /**
-     * EnhanceWeapon
-     *
-     * @param enhancements BlueprintItemEnchantment
-     */
+    /// <inheritdoc cref="MagicWeapon"/>
     public static ActionListBuilder MagicFang(
         this ActionListBuilder builder,
         string[] enhancements,
@@ -1775,20 +1923,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(enhance);
     }
 
-    /**
-     * SwordlordAdaptiveTacticsAdd
-     *
-     * @param source BlueprintUnitFact
-     */
-    public static ActionListBuilder SwordlordAdaptiveTacticsAdd(
-        this ActionListBuilder builder, string source)
+    /// <summary>
+    /// Adds <see cref="SwordlordAdaptiveTacticsAdd">SwordlordAdaptiveTacticsAdd</see>
+    /// </summary>
+    /// 
+    /// <param name="source"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    public static ActionListBuilder SwordlordAdaptiveTacticsAdd(this ActionListBuilder builder, string source)
     {
       var add = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
       add.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(source);
       return builder.Add(add);
     }
 
-    /** SwordlordAdaptiveTacticsClear */
+    /// <summary>
+    /// Adds <see cref="SwordlordAdaptiveTacticsClear">SwordlordAdaptiveTacticsClear</see>
+    /// </summary>
     public static ActionListBuilder SwordlordAdaptiveTacticsClear(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<SwordlordAdaptiveTacticsClear>());
@@ -1796,7 +1945,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
 
-    /** ContextActionPlaySound */
+    // TODO: Move to AVEx
+    /// <summary>
+    /// Adds <see cref="ContextActionPlaySound">ContextActionPlaySound</see>
+    /// </summary>
     public static ActionListBuilder PlaySound(this ActionListBuilder builder, string soundName)
     {
       var playSound = ElementTool.Create<ContextActionPlaySound>();
@@ -1804,25 +1956,29 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(playSound);
     }
 
-    /** ContextActionResetAlignment */
-    public static ActionListBuilder ResetAlignment(
-        this ActionListBuilder builder, bool removeMythicLock = false)
+    /// <summary>
+    /// Adds <see cref="ContextActionResetAlignment">ContextActionResetAlignment</see>
+    /// </summary>
+    public static ActionListBuilder ResetAlignment(this ActionListBuilder builder, bool removeMythicLock = false)
     {
       var resetAlignment = ElementTool.Create<ContextActionResetAlignment>();
       resetAlignment.m_ResetAlignmentLock = removeMythicLock;
       return builder.Add(resetAlignment);
     }
 
-    /** ContextActionSwarmAttack */
-    public static ActionListBuilder SwarmAttack(
-        this ActionListBuilder builder, ActionListBuilder attackActions)
+    /// <summary>
+    /// Adds <see cref="ContextActionSwarmAttack">ContextActionSwarmAttack</see>
+    /// </summary>
+    public static ActionListBuilder SwarmAttack(this ActionListBuilder builder, ActionListBuilder attackActions)
     {
       var attack = ElementTool.Create<ContextActionSwarmAttack>();
       attack.AttackActions = attackActions.Build();
       return builder.Add(attack);
     }
 
-    /** ContextActionSwitchDualCompanion */
+    /// <summary>
+    /// Adds <see cref="ContextActionSwitchDualCompanion">ContextActionSwitchDualCompanion</see>
+    /// </summary>
     public static ActionListBuilder SwitchDualCompanion(this ActionListBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
@@ -1830,7 +1986,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
-    /** ContextActionAddRandomTrashItem */
+    /// <summary>
+    /// Adds <see cref="ContextActionAddRandomTrashItem">ContextActionAddRandomTrashItem</see>
+    /// </summary>
     public static ActionListBuilder GiveRandomTrashToPlayer(
         this ActionListBuilder builder,
         TrashLootType type,
