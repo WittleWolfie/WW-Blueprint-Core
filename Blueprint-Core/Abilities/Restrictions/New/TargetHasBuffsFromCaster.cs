@@ -1,4 +1,3 @@
-using System.Linq;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
@@ -9,6 +8,7 @@ using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
+using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Abilities.Restrictions.New
