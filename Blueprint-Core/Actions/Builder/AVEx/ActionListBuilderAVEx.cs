@@ -10,6 +10,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
   /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for actions involving audiovisual effects such
   /// as dialogs, camera, cutscenes, and sounds.
   /// </summary>
+  /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderAVEx
   {
     /// <summary>

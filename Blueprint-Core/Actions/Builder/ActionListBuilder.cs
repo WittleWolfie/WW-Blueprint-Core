@@ -53,8 +53,8 @@ namespace BlueprintCore.Actions.Builder
   /// <item>
   ///   <term><see cref="BasicEx.ActionListBuilderBasicEx">BasicEx</see></term>
   ///   <description>
-  ///     Most game mechanics related actions except for
-  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types.
+  ///     Most game mechanics related actions not included in
+  ///     <see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see>.
   ///   </description>
   /// </item>
   /// <item>

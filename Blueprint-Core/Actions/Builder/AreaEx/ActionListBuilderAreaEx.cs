@@ -13,6 +13,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
   /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for actions involving the game map, dungeons,
   /// or locations. See also <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>
   /// </summary>
+  /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderAreaEx
   {
     //----- Kingmaker.Dungeon.Actions -----//
