@@ -67,7 +67,6 @@
     <Content Include="Utils\ContextValues.cs" />
     <Content Include="Utils\ElementTool.cs" />
     <Content Include="Utils\Extensions.cs" />
-    <Content Include="Utils\Guids.cs" />
     <Content Include="Utils\LogWrapper.cs" />
     <Content Include="Utils\PrereqTools.cs" />
     <Content Include="Utils\Validator.cs" />
@@ -82,26 +81,19 @@
   </ItemGroup>
   <Target Name="CopyAssemblies" BeforeTargets="Publicise">
     <ItemGroup>
-      <Assemblies
-        Include ="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll"/>
+      <Assemblies Include="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
     </ItemGroup>
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
   </Target>
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
-      <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll"/>
+      <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
     </ItemGroup>
-    <Publicise
-      InputAssemblies="@(PubliciseInputAssemblies)"
-      OutputPath="..\Assemblies\"
-      PubliciseCompilerGenerated="true"/>
+    <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="..\Assemblies\" PubliciseCompilerGenerated="true" />
   </Target>
   <Target Name="Deploy" AfterTargets="Build">
     <ItemGroup>
-      <ModFiles
-        Include =
-          "..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll;
-           ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json"/>
+      <ModFiles Include="..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll;&#xD;&#xA;           ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json" />
     </ItemGroup>
     <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WRATH_DIR)\Mods\BlueprintCore" />
   </Target>
