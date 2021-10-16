@@ -23,10 +23,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
 
     private ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> CheckedBuffs
     {
-      get
-      {
-        return m_CheckedBuffs;
-      }
+      get { return Buffs; }
     }
 
     public bool IsTargetRestrictionPassed(UnitEntityData caster, TargetWrapper target)
@@ -43,17 +40,23 @@ namespace BlueprintCore.Abilities.Restrictions.New
         return false;
       }
 
+      int matchingBuffCount = 0;
       foreach (BlueprintBuff blueprint in CheckedBuffs)
       {
         foreach (Buff buff in targetUnit.Buffs)
         {
-          if (buff.Blueprint == blueprint && buff.Context.MaybeCaster == caster)
+          if (buff.Blueprint == blueprint)
           {
-            return true;
+            matchingBuffCount += buff.Context.MaybeCaster == caster ? 1 : 0;
           }
         }
       }
-      return false;
+
+      if (RequireAllBuffs)
+      {
+        return matchingBuffCount == CheckedBuffs.Length;
+      }
+      return matchingBuffCount > 0;
     }
 
     public string GetAbilityTargetRestrictionUIText(UnitEntityData caster, TargetWrapper target)
@@ -61,14 +64,11 @@ namespace BlueprintCore.Abilities.Restrictions.New
       string facts =
           string.Join(
               ", ",
-              m_CheckedBuffs.Select(
+              Buffs.Select(
                   delegate (BlueprintBuffReference i)
                   {
                     BlueprintBuff blueprintBuff = i.Get();
-                    if (blueprintBuff == null)
-                    {
-                      return null;
-                    }
+                    if (blueprintBuff == null) { return null; }
                     return blueprintBuff.Name;
                   }).NotNull<string>());
       return
@@ -77,7 +77,14 @@ namespace BlueprintCore.Abilities.Restrictions.New
     }
 
     [SerializeField]
-    public BlueprintBuffReference[] m_CheckedBuffs;
+    public BlueprintBuffReference[] Buffs;
+
+    [SerializeField]
+    /// <summary>
+    /// If set to true, all buffs must be present and applied by the caster. Otherwise the restriction passes as long as
+    /// one buff is present and applied by the caster.
+    /// </summary>
+    public bool RequireAllBuffs;
   }
 
 }

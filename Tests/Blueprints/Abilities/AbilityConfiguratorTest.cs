@@ -661,7 +661,7 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
     public void RequireTargetHasBuffsFromCaster()
     {
       GetConfigurator(Guid)
-          .RequireTargetHasBuffsFromCaster(BuffGuid, ExtraBuffGuid)
+          .RequireTargetHasBuffsFromCaster(new string[] { BuffGuid, ExtraBuffGuid })
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -671,6 +671,26 @@ namespace BlueprintCore.Tests.Blueprints.Abilities
       Assert.Equal(2, hasBuffs.Buffs.Length);
       Assert.Contains(Buff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
       Assert.Contains(ExtraBuff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
+
+      Assert.False(hasBuffs.RequireAllBuffs);
+    }
+
+    [Fact]
+    public void RequireTargetHasBuffsFromCaster_WithAllBuffs()
+    {
+      GetConfigurator(Guid)
+          .RequireTargetHasBuffsFromCaster(new string[] { BuffGuid, ExtraBuffGuid }, requireAllBuffs: true)
+          .Configure();
+
+      var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
+      var hasBuffs = ability.GetComponent<TargetHasBuffsFromCaster>();
+      Assert.NotNull(hasBuffs);
+
+      Assert.Equal(2, hasBuffs.Buffs.Length);
+      Assert.Contains(Buff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
+      Assert.Contains(ExtraBuff.ToReference<BlueprintBuffReference>(), hasBuffs.Buffs);
+
+      Assert.True(hasBuffs.RequireAllBuffs);
     }
 
     [Fact]

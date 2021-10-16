@@ -393,12 +393,13 @@ namespace BlueprintCore.Blueprints.Abilities
      *
      * @param buffs BlueprintBuff
      */
-    public AbilityConfigurator RequireTargetHasBuffsFromCaster(params string[] buffs)
+    public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
     {
       var hasBuffs = new TargetHasBuffsFromCaster
       {
         Buffs =
-            buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray()
+            buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray(),
+        RequireAllBuffs = requireAllBuffs
       };
       return AddComponent(hasBuffs);
     }
