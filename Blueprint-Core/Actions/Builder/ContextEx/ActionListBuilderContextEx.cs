@@ -5,13 +5,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -22,9 +16,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -34,7 +26,14 @@ using Kingmaker.Visual.Animation.Actions;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
-  /** Extension to ActionListBuilder which supports most ContextAction types. */
+  /// <summary>
+  /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for most
+  /// <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types. Some
+  /// <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more specific
+  /// extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
+  /// <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
+  /// </summary>
+  /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderContextEx
   {
     /** 
@@ -661,7 +660,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
       if (dmgType is not null)
       {
-        Validator.Check(dmgType);
+        builder.Validate(dmgType);
         dmg.DamageType = dmgType;
       }
       if (duration is not null) { dmg.Duration = duration; }

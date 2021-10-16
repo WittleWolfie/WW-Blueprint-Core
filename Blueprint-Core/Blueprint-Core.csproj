@@ -7,6 +7,11 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Actions\Builder\MetaEx\**" />
+    <EmbeddedResource Remove="Actions\Builder\MetaEx\**" />
+    <None Remove="Actions\Builder\MetaEx\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>../Assemblies/0Harmony.dll</HintPath>
     </Reference>
@@ -40,7 +45,6 @@
     <Content Include="Actions\Builder\ContextEx\ActionListBuilderContextEx.cs" />
     <Content Include="Actions\Builder\KingdomEx\ActionListBuilderKingdomEx.cs" />
     <Content Include="Actions\Builder\MiscEx\ActionListBuilderMiscEx.cs" />
-    <Content Include="Actions\Builder\MetaEx\ActionListBuilderMetaEx.cs" />
     <Content Include="Actions\Builder\NewEx\ActionListBuilderNewEx.cs" />
     <Content Include="Actions\Builder\StoryEx\ActionListBuilderStoryEx.cs" />
     <Content Include="Actions\Builder\UpgraderEx\ActionListBuilderUpgraderEx.cs" />

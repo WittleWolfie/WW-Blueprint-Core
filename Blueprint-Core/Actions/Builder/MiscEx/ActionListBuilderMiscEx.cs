@@ -11,7 +11,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
    * Extension to ActionListBuilder for miscellaneous actions. Includes things like achievements and
    * CustomEvent.
    */
-  public static class ActionListBuilderMetaEx
+  public static class ActionListBuilderMiscEx
   {
     //----- Kingmaker.Achievements.Actions -----//
 

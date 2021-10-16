@@ -13,13 +13,15 @@ using UnityEngine;
 
 namespace BlueprintCore.Abilities.Restrictions.New
 {
-  /** Validates the target is in Melee Range. */
+  /// <summary>
+  /// Requires the target to have specific buffs applied by the caster.
+  /// </summary>
   [AllowedOn(typeof(BlueprintAbility), false)]
   public class TargetHasBuffsFromCaster : BlueprintComponent, IAbilityTargetRestriction
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetHasBuff");
 
-    public ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> CheckedBuffs
+    private ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> CheckedBuffs
     {
       get
       {

@@ -6,10 +6,10 @@ namespace BlueprintCore
 {
   public static class Main
   {
-    /**
-     * Returns the current version of the mod. You can check this to determine if specific feature
-     * support is available.
-     */
+    /// <value>
+    /// Current version of the mod. Check this to determine if specific feature support is
+    /// available.
+    /// </value>
     public static Version Version { get; private set; }
 
     static bool Load(UnityModManager.ModEntry modEntry)

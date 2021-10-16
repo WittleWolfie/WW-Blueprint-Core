@@ -8,16 +8,112 @@ using Kingmaker.ElementsSystem;
 
 namespace BlueprintCore.Actions.Builder
 {
-  /** 
-   * Base class for building an ActionList.
-   *
-   * Actions are split among the various ActionListBuilder*Ex methods. Include the extension
-   * namespaces with the actions you need.
-   *
-   * E.g. ActionListBuilderContextEx contains extension methods for most ContextAction types. If you
-   * are configuring an ability you probably want to include that namespace:
-   * `using BlueprintCore.Actions.Builder.ContextEx`
-   */
+  /// <summary>
+  /// Fluent builder for <see cref="ActionList">ActionList</see>.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// <para>
+  /// Actions are supported using extension methods. Include the extension namespaces as needed.
+  /// </para>
+  /// 
+  /// <para>
+  /// When <see cref="Build">Build</see> is called the <see cref="ActionList">ActionList</see> is
+  /// constructed, validated, and
+  /// returned. If any errors are detected by <see cref="Validator">Validator</see> they will be
+  /// logged as a warning.
+  /// </para>
+  /// 
+  /// <para>
+  /// Do not call <see cref="Build">Build</see> twice on the same builder.
+  /// </para>
+  /// 
+  /// <para>
+  /// If a method calls for a string to represent any type of blueprint, you can pass the
+  /// blueprint's <see cref="Kingmaker.Blueprints.SimpleBlueprint.AssetGuid">AssetGuid</see> as a
+  /// string or as a name you already provided using
+  /// <see cref="Blueprints.BlueprintTool.AddGuidsByName((string name, string guid)[])">AddGuidsByName()</see>.
+  /// </para>
+  /// 
+  /// <list type="table">
+  /// <listheader>Extensions</listheader>
+  /// <item>
+  ///   <term><see cref="AreaEx.ActionListBuilderAreaEx">AreaEx</see></term>
+  ///   <description>
+  ///     Actions involving the game map, dungeons, or locations. See also
+  ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see> for location related
+  ///     actions specifically tied to the Kingdom and Crusade system.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="AVEx.ActionListBuilderAVEx">AVEx</see></term>
+  ///   <description>
+  ///     Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="BasicEx.ActionListBuilderBasicEx">BasicEx</see></term>
+  ///   <description>
+  ///     Most game mechanics related actions except for
+  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see></term>
+  ///   <description>
+  ///     Most <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types. Some
+  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more
+  ///     specific extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
+  ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see></term>
+  ///   <description>
+  ///     Actions involving the Kingdom and Crusade system.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="MiscEx.ActionListBuilderMiscEx">MiscEx</see></term>
+  ///   <description>
+  ///     Actions without a better extension container such as achievements and CustomEvent.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="NewEx.ActionListBuilderNewEx">NewEx</see></term>
+  ///   <description>
+  ///     Actions defined in BlueprintCore and not available in the base game.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="StoryEx.ActionListBuilderStoryEx">StoryEx</see></term>
+  ///   <description>
+  ///     Actions related to the story such as companion stories, quests, name changes, and
+  ///     etudes.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="UpgraderEx.ActionListBuilderUpgraderEx">UpgraderEx</see></term>
+  ///   <description>
+  ///     All UpgraderOnlyActions.
+  ///   </description>
+  /// </item>
+  /// </list>
+  /// 
+  /// <example>
+  /// Apply a buff and make a melee attack:
+  /// <code>
+  ///   // Provides ApplyBuff and MeleeAttack extensions
+  ///   using BlueprintCore.Actions.Builder.ContextEx; 
+  /// 
+  ///   var actionList =
+  ///       ActionListBuilder.New()
+  ///           .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+  ///           .MeleeAttack()
+  ///           .build();
+  /// </code>
+  /// </example>
+  /// </remarks>
   public class ActionListBuilder
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("ActionListBuilder");
@@ -27,14 +123,29 @@ namespace BlueprintCore.Actions.Builder
 
     private ActionListBuilder() { }
 
+    /// <returns>A new <see cref="ActionListBuilder">ActionListBuilder</see></returns>
     public static ActionListBuilder New() { return new ActionListBuilder(); }
 
+    /// <returns>
+    /// An <see cref="ActionList">ActionList</see> containing all specified actions. Any validation
+    /// errors are logged as a warning. Do not call twice on the same builder.
+    /// </returns>
     public ActionList Build()
     {
       if (ValidationWarnings.Length > 0) { Logger.Warn(ValidationWarnings.ToString()); }
       return new ActionList { Actions = Actions.ToArray() };
     }
 
+    /// <summary>
+    /// <para>
+    /// Adds the specified <see cref="GameAction">GameAction</see> to the list, with validation.
+    /// </para>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// It is recommended to only call this from an extension class or when adding an action type
+    /// not supported by the builder.
+    /// </remarks>
     public ActionListBuilder Add(GameAction action)
     {
       Validate(action);
@@ -42,7 +153,9 @@ namespace BlueprintCore.Actions.Builder
       return this;
     }
 
-    /** Conditional */
+    /// <summary>
+    /// Implements <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
+    /// </summary>
     public ActionListBuilder Conditional(
         ConditionsCheckerBuilder conditions,
         ActionListBuilder ifTrue = null,
@@ -60,8 +173,17 @@ namespace BlueprintCore.Actions.Builder
       return Add(conditional);
     }
 
-    /** Exposed for extension classes. */
-    internal void Validate(object obj)
+    /// <summary>
+    /// Runs the object through <see cref="Validator.Check(object)">Validator.Check()</see>, adding
+    /// any errors to the validation warnings.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Exposed for use by extension classes to bundle warnings into the builder. Other classes can
+    /// use <see cref="Validator.Check(object)">Validator.Check()</see> directly.
+    /// </remarks>
+    /// <param name="obj"></param>
+    public void Validate(object obj)
     {
       Validator.Check(obj).ForEach(str => ValidationWarnings.AppendLine(str));
     }
