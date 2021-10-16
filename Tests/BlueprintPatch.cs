@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlueprintCore.Utils;
+using BlueprintCore.Blueprints;
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
@@ -10,6 +11,7 @@ namespace BlueprintCore.Tests
   public static class BlueprintPatch
   {
     private static readonly Dictionary<BlueprintGuid, SimpleBlueprint> Blueprints = new();
+    public static bool Enabled = true;
 
     public static void Add(params SimpleBlueprint[] blueprint)
     {
@@ -19,6 +21,9 @@ namespace BlueprintCore.Tests
     public static void Clear()
     {
       Blueprints.Clear();
+      AccessTools
+          .StaticFieldRefAccess<Dictionary<string, Guid>>(typeof(BlueprintTool), "GuidsByName")
+          .Clear();
     }
 
     [HarmonyPatch(typeof(BlueprintsCache), "Load")]
@@ -27,7 +32,19 @@ namespace BlueprintCore.Tests
       [HarmonyPriority(Priority.First)]
       static bool Prefix(BlueprintGuid guid, ref SimpleBlueprint __result)
       {
-        __result = Blueprints[guid];
+        if (!Blueprints.ContainsKey(guid)) { __result = null; }
+        else { __result = Blueprints[guid]; }
+        return false;
+      }
+    }
+
+    [HarmonyPatch(typeof(BlueprintsCache), "AddCachedBlueprint")]
+    static class BlueprintsCache_AddCachedBlueprint_Patch
+    {
+      [HarmonyPriority(Priority.First)]
+      static bool Prefix(BlueprintGuid guid, SimpleBlueprint bp)
+      {
+        Blueprints[guid] = bp;
         return false;
       }
     }
