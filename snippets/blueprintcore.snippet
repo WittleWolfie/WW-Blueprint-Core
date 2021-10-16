@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ActionListBuilder Method</Title>
+      <Shortcut>actm</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        /// <summary>
+        /// Adds $type$
+        /// </summary>
+        public static ActionListBuilder $name$(this ActionListBuilder builder)
+        {
+          var $varName$ = ElementTool.Create<$type$>();
+          $end$
+          return builder.Add($varName$);
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ActionListBuilder Test</Title>
+      <Shortcut>actt</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        [Fact]
+        public void $name$()
+        {
+          var actions = ActionListBuilder.New().$name$().Build();
+          
+          Assert.Single(actions.Actions);
+          var $varName$ = ($type$)actions.Actions[0];
+          ElementAsserts.IsValid($varName$);
+          $end$
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConditionsCheckerBuilder Method</Title>
+      <Shortcut>condm</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        /// <summary>
+        /// Adds $type$
+        /// </summary>
+        public static ConditionsCheckerBuilder $name$(this ConditionsCheckerBuilder builder)
+        {
+          var $varName$ = ElementTool.Create<$type$>();
+          $end$
+          return builder.Add($varName$);
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ConditionsCheckerBuilder Test</Title>
+      <Shortcut>condt</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        [Fact]
+        public void $name$()
+        {
+          var conditions = ConditionsCheckerBuilder.New().$name$().Build();
+          
+          Assert.Single(conditions.Conditions);
+          var $varName$ = ($type$)conditions.Conditions[0];
+          ElementAsserts.IsValid($varName$);
+          $end$
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnConfigure</Title>
+      <Shortcut>onc</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+        OnConfigureInternal(blueprint => $end$);
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Configurator Method</Title>
+      <Shortcut>confm</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        /// <summary>
+        /// $type$
+        /// </summary>
+        public $class$ $name$()
+        {
+          var $varName$ = new $type$
+          {
+          $end$
+          };
+          return AddComponent($varName$);
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="false">
+          <ID>class</ID>
+          <Function>ClassName()</Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Configurator Test</Title>
+      <Shortcut>conft</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        [Fact]
+        public void $name$()
+        {
+          GetConfigurator(Guid)
+              .$name$()
+              .Configure();
+              
+          var $varName$ = new BlueprintTool.Get<$type$>(Guid);
+          $end$
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Abstract Configurator Method</Title>
+      <Shortcut>confa</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        /// <summary>
+        /// $type$
+        /// </summary>
+        public TBuilder $name$()
+        {
+          var $varName$ = new $type$
+          {
+          $end$
+          };
+          return AddComponent($varName$);
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>type</ID>
+          <Default>type</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Abstract Configurator Test</Title>
+      <Shortcut>confat</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[
+        [Fact]
+        public void $name$()
+        {
+          GetConfigurator(Guid)
+              .$name$()
+              .Configure();
+              
+          var $varName$ = new BlueprintTool.Get<T>(Guid);
+          $end$
+        }
+        ]]>
+      </Code>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>name</ID>
+          <Default>name</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>varName</ID>
+          <Default>varName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+  
+</CodeSnippets>
