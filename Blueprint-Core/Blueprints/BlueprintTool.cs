@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints
               });
     }
 
-    /// <summary>Creates a new Blueprint of type <see cref="{T}"/>.</summary>
+    /// <summary>Creates a new Blueprint of type T.</summary>
     /// 
     /// <remarks>
     /// The Name must be registered using <see cref="AddGuidsByName"/> before calling this. If you prefer
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints
       return Create<T>(name, GuidsByName[name]);
     }
 
-    /// <summary>Creates a new Blueprint of type <see cref="{T}"/> with the given Name and Guid.</summary>
+    /// <summary>Creates a new Blueprint of type T with the given Name and Guid.</summary>
     /// 
     /// <remarks>
     /// If you have already registered the Name and Guid using <see cref="AddGuidsByName"/> you can use
@@ -175,9 +175,7 @@ namespace BlueprintCore.Blueprints
     /// </remarks>
     /// 
     /// <param name="nameOrGuid">Use Name if you have registered it using <see cref="AddGuidsByName"/> or Guid otherwise.</param>
-    /// <returns>
-    /// A blueprint reference of type <see cref="{TRef}"/>. If nameOrGuid it returns a non-null, empty reference.
-    /// </returns>
+    /// <returns>A blueprint reference of type T. If nameOrGuid it returns a non-null, empty reference.</returns>
     public static TRef GetRef<TRef>(string nameOrGuid)
         where TRef : BlueprintReferenceBase, new()
     {
@@ -210,7 +208,7 @@ namespace BlueprintCore.Blueprints
     public static void AddComponents( this BlueprintScriptableObject obj, params BlueprintComponent[] components)
     {
       if (components == null) { return; }
-      obj.SetComponents(components.AppendToArray(obj.Components));
+      obj.SetComponents(CommonTool.Append(components, obj.Components));
     }
 
     /// <summary>Sets the blueprint's components to the provided list.</summary>

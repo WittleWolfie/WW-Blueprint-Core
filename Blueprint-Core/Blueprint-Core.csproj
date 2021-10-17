@@ -66,11 +66,13 @@
     <Content Include="Utils\ContextDuration.cs" />
     <Content Include="Utils\ContextValues.cs" />
     <Content Include="Utils\ElementTool.cs" />
-    <Content Include="Utils\Extensions.cs" />
     <Content Include="Utils\LogWrapper.cs" />
     <Content Include="Utils\PrereqTools.cs" />
     <Content Include="Utils\Validator.cs" />
     <Content Include="Main.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.0.0">

@@ -29,8 +29,7 @@ namespace BlueprintCore.Actions.Builder
   /// <para>
   /// If a method calls for a string to represent any type of blueprint, you can pass the blueprint's
   /// <see cref="Kingmaker.Blueprints.SimpleBlueprint.AssetGuid">AssetGuid</see> as a string or as a name you already
-  /// provided using
-  /// <see cref="Blueprints.BlueprintTool.AddGuidsByName((string name, string guid)[])">AddGuidsByName()</see>.
+  /// provided using <see cref="Blueprints.BlueprintTool.AddGuidsByName">AddGuidsByName()</see>.
   /// </para>
   /// 
   /// <list type="table">
@@ -133,7 +132,7 @@ namespace BlueprintCore.Actions.Builder
       return new ActionList { Actions = Actions.ToArray() };
     }
 
-    /// <summary>Adds the specified <see cref="GameAction"/> to the list, with validation.</para>
+    /// <summary>Adds the specified <see cref="GameAction"/> to the list, with validation.</summary>
     /// 
     /// <remarks>
     /// It is recommended to only call this from an extension class or when adding an action type not supported by the

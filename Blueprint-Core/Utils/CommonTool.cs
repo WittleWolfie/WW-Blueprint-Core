@@ -1,11 +1,14 @@
-using System;
+﻿using System;
 
 namespace BlueprintCore.Utils
 {
-  public static class ExtensionMethods
+  /// <summary>
+  /// Utility for common operations.
+  /// </summary>
+  public class CommonTool
   {
     /// <summary>
-    /// Returns a concatenation of the two arrays.
+    /// Returns an array with the given values appended.
     /// </summary>
     /// 
     /// <remarks>
@@ -17,7 +20,7 @@ namespace BlueprintCore.Utils
     /// </code>
     /// </example>
     /// </remarks>
-    public static T[] AppendToArray<T>(this T[] array, params T[] values)
+    public static T[] Append<T>(T[] array, params T[] values)
     {
       if (values == null) { return array; }
       var len = array.Length;

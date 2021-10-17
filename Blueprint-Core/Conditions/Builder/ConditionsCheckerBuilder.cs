@@ -25,8 +25,7 @@ namespace BlueprintCore.Conditions.Builder
   /// <para>
   /// If a method calls for a string to represent any type of blueprint, you can pass the blueprint's
   /// <see cref="Kingmaker.Blueprints.SimpleBlueprint.AssetGuid">AssetGuid</see> as a string or as a name you already
-  /// provided using
-  /// <see cref="Blueprints.BlueprintTool.AddGuidsByName((string name, string guid)[])">AddGuidsByName()</see>.
+  /// provided using <see cref="Blueprints.BlueprintTool.AddGuidsByName">AddGuidsByName()</see>.
   /// </para>
   /// 
   /// <list type="table">

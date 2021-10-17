@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Abilities
     /// Sets <see cref="BlueprintAbility.m_Parent"/>
     /// </summary>
     /// 
-    /// <param name="name"><see cref="BlueprintAbility"/> Has this blueprint removed as a variant.</param>
+    /// <remarks>The parent will be updated to remove this blueprint as a variant.</remarks>
     public AbilityConfigurator ClearParent()
     {
       OnConfigureInternal(blueprint => RemoveParent());
@@ -469,7 +469,7 @@ namespace BlueprintCore.Blueprints.Abilities
     {
       var source = current as AbilityEffectRunAction;
       var target = other as AbilityEffectRunAction;
-      source.Actions.Actions = source.Actions.Actions.AppendToArray(target.Actions.Actions);
+      source.Actions.Actions = CommonTool.Append(source.Actions.Actions, target.Actions.Actions);
     }
 
     /// <summary>
@@ -495,8 +495,7 @@ namespace BlueprintCore.Blueprints.Abilities
     {
       var source = current as AbilityEffectMiss;
       var target = other as AbilityEffectMiss;
-      source.MissAction.Actions =
-          source.MissAction.Actions.AppendToArray(target.MissAction.Actions);
+      source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
     }
 
     // TODO: Replace w/ child classes
@@ -661,7 +660,7 @@ namespace BlueprintCore.Blueprints.Abilities
       var abilityRef = Blueprint.ToReference<BlueprintAbilityReference>();
       if (parentVariants != null)
       {
-        parentVariants.m_Variants = parentVariants.m_Variants.AppendToArray(abilityRef);
+        parentVariants.m_Variants = CommonTool.Append(parentVariants.m_Variants, abilityRef);
         return;
       }
 

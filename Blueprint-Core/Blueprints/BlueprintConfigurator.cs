@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints
     }
 
 
-    /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</para>
+    /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</summary>
     /// 
     /// <remarks>
     /// It is recommended to only call this from within a configurator class or when adding a component type not
@@ -367,10 +367,9 @@ namespace BlueprintCore.Blueprints
     {
       var source = current as AddFactContextActions;
       var target = other as AddFactContextActions;
-      source.Activated.Actions = source.Activated.Actions.AppendToArray(target.Activated.Actions);
-      source.Deactivated.Actions =
-          source.Deactivated.Actions.AppendToArray(target.Deactivated.Actions);
-      source.NewRound.Actions = source.NewRound.Actions.AppendToArray(target.NewRound.Actions);
+      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
+      source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
+      source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
     }
 
     //----- Start: Prerequisites

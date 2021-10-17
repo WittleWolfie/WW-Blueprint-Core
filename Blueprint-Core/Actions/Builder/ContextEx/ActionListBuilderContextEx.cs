@@ -23,7 +23,7 @@ using System.Linq;
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for most <see cref="ContextAction"/see> types. Some
+  /// Extension to <see cref="ActionListBuilder"/> for most <see cref="ContextAction"/> types. Some
   /// <see cref="ContextAction"/> types are in more specific extensions such as
   /// <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
