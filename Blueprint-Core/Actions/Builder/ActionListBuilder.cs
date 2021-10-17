@@ -59,9 +59,9 @@ namespace BlueprintCore.Actions.Builder
   /// <item>
   ///   <term><see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see></term>
   ///   <description>
-  ///     Most <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types. Some
-  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction"/> types are in more specific extensions such
-  ///     as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
+  ///     Most <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction">ContextAction</see> types. Some
+  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ContextAction">ContextAction</see> types are in more specific
+  ///     extensions such as <see cref="AVEx.ActionListBuilderAVEx">AVEx</see> or
   ///     <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   ///   </description>
   /// </item>
@@ -124,8 +124,8 @@ namespace BlueprintCore.Actions.Builder
     public static ActionListBuilder New() { return new ActionListBuilder(); }
 
     /// <returns>
-    /// An <see cref="ActionList"/> containing all specified actions. Any validation errors are logged
-    /// as a warning. Do not call twice on the same builder.
+    /// An <see cref="ActionList"/> containing all specified actions. Any validation errors are logged as a warning. Do
+    /// not call twice on the same builder.
     /// </returns>
     public ActionList Build()
     {
@@ -154,9 +154,7 @@ namespace BlueprintCore.Actions.Builder
     /// Implements <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
     /// </summary>
     public ActionListBuilder Conditional(
-        ConditionsCheckerBuilder conditions,
-        ActionListBuilder ifTrue = null,
-        ActionListBuilder ifFalse = null)
+        ConditionsCheckerBuilder conditions, ActionListBuilder ifTrue = null, ActionListBuilder ifFalse = null)
     {
       if (ifTrue == null && ifFalse == null)
       {

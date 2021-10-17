@@ -70,6 +70,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="AreaEntranceChange"/>
     /// </summary>
+    /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="newLocation"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint">BlueprintAreaEnterPoint</see></param>
     public static ActionListBuilder ChangeAreaEntrance(

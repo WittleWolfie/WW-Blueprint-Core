@@ -3,16 +3,23 @@ using BlueprintCore.Utils;
 
 namespace BlueprintCore.Conditions.Builder.NewEx
 {
-  /** Extension to ConditionsCheckerBuilder which supports new condition types. */
+  /// <summary>
+  /// Extension to <see cref="ConditionsCheckerBuilder"/> for conditions defined in BlueprintCore and not available in
+  /// the base game.
+  /// </summary>
+  /// <inheritdoc cref="ConditionsCheckerBuilder"/>
   public static class ConditionsCheckerBuilderNewEx
   {
-    /** IsDemoralizeAction */
+    /// <summary>
+    /// Adds <see cref="New.IsDemoralizeAction">IsDemoralizeAction</see>
+    /// </summary>
     public static ConditionsCheckerBuilder IsDemoralizeAction(this ConditionsCheckerBuilder builder)
     {
       return builder.Add(ElementTool.Create<IsDemoralizeAction>());
     }
-
-    /** TargetInMeleeRange */
+    /// <summary>
+    /// Adds <see cref="New.TargetInMeleeRange">TargetInMeleeRange</see>
+    /// </summary>
     public static ConditionsCheckerBuilder TargetInMeleeRange(this ConditionsCheckerBuilder builder)
     {
       return builder.Add(ElementTool.Create<TargetInMeleeRange>());
