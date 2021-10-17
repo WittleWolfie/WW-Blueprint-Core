@@ -2,28 +2,6 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>Basic Comment</Title>
-      <Shortcut>bcom</Shortcut>
-    </Header>
-    <Snippet>
-      <Code Language="CSharp">
-        <![CDATA[
-        /// <summary>
-        /// Adds <see cref="$type$">$type$</see>
-        /// </summary>$end$
-        ]]>
-      </Code>
-      <Declarations>
-        <Literal Editable="true">
-          <ID>type</ID>
-          <Default>type</Default>
-        </Literal>
-      </Declarations>
-    </Snippet>
-  </CodeSnippet>
-  
-  <CodeSnippet Format="1.0.0">
-    <Header>
       <Title>ActionListBuilder Method</Title>
       <Shortcut>actm</Shortcut>
     </Header>
@@ -31,7 +9,7 @@
       <Code Language="CSharp" Kind="method decl">
         <![CDATA[
         /// <summary>
-        /// Adds <see cref="$type$">$type$</see>
+        /// Adds <see cref="$type$"/>
         /// </summary>
         public static ActionListBuilder $name$(this ActionListBuilder builder)
         {
@@ -104,7 +82,7 @@
       <Code Language="CSharp" Kind="method decl">
         <![CDATA[
         /// <summary>
-        /// Adds <see cref="$type$">$type$</see>
+        /// Adds <see cref="$type$"/>
         /// </summary>
         public static ConditionsCheckerBuilder $name$(this ConditionsCheckerBuilder builder)
         {
@@ -191,7 +169,7 @@
       <Code Language="CSharp" Kind="method decl">
         <![CDATA[
         /// <summary>
-        /// <see cref="$type$">$type$</see>
+        /// Adds <see cref="$type$"/>
         /// </summary>
         public $class$ $name$()
         {
@@ -239,7 +217,7 @@
               .$name$()
               .Configure();
               
-          var $varName$ = new BlueprintTool.Get<$type$>(Guid);
+          var $varName$ = new BlueprintTool.Get<$class$>(Guid);
           $end$
         }
         ]]>
@@ -257,6 +235,10 @@
           <ID>varName</ID>
           <Default>varName</Default>
         </Literal>
+        <Literal Editable="true">
+          <ID>class</ID>
+          <Default>class</Default>
+        </Literal>
       </Declarations>
     </Snippet>
   </CodeSnippet>
@@ -270,7 +252,7 @@
       <Code Language="CSharp" Kind="method decl">
         <![CDATA[
         /// <summary>
-        /// <see cref="$type$">$type$</see>
+        /// Adds <see cref="$type$"/>
         /// </summary>
         public TBuilder $name$()
         {
