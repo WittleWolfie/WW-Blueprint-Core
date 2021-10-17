@@ -9,15 +9,10 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Classes
 {
-  /**
-   * Common class to support FeatureConfigurator and FeatureSelectionConfigurator. This is necessary
-   * because BlueprintFeatureSelection is a concrete class that inherits from FeatureConfigurator.
-   * Without an abstract common class, there would be no way to implement a
-   * FatureSelectionConfigurator since there would be conflict between the method return types.
-   *
-   * Anything unique to BlueprintFeature should be implemented here. FeatureConfigurator serves only
-   * to provide a concrete class.
-   */
+  /// <summary>
+  /// Implements common fields and component support for blueprints inheriting from <see cref="BlueprintFeature"/>.
+  /// </summary>
+  /// <inheritdoc/>
   public abstract class CommonFeatureConfigurator<T, TBuilder> : BlueprintUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BlueprintConfigurator<T, TBuilder>
@@ -33,45 +28,41 @@ namespace BlueprintCore.Blueprints.Classes
 
     protected CommonFeatureConfigurator(string name) : base(name) { }
 
-    /** FeatureTagsComponent */
+    /// <summary>
+    /// Adds or modifies <see cref="FeatureTagsComponent"/>
+    /// </summary>
     public TBuilder AddFeatureTags(params FeatureTag[] tags)
     {
-      foreach (FeatureTag tag in tags)
-      {
-        EnableFeatureTags |= tag;
-      }
+      foreach (FeatureTag tag in tags) { EnableFeatureTags |= tag; }
       return Self;
     }
 
-    /** FeatureTagsComponent */
+    /// <summary>
+    /// Modifies <see cref="FeatureTagsComponent"/>
+    /// </summary>
     public TBuilder RemoveFeatureTags(params FeatureTag[] tags)
     {
-      foreach (FeatureTag tag in tags)
-      {
-        DisableFeatureTags |= tag;
-      }
+      foreach (FeatureTag tag in tags) { DisableFeatureTags |= tag; }
       return Self;
     }
 
-    /**
-     * (Field) IsPrerequisiteFor
-     *
-     * @param features BlueprintFeature
-     */
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
     public TBuilder AddIsPrerequisiteFor(params string[] features)
     {
       EnableIsPrerequisiteFor.AddRange(
-          features
-              .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
-              .ToArray());
+          features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray());
       return Self;
     }
 
-    /**
-     * (Field) IsPrerequisiteFor
-     *
-     * @param features BlueprintFeature
-     */
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
     public TBuilder RemoveIsPrerequisiteFor(params string[] features)
     {
       DisableIsPrerequisiteFor.AddRange(
@@ -82,14 +73,18 @@ namespace BlueprintCore.Blueprints.Classes
       return Self;
     }
 
-    /** (Field) Groups */
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
     public TBuilder AddFeatureGroups(params FeatureGroup[] groups)
     {
       EnableGroups.AddRange(groups);
       return Self;
     }
 
-    /** (Field) Groups */
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
     public TBuilder RemoveFeatureGroups(params FeatureGroup[] groups)
     {
       DisableGroups.AddRange(groups);

@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Buffs
       return new BuffConfigurator(name);
     }
 
-    /// <summary>Creates a <see cref="BlueprintBuff"/> and returns its configurator.</summary>
+    /// <summary>Creates a blueprint and returns its configurator.</summary>
     /// 
     /// <remarks>
     /// Use this function to create a new blueprint if you provided a mapping with
@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.Buffs
       return For(name);
     }
 
-    /// <summary>Creates a <see cref="BlueprintBuff"/> and returns its configurator.</summary>
+    /// <summary>Creates a blueprint and returns its configurator.</summary>
     public static BuffConfigurator New(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintBuff>(name, assetId);
