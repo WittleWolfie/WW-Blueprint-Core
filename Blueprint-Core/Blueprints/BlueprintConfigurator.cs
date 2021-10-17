@@ -312,7 +312,9 @@ namespace BlueprintCore.Blueprints
 
     //------ Start: Misc. Components
 
-    /** SpellDescriptorComponent */
+    /// <summary>
+    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
     public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       foreach (SpellDescriptor descriptor in descriptors)
@@ -322,7 +324,9 @@ namespace BlueprintCore.Blueprints
       return Self;
     }
 
-    /** SpellDescriptorComponent */
+    /// <summary>
+    /// Modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
     public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       foreach (SpellDescriptor descriptor in descriptors)
@@ -332,21 +336,21 @@ namespace BlueprintCore.Blueprints
       return Self;
     }
 
-    /**
-     * ContextRankConfig
-     *
-     * Use ContextRankConfigs to construct your config.
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
     public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);
     }
 
-    /**
-     * AddFactContextActions
-     *
-     * Merge: Concatenates action lists.
-     */
+    /// <summary>
+    /// Adds <see cref="AddFactContextActions"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
     public TBuilder FactContextActions(
         ActionListBuilder onActivated = null,
         ActionListBuilder onDeactivated = null,
@@ -380,32 +384,30 @@ namespace BlueprintCore.Blueprints
 
     //----- Start: Prerequisites
 
-    /** PrerequisiteAlignment */
+    /// <summary>
+    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
     public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
-      foreach (AlignmentMaskType alignment in alignments)
-      {
-        EnablePrerequisiteAlignment |= alignment;
-      }
+      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
       return Self;
     }
 
-    /** PrerequisiteAlignment */
+    /// <summary>
+    /// Modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
     public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
-      foreach (AlignmentMaskType alignment in alignments)
-      {
-        DisablePrerequisiteAlignment |= alignment;
-      }
+      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
       return Self;
     }
 
-    /**
-     * PrerequisiteArchetypeLevel
-     *
-     * @param clazz BlueprintCharacterClass
-     * @param archetype BlueprintArchetype
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteArchetypeLevel"/>
+    /// </summary>
+    /// 
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+    /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
     public TBuilder PrerequisiteArchetype(
         string clazz,
         string archetype,
@@ -414,19 +416,16 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       prereq.Level = level;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteCasterType
-     * 
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
+    /// </summary>
     public TBuilder PrerequisiteCasterType(
         bool isArcane,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -435,13 +434,14 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /** PrerequisiteCasterTypeSpellLevel */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
+    /// </summary>
     public TBuilder PrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
@@ -450,19 +450,16 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
       prereq.OnlySpontaneous = onlySpontaneous;
       prereq.RequiredSpellLevel = minSpellLevel;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteCharacterLevel
-     *
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
+    /// </summary>
     public TBuilder PrerequisiteCharacterLevel(
         int minLevel,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -471,17 +468,16 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
       prereq.Level = minLevel;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /**
-     * PrerequisiteCharacterLevel
-     *
-     * @param clazz BlueprintCharacterClass
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel">PrerequisiteClassLevel</see>
+    /// </summary>
+    /// 
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     public TBuilder PrerequisiteClassLevel(
         string clazz,
         int minLevel,
@@ -490,21 +486,18 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.Level = minLevel;
       prereq.Not = negate;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteClassSpellLevel
-     * 
-     * Merge: Replaces existing component.
-     *
-     * @param clazz BlueprintCharacterClass
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassSpellLevel">PrerequisiteClassSpellLevel</see>
+    /// </summary>
+    /// 
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     public TBuilder PrerequisiteClassSpellLevel(
         string clazz,
         int minSpellLevel,
@@ -514,18 +507,17 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.RequiredSpellLevel = minSpellLevel;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /**
-     * PrerequisiteEtude
-     *
-     * @param etude BlueprintEtude
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteEtude">PrerequisiteEtude</see>
+    /// </summary>
+    /// 
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
     public TBuilder PrerequisiteEtude(
         string etude,
         bool playing = true,
@@ -533,35 +525,33 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
       prereq.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       prereq.NotPlaying = !playing;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeature">PrerequisiteFeature</see>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteFeaturesFromList
-     *
-     * @param features BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeaturesFromList">PrerequisiteFeaturesFromList</see>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteFeaturesFromList(
         string[] features,
         int requiredNumber = 1,
@@ -569,34 +559,30 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
       prereq.m_Features =
-          features
-              .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
-              .ToArray();
+          features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray();
       prereq.Amount = requiredNumber;
       return AddComponent(prereq);
     }
 
-    /** PrerequisiteIsPet */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
+    /// </summary>
     public TBuilder PrerequisiteIsPet(
         bool negate = false,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
       prereq.Not = negate;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteMainCharacter
-     *
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
+    /// </summary>
     public TBuilder PrerequisiteMainCharacter(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -604,16 +590,13 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       return AddUniqueComponent(prereq, behavior, merge);
     }
-
-    /**
-     * PrerequisiteMainCharacter
-     *
-     * Merge: Replaces existing component.
-     */
+    
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
+    /// </summary>
     public TBuilder PrerequisiteCompanion(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -621,17 +604,14 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       prereq.Companion = true;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /**
-     * PrerequisiteMythicLevel
-     *
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
+    /// </summary>
     public TBuilder PrerequisiteMythicLevel(
         int level,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -640,18 +620,17 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
       prereq.Level = level;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /**
-     * PrerequisiteNoArchetype
-     *
-     * @param clazz BlueprintCharacterClass
-     * @param archetype BlueprintArchetype
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoArchetype">PrerequisiteNoArchetype</see>
+    /// </summary>
+    /// 
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+    /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
     public TBuilder PrerequisiteNoArchetype(
         string clazz,
         string archetype,
@@ -659,54 +638,47 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteNoClassLevel
-     *
-     * @param clazz BlueprintCharacterClass
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteNoClassLevel"/>
+    /// </summary>
+    /// 
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     public TBuilder PrerequisiteNoClass(
         string clazz,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteNoFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoFeature">PrerequisiteNoFeature</see>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteNoFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteNotProficient
-     *
-     * Merge: Replaces existing component.
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
+    /// </summary>
     public TBuilder PrerequisiteNotProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -723,12 +695,12 @@ namespace BlueprintCore.Blueprints
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /**
-     * PrerequisiteParametrizedFeature
-     *
-     * @param spellFeature BlueprintFeature
-     * @param spellAbility BlueprintAbility
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    /// 
+    /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
     public TBuilder PrerequisiteParameterizedSpellFeature(
         string spellFeature,
         string spellAbility,
@@ -736,8 +708,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
       // Note: There is no distinction between SpellSpecialization and LearnSpell, despite them
       // being called out independently in the component.
       prereq.ParameterType = FeatureParameterType.LearnSpell;
@@ -746,11 +717,11 @@ namespace BlueprintCore.Blueprints
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteParametrizedFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteParameterizedWeaponFeature(
         string feature,
         WeaponCategory weapon,
@@ -766,11 +737,11 @@ namespace BlueprintCore.Blueprints
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteParametrizedFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteParameterizedSpellSchoolFeature(
         string feature,
         SpellSchool school,
@@ -778,19 +749,18 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       prereq.ParameterType = FeatureParameterType.SpellSchool;
       prereq.SpellSchool = school;
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteParametrizedWeaponSubcategory
-     *
-     * @param weaponFeature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    /// 
+    /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisiteParameterizedWeaponSubcategory(
         string weaponFeature,
         WeaponSubCategory weapon,
@@ -798,15 +768,15 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisiteParametrizedWeaponSubcategory>(
-                group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisiteParametrizedWeaponSubcategory>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(weaponFeature);
       prereq.SubCategory = weapon;
       return AddComponent(prereq);
     }
 
-    /** PrerequisitePet */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
+    /// </summary>
     public TBuilder PrerequisitePet(
         PetType type,
         bool negate = false,
@@ -820,28 +790,25 @@ namespace BlueprintCore.Blueprints
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisitePlayerHasFeature
-     *
-     * @param feature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePlayerHasFeature">PrerequisitePlayerHasFeature</see>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public TBuilder PrerequisitePlayerHasFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq =
-          PrereqTools.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTools.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
 
-    /**
-     * PrerequisiteProficiency
-     *
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteProficiency"/>
+    /// </summary>
     public TBuilder PrerequisiteProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -858,7 +825,9 @@ namespace BlueprintCore.Blueprints
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
-    /** PrerequisiteStatValue */
+    /// <summary>
+    /// Adds <see cref="PrerequisiteStatValue"/>
+    /// </summary>
     public TBuilder PrerequisiteStat(
         StatType type,
         int minValue,
@@ -880,10 +849,9 @@ namespace BlueprintCore.Blueprints
       ConfigureSpellDescriptors();
     }
 
-    /**
-     * Handles type specific configuration. Components are added to the Blueprint after this is
-     * called, so any configuration that would add a Component should just add to Components.
-     */
+    /// <summary>Type specific configuration implemented in child classes.</summary>
+    /// 
+    /// <remarks>Components are added to the blueprint after this step.</remarks>
     protected abstract void ConfigureInternal();
 
     private void OnConfigure()
@@ -915,8 +883,7 @@ namespace BlueprintCore.Blueprints
             break;
           case ComponentMerge.Fail:
           default:
-            throw new InvalidOperationException(
-                $"Failed merging components of type {current.GetType()}");
+            throw new InvalidOperationException($"Failed merging components of type {current.GetType()}");
         }
       }
 
@@ -928,24 +895,17 @@ namespace BlueprintCore.Blueprints
     {
       var validationContext = new ValidationContext();
       Blueprint.Validate(validationContext);
-      foreach (var error in validationContext.Errors)
-      {
-        AddValidationWarning(error);
-      }
+      foreach (var error in validationContext.Errors) { AddValidationWarning(error); }
 
       ValidateComponents();
     }
 
-    /**
-     * Confirms if the blueprint configuration is valid. Errors should be reported using
-     * {@link AddValidationError}.
-     */
+    /// <summary>Type specific validation implemented in child classes.</summary>
+    /// 
+    /// <remarks>Implementations should report errors using <see cref="AddValidationWarning(string)"/>.</remarks>
     protected abstract void ValidateInternal();
 
-    protected void AddValidationWarning(string msg)
-    {
-      ValidationWarnings.AppendLine(msg);
-    }
+    protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
     private void ConfigurePrerequisiteAlignment()
     {
@@ -977,10 +937,9 @@ namespace BlueprintCore.Blueprints
       component.Descriptor.m_IntValue &= ~DisableSpellDescriptors;
     }
 
-    /**
-     * Validates each of the Blueprint's components using its internal validation and using its
-     * attributes.
-     */
+    /// <summary>
+    /// Validates each <see cref="BlueprintComponent"/> using its own validation, attributes, and custom logic.
+    /// </summary>
     private void ValidateComponents()
     {
       if (Blueprint.Components == null) { return; }

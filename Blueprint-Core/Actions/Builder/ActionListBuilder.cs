@@ -147,7 +147,7 @@ namespace BlueprintCore.Actions.Builder
     }
 
     /// <summary>
-    /// Implements <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
     /// </summary>
     public ActionListBuilder Conditional(
         ConditionsCheckerBuilder conditions, ActionListBuilder ifTrue = null, ActionListBuilder ifFalse = null)
