@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Facts;
@@ -22,11 +19,15 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Abilities
 {
-  public class AbilityConfigurator
-      : BlueprintUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>
+  /// <summary>Configurator for <see cref="BlueprintAbility"/>.</summary>
+  /// <inheritdoc/>
+  public class AbilityConfigurator : BlueprintUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>
   {
     private Metamagic EnableMetamagics;
     private Metamagic DisableMetamagics;
@@ -36,41 +37,30 @@ namespace BlueprintCore.Blueprints.Abilities
 
     private AbilityConfigurator(string name) : base(name) { }
 
-    /**
-     * Creates an AbilityConfigurator for the specified blueprint.
-     *
-     * Use this function if the blueprint already exists. If you're using Owlcat's
-     * WrathModificationTemplate all of your JSON blueprints already exist.
-     */
-    public static AbilityConfigurator For(string name)
-    {
-      return new AbilityConfigurator(name);
-    }
+    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
+    public static AbilityConfigurator For(string name) { return new AbilityConfigurator(name); }
 
-    /**
-     * Creates a BlueprintAbility and returns its AbilityConfigurator.
-     * 
-     * Use this function to create a Blueprint if you provided a mapping to Guids with an associated
-     * guid for the given name.
-     */
+    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
     public static AbilityConfigurator New(string name)
     {
       BlueprintTool.Create<BlueprintAbility>(name);
       return For(name);
     }
 
-    /** Creates a BlueprintAbility and returns its AbilityConfigurator. */
+    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
     public static AbilityConfigurator New(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAbility>(name, assetId);
       return For(name);
     }
 
-    /**
-     * (Field) m_DefaultAiAction
-     *
-     * @param aiAction BlueprintAiCastSpell Sets the Ability field to this blueprint.
-     */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.m_DefaultAiAction"/>
+    /// </summary>
+    /// 
+    /// <param name="aiAction">
+    /// <see cref="BlueprintAiCastSpell"/> Has its <see cref="BlueprintAiCastSpell.m_Ability"/> updated to this blueprint.
+    /// </param>
     public AbilityConfigurator SetAiAction(string aiAction)
     {
       OnConfigureInternal(
@@ -83,18 +73,20 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Field) Type */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.Type"/>
+    /// </summary>
     public AbilityConfigurator SetType(AbilityType type)
     {
       OnConfigureInternal(blueprint => blueprint.Type = type);
       return this;
     }
 
-    /**
-     * (Field) Range
-     *
-     * @param range AbilityRange; use SetCustomRange() for AbilityRange.Custom
-     */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.Range"/>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="SetCustomRange(int)"/> for <see cref="AbilityRange.Custom"/>.</remarks>
     public AbilityConfigurator SetRange(AbilityRange range)
     {
       if (range == AbilityRange.Custom)
@@ -105,7 +97,9 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Fields) Range, CustomRange */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.Range"/> and <see cref="BlueprintAbility.CustomRange"/>
+    /// </summary>
     public AbilityConfigurator SetCustomRange(int rangeInFeet)
     {
       OnConfigureInternal(
@@ -117,7 +111,9 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Fields) ShowNameForVariant, OnlyForAllyCaster */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.ShowNameForVariant"/> and <see cref="BlueprintAbility.OnlyForAllyCaster"/>
+    /// </summary>
     public AbilityConfigurator ShowNameForVariant(bool showName = true, bool onlyForAlly = false)
     {
       OnConfigureInternal(
@@ -130,6 +126,10 @@ namespace BlueprintCore.Blueprints.Abilities
     }
 
     /** (Fields) CanTargetPoint, CanTargetEnemies, CanTargetFriends, CanTargetSelf */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.CanTargetPoint"/>, <see cref="BlueprintAbility.CanTargetEnemies"/>,
+    /// <see cref="BlueprintAbility.CanTargetFriends"/>, and <see cref="BlueprintAbility.CanTargetSelf"/>
+    /// </summary>
     public AbilityConfigurator AllowTargeting(
         bool? point = null, bool? enemies = null, bool? friends = null, bool? self = null)
     {
@@ -144,42 +144,54 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Field) SpellResistance) */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.SpellResistance"/>
+    /// </summary>
     public AbilityConfigurator ApplySpellResistance(bool applySR = true)
     {
       OnConfigureInternal(blueprint => blueprint.SpellResistance = applySR);
       return this;
     }
 
-    /** (Field) ActionBarAutoFillIgnored */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.ActionBarAutoFillIgnored"/>
+    /// </summary>
     public AbilityConfigurator AutoFillActionBar(bool autoFill = true)
     {
       OnConfigureInternal(blueprint => blueprint.ActionBarAutoFillIgnored = !autoFill);
       return this;
     }
 
-    /** (Field) Hidden */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.Hidden"/>
+    /// </summary>
     public AbilityConfigurator HideInUi(bool hide = true)
     {
       OnConfigureInternal(blueprint => blueprint.Hidden = hide);
       return this;
     }
 
-    /** (Field) NeedEquipWeapons */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.NeedEquipWeapons"/>
+    /// </summary>
     public AbilityConfigurator RequireWeapon(bool requireWeapon = true)
     {
       OnConfigureInternal(blueprint => blueprint.NeedEquipWeapons = requireWeapon);
       return this;
     }
 
-    /** (Field) NotOffensive */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.NotOffensive"/>
+    /// </summary>
     public AbilityConfigurator IsOffensive(bool offensive = true)
     {
       OnConfigureInternal(blueprint => blueprint.NotOffensive = !offensive);
       return this;
     }
 
-    /** (Fields) EffectOnAlly, EffectOnEnemy */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.EffectOnAlly"/> and <see cref="BlueprintAbility.EffectOnEnemy"/>
+    /// </summary>
     public AbilityConfigurator SetEffectOn(
         AbilityEffectOnUnit? onAlly = null, AbilityEffectOnUnit? onEnemy = null)
     {
@@ -192,39 +204,41 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /**
-     * (Field) m_Parent
-     *
-     * @param name BlueprintAbility Will be updated to include this config blueprint as a variant.
-     */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.m_Parent"/>
+    /// </summary>
+    /// 
+    /// <param name="name"><see cref="BlueprintAbility"/> Has this blueprint added as a variant.</param>
     public AbilityConfigurator SetParent(string name)
     {
       OnConfigureInternal(blueprint => SetParent(BlueprintTool.Get<BlueprintAbility>(name)));
       return this;
     }
 
-    /**
-     * (Field) m_Parent
-     *
-     * @param name BlueprintAbility Will be updated to remove this config blueprint as a variant.
-     */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.m_Parent"/>
+    /// </summary>
+    /// 
+    /// <param name="name"><see cref="BlueprintAbility"/> Has this blueprint removed as a variant.</param>
     public AbilityConfigurator ClearParent()
     {
       OnConfigureInternal(blueprint => RemoveParent());
       return this;
     }
 
-    /** (Fields) Animation */
-    public AbilityConfigurator SetAnimationStyle(
-        UnitAnimationActionCastSpell.CastAnimationStyle style)
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.Animation"/>
+    /// </summary>
+    public AbilityConfigurator SetAnimationStyle(UnitAnimationActionCastSpell.CastAnimationStyle style)
     {
       OnConfigureInternal(blueprint => blueprint.Animation = style);
       return this;
     }
 
-    /** (Fields) ActionType, HasFastAnimation */
-    public AbilityConfigurator SetActionType(
-        UnitCommand.CommandType type, bool? hasFastAnimation = null)
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.ActionType"/> and <see cref="BlueprintAbility.HasFastAnimation"/>
+    /// </summary>
+    public AbilityConfigurator SetActionType(UnitCommand.CommandType type, bool? hasFastAnimation = null)
     {
       OnConfigureInternal(
           blueprint =>
@@ -235,65 +249,75 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Field) AvailableMetamagic */
+    /// <summary>
+    /// Adds to <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
     public AbilityConfigurator AddMetamagics(params Metamagic[] metamagics)
     {
-      foreach (Metamagic metamagic in metamagics)
-      {
-        EnableMetamagics |= metamagic;
-      }
+      foreach (Metamagic metamagic in metamagics) { EnableMetamagics |= metamagic; }
       return this;
     }
 
-    /** (Field) AvailableMetamagic */
+    /// <summary>
+    /// Removes from <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
     public AbilityConfigurator RemoveMetamagics(params Metamagic[] metamagics)
     {
-      foreach (Metamagic metamagic in metamagics)
-      {
-        DisableMetamagics |= metamagic;
-      }
+      foreach (Metamagic metamagic in metamagics) { DisableMetamagics |= metamagic; }
       return this;
     }
 
-    /** (Field) m_IsFullRoundAction */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.m_IsFullRoundAction"/>
+    /// </summary>
     public AbilityConfigurator MakeFullRound(bool fullRound = true)
     {
       OnConfigureInternal(blueprint => blueprint.m_IsFullRoundAction = fullRound);
       return this;
     }
 
-    /** (Field) LocalizedDuration */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.LocalizedDuration"/>
+    /// </summary>
     public AbilityConfigurator SetDurationText(LocalizedString duration)
     {
       OnConfigureInternal(blueprint => blueprint.LocalizedDuration = duration);
       return this;
     }
 
-    /** (Field) LocalizedSavingThrow */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.LocalizedSavingThrow"/>
+    /// </summary>
     public AbilityConfigurator SetSavingThrowText(LocalizedString savingThrow)
     {
       OnConfigureInternal(blueprint => blueprint.LocalizedSavingThrow = savingThrow);
       return this;
     }
 
-    /** (Field) MaterialComponent */
-    public AbilityConfigurator SetMaterialComponent(
-        BlueprintAbility.MaterialComponentData component)
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.MaterialComponent"/>
+    /// </summary>
+    public AbilityConfigurator SetMaterialComponent(BlueprintAbility.MaterialComponentData component)
     {
       OnConfigureInternal(blueprint => blueprint.MaterialComponent = component);
       return this;
     }
 
-    /** (Field) DisableLog */
+    /// <summary>
+    /// Sets <see cref="BlueprintAbility.DisableLog"/>
+    /// </summary>
     public AbilityConfigurator HideFromLog(bool hide = true)
     {
       OnConfigureInternal(blueprint => blueprint.DisableLog = hide);
       return this;
     }
 
-    /** AbilityCasterAlignment */
-    public AbilityConfigurator RequireCasterAlignment(
-        AlignmentMaskType alignment, string ignoreFact = null)
+    /// <summary>
+    /// Adds <see cref="AbilityCasterAlignment"/>
+    /// </summary>
+    /// 
+    /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
       if (ignoreFact != null)
@@ -303,127 +327,130 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddComponent(hasAlignment);
     }
 
-    /**
-     * AbilityCasterHasFacts
-     *
-     * @param facts BlueprintUnitFact
-     */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasFacts"/>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     public AbilityConfigurator RequireCasterFacts(params string[] facts)
     {
       var hasFacts = new AbilityCasterHasFacts
       {
-        m_Facts =
-            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
+        m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
       };
       return AddComponent(hasFacts);
     }
 
-    /**
-     * AbilityCasterHasNoFacts
-     *
-     * @param facts BlueprintUnitFact
-     */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasNoFacts"/>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     public AbilityConfigurator RequireCasterHasNoFacts(params string[] facts)
     {
       var hasNoFacts = new AbilityCasterHasNoFacts
       {
-        m_Facts =
-            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
+        m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
       };
       return AddComponent(hasNoFacts);
     }
 
-    /**
-     * AbilityCasterHasChosenWeapon
-     *
-     * Requires the caster to wield their chosen weapon, i.e. the weapon in which they have weapon
-     * focus or Weapon Specialization.
-     *
-     * @param parameterizedWeaponFeature BlueprintParameterizedFeature
-     * @param ignoreFact BlueprintUnitFact
-     */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasChosenWeapon"/>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Requires the caster to wield their chosen weapon, i.e. the weapon in which they have Weapon Focus or Weapon
+    /// Specialization.
+    /// </remarks>
+    /// 
+    /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
+    /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     public AbilityConfigurator RequireCasterHasChosenWeapon(
         string parameterizedWeaponFeature, string ignoreFact = null)
     {
       var hasChosenWeapon = new AbilityCasterHasChosenWeapon
       {
-        m_ChosenWeaponFeature =
-            BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(parameterizedWeaponFeature)
+        m_ChosenWeaponFeature = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(parameterizedWeaponFeature)
       };
       if (ignoreFact != null)
       {
-        hasChosenWeapon.m_IgnoreWeaponFact =
-            BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
+        hasChosenWeapon.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
       }
       return AddComponent(hasChosenWeapon);
     }
 
-    /** AbilityCasterHasWeaponWithRangeType */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
+    /// </summary>
     public AbilityConfigurator RequireCasterWeaponRange(WeaponRangeType range)
     {
       var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
       return AddComponent(hasWeaponRange);
     }
 
-    /** AbilityCasterInCombat */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterInCombat"/>
+    /// </summary>
     public AbilityConfigurator RequireCasterInCombat(bool requireInCombat = true)
     {
       var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
       return AddComponent(isInCombat);
     }
 
-    /**
-     * AbilityCasterIsOnFavoredTerrain
-     *
-     * @param ignoreFeature BlueprintFeature
-     */
+    /// <summary>
+    /// Adds <see cref="AbilityCasterIsOnFavoredTerrain"/>
+    /// </summary>
+    /// 
+    /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     public AbilityConfigurator RequireCasterOnFavoredTerrain(string ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
       if (ignoreFeature != null)
       {
-        onFavoredTerrain.m_IgnoreFeature =
-            BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
+        onFavoredTerrain.m_IgnoreFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
       }
       return AddComponent(onFavoredTerrain);
     }
 
-    /**
-     * TargetHasBuffsFromCaster
-     *
-     * @param buffs BlueprintBuff
-     */
+    /// <summary>
+    /// Adds <see cref="TargetHasBuffsFromCaster"/>
+    /// </summary>
+    /// 
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
     {
       var hasBuffs = new TargetHasBuffsFromCaster
       {
-        Buffs =
-            buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray(),
+        Buffs = buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray(),
         RequireAllBuffs = requireAllBuffs
       };
       return AddComponent(hasBuffs);
     }
 
-    /** AbilityCanTargetDead */
+    /// <summary>
+    /// Adds <see cref="AbilityCanTargetDead"/>
+    /// </summary>
     public AbilityConfigurator CanTargetDead()
     {
       return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
     }
 
-
+    /// <summary>
+    /// Adds <see cref="AbilityDeliveredByWeapon"/>
+    /// </summary>
     [DeliverEffectAttr]
-    /** AbilityDeliveredByWeapon */
     public AbilityConfigurator DeliveredByWeapon()
     {
       return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
     }
 
+    /// <summary>
+    /// Adds <see cref="AbilityEffectRunAction"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     [ApplyEffectAttr]
-    /**
-     * AbilityEffectRunAction
-     *
-     * Merge: Concatenates actions.
-     */
     public AbilityConfigurator RunActions(
         ActionListBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
@@ -438,19 +465,18 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
     }
 
-    private static void MergeRunActions(
-        BlueprintComponent current, BlueprintComponent other)
+    private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectRunAction;
       var target = other as AbilityEffectRunAction;
       source.Actions.Actions = source.Actions.Actions.AppendToArray(target.Actions.Actions);
     }
 
-    /**
-     * AbilityEffectMiss
-     *
-     * Merge: Concatenates actions.
-     */
+    /// <summary>
+    /// Adds <see cref="AbilityEffectMiss"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     public AbilityConfigurator OnMiss(
         ActionListBuilder actions,
         bool useTargetSelector = true,
@@ -465,8 +491,7 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
     }
 
-    private static void MergeMissActions(
-        BlueprintComponent current, BlueprintComponent other)
+    private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectMiss;
       var target = other as AbilityEffectMiss;
@@ -481,9 +506,10 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddComponent(target);
     }
 
-    /** AbilityExecuteActionOnCast */
-    public AbilityConfigurator OnCast(
-        ActionListBuilder actions, ConditionsCheckerBuilder checker = null)
+    /// <summary>
+    /// Adds <see cref="AbilityExecuteActionOnCast"/>
+    /// </summary>
+    public AbilityConfigurator OnCast(ActionListBuilder actions, ConditionsCheckerBuilder checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
       {
@@ -493,11 +519,9 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddComponent(onCast);
     }
 
-    /**
-     * SpellComponent
-     *
-     * Merge: Replaces existing component.
-     */
+    /// <summary>
+    /// Adds <see cref="SpellComponent"/>
+    /// </summary>
     public AbilityConfigurator SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -507,37 +531,42 @@ namespace BlueprintCore.Blueprints.Abilities
       return AddUniqueComponent(schoolComponent, mergeBehavior, merge);
     }
 
-    /** CantripComponent */
+    /// <summary>
+    /// Adds <see cref="CantripComponent"/>
+    /// </summary>
     public AbilityConfigurator MakeCantrip()
     {
       return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
     }
 
-    /** CantripComponent */
+    /// <summary>
+    /// Removes <see cref="CantripComponent"/>
+    /// </summary>
     public AbilityConfigurator MakeNotCantrip()
     {
       return RemoveComponents(c => c is CantripComponent);
     }
 
-    /**
-     * AbilityVariants
-     *
-     * @param names BlueprintAbility
-     */
-    public AbilityConfigurator AddVariants(params string[] names)
+    /// <summary>
+    /// Adds or modifies <see cref="AbilityVariants"/>
+    /// </summary>
+    /// 
+    /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
+    public AbilityConfigurator AddVariants(params string[] abilities)
     {
-      EnableVariants.AddRange(names.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
+      EnableVariants.AddRange(abilities.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
       return this;
     }
 
-    /**
-     * AbilityVariants
-     *
-     * @param names BlueprintAbility
-     */
-    public AbilityConfigurator RemoveVariants(params string[] names)
+    /// <summary>
+    /// Modifies <see cref="AbilityVariants"/>
+    /// </summary>
+    /// 
+    /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
+    public AbilityConfigurator RemoveVariants(params string[] abilities)
     {
-      DisableVariants.AddRange(names.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
+      // TODO: Do the remove thingy
+      DisableVariants.AddRange(abilities.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
       return this;
     }
 
@@ -557,8 +586,7 @@ namespace BlueprintCore.Blueprints.Abilities
 
       if (Blueprint.CustomRange > new Feet(0) && Blueprint.Range != AbilityRange.Custom)
       {
-        AddValidationWarning(
-            "A custom range value is present without AbilityRange.Custom. It will be ignored.");
+        AddValidationWarning("A custom range value is present without AbilityRange.Custom. It will be ignored.");
       }
 
       var spellComponent = Blueprint.GetComponent<SpellComponent>();
@@ -574,12 +602,10 @@ namespace BlueprintCore.Blueprints.Abilities
 
       if (Blueprint.GetComponents<CantripComponent>().Count() > 1)
       {
-        AddValidationWarning(
-            "Multiple AbilityVariants components present. Only the first is used.");
+        AddValidationWarning("Multiple AbilityVariants components present. Only the first is used.");
       }
 
-      List<AbilityDeliverEffect> deliverEffects =
-          Blueprint.GetComponents<AbilityDeliverEffect>().ToList();
+      List<AbilityDeliverEffect> deliverEffects = Blueprint.GetComponents<AbilityDeliverEffect>().ToList();
       if (deliverEffects.Count > 1)
       {
         AddValidationWarning("Multiple AbilityDeliverEffects present. Only the first is used.");
@@ -587,29 +613,25 @@ namespace BlueprintCore.Blueprints.Abilities
 
       if (Blueprint.GetComponent<AbilityApplyEffect>() is AbilityEffectMiss)
       {
-        AddValidationWarning(
-            "AbilityEffectMiss is the first AbilityApplyEffect. It will always trigger.");
+        AddValidationWarning("AbilityEffectMiss is the first AbilityApplyEffect. It will always trigger.");
       }
 
       List<AbilityApplyEffect> applyEffects =
           Blueprint.GetComponents<AbilityApplyEffect>().ToList();
       if (applyEffects.Count == 1 && applyEffects[0] is AbilityEffectMiss)
       {
-        AddValidationWarning(
-            "AbilityEffectMiss is the only AbilityApplyEffect. It will trigger on hit or miss.");
+        AddValidationWarning("AbilityEffectMiss is the only AbilityApplyEffect. It will trigger on hit or miss.");
       }
       else if (applyEffects.Count == 2 && applyEffects[1] is AbilityEffectMiss)
       {
         var deliverEffect = Blueprint.GetComponent<AbilityDeliverEffect>();
         if (deliverEffect == null)
         {
-          AddValidationWarning(
-              $"AbilityEffectMiss requires an AbilityDeliverEffect.");
+          AddValidationWarning($"AbilityEffectMiss requires an AbilityDeliverEffect.");
         }
         else if (!SupportsEffectMiss(deliverEffect))
         {
-          AddValidationWarning(
-              $"AbilityEffectMiss is not compatible with {deliverEffect.GetType()}");
+          AddValidationWarning($"AbilityEffectMiss is not compatible with {deliverEffect.GetType()}");
         }
       }
       else if (applyEffects.Count > 1)
@@ -619,8 +641,7 @@ namespace BlueprintCore.Blueprints.Abilities
 
       if (Blueprint.GetComponents<AbilitySelectTarget>().Count() > 1)
       {
-        AddValidationWarning(
-            "Multiple AbilitySelectTarget components present. Only the first is used.");
+        AddValidationWarning("Multiple AbilitySelectTarget components present. Only the first is used.");
       }
     }
 
@@ -633,7 +654,6 @@ namespace BlueprintCore.Blueprints.Abilities
           || effect is AbilityDeliverTouch;
     }
 
-    /** Parent must have this ability as an AbilityVariant. */
     private void SetParent(BlueprintAbility parent)
     {
       Blueprint.Parent = parent;
@@ -651,7 +671,6 @@ namespace BlueprintCore.Blueprints.Abilities
       parent.AddComponents(parentVariants);
     }
 
-    /** Parent should not have this ability as an AbilityVariant. */
     private void RemoveParent()
     {
       var parentVariants = Blueprint.Parent?.GetComponent<AbilityVariants>();
@@ -680,15 +699,22 @@ namespace BlueprintCore.Blueprints.Abilities
         AddComponent(component);
       }
       EnableVariants.AddRange(
-          component.m_Variants?.Select(reference => reference.Get())
-              ?? Array.Empty<BlueprintAbility>());
+          component.m_Variants?.Select(reference => reference.Get()) ?? Array.Empty<BlueprintAbility>());
       var variants = EnableVariants.Except(DisableVariants);
 
       // Each variant must have this as its parent
-      variants.ForEach(
-          ability => ability.m_Parent = Blueprint.ToReference<BlueprintAbilityReference>());
-      component.m_Variants =
-          variants.Select(ability => ability.ToReference<BlueprintAbilityReference>()).ToArray();
+      variants.ForEach(ability => ability.m_Parent = Blueprint.ToReference<BlueprintAbilityReference>());
+      component.m_Variants = variants.Select(ability => ability.ToReference<BlueprintAbilityReference>()).ToArray();
+
+      // Remove this as parent of any variants removed
+      DisableVariants.ForEach(
+          ability =>
+            {
+              if (ability.m_Parent == Blueprint.ToReference<BlueprintAbilityReference>())
+              {
+                ability.m_Parent = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+              }
+            });
     }
 
     // Attribute for methods which add AbilityApplyEffect components.

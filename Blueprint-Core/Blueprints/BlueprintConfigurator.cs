@@ -150,15 +150,6 @@ namespace BlueprintCore.Blueprints
       where T : BlueprintScriptableObject
       where TBuilder : BlueprintConfigurator<T, TBuilder>
   {
-    /**
-     * Describes interaction behavior when there are two components of the same type which does not
-     * allow multiples. i.e. Two components of the same type w/o [AllowMultipleComponents].
-     *
-     * Merge is done using an Action<>() and must modify the existing component in-place. Some
-     * unique components will come with a default merge action, see the specific component function
-     * for details.
-     */
-
     /// <summary>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</summary>
     /// 
     /// <remarks>
