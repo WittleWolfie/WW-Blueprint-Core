@@ -9,7 +9,7 @@ using Kingmaker.ElementsSystem;
 namespace BlueprintCore.Actions.Builder
 {
   /// <summary>
-  /// Fluent builder for <see cref="ActionList">ActionList</see>.
+  /// Fluent builder for <see cref="ActionList"/>.
   /// </summary>
   /// 
   /// <remarks>
@@ -18,13 +18,12 @@ namespace BlueprintCore.Actions.Builder
   /// </para>
   /// 
   /// <para>
-  /// When <see cref="Build">Build</see> is called the <see cref="ActionList">ActionList</see> is constructed,
-  /// validated, and returned. If any errors are detected by <see cref="Validator">Validator</see> they will be logged
-  /// as a warning.
+  /// When <see cref="Build">Build</see> is called the <see cref="ActionList"/> is constructed, validated, and returned.
+  /// If any errors are detected by <see cref="Validator"/> they will be logged as a warning.
   /// </para>
   /// 
   /// <para>
-  /// Do not call <see cref="Build">Build</see> twice on the same builder.
+  /// Do not call <see cref="Build"/> twice on the same builder.
   /// </para>
   /// 
   /// <para>
@@ -121,11 +120,11 @@ namespace BlueprintCore.Actions.Builder
 
     private ActionListBuilder() { }
 
-    /// <returns>A new <see cref="ActionListBuilder">ActionListBuilder</see></returns>
+    /// <returns>A new <see cref="ActionListBuilder"/></returns>
     public static ActionListBuilder New() { return new ActionListBuilder(); }
 
     /// <returns>
-    /// An <see cref="ActionList">ActionList</see> containing all specified actions. Any validation errors are logged
+    /// An <see cref="ActionList"/> containing all specified actions. Any validation errors are logged
     /// as a warning. Do not call twice on the same builder.
     /// </returns>
     public ActionList Build()
@@ -136,7 +135,7 @@ namespace BlueprintCore.Actions.Builder
 
     /// <summary>
     /// <para>
-    /// Adds the specified <see cref="GameAction">GameAction</see> to the list, with validation.
+    /// Adds the specified <see cref="GameAction"/> to the list, with validation.
     /// </para>
     /// 
     /// </summary>

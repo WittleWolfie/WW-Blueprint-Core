@@ -1,40 +1,38 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
-using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
-  /**
-   * Extension to ActionListBuilder for miscellaneous actions. Includes things like achievements and
-   * CustomEvent.
-   */
+  /// <summary>
+  /// Extension to <see cref="ActionListBuilder"/> for actions without a better extension container such as achievements
+  /// and CustomEvent.
+  /// </summary>
+  /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderMiscEx
   {
     //----- Kingmaker.Achievements.Actions -----//
 
-    /**
-     * ActionAchievementIncrementCounter
-     *
-     * @param achievement AchievementData
-     */
-    public static ActionListBuilder IncrementAchievement(
-        this ActionListBuilder builder, string achievement)
+    /// <summary>
+    /// Adds <see cref="ActionAchievementIncrementCounter"/>
+    /// </summary>
+    /// 
+    /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
+    public static ActionListBuilder IncrementAchievement(this ActionListBuilder builder, string achievement)
     {
       var increment = ElementTool.Create<ActionAchievementIncrementCounter>();
       increment.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
       return builder.Add(increment);
     }
 
-    /**
-     * ActionAchievementUnlock
-     *
-     * @param achievement AchievementData
-     */
-    public static ActionListBuilder UnlockAchievement(
-        this ActionListBuilder builder, string achievement)
+    /// <summary>
+    /// Adds <see cref="ActionAchievementUnlock"/>
+    /// </summary>
+    /// 
+    /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
+    public static ActionListBuilder UnlockAchievement(this ActionListBuilder builder, string achievement)
     {
       var unlock = ElementTool.Create<ActionAchievementUnlock>();
       unlock.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
@@ -43,7 +41,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
-    /** CreateCustomCompanion */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion">CreateCustomCompanion</see>
+    /// </summary>
     public static ActionListBuilder CreateCustomCompanion(
         this ActionListBuilder builder,
         bool free = false,
@@ -57,7 +57,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       return builder.Add(createCompanion);
     }
 
-    /** CustomEvent */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent">CustomEvent</see>
+    /// </summary>
     public static ActionListBuilder CustomEvent(this ActionListBuilder builder, string eventId)
     {
       var customEvent = ElementTool.Create<CustomEvent>();

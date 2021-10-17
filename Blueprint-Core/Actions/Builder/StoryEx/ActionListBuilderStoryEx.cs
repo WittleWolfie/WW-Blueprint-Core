@@ -8,19 +8,20 @@ using Kingmaker.Localization;
 
 namespace BlueprintCore.Actions.Builder.StoryEx
 {
-  /**
-   * Extension to ActionListBuilder for story related actions including companion stories, name
-   * changes, quests, and etudes.
-   */
+  /// <summary>
+  /// Extension to <see cref="ActionListBuilder"/> for actions related to the story such as companion stories, quests,
+  /// name changes, and etudes.
+  /// </summary>
+  /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderStoryEx
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
-    /**
-     * CompleteEtude
-     *
-     * @param etude BlueprintEtude
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CompleteEtude">CompleteEtude</see>
+    /// </summary>
+    /// 
+    /// <param name="etude"><see cref="BlueprintEtude"/></param>
     public static ActionListBuilder CompleteEtude(
         this ActionListBuilder builder, string etude, BlueprintEvaluator evaluator = null)
     {
@@ -34,11 +35,11 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       return builder.Add(completeEtude);
     }
 
-    /**
-     * ChangeRomance
-     *
-     * @param romance BlueprintRomanceCounter
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeRomance">ChangeRomance</see>
+    /// </summary>
+    /// 
+    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
     public static ActionListBuilder ChangeRomance(
        this ActionListBuilder builder, string romance, IntEvaluator value)
     {
@@ -50,7 +51,9 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       return builder.Add(changeRomance);
     }
 
-    /** ChangeUnitName */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName">ChangeUnitName</see>
+    /// </summary>
     public static ActionListBuilder ChangeUnitName(
         this ActionListBuilder builder,
         UnitEvaluator unit,
@@ -65,8 +68,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       changeName.AddToTheName = appendName;
       return builder.Add(changeName);
     }
-
-    /** ChangeUnitName */
+    
+    /// <inheritdoc cref="ChangeUnitName"/>
     public static ActionListBuilder ResetUnitName(
         this ActionListBuilder builder, UnitEvaluator unit)
     {
