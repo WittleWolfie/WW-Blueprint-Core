@@ -133,12 +133,8 @@ namespace BlueprintCore.Conditions.Builder
     }
 
 
-    /// <summary>
-    /// <para>
-    /// Adds the specified <see cref="Condition"/> to the checker, with validation.
-    /// </para>
+    /// <summary>Adds the specified <see cref="Condition"/> to the checker, with validation.</summary>
     /// 
-    /// </summary>
     /// <remarks>
     /// It is recommended to only call this from an extension class or when adding a condition type not supported by the
     /// builder.

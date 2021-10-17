@@ -60,7 +60,6 @@
     <Content Include="Conditions\Builder\NewEx\ConditionsCheckerBuilderNewEx.cs" />
     <Content Include="Conditions\New\IsDemoralizeAction.cs" />
     <Content Include="Conditions\New\TargetInMeleeRange.cs" />
-    <Content Include="Conditions\ConditionsCheckerBuilder.cs" />
     <Content Include="Fixes\RuleTempModifierTooltips.cs" />
     <Content Include="Utils\Constants.cs" />
     <Content Include="Utils\ContextDuration.cs" />

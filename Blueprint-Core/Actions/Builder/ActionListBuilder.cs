@@ -133,12 +133,8 @@ namespace BlueprintCore.Actions.Builder
       return new ActionList { Actions = Actions.ToArray() };
     }
 
-    /// <summary>
-    /// <para>
-    /// Adds the specified <see cref="GameAction"/> to the list, with validation.
-    /// </para>
+    /// <summary>Adds the specified <see cref="GameAction"/> to the list, with validation.</para>
     /// 
-    /// </summary>
     /// <remarks>
     /// It is recommended to only call this from an extension class or when adding an action type not supported by the
     /// builder.

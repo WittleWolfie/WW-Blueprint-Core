@@ -27,7 +27,7 @@ namespace BlueprintCore.Utils
     /// <see href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/ContextRankConfig">the wiki page</see> for
     /// more details.
     /// </remarks>
-    public static ContextValue Rank(AbilityRankType type)
+    public static ContextValue Rank(AbilityRankType type = AbilityRankType.Default)
     {
       return new ContextValue { ValueType = ContextValueType.Rank, ValueRank = type };
     }
