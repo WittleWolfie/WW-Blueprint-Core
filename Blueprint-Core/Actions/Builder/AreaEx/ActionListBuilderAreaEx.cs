@@ -10,8 +10,8 @@ using Kingmaker.Localization;
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for actions involving the game map, dungeons,
-  /// or locations. See also <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>
+  /// Extension to <see cref="ActionListBuilder"/> for actions involving the game map, dungeons, or locations. See also
+  /// <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
   /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderAreaEx
@@ -19,7 +19,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     //----- Kingmaker.Dungeon.Actions -----//
 
     /// <summary>
-    /// Adds <see cref="ActionCreateImportedCompanion">ActionCreateImportedCompanion</see>
+    /// Adds <see cref="ActionCreateImportedCompanion"/>
     /// </summary>
     public static ActionListBuilder CreateImportedCompanion(this ActionListBuilder builder, int index)
     {
@@ -29,7 +29,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
-    /// Adds <see cref="ActionEnterToDungeon">ActionEnterToDungeon</see>
+    /// Adds <see cref="ActionEnterToDungeon"/>
     /// </summary>
     public static ActionListBuilder TeleportToLastDungeonStageEntrance(this ActionListBuilder builder, int minStage = 1)
     {
@@ -40,7 +40,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
 
 
     /// <summary>
-    /// Adds <see cref="ActionGoDeeperIntoDungeon">ActionGoDeeperIntoDungeon</see>
+    /// Adds <see cref="ActionGoDeeperIntoDungeon"/>
     /// </summary>
     public static ActionListBuilder EnterNextDungeonStage(this ActionListBuilder builder)
     {
@@ -48,7 +48,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
-    /// Adds <see cref="ActionIncreaseDungeonStage">ActionIncreaseDungeonStage</see>
+    /// Adds <see cref="ActionIncreaseDungeonStage"/>
     /// </summary>
     public static ActionListBuilder IncrementDungeonStage(this ActionListBuilder builder)
     {
@@ -56,7 +56,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
-    /// Adds <see cref="ActionSetDungeonStage">ActionSetDungeonStage</see>
+    /// Adds <see cref="ActionSetDungeonStage"/>
     /// </summary>
     public static ActionListBuilder SetDungeonStage(this ActionListBuilder builder, int stage = 1)
     {
@@ -68,10 +68,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
     /// <summary>
-    /// Adds <see cref="AreaEntranceChange">AreaEntranceChange</see>
+    /// Adds <see cref="AreaEntranceChange"/>
     /// </summary>
-    /// <param name="location">BlueprintGlobalMapPoint</param>
-    /// <param name="newLocation">BlueprintAreaEnterPoint</param>
+    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="newLocation"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint">BlueprintAreaEnterPoint</see></param>
     public static ActionListBuilder ChangeAreaEntrance(
         this ActionListBuilder builder, string location, string newLocation)
     {

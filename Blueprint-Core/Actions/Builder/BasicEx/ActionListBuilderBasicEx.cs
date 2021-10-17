@@ -16,8 +16,8 @@ using System.Collections.Generic;
 namespace BlueprintCore.Actions.Builder.BasicEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for most game mechanics related actions not
-  /// included in <see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see>.
+  /// Extension to <see cref="ActionListBuilder"/> for most game mechanics related actions not included in
+  /// <see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see>.
   /// </summary>
   /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderBasicEx
@@ -43,7 +43,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="CreaturesAround">CreaturesAround</see>
+    /// Adds <see cref="CreaturesAround"/>
     /// </summary>
     public static ActionListBuilder OnCreaturesAround(
         this ActionListBuilder builder,
@@ -81,7 +81,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddFatigueHours">AddFatigueHours</see>
+    /// Adds <see cref="AddFatigueHours"/>
     /// </summary>
     public static ActionListBuilder AddFatigue(this ActionListBuilder builder, IntEvaluator hours, UnitEvaluator target)
     {
@@ -204,7 +204,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddItemsToCollection">AddItemsToCollection</see>
+    /// Adds <see cref="AddItemsToCollection"/>
     /// </summary>
     public static ActionListBuilder AddItems(
         this ActionListBuilder builder,
@@ -224,7 +224,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddItemsToCollection">AddItemsToCollection</see>
+    /// Adds <see cref="AddItemsToCollection"/>
     /// </summary>
     /// 
     /// <param name="loot"><see cref="BlueprintUnitLoot">BlueprintUnitLoot</see></param>
@@ -246,32 +246,30 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddItemToPlayer">AddItemToPlayer</see>
+    /// Adds <see cref="AddItemToPlayer"/>
     /// </summary>
     /// 
     /// <remarks>
     /// <list type="bullet">
     /// <item>
     ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand">BlueprintItemEquipmentHand</see> use
-    ///     <see cref="GiveHandSlotItemToPlayer">GiveHandSlotItemToPlayer</see>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
     ///   </description>
     /// </item>
     /// <item>
     ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipment">BlueprintItemEquipment</see> use
-    ///     <see cref="GiveEquipmentToPlayer">GiveEquipmentToPlayer</see>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
     ///   </description>
     /// </item>
     /// <item>
     ///   <description>
-    ///     For any other items use <see cref="GiveItemToPlayer">GiveItemToPlayer</see>.
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
     ///   </description>
     /// </item>
     /// </list>
     /// </remarks>
     /// 
-    /// <param name="item"><see cref="BlueprintItem">BlueprintItem</see></param>
+    /// <param name="item"><see cref="BlueprintItem"/></param>
     public static ActionListBuilder GiveItemToPlayer(
         this ActionListBuilder builder,
         string item,
@@ -294,7 +292,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <inheritdoc cref="GiveItemToPlayer"/>
-    /// <param name="equipment"><see cref="BlueprintItemEquipment">BlueprintItemEquipment</see></param>
+    /// <param name="equipment"><see cref="BlueprintItemEquipment"/></param>
     public static ActionListBuilder GiveEquipmentToPlayer(
         this ActionListBuilder builder,
         string equipment,
@@ -324,7 +322,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <inheritdoc cref="GiveItemToPlayer"/>
-    /// <param name="handItem"><see cref="BlueprintItemEquipmentHand">BlueprintItemEquipmentHand</see></param>
+    /// <param name="handItem"><see cref="BlueprintItemEquipmentHand"/></param>
     public static ActionListBuilder GiveHandSlotItemToPlayer(
         this ActionListBuilder builder,
         string handItem,
@@ -377,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AdvanceUnitLevel">AdvanceUnitLevel</see>
+    /// Adds <see cref="AdvanceUnitLevel"/>
     /// </summary>
     public static ActionListBuilder AdvanceLevel(
         this ActionListBuilder builder, UnitEvaluator unit, IntEvaluator targetLevel)
@@ -406,7 +404,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="CombineToGroup">CombineToGroup</see>
+    /// Adds <see cref="CombineToGroup"/>
     /// </summary>
     public static ActionListBuilder AddUnitToGroup(
         this ActionListBuilder builder, UnitEvaluator unit, UnitEvaluator group)
@@ -443,7 +441,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddUnitToSummonPool">AddUnitToSummonPool</see>
     /// </summary>
     /// 
-    /// <param name="pool"><see cref="BlueprintSummonPool">BlueprintSummonPool</see></param>
+    /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
     public static ActionListBuilder AddUnitToSummonPool(
         this ActionListBuilder builder, UnitEvaluator unit, string pool)
     {
@@ -456,10 +454,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="DeleteUnitFromSummonPool">DeleteUnitFromSummonPool</see>
+    /// Adds <see cref="DeleteUnitFromSummonPool"/>
     /// </summary>
     /// 
-    /// <param name="pool"><see cref="BlueprintSummonPool">BlueprintSummonPool</see></param>
+    /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
     public static ActionListBuilder RemoveUnitFromSummonPool(
         this ActionListBuilder builder, UnitEvaluator unit, string pool)
     {

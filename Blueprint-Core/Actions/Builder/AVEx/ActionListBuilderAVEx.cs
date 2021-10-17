@@ -11,14 +11,14 @@ using Kingmaker.Visual.Animation;
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder">ActionListBuilder</see> for actions involving audiovisual effects such
-  /// as dialogs, camera, cutscenes, and sounds.
+  /// Extension to <see cref="ActionListBuilder"/> for actions involving audiovisual effects such as dialogs, camera,
+  /// cutscenes, and sounds.
   /// </summary>
   /// <inheritdoc cref="ActionListBuilder"/>
   public static class ActionListBuilderAVEx
   {
     /// <summary>
-    /// Adds <see cref="ChangeBookEventImage">ChangeBookEventImage</see>
+    /// Adds <see cref="ChangeBookEventImage"/>
     /// </summary>
     public static ActionListBuilder ChangeBookImage(this ActionListBuilder builder, SpriteLink image)
     {
@@ -28,7 +28,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="CameraToPosition">CameraToPosition</see>
+    /// Adds <see cref="CameraToPosition"/>
     /// </summary>
     public static ActionListBuilder MoveCamera(this ActionListBuilder builder, PositionEvaluator position)
     {
@@ -59,7 +59,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionRunAnimationClip">ContextActionRunAnimationClip</see>
+    /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
     public static ActionListBuilder RunAnimationClip(
         this ActionListBuilder builder,
@@ -77,7 +77,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionShowBark">ContextActionShowBark</see>
+    /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
     public static ActionListBuilder Bark(
         this ActionListBuilder builder,
@@ -93,7 +93,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionSpawnFx">ContextActionSpawnFx</see>
+    /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
     public static ActionListBuilder SpawnFx(this ActionListBuilder builder, PrefabLink prefab)
     {
@@ -105,7 +105,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
 
     /// <summary>
-    /// Adds <see cref="ContextActionPlaySound">ContextActionPlaySound</see>
+    /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
     public static ActionListBuilder PlaySound(this ActionListBuilder builder, string soundName)
     {
@@ -113,6 +113,5 @@ namespace BlueprintCore.Actions.Builder.AVEx
       playSound.SoundName = soundName;
       return builder.Add(playSound);
     }
-
   }
 }
