@@ -6,26 +6,43 @@ using Kingmaker.ElementsSystem;
 
 namespace BlueprintCore.Utils
 {
-  /**
-   * For APIs already implemented in BlueprintCore, this should already be called for any relevant
-   * objects.
-   *
-   * If you're instantiating objects outside of BlueprintCore you can call Check() to get
-   * a list of a validation warnings.
-   */
+  /// <summary>
+  /// Validates the configuration of objects.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// Any API implemented in BlueprintCore calls this for all relevant object types. If you instantiate objects outside
+  /// of BlueprintCore you can call <see cref="Check"/> to get validation warnings.
+  /// </remarks>
   public static class Validator
   {
     private static readonly ValidationContext Context = new();
 
-    /**
-     * Runs Owlcat's validation and some on the object. Each entry in the returned list is its own
-     * validation error.
-     *
-     * All Objects: ValidationContext#ValidateFieldAttributes()
-     * Elements: Verifies there is a name.
-     * BlueprintComponents: BlueprintComponent#ApplyValidation()
-     * IValidated: IValidated#Validate()
-     */
+    /// <summary>Checks the object and returns a list of validation warnings</summary>
+    /// 
+    /// <remarks>
+    /// Uses a combination of Wrath validation logic and custom logic validating that implicit object constraints are
+    /// met. The exact validation run varies by type.
+    /// <list type="bullet">
+    /// <item>
+    ///   <term>All Objects</term>
+    ///   <description><see cref="ValidationContext.ValidateFieldAttributes(object, string)"/></description>
+    /// </item>
+    /// <item>
+    ///   <term><see cref="Element"/> types</term>
+    ///   <description>Verifies that <see cref="Element.name"/> is set.</description>
+    /// </item>
+    /// <item>
+    ///   <term><see cref="BlueprintComponent"/> types</term>
+    ///   <description><see cref="BlueprintComponent.ApplyValidation(ValidationContext)"/></description>
+    /// </item>
+    /// <item>
+    ///   <term><see cref="IValidated"/> types</term>
+    ///   <description><see cref="IValidated.Validate"/></description>
+    /// </item>
+    /// </list>
+    /// There are some special cases as well, such as <see cref="DealStatDamage"/>.
+    /// </remarks>
     public static List<string> Check(object obj)
     {
       if (obj == null) { }

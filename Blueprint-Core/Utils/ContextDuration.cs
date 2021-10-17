@@ -3,7 +3,9 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace BlueprintCore.Utils
 {
-  /** Helper class for creating ContextDurationValues. */
+  /// <summary>
+  /// Helper class for creating <see cref="ContextDurationValue"/> objects.
+  /// </summary>
   public static class ContextDuration
   {
     public static ContextDurationValue Fixed(int value, DurationRate rate = DurationRate.Rounds)

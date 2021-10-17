@@ -2,13 +2,21 @@ using System;
 
 namespace BlueprintCore.Utils
 {
-  /** Otherwise uncategorized extension methods are contained here. */
   public static class ExtensionMethods
   {
-    /**
-     * Remember this does not modify the array in-place. Typical usage:
-     * `array = array.AppendtoArray(otherArray)`
-     */
+    /// <summary>
+    /// Returns a concatenation of the two arrays.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Remember that this does not do an in-place modification of the array.<br/>
+    /// <example>
+    /// Typical usage:
+    /// <code>
+    ///   myArray = myArray.AppendToArray(otherArray);
+    /// </code>
+    /// </example>
+    /// </remarks>
     public static T[] AppendToArray<T>(this T[] array, params T[] values)
     {
       if (values == null) { return array; }

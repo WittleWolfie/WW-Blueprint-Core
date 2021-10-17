@@ -1025,7 +1025,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void ChangeTacticalMorale()
     {
-      var value = ContextValues.Simple(3);
+      var value = ContextValues.Constant(3);
 
       var actions = ActionListBuilder.New().ChangeTacticalMorale(value).Build();
 

@@ -9,10 +9,12 @@ namespace BlueprintCore.Utils
 {
   public static class Constants
   {
-    /**
-     * Probably an unnecessary optimization, but these constants are available whenever you need an
-     * empty but non-null object.
-     */
+    /// <summary>Empty, non-null object constants.</summary>
+    /// 
+    /// <remarks>
+    /// It is generally recommended to use these in place of null. Some areas of the Wrath codebase are null safe, but
+    /// many are not. Most code behaves correctly with empty objects.
+    /// </remarks>
     public static class Empty
     {
       public static readonly ActionList Actions = new() { Actions = new GameAction[0] };

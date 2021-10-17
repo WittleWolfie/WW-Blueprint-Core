@@ -3,10 +3,18 @@ using Owlcat.Runtime.Core.Logging;
 
 namespace BlueprintCore.Utils
 {
-  /** Wrapper around Owlcat's LogChannel which supports enabling or disabling Verbose log events. */
+  /// <summary>
+  /// Wrapper around <see cref="LogChannel"/> which supports dynamically enabling or disabling verbose logging.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// These log events print to the same output as Wrath's game log events. They can be viewed using
+  /// <see href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">RemoteConsole</see> or by appending
+  /// <c>logging</c> to the executable startup arguments. If you are not using the console, logs print to
+  /// <c>AppData\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLog*.txt</c>.
+  /// </remarks>
   public class LogWrapper
   {
-    /** Controls whether verbose logs are output to the log. */
     public static bool EnableVerboseLogs = true;
 
     internal static LogWrapper GetInternal(string prefix)
@@ -14,7 +22,9 @@ namespace BlueprintCore.Utils
       return Get($"WW-BlueprintCore::{prefix}");
     }
 
-    /** Returns a LogWrapper which applies the given prefix to all log events. */
+    /// <summary>
+    /// Returns a <see cref="LogWrapper"/> which prepends the given prefix to all log events.
+    /// </summary>
     public static LogWrapper Get(string prefix)
     {
       LogChannel channel = LogChannelFactory.GetOrCreate(prefix);
@@ -45,6 +55,9 @@ namespace BlueprintCore.Utils
       Logger.Warning(msg);
     }
 
+    /// <summary>
+    /// If <see cref="EnableVerboseLogs"/> is false these log are ignored.
+    /// </summary>
     public virtual void Verbose(string msg)
     {
       if (EnableVerboseLogs) { Logger.Log(msg); }
