@@ -1,11 +1,8 @@
-using System.Linq;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Properties;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Components
 {
@@ -22,6 +19,49 @@ namespace BlueprintCore.Blueprints.Components
    *   - The call to Max is a CommonExtension
    *   - The call to Add is a ProgressionExtension
    */
+
+  /// <summary>Helper class for creating <see cref="ContextRankConfig"/> objects.</summary>
+  /// .
+  /// <remarks>
+  /// <para>
+  /// Functions are split into three groups:
+  /// </para>
+  /// 
+  /// <list type="bullet">
+  /// <item>
+  ///   <term>ContextRankConfigs</term>
+  ///   <description>
+  ///   Base class which creates a config with a specific base value. You can only use a single type, so you should only
+  ///   call these functions once for a config.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="ProgressionExtensions"/></term>
+  ///   <description>
+  ///   Extension class which exposes different progressions. Like the base value, you can only have a single
+  ///   progression type so you should only call one of these functions.
+  ///   </description>
+  /// </item>
+  /// <item>
+  ///   <term><see cref="CommonExtensions"/></term>
+  ///   <description>Extension class which exposes common configurable values.</description>
+  /// </item>
+  /// </list>
+  /// 
+  /// <para>
+  /// See <see href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/ContextRankConfig">ContextRankConfig</see>
+  /// on the wiki for more details about the component and
+  /// <see href="https://docs.google.com/spreadsheets/d/11nQdJ7DFzS73gwR9xk3gsKbyGgtDM51yNoMv7nNYnPw/edit?usp=sharing">ContextRankConfig Calculator</see>
+  /// for help determining which progression to use.
+  /// </para>
+  /// 
+  /// <example>
+  /// Create a rank based on <see cref="StatType.Strength"/> with a bonus value of 2 and a max value of 30:
+  /// <code>
+  ///   var rankConfig = ContextRankConfigs.BaseStat(StatType.Strength).Max(30).Add(2);
+  /// </code>
+  /// </example>
+  /// </remarks>
   public static class ContextRankConfigs
   {
     private static ContextRankConfig NewConfig(
@@ -77,19 +117,14 @@ namespace BlueprintCore.Blueprints.Components
       return NewConfig(ContextRankBaseValueType.BaseStat, stat: stat);
     }
 
-    public static ContextRankConfig StatBonus(
-        StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None)
+    public static ContextRankConfig StatBonus(StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None)
     {
-      return NewConfig(
-          ContextRankBaseValueType.StatBonus, stat: stat, modDescriptor: modDescriptor);
+      return NewConfig(ContextRankBaseValueType.StatBonus, stat: stat, modDescriptor: modDescriptor);
     }
 
     public static ContextRankConfig CasterLevel(bool useMax = false)
     {
-      return NewConfig(
-          useMax
-              ? ContextRankBaseValueType.MaxCasterLevel
-              : ContextRankBaseValueType.CasterLevel);
+      return NewConfig(useMax ? ContextRankBaseValueType.MaxCasterLevel : ContextRankBaseValueType.CasterLevel);
     }
 
     public static ContextRankConfig CharacterLevel()
@@ -119,16 +154,11 @@ namespace BlueprintCore.Blueprints.Components
 
     public static ContextRankConfig ClassLevel(string[] classes, bool excludeClasses = false)
     {
-      return NewConfig(
-          ContextRankBaseValueType.ClassLevel,
-          classes: classes,
-          excludeClasses: excludeClasses);
+      return NewConfig(ContextRankBaseValueType.ClassLevel, classes: classes, excludeClasses: excludeClasses);
     }
 
     public static ContextRankConfig MaxClassLevelWithArchetype(
-        string[] classes,
-        string[] archetypes,
-        bool excludeClasses = false)
+        string[] classes, string[] archetypes, bool excludeClasses = false)
     {
       return NewConfig(
           ContextRankBaseValueType.MaxClassLevelWithArchetype,
@@ -138,10 +168,7 @@ namespace BlueprintCore.Blueprints.Components
     }
 
     public static ContextRankConfig SumClassLevelWithArchetype(
-        string[] classes,
-        string[] archetypes,
-        bool excludeClasses = false,
-        bool useOwner = false)
+        string[] classes, string[] archetypes, bool excludeClasses = false, bool useOwner = false)
     {
       return NewConfig(
           useOwner
@@ -169,27 +196,20 @@ namespace BlueprintCore.Blueprints.Components
     public static ContextRankConfig FeatureRank(string feature, bool useMaster = false)
     {
       return NewConfig(
-          useMaster
-              ? ContextRankBaseValueType.MasterFeatureRank
-              : ContextRankBaseValueType.FeatureRank,
+          useMaster ? ContextRankBaseValueType.MasterFeatureRank : ContextRankBaseValueType.FeatureRank,
           feature: feature);
     }
 
     public static ContextRankConfig FeatureList(string[] features, bool useRanks = false)
     {
       return NewConfig(
-          useRanks
-              ? ContextRankBaseValueType.FeatureListRanks
-              : ContextRankBaseValueType.FeatureList,
+          useRanks ? ContextRankBaseValueType.FeatureListRanks : ContextRankBaseValueType.FeatureList,
           featureList: features);
     }
 
     public static ContextRankConfig MythicLevel(bool useMaster = false)
     {
-      return NewConfig(
-          useMaster
-              ? ContextRankBaseValueType.MasterMythicLevel
-              : ContextRankBaseValueType.MythicLevel);
+      return NewConfig(useMaster ? ContextRankBaseValueType.MasterMythicLevel : ContextRankBaseValueType.MythicLevel);
     }
 
     public static ContextRankConfig MythicLevelPlusBuffRank(string buff)
@@ -200,14 +220,13 @@ namespace BlueprintCore.Blueprints.Components
     public static ContextRankConfig BuffRank(string buff, bool useTarget = false)
     {
       return NewConfig(
-          useTarget
-              ? ContextRankBaseValueType.TargetBuffRank
-              : ContextRankBaseValueType.CasterBuffRank,
-          buff: buff);
+          useTarget ? ContextRankBaseValueType.TargetBuffRank : ContextRankBaseValueType.CasterBuffRank, buff: buff);
     }
   }
 
-  /** Contains extension methods to apply common parameters to a ContextRankConfig. */
+  /// <summary>
+  /// Common parameter extensions for <see cref="ContextRankConfig"/>.
+  /// </summary>
   public static class CommonExtensions
   {
     public static ContextRankConfig OfType(this ContextRankConfig config, AbilityRankType rankType)
@@ -231,23 +250,34 @@ namespace BlueprintCore.Blueprints.Components
     }
   }
 
-  /**
-   * Contains extension methods which apply a progression to a ContextRankConfig. Only one should
-   * be called on a given ContextRankConfig. All ContextRankConfigs will default to AsIs if no
-   * progression is applied.
-   *
-   * Integer division is truncated, so 3 / 2 = 1 (round down) and -3 / 2 = -1 (round up).
-   *
-   * These functions try to simplify choosing a progression, but for additional reference there is
-   * a calculator: https://docs.google.com/spreadsheets/d/11nQdJ7DFzS73gwR9xk3gsKbyGgtDM51yNoMv7nNYnPw/edit?usp=sharing
-   */
+  /// <summary>
+  /// Progression extensions for <see cref="ContextRankConfig"/>.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// <para>Only one progression can be applied to a config; only call one of these functions for a config.</para>
+  /// 
+  /// <para>
+  /// If the config should return the base value, no progression is needed.
+  /// </para>
+  /// 
+  /// <para>
+  /// Integer division is truncated: <c>3 / 2 = 1</c> (rounds down) and <c>-3 / 2 = -1</c> (rounds up).
+  /// </para>
+  /// 
+  /// <para>
+  /// Config progressions are deceptively named; the functions attempt to name them correctly. For easy mapping to the
+  /// enum each function comment explains the progression formula and which enums are used. See also the
+  /// <see href="https://docs.google.com/spreadsheets/d/11nQdJ7DFzS73gwR9xk3gsKbyGgtDM51yNoMv7nNYnPw/edit?usp=sharing">ContextRankConfig Calculator</see>.
+  /// </para>
+  /// </remarks>
   public static class ProgressionExtensions
   {
-    /**
-     * Result = BaseValue / 2 + Bonus
-     *
-     * Implements Div2, Div2PlusStep.
-     */
+    /// <summary><c>Result = BaseValue / 2 + Bonus</c></summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.Div2"/> and <see cref="ContextRankProgression.Div2PlusStep"/>
+    /// </remarks>
     public static ContextRankConfig DivideBy2(this ContextRankConfig config, int bonus = 0)
     {
       if (bonus > 0)
@@ -255,29 +285,26 @@ namespace BlueprintCore.Blueprints.Components
         config.m_Progression = ContextRankProgression.Div2PlusStep;
         config.m_StepLevel = bonus;
       }
-      else
-      {
-        config.m_Progression = ContextRankProgression.Div2;
-      }
+      else { config.m_Progression = ContextRankProgression.Div2; }
       return config;
     }
 
-    /**
-     * Result = 1 + (BaseValue - 1) / 2
-     *
-     * Implements OnePlusDiv2.
-     */
+    /// <summary><c>Result = <c>1 + (BaseValue - 1) / 2</c></summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.OnePlusDiv2"/>
+    /// </remarks>
     public static ContextRankConfig DivideBy2ThenAdd1(this ContextRankConfig config)
     {
       config.m_Progression = ContextRankProgression.OnePlusDiv2;
       return config;
     }
 
-    /**
-     * Result = BaseValue / Divisor
-     *
-     * Implements DivStep.
-     */
+    /// <summary><c>Result = BaseValue / Divisor</c></summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.DivStep"/>
+    /// </remarks>
     public static ContextRankConfig DivideBy(this ContextRankConfig config, int divisor)
     {
       config.m_Progression = ContextRankProgression.DivStep;
@@ -285,29 +312,33 @@ namespace BlueprintCore.Blueprints.Components
       return config;
     }
 
-    /**
-     * Result = 1 + Max((BaseValue - Start) / Divisor, 0)
-     *     OR = 0, if delayStart is true and BaseValue < Start
-     *
-     * Implements StartPlusDivStep, DelayedStartPlusDivStep, OnePlusDivStep.
-     */
+    /// <summary>
+    /// <c>Result = 1 + Max((BaseValue - Start) / Divisor, 0)</c><br/>
+    /// OR<br/>
+    /// <c>Result = 0</c>, if <c>delayStart</c> is <c>true</c> and <c>BaseValue &lt; Start</c>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.StartPlusDivStep"/>,
+    /// <see cref="ContextRankProgression.DelayedStartPlusDivStep"/>, and <see cref="ContextRankProgression.OnePlusDivStep"/>
+    /// </remarks>
     public static ContextRankConfig DivideByThenAdd1(
         this ContextRankConfig config, int divisor, int start = 0, bool delayStart = false)
     {
       config.m_Progression =
-          delayStart
-              ? ContextRankProgression.DelayedStartPlusDivStep
-              : ContextRankProgression.StartPlusDivStep;
+          delayStart ? ContextRankProgression.DelayedStartPlusDivStep : ContextRankProgression.StartPlusDivStep;
       config.m_StepLevel = divisor;
       config.m_StartLevel = start;
       return config;
     }
 
-    /**
-     * Result = 1 + 2 * Max((BaseValue - Start) / Divisor, 0)
-     *
-     * Implements StartPlusDoubleDivStep.
-     */
+    /// <summary>
+    /// <c>Result = 1 + 2 * Max((BaseValue - Start) / Divisor, 0)</c>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.StartPlusDoubleDivStep"/>
+    /// </remarks>
     public static ContextRankConfig DivideByThenDoubleThenAdd1(
         this ContextRankConfig config, int divisor, int start = 0)
     {
@@ -317,11 +348,13 @@ namespace BlueprintCore.Blueprints.Components
       return config;
     }
 
-    /**
-     * Result = BaseValue * Multiplier
-     *
-     * Implements MultiplyByModifier.
-     */
+    /// <summary>
+    /// <c>Result = BaseValue * Multiplier</c>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.MultiplyByModifier"/>
+    /// </remarks>
     public static ContextRankConfig MultiplyBy(this ContextRankConfig config, int multiplier)
     {
       config.m_Progression = ContextRankProgression.MultiplyByModifier;
@@ -329,12 +362,15 @@ namespace BlueprintCore.Blueprints.Components
       return config;
     }
 
-    /**
-     * Result = BaseValue + Bonus
-     *     OR = 2*BaseValue + Bonus, if doubleBaseValue is true
-     *
-     * Implements BonusValue, DoublePlusBonusValue.
-     */
+    /// <summary>
+    /// <c>Result = BaseValue + Bonus</c><br/>
+    /// OR<br/>
+    /// <c>OR = 2*BaseValue + Bonus</c>, if <c>doubleBaseValue</c> is <c>true</c>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.BonusValue"/> and <see cref="ContextRankProgression.DoublePlusBonusValue"/>
+    /// </remarks>
     public static ContextRankConfig Add(
         this ContextRankConfig config, int bonus, bool doubleBaseValue = false)
     {
@@ -346,39 +382,63 @@ namespace BlueprintCore.Blueprints.Components
       return config;
     }
 
-    /**
-     * Result = BaseValue + BaseValue / 2
-     *
-     * Implements HalfMore.
-     */
+    /// <summary>
+    /// <c>Result = BaseValue + BaseValue / 2</c>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Implements <see cref="ContextRankProgression.HalfMore"/>
+    /// </remarks>
     public static ContextRankConfig AddHalf(this ContextRankConfig config)
     {
       config.m_Progression = ContextRankProgression.HalfMore;
       return config;
     }
 
-    /**
-     * Entries must be provided in ascending order by their BaseValue.
-     *
-     * The resulting value is the ProgressionValue of the first entry where the config's
-     * BaseValue <= the entry's BaseValue. If the config's BaseValue is greater than all entry
-     * BaseValues, the last entry's ProgressionValue is returned.
-     *
-     * Example:
-     * contextRankConfig.Custom(
-     *     new ProgessionEntry(5, 1),
-     *     new ProgessionEntry(10, 2),
-     *     new ProgessionEntry(13, 4),
-     *     new ProgessionEntry(18, 6));
-     *
-     * Result:
-     *   - Levels 1-9:   1
-     *   - Levels 10-12: 2
-     *   - Levels 13-17: 4
-     *   - Levels 18+:   6
-     *
-     * Implements Custom.
-     */
+    /// <summary>Implements <see cref="ContextRankProgression.Custom"/></summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// Entries must be provided in ascending order by their BaseValue.
+    /// </para>
+    /// 
+    /// <para>
+    /// The result is the <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> of
+    /// the first entry where the config's BaseValue is less than or equal to the entry's
+    /// <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValue</see>. If the config's BaseValue is
+    /// greater than all entry <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValues</see>, the last
+    /// entry's <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> is returned.
+    /// </para>
+    /// 
+    /// <example>
+    /// <code>
+    ///   ContextRankConfigs.CharacterLevel()
+    ///       .Custom(
+    ///           new ProgressionEntry(5, 1),
+    ///           new ProgressionEntry(10, 2),
+    ///           new ProgressionEntry(13, 4),
+    ///           new ProgressionEntry(18, 6));
+    /// </code>
+    /// <list type="bullet">
+    /// <item>
+    ///   <term>Levels 1-5</term>
+    ///   <description><c>Result = 1</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 6-10</term>
+    ///   <description><c>Result = 2</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 11-13</term>
+    ///   <description><c>Result = 4</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 14+</term>
+    ///   <description><c>Result = 6</c></description>
+    /// </item>
+    /// </list>
+    /// </example>
+    /// </remarks>
     public static ContextRankConfig CustomProgression(
         this ContextRankConfig config, params ProgressionEntry[] entries)
     {
@@ -388,6 +448,9 @@ namespace BlueprintCore.Blueprints.Components
     }
   }
 
+  /// <summary>
+  /// Wrapper providing a constructor for <see cref="ContextRankConfig.CustomProgressionItem"/>
+  /// </summary>
   public class ProgressionEntry : ContextRankConfig.CustomProgressionItem
   {
     public ProgressionEntry(int baseValue, int progressionValue) : base()

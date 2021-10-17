@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using BlueprintCore.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Classes
 {
@@ -18,8 +18,7 @@ namespace BlueprintCore.Blueprints.Classes
    * Anything unique to BlueprintFeature should be implemented here. FeatureConfigurator serves only
    * to provide a concrete class.
    */
-  public abstract class CommonFeatureConfigurator<T, TBuilder>
-      : BlueprintUnitFactConfigurator<T, TBuilder>
+  public abstract class CommonFeatureConfigurator<T, TBuilder> : BlueprintUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BlueprintConfigurator<T, TBuilder>
   {

@@ -7,45 +7,49 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace BlueprintCore.Blueprints.Buffs
 {
-  public class BuffConfigurator
-      : BlueprintUnitFactConfigurator<BlueprintBuff, BuffConfigurator>
+  /// <summary>Configurator for <see cref="BlueprintBuff"/>.</summary>
+  /// <inheritdoc/>
+  public class BuffConfigurator : BlueprintUnitFactConfigurator<BlueprintBuff, BuffConfigurator>
   {
     private BlueprintBuff.Flags EnableFlags;
     private BlueprintBuff.Flags DisableFlags;
 
     private BuffConfigurator(string name) : base(name) { }
 
-    /**
-     * Creates a BuffConfigurator for the specified blueprint.
-     *
-     * Use this function if the blueprint already exists. If you're using Owlcat's
-     * WrathModificationTemplate all of your JSON blueprints already exist.
-     */
+    /// <summary>Returns a configurator for the given blueprint.</summary>
+    /// 
+    /// <remarks>
+    /// Use this function if the blueprint exists in the game library. If you're using
+    /// <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModifiationTemplate</see> your
+    /// JSON blueprints should already exist.
+    /// </remarks>
     public static BuffConfigurator For(string name)
     {
       return new BuffConfigurator(name);
     }
 
-    /**
-     * Creates a BlueprintBuff and returns its BuffConfigurator.
-     * 
-     * Use this function to create a Blueprint if you provided a mapping to Guids with an associated
-     * guid for the given name.
-     */
+    /// <summary>Creates a <see cref="BlueprintBuff"/> and returns its configurator.</summary>
+    /// 
+    /// <remarks>
+    /// Use this function to create a new blueprint if you provided a mapping with
+    /// <see cref="BlueprintTool.AddGuidsByName"/>. Otherwise use <see cref="New(string, string)"/>.
+    /// </remarks>
     public static BuffConfigurator New(string name)
     {
       BlueprintTool.Create<BlueprintBuff>(name);
       return For(name);
     }
 
-    /** Creates a BlueprintBuff and returns its BuffConfigurator. */
+    /// <summary>Creates a <see cref="BlueprintBuff"/> and returns its configurator.</summary>
     public static BuffConfigurator New(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintBuff>(name, assetId);
       return For(name);
     }
 
-    /** AddEffectFastHealing */
+    /// <summary>
+    /// Adds <see cref="AddEffectFastHealing"/>
+    /// </summary>
     public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
     {
       var fastHealing = new AddEffectFastHealing
@@ -56,14 +60,18 @@ namespace BlueprintCore.Blueprints.Buffs
       return AddComponent(fastHealing);
     }
 
-    /** RemoveWhenCombatEnded */
+    /// <summary>
+    /// Adds <see cref="RemoveWhenCombatEnded"/>
+    /// </summary>
     public BuffConfigurator RemoveWhenCombatEnds()
     {
       AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
       return this;
     }
 
-    /** (Field) m_Flags */
+    /// <summary>
+    /// Adds to <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
     public BuffConfigurator AddFlags(params BlueprintBuff.Flags[] flags)
     {
       foreach (BlueprintBuff.Flags flag in flags)
@@ -73,7 +81,9 @@ namespace BlueprintCore.Blueprints.Buffs
       return this;
     }
 
-    /** (Field) m_Flags */
+    /// <summary>
+    /// Removes from <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
     public BuffConfigurator RemoveFlags(params BlueprintBuff.Flags[] flags)
     {
       foreach (BlueprintBuff.Flags flag in flags)

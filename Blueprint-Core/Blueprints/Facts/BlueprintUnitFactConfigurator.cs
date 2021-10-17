@@ -11,47 +11,58 @@ using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Facts
 {
+  /// <summary>
+  /// Implements common fields and component support for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
+  /// </summary>
+  /// <inheritdoc/>
   public abstract class BlueprintUnitFactConfigurator<T, TBuilder>
       : BlueprintConfigurator<T, TBuilder>
       where T : BlueprintUnitFact
       where TBuilder : BlueprintConfigurator<T, TBuilder>
   {
-
     protected BlueprintUnitFactConfigurator(string name) : base(name) { }
 
-    /** (Field) m_DisplayName */
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitFact.m_DisplayName"/>
+    /// </summary>
     public TBuilder SetDisplayName(LocalizedString name)
     {
       OnConfigureInternal(blueprint => blueprint.m_DisplayName = name);
       return Self;
     }
 
-    /** (Field) m_Description */
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitFact.m_Description"/>
+    /// </summary>
     public TBuilder SetDescription(LocalizedString description)
     {
       OnConfigureInternal(blueprint => blueprint.m_Description = description);
       return Self;
     }
 
-    /** (Field) m_DescriptionShort */
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitFact.m_DescriptionShort"/>
+    /// </summary>
     public TBuilder SetDescriptionShort(LocalizedString description)
     {
       OnConfigureInternal(blueprint => blueprint.m_DescriptionShort = description);
       return Self;
     }
 
-    /** (Field) m_Icon */
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitFact.m_Icon"/>
+    /// </summary>
     public TBuilder SetIcon(Sprite icon)
     {
       OnConfigureInternal(blueprint => blueprint.m_Icon = icon);
       return Self;
     }
 
-    /**
-     * AddFacts
-     *
-     * @param facts BlueprintUnitFact
-     */
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.FactLogic.AddFacts">AddFacts</see>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     public TBuilder AddFacts(
         string[] facts,
         int casterLevel = 0,
@@ -71,7 +82,9 @@ namespace BlueprintCore.Blueprints.Facts
       return AddComponent(addFacts);
     }
 
-    /** AddInitiatorSkillRollTrigger */
+    /// <summary>
+    /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
+    /// </summary>
     public TBuilder OnSkillCheck(
         StatType skill, ActionListBuilder actions, bool onlySuccess = true)
     {
