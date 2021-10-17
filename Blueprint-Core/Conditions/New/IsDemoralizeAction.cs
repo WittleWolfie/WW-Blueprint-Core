@@ -5,10 +5,31 @@ using Kingmaker.UnitLogic;
 
 namespace BlueprintCore.Conditions.New
 {
-  /**
-   * Validates whether the game is currently resolving a Demoralize action. Returns false if the
-   * target is immune.
-   */
+  /// <summary>
+  /// Checks to determine if a <see cref="Kingmaker.UnitLogic.Mechanics.Actions.Demoralize">Demoralize</see> is being
+  /// executed.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// <para>
+  /// There is no explicit trigger for demoralize. To trigger behavior when demoralize is used, use
+  /// <see cref="Kingmaker.UnitLogic.Mechanics.Components.AddInitiatorSkillRollTrigger">AddInitiatorSkillRollTrigger</see>
+  /// with <see cref="Kingmaker.EntitySystem.Stats.StatType.CheckIntimidate">StatType.CheckIntimidate</see> and this
+  /// condition.
+  /// </para>
+  /// 
+  /// <para>
+  /// Note that this will return false if the target is immune to <see cref="UnitCondition.Shaken"/>, implying immunity
+  /// to demoralize. However, shaken is implemented as both a <see cref="UnitCondition"/> and as a
+  /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/>, so it's possible the target is immune to the
+  /// buff and thus immune to demoralize.
+  /// </para>
+  /// 
+  /// <para>
+  /// This may be deprecated in the future if a better patch for
+  /// <see cref="Kingmaker.UnitLogic.Mechanics.Actions.Demoralize">Demoralize</see> can expose a cleaner trigger API.
+  /// </para>
+  /// </remarks>
   public class IsDemoralizeAction : Condition
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("IsDemoralizeAction");

@@ -8,7 +8,9 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace BlueprintCore.Conditions.New
 {
-  /** Validates the target is in Melee Range. */
+  /// <summary>
+  /// Checks if the target is in melee range.
+  /// </summary>
   public class TargetInMeleeRange : Condition
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetInMeleeRange");

@@ -7,11 +7,16 @@ using Kingmaker.RuleSystem.Rules;
 
 namespace BlueprintCore.Fixes
 {
-  /**
-   * Temporary modifiers for rules don't show up in tooltips because they are removed before the
-   * tooltip is generated. This fixes the issue by returning temporary modifiers when queried by
-   * the tooltip.
-   */
+  /// <summary>
+  /// Fix to ensure temporary modifiers are displayed on tooltips.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// In the base game, temporary modifiers are removed from the rule modifiers before the tooltip is generated. This
+  /// patches <see cref="RulebookEvent.AllBonuses"/> and concatenates any temporary modifiers. It works because the
+  /// temporary modifiers are removed only from the rule modifiers, but are still stored in the rule as temporary
+  /// modifiers.
+  /// </remarks>
   public static class RuleTempModifierTooltips
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TempModifierTooltips");

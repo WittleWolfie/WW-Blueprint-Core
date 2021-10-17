@@ -5,18 +5,22 @@ using Kingmaker.Utility;
 
 namespace BlueprintCore.Actions.Patches
 {
-  /** Tracks the use of Demoralize to distinguish from other uses of Initimidate skill checks. */
+  /// <summary>
+  /// Patch for <see cref="Demoralize"/> used by <see cref="Conditions.New.IsDemoralizeAction">IsDemoralizeAction</see>
+  /// and <see cref="New.SwitchToDemoralizeTarget">SwitchToDemoralizeTarget</see>.
+  /// </summary>
   public static class DemoralizePatch
   {
     private readonly static LogWrapper Logger = LogWrapper.GetInternal("DemoralizePatch");
 
-    /** Returns whether the  game is processing a Demoralize action. */
+    /// <summary>
+    /// Returns whether a <see cref="Demoralize"/> action is currently executing.
+    /// </summary>
     public static bool DemoralizeActive { get; private set; }
 
-    /**
-     * Returns the target of the active Demoralize action, which differs from the intimidate skill
-     * check target.
-     */
+    /// <summary>
+    /// Returns the target of the <see cref="Demoralize"/> action while it is executing.
+    /// </summary>
     public static TargetWrapper DemoralizeTarget { get; private set; }
 
     [HarmonyPatch(typeof(Demoralize), "RunAction")]
