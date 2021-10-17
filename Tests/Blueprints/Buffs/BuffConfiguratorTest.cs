@@ -2,14 +2,15 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Buffs;
 using BlueprintCore.Test.Blueprints.Facts;
 using Kingmaker.Blueprints;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
+using System;
 using Xunit;
 
 namespace BlueprintCore.Test.Blueprints.Buffs
 {
-  public class BuffConfiguratorTest
-      : BlueprintUnitFactConfiguratorTest<BlueprintBuff, BuffConfigurator>
+  public class BuffConfiguratorTest : BlueprintUnitFactConfiguratorTest<BlueprintBuff, BuffConfigurator>
   {
     public BuffConfiguratorTest() : base()
     {
@@ -18,13 +19,19 @@ namespace BlueprintCore.Test.Blueprints.Buffs
 
     protected override BuffConfigurator GetConfigurator(string guid)
     {
-      return BuffConfigurator.For(guid);
+      return BuffConfigurator.For(guid).BuffSleeping();
+    }
+
+    [Fact]
+    public void WithoutTickEachRoundComponent_HasValidationWarning()
+    {
+      Assert.Throws<InvalidOperationException>(() => BuffConfigurator.For(Guid).Configure());
     }
 
     [Fact]
     public void RemoveWhenCombatEnds()
     {
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .RemoveWhenCombatEnds()
           .Configure();
 
@@ -36,7 +43,7 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     [Fact]
     public void AddFlags()
     {
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
@@ -49,11 +56,11 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     public void AddFlags_WithExisting()
     {
       // First pass
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .AddFlags(BlueprintBuff.Flags.StayOnDeath)
           .Configure();
 
@@ -67,17 +74,40 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     public void RemoveFlags()
     {
       // First pass
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
-      BuffConfigurator.For(Guid)
+      GetConfigurator(Guid)
           .RemoveFlags(BlueprintBuff.Flags.Harmful)
           .Configure();
 
       var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
       Assert.True(buff.m_Flags.HasFlag(BlueprintBuff.Flags.IsFromSpell));
       Assert.False(buff.m_Flags.HasFlag(BlueprintBuff.Flags.Harmful));
+    }
+
+    [Fact]
+    public void BuffSleeping()
+    {
+      GetConfigurator(Guid).Configure();
+
+      var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
+      var sleeping = buff.GetComponent<BuffSleeping>();
+      Assert.Equal(5, sleeping.WakeupPerceptionDC);
+    }
+
+    [Fact]
+    public void BuffSleeping_WithWakeupDC()
+    {
+      // Don't use the base configurator which already has a component.
+      BuffConfigurator.For(Guid)
+          .BuffSleeping(wakeupPerceptionDC: 10)
+          .Configure();
+
+      var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
+      var sleeping = buff.GetComponent<BuffSleeping>();
+      Assert.Equal(10, sleeping.WakeupPerceptionDC);
     }
   }
 }

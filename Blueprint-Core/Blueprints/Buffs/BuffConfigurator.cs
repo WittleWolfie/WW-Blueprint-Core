@@ -1,9 +1,11 @@
 using BlueprintCore.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Units;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics;
+using System;
 
 namespace BlueprintCore.Blueprints.Buffs
 {
@@ -93,6 +95,19 @@ namespace BlueprintCore.Blueprints.Buffs
       return this;
     }
 
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
+    /// </summary>
+    public BuffConfigurator BuffSleeping(
+        int? wakeupPerceptionDC = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      var sleeping = new BuffSleeping();
+      if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }
+      return AddUniqueComponent(sleeping, mergeBehavior, merge);
+    }
+
     protected override void ConfigureInternal()
     {
       base.ConfigureInternal();
@@ -107,13 +122,7 @@ namespace BlueprintCore.Blueprints.Buffs
 
       if (Blueprint.GetComponent<ITickEachRound>() == null)
       {
-        // TODO: This is useful but need a way to prevent this from failing tests
-        //AddValidationWarning($"Buff frequency will be ignored: {Name} - {Blueprint.Frequency}");
-        if (Blueprint.TickEachSecond)
-        {
-          AddValidationWarning(
-              $"ITickEachRound component is present. TickEachSecond will be ignored.");
-        }
+        AddValidationWarning($"ITickEachRound component is missing. Frequency and TickEachSecond will be ignored.");
       }
     }
   }
