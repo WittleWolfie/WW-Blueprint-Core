@@ -1058,6 +1058,8 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.Equal(2, variants.m_Variants.Length);
       Assert.Contains(ExtraAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
       Assert.Contains(AnotherAbility.ToReference<BlueprintAbilityReference>(), variants.m_Variants);
+
+      Assert.Equal(BlueprintGuid.Empty, TestAbility.m_Parent.deserializedGuid);
     }
 
     private class TestAbilityDeliverEffect : AbilityDeliverEffect

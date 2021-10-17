@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Facts;
@@ -19,9 +22,6 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BlueprintCore.Blueprints.Abilities
 {
@@ -565,7 +565,6 @@ namespace BlueprintCore.Blueprints.Abilities
     /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
     public AbilityConfigurator RemoveVariants(params string[] abilities)
     {
-      // TODO: Do the remove thingy
       DisableVariants.AddRange(abilities.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
       return this;
     }
@@ -710,7 +709,7 @@ namespace BlueprintCore.Blueprints.Abilities
       DisableVariants.ForEach(
           ability =>
             {
-              if (ability.m_Parent == Blueprint.ToReference<BlueprintAbilityReference>())
+              if (ability.m_Parent?.deserializedGuid == Blueprint.AssetGuid)
               {
                 ability.m_Parent = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
               }
