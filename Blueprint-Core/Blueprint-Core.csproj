@@ -79,17 +79,22 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Vsxmd" Version="1.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
       <Assemblies Include="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
       <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
-      <PrivateAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
-      <PublicAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
+      <PublicAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
+      <PrivateAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
     </ItemGroup>
+    <RemoveDir Directories="..\Assemblies" />
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
     <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="..\Assemblies\" PubliciseCompilerGenerated="true" />
-    <Move SourceFiles="@(PrivateAssembly)" DestinationFiles="@(PublicAssembly)" />
+    <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(PrivateAssembly)" />
   </Target>
   <Target Name="Deploy" AfterTargets="Build">
     <ItemGroup>
