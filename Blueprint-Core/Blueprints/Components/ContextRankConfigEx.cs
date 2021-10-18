@@ -6,22 +6,8 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Components
 {
-  /**
-   * Provides simple constructors for ContextRankConfig objects, ensuring the correct fields are
-   * populated. To configure the progression, use the extensions provided by ProgressionExtensions.
-   * To configure AbilityRankType, max value, and min value use the extensions provided by
-   * CommonExtensions.
-   *
-   * Example:
-   * var rankConfig = ContextRankConfigs.BaseStat(StatType.Strength).Max(30).Add(2);
-   *
-   * The resulting component will return Strength + 2 with a max of 30.
-   *   - The call to Max is a CommonExtension
-   *   - The call to Add is a ProgressionExtension
-   */
-
   /// <summary>Helper class for creating <see cref="ContextRankConfig"/> objects.</summary>
-  /// .
+  /// 
   /// <remarks>
   /// <para>
   /// Functions are split into three groups:
@@ -289,7 +275,7 @@ namespace BlueprintCore.Blueprints.Components
       return config;
     }
 
-    /// <summary><c>Result = <c>1 + (BaseValue - 1) / 2</c></summary>
+    /// <summary><c>Result = 1 + (BaseValue - 1) / 2</c></summary>
     /// 
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.OnePlusDiv2"/>
