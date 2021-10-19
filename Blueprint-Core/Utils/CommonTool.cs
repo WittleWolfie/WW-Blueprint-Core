@@ -5,7 +5,7 @@ namespace BlueprintCore.Utils
   /// <summary>
   /// Utility for common operations.
   /// </summary>
-  public class CommonTool
+  public static class CommonTool
   {
     /// <summary>
     /// Returns an array with the given values appended.
