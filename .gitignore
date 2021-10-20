@@ -338,3 +338,4 @@ Assemblies/
 publicize.bat
 *.csproj
 Blueprint-Core/log.txt
+docs/manifest.json
