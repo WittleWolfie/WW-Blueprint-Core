@@ -32,7 +32,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.ContextEx
 {
-  public class ActionListBuilderContextExTest : TestBase
+  public class ActionsBuilderContextExTest : TestBase
   {
     [Fact]
     public void ApplyBuff()

@@ -7,7 +7,7 @@ using Xunit;
 
 namespace BlueprintCore.Test.Conditions.Builder
 {
-  public class ConditionsCheckerBuilderTest : TestBase
+  public class ConditionsBuilderTest : TestBase
   {
     [Fact]
     public void UseOr()

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace BlueprintCore.Test.Conditions.Builder.NewEx
 {
-  public class ConditionsCheckerBuilderNewExTest : TestBase
+  public class ConditionsBuilderNewExTest : TestBase
   {
     [Fact]
     public void IsDemoralizeAction()

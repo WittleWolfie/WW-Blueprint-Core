@@ -15,7 +15,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder
 {
-  public class ActionListBuilderTest : TestBase
+  public class ActionsBuilderTest : TestBase
   {
     [Fact]
     public void Empty()

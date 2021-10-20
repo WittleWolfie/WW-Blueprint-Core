@@ -6,7 +6,7 @@ using Xunit;
 
 namespace BlueprintCore.Test.Actions.Builder.NewEx
 {
-  public class ActionListBuilderNewExTest : TestBase
+  public class ActionsBuilderNewExTest : TestBase
   {
     [Fact]
     public void SwitchToDemoralizeTarget()

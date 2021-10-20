@@ -11,7 +11,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
 {
-  public class ActionListBuilderUpgraderExTest : TestBase
+  public class ActionsBuilderUpgraderExTest : TestBase
   {
     //----- Kingmaker.EntitySystem.Persistence.Versioning.*UpgraderOnlyActions -----//
 

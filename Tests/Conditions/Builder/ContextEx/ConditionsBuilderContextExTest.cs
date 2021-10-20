@@ -8,7 +8,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Conditions.Builder.ContextEx
 {
-  public class ConditionsCheckerBuilderContextExTest : TestBase
+  public class ConditionsBuilderContextExTest : TestBase
   {
     [Fact]
     public void CasterHasFact()

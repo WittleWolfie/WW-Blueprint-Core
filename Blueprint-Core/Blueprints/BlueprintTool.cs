@@ -14,11 +14,6 @@ namespace BlueprintCore.Blueprints
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintTool");
     private static readonly Dictionary<string, Guid> GuidsByName = new();
 
-    /**
-     * Creates a mapping from Name (key) to Guid (value). Once called, configurators and builders
-     * accept the given Name whenever a reference to the Blueprint with the given Guid is required.
-     */
-
     /// <summary>Adds the provided mapping from Name (key) to Guid (value).</summary>
     /// 
     /// <remarks>

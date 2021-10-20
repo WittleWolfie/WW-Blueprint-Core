@@ -17,7 +17,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.BasicEx
 {
-  public class ActionListBuilderBasicExTest : TestBase
+  public class ActionsBuilderBasicExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 

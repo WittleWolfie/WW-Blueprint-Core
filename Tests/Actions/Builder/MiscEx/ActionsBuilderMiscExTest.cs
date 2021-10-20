@@ -9,7 +9,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.MiscEx
 {
-  public class ActionListBuilderMiscExTest : TestBase
+  public class ActionsBuilderMiscExTest : TestBase
   {
     //----- Kingmaker.Achievements.Actions -----//
 

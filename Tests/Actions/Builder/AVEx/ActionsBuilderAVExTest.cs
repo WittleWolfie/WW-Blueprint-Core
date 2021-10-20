@@ -16,7 +16,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.AVEx
 {
-  public class ActionListBuilderAVExTest : TestBase
+  public class ActionsBuilderAVExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 

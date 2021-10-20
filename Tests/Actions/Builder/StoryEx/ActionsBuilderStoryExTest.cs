@@ -12,7 +12,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.StoryEx
 {
-  public class ActionListBuilderStoryExTest : TestBase
+  public class ActionsBuilderStoryExTest : TestBase
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 

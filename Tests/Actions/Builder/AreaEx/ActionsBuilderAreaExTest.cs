@@ -11,7 +11,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.AreaEx
 {
-  public class ActionListBuilderAreaExTest : TestBase
+  public class ActionsBuilderAreaExTest : TestBase
   {
     //----- Kingmaker.Dungeon.Actions -----//
 

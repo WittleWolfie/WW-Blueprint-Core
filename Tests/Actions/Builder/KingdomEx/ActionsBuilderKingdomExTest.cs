@@ -25,7 +25,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Actions.Builder.KingdomEx
 {
-  public class ActionListBuilderKingdomExTest : TestBase
+  public class ActionsBuilderKingdomExTest : TestBase
   {
     //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
 
