@@ -1,0 +1,1374 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionListBuilderUpgraderEx
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionListBuilderUpgraderEx
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx">
+  
+  
+  <h1 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx" class="text-break">Class ActionListBuilderUpgraderEx
+  </h1>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> for all UpgraderOnlyActions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ActionListBuilderUpgraderEx</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.html">BlueprintCore.Actions.Builder.UpgraderEx</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ActionListBuilderUpgraderEx</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Actions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html">ActionListBuilderAreaEx</a></td><td>
+    Actions involving the game map, dungeons, or locations. See also
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a> for location related actions specifically
+tied to the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a></td><td>
+  Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html">ActionListBuilderBasicEx</a></td><td>
+  Most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a></td><td>
+  Actions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html">ActionListBuilderMiscEx</a></td><td>
+  Actions without a better extension container such as achievements and CustomEvent.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html">ActionListBuilderNewEx</a></td><td>
+  Actions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html">ActionListBuilderStoryEx</a></td><td>
+  Actions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html">ActionListBuilderUpgraderEx</a></td><td>
+  All UpgraderOnlyActions.
+</td></tr></tbody></table>
+<example>
+Apply a buff and make a melee attack:
+<pre><code>  // Provides ApplyBuff and MeleeAttack extensions
+  using BlueprintCore.Actions.Builder.ContextEx; 
+<p>var actionList =
+ActionListBuilder.New()
+.ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+.MeleeAttack()
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFactIfEtudePlaying_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Persistence_Versioning_PlayerUpgraderOnlyActions_AddFactIfEtudePlaying_TargetType_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFactIfEtudePlaying(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.AddFactIfEtudePlaying.TargetType%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L26">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFactIfEtudePlaying_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFactIfEtudePlaying*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFactIfEtudePlaying_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Persistence_Versioning_PlayerUpgraderOnlyActions_AddFactIfEtudePlaying_TargetType_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFactIfEtudePlaying(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.AddFactIfEtudePlaying.TargetType,System.String,System.String)">AddFactIfEtudePlaying(ActionListBuilder, AddFactIfEtudePlaying.TargetType, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.AddFactIfEtudePlaying</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddFactIfEtudePlaying(this ActionListBuilder builder, AddFactIfEtudePlaying.TargetType target, string fact, string etude)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.AddFactIfEtudePlaying.TargetType</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">etude</span></td>
+        <td><p><span class="xref">Kingmaker.AreaLogic.Etudes.BlueprintEtude</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFeatureFromProgression(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.String%2CSystem.Int32%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L168">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFeatureFromProgression_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFeatureFromProgression*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.AddFeatureFromProgression(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.String,System.Int32,System.String,System.String,System.String)">AddFeatureFromProgression(ActionListBuilder, String, String, Int32, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.AddFeatureFromProgression</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddFeatureFromProgression(this ActionListBuilder builder, string feature, string progression, int level, string archetype = null, string selection = null, string ignoreFeature = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">progression</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintProgression</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">archetype</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintArchetype</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">selection</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ignoreFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixItemInInventory_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixItemInInventory(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L122">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixItemInInventory_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixItemInInventory*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixItemInInventory_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixItemInInventory(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.String,System.Boolean)">FixItemInInventory(ActionListBuilder, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.FixItemInInventory</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder FixItemInInventory(this ActionListBuilder builder, string addItem = null, string removeItem = null, bool equipItem = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">addItem</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">removeItem</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">equipItem</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_BlueprintCore_Actions_Builder_ActionListBuilder_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixKingdomSystemBuffsAndStats(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L42">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixKingdomSystemBuffsAndStats*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_BlueprintCore_Actions_Builder_ActionListBuilder_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.FixKingdomSystemBuffsAndStats(BlueprintCore.Actions.Builder.ActionListBuilder,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">FixKingdomSystemBuffsAndStats(ActionListBuilder, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.FixKingdomSystemBuffsAndStats</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder FixKingdomSystemBuffsAndStats(this ActionListBuilder builder, float? statPerFinances = null, float? statPerMaterials = null, float? statPerFavors = null, float? expDiplomacyCoefficient = null, float? diplomacyBonusCoefficient = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">statPerFinances</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">statPerMaterials</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">statPerFavors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">expDiplomacyCoefficient</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">diplomacyBonusCoefficient</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ForceStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ForceStartEtude(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L293">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ForceStartEtude_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ForceStartEtude*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ForceStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ForceStartEtude(BlueprintCore.Actions.Builder.ActionListBuilder,System.String)">ForceStartEtude(ActionListBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.StartEtudeForced</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ForceStartEtude(this ActionListBuilder builder, string etude)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">etude</span></td>
+        <td><p><span class="xref">Kingmaker.AreaLogic.Etudes.BlueprintEtude</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCheckEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCheckEtude(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L192">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCheckEtude_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCheckEtude*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCheckEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCheckEtude(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.Boolean)">ReCheckEtude(ActionListBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RecheckEtude</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ReCheckEtude(this ActionListBuilder builder, string etude, bool redoAfterTrigger = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">etude</span></td>
+        <td><p><span class="xref">Kingmaker.AreaLogic.Etudes.BlueprintEtude</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">redoAfterTrigger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCreateOnLoad_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCreateOnLoad(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L138">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCreateOnLoad_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCreateOnLoad*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCreateOnLoad_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReCreateOnLoad(BlueprintCore.Actions.Builder.ActionListBuilder)">ReCreateOnLoad(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.RecreateOnLoad</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ReCreateOnLoad(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReEnterScriptZone_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReEnterScriptZone(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L64">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReEnterScriptZone_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReEnterScriptZone*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReEnterScriptZone_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReEnterScriptZone(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.Blueprints.EntityReference)">ReEnterScriptZone(ActionListBuilder, EntityReference)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.ReenterScriptzone</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ReEnterScriptZone(this ActionListBuilder builder, EntityReference scriptZone)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.EntityReference</span></td>
+        <td><span class="parametername">scriptZone</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshAllArmyLeaders_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshAllArmyLeaders(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L204">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshAllArmyLeaders_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshAllArmyLeaders*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshAllArmyLeaders_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshAllArmyLeaders(BlueprintCore.Actions.Builder.ActionListBuilder,System.Boolean)">RefreshAllArmyLeaders(ActionListBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RefreshAllArmyLeaders</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RefreshAllArmyLeaders(this ActionListBuilder builder, bool playerOnly = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">playerOnly</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshCrusadeLogistic_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshCrusadeLogistic(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L74">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshCrusadeLogistic_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshCrusadeLogistic*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshCrusadeLogistic_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshCrusadeLogistic(BlueprintCore.Actions.Builder.ActionListBuilder)">RefreshCrusadeLogistic(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshCrusadeLogistic</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RefreshCrusadeLogistic(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshSettingsPreset_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshSettingsPreset(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L82">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshSettingsPreset_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshSettingsPreset*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshSettingsPreset_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RefreshSettingsPreset(BlueprintCore.Actions.Builder.ActionListBuilder)">RefreshSettingsPreset(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshSettingsPreset</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RefreshSettingsPreset(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFact(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L95">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFact_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFact*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String___" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFact(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.String[])">RemoveFact(ActionListBuilder, String, String[])</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RemoveFact(this ActionListBuilder builder, string fact, params string[] ignoreFacts)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">ignoreFacts</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>
+If the target has any of these facts, the fact will not be removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFeatureFromProgression(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.String%2CSystem.Int32%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L219">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFeatureFromProgression_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFeatureFromProgression*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RemoveFeatureFromProgression(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.String,System.Int32,System.String,System.String)">RemoveFeatureFromProgression(ActionListBuilder, String, String, Int32, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RemoveFeatureFromProgression</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RemoveFeatureFromProgression(this ActionListBuilder builder, string feature, string progression, int level, string archetype = null, string ignoreFeature = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">progression</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintProgression</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">archetype</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintArchetype</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ignoreFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReplaceFeature(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L246">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReplaceFeature_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReplaceFeature*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ReplaceFeature(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.String,System.String,System.String)">ReplaceFeature(ActionListBuilder, String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.ReplaceFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ReplaceFeature(this ActionListBuilder builder, string oldFeature, string newFeature, string progression, string ignoreFeature = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">oldFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">progression</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintProgression</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ignoreFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ResetMinDifficulty_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ResetMinDifficulty(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L111">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ResetMinDifficulty_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ResetMinDifficulty*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ResetMinDifficulty_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.ResetMinDifficulty(BlueprintCore.Actions.Builder.ActionListBuilder)">ResetMinDifficulty(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.ResetMinDifficulty</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ResetMinDifficulty(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RestartTacticalCombat_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RestartTacticalCombat(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L266">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RestartTacticalCombat_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RestartTacticalCombat*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RestartTacticalCombat_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.RestartTacticalCombat(BlueprintCore.Actions.Builder.ActionListBuilder)">RestartTacticalCombat(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RestartTacticalCombat</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RestartTacticalCombat(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetAlignmentFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetAlignmentFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L146">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetAlignmentFromBlueprint_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetAlignmentFromBlueprint*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetAlignmentFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetAlignmentFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder)">SetAlignmentFromBlueprint(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder SetAlignmentFromBlueprint(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetHandsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetHandsFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L154">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetHandsFromBlueprint_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetHandsFromBlueprint*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetHandsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetHandsFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder)">SetHandsFromBlueprint(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetHandsFromBlueprint</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder SetHandsFromBlueprint(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetSharedVendorTable_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetSharedVendorTable(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L276">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetSharedVendorTable_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetSharedVendorTable*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetSharedVendorTable_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.SetSharedVendorTable(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,Kingmaker.ElementsSystem.UnitEvaluator)">SetSharedVendorTable(ActionListBuilder, String, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.SetSharedVendorTable</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder SetSharedVendorTable(this ActionListBuilder builder, string table, UnitEvaluator unit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">table</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.BlueprintSharedVendorTable</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.UnStartEtude(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L305">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_UnStartEtude_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.UnStartEtude*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.UnStartEtude(BlueprintCore.Actions.Builder.ActionListBuilder,System.String)">UnStartEtude(ActionListBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.UnStartEtude</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder UnStartEtude(this ActionListBuilder builder, string etude)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">etude</span></td>
+        <td><p><span class="xref">Kingmaker.AreaLogic.Etudes.BlueprintEtude</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/UpgraderEx/ActionListBuilderUpgraderEx.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

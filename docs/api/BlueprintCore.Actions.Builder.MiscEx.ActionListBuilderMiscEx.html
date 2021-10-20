@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionListBuilderMiscEx
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionListBuilderMiscEx
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx">
+  
+  
+  <h1 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx" class="text-break">Class ActionListBuilderMiscEx
+  </h1>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> for actions without a better extension container such as achievements
+and CustomEvent.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ActionListBuilderMiscEx</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.html">BlueprintCore.Actions.Builder.MiscEx</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ActionListBuilderMiscEx</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Actions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html">ActionListBuilderAreaEx</a></td><td>
+    Actions involving the game map, dungeons, or locations. See also
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a> for location related actions specifically
+tied to the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a></td><td>
+  Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html">ActionListBuilderBasicEx</a></td><td>
+  Most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a></td><td>
+  Actions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html">ActionListBuilderMiscEx</a></td><td>
+  Actions without a better extension container such as achievements and CustomEvent.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html">ActionListBuilderNewEx</a></td><td>
+  Actions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html">ActionListBuilderStoryEx</a></td><td>
+  Actions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html">ActionListBuilderUpgraderEx</a></td><td>
+  All UpgraderOnlyActions.
+</td></tr></tbody></table>
+<example>
+Apply a buff and make a melee attack:
+<pre><code>  // Provides ApplyBuff and MeleeAttack extensions
+  using BlueprintCore.Actions.Builder.ContextEx; 
+<p>var actionList =
+ActionListBuilder.New()
+.ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+.MeleeAttack()
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CreateCustomCompanion_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CreateCustomCompanion(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/MiscEx/ActionListBuilderMiscEx.cs/#L47">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CreateCustomCompanion_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CreateCustomCompanion*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CreateCustomCompanion_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CreateCustomCompanion(BlueprintCore.Actions.Builder.ActionListBuilder,System.Boolean,System.Boolean,BlueprintCore.Actions.Builder.ActionListBuilder)">CreateCustomCompanion(ActionListBuilder, Boolean, Boolean, ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder CreateCustomCompanion(this ActionListBuilder builder, bool free = false, bool matchPlayerXp = false, ActionListBuilder onCreate = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">free</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">matchPlayerXp</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">onCreate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CustomEvent(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/MiscEx/ActionListBuilderMiscEx.cs/#L63">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CustomEvent_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CustomEvent*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.CustomEvent(BlueprintCore.Actions.Builder.ActionListBuilder,System.String)">CustomEvent(ActionListBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder CustomEvent(this ActionListBuilder builder, string eventId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">eventId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.IncrementAchievement(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/MiscEx/ActionListBuilderMiscEx.cs/#L23">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_IncrementAchievement_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.IncrementAchievement*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.IncrementAchievement(BlueprintCore.Actions.Builder.ActionListBuilder,System.String)">IncrementAchievement(ActionListBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Achievements.Actions.ActionAchievementIncrementCounter</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder IncrementAchievement(this ActionListBuilder builder, string achievement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">achievement</span></td>
+        <td><p><span class="xref">Kingmaker.Achievements.Blueprints.AchievementData</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_UnlockAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.UnlockAchievement(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/MiscEx/ActionListBuilderMiscEx.cs/#L35">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_UnlockAchievement_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.UnlockAchievement*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_UnlockAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.UnlockAchievement(BlueprintCore.Actions.Builder.ActionListBuilder,System.String)">UnlockAchievement(ActionListBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Achievements.Actions.ActionAchievementUnlock</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder UnlockAchievement(this ActionListBuilder builder, string achievement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">achievement</span></td>
+        <td><p><span class="xref">Kingmaker.Achievements.Blueprints.AchievementData</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/MiscEx/ActionListBuilderMiscEx.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

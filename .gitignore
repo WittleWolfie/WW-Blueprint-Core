@@ -337,3 +337,4 @@ ASALocalRun/
 Assemblies/
 publicize.bat
 *.csproj
+Blueprint-Core/log.txt

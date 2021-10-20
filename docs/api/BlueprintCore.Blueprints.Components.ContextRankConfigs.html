@@ -1,0 +1,1023 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ContextRankConfigs
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ContextRankConfigs
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Components_ContextRankConfigs" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs" class="text-break">Class ContextRankConfigs
+  </h1>
+  <div class="markdown level0 summary"><p>Helper class for creating <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span> objects.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ContextRankConfigs</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Components.html">BlueprintCore.Blueprints.Components</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ContextRankConfigs</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Functions are split into three groups:
+</p>
+<ul><li>ContextRankConfigs
+  Base class which creates a config with a specific base value. You can only use a single type, so you should only
+  call these functions once for a config.
+</li><li><a class="xref" href="BlueprintCore.Blueprints.Components.ProgressionExtensions.html">ProgressionExtensions</a>
+Extension class which exposes different progressions. Like the base value, you can only have a single
+progression type so you should only call one of these functions.
+</li><li><a class="xref" href="BlueprintCore.Blueprints.Components.CommonExtensions.html">CommonExtensions</a>Extension class which exposes common configurable values.</li></ul>
+<p>
+See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/ContextRankConfig">ContextRankConfig</a>
+on the wiki for more details about the component and
+<a href="https://docs.google.com/spreadsheets/d/11nQdJ7DFzS73gwR9xk3gsKbyGgtDM51yNoMv7nNYnPw/edit?usp=sharing">ContextRankConfig Calculator</a>
+for help determining which progression to use.
+</p>
+<example>
+Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.Strength</span> with a bonus value of 2 and a max value of 30:
+<pre><code>  var rankConfig = ContextRankConfigs.BaseStat(StatType.Strength).Max(30).Add(2);</code></pre>
+</example>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L96">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack">BaseAttack()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseAttack()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L101">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType)">BaseStat(StatType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseStat(StatType stat)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">stat</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String%2CSystem.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L168">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String,System.String[],System.String[],System.Boolean)">Bombs(String, String[], String[], Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig Bombs(string feature, string[] classes, string[] archetypes, bool excludeClasses = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">classes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">archetypes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L206">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String,System.Boolean)">BuffRank(String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BuffRank(string buff, bool useTarget = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useTarget</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L121">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR">CasterCR()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterCR()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L111">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean)">CasterLevel(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterLevel(bool useMax = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useMax</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L116">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel">CharacterLevel()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CharacterLevel()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L141">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String[],System.Boolean)">ClassLevel(String[], Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig ClassLevel(string[] classes, bool excludeClasses = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">classes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L131">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String)">CustomProperty(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProperty(string property)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">property</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L126">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage">DungeonStage()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig DungeonStage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L189">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String[],System.Boolean)">FeatureList(String[], Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureList(string[] features, bool useRanks = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">features</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useRanks</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L182">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String,System.Boolean)">FeatureRank(String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureRank(string feature, bool useMaster = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useMaster</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L146">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String[],System.String[],System.Boolean)">MaxClassLevelWithArchetype(String[], String[], Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">classes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">archetypes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L136">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String[])">MaxCustomProperty(String[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxCustomProperty(params string[] properties)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">properties</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L196">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean)">MythicLevel(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevel(bool useMaster = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useMaster</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L201">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String)">MythicLevelPlusBuffRank(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevelPlusBuffRank(string buff)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.Enums.ModifierDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L106">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.ModifierDescriptor)">StatBonus(StatType, ModifierDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig StatBonus(StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">stat</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.ModifierDescriptor</span></td>
+        <td><span class="parametername">modDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L156">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String[],System.String[],System.Boolean,System.Boolean)">SumClassLevelWithArchetype(String[], String[], Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig SumClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false, bool useOwner = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">classes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">archetypes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useOwner</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Components/ContextRankConfigEx.cs/#L51" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

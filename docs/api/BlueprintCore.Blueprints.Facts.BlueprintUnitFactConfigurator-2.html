@@ -1,0 +1,801 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2" class="text-break">Class BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Implements common fields and component support for blueprints inheriting from <span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html">BlueprintConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level2"><span class="xref">BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;</span></div>
+      <div class="level3"><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.html">AbilityConfigurator</a></div>
+      <div class="level3"><a class="xref" href="BlueprintCore.Blueprints.Buffs.BuffConfigurator.html">BuffConfigurator</a></div>
+      <div class="level3"><a class="xref" href="BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html">CommonFeatureConfigurator&lt;T, TBuilder&gt;</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Logger">BlueprintConfigurator&lt;T, TBuilder&gt;.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Self">BlueprintConfigurator&lt;T, TBuilder&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Name">BlueprintConfigurator&lt;T, TBuilder&gt;.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Blueprint">BlueprintConfigurator&lt;T, TBuilder&gt;.Blueprint</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">BlueprintConfigurator&lt;T, TBuilder&gt;.Configure()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">BlueprintConfigurator&lt;T, TBuilder&gt;.AddComponent(BlueprintComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____">BlueprintConfigurator&lt;T, TBuilder&gt;.OnConfigure(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_System_Action__0____">BlueprintConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.AddUniqueComponent(BlueprintComponent, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">BlueprintConfigurator&lt;T, TBuilder&gt;.RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___">BlueprintConfigurator&lt;T, TBuilder&gt;.AddSpellDescriptors(SpellDescriptor[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___">BlueprintConfigurator&lt;T, TBuilder&gt;.RemoveSpellDescriptors(SpellDescriptor[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_">BlueprintConfigurator&lt;T, TBuilder&gt;.ContextRankConfig(ContextRankConfig)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.FactContextActions(ActionListBuilder, ActionListBuilder, ActionListBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;T, TBuilder&gt;.AddPrerequisiteAlignment(AlignmentMaskType[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemovePrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;T, TBuilder&gt;.RemovePrerequisiteAlignment(AlignmentMaskType[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteArchetype_System_String_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteArchetype(String, String, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteCasterType(Boolean, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterTypeSpellLevel_System_Boolean_System_Boolean_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteCasterTypeSpellLevel(Boolean, Boolean, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCharacterLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteCharacterLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassLevel_System_String_System_Int32_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteClassLevel(String, Int32, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassSpellLevel_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteClassSpellLevel(String, Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteEtude_System_String_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteEtude(String, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeaturesFromList_System_String___System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteFeaturesFromList(String[], Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteIsPet_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteIsPet(Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMainCharacter_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteMainCharacter(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCompanion_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteCompanion(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMythicLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteMythicLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoArchetype_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteNoArchetype(String, String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoClass_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteNoClass(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteNoFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNotProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteNotProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellFeature_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteParameterizedSpellFeature(String, String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponFeature_System_String_Kingmaker_Enums_WeaponCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteParameterizedWeaponFeature(String, WeaponCategory, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellSchoolFeature_System_String_Kingmaker_Blueprints_Classes_Spells_SpellSchool_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteParameterizedSpellSchoolFeature(String, SpellSchool, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponSubcategory_System_String_Kingmaker_Enums_WeaponSubCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteParameterizedWeaponSubcategory(String, WeaponSubCategory, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePet_Kingmaker_Enums_PetType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisitePet(PetType, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePlayerHasFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisitePlayerHasFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteStat_Kingmaker_EntitySystem_Stats_StatType_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;T, TBuilder&gt;.PrerequisiteStat(StatType, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal">BlueprintConfigurator&lt;T, TBuilder&gt;.ConfigureInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal">BlueprintConfigurator&lt;T, TBuilder&gt;.ValidateInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_">BlueprintConfigurator&lt;T, TBuilder&gt;.AddValidationWarning(String)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Facts.html">BlueprintCore.Blueprints.Facts</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BlueprintUnitFactConfigurator&lt;T, TBuilder&gt; : BlueprintConfigurator&lt;T, TBuilder&gt; where T : BlueprintUnitFact where TBuilder : BlueprintConfigurator&lt;T, TBuilder&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Implementation is done using the
+<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
+    Each configurator provides a function to create a new blueprint and register it in the game library.
+</td></tr><tr><td>Component Type Safety</td><td>
+<p>
+Blueprints are very permissive; any <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> can be added to any blueprint type. In
+reality many component types are only functional on certain types of blueprints, defined using attributes.
+</p>
+<p>
+The configurator API mimics the inheritance structure of blueprint types in the game to restrict the available
+types of components. The API does not perfectly implement these restrictions because inheritance cannot
+represent the restrictions completely. In those cases type safety is provided through validation.
+</p>
+<p>
+See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
+for more information on component and blueprint type safety.
+</p>
+</td></tr><tr><td>Validation</td><td>
+<p>
+When <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a> is called a combination of Owlcat provided and custom validation logic checks the
+blueprint for errors. All errors are then logged. This validates the blueprint only contains supported
+component types as well as checking for some implicit usage errors, such as
+<a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
+usage.
+</p>
+<p>See <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> for more details on how validation works.</p>
+</td></tr><tr><td>Fluent API</td><td>
+<p>
+The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
+work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> and
+<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a> APIs as well.
+</p>
+<p>
+Complicated components such as
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span> which do not
+work well with the configurator API have their own helper classes.
+e.g. <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
+</p>
+</td></tr></tbody></table>
+<example>
+Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
+<pre><code>  var skaldClass = &quot;WW-SkaldClass&quot;;
+  var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
+  var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
+  var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
+  var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
+  var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
+<p>// Register the names
+BlueprintTool.AddGuidsByName(
+(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
+(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
+(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
+// New blueprints and guids
+(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
+(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
+(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
+<p>// Load the icons and strings (not provided by library)
+var skaldsVigorIcon = LoadSkaldsVigorIcon();
+var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+var skaldsVigorName = LoadSkaldsVigorName();
+var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+var skaldsVigorDescription = LoadSkaldsVigorDescription();
+var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
+<p>// Create the buff
+BuffConfigurator.New(skaldsVigorBuff)
+.ContextRankConfig(
+// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+.FastHealing(1, bonusValue: ContextValues.Rank())
+.Configure();</p>
+<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+// Rage is active.
+var applyBuff = ActionListBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+BuffConfigurator.For(inspiredRageBuff)
+.FactContextActions(
+onActivated:
+ActionListBuilder.New()
+// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+// the feat.
+.Conditional(
+ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ifTrue: applyBuff)
+// For characters other than the caster, Skald's Vigor is only applied if the caster has the
+// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+// buffs do not stack so it has no effect.
+.Conditional(
+ConditionsCheckerBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+onDeactivated:
+// Removes Skald's Vigor when Inspired Rage ends.
+// There is actually a bug with this implementation; Lingering Song will extend the duration of
+// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+ActionListBuilder.New().RemoveBuff(skaldsVigorBuff))
+.Configure();</code></pre>
+</example><p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2__ctor_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L23">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2__ctor_System_String_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.#ctor(System.String)">BlueprintUnitFactConfigurator(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BlueprintUnitFactConfigurator(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_AddFacts_System_String___System_Int32_System_Boolean_System_Boolean_Kingmaker_Settings_GameDifficultyOption_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.AddFacts(System.String%5B%5D%2CSystem.Int32%2CSystem.Boolean%2CSystem.Boolean%2CKingmaker.Settings.GameDifficultyOption)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L66">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_AddFacts_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.AddFacts*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_AddFacts_System_String___System_Int32_System_Boolean_System_Boolean_Kingmaker_Settings_GameDifficultyOption_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.AddFacts(System.String[],System.Int32,System.Boolean,System.Boolean,Kingmaker.Settings.GameDifficultyOption)">AddFacts(String[], Int32, Boolean, Boolean, GameDifficultyOption)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.FactLogic.AddFacts</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddFacts(string[] facts, int casterLevel = 0, bool hasDifficultyRequirements = false, bool invertDifficultyRequirements = false, GameDifficultyOption minDifficulty = GameDifficultyOption.Story)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">facts</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">casterLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hasDifficultyRequirements</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">invertDifficultyRequirements</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Settings.GameDifficultyOption</span></td>
+        <td><span class="parametername">minDifficulty</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ConfigureInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.ConfigureInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L100">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ConfigureInternal_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.ConfigureInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ConfigureInternal" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.ConfigureInternal">ConfigureInternal()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ConfigureInternal()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.BlueprintConfigurator&lt;T, TBuilder&gt;.ConfigureInternal()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.OnSkillCheck(Kingmaker.EntitySystem.Stats.StatType%2CBlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L88">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.OnSkillCheck*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.OnSkillCheck(Kingmaker.EntitySystem.Stats.StatType,BlueprintCore.Actions.Builder.ActionListBuilder,System.Boolean)">OnSkillCheck(StatType, ActionListBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.AddInitiatorSkillRollTrigger</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder OnSkillCheck(StatType skill, ActionListBuilder actions, bool onlySuccess = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">skill</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">onlySuccess</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescription_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.SetDescription(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L37">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescription_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDescription*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescription_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDescription(Kingmaker.Localization.LocalizedString)">SetDescription(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact.m_Description</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetDescription(LocalizedString description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescriptionShort_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.SetDescriptionShort(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L46">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescriptionShort_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDescriptionShort*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDescriptionShort_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDescriptionShort(Kingmaker.Localization.LocalizedString)">SetDescriptionShort(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact.m_DescriptionShort</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetDescriptionShort(LocalizedString description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDisplayName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.SetDisplayName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L28">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDisplayName_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDisplayName*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetDisplayName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetDisplayName(Kingmaker.Localization.LocalizedString)">SetDisplayName(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact.m_DisplayName</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetDisplayName(LocalizedString name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetIcon_UnityEngine_Sprite_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.SetIcon(UnityEngine.Sprite)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L55">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetIcon_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetIcon*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_SetIcon_UnityEngine_Sprite_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.SetIcon(UnityEngine.Sprite)">SetIcon(Sprite)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact.m_Icon</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetIcon(Sprite icon)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Sprite</span></td>
+        <td><span class="parametername">icon</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ValidateInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602.ValidateInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L102">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ValidateInternal_" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.ValidateInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ValidateInternal" data-uid="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator`2.ValidateInternal">ValidateInternal()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ValidateInternal()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.BlueprintConfigurator&lt;T, TBuilder&gt;.ValidateInternal()</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Facts/BlueprintUnitFactConfigurator.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

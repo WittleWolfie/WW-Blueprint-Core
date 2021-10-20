@@ -79,6 +79,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="docfx.console" Version="2.58.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="XmlDocMarkdown" Version="2.7.0" />
   </ItemGroup>
   <Target Name="Publicise" AfterTargets="Clean">

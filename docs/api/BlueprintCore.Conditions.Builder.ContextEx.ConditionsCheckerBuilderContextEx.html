@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ConditionsCheckerBuilderContextEx
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ConditionsCheckerBuilderContextEx
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx">
+  
+  
+  <h1 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx" class="text-break">Class ConditionsCheckerBuilderContextEx
+  </h1>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a> for most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more specific extensions such as
+<see cref="!:KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ConditionsCheckerBuilderContextEx</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.html">BlueprintCore.Conditions.Builder.ContextEx</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ConditionsCheckerBuilderContextEx</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Conditions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html#BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span> is constructed, validated, and
+returned. If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html#BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><see cref="!:AreaEx.ConditionsCheckerBuilderAreaEx">AreaEx</see></td><td>
+    Conditions involving the game map, dungeons, or locations. See also
+<see cref="!:KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see> for location related conditions
+specifically tied to the Kingdom and Crusade system.
+</td></tr><tr><td><see cref="!:BasicEx.ConditionsCheckerBuilderBasicEx">BasicEx</see></td><td>
+  Most game mechanics related conditions not included in
+<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.html">ConditionsCheckerBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.html">ConditionsCheckerBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more
+specific extensions such as <see cref="!:KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see>.
+</td></tr><tr><td><see cref="!:KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see></td><td>
+  Conditions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsCheckerBuilderNewEx.html">ConditionsCheckerBuilderNewEx</a></td><td>
+  Conditions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><see cref="!:StoryEx.ConditionsCheckerBuilderStoryEx">StoryEx</see></td><td>
+  Conditions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr></tbody></table>
+<example>
+Make a melee attack if the target is in range:
+<pre><code>  // Provides the MeleeAttack extension for ActionListBuilder
+  using BlueprintCore.Actions.Builder.ContextEx; 
+  // Provides the TargetInMeleeRange extension for ConditionsCheckerBuilder
+  using BlueprintCore.Conditions.Builder.NewEx;
+<p>var actionList =
+ActionListBuilder.New()
+.Conditional(
+ConditionsCheckerBuilder.New().TargetInMeleeRange(),
+ifTrue: ActionListBuilder.New().MeleeAttack())
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Conditions/Builder/ContextEx/ConditionsCheckerBuilderContextEx.cs/#L33">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_CasterHasFact_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.CasterHasFact*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder,System.String)">CasterHasFact(ConditionsCheckerBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsCheckerBuilder CasterHasFact(this ConditionsCheckerBuilder builder, string fact)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Conditions/Builder/ContextEx/ConditionsCheckerBuilderContextEx.cs/#L21">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasBuffFromCaster_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasBuffFromCaster*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder,System.String)">HasBuffFromCaster(ConditionsCheckerBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsCheckerBuilder HasBuffFromCaster(this ConditionsCheckerBuilder builder, string buff)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td><p><span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Conditions/Builder/ContextEx/ConditionsCheckerBuilderContextEx.cs/#L45">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasFact_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasFact*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_System_String_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder,System.String)">HasFact(ConditionsCheckerBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasFact</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsCheckerBuilder HasFact(this ConditionsCheckerBuilder builder, string fact)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_TargetIsYourself_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.TargetIsYourself(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Conditions/Builder/ContextEx/ConditionsCheckerBuilderContextEx.cs/#L55">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_TargetIsYourself_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.TargetIsYourself*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx_TargetIsYourself_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.TargetIsYourself(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder)">TargetIsYourself(ConditionsCheckerBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsYourself</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsCheckerBuilder TargetIsYourself(this ConditionsCheckerBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsCheckerBuilderContextEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Conditions/Builder/ContextEx/ConditionsCheckerBuilderContextEx.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

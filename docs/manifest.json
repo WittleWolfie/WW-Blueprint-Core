@@ -1,0 +1,966 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Ithiel/Documents/GitHub/WW-Blueprint-Core/Blueprint-Core",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster.html",
+          "hash": "UogvJoWpc7vLWP1jrahofzQwB/gNWvBSklJM/1LDcFg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Abilities.Restrictions.New.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Abilities.Restrictions.New.html",
+          "hash": "mA2BgNWZyH7w3u+Igcg1cWSlf+SqLmQd2Fs8k7vXYJs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html",
+          "hash": "eoK5yjozxtLAUFDBfbkDMo5Ag/qWAXGK2o+m9Ke53Nw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.AVEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.AVEx.html",
+          "hash": "/ZSUa/FD62SrWni0iDeet/9DUtJv8vYrRzyQhRkANGc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.ActionListBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.ActionListBuilder.html",
+          "hash": "V/dlvAmwpRcwKJ3vyCF+NyaFFomFjL7xPrqNXdsNOhg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html",
+          "hash": "zmZqn+79x87hy0wL17HkGF88YHnlxnVu6e8H8jMoXS8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.AreaEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.AreaEx.html",
+          "hash": "4vuu33b4Hdzax8lwCYb46RI5UJGZgZSTavqlb5iuvXE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html",
+          "hash": "MYaKfvrKempW7DyoEynJszxbaa3xhfUBgBMZHZ1fkf4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.BasicEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.BasicEx.html",
+          "hash": "s7aqNgzLoRmsiHIaN+HA+l/3nx/hMGjkabth3eAvh8c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html",
+          "hash": "UvtjDd5mNXwcl6yTYPDoabaTzcBtkmq8Hfgf91XH/jE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.ContextEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.ContextEx.html",
+          "hash": "FRPEQ+LzigJUzhWx8iTBaPUv/AHgdDTGbeQ9YkD2vEE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html",
+          "hash": "J+0YRiakPVQsHTo+fLtr976nPgiYABilCfYzwjVrIKk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.KingdomEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.KingdomEx.html",
+          "hash": "v/ATXgtlaumOuLLeN3Day+5AkIIMFqHx+aeoyfZWPhQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html",
+          "hash": "Nx1kxGjzfBek0ml+PYBBbGTQ7aXdp7rLqKPVthiJruk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.MiscEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.MiscEx.html",
+          "hash": "yfcw+wvpemxFMJwd3W6xS/sGRcATSNz8sSbCNx0lCy8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html",
+          "hash": "VQ8yrCDCIopyMNaIwqeXNvtebp0Q7HISYfWWHbvTUko="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.NewEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.NewEx.html",
+          "hash": "qysJw3LpZULs+RW5eHI8/oPwDpJfJwSa8OgFO0NAOUc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html",
+          "hash": "n24LsQQzE8cOvR4lqj84EDC/FX0XP2jOrZ750OKhDCQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.StoryEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.StoryEx.html",
+          "hash": "j5l0mhnxxnAaTyq3MDgt7lFPaQPEfkvMjQuyYc7jIEI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html",
+          "hash": "mKoPhvShVgu/n0FAkGlrtDMRqSgk6oBj3P4ZP3X8N0Q="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.UpgraderEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.UpgraderEx.html",
+          "hash": "fgVoNgc/qpmAPBK4jDjWq+afNxU/r3ld0Iu4AelM0t8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Builder.html",
+          "hash": "JGlzYGQACHlh6qLz/CJVDMZUeptQ5pgg3xU9Y/K7eyo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html",
+          "hash": "gnjjdu3Un3EdgKKNRyd1s+RFIr5gsfDIJRTe1SMb2wU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.New.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.New.html",
+          "hash": "DJPnG0bXlqp2RFAynLvDBm7ZwklGn6rmFA25ySRK9nc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Patches.DemoralizePatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Patches.DemoralizePatch.html",
+          "hash": "lMahPBMBumAqTzPzgKq56UCHM1yS4RgX5iF1E8YyTxM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Actions.Patches.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Actions.Patches.html",
+          "hash": "atbLv55J2T/2V5XWpnwUOe8M4x6Cask9RVQM0SiPbbA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Abilities.AbilityConfigurator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Abilities.AbilityConfigurator.html",
+          "hash": "i9LLPVXqR1GmXG7LQm+73y4oc/pkyy452N7buz99r88="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Abilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Abilities.html",
+          "hash": "VINYbZsAjVrT/T+d8yDoRVU8TUmaoUySp31ypK+rFFE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html",
+          "hash": "DFUgg1p5fJXlCOIEGaqvmVenQm/YhY32FCmq/HiSlyw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.BlueprintConfigurator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html",
+          "hash": "sFUfX9ZiKWGeBzM95b0+03QdG3bqLql9JO0GT460YjE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.BlueprintExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.BlueprintExtensions.html",
+          "hash": "TYR5MNx1X/PAwZe5WXBeZIqhTpg7PpIJJUrLXHeb364="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.BlueprintTool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.BlueprintTool.html",
+          "hash": "2PPgphy31LiqchvCUft/Zhddw8vTzffs43zXvu7V30s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Buffs.BuffConfigurator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Buffs.BuffConfigurator.html",
+          "hash": "NkVCOvzMqSHDXOFyxVJ1++442RSdlHcUDbI38c/1tXo="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Buffs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Buffs.html",
+          "hash": "8aLJr+5XahKKRkB985t2vNAyOzr70zJnzmF2aSRyyDU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html",
+          "hash": "LtpvnCJe0zSOOaOdFsEzzb/DtV/l+J0dT4NiMnQzfjk="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Classes.FeatureConfigurator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Classes.FeatureConfigurator.html",
+          "hash": "b7+E/1x22K6ZkVdHA9u93OEtHtNB77TaNRwBtIemyjI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html",
+          "hash": "h4+rJK7tidrxxUoy6b8LNx8Yyl1LjbsIFvwxOHbo/fI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Classes.Selection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Classes.Selection.html",
+          "hash": "+QP5RisHCalkbDQP/8/U4HGQVbXOPtMSNTNCZx7dsEE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Classes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Classes.html",
+          "hash": "8Oa6j2g/nfdRXAneekMZ6jclptHlb3HiZ6RhMD7mV8A="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Components.CommonExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Components.CommonExtensions.html",
+          "hash": "zMZAhqtOtfkCNxl+2p5yUt63VPXr8dLT9EL11e+87vM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Components.ContextRankConfigs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Components.ContextRankConfigs.html",
+          "hash": "JzEl1WyWAyH54kkXH2z7TQSg0Bpm65iXTqRZdCrla4k="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Components.ProgressionEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Components.ProgressionEntry.html",
+          "hash": "L/Z2N84LIWcVszPrfxiXLbZylxQ3RV3YjxDaCUdb3qQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Components.ProgressionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html",
+          "hash": "AvZU4XARFVahefeW2tVCNxD3gNhc32ImW2eKbW679fU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Components.html",
+          "hash": "kWUebdbYBarFYcCftPUM9Y1GnW1EKhBWbmla1zih89I="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html",
+          "hash": "HCNV2MEp0pewUaxm5c3azeqFxOkTNLetwvRwmivIBxw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.Facts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.Facts.html",
+          "hash": "hVYULvpk3dXLI8CMOaZgXYiN3fiejoi2LwGFxyIkAA0="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Blueprints.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Blueprints.html",
+          "hash": "55+3xdBu/JONEAyX0DQSW110ShFQAg3BjYI6YJL/qmA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html",
+          "hash": "nay/VwBHKJw+vyx5s4zNedBbfqeMCd5U1IR26F29A6A="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.ContextEx.ConditionsCheckerBuilderContextEx.html",
+          "hash": "XQAS+D9Bkyz2Xw5kBF9py3LCUAMdBZuDGHdW2rM6fz4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.ContextEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.ContextEx.html",
+          "hash": "Yk21DLPQPImaIqC/y9UuRqobCrojEFV30moyaA+29zw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.NewEx.ConditionsCheckerBuilderNewEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.NewEx.ConditionsCheckerBuilderNewEx.html",
+          "hash": "LTT9V12wFo/dWBoqp9DTQ+5R1RH9zrS8C2D263e8GZg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.NewEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.NewEx.html",
+          "hash": "kQ0tXVMthfcQ92+wzzXzvXDbnzh2zSFAIkzsN9smzrI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.Builder.html",
+          "hash": "UmS3tC22GQh5iBg2KuPbv51exllwQRycdc5FxJWaHWg="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.New.IsDemoralizeAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.New.IsDemoralizeAction.html",
+          "hash": "mCSs8G+f2/pEKi7WF0bZk+auI0wEkptb74p2Ix7bIv4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.New.TargetInMeleeRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.New.TargetInMeleeRange.html",
+          "hash": "VvdlEps1N9KMIbjPiyrIkNm22aPsZaOaG83BZripdCs="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Conditions.New.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Conditions.New.html",
+          "hash": "JIjgj5OMn2STkNDEuKIkKCS+uKaOeKZDhTkDv15mOF8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Fixes.RuleTempModifierTooltips.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Fixes.RuleTempModifierTooltips.html",
+          "hash": "A1cMhh/v9iaXo9IApECaHKOX8e6ydrU9wPRiEhcu2LA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Fixes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Fixes.html",
+          "hash": "33133xj9QxVSfZ2BUnpspNym6/wQTDdocJUdaQJEhYQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Main.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Main.html",
+          "hash": "rjml69mO7ecYclGvNk6Bv7iJ6YlDmbHr9QaQFpkQEVY="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.CommonTool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.CommonTool.html",
+          "hash": "zudhnZ0ZIEs2qftr00ZPP7ZQDT8nI5YvHPgxwevMvG4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.Constants.Empty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.Constants.Empty.html",
+          "hash": "WjXZijjU9g8m+2+4TY++8vpgEhDpF44yE9dfZ+vJMXM="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.Constants.html",
+          "hash": "cmrUrDYADGcoIWy7qso4Dzz6ept1+0eCdZhXyxv4m0s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.ContextDuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.ContextDuration.html",
+          "hash": "xKWEQFzLe5Vh0NJmxc42f4DWDroejDh7cMRqR9DDYts="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.ContextValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.ContextValues.html",
+          "hash": "71LfL5hzdLy00JY6HMjAdhuAPnvRGCF0hx2jpRU7csA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.ElementTool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.ElementTool.html",
+          "hash": "fHfTM4iHqb8s2nz9dbgdJ+Fwwu64n6P42C/pqSYfzYw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.LogWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.LogWrapper.html",
+          "hash": "qFtfnqgsTxK4QOy9WG1b+WEpyLd723sNAu81f3oGoek="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.PrereqTools.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.PrereqTools.html",
+          "hash": "2v90KG1GuEz20xPEm9E55a0MxQvm/WLps7YXxPLzmwE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.Validator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.Validator.html",
+          "hash": "EmxJcPgImk4X//Y0EXlrhhJ5zLMmqF6wI3bZDs5hKfc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.Utils.html",
+          "hash": "Y22qgZvt+AYrESCqJpD+mcHsott6g+p76GpqhEzcBio="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BlueprintCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BlueprintCore.html",
+          "hash": "VUDf5hMZDd3m9fJnhWgWFjhLX2rtbMqnDdplQYELAF8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "f2edwV91gxo2Y8vWgEdXxgf1/05raxBRMouGoo6tiC8="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "JyLhsWvU3wavpLRnnE9YbigJA4ZuQ8scg4Tkb9H/eME="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "WEtJE5MyMbZBUGC3aef8EG2ifXKaJSbcSUYa0caGG78="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "XVjmFQRTpki50ujsw4y+iKin5tgjL3oR4T1QOzJxny8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "A75yaDQ0v80atjxTdo3lCHXSKglacSVsOFMwVm+bj/A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 70,
+          "skipped_file_count": 70
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

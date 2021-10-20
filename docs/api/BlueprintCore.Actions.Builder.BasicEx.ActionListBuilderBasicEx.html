@@ -1,0 +1,1600 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionListBuilderBasicEx
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionListBuilderBasicEx
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx">
+  
+  
+  <h1 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx" class="text-break">Class ActionListBuilderBasicEx
+  </h1>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> for most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ActionListBuilderBasicEx</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.html">BlueprintCore.Actions.Builder.BasicEx</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ActionListBuilderBasicEx</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Actions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html">ActionListBuilderAreaEx</a></td><td>
+    Actions involving the game map, dungeons, or locations. See also
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a> for location related actions specifically
+tied to the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a></td><td>
+  Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html">ActionListBuilderBasicEx</a></td><td>
+  Most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a></td><td>
+  Actions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html">ActionListBuilderMiscEx</a></td><td>
+  Actions without a better extension container such as achievements and CustomEvent.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html">ActionListBuilderNewEx</a></td><td>
+  Actions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html">ActionListBuilderStoryEx</a></td><td>
+  Actions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html">ActionListBuilderUpgraderEx</a></td><td>
+  All UpgraderOnlyActions.
+</td></tr></tbody></table>
+<example>
+Apply a buff and make a melee attack:
+<pre><code>  // Provides ApplyBuff and MeleeAttack extensions
+  using BlueprintCore.Actions.Builder.ContextEx; 
+<p>var actionList =
+ActionListBuilder.New()
+.ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+.MeleeAttack()
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFact(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L73">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFact_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFact*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFact(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,Kingmaker.ElementsSystem.UnitEvaluator)">AddFact(ActionListBuilder, String, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddFact</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddFact(this ActionListBuilder builder, string fact, UnitEvaluator target)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>BlueprintUnitFact</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFatigue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFatigue(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L86">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFatigue_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFatigue*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFatigue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddFatigue(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">AddFatigue(ActionListBuilder, IntEvaluator, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddFatigueHours</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddFatigue(this ActionListBuilder builder, IntEvaluator hours, UnitEvaluator target)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">hours</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItems_BlueprintCore_Actions_Builder_ActionListBuilder_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItems(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Collections.Generic.List%7BKingmaker.Blueprints.Loot.LootEntry%7D%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L209">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItems_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItems*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItems_BlueprintCore_Actions_Builder_ActionListBuilder_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItems(BlueprintCore.Actions.Builder.ActionListBuilder,System.Collections.Generic.List{Kingmaker.Blueprints.Loot.LootEntry},Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean,System.Boolean)">AddItems(ActionListBuilder, List&lt;LootEntry&gt;, ItemsCollectionEvaluator, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemsToCollection</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddItems(this ActionListBuilder builder, List&lt;LootEntry&gt; items, ItemsCollectionEvaluator toCollection, bool silent = false, bool identify = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Kingmaker.Blueprints.Loot.LootEntry</span>&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">toCollection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">identify</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItemsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItemsFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L231">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItemsFromBlueprint_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItemsFromBlueprint*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItemsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddItemsFromBlueprint(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean,System.Boolean)">AddItemsFromBlueprint(ActionListBuilder, String, ItemsCollectionEvaluator, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemsToCollection</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddItemsFromBlueprint(this ActionListBuilder builder, string loot, ItemsCollectionEvaluator toCollection, bool silent = false, bool identify = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">loot</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Loot.BlueprintUnitLoot</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">toCollection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">identify</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToGroup_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToGroup(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L409">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToGroup_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToGroup*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToGroup_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToGroup(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">AddUnitToGroup(ActionListBuilder, UnitEvaluator, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CombineToGroup</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddUnitToGroup(this ActionListBuilder builder, UnitEvaluator unit, UnitEvaluator group)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToSummonPool(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L445">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToSummonPool_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToSummonPool*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AddUnitToSummonPool(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String)">AddUnitToSummonPool(ActionListBuilder, UnitEvaluator, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddUnitToSummonPool</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AddUnitToSummonPool(this ActionListBuilder builder, UnitEvaluator unit, string pool)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pool</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.BlueprintSummonPool</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AdvanceLevel_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AdvanceLevel(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L380">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AdvanceLevel_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AdvanceLevel*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AdvanceLevel_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AdvanceLevel(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AdvanceLevel(ActionListBuilder, UnitEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AdvanceUnitLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AdvanceLevel(this ActionListBuilder builder, UnitEvaluator unit, IntEvaluator targetLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">targetLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AttachBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AttachBuff(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L32">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AttachBuff_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AttachBuff*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AttachBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.AttachBuff(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AttachBuff(ActionListBuilder, String, UnitEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AttachBuff</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder AttachBuff(this ActionListBuilder builder, string buff, UnitEvaluator target, IntEvaluator duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td><p><span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>BlueprintBuff</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">duration</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangeAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Enums_Alignment_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangeAlignment(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Enums.Alignment)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L100">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangeAlignment_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangeAlignment*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangeAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Enums_Alignment_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangeAlignment(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Enums.Alignment)">ChangeAlignment(ActionListBuilder, UnitEvaluator, Alignment)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ChangeAlignment(this ActionListBuilder builder, UnitEvaluator target, Alignment alignment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.Alignment</span></td>
+        <td><span class="parametername">alignment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangePlayerAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Enums_Alignment_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangePlayerAlignment(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.Enums.Alignment%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L115">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangePlayerAlignment_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangePlayerAlignment*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangePlayerAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Enums_Alignment_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ChangePlayerAlignment(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.Enums.Alignment,System.Boolean)">ChangePlayerAlignment(ActionListBuilder, Alignment, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds
+<span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ChangePlayerAlignment(this ActionListBuilder builder, Alignment alignment, bool unlockAlignment = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.Alignment</span></td>
+        <td><span class="parametername">alignment</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">unlockAlignment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearAllUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearAllUnitReturnPosition(BlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L435">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearAllUnitReturnPosition_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearAllUnitReturnPosition*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearAllUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearAllUnitReturnPosition(BlueprintCore.Actions.Builder.ActionListBuilder)">ClearAllUnitReturnPosition(ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ClearUnitReturnPosition</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ClearAllUnitReturnPosition(this ActionListBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearUnitReturnPosition(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L424">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearUnitReturnPosition_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearUnitReturnPosition*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.ClearUnitReturnPosition(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator)">ClearUnitReturnPosition(ActionListBuilder, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ClearUnitReturnPosition</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder ClearUnitReturnPosition(this ActionListBuilder builder, UnitEvaluator unit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DamageParty_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DamageParty(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.RuleSystem.Rules.Damage.DamageDescription%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L127">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DamageParty_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DamageParty*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DamageParty_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DamageParty(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.RuleSystem.Rules.Damage.DamageDescription,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">DamageParty(ActionListBuilder, DamageDescription, UnitEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DamageParty</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder DamageParty(this ActionListBuilder builder, DamageDescription damage, UnitEvaluator source = null, bool enableBattleLog = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.Damage.DamageDescription</span></td>
+        <td><span class="parametername">damage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enableBattleLog</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealDamage(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.RuleSystem.Rules.Damage.DamageDescription%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L149">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealDamage_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealDamage*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealDamage(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.RuleSystem.Rules.Damage.DamageDescription,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Boolean)">DealDamage(ActionListBuilder, UnitEvaluator, DamageDescription, UnitEvaluator, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DealDamage</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder DealDamage(this ActionListBuilder builder, UnitEvaluator target, DamageDescription damage, UnitEvaluator source = null, bool enableBattleLog = true, bool enableFxAndSound = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.Damage.DamageDescription</span></td>
+        <td><span class="parametername">damage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enableBattleLog</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enableFxAndSound</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealStatDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_RuleSystem_DiceFormula_System_Int32_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealStatDamage(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.EntitySystem.Stats.StatType%2CKingmaker.RuleSystem.DiceFormula%2CSystem.Int32%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L177">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealStatDamage_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealStatDamage*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealStatDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_RuleSystem_DiceFormula_System_Int32_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DealStatDamage(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.EntitySystem.Stats.StatType,Kingmaker.RuleSystem.DiceFormula,System.Int32,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Boolean)">DealStatDamage(ActionListBuilder, UnitEvaluator, StatType, DiceFormula, Int32, UnitEvaluator, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder DealStatDamage(this ActionListBuilder builder, UnitEvaluator target, StatType type, DiceFormula damageDice, int damageBonus = 0, UnitEvaluator source = null, bool drain = false, bool enableBattleLog = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceFormula</span></td>
+        <td><span class="parametername">damageDice</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">damageBonus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">drain</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enableBattleLog</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DestroyUnit_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DestroyUnit(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L395">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DestroyUnit_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DestroyUnit*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DestroyUnit_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.DestroyUnit(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">DestroyUnit(ActionListBuilder, UnitEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyUnit</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder DestroyUnit(this ActionListBuilder builder, UnitEvaluator unit, bool fadeOut = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fadeOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveEquipmentToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean%2CSystem.Int32%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L296">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveEquipmentToPlayer*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveEquipmentToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Int32,System.Boolean,System.Boolean)">GiveEquipmentToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder GiveEquipmentToPlayer(this ActionListBuilder builder, string equipment, bool equip = false, UnitEvaluator equipOn = null, bool errorIfDidNotEquip = true, int count = 1, bool silent = false, bool identify = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">equipment</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">equip</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">equipOn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">errorIfDidNotEquip</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">identify</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ul><li>
+    If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHand</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_">GiveHandSlotItemToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Int32, Boolean, Boolean)</a>
+</li><li>
+  If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_">GiveEquipmentToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Boolean, Boolean)</a>
+</li><li>
+  For any other items use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_">GiveItemToPlayer(ActionListBuilder, String, Int32, Boolean, Boolean)</a>.
+</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveHandSlotItemToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L326">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveHandSlotItemToPlayer*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveHandSlotItemToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Int32,System.Int32,System.Boolean,System.Boolean)">GiveHandSlotItemToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Int32, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder GiveHandSlotItemToPlayer(this ActionListBuilder builder, string handItem, bool equip = false, UnitEvaluator equipOn = null, bool errorIfDidNotEquip = true, int preferredHandSlot = 0, int count = 1, bool silent = false, bool identify = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">handItem</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHand</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">equip</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">equipOn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">errorIfDidNotEquip</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">preferredHandSlot</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">identify</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ul><li>
+    If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHand</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_">GiveHandSlotItemToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Int32, Boolean, Boolean)</a>
+</li><li>
+  If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_">GiveEquipmentToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Boolean, Boolean)</a>
+</li><li>
+  For any other items use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_">GiveItemToPlayer(ActionListBuilder, String, Int32, Boolean, Boolean)</a>.
+</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveItemToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.String%2CSystem.Int32%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L273">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveItemToPlayer*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.GiveItemToPlayer(BlueprintCore.Actions.Builder.ActionListBuilder,System.String,System.Int32,System.Boolean,System.Boolean)">GiveItemToPlayer(ActionListBuilder, String, Int32, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder GiveItemToPlayer(this ActionListBuilder builder, string item, int count = 1, bool silent = false, bool identify = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">identify</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ul><li>
+    If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHand</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_">GiveHandSlotItemToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Int32, Boolean, Boolean)</a>
+</li><li>
+  If the item is a <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment</span> use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_">GiveEquipmentToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Boolean, Boolean)</a>
+</li><li>
+  For any other items use <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_">GiveItemToPlayer(ActionListBuilder, String, Int32, Boolean, Boolean)</a>.
+</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_OnCreaturesAround_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_PositionEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.OnCreaturesAround(BlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.ElementsSystem.PositionEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L48">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_OnCreaturesAround_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.OnCreaturesAround*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_OnCreaturesAround_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_PositionEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.OnCreaturesAround(BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.PositionEvaluator,System.Boolean,System.Boolean)">OnCreaturesAround(ActionListBuilder, ActionListBuilder, FloatEvaluator, PositionEvaluator, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreaturesAround</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder OnCreaturesAround(this ActionListBuilder builder, ActionListBuilder actions, FloatEvaluator radius, PositionEvaluator center, bool checkLos = false, bool targetDead = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.PositionEvaluator</span></td>
+        <td><span class="parametername">center</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkLos</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">targetDead</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_RemoveUnitFromSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.RemoveUnitFromSummonPool(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L461">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_RemoveUnitFromSummonPool_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.RemoveUnitFromSummonPool*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_RemoveUnitFromSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.RemoveUnitFromSummonPool(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String)">RemoveUnitFromSummonPool(ActionListBuilder, UnitEvaluator, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DeleteUnitFromSummonPool</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder RemoveUnitFromSummonPool(this ActionListBuilder builder, UnitEvaluator unit, string pool)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pool</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.BlueprintSummonPool</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/BasicEx/ActionListBuilderBasicEx.cs/#L23" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

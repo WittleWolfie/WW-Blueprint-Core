@@ -1,0 +1,2878 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BlueprintConfigurator&lt;T, TBuilder&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BlueprintConfigurator&lt;T, TBuilder&gt;
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_BlueprintConfigurator_2" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2" class="text-break">Class BlueprintConfigurator&lt;T, TBuilder&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Fluent API for creating and modifying blueprints.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BlueprintConfigurator&lt;T, TBuilder&gt;</span></div>
+      <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html">BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.html">BlueprintCore.Blueprints</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BlueprintConfigurator&lt;T, TBuilder&gt;
+    where T : BlueprintScriptableObject where TBuilder : BlueprintConfigurator&lt;T, TBuilder&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Implementation is done using the
+<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
+    Each configurator provides a function to create a new blueprint and register it in the game library.
+</td></tr><tr><td>Component Type Safety</td><td>
+<p>
+Blueprints are very permissive; any <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> can be added to any blueprint type. In
+reality many component types are only functional on certain types of blueprints, defined using attributes.
+</p>
+<p>
+The configurator API mimics the inheritance structure of blueprint types in the game to restrict the available
+types of components. The API does not perfectly implement these restrictions because inheritance cannot
+represent the restrictions completely. In those cases type safety is provided through validation.
+</p>
+<p>
+See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
+for more information on component and blueprint type safety.
+</p>
+</td></tr><tr><td>Validation</td><td>
+<p>
+When <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a> is called a combination of Owlcat provided and custom validation logic checks the
+blueprint for errors. All errors are then logged. This validates the blueprint only contains supported
+component types as well as checking for some implicit usage errors, such as
+<a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
+usage.
+</p>
+<p>See <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> for more details on how validation works.</p>
+</td></tr><tr><td>Fluent API</td><td>
+<p>
+The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
+work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> and
+<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a> APIs as well.
+</p>
+<p>
+Complicated components such as
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span> which do not
+work well with the configurator API have their own helper classes.
+e.g. <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
+</p>
+</td></tr></tbody></table>
+<example>
+Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
+<pre><code>  var skaldClass = &quot;WW-SkaldClass&quot;;
+  var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
+  var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
+  var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
+  var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
+  var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
+<p>// Register the names
+BlueprintTool.AddGuidsByName(
+(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
+(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
+(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
+// New blueprints and guids
+(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
+(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
+(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
+<p>// Load the icons and strings (not provided by library)
+var skaldsVigorIcon = LoadSkaldsVigorIcon();
+var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+var skaldsVigorName = LoadSkaldsVigorName();
+var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+var skaldsVigorDescription = LoadSkaldsVigorDescription();
+var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
+<p>// Create the buff
+BuffConfigurator.New(skaldsVigorBuff)
+.ContextRankConfig(
+// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+.FastHealing(1, bonusValue: ContextValues.Rank())
+.Configure();</p>
+<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+// Rage is active.
+var applyBuff = ActionListBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+BuffConfigurator.For(inspiredRageBuff)
+.FactContextActions(
+onActivated:
+ActionListBuilder.New()
+// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+// the feat.
+.Conditional(
+ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ifTrue: applyBuff)
+// For characters other than the caster, Skald's Vigor is only applied if the caster has the
+// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+// buffs do not stack so it has no effect.
+.Conditional(
+ConditionsCheckerBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+onDeactivated:
+// Removes Skald's Vigor when Inspired Rage ends.
+// There is actually a bug with this implementation; Lingering Song will extend the duration of
+// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+ActionListBuilder.New().RemoveBuff(skaldsVigorBuff))
+.Configure();</code></pre>
+</example><p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2__ctor_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L194">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2__ctor_System_String_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.#ctor(System.String)">BlueprintConfigurator(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BlueprintConfigurator(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_Blueprint.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.Blueprint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L192">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Blueprint" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Blueprint">Blueprint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly T Blueprint</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_Logger.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.Logger%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L172">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Logger" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Logger">Logger</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static readonly LogWrapper Logger</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.LogWrapper.html">LogWrapper</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_Name.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L191">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Name" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly string Name</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_Self.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.Self%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L190">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Self" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Self">Self</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly TBuilder Self</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.AddComponent(Kingmaker.Blueprints.BlueprintComponent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L246">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddComponent*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent)">AddComponent(BlueprintComponent)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> to the blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddComponent(BlueprintComponent component)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></td>
+        <td><span class="parametername">component</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>It is recommended to only call this from within a configurator class or when adding a component type not
+supported by the configurator.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.AddPrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L380">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddPrerequisiteAlignment*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddPrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType[])">AddPrerequisiteAlignment(AlignmentMaskType[])</h4>
+  <div class="markdown level1 summary"><p>Adds or modifies <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Alignments.AlignmentMaskType</span>[]</td>
+        <td><span class="parametername">alignments</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_AddSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.AddSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L309">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddSpellDescriptors_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddSpellDescriptors*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor[])">AddSpellDescriptors(SpellDescriptor[])</h4>
+  <div class="markdown level1 summary"><p>Adds or modifies <span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptorComponent</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptor</span>[]</td>
+        <td><span class="parametername">descriptors</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L286">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddUniqueComponent*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">AddUniqueComponent(BlueprintComponent, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> to the blueprint with merge handling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddUniqueComponent(BlueprintComponent component, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Fail, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></td>
+        <td><span class="parametername">component</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+It is recommended to only call this from within a configurator class or when adding a component type not
+supported by the configurator.
+</p>
+<p>
+Use this for types without the <span class="xref">Kingmaker.Blueprints.AllowMultipleComponentsAttribute</span>.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.AddValidationWarning(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L898">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddValidationWarning*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.AddValidationWarning(System.String)">AddValidationWarning(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void AddValidationWarning(string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.Configure%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L209">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Configure*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.Configure">Configure()</h4>
+  <div class="markdown level1 summary"><p>Commits the configuration changes to the blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Configure()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+After commiting the changes the blueprint is validated and any errors are logged as a warning.
+</p>
+Throws <span class="xref">System.InvalidOperationException</span> if called twice on the same configurator.
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.ConfigureInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L845">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ConfigureInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ConfigureInternal">ConfigureInternal()</h4>
+  <div class="markdown level1 summary"><p>Type specific configuration implemented in child classes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ConfigureInternal()</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Components are added to the blueprint after this step.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.ContextRankConfig(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L335">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ContextRankConfig*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ContextRankConfig(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)">ContextRankConfig(ContextRankConfig)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ContextRankConfig(ContextRankConfig rankConfig)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">rankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a> to create the config</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.FactContextActions(BlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L345">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.FactContextActions*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.FactContextActions(BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">FactContextActions(ActionListBuilder, ActionListBuilder, ActionListBuilder, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.AddFactContextActions</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder FactContextActions(ActionListBuilder onActivated = null, ActionListBuilder onDeactivated = null, ActionListBuilder onNewRound = null, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Merge, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">onActivated</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">onDeactivated</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">onNewRound</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Default Merge: Appends the given <span class="xref">Kingmaker.ElementsSystem.ActionList</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.OnConfigure(System.Action%7B%600%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L257">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigure*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigure(System.Action{`0}[])">OnConfigure(Action&lt;T&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Executes the specified actions when <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a> is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder OnConfigure(params Action&lt;T&gt;[] actions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T&gt;[]</td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs as the last step of configuration, after all components are added and all other changes are applied.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_System_Action__0____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.OnConfigureInternal(System.Action%7B%600%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L269">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigureInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_System_Action__0____" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigureInternal(System.Action{`0}[])">OnConfigureInternal(Action&lt;T&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Internal function comparable to <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure(Action&lt;T&gt;[])</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TBuilder OnConfigureInternal(params Action&lt;T&gt;[] actions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;T&gt;[]</td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_System_Action__0_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Runs after all configuration is done but before <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure(Action&lt;T&gt;[])</a>. Configurator functions
+should use this to ensure the blueprint is configured before user configuration actions are run.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteArchetype_System_String_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteArchetype(System.String%2CSystem.String%2CSystem.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L401">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteArchetype_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteArchetype*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteArchetype_System_String_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteArchetype(System.String,System.String,System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteArchetype(String, String, Int32, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteArchetypeLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteArchetype(string clazz, string archetype, int level = 1, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clazz</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">archetype</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintArchetype</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteCasterType(System.Boolean%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L419">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterType_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCasterType*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCasterType(System.Boolean,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteCasterType(Boolean, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteCasterType(bool isArcane, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isArcane</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterTypeSpellLevel_System_Boolean_System_Boolean_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteCasterTypeSpellLevel(System.Boolean%2CSystem.Boolean%2CSystem.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L435">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterTypeSpellLevel_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCasterTypeSpellLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterTypeSpellLevel_System_Boolean_System_Boolean_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCasterTypeSpellLevel(System.Boolean,System.Boolean,System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteCasterTypeSpellLevel(Boolean, Boolean, Int32, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteCasterTypeSpellLevel(bool isArcane, bool onlySpontaneous, int minSpellLevel, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isArcane</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">onlySpontaneous</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minSpellLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCharacterLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteCharacterLevel(System.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L453">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCharacterLevel_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCharacterLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCharacterLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCharacterLevel(System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteCharacterLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteCharacterLevel(int minLevel, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassLevel_System_String_System_Int32_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteClassLevel(System.String%2CSystem.Int32%2CSystem.Boolean%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L471">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassLevel_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteClassLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassLevel_System_String_System_Int32_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteClassLevel(System.String,System.Int32,System.Boolean,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteClassLevel(String, Int32, Boolean, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteClassLevel(string clazz, int minLevel, bool negate = false, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clazz</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassSpellLevel_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteClassSpellLevel(System.String%2CSystem.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L491">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassSpellLevel_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteClassSpellLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassSpellLevel_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteClassSpellLevel(System.String,System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteClassSpellLevel(String, Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassSpellLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteClassSpellLevel(string clazz, int minSpellLevel, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clazz</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minSpellLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCompanion_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteCompanion(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L590">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCompanion_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCompanion*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCompanion_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteCompanion(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteCompanion(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteCompanion(Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteEtude_System_String_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteEtude(System.String%2CSystem.Boolean%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L511">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteEtude_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteEtude*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteEtude_System_String_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteEtude(System.String,System.Boolean,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteEtude(String, Boolean, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteEtude</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteEtude(string etude, bool playing = true, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">etude</span></td>
+        <td><p><span class="xref">Kingmaker.AreaLogic.Etudes.BlueprintEtude</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">playing</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteFeature(System.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L529">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteFeature(System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteFeature(String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteFeature(string feature, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeaturesFromList_System_String___System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteFeaturesFromList(System.String%5B%5D%2CSystem.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L545">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeaturesFromList_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteFeaturesFromList*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeaturesFromList_System_String___System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteFeaturesFromList(System.String[],System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteFeaturesFromList(String[], Int32, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeaturesFromList</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteFeaturesFromList(string[] features, int requiredNumber = 1, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">features</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">requiredNumber</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteIsPet_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteIsPet(System.Boolean%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L562">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteIsPet_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteIsPet*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteIsPet_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteIsPet(System.Boolean,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteIsPet(Boolean, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteIsPet(bool negate = false, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMainCharacter_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteMainCharacter(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L576">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMainCharacter_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteMainCharacter*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMainCharacter_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteMainCharacter(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteMainCharacter(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteMainCharacter(Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMythicLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteMythicLevel(System.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L605">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMythicLevel_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteMythicLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMythicLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteMythicLevel(System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteMythicLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteMythicLevel(int level, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoArchetype_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteNoArchetype(System.String%2CSystem.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L624">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoArchetype_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoArchetype*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoArchetype_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoArchetype(System.String,System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteNoArchetype(String, String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoArchetype</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteNoArchetype(string clazz, string archetype, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clazz</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">archetype</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintArchetype</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoClass_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteNoClass(System.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L642">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoClass_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoClass*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoClass_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoClass(System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteNoClass(String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoClassLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteNoClass(string clazz, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clazz</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteNoFeature(System.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L658">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNoFeature(System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteNoFeature(String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteNoFeature(string feature, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNotProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteNotProficient(Kingmaker.Enums.WeaponCategory%5B%5D%2CKingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup%5B%5D%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L672">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNotProficient_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNotProficient*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNotProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteNotProficient(Kingmaker.Enums.WeaponCategory[],Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[],Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteNotProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteNotProficient(WeaponCategory[] weapons, ArmorProficiencyGroup[] armors, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponCategory</span>[]</td>
+        <td><span class="parametername">weapons</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup</span>[]</td>
+        <td><span class="parametername">armors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellFeature_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteParameterizedSpellFeature(System.String%2CSystem.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L694">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedSpellFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellFeature_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedSpellFeature(System.String,System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteParameterizedSpellFeature(String, String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteParametrizedFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteParameterizedSpellFeature(string spellFeature, string spellAbility, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">spellFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">spellAbility</span></td>
+        <td><p><span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellSchoolFeature_System_String_Kingmaker_Blueprints_Classes_Spells_SpellSchool_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteParameterizedSpellSchoolFeature(System.String%2CKingmaker.Blueprints.Classes.Spells.SpellSchool%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L735">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellSchoolFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedSpellSchoolFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellSchoolFeature_System_String_Kingmaker_Blueprints_Classes_Spells_SpellSchool_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedSpellSchoolFeature(System.String,Kingmaker.Blueprints.Classes.Spells.SpellSchool,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteParameterizedSpellSchoolFeature(String, SpellSchool, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteParametrizedFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteParameterizedSpellSchoolFeature(string feature, SpellSchool school, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellSchool</span></td>
+        <td><span class="parametername">school</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponFeature_System_String_Kingmaker_Enums_WeaponCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteParameterizedWeaponFeature(System.String%2CKingmaker.Enums.WeaponCategory%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L715">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedWeaponFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponFeature_System_String_Kingmaker_Enums_WeaponCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedWeaponFeature(System.String,Kingmaker.Enums.WeaponCategory,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteParameterizedWeaponFeature(String, WeaponCategory, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteParametrizedFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteParameterizedWeaponFeature(string feature, WeaponCategory weapon, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponCategory</span></td>
+        <td><span class="parametername">weapon</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponSubcategory_System_String_Kingmaker_Enums_WeaponSubCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteParameterizedWeaponSubcategory(System.String%2CKingmaker.Enums.WeaponSubCategory%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L754">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponSubcategory_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedWeaponSubcategory*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponSubcategory_System_String_Kingmaker_Enums_WeaponSubCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteParameterizedWeaponSubcategory(System.String,Kingmaker.Enums.WeaponSubCategory,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteParameterizedWeaponSubcategory(String, WeaponSubCategory, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteParametrizedFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteParameterizedWeaponSubcategory(string weaponFeature, WeaponSubCategory weapon, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">weaponFeature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponSubCategory</span></td>
+        <td><span class="parametername">weapon</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePet_Kingmaker_Enums_PetType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisitePet(Kingmaker.Enums.PetType%2CSystem.Boolean%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L770">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePet_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisitePet*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePet_Kingmaker_Enums_PetType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisitePet(Kingmaker.Enums.PetType,System.Boolean,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisitePet(PetType, Boolean, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisitePet(PetType type, bool negate = false, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.PetType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePlayerHasFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisitePlayerHasFeature(System.String%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L788">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePlayerHasFeature_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisitePlayerHasFeature*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePlayerHasFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisitePlayerHasFeature(System.String,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisitePlayerHasFeature(String, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePlayerHasFeature</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisitePlayerHasFeature(string feature, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">feature</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteProficient(Kingmaker.Enums.WeaponCategory%5B%5D%2CKingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup%5B%5D%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7B%600%2C%601%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L802">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteProficient_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteProficient*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteProficient(Kingmaker.Enums.WeaponCategory[],Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[],Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">PrerequisiteProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteProficiency</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteProficient(WeaponCategory[] weapons, ArmorProficiencyGroup[] armors, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false, BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge behavior = BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge.Replace, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponCategory</span>[]</td>
+        <td><span class="parametername">weapons</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup</span>[]</td>
+        <td><span class="parametername">armors</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator.ComponentMerge</a>&lt;&gt;</td>
+        <td><span class="parametername">behavior</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteStat_Kingmaker_EntitySystem_Stats_StatType_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.PrerequisiteStat(Kingmaker.EntitySystem.Stats.StatType%2CSystem.Int32%2CKingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L821">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteStat_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteStat*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteStat_Kingmaker_EntitySystem_Stats_StatType_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.PrerequisiteStat(Kingmaker.EntitySystem.Stats.StatType,System.Int32,Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)">PrerequisiteStat(StatType, Int32, Prerequisite.GroupType, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteStatValue</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder PrerequisiteStat(StatType type, int minValue, Prerequisite.GroupType group = Prerequisite.GroupType.All, bool checkInProgression = false, bool hideInUI = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">minValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType</span></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkInProgression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">hideInUI</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.RemoveComponents(System.Func%7BKingmaker.Blueprints.BlueprintComponent%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L298">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemoveComponents*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemoveComponents(System.Func{Kingmaker.Blueprints.BlueprintComponent,System.Boolean})">RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removed components from the blueprint matching the specified predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveComponents(Func&lt;BlueprintComponent, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Has no effect on components added with the configurator.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_RemovePrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.RemovePrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L389">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemovePrerequisiteAlignment_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemovePrerequisiteAlignment*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemovePrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemovePrerequisiteAlignment(Kingmaker.UnitLogic.Alignments.AlignmentMaskType[])">RemovePrerequisiteAlignment(AlignmentMaskType[])</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Alignments.AlignmentMaskType</span>[]</td>
+        <td><span class="parametername">alignments</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.RemoveSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L321">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveSpellDescriptors_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemoveSpellDescriptors*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.RemoveSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor[])">RemoveSpellDescriptors(SpellDescriptor[])</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptorComponent</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptor</span>[]</td>
+        <td><span class="parametername">descriptors</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.ValidateInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L896">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal_" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ValidateInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ValidateInternal">ValidateInternal()</h4>
+  <div class="markdown level1 summary"><p>Type specific validation implemented in child classes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ValidateInternal()</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implementations should report errors using <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_">AddValidationWarning(String)</a>.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/BlueprintConfigurator.cs/#L149" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

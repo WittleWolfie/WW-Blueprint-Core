@@ -1,0 +1,1091 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionListBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionListBuilder
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder">
+  
+  
+  <h1 id="BlueprintCore_Actions_Builder_ActionListBuilder" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder" class="text-break">Class ActionListBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Fluent builder for <span class="xref">Kingmaker.ElementsSystem.ActionList</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ActionListBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Actions.Builder.html">BlueprintCore.Actions.Builder</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Actions_Builder_ActionListBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ActionListBuilder</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Actions_Builder_ActionListBuilder_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Actions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html#BlueprintCore_Actions_Builder_ActionListBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html">ActionListBuilderAreaEx</a></td><td>
+    Actions involving the game map, dungeons, or locations. See also
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a> for location related actions specifically
+tied to the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a></td><td>
+  Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html">ActionListBuilderBasicEx</a></td><td>
+  Most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html">ActionListBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html">ActionListBuilderAVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html">ActionListBuilderKingdomEx</a></td><td>
+  Actions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html">ActionListBuilderMiscEx</a></td><td>
+  Actions without a better extension container such as achievements and CustomEvent.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html">ActionListBuilderNewEx</a></td><td>
+  Actions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html">ActionListBuilderStoryEx</a></td><td>
+  Actions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html">ActionListBuilderUpgraderEx</a></td><td>
+  All UpgraderOnlyActions.
+</td></tr></tbody></table>
+<example>
+Apply a buff and make a melee attack:
+<pre><code>  // Provides ApplyBuff and MeleeAttack extensions
+  using BlueprintCore.Actions.Builder.ContextEx; 
+<p>var actionList =
+ActionListBuilder.New()
+.ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+.MeleeAttack()
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder_Add_Kingmaker_ElementsSystem_GameAction_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder.Add(Kingmaker.ElementsSystem.GameAction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L141">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionListBuilder_Add_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Add*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionListBuilder_Add_Kingmaker_ElementsSystem_GameAction_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Add(Kingmaker.ElementsSystem.GameAction)">Add(GameAction)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified <span class="xref">Kingmaker.ElementsSystem.GameAction</span> to the list, with validation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionListBuilder Add(GameAction action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.GameAction</span></td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_ActionListBuilder_Add_Kingmaker_ElementsSystem_GameAction__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>It is recommended to only call this from an extension class or when adding an action type not supported by the
+builder.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder_Build.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder.Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L129">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionListBuilder_Build_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Build*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionListBuilder_Build" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Build">Build()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionList Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ActionList</span></td>
+        <td><p>An <span class="xref">Kingmaker.ElementsSystem.ActionList</span> containing all specified actions. Any validation errors are logged as a warning. Do
+not call twice on the same builder.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder_Conditional_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder.Conditional(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder%2CBlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Actions.Builder.ActionListBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L151">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionListBuilder_Conditional_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Conditional*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionListBuilder_Conditional_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Conditional(BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder,BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Actions.Builder.ActionListBuilder)">Conditional(ConditionsCheckerBuilder, ActionListBuilder, ActionListBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionListBuilder Conditional(ConditionsCheckerBuilder conditions, ActionListBuilder ifTrue = null, ActionListBuilder ifFalse = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><span class="parametername">conditions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">ifTrue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><span class="parametername">ifFalse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder_New.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder.New%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L123">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionListBuilder_New_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.New*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionListBuilder_New" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.New">New()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionListBuilder New()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><p>A new <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder_Validate_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder.Validate(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L176">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionListBuilder_Validate_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Validate*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionListBuilder_Validate_System_Object_" data-uid="BlueprintCore.Actions.Builder.ActionListBuilder.Validate(System.Object)">Validate(Object)</h4>
+  <div class="markdown level1 summary"><p>Runs the object through <a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a>, adding any errors to the
+validation warnings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Validate(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_ActionListBuilder_Validate_System_Object__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Exposed for use by extension classes to bundle warnings into the builder. Other classes can use
+<a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a> directly.</p>
+</div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_CreateImportedCompanion_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_">ActionListBuilderAreaEx.CreateImportedCompanion(ActionListBuilder, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_TeleportToLastDungeonStageEntrance_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_">ActionListBuilderAreaEx.TeleportToLastDungeonStageEntrance(ActionListBuilder, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_EnterNextDungeonStage_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderAreaEx.EnterNextDungeonStage(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_IncrementDungeonStage_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderAreaEx.IncrementDungeonStage(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_SetDungeonStage_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_">ActionListBuilderAreaEx.SetDungeonStage(ActionListBuilder, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_ChangeAreaEntrance_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderAreaEx.ChangeAreaEntrance(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_ChangeCurrentAreaName_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Localization_LocalizedString_">ActionListBuilderAreaEx.ChangeCurrentAreaName(ActionListBuilder, LocalizedString)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_ResetCurrentAreaName_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderAreaEx.ResetCurrentAreaName(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_AddCampingEncounter_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderAreaEx.AddCampingEncounter(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionListBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionListBuilderAreaEx_DestroyMapObject_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_">ActionListBuilderAreaEx.DestroyMapObject(ActionListBuilder, MapObjectEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_ChangeBookImage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ResourceLinks_SpriteLink_">ActionListBuilderAVEx.ChangeBookImage(ActionListBuilder, SpriteLink)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_MoveCamera_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_PositionEvaluator_">ActionListBuilderAVEx.MoveCamera(ActionListBuilder, PositionEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_AddDialogNotification_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Localization_LocalizedString_">ActionListBuilderAVEx.AddDialogNotification(ActionListBuilder, LocalizedString)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_ClearBlood_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderAVEx.ClearBlood(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_RunAnimationClip_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_Visual_Animation_Actions_ExecutionMode_System_Single_System_Single_">ActionListBuilderAVEx.RunAnimationClip(ActionListBuilder, AnimationClipWrapper, ExecutionMode, Single, Single)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_Bark_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Localization_LocalizedString_System_Boolean_System_Boolean_">ActionListBuilderAVEx.Bark(ActionListBuilder, LocalizedString, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ResourceLinks_PrefabLink_">ActionListBuilderAVEx.SpawnFx(ActionListBuilder, PrefabLink)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionListBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionListBuilderAVEx_PlaySound_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderAVEx.PlaySound(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AttachBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_">ActionListBuilderBasicEx.AttachBuff(ActionListBuilder, String, UnitEvaluator, IntEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_OnCreaturesAround_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_PositionEvaluator_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.OnCreaturesAround(ActionListBuilder, ActionListBuilder, FloatEvaluator, PositionEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderBasicEx.AddFact(ActionListBuilder, String, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddFatigue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderBasicEx.AddFatigue(ActionListBuilder, IntEvaluator, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangeAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Enums_Alignment_">ActionListBuilderBasicEx.ChangeAlignment(ActionListBuilder, UnitEvaluator, Alignment)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ChangePlayerAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Enums_Alignment_System_Boolean_">ActionListBuilderBasicEx.ChangePlayerAlignment(ActionListBuilder, Alignment, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DamageParty_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ActionListBuilderBasicEx.DamageParty(ActionListBuilder, DamageDescription, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_RuleSystem_Rules_Damage_DamageDescription_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.DealDamage(ActionListBuilder, UnitEvaluator, DamageDescription, UnitEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DealStatDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_RuleSystem_DiceFormula_System_Int32_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.DealStatDamage(ActionListBuilder, UnitEvaluator, StatType, DiceFormula, Int32, UnitEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItems_BlueprintCore_Actions_Builder_ActionListBuilder_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.AddItems(ActionListBuilder, List&lt;LootEntry&gt;, ItemsCollectionEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddItemsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.AddItemsFromBlueprint(ActionListBuilder, String, ItemsCollectionEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.GiveItemToPlayer(ActionListBuilder, String, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveEquipmentToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.GiveEquipmentToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_GiveHandSlotItemToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Boolean_">ActionListBuilderBasicEx.GiveHandSlotItemToPlayer(ActionListBuilder, String, Boolean, UnitEvaluator, Boolean, Int32, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AdvanceLevel_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_">ActionListBuilderBasicEx.AdvanceLevel(ActionListBuilder, UnitEvaluator, IntEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_DestroyUnit_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ActionListBuilderBasicEx.DestroyUnit(ActionListBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToGroup_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderBasicEx.AddUnitToGroup(ActionListBuilder, UnitEvaluator, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderBasicEx.ClearUnitReturnPosition(ActionListBuilder, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_ClearAllUnitReturnPosition_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderBasicEx.ClearAllUnitReturnPosition(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_AddUnitToSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_">ActionListBuilderBasicEx.AddUnitToSummonPool(ActionListBuilder, UnitEvaluator, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionListBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionListBuilderBasicEx_RemoveUnitFromSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_">ActionListBuilderBasicEx.RemoveUnitFromSummonPool(ActionListBuilder, UnitEvaluator, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AddFeature_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.AddFeature(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AddLocustClone_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.AddLocustClone(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AeonRollbackState_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.AeonRollbackState(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ApplyBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_System_Single_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ActionListBuilderContextEx.ApplyBuff(ActionListBuilder, String, Boolean, Single, ContextDurationValue, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ArmorEnchantPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_FactLogic_EnchantPoolType_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_ActivatableAbilities_ActivatableAbilityGroup_System_String_System_String_System_String_System_String_System_String_">ActionListBuilderContextEx.ArmorEnchantPool(ActionListBuilder, EnchantPoolType, ContextDurationValue, ActivatableAbilityGroup, String, String, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ShieldArmorEnchantPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_FactLogic_EnchantPoolType_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_ActivatableAbilities_ActivatableAbilityGroup_System_String_System_String_System_String_System_String_System_String_">ActionListBuilderContextEx.ShieldArmorEnchantPool(ActionListBuilder, EnchantPoolType, ContextDurationValue, ActivatableAbilityGroup, String, String, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_WeaponEnchantPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_FactLogic_EnchantPoolType_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_ActivatableAbilities_ActivatableAbilityGroup_System_String_System_String_System_String_System_String_System_String_">ActionListBuilderContextEx.WeaponEnchantPool(ActionListBuilder, EnchantPoolType, ContextDurationValue, ActivatableAbilityGroup, String, String, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ShieldWeaponEnchantPool_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_FactLogic_EnchantPoolType_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_ActivatableAbilities_ActivatableAbilityGroup_System_String_System_String_System_String_System_String_System_String_">ActionListBuilderContextEx.ShieldWeaponEnchantPool(ActionListBuilder, EnchantPoolType, ContextDurationValue, ActivatableAbilityGroup, String, String, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AttackWithWeapon_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_StatType_System_String_">ActionListBuilderContextEx.AttackWithWeapon(ActionListBuilder, StatType, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_BatteringBlast_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">ActionListBuilderContextEx.BatteringBlast(ActionListBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_BreakFree_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.BreakFree(ActionListBuilder, Boolean, Boolean, ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_BreathOfLife_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_">ActionListBuilderContextEx.BreathOfLife(ActionListBuilder, ContextDiceValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_BreathOfMoney_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.BreathOfMoney(ActionListBuilder, ContextValue, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_CastSpell_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.CastSpell(ActionListBuilder, String, Boolean, ContextValue, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SetSharedValue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.SetSharedValue(ActionListBuilder, AbilitySharedValue, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SetSharedValueToHD_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_">ActionListBuilderContextEx.SetSharedValueToHD(ActionListBuilder, AbilitySharedValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AddToSharedValue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.AddToSharedValue(ActionListBuilder, AbilitySharedValue, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_MultiplySharedValue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.MultiplySharedValue(ActionListBuilder, AbilitySharedValue, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DivideSharedValueBy2_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_">ActionListBuilderContextEx.DivideSharedValueBy2(ActionListBuilder, AbilitySharedValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DivideSharedValueBy4_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_">ActionListBuilderContextEx.DivideSharedValueBy4(ActionListBuilder, AbilitySharedValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ClearSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.ClearSummonPool(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_CombatManeuver_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_CombatManeuver_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_Kingmaker_EntitySystem_Stats_StatType_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ActionListBuilderContextEx.CombatManeuver(ActionListBuilder, CombatManeuver, ActionListBuilder, Boolean, Boolean, StatType, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_CustomCombatManeuver_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_CombatManeuver_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.CustomCombatManeuver(ActionListBuilder, CombatManeuver, ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AfterSavingThrow_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.AfterSavingThrow(ActionListBuilder, ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.DealDamage(ActionListBuilder, DamageTypeDescription, ContextDiceValue, Boolean, Boolean, Boolean, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;AbilitySharedValue&gt;, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealDamagePreRolled_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.DealDamagePreRolled(ActionListBuilder, DamageTypeDescription, AbilitySharedValue, Boolean, Boolean, Boolean, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;AbilitySharedValue&gt;, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealAbilityDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.DealAbilityDamage(ActionListBuilder, StatType, ContextDiceValue, Boolean, Boolean, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;AbilitySharedValue&gt;, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealPermanentNegativeLevels_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Boolean_System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.DealPermanentNegativeLevels(ActionListBuilder, ContextDiceValue, Boolean, Boolean, Nullable&lt;AbilitySharedValue&gt;, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealTempNegativeLevels_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Boolean_System_Boolean_System_Boolean_System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.DealTempNegativeLevels(ActionListBuilder, ContextDiceValue, ContextDurationValue, Boolean, Boolean, Boolean, Nullable&lt;AbilitySharedValue&gt;, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DealWeaponDamage_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">ActionListBuilderContextEx.DealWeaponDamage(ActionListBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DetectSecretDoors_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.DetectSecretDoors(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DevourWithSwarm_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.DevourWithSwarm(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Disarm_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Disarm(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DismissAOE_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.DismissAOE(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Dismount_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Dismount(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Dispel_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionDispelMagic_BuffType_Kingmaker_RuleSystem_Rules_RuleDispelMagic_CheckType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_System_Int32_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_Classes_Spells_SpellSchool___System_Nullable_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor__System_Boolean_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.Dispel(ActionListBuilder, ContextActionDispelMagic.BuffType, RuleDispelMagic.CheckType, ContextValue, Boolean, Boolean, Int32, ContextValue, ActionListBuilder, ActionListBuilder, SpellSchool[], Nullable&lt;SpellDescriptor&gt;, Boolean, StatType, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_DropItems_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.DropItems(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_EnchantWornItem_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UI_GenericSlot_EquipSlotBase_SlotType_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Boolean_System_Boolean_">ActionListBuilderContextEx.EnchantWornItem(ActionListBuilder, String, EquipSlotBase.SlotType, ContextDurationValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_FinishObjective_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.FinishObjective(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnEachSwallowedUnit_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnEachSwallowedUnit(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_GiveExperience_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.GiveExperience(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Grapple_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderContextEx.Grapple(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_HealNegativeLevels_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_EnergyDrainHealType_Kingmaker_RuleSystem_Rules_EnergyDrainHealType_">ActionListBuilderContextEx.HealNegativeLevels(ActionListBuilder, EnergyDrainHealType, EnergyDrainHealType)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_HealStatDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionHealStatDamage_StatDamageHealType_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionHealStatDamage_StatClass_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">ActionListBuilderContextEx.HealStatDamage(ActionListBuilder, ContextActionHealStatDamage.StatDamageHealType, ContextActionHealStatDamage.StatClass, ContextDiceValue, Boolean, Nullable&lt;AbilitySharedValue&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_HealTarget_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_">ActionListBuilderContextEx.HealTarget(ActionListBuilder, ContextDiceValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_HideInPlainSight_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.HideInPlainSight(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Kill_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_UnitState_DismemberType_">ActionListBuilderContextEx.Kill(ActionListBuilder, UnitState.DismemberType)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Knockdown_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Knockdown(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_KnowledgeCheck_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.KnowledgeCheck(ActionListBuilder, ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_MarkOwnerForDismemberment_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_UnitState_DismemberType_">ActionListBuilderContextEx.MarkOwnerForDismemberment(ActionListBuilder, UnitState.DismemberType)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_MeleeAttack_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ActionListBuilderContextEx.MeleeAttack(ActionListBuilder, Boolean, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Mount_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Mount(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnCaster_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnCaster(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnOwner_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnOwner(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnRandomEnemyInAOE_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnRandomEnemyInAOE(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnRandomUnitNearTarget_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_System_Int32_System_Boolean_System_String_">ActionListBuilderContextEx.OnRandomUnitNearTarget(ActionListBuilder, ActionListBuilder, Int32, Int32, Boolean, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnSwarmTargets_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnSwarmTargets(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnPartyMembers_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.OnPartyMembers(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ProjectileFx_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.ProjectileFx(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ProvokeOpportunityAttackFromCaster_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.ProvokeOpportunityAttackFromCaster(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ProvokeOpportunityAttack_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">ActionListBuilderContextEx.ProvokeOpportunityAttack(ActionListBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Push_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ActionListBuilderContextEx.Push(ActionListBuilder, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RandomActions_BlueprintCore_Actions_Builder_ActionListBuilder_System_ValueTuple_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32____">ActionListBuilderContextEx.RandomActions(ActionListBuilder, (ActionListBuilder actions, Int32 weight)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RangedAttack_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ActionListBuilderContextEx.RangedAttack(ActionListBuilder, Boolean, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RecoverItemCharges_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_">ActionListBuilderContextEx.RecoverItemCharges(ActionListBuilder, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ChangeBuffDuration_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Boolean_System_Boolean_">ActionListBuilderContextEx.ChangeBuffDuration(ActionListBuilder, String, ContextDurationValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_System_Boolean_">ActionListBuilderContextEx.RemoveBuff(ActionListBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveBuffsWithDescriptor_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor_System_Boolean_">ActionListBuilderContextEx.RemoveBuffsWithDescriptor(ActionListBuilder, SpellDescriptor, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveBuffStack_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.RemoveBuffStack(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveDeathDoor_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.RemoveDeathDoor(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveSelf_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.RemoveSelf(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RepeatActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_">ActionListBuilderContextEx.RepeatActions(ActionListBuilder, ActionListBuilder, ContextDiceValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RestoreSpells_BlueprintCore_Actions_Builder_ActionListBuilder_System_String___">ActionListBuilderContextEx.RestoreSpells(ActionListBuilder, String[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Resurrect_BlueprintCore_Actions_Builder_ActionListBuilder_System_Single_System_String_">ActionListBuilderContextEx.Resurrect(ActionListBuilder, Single, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ResurrectAndFullRestore_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.ResurrectAndFullRestore(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SavingThrow_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_ValueTuple_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue____">ActionListBuilderContextEx.SavingThrow(ActionListBuilder, SavingThrowType, ActionListBuilder, ContextValue, Boolean, (ConditionsCheckerBuilder conditions, ContextValue value)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RunActionWithGreatestValue_BlueprintCore_Actions_Builder_ActionListBuilder_System_ValueTuple_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionListBuilder____">ActionListBuilderContextEx.RunActionWithGreatestValue(ActionListBuilder, (ContextValue value, ActionListBuilder action)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SkillCheck_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_System_ValueTuple_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue____">ActionListBuilderContextEx.SkillCheck(ActionListBuilder, StatType, ContextValue, ActionListBuilder, ActionListBuilder, (ConditionsCheckerBuilder condition, ContextValue value)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SkillCheckWithFailureDegrees_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_System_ValueTuple_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue____">ActionListBuilderContextEx.SkillCheckWithFailureDegrees(ActionListBuilder, StatType, ContextValue, ActionListBuilder, ActionListBuilder, ActionListBuilder, (ConditionsCheckerBuilder condition, ContextValue value)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_OnPets_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_Kingmaker_Enums_PetType_">ActionListBuilderContextEx.OnPets(ActionListBuilder, ActionListBuilder, Boolean, PetType)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpawnAOE_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_">ActionListBuilderContextEx.SpawnAOE(ActionListBuilder, String, ContextDurationValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpawnControllableProjectile_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderContextEx.SpawnControllableProjectile(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpawnMonster_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_">ActionListBuilderContextEx.SpawnMonster(ActionListBuilder, String, ContextDiceValue, ContextDurationValue, ActionListBuilder, ContextValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpawnMonsterUsingSummonPool_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Boolean_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_">ActionListBuilderContextEx.SpawnMonsterUsingSummonPool(ActionListBuilder, String, String, ContextDiceValue, ContextDurationValue, Boolean, ActionListBuilder, ContextValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpawnMonsterUnlinked_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.SpawnMonsterUnlinked(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpendOpportunityAttack_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.SpendOpportunityAttack(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_StealBuffs_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor_">ActionListBuilderContextEx.StealBuffs(ActionListBuilder, SpellDescriptor)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SwallowWhole_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.SwallowWhole(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_AddToSwarmTargets_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.AddToSwarmTargets(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RemoveFromSwarmTargets_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.RemoveFromSwarmTargets(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Teleport_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Teleport(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Unsummon_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Unsummon(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RestoreResource_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.RestoreResource(ActionListBuilder, String, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_RestoreAllResourcesToFull_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.RestoreAllResourcesToFull(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SpendResource_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderContextEx.SpendResource(ActionListBuilder, String, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_Demoralize_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_System_Boolean_System_String_System_String_System_String_System_String_System_String_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.Demoralize(ActionListBuilder, Int32, Boolean, String, String, String, String, String, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_MagicWeapon_BlueprintCore_Actions_Builder_ActionListBuilder_System_String___Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_">ActionListBuilderContextEx.MagicWeapon(ActionListBuilder, String[], ContextDurationValue, ContextValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_MagicFang_BlueprintCore_Actions_Builder_ActionListBuilder_System_String___Kingmaker_UnitLogic_Mechanics_ContextDurationValue_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ActionListBuilderContextEx.MagicFang(ActionListBuilder, String[], ContextDurationValue, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SwordlordAdaptiveTacticsAdd_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderContextEx.SwordlordAdaptiveTacticsAdd(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SwordlordAdaptiveTacticsClear_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.SwordlordAdaptiveTacticsClear(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_ResetAlignment_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">ActionListBuilderContextEx.ResetAlignment(ActionListBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SwarmAttack_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.SwarmAttack(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_SwitchDualCompanion_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderContextEx.SwitchDualCompanion(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionListBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionListBuilderContextEx_GiveRandomTrashToPlayer_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Enums_TrashLootType_System_Int32_System_Boolean_System_Boolean_">ActionListBuilderContextEx.GiveRandomTrashToPlayer(ActionListBuilder, TrashLootType, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_GrantExtraArmyAction_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_">ActionListBuilderKingdomEx.GrantExtraArmyAction(ActionListBuilder, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddCrusadeResource_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_">ActionListBuilderKingdomEx.AddCrusadeResource(ActionListBuilder, KingdomResourcesAmount)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_RemoveArmyFacts_BlueprintCore_Actions_Builder_ActionListBuilder_System_String___">ActionListBuilderKingdomEx.RemoveArmyFacts(ActionListBuilder, String[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_RestoreLeaderAction_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.RestoreLeaderAction(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_StopUnit_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.StopUnit(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_BuffSquad_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_SquadFilter_">ActionListBuilderKingdomEx.BuffSquad(ActionListBuilder, String, GlobalMagicValue, SquadFilter)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ChangeArmyMorale_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.ChangeArmyMorale(ActionListBuilder, GlobalMagicValue, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FakeSkipTime_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.FakeSkipTime(ActionListBuilder, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_GainArmyDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.GainArmyDamage(ActionListBuilder, SquadFilter, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_RemoveUnitsByExp_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.RemoveUnitsByExp(ActionListBuilder, SquadFilter, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_GainGlobalSpell_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.GainGlobalSpell(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_PutGlobalSpellOnCooldown_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.PutGlobalSpellOnCooldown(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_GlobalTeleport_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.GlobalTeleport(ActionListBuilder, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_RemoveGlobalSpell_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.RemoveGlobalSpell(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_RestoreLeaderMana_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.RestoreLeaderMana(ActionListBuilder, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_SummonMoreUnits_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ActionListBuilderKingdomEx.SummonMoreUnits(ActionListBuilder, GlobalMagicValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_SummonRandomGroup_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Crusade_GlobalMagic_Actions_SummonLogics_SummonRandomGroup_RandomGroup___">ActionListBuilderKingdomEx.SummonRandomGroup(ActionListBuilder, SummonRandomGroup.RandomGroup[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_TeleportArmy_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.TeleportArmy(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CreateCrusaderArmy_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Single__System_Nullable_System_Boolean__">ActionListBuilderKingdomEx.CreateCrusaderArmy(ActionListBuilder, String, String, String, Nullable&lt;Int32&gt;, Nullable&lt;Single&gt;, Nullable&lt;Boolean&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CreateCrusaderArmyFromLosses_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_Int32_System_Boolean_">ActionListBuilderKingdomEx.CreateCrusaderArmyFromLosses(ActionListBuilder, String, Int32, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CreateDemonArmy_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_Boolean_System_Nullable_System_Single__">ActionListBuilderKingdomEx.CreateDemonArmy(ActionListBuilder, String, String, String, Boolean, Nullable&lt;Single&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CreateDemonArmyTargetingLocation_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__">ActionListBuilderKingdomEx.CreateDemonArmyTargetingLocation(ActionListBuilder, String, String, String, String, String, Nullable&lt;Int32&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CreateGarrison_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_Boolean_">ActionListBuilderKingdomEx.CreateGarrison(ActionListBuilder, String, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_IncreaseMorale_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_">ActionListBuilderKingdomEx.IncreaseMorale(ActionListBuilder, DiceFormula, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ReduceMorale_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_">ActionListBuilderKingdomEx.ReduceMorale(ActionListBuilder, DiceFormula, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ActivateEventDeck_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.ActivateEventDeck(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddBP_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Kingdom_KingdomResource_Kingmaker_RuleSystem_DiceFormula_System_Int32_System_Boolean_">ActionListBuilderKingdomEx.AddBP(ActionListBuilder, KingdomResource, DiceFormula, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddKingdomBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_String_System_Boolean_System_Boolean_">ActionListBuilderKingdomEx.AddKingdomBuff(ActionListBuilder, String, Int32, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddFreeBuilding_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Int32_System_String_">ActionListBuilderKingdomEx.AddFreeBuilding(ActionListBuilder, String, Int32, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddFreeMercRerolls_BlueprintCore_Actions_Builder_ActionListBuilder_System_Int32_">ActionListBuilderKingdomEx.AddFreeMercRerolls(ActionListBuilder, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddRandomKingdomBuff_BlueprintCore_Actions_Builder_ActionListBuilder_System_String___System_Int32_">ActionListBuilderKingdomEx.AddRandomKingdomBuff(ActionListBuilder, String[], Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ArtisanRequestHelp_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderKingdomEx.ArtisanRequestHelp(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_EnableAutoCrusade_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.EnableAutoCrusade(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_CollectKingdomLoot_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.CollectKingdomLoot(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ConquerRegion_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.ConquerRegion(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_DestroyAllSettlements_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.DestroyAllSettlements(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_DisableKingdom_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.DisableKingdom(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_EnableKingdom_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.EnableKingdom(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FillSettlement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderKingdomEx.FillSettlement(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FillSettlementByLocation_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderKingdomEx.FillSettlementByLocation(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FinishRandomBuilding_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.FinishRandomBuilding(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FoundKingdom_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderKingdomEx.FoundKingdom(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_FoundSettlement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_">ActionListBuilderKingdomEx.FoundSettlement(ActionListBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_GrantLeaderExp_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_IntEvaluator_System_Nullable_System_Single__">ActionListBuilderKingdomEx.GrantLeaderExp(ActionListBuilder, IntEvaluator, Nullable&lt;Single&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_AddCrusadeResources_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_">ActionListBuilderKingdomEx.AddCrusadeResources(ActionListBuilder, KingdomResourcesAmount)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_ChangeTacticalMorale_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderKingdomEx.ChangeTacticalMorale(ActionListBuilder, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_KillSquadUnits_BlueprintCore_Actions_Builder_ActionListBuilder_System_Single_">ActionListBuilderKingdomEx.KillSquadUnits(ActionListBuilder, Single)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_KillSquadLeaders_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_">ActionListBuilderKingdomEx.KillSquadLeaders(ActionListBuilder, ContextDiceValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_SummonSquad_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderKingdomEx.SummonSquad(ActionListBuilder, String, ContextValue, ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_TacticalCombatDealDamage_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_System_Nullable_System_Int32__">ActionListBuilderKingdomEx.TacticalCombatDealDamage(ActionListBuilder, DamageTypeDescription, DiceType, ContextValue, Boolean, Boolean, Nullable&lt;Int32&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionListBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionListBuilderKingdomEx_TacticalCombatHeal_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionListBuilderKingdomEx.TacticalCombatHeal(ActionListBuilder, DiceType, ContextValue)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderMiscEx.IncrementAchievement(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_UnlockAchievement_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderMiscEx.UnlockAchievement(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CreateCustomCompanion_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderMiscEx.CreateCustomCompanion(ActionListBuilder, Boolean, Boolean, ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionListBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionListBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderMiscEx.CustomEvent(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionListBuilderNewEx.html#BlueprintCore_Actions_Builder_NewEx_ActionListBuilderNewEx_SwitchToDemoralizeTarget_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderNewEx.SwitchToDemoralizeTarget(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionListBuilderStoryEx_CompleteEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_BlueprintEvaluator_">ActionListBuilderStoryEx.CompleteEtude(ActionListBuilder, String, BlueprintEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionListBuilderStoryEx_ChangeRomance_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_IntEvaluator_">ActionListBuilderStoryEx.ChangeRomance(ActionListBuilder, String, IntEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionListBuilderStoryEx_ChangeUnitName_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Localization_LocalizedString_System_Boolean_">ActionListBuilderStoryEx.ChangeUnitName(ActionListBuilder, UnitEvaluator, LocalizedString, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionListBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionListBuilderStoryEx_ResetUnitName_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderStoryEx.ResetUnitName(ActionListBuilder, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFactIfEtudePlaying_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Persistence_Versioning_PlayerUpgraderOnlyActions_AddFactIfEtudePlaying_TargetType_System_String_System_String_">ActionListBuilderUpgraderEx.AddFactIfEtudePlaying(ActionListBuilder, AddFactIfEtudePlaying.TargetType, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_BlueprintCore_Actions_Builder_ActionListBuilder_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__">ActionListBuilderUpgraderEx.FixKingdomSystemBuffsAndStats(ActionListBuilder, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReEnterScriptZone_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_Blueprints_EntityReference_">ActionListBuilderUpgraderEx.ReEnterScriptZone(ActionListBuilder, EntityReference)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshCrusadeLogistic_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.RefreshCrusadeLogistic(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshSettingsPreset_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.RefreshSettingsPreset(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String___">ActionListBuilderUpgraderEx.RemoveFact(ActionListBuilder, String, String[])</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ResetMinDifficulty_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.ResetMinDifficulty(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_FixItemInInventory_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Boolean_">ActionListBuilderUpgraderEx.FixItemInInventory(ActionListBuilder, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCreateOnLoad_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.ReCreateOnLoad(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetAlignmentFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.SetAlignmentFromBlueprint(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetHandsFromBlueprint_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.SetHandsFromBlueprint(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_AddFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_System_String_">ActionListBuilderUpgraderEx.AddFeatureFromProgression(ActionListBuilder, String, String, Int32, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReCheckEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_Boolean_">ActionListBuilderUpgraderEx.ReCheckEtude(ActionListBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RefreshAllArmyLeaders_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">ActionListBuilderUpgraderEx.RefreshAllArmyLeaders(ActionListBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RemoveFeatureFromProgression_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_Int32_System_String_System_String_">ActionListBuilderUpgraderEx.RemoveFeatureFromProgression(ActionListBuilder, String, String, Int32, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_System_String_System_String_System_String_">ActionListBuilderUpgraderEx.ReplaceFeature(ActionListBuilder, String, String, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_RestartTacticalCombat_BlueprintCore_Actions_Builder_ActionListBuilder_">ActionListBuilderUpgraderEx.RestartTacticalCombat(ActionListBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_SetSharedVendorTable_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_">ActionListBuilderUpgraderEx.SetSharedVendorTable(ActionListBuilder, String, UnitEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_ForceStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderUpgraderEx.ForceStartEtude(ActionListBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionListBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionListBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionListBuilder_System_String_">ActionListBuilderUpgraderEx.UnStartEtude(ActionListBuilder, String)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionListBuilder.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionListBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/ActionListBuilder.cs/#L113" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
