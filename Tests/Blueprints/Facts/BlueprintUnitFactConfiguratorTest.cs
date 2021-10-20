@@ -118,7 +118,7 @@ namespace BlueprintCore.Test.Blueprints.Facts
     {
       GetConfigurator(Guid)
           .OnSkillCheck(
-              StatType.CheckIntimidate, ActionListBuilder.New().MeleeAttack().MeleeAttack())
+              StatType.CheckIntimidate, ActionsBuilder.New().MeleeAttack().MeleeAttack())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);

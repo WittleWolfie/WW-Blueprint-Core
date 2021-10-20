@@ -11,7 +11,7 @@ namespace BlueprintCore.Test.Actions.Builder.NewEx
     [Fact]
     public void SwitchToDemoralizeTarget()
     {
-      var actions = ActionListBuilder.New().SwitchToDemoralizeTarget().Build();
+      var actions = ActionsBuilder.New().SwitchToDemoralizeTarget().Build();
 
       Assert.Single(actions.Actions);
       var retarget = (SwitchToDemoralizeTarget)actions.Actions[0];

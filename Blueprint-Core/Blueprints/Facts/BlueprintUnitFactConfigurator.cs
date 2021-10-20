@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Facts
     /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
     /// </summary>
     public TBuilder OnSkillCheck(
-        StatType skill, ActionListBuilder actions, bool onlySuccess = true)
+        StatType skill, ActionsBuilder actions, bool onlySuccess = true)
     {
       var trigger = new AddInitiatorSkillRollTrigger
       {

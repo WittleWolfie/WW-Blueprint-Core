@@ -452,7 +452,7 @@ namespace BlueprintCore.Blueprints.Abilities
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     [ApplyEffectAttr]
     public AbilityConfigurator RunActions(
-        ActionListBuilder actions,
+        ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
@@ -478,7 +478,7 @@ namespace BlueprintCore.Blueprints.Abilities
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     public AbilityConfigurator OnMiss(
-        ActionListBuilder actions,
+        ActionsBuilder actions,
         bool useTargetSelector = true,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
@@ -508,7 +508,7 @@ namespace BlueprintCore.Blueprints.Abilities
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
-    public AbilityConfigurator OnCast(ActionListBuilder actions, ConditionsCheckerBuilder checker = null)
+    public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
       {

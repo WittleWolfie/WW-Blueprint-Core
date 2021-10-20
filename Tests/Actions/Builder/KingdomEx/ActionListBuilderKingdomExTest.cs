@@ -32,7 +32,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void GrantExtraArmyAction()
     {
-      var actions = ActionListBuilder.New().GrantExtraArmyAction().Build();
+      var actions = ActionsBuilder.New().GrantExtraArmyAction().Build();
 
       Assert.Single(actions.Actions);
       var grantAction = (ArmyAdditionalAction)actions.Actions[0];
@@ -46,7 +46,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void GrantExtraArmyAction_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GrantExtraArmyAction(usableInCurrentTurn: false, usableInBonusMoraleTurn: false)
               .Build();
 
@@ -62,7 +62,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddCrusadeResource()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddCrusadeResource(new KingdomResourcesAmount { m_Finances = 3 })
               .Build();
 
@@ -76,7 +76,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void RemoveArmyFacts()
     {
-      var actions = ActionListBuilder.New().RemoveArmyFacts(BuffGuid, AbilityGuid).Build();
+      var actions = ActionsBuilder.New().RemoveArmyFacts(BuffGuid, AbilityGuid).Build();
 
       Assert.Single(actions.Actions);
       var removeFacts = (ContextActionArmyRemoveFacts)actions.Actions[0];
@@ -91,7 +91,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void RestoreLeaderAction()
     {
-      var actions = ActionListBuilder.New().RestoreLeaderAction().Build();
+      var actions = ActionsBuilder.New().RestoreLeaderAction().Build();
 
       Assert.Single(actions.Actions);
       var restoreAction = (ContextActionRestoreLeaderAction)actions.Actions[0];
@@ -101,7 +101,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void StopUnit()
     {
-      var actions = ActionListBuilder.New().StopUnit().Build();
+      var actions = ActionsBuilder.New().StopUnit().Build();
 
       Assert.Single(actions.Actions);
       var stop = (ContextActionStopUnit)actions.Actions[0];
@@ -114,7 +114,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void BuffSquad()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .BuffSquad(
                   BuffGuid,
                   new GlobalMagicValue { m_SingleValue = 3 },
@@ -134,7 +134,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void ChangeArmyMorale()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ChangeArmyMorale(
                   new GlobalMagicValue { m_SingleValue = 5 },
                   new GlobalMagicValue { m_SingleValue = 2 })
@@ -152,7 +152,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void FakeSkipTime()
     {
       var actions =
-          ActionListBuilder.New().FakeSkipTime(new GlobalMagicValue { m_SingleValue = 3 }).Build();
+          ActionsBuilder.New().FakeSkipTime(new GlobalMagicValue { m_SingleValue = 3 }).Build();
 
       Assert.Single(actions.Actions);
       var skipTime = (FakeSkipTime)actions.Actions[0];
@@ -165,7 +165,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void GainArmyDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GainArmyDamage(
                   new SquadFilter { Properties = ArmyProperties.Flying },
                   new GlobalMagicValue { m_SingleValue = 7 })
@@ -183,7 +183,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void RemoveUnitsByExp()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RemoveUnitsByExp(
                   new SquadFilter { Properties = ArmyProperties.GrandTier },
                   new GlobalMagicValue { m_SingleValue = 2 })
@@ -200,7 +200,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void GainGlobalSpell()
     {
-      var actions = ActionListBuilder.New().GainGlobalSpell(GlobalSpellGuid).Build();
+      var actions = ActionsBuilder.New().GainGlobalSpell(GlobalSpellGuid).Build();
 
       Assert.Single(actions.Actions);
       var gainSpell = (GainGlobalMagicSpell)actions.Actions[0];
@@ -213,7 +213,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void PutGlobalSpellOnCooldown()
     {
-      var actions = ActionListBuilder.New().PutGlobalSpellOnCooldown(GlobalSpellGuid).Build();
+      var actions = ActionsBuilder.New().PutGlobalSpellOnCooldown(GlobalSpellGuid).Build();
 
       Assert.Single(actions.Actions);
       var activateCooldown = (ManuallySetGlobalSpellCooldown)actions.Actions[0];
@@ -227,7 +227,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void GlobalTeleport()
     {
       var actions =
-          ActionListBuilder.New().GlobalTeleport(ActionListBuilder.New().EnableKingdom()).Build();
+          ActionsBuilder.New().GlobalTeleport(ActionsBuilder.New().EnableKingdom()).Build();
 
       Assert.Single(actions.Actions);
       var teleport = (OpenTeleportationInterface)actions.Actions[0];
@@ -240,7 +240,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void RemoveGlobalSpell()
     {
-      var actions = ActionListBuilder.New().RemoveGlobalSpell(GlobalSpellGuid).Build();
+      var actions = ActionsBuilder.New().RemoveGlobalSpell(GlobalSpellGuid).Build();
 
       Assert.Single(actions.Actions);
       var removespell = (RemoveGlobalMagicSpell)actions.Actions[0];
@@ -254,7 +254,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void RestoreLeaderMana()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RestoreLeaderMana(new GlobalMagicValue { m_SingleValue = 5 })
               .Build();
 
@@ -269,7 +269,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void SummonMoreUnits()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SummonMoreUnits(new GlobalMagicValue { m_SingleValue = 6 })
               .Build();
 
@@ -300,7 +300,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
           };
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SummonRandomGroup(
                   new SummonRandomGroup.RandomGroup
                   {
@@ -329,7 +329,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void TeleportArmy()
     {
-      var actions = ActionListBuilder.New().TeleportArmy().Build();
+      var actions = ActionsBuilder.New().TeleportArmy().Build();
 
       Assert.Single(actions.Actions);
       var teleport = (TeleportArmyAction)actions.Actions[0];
@@ -342,7 +342,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateCrusaderArmy()
     {
       var actions =
-          ActionListBuilder.New().CreateCrusaderArmy(ArmyGuid, GlobalMapPointGuid).Build();
+          ActionsBuilder.New().CreateCrusaderArmy(ArmyGuid, GlobalMapPointGuid).Build();
 
       Assert.Single(actions.Actions);
       var createArmy = (CreateArmy)actions.Actions[0];
@@ -369,7 +369,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateCrusaderArmy_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateCrusaderArmy(
                   ArmyGuid,
                   GlobalMapPointGuid,
@@ -403,7 +403,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void CreateDemonArmy()
     {
-      var actions = ActionListBuilder.New().CreateDemonArmy(ArmyGuid, GlobalMapPointGuid).Build();
+      var actions = ActionsBuilder.New().CreateDemonArmy(ArmyGuid, GlobalMapPointGuid).Build();
 
       Assert.Single(actions.Actions);
       var createArmy = (CreateArmy)actions.Actions[0];
@@ -428,7 +428,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateDemonArmy_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateDemonArmy(
                   ArmyGuid,
                   GlobalMapPointGuid,
@@ -460,7 +460,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateCrusaderArmyFromLosses()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateCrusaderArmyFromLosses(GlobalMapPointGuid, 10, 2)
               .Build();
 
@@ -479,7 +479,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateCrusaderArmyFromLosses_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateCrusaderArmyFromLosses(GlobalMapPointGuid, 15, 3, applyRecruitIncrease: true)
               .Build();
 
@@ -498,7 +498,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateDemonArmyTargetingLocation()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateDemonArmyTargetingLocation(ArmyGuid, GlobalMapPointGuid, GlobalMapPointGuid)
               .Build();
 
@@ -527,7 +527,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateDemonArmyTargetingLocation_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateDemonArmyTargetingLocation(
                   ArmyGuid,
                   GlobalMapPointGuid,
@@ -562,7 +562,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void CreateGarrison()
     {
-      var actions = ActionListBuilder.New().CreateGarrison(ArmyGuid, GlobalMapPointGuid).Build();
+      var actions = ActionsBuilder.New().CreateGarrison(ArmyGuid, GlobalMapPointGuid).Build();
 
       Assert.Single(actions.Actions);
       var createGarrison = (CreateGarrison)actions.Actions[0];
@@ -581,7 +581,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void CreateGarrison_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateGarrison(
                   ArmyGuid, GlobalMapPointGuid, leader: ArmyLeaderGuid, noReward: false)
               .Build();
@@ -605,7 +605,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void IncreaseMorale()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .IncreaseMorale(new DiceFormula(2, DiceType.D2), 3)
               .Build();
 
@@ -623,7 +623,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void ReduceMorale()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ReduceMorale(new DiceFormula(2, DiceType.D2), 3)
               .Build();
 
@@ -640,7 +640,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void ActivateEventDeck()
     {
-      var actions = ActionListBuilder.New().ActivateEventDeck(DeckGuid).Build();
+      var actions = ActionsBuilder.New().ActivateEventDeck(DeckGuid).Build();
 
       Assert.Single(actions.Actions);
       var activateDeck = (KingdomActionActivateEventDeck)actions.Actions[0];
@@ -653,7 +653,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddBP()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddBP(KingdomResource.Favors, new DiceFormula(1, DiceType.D4), 4)
               .Build();
 
@@ -672,7 +672,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddBP_HideFromEventHistory()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddBP(
                   KingdomResource.Finances,
                   new DiceFormula(2, DiceType.D4),
@@ -694,7 +694,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void AddKingdomBuff()
     {
-      var actions = ActionListBuilder.New().AddKingdomBuff(KingdomBuffGuid).Build();
+      var actions = ActionsBuilder.New().AddKingdomBuff(KingdomBuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var addBuff = (KingdomActionAddBuff)actions.Actions[0];
@@ -711,7 +711,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddKingdomBuff_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddKingdomBuff(
                   KingdomBuffGuid,
                   durationOverrideDays: 5,
@@ -734,7 +734,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void AddFreeBuilding()
     {
-      var actions = ActionListBuilder.New().AddFreeBuilding(SettlementBuildingGuid).Build();
+      var actions = ActionsBuilder.New().AddFreeBuilding(SettlementBuildingGuid).Build();
 
       Assert.Single(actions.Actions);
       var addBuilding = (KingdomActionAddFreeBuilding)actions.Actions[0];
@@ -751,7 +751,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddFreeBuilding_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddFreeBuilding(SettlementBuildingGuid, count: 2, settlement: SettlementGuid)
               .Build();
 
@@ -771,7 +771,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void AddFreeMercRerolls()
     {
-      var actions = ActionListBuilder.New().AddFreeMercRerolls().Build();
+      var actions = ActionsBuilder.New().AddFreeMercRerolls().Build();
 
       Assert.Single(actions.Actions);
       var addMercRerolls = (KingdomActionAddMercenaryReroll)actions.Actions[0];
@@ -783,7 +783,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void AddFreeMercRerolls_Multiple()
     {
-      var actions = ActionListBuilder.New().AddFreeMercRerolls(3).Build();
+      var actions = ActionsBuilder.New().AddFreeMercRerolls(3).Build();
 
       Assert.Single(actions.Actions);
       var addMercRerolls = (KingdomActionAddMercenaryReroll)actions.Actions[0];
@@ -796,7 +796,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddRandomKingdomBuff()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddRandomKingdomBuff(new string[] { KingdomBuffGuid, KingdomBuffGuid })
               .Build();
 
@@ -815,7 +815,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void AddRandomKingdomBuff_WithDuration()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddRandomKingdomBuff(
                   new string[] { KingdomBuffGuid, KingdomBuffGuid }, durationOverrideDays: 3)
               .Build();
@@ -834,7 +834,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void ArtisanRequestHelp()
     {
-      var actions = ActionListBuilder.New().ArtisanRequestHelp(ArtisanGuid, ProjectGuid).Build();
+      var actions = ActionsBuilder.New().ArtisanRequestHelp(ArtisanGuid, ProjectGuid).Build();
 
       Assert.Single(actions.Actions);
       var requestHelp = (KingdomActionArtisanRequestHelp)actions.Actions[0];
@@ -847,7 +847,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void EnableAutoCrusade()
     {
-      var actions = ActionListBuilder.New().EnableAutoCrusade().Build();
+      var actions = ActionsBuilder.New().EnableAutoCrusade().Build();
 
       Assert.Single(actions.Actions);
       var enableAutoCrusade = (KingdomActionChangeToAutoCrusade)actions.Actions[0];
@@ -857,7 +857,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void CollectKingdomLoot()
     {
-      var actions = ActionListBuilder.New().CollectKingdomLoot().Build();
+      var actions = ActionsBuilder.New().CollectKingdomLoot().Build();
 
       Assert.Single(actions.Actions);
       var collectLoot = (KingdomActionCollectLoot)actions.Actions[0];
@@ -867,7 +867,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void ConquerRegion()
     {
-      var actions = ActionListBuilder.New().ConquerRegion(RegionGuid).Build();
+      var actions = ActionsBuilder.New().ConquerRegion(RegionGuid).Build();
 
       Assert.Single(actions.Actions);
       var conquer = (KingdomActionConquerRegion)actions.Actions[0];
@@ -879,7 +879,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void DestroyAllSettlements()
     {
-      var actions = ActionListBuilder.New().DestroyAllSettlements().Build();
+      var actions = ActionsBuilder.New().DestroyAllSettlements().Build();
 
       Assert.Single(actions.Actions);
       var destroy = (KingdomActionDestroyAllSettlements)actions.Actions[0];
@@ -889,7 +889,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void DisableKingdom()
     {
-      var actions = ActionListBuilder.New().DisableKingdom().Build();
+      var actions = ActionsBuilder.New().DisableKingdom().Build();
 
       Assert.Single(actions.Actions);
       var disable = (KingdomActionDisable)actions.Actions[0];
@@ -899,7 +899,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void EnableKingdom()
     {
-      var actions = ActionListBuilder.New().EnableKingdom().Build();
+      var actions = ActionsBuilder.New().EnableKingdom().Build();
 
       Assert.Single(actions.Actions);
       var enable = (KingdomActionEnable)actions.Actions[0];
@@ -909,7 +909,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void FillSettlement()
     {
-      var actions = ActionListBuilder.New().FillSettlement(SettlementGuid, BuildListGuid).Build();
+      var actions = ActionsBuilder.New().FillSettlement(SettlementGuid, BuildListGuid).Build();
 
       Assert.Single(actions.Actions);
       var fill = (KingdomActionFillSettlement)actions.Actions[0];
@@ -924,7 +924,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void FillSettlementByLocation()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .FillSettlementByLocation(GlobalMapPointGuid, BuildListGuid)
               .Build();
 
@@ -941,7 +941,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void FinishRandomBuilding()
     {
-      var actions = ActionListBuilder.New().FinishRandomBuilding().Build();
+      var actions = ActionsBuilder.New().FinishRandomBuilding().Build();
 
       Assert.Single(actions.Actions);
       var finish = (KingdomActionFinishRandomBuilding)actions.Actions[0];
@@ -951,7 +951,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void FoundKingdom()
     {
-      var actions = ActionListBuilder.New().FoundKingdom().Build();
+      var actions = ActionsBuilder.New().FoundKingdom().Build();
 
       Assert.Single(actions.Actions);
       var found = (KingdomActionFoundKingdom)actions.Actions[0];
@@ -962,7 +962,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void FoundSettlement()
     {
       var actions =
-          ActionListBuilder.New().FoundSettlement(GlobalMapPointGuid, SettlementGuid).Build();
+          ActionsBuilder.New().FoundSettlement(GlobalMapPointGuid, SettlementGuid).Build();
 
       Assert.Single(actions.Actions);
       var found = (KingdomActionFoundSettlement)actions.Actions[0];
@@ -976,7 +976,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void GrantLeaderExp()
     {
-      var actions = ActionListBuilder.New().GrantLeaderExp(TestInt).Build();
+      var actions = ActionsBuilder.New().GrantLeaderExp(TestInt).Build();
 
       Assert.Single(actions.Actions);
       var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
@@ -990,7 +990,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void GrantLeaderExp_WithLeaderLevelMultiplier()
     {
       var actions =
-          ActionListBuilder.New().GrantLeaderExp(TestInt, leaderLevelMultiplier: 2f).Build();
+          ActionsBuilder.New().GrantLeaderExp(TestInt, leaderLevelMultiplier: 2f).Build();
 
       Assert.Single(actions.Actions);
       var grantExp = (KingdomActionGainLeaderExperience)actions.Actions[0];
@@ -1009,7 +1009,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
       var resources = KingdomResourcesAmount.Create(1, 2, 3);
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddCrusadeResources(resources)
               .Build();
 
@@ -1027,7 +1027,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     {
       var value = ContextValues.Constant(3);
 
-      var actions = ActionListBuilder.New().ChangeTacticalMorale(value).Build();
+      var actions = ActionsBuilder.New().ChangeTacticalMorale(value).Build();
 
       Assert.Single(actions.Actions);
       var changeMorale = (ChangeTacticalMorale)actions.Actions[0];
@@ -1040,7 +1040,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void KillSquadLeaders()
     {
       var actions =
-          ActionListBuilder.New().KillSquadLeaders(new ContextDiceValue { BonusValue = 5 }).Build();
+          ActionsBuilder.New().KillSquadLeaders(new ContextDiceValue { BonusValue = 5 }).Build();
 
       Assert.Single(actions.Actions);
       var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
@@ -1053,7 +1053,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void KillSquadUnits()
     {
-      var actions = ActionListBuilder.New().KillSquadUnits(0.25f).Build();
+      var actions = ActionsBuilder.New().KillSquadUnits(0.25f).Build();
 
       Assert.Single(actions.Actions);
       var kill = (ContextActionSquadUnitsKill)actions.Actions[0];
@@ -1066,7 +1066,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void SummonSquad()
     {
-      var actions = ActionListBuilder.New().SummonSquad(UnitGuid, 2).Build();
+      var actions = ActionsBuilder.New().SummonSquad(UnitGuid, 2).Build();
 
       Assert.Single(actions.Actions);
       var summon = (ContextActionSummonTacticalSquad)actions.Actions[0];
@@ -1083,11 +1083,11 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void SummonSquad_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SummonSquad(
                   UnitGuid,
                   3,
-                  onSpawn: ActionListBuilder.New().EnableKingdom(),
+                  onSpawn: ActionsBuilder.New().EnableKingdom(),
                   summonPool: SummonPoolGuid)
               .Build();
 
@@ -1107,7 +1107,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void TacticalCombatDealDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .TacticalCombatDealDamage(TestDamageTypeDescription, DiceType.D4)
               .Build();
 
@@ -1128,7 +1128,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void TacticalCombatDealDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .TacticalCombatDealDamage(
                   TestDamageTypeDescription,
                   DiceType.D4,
@@ -1155,7 +1155,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     [Fact]
     public void TacticalCombatHeal()
     {
-      var actions = ActionListBuilder.New().TacticalCombatHeal().Build();
+      var actions = ActionsBuilder.New().TacticalCombatHeal().Build();
 
       Assert.Single(actions.Actions);
       var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];
@@ -1169,7 +1169,7 @@ namespace BlueprintCore.Test.Actions.Builder.KingdomEx
     public void TacticalCombatHeal_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New().TacticalCombatHeal(diceType: DiceType.D10, diceRolls: 3).Build();
+          ActionsBuilder.New().TacticalCombatHeal(diceType: DiceType.D10, diceRolls: 3).Build();
 
       Assert.Single(actions.Actions);
       var heal = (ContextActionTacticalCombatHealTarget)actions.Actions[0];

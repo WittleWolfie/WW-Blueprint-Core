@@ -24,19 +24,19 @@ using System.Linq;
 namespace BlueprintCore.Actions.Builder.KingdomEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for actions involving the Kingdom and Crusade
+  /// Extension to <see cref="ActionsBuilder"/> for actions involving the Kingdom and Crusade
   /// system.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderKingdomEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderKingdomEx
   {
     //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
 
     /// <summary>
     /// Adds <see cref="ArmyAdditionalAction"/>
     /// </summary>
-    public static ActionListBuilder GrantExtraArmyAction(
-        this ActionListBuilder builder,
+    public static ActionsBuilder GrantExtraArmyAction(
+        this ActionsBuilder builder,
         bool usableInCurrentTurn = true,
         bool usableInBonusMoraleTurn = true)
     {
@@ -49,8 +49,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
-    public static ActionListBuilder AddCrusadeResource(
-        this ActionListBuilder builder, KingdomResourcesAmount amount)
+    public static ActionsBuilder AddCrusadeResource(
+        this ActionsBuilder builder, KingdomResourcesAmount amount)
     {
       var addResource = ElementTool.Create<ContextActionAddCrusadeResource>();
       addResource.m_ResourcesAmount = amount;
@@ -62,8 +62,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    public static ActionListBuilder RemoveArmyFacts(
-        this ActionListBuilder builder, params string[] facts)
+    public static ActionsBuilder RemoveArmyFacts(
+        this ActionsBuilder builder, params string[] facts)
     {
       var removeFacts = ElementTool.Create<ContextActionArmyRemoveFacts>();
       removeFacts.m_FactsToRemove =
@@ -74,7 +74,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionRestoreLeaderAction"/>
     /// </summary>
-    public static ActionListBuilder RestoreLeaderAction(this ActionListBuilder builder)
+    public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
     }
@@ -82,7 +82,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionStopUnit"/>
     /// </summary>
-    public static ActionListBuilder StopUnit(this ActionListBuilder builder)
+    public static ActionsBuilder StopUnit(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionStopUnit>());
     }
@@ -94,8 +94,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    public static ActionListBuilder BuffSquad(
-        this ActionListBuilder builder,
+    public static ActionsBuilder BuffSquad(
+        this ActionsBuilder builder,
         string buff,
         GlobalMagicValue durationHours,
         SquadFilter filter)
@@ -110,8 +110,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ChangeArmyMorale"/>
     /// </summary>
-    public static ActionListBuilder ChangeArmyMorale(
-          this ActionListBuilder builder, GlobalMagicValue duration, GlobalMagicValue change)
+    public static ActionsBuilder ChangeArmyMorale(
+          this ActionsBuilder builder, GlobalMagicValue duration, GlobalMagicValue change)
     {
       var changeMorale = ElementTool.Create<ChangeArmyMorale>();
       changeMorale.m_Duration = duration;
@@ -122,7 +122,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="FakeSkipTime"/>
     /// </summary>
-    public static ActionListBuilder FakeSkipTime(this ActionListBuilder builder, GlobalMagicValue days)
+    public static ActionsBuilder FakeSkipTime(this ActionsBuilder builder, GlobalMagicValue days)
     {
       var skipTime = ElementTool.Create<FakeSkipTime>();
       skipTime.m_SkipDays = days;
@@ -132,8 +132,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="GainDiceArmyDamage"/>
     /// </summary>
-    public static ActionListBuilder GainArmyDamage(
-        this ActionListBuilder builder, SquadFilter filter, GlobalMagicValue dmgDice)
+    public static ActionsBuilder GainArmyDamage(
+        this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue dmgDice)
     {
       var gainDmg = ElementTool.Create<GainDiceArmyDamage>();
       gainDmg.m_Filter = filter;
@@ -144,8 +144,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveUnitsByExp"/>
     /// </summary>
-    public static ActionListBuilder RemoveUnitsByExp(
-        this ActionListBuilder builder, SquadFilter filter, GlobalMagicValue exp)
+    public static ActionsBuilder RemoveUnitsByExp(
+        this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue exp)
     {
       var removeUnits = ElementTool.Create<RemoveUnitsByExp>();
       removeUnits.m_Filter = filter;
@@ -158,7 +158,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
-    public static ActionListBuilder GainGlobalSpell(this ActionListBuilder builder, string spell)
+    public static ActionsBuilder GainGlobalSpell(this ActionsBuilder builder, string spell)
     {
       var gainSpell = ElementTool.Create<GainGlobalMagicSpell>();
       gainSpell.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
@@ -170,7 +170,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
-    public static ActionListBuilder PutGlobalSpellOnCooldown(this ActionListBuilder builder, string spell)
+    public static ActionsBuilder PutGlobalSpellOnCooldown(this ActionsBuilder builder, string spell)
     {
       var activateCooldown = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
       activateCooldown.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
@@ -180,7 +180,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="OpenTeleportationInterface"/>
     /// </summary>
-    public static ActionListBuilder GlobalTeleport(this ActionListBuilder builder, ActionListBuilder onTeleport)
+    public static ActionsBuilder GlobalTeleport(this ActionsBuilder builder, ActionsBuilder onTeleport)
     {
       var teleport = ElementTool.Create<OpenTeleportationInterface>();
       teleport.m_OnTeleportActions = onTeleport.Build();
@@ -192,7 +192,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
-    public static ActionListBuilder RemoveGlobalSpell(this ActionListBuilder builder, string spell)
+    public static ActionsBuilder RemoveGlobalSpell(this ActionsBuilder builder, string spell)
     {
       var removespell = ElementTool.Create<RemoveGlobalMagicSpell>();
       removespell.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
@@ -202,7 +202,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RepairLeaderMana"/>
     /// </summary>
-    public static ActionListBuilder RestoreLeaderMana(this ActionListBuilder builder, GlobalMagicValue value)
+    public static ActionsBuilder RestoreLeaderMana(this ActionsBuilder builder, GlobalMagicValue value)
     {
       var restoreMana = ElementTool.Create<RepairLeaderMana>();
       restoreMana.m_Value = value;
@@ -212,8 +212,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="SummonExistUnits"/>
     /// </summary>
-    public static ActionListBuilder SummonMoreUnits(
-        this ActionListBuilder builder, GlobalMagicValue expCost)
+    public static ActionsBuilder SummonMoreUnits(
+        this ActionsBuilder builder, GlobalMagicValue expCost)
     {
       var summon = ElementTool.Create<SummonExistUnits>();
       summon.m_SumExpCost = expCost;
@@ -223,8 +223,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup">SummonRandomGroup</see>
     /// </summary>
-    public static ActionListBuilder SummonRandomGroup(
-        this ActionListBuilder builder,
+    public static ActionsBuilder SummonRandomGroup(
+        this ActionsBuilder builder,
         params SummonRandomGroup.RandomGroup[] groups)
     {
       var summon = ElementTool.Create<SummonRandomGroup>();
@@ -235,7 +235,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="TeleportArmyAction"/>
     /// </summary>
-    public static ActionListBuilder TeleportArmy(this ActionListBuilder builder)
+    public static ActionsBuilder TeleportArmy(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<TeleportArmyAction>());
     }
@@ -249,8 +249,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <param name="army"><see cref="BlueprintArmyPreset"/></param>
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
-    public static ActionListBuilder CreateCrusaderArmy(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateCrusaderArmy(
+        this ActionsBuilder builder,
         string army,
         string location,
         string leader = null,
@@ -270,8 +270,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="CreateCrusaderArmy"/>
-    public static ActionListBuilder CreateCrusaderArmyFromLosses(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateCrusaderArmyFromLosses(
+        this ActionsBuilder builder,
         string location,
         int sumExperience,
         int maxSquads,
@@ -286,8 +286,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="CreateCrusaderArmy"/>
-    public static ActionListBuilder CreateDemonArmy(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateDemonArmy(
+        this ActionsBuilder builder,
         string army,
         string location,
         string leader = null,
@@ -309,8 +309,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="targetLocation"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="onTargetReached"><see cref="BlueprintActionList"/></param>
-    public static ActionListBuilder CreateDemonArmyTargetingLocation(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateDemonArmyTargetingLocation(
+        this ActionsBuilder builder,
         string army,
         string location,
         string targetLocation,
@@ -377,8 +377,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <param name="army"><see cref="BlueprintArmyPreset"/></param>
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
-    public static ActionListBuilder CreateGarrison(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateGarrison(
+        this ActionsBuilder builder,
         string army,
         string location,
         string leader = null,
@@ -406,7 +406,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddMorale"/>
     /// </summary>
-    public static ActionListBuilder IncreaseMorale(this ActionListBuilder builder, DiceFormula value, int bonus)
+    public static ActionsBuilder IncreaseMorale(this ActionsBuilder builder, DiceFormula value, int bonus)
     {
       var increaseMorale = ElementTool.Create<AddMorale>();
       increaseMorale.Change = value;
@@ -415,7 +415,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="IncreaseMorale"/>
-    public static ActionListBuilder ReduceMorale(this ActionListBuilder builder, DiceFormula value, int bonus)
+    public static ActionsBuilder ReduceMorale(this ActionsBuilder builder, DiceFormula value, int bonus)
     {
       var reduceMorale = ElementTool.Create<AddMorale>();
       reduceMorale.Change = value;
@@ -429,7 +429,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="deck"><see cref="BlueprintKingdomDeck"/></param>
-    public static ActionListBuilder ActivateEventDeck(this ActionListBuilder builder, string deck)
+    public static ActionsBuilder ActivateEventDeck(this ActionsBuilder builder, string deck)
     {
       var activateDeck = ElementTool.Create<KingdomActionActivateEventDeck>();
       activateDeck.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(deck);
@@ -439,8 +439,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddBPRandom"/>
     /// </summary>
-    public static ActionListBuilder AddBP(
-        this ActionListBuilder builder,
+    public static ActionsBuilder AddBP(
+        this ActionsBuilder builder,
         KingdomResource type,
         DiceFormula value,
         int bonus,
@@ -460,8 +460,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="buff"><see cref="BlueprintKingdomBuff"/></param>
     /// <param name="targetRegion"><see cref="BlueprintRegion"/></param>
-    public static ActionListBuilder AddKingdomBuff(
-        this ActionListBuilder builder,
+    public static ActionsBuilder AddKingdomBuff(
+        this ActionsBuilder builder,
         string buff,
         int durationOverrideDays = 0,
         string targetRegion = null,
@@ -483,8 +483,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="building"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding">BlueprintSettlementBuilding</see></param>
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
-    public static ActionListBuilder AddFreeBuilding(
-        this ActionListBuilder builder, string building, int count = 1, string settlement = null)
+    public static ActionsBuilder AddFreeBuilding(
+        this ActionsBuilder builder, string building, int count = 1, string settlement = null)
     {
       var addBuilding = ElementTool.Create<KingdomActionAddFreeBuilding>();
       addBuilding.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(building);
@@ -504,7 +504,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddMercenaryReroll"/>
     /// </summary>
-    public static ActionListBuilder AddFreeMercRerolls(this ActionListBuilder builder, int count = 1)
+    public static ActionsBuilder AddFreeMercRerolls(this ActionsBuilder builder, int count = 1)
     {
       var addMercRerolls = ElementTool.Create<KingdomActionAddMercenaryReroll>();
       addMercRerolls.m_FreeRerollsToAdd = count;
@@ -516,8 +516,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="buffs"><see cref="BlueprintKingdomBuff"/></param>
-    public static ActionListBuilder AddRandomKingdomBuff(
-        this ActionListBuilder builder, string[] buffs, int durationOverrideDays = 0)
+    public static ActionsBuilder AddRandomKingdomBuff(
+        this ActionsBuilder builder, string[] buffs, int durationOverrideDays = 0)
     {
       var addBuff = ElementTool.Create<KingdomActionAddRandomBuff>();
       addBuff.m_Buffs =
@@ -532,7 +532,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan">BlueprintKingdomArtisan</see></param>
     /// <param name="project"><see cref="BlueprintKingdomProject"/></param>
-    public static ActionListBuilder ArtisanRequestHelp(this ActionListBuilder builder, string artisan, string project)
+    public static ActionsBuilder ArtisanRequestHelp(this ActionsBuilder builder, string artisan, string project)
     {
       var requestHelp = ElementTool.Create<KingdomActionArtisanRequestHelp>();
       requestHelp.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
@@ -543,7 +543,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionChangeToAutoCrusade"/>
     /// </summary>
-    public static ActionListBuilder EnableAutoCrusade(this ActionListBuilder builder)
+    public static ActionsBuilder EnableAutoCrusade(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionChangeToAutoCrusade>());
     }
@@ -551,7 +551,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionCollectLoot"/>
     /// </summary>
-    public static ActionListBuilder CollectKingdomLoot(this ActionListBuilder builder)
+    public static ActionsBuilder CollectKingdomLoot(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
     }
@@ -561,7 +561,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="region"><see cref="BlueprintRegion"/></param>
-    public static ActionListBuilder ConquerRegion(this ActionListBuilder builder, string region)
+    public static ActionsBuilder ConquerRegion(this ActionsBuilder builder, string region)
     {
       var conquer = ElementTool.Create<KingdomActionConquerRegion>();
       conquer.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
@@ -571,7 +571,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionDestroyAllSettlements"/>
     /// </summary>
-    public static ActionListBuilder DestroyAllSettlements(this ActionListBuilder builder)
+    public static ActionsBuilder DestroyAllSettlements(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDestroyAllSettlements>());
     }
@@ -579,7 +579,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionDisable"/>
     /// </summary>
-    public static ActionListBuilder DisableKingdom(this ActionListBuilder builder)
+    public static ActionsBuilder DisableKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDisable>());
     }
@@ -587,7 +587,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionEnable"/>
     /// </summary>
-    public static ActionListBuilder EnableKingdom(this ActionListBuilder builder)
+    public static ActionsBuilder EnableKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionEnable>());
     }
@@ -598,8 +598,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
     /// <param name="buildList"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList">SettlementBuildList</see></param>
-    public static ActionListBuilder FillSettlement(
-        this ActionListBuilder builder, string settlement, string buildList)
+    public static ActionsBuilder FillSettlement(
+        this ActionsBuilder builder, string settlement, string buildList)
     {
       var fill = ElementTool.Create<KingdomActionFillSettlement>();
       fill.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
@@ -613,8 +613,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="buildList"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList">SettlementBuildList</see></param>
-    public static ActionListBuilder FillSettlementByLocation(
-        this ActionListBuilder builder, string location, string buildList)
+    public static ActionsBuilder FillSettlementByLocation(
+        this ActionsBuilder builder, string location, string buildList)
     {
       var fill = ElementTool.Create<KingdomActionFillSettlementByLocation>();
       fill.m_SpecificSettlementLocation =
@@ -626,7 +626,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFinishRandomBuilding"/>
     /// </summary>
-    public static ActionListBuilder FinishRandomBuilding(this ActionListBuilder builder)
+    public static ActionsBuilder FinishRandomBuilding(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFinishRandomBuilding>());
     }
@@ -634,7 +634,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFoundKingdom"/>
     /// </summary>
-    public static ActionListBuilder FoundKingdom(this ActionListBuilder builder)
+    public static ActionsBuilder FoundKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
     }
@@ -645,8 +645,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
-    public static ActionListBuilder FoundSettlement(
-        this ActionListBuilder builder, string location, string settlement)
+    public static ActionsBuilder FoundSettlement(
+        this ActionsBuilder builder, string location, string settlement)
     {
       var found = ElementTool.Create<KingdomActionFoundSettlement>();
       found.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
@@ -657,8 +657,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionGainLeaderExperience"/>
     /// </summary>
-    public static ActionListBuilder GrantLeaderExp(
-        this ActionListBuilder builder, IntEvaluator exp, float? leaderLevelMultiplier = null)
+    public static ActionsBuilder GrantLeaderExp(
+        this ActionsBuilder builder, IntEvaluator exp, float? leaderLevelMultiplier = null)
     {
       builder.Validate(exp);
 
@@ -677,8 +677,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Kingdom.Blueprints.AddCrusadeResources">AddCrusadeResources</see>
     /// </summary>
-    public static ActionListBuilder AddCrusadeResources(
-        this ActionListBuilder builder, KingdomResourcesAmount resources)
+    public static ActionsBuilder AddCrusadeResources(
+        this ActionsBuilder builder, KingdomResourcesAmount resources)
     {
       var addResources = ElementTool.Create<AddCrusadeResources>();
       addResources._resourcesAmount = resources;
@@ -690,8 +690,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ChangeTacticalMorale">ChangeTacticalMorale</see>
     /// </summary>
-    public static ActionListBuilder ChangeTacticalMorale(
-        this ActionListBuilder builder, ContextValue value)
+    public static ActionsBuilder ChangeTacticalMorale(
+        this ActionsBuilder builder, ContextValue value)
     {
       var changeMorale = ElementTool.Create<ChangeTacticalMorale>();
       changeMorale.m_Value = value;
@@ -707,7 +707,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     /// 
     /// <param name="percent">Percentage of squad units to kill as a float between 0.0 and 1.0.</param>
-    public static ActionListBuilder KillSquadUnits(this ActionListBuilder builder, float percent)
+    public static ActionsBuilder KillSquadUnits(this ActionsBuilder builder, float percent)
     {
       var kill = ElementTool.Create<ContextActionSquadUnitsKill>();
       kill.m_UseFloatValue = true;
@@ -722,8 +722,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <remarks>
     /// Use this to kill leader units from the caster's squad. Use <see cref="KillSquadUnits"/> for regular units.
     /// </remarks>
-    public static ActionListBuilder KillSquadLeaders(
-        this ActionListBuilder builder, ContextDiceValue count)
+    public static ActionsBuilder KillSquadLeaders(
+        this ActionsBuilder builder, ContextDiceValue count)
     {
       var kill = ElementTool.Create<ContextActionSquadUnitsKill>();
       kill.m_Count = count;
@@ -736,11 +736,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="unit"><see cref="BlueprintUnit"/></param>
     /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
-    public static ActionListBuilder SummonSquad(
-        this ActionListBuilder builder,
+    public static ActionsBuilder SummonSquad(
+        this ActionsBuilder builder,
         string unit,
         ContextValue count,
-        ActionListBuilder onSpawn = null,
+        ActionsBuilder onSpawn = null,
         string summonPool = null)
     {
       var summon = ElementTool.Create<ContextActionSummonTacticalSquad>();
@@ -757,8 +757,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
     /// </summary>
-    public static ActionListBuilder TacticalCombatDealDamage(
-        this ActionListBuilder builder,
+    public static ActionsBuilder TacticalCombatDealDamage(
+        this ActionsBuilder builder,
         DamageTypeDescription type,
         DiceType diceType,
         ContextValue diceRolls = null,
@@ -784,8 +784,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatHealTarget"/>
     /// </summary>
-    public static ActionListBuilder TacticalCombatHeal(
-        this ActionListBuilder builder,
+    public static ActionsBuilder TacticalCombatHeal(
+        this ActionsBuilder builder,
         DiceType diceType = DiceType.D6,
         ContextValue diceRolls = null)
     {

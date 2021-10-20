@@ -101,7 +101,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_AddFacts_System_String___System_Int32_System_Boolean_System_Boolean_Kingmaker_Settings_GameDifficultyOption_">BlueprintUnitFactConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.AddFacts(String[], Int32, Boolean, Boolean, GameDifficultyOption)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">BlueprintUnitFactConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.OnSkillCheck(StatType, ActionListBuilder, Boolean)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_">BlueprintUnitFactConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.OnSkillCheck(StatType, ActionsBuilder, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_ConfigureInternal">BlueprintUnitFactConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ConfigureInternal()</a>
@@ -149,7 +149,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_">BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ContextRankConfig(ContextRankConfig)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.FactContextActions(ActionListBuilder, ActionListBuilder, ActionListBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.FactContextActions(ActionsBuilder, ActionsBuilder, ActionsBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.AddPrerequisiteAlignment(AlignmentMaskType[])</a>
@@ -296,8 +296,8 @@ usage.
 </td></tr><tr><td>Fluent API</td><td>
 <p>
 The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
-work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> and
-<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a> APIs as well.
+work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and
+<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs as well.
 </p>
 <p>
 Complicated components such as
@@ -341,26 +341,26 @@ ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThe
 .Configure();</p>
 <p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
 // Rage is active.
-var applyBuff = ActionListBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
 BuffConfigurator.For(inspiredRageBuff)
 .FactContextActions(
 onActivated:
-ActionListBuilder.New()
+ActionsBuilder.New()
 // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
 // the feat.
 .Conditional(
-ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
 ifTrue: applyBuff)
 // For characters other than the caster, Skald's Vigor is only applied if the caster has the
 // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
 // buffs do not stack so it has no effect.
 .Conditional(
-ConditionsCheckerBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
 onDeactivated:
 // Removes Skald's Vigor when Inspired Rage ends.
 // There is actually a bug with this implementation; Lingering Song will extend the duration of
 // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionListBuilder.New().RemoveBuff(skaldsVigorBuff))
+ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
 .Configure();</code></pre>
 </example><p>
 </div>
@@ -1150,19 +1150,19 @@ JSON blueprints should already exist.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnCast_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnCast(BlueprintCore.Actions.Builder.ActionListBuilder%2CBlueprintCore.Conditions.Builder.ConditionsCheckerBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnCast_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnCast(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Abilities/AbilityConfigurator.cs/#L511">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnCast_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnCast*"></a>
-  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnCast_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Conditions_Builder_ConditionsCheckerBuilder_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnCast(BlueprintCore.Actions.Builder.ActionListBuilder,BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder)">OnCast(ActionListBuilder, ConditionsCheckerBuilder)</h4>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnCast_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnCast(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Conditions.Builder.ConditionsBuilder)">OnCast(ActionsBuilder, ConditionsBuilder)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Abilities.Components.AbilityExecuteActionOnCast</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AbilityConfigurator OnCast(ActionListBuilder actions, ConditionsCheckerBuilder checker = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1175,12 +1175,12 @@ JSON blueprints should already exist.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
         <td><span class="parametername">actions</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a></td>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
         <td><span class="parametername">checker</span></td>
         <td></td>
       </tr>
@@ -1203,19 +1203,19 @@ JSON blueprints should already exist.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnMiss(BlueprintCore.Actions.Builder.ActionListBuilder%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CBlueprintCore.Blueprints.Abilities.AbilityConfigurator%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnMiss(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CBlueprintCore.Blueprints.BlueprintConfigurator%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CBlueprintCore.Blueprints.Abilities.AbilityConfigurator%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Abilities/AbilityConfigurator.cs/#L480">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnMiss*"></a>
-  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnMiss(BlueprintCore.Actions.Builder.ActionListBuilder,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,BlueprintCore.Blueprints.Abilities.AbilityConfigurator}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">OnMiss(ActionListBuilder, Boolean, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.OnMiss(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,BlueprintCore.Blueprints.BlueprintConfigurator{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,BlueprintCore.Blueprints.Abilities.AbilityConfigurator}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">OnMiss(ActionsBuilder, Boolean, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Abilities.Components.AbilityEffectMiss</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AbilityConfigurator OnMiss(ActionListBuilder actions, bool useTargetSelector = true, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge mergeBehavior = BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge.Merge, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public AbilityConfigurator OnMiss(ActionsBuilder actions, bool useTargetSelector = true, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge mergeBehavior = BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge.Merge, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1228,7 +1228,7 @@ JSON blueprints should already exist.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
         <td><span class="parametername">actions</span></td>
         <td></td>
       </tr>
@@ -1264,7 +1264,7 @@ JSON blueprints should already exist.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_OnMiss_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Default Merge: Appends the given <span class="xref">Kingmaker.ElementsSystem.ActionList</span></p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -1824,19 +1824,19 @@ Specialization.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.RunActions(BlueprintCore.Actions.Builder.ActionListBuilder%2CKingmaker.EntitySystem.Stats.SavingThrowType%2CBlueprintCore.Blueprints.BlueprintConfigurator%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CBlueprintCore.Blueprints.Abilities.AbilityConfigurator%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityConfigurator.RunActions(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.EntitySystem.Stats.SavingThrowType%2CBlueprintCore.Blueprints.BlueprintConfigurator%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CBlueprintCore.Blueprints.Abilities.AbilityConfigurator%7D.ComponentMerge%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Blueprints/Abilities/AbilityConfigurator.cs/#L453">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.RunActions*"></a>
-  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.RunActions(BlueprintCore.Actions.Builder.ActionListBuilder,Kingmaker.EntitySystem.Stats.SavingThrowType,BlueprintCore.Blueprints.BlueprintConfigurator{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,BlueprintCore.Blueprints.Abilities.AbilityConfigurator}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">RunActions(ActionListBuilder, SavingThrowType, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.Abilities.AbilityConfigurator.RunActions(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.EntitySystem.Stats.SavingThrowType,BlueprintCore.Blueprints.BlueprintConfigurator{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,BlueprintCore.Blueprints.Abilities.AbilityConfigurator}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent})">RunActions(ActionsBuilder, SavingThrowType, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AbilityConfigurator RunActions(ActionListBuilder actions, SavingThrowType savingThrow = SavingThrowType.Unknown, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge mergeBehavior = BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge.Merge, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public AbilityConfigurator RunActions(ActionsBuilder actions, SavingThrowType savingThrow = SavingThrowType.Unknown, BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge mergeBehavior = BlueprintConfigurator&lt;BlueprintAbility, AbilityConfigurator&gt;.ComponentMerge.Merge, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1849,7 +1849,7 @@ Specialization.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a></td>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
         <td><span class="parametername">actions</span></td>
         <td></td>
       </tr>
@@ -1885,7 +1885,7 @@ Specialization.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionListBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityConfigurator_RunActions_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_BlueprintCore_Blueprints_BlueprintConfigurator_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_BlueprintCore_Blueprints_Abilities_AbilityConfigurator__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Default Merge: Appends the given <span class="xref">Kingmaker.ElementsSystem.ActionList</span></p>
 </div>
   <span class="small pull-right mobile-hide">

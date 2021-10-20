@@ -20,7 +20,7 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void Empty()
     {
-      var actions = ActionListBuilder.New().Build();
+      var actions = ActionsBuilder.New().Build();
 
       Assert.NotNull(actions.Actions);
       Assert.Empty(actions.Actions);
@@ -30,7 +30,7 @@ namespace BlueprintCore.Test.Actions.Builder
     public void MultipleActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ApplyBuff(BuffGuid, useDurationSeconds: true)
               .MeleeAttack()
               .RemoveBuff(BuffGuid)
@@ -46,14 +46,14 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void Conditional()
     {
-      var conditions = ConditionsCheckerBuilder.New().TargetIsYourself();
+      var conditions = ConditionsBuilder.New().TargetIsYourself();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Conditional(
                   conditions,
-                  ifTrue: ActionListBuilder.New().MeleeAttack(),
-                  ifFalse: ActionListBuilder.New().SwitchToDemoralizeTarget())
+                  ifTrue: ActionsBuilder.New().MeleeAttack(),
+                  ifFalse: ActionsBuilder.New().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -73,13 +73,13 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void Conditional_WithoutFalseActions()
     {
-      var conditions = ConditionsCheckerBuilder.New().TargetIsYourself();
+      var conditions = ConditionsBuilder.New().TargetIsYourself();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Conditional(
                   conditions,
-                  ifTrue: ActionListBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
+                  ifTrue: ActionsBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -97,13 +97,13 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void Conditional_WithoutTrueActions()
     {
-      var conditions = ConditionsCheckerBuilder.New().TargetIsYourself();
+      var conditions = ConditionsBuilder.New().TargetIsYourself();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Conditional(
                   conditions,
-                  ifFalse: ActionListBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
+                  ifFalse: ActionsBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -121,10 +121,10 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void Conditional_WithoutActions()
     {
-      var conditions = ConditionsCheckerBuilder.New().TargetIsYourself();
+      var conditions = ConditionsBuilder.New().TargetIsYourself();
 
       Assert.Throws<InvalidOperationException>(
-          () => ActionListBuilder.New().Conditional(conditions).Build());
+          () => ActionsBuilder.New().Conditional(conditions).Build());
     }
   }
 }

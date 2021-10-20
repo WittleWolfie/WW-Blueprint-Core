@@ -43,16 +43,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Abilities\Restrictions\New\TargetHasBuffsFromCaster.cs" />
-    <Content Include="Actions\Builder\AreaEx\ActionListBuilderAreaEx.cs" />
-    <Content Include="Actions\Builder\AVEx\ActionListBuilderAVEx.cs" />
-    <Content Include="Actions\Builder\BasicEx\ActionListBuilderBasicEx.cs" />
-    <Content Include="Actions\Builder\ContextEx\ActionListBuilderContextEx.cs" />
-    <Content Include="Actions\Builder\KingdomEx\ActionListBuilderKingdomEx.cs" />
-    <Content Include="Actions\Builder\MiscEx\ActionListBuilderMiscEx.cs" />
-    <Content Include="Actions\Builder\NewEx\ActionListBuilderNewEx.cs" />
-    <Content Include="Actions\Builder\StoryEx\ActionListBuilderStoryEx.cs" />
-    <Content Include="Actions\Builder\UpgraderEx\ActionListBuilderUpgraderEx.cs" />
-    <Content Include="Actions\Builder\ActionListBuilder.cs" />
+    <Content Include="Actions\Builder\AreaEx\ActionsBuilderAreaEx.cs" />
+    <Content Include="Actions\Builder\AVEx\ActionsBuilderAVEx.cs" />
+    <Content Include="Actions\Builder\BasicEx\ActionsBuilderBasicEx.cs" />
+    <Content Include="Actions\Builder\ContextEx\ActionsBuilderContextEx.cs" />
+    <Content Include="Actions\Builder\KingdomEx\ActionsBuilderKingdomEx.cs" />
+    <Content Include="Actions\Builder\MiscEx\ActionsBuilderMiscEx.cs" />
+    <Content Include="Actions\Builder\NewEx\ActionsBuilderNewEx.cs" />
+    <Content Include="Actions\Builder\StoryEx\ActionsBuilderStoryEx.cs" />
+    <Content Include="Actions\Builder\UpgraderEx\ActionsBuilderUpgraderEx.cs" />
+    <Content Include="Actions\Builder\ActionsBuilder.cs" />
     <Content Include="Actions\New\SwitchToDemoralizeTarget.cs" />
     <Content Include="Actions\Patches\DemoralizePatch.cs" />
     <Content Include="Blueprints\Abilities\AbilityConfigurator.cs" />
@@ -64,9 +64,9 @@
     <Content Include="Blueprints\Facts\BlueprintUnitFactConfigurator.cs" />
     <Content Include="Blueprints\BlueprintConfigurator.cs" />
     <Content Include="Blueprints\BlueprintTool.cs" />
-    <Content Include="Conditions\Builder\ConditionsCheckerBuilder.cs" />
-    <Content Include="Conditions\Builder\ContextEx\ConditionsCheckerBuilderContextEx.cs" />
-    <Content Include="Conditions\Builder\NewEx\ConditionsCheckerBuilderNewEx.cs" />
+    <Content Include="Conditions\Builder\ConditionsBuilder.cs" />
+    <Content Include="Conditions\Builder\ContextEx\ConditionsBuilderContextEx.cs" />
+    <Content Include="Conditions\Builder\NewEx\ConditionsBuilderNewEx.cs" />
     <Content Include="Conditions\New\IsDemoralizeAction.cs" />
     <Content Include="Conditions\New\TargetInMeleeRange.cs" />
     <Content Include="Fixes\RuleTempModifierTooltips.cs" />

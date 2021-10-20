@@ -18,7 +18,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void CreateImportedCompanion()
     {
-      var actions = ActionListBuilder.New().CreateImportedCompanion(5).Build();
+      var actions = ActionsBuilder.New().CreateImportedCompanion(5).Build();
 
       Assert.Single(actions.Actions);
       var createCompanion = (ActionCreateImportedCompanion)actions.Actions[0];
@@ -30,7 +30,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void TeleportToLastDungeonStageEntrance()
     {
-      var actions = ActionListBuilder.New().TeleportToLastDungeonStageEntrance().Build();
+      var actions = ActionsBuilder.New().TeleportToLastDungeonStageEntrance().Build();
 
       Assert.Single(actions.Actions);
       var teleport = (ActionEnterToDungeon)actions.Actions[0];
@@ -42,7 +42,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void TeleportToLastDungeonStageEntrance_WithMinStage()
     {
-      var actions = ActionListBuilder.New().TeleportToLastDungeonStageEntrance(3).Build();
+      var actions = ActionsBuilder.New().TeleportToLastDungeonStageEntrance(3).Build();
 
       Assert.Single(actions.Actions);
       var teleport = (ActionEnterToDungeon)actions.Actions[0];
@@ -54,7 +54,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void EnterNextDungeonStage()
     {
-      var actions = ActionListBuilder.New().EnterNextDungeonStage().Build();
+      var actions = ActionsBuilder.New().EnterNextDungeonStage().Build();
 
       Assert.Single(actions.Actions);
       var nextStage = (ActionGoDeeperIntoDungeon)actions.Actions[0];
@@ -64,7 +64,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void IncrementDungeonStage()
     {
-      var actions = ActionListBuilder.New().IncrementDungeonStage().Build();
+      var actions = ActionsBuilder.New().IncrementDungeonStage().Build();
 
       Assert.Single(actions.Actions);
       var increment = (ActionIncreaseDungeonStage)actions.Actions[0];
@@ -74,7 +74,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void SetDungeonStage()
     {
-      var actions = ActionListBuilder.New().SetDungeonStage().Build();
+      var actions = ActionsBuilder.New().SetDungeonStage().Build();
 
       Assert.Single(actions.Actions);
       var setStage = (ActionSetDungeonStage)actions.Actions[0];
@@ -86,7 +86,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void SetDungeonStage_WithStage()
     {
-      var actions = ActionListBuilder.New().SetDungeonStage(2).Build();
+      var actions = ActionsBuilder.New().SetDungeonStage(2).Build();
 
       Assert.Single(actions.Actions);
       var setStage = (ActionSetDungeonStage)actions.Actions[0];
@@ -101,7 +101,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     public void ChangeAreaEntrance()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ChangeAreaEntrance(GlobalMapPointGuid, AreaEnterPointGuid)
               .Build();
 
@@ -123,7 +123,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     {
       var name = new LocalizedString { Key = "name" };
 
-      var actions = ActionListBuilder.New().ChangeCurrentAreaName(name).Build();
+      var actions = ActionsBuilder.New().ChangeCurrentAreaName(name).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeCurrentAreaName)actions.Actions[0];
@@ -136,7 +136,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void ResetCurrentAreaName()
     {
-      var actions = ActionListBuilder.New().ResetCurrentAreaName().Build();
+      var actions = ActionsBuilder.New().ResetCurrentAreaName().Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeCurrentAreaName)actions.Actions[0];
@@ -148,7 +148,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void AddCampingEncounter()
     {
-      var actions = ActionListBuilder.New().AddCampingEncounter(CampingEncounterGuid).Build();
+      var actions = ActionsBuilder.New().AddCampingEncounter(CampingEncounterGuid).Build();
 
       Assert.Single(actions.Actions);
       var addEncounter = (AddCampingEncounter)actions.Actions[0];
@@ -162,7 +162,7 @@ namespace BlueprintCore.Test.Actions.Builder.AreaEx
     [Fact]
     public void DestroyMapObject()
     {
-      var actions = ActionListBuilder.New().DestroyMapObject(TestTrap).Build();
+      var actions = ActionsBuilder.New().DestroyMapObject(TestTrap).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyMapObject)actions.Actions[0];

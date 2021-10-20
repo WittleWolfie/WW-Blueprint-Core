@@ -17,7 +17,7 @@ namespace BlueprintCore.Test.Actions.Builder.MiscEx
     public void IncrementAchievement()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .IncrementAchievement(AchievementGuid)
               .Build();
 
@@ -32,7 +32,7 @@ namespace BlueprintCore.Test.Actions.Builder.MiscEx
     public void UnlockAchievement()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .UnlockAchievement(AchievementGuid)
               .Build();
 
@@ -48,7 +48,7 @@ namespace BlueprintCore.Test.Actions.Builder.MiscEx
     [Fact]
     public void CreateCustomCompanion()
     {
-      var actions = ActionListBuilder.New().CreateCustomCompanion().Build();
+      var actions = ActionsBuilder.New().CreateCustomCompanion().Build();
 
       Assert.Single(actions.Actions);
       var createCompanion = (CreateCustomCompanion)actions.Actions[0];
@@ -63,11 +63,11 @@ namespace BlueprintCore.Test.Actions.Builder.MiscEx
     public void CreateCustomCompanion_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CreateCustomCompanion(
                   free: true,
                   matchPlayerXp: true,
-                  onCreate: ActionListBuilder.New().CustomEvent("event_id"))
+                  onCreate: ActionsBuilder.New().CustomEvent("event_id"))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -84,7 +84,7 @@ namespace BlueprintCore.Test.Actions.Builder.MiscEx
     public void CustomEvent()
     {
       var eventId = "event_id";
-      var actions = ActionListBuilder.New().CustomEvent(eventId).Build();
+      var actions = ActionsBuilder.New().CustomEvent(eventId).Build();
 
       Assert.Single(actions.Actions);
       var customEvent = (CustomEvent)actions.Actions[0];

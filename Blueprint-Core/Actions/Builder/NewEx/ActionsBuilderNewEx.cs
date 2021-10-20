@@ -4,16 +4,16 @@ using BlueprintCore.Utils;
 namespace BlueprintCore.Actions.Builder.NewEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for actions defined in BlueprintCore and not available in the base
+  /// Extension to <see cref="ActionsBuilder"/> for actions defined in BlueprintCore and not available in the base
   /// game.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderNewEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderNewEx
   {
     /// <summary>
     /// Adds <see cref="SwitchToDemoralizeTarget"/>
     /// </summary>
-    public static ActionListBuilder SwitchToDemoralizeTarget(this ActionListBuilder builder)
+    public static ActionsBuilder SwitchToDemoralizeTarget(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SwitchToDemoralizeTarget>());
     }

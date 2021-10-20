@@ -25,7 +25,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     {
       var image = new SpriteLink { AssetId = "hi" };
 
-      var actions = ActionListBuilder.New().ChangeBookImage(image).Build();
+      var actions = ActionsBuilder.New().ChangeBookImage(image).Build();
 
       Assert.Single(actions.Actions);
       var setImage = (ChangeBookEventImage)actions.Actions[0];
@@ -40,7 +40,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
       var position = ElementTool.Create<UnitPosition>();
       position.Unit = TestUnit;
 
-      var actions = ActionListBuilder.New().MoveCamera(position).Build();
+      var actions = ActionsBuilder.New().MoveCamera(position).Build();
 
       Assert.Single(actions.Actions);
       var moveCamera = (CameraToPosition)actions.Actions[0];
@@ -55,7 +55,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
       var text = new LocalizedString { Key = "test_key" };
 
       var actions =
-          ActionListBuilder.New().AddDialogNotification(text).Build();
+          ActionsBuilder.New().AddDialogNotification(text).Build();
 
       Assert.Single(actions.Actions);
       var notification = (AddDialogNotification)actions.Actions[0];
@@ -67,7 +67,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     [Fact]
     public void ClearBlood()
     {
-      var actions = ActionListBuilder.New().ClearBlood().Build();
+      var actions = ActionsBuilder.New().ClearBlood().Build();
 
       Assert.Single(actions.Actions);
       var clearBlood = (ClearBlood)actions.Actions[0];
@@ -83,7 +83,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
           (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
               typeof(AnimationClipWrapper));
 
-      var actions = ActionListBuilder.New().RunAnimationClip(clip).Build();
+      var actions = ActionsBuilder.New().RunAnimationClip(clip).Build();
 
       Assert.Single(actions.Actions);
       var animation = (ContextActionRunAnimationClip)actions.Actions[0];
@@ -105,7 +105,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
               typeof(AnimationClipWrapper));
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RunAnimationClip(
                   clip, mode: ExecutionMode.Sequenced, transitionIn: 0.5f, transitionOut: 0.5f)
               .Build();
@@ -123,7 +123,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     [Fact]
     public void Bark()
     {
-      var actions = ActionListBuilder.New().Bark(new LocalizedString { Key = "bark" }).Build();
+      var actions = ActionsBuilder.New().Bark(new LocalizedString { Key = "bark" }).Build();
 
       Assert.Single(actions.Actions);
       var bark = (ContextActionShowBark)actions.Actions[0];
@@ -138,7 +138,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     public void Bark_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Bark(
                   new LocalizedString { Key = "bark" },
                   showIfUnconcious: true,
@@ -159,7 +159,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     {
       var prefab = new PrefabLink();
 
-      var actions = ActionListBuilder.New().SpawnFx(prefab).Build();
+      var actions = ActionsBuilder.New().SpawnFx(prefab).Build();
 
       Assert.Single(actions.Actions);
       var spawnFx = (ContextActionSpawnFx)actions.Actions[0];
@@ -173,7 +173,7 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
     [Fact]
     public void PlaySound()
     {
-      var actions = ActionListBuilder.New().PlaySound("a sound").Build();
+      var actions = ActionsBuilder.New().PlaySound("a sound").Build();
 
       Assert.Single(actions.Actions);
       var playSound = (ContextActionPlaySound)actions.Actions[0];

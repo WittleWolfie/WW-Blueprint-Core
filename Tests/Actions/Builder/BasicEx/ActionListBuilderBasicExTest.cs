@@ -27,7 +27,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
       TestInt.Value = 5;
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AttachBuff(BuffGuid, TestUnit, TestInt)
               .Build();
 
@@ -44,9 +44,9 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void OnCreaturesAround()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .OnCreaturesAround(
-                  ActionListBuilder.New().ClearAllUnitReturnPosition(), TestDistance, TestPosition)
+                  ActionsBuilder.New().ClearAllUnitReturnPosition(), TestDistance, TestPosition)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -66,9 +66,9 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void OnCreaturesAround_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .OnCreaturesAround(
-                  ActionListBuilder.New().ClearAllUnitReturnPosition(),
+                  ActionsBuilder.New().ClearAllUnitReturnPosition(),
                   TestDistance,
                   TestPosition,
                   checkLos: true,
@@ -91,7 +91,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void AddFact()
     {
-      var actions = ActionListBuilder.New().AddFact(BuffGuid, TestUnit).Build();
+      var actions = ActionsBuilder.New().AddFact(BuffGuid, TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var addFact = (AddFact)actions.Actions[0];
@@ -106,7 +106,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       var hours = ElementTool.Create<IntConstant>();
 
-      var actions = ActionListBuilder.New().AddFatigue(hours, TestUnit).Build();
+      var actions = ActionsBuilder.New().AddFatigue(hours, TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var fatigue = (AddFatigueHours)actions.Actions[0];
@@ -120,7 +120,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void ChangeAlignment()
     {
       var actions =
-          ActionListBuilder.New().ChangeAlignment(TestUnit, Alignment.LawfulEvil).Build();
+          ActionsBuilder.New().ChangeAlignment(TestUnit, Alignment.LawfulEvil).Build();
 
       Assert.Single(actions.Actions);
       var changeAlignment = (ChangeAlignment)actions.Actions[0];
@@ -133,7 +133,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void ChangePlayerAlignment()
     {
-      var actions = ActionListBuilder.New().ChangePlayerAlignment(Alignment.ChaoticGood).Build();
+      var actions = ActionsBuilder.New().ChangePlayerAlignment(Alignment.ChaoticGood).Build();
 
       Assert.Single(actions.Actions);
       var changeAlignment = (ChangePlayerAlignment)actions.Actions[0];
@@ -147,7 +147,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void ChangePlayerAlignment_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ChangePlayerAlignment(Alignment.TrueNeutral, unlockAlignment: true)
               .Build();
 
@@ -162,7 +162,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void DamageParty()
     {
-      var actions = ActionListBuilder.New().DamageParty(TestDamage).Build();
+      var actions = ActionsBuilder.New().DamageParty(TestDamage).Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DamageParty)actions.Actions[0];
@@ -177,7 +177,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void DamageParty_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DamageParty(TestDamage, source: TestUnit, enableBattleLog: false)
               .Build();
 
@@ -194,7 +194,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void DealDamage()
     {
-      var actions = ActionListBuilder.New().DealDamage(TestUnit, TestDamage).Build();
+      var actions = ActionsBuilder.New().DealDamage(TestUnit, TestDamage).Build();
 
       Assert.Single(actions.Actions);
       var dmg = (DealDamage)actions.Actions[0];
@@ -212,7 +212,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void DealDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealDamage(
                   TestUnit,
                   TestDamage,
@@ -238,7 +238,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void DealStatDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealStatDamage(TestUnit, StatType.Strength, new DiceFormula(1, DiceType.D4))
               .Build();
 
@@ -262,7 +262,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       Assert.Throws<InvalidOperationException>(
           () =>
-            ActionListBuilder.New()
+            ActionsBuilder.New()
                 .DealStatDamage(TestUnit, StatType.AC, new DiceFormula(1, DiceType.D4))
                 .Build());
     }
@@ -271,7 +271,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void DealStatDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealStatDamage(
                   TestUnit,
                   StatType.Wisdom,
@@ -304,7 +304,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
       var items = new List<LootEntry>();
       var toCollection = ElementTool.Create<UnitInventory>();
 
-      var actions = ActionListBuilder.New().AddItems(items, toCollection).Build();
+      var actions = ActionsBuilder.New().AddItems(items, toCollection).Build();
 
       Assert.Single(actions.Actions);
       var addItems = (AddItemsToCollection)actions.Actions[0];
@@ -323,7 +323,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
       var toCollection = ElementTool.Create<UnitInventory>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddItems(items, toCollection, silent: true, identify: true)
               .Build();
 
@@ -343,7 +343,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
       var toCollection = ElementTool.Create<UnitInventory>();
 
       var actions =
-          ActionListBuilder.New().AddItemsFromBlueprint(LootGuid, toCollection).Build();
+          ActionsBuilder.New().AddItemsFromBlueprint(LootGuid, toCollection).Build();
 
       Assert.Single(actions.Actions);
       var addItems = (AddItemsToCollection)actions.Actions[0];
@@ -361,7 +361,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
       var toCollection = ElementTool.Create<UnitInventory>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddItemsFromBlueprint(LootGuid, toCollection, silent: true, identify: true)
               .Build();
 
@@ -378,7 +378,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void GiveItemToPlayer()
     {
-      var actions = ActionListBuilder.New().GiveItemToPlayer(ItemGuid).Build();
+      var actions = ActionsBuilder.New().GiveItemToPlayer(ItemGuid).Build();
 
       Assert.Single(actions.Actions);
       var addItem = (AddItemToPlayer)actions.Actions[0];
@@ -399,7 +399,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       Assert.Throws<InvalidOperationException>(
           () =>
-            ActionListBuilder.New().GiveItemToPlayer(ArmorGuid).Build());
+            ActionsBuilder.New().GiveItemToPlayer(ArmorGuid).Build());
     }
 
     [Fact]
@@ -407,14 +407,14 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       Assert.Throws<InvalidOperationException>(
           () =>
-            ActionListBuilder.New().GiveItemToPlayer(SimpleHandItemGuid).Build());
+            ActionsBuilder.New().GiveItemToPlayer(SimpleHandItemGuid).Build());
     }
 
     [Fact]
     public void GiveItemToPlayer_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GiveItemToPlayer(ItemGuid, count: 2, silent: true, identify: true)
               .Build();
 
@@ -436,7 +436,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void GiveEquipmentToPlayer()
     {
       var actions =
-          ActionListBuilder.New().GiveEquipmentToPlayer(ArmorGuid).Build();
+          ActionsBuilder.New().GiveEquipmentToPlayer(ArmorGuid).Build();
 
       Assert.Single(actions.Actions);
       var addItem = (AddItemToPlayer)actions.Actions[0];
@@ -457,14 +457,14 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       Assert.Throws<InvalidOperationException>(
           () =>
-            ActionListBuilder.New().GiveEquipmentToPlayer(SimpleHandItemGuid, TestUnit).Build());
+            ActionsBuilder.New().GiveEquipmentToPlayer(SimpleHandItemGuid, TestUnit).Build());
     }
 
     [Fact]
     public void GiveEquipmentToPlayer_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GiveEquipmentToPlayer(
                   ArmorGuid,
                   equip: true,
@@ -492,7 +492,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void GiveHandSlotItemToPlayer()
     {
-      var actions = ActionListBuilder.New().GiveHandSlotItemToPlayer(SimpleHandItemGuid).Build();
+      var actions = ActionsBuilder.New().GiveHandSlotItemToPlayer(SimpleHandItemGuid).Build();
 
       Assert.Single(actions.Actions);
       var addItem = (AddItemToPlayer)actions.Actions[0];
@@ -512,7 +512,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void GiveHandSlotItemToPlayer_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GiveHandSlotItemToPlayer(
                   SimpleHandItemGuid,
                   equip: true,
@@ -543,7 +543,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       var targetLevel = ElementTool.Create<IntConstant>();
 
-      var actions = ActionListBuilder.New().AdvanceLevel(TestUnit, targetLevel).Build();
+      var actions = ActionsBuilder.New().AdvanceLevel(TestUnit, targetLevel).Build();
 
       Assert.Single(actions.Actions);
       var advanceLevel = (AdvanceUnitLevel)actions.Actions[0];
@@ -556,7 +556,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void DestroyUnit()
     {
-      var actions = ActionListBuilder.New().DestroyUnit(TestUnit).Build();
+      var actions = ActionsBuilder.New().DestroyUnit(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyUnit)actions.Actions[0];
@@ -569,7 +569,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void DestroyUnit_WithFadeOut()
     {
-      var actions = ActionListBuilder.New().DestroyUnit(TestUnit, fadeOut: true).Build();
+      var actions = ActionsBuilder.New().DestroyUnit(TestUnit, fadeOut: true).Build();
 
       Assert.Single(actions.Actions);
       var destroy = (DestroyUnit)actions.Actions[0];
@@ -584,7 +584,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     {
       var group = ElementTool.Create<PlayerCharacter>();
 
-      var actions = ActionListBuilder.New().AddUnitToGroup(TestUnit, group).Build();
+      var actions = ActionsBuilder.New().AddUnitToGroup(TestUnit, group).Build();
 
       Assert.Single(actions.Actions);
       var addToGroup = (CombineToGroup)actions.Actions[0];
@@ -597,7 +597,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void ClearUnitReturnPosition()
     {
-      var actions = ActionListBuilder.New().ClearUnitReturnPosition(TestUnit).Build();
+      var actions = ActionsBuilder.New().ClearUnitReturnPosition(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var clearReturnPosition = (ClearUnitReturnPosition)actions.Actions[0];
@@ -609,7 +609,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     [Fact]
     public void ClearAllUnitReturnPosition()
     {
-      var actions = ActionListBuilder.New().ClearAllUnitReturnPosition().Build();
+      var actions = ActionsBuilder.New().ClearAllUnitReturnPosition().Build();
 
       Assert.Single(actions.Actions);
       var clearReturnPosition = (ClearUnitReturnPosition)actions.Actions[0];
@@ -622,7 +622,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void AddUnitToSummonPool()
     {
       var actions =
-          ActionListBuilder.New().AddUnitToSummonPool(TestUnit, SummonPoolGuid).Build();
+          ActionsBuilder.New().AddUnitToSummonPool(TestUnit, SummonPoolGuid).Build();
 
       Assert.Single(actions.Actions);
       var addSummon = (AddUnitToSummonPool)actions.Actions[0];
@@ -636,7 +636,7 @@ namespace BlueprintCore.Test.Actions.Builder.BasicEx
     public void RemoveUnitFromSummonPool()
     {
       var actions =
-          ActionListBuilder.New().RemoveUnitFromSummonPool(TestUnit, SummonPoolGuid).Build();
+          ActionsBuilder.New().RemoveUnitFromSummonPool(TestUnit, SummonPoolGuid).Build();
 
       Assert.Single(actions.Actions);
       var addSummon = (DeleteUnitFromSummonPool)actions.Actions[0];

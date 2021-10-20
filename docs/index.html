@@ -67,8 +67,8 @@
 <p>Not ready for use as a library yet. There are a few key things that need to be finalized before I
 publish:</p>
 <ol>
-<li>Finalize ActionListBuilder extension class distinctions <strong>DONE</strong></li>
-<li>Finalize ConditionsCheckerBuilder extension class distinctions <strong>DONE</strong></li>
+<li>Finalize ActionsBuilder extension class distinctions <strong>DONE</strong></li>
+<li>Finalize ConditionsBuilder extension class distinctions <strong>DONE</strong></li>
 <li>Add Create() to BlueprintConfigurator <strong>DONE</strong></li>
 <li>Cleanup Utils APIs <strong>IN PROGRESS</strong></li>
 </ol>
@@ -78,7 +78,7 @@ Actions, Conditions, and Components in the appropriate Builder or Configurator A
 <h3 id="blueprint-configurators">Blueprint Configurators</h3>
 <p>Each concrete blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes a fluent API for modifying its field values and blueprint components. Once you call <code>Configure()</code> on a blueprint configurator, all of the changes are committed and validated. If validation fails, all errors are bundled into a warning log message.</p>
 <h3 id="actionlist-and-conditionschecker-builders">ActionList and ConditionsChecker Builders</h3>
-<p><code>ActionList</code> and <code>ConditionsChecker</code> are supported with a builder API. Blueprint configurators take builders are arguments for blueprint components to minimize boilerplate. To simplify their usage, the actual methods for each action or condition are grouped into extension classes by use case. This allows you to ignore actions unrelated to your modification. e.g. If you are only adding new feats you can skip including extension classes like <code>ActionListBuilderKingdomEx</code> which only affect the kingdom building and crusade portion of the game.</p>
+<p><code>ActionList</code> and <code>ConditionsChecker</code> are supported with a builder API. Blueprint configurators take builders are arguments for blueprint components to minimize boilerplate. To simplify their usage, the actual methods for each action or condition are grouped into extension classes by use case. This allows you to ignore actions unrelated to your modification. e.g. If you are only adding new feats you can skip including extension classes like <code>ActionsBuilderKingdomEx</code> which only affect the kingdom building and crusade portion of the game.</p>
 <h3 id="validation">Validation</h3>
 <p>All actions, conditions, blueprints, and blueprint components are validated when built or configured. Validation is done through a combination of Wrath's <code>ValidationContext</code> API with additional checks to validate implicit contracts in the code that native validation does not check.</p>
 <h2 id="usage">Usage</h2>
@@ -91,18 +91,18 @@ Actions, Conditions, and Components in the appropriate Builder or Configurator A
     .FastHealing(1, bonusValue: ContextValues.Rank(AbilityRankType.Default))
     .Configure();
 
-var applyBuff = ActionListBuilder.New().ApplyBuff(SkaldsVigorBuff, permanent: true, dispellable: false);
+var applyBuff = ActionsBuilder.New().ApplyBuff(SkaldsVigorBuff, permanent: true, dispellable: false);
 BuffConfigurator.For(RAGING_SONG_BUFF)
     .FactContextActions(
         onActivated:
-            ActionListBuilder.New()
+            ActionsBuilder.New()
                 .Conditional(
-                    ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(SkaldsVigor),
+                    ConditionsBuilder.New().TargetIsYourself().HasFact(SkaldsVigor),
                     ifTrue: applyBuff)
                 .Conditional(
-                    ConditionsCheckerBuilder.New().CasterHasFact(GreaterSkaldsVigor),
+                    ConditionsBuilder.New().CasterHasFact(GreaterSkaldsVigor),
                     ifTrue: applyBuff),
-        onDeactivated: ActionListBuilder.New().RemoveBuff(SkaldsVigorBuff))
+        onDeactivated: ActionsBuilder.New().RemoveBuff(SkaldsVigorBuff))
     .Configure();
 </code></pre>
 </article>

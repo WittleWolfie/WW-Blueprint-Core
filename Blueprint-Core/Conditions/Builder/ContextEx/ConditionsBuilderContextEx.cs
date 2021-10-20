@@ -6,19 +6,19 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 namespace BlueprintCore.Conditions.Builder.ContextEx
 {
   /// <summary>
-  /// Extension to <see cref="ConditionsCheckerBuilder"/> for most <see cref="ContextCondition"/> types. Some
+  /// Extension to <see cref="ConditionsBuilder"/> for most <see cref="ContextCondition"/> types. Some
   /// <see cref="ContextCondition"/> types are in more specific extensions such as
-  /// <see cref="KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see>.
+  /// <see cref="KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
-  /// <inheritdoc cref="ConditionsCheckerBuilder"/>
-  public static class ConditionsCheckerBuilderContextEx
+  /// <inheritdoc cref="ConditionsBuilder"/>
+  public static class ConditionsBuilderContextEx
   {
     /// <summary>
     /// Adds <see cref="ContextConditionHasBuffFromCaster"/>
     /// </summary>
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    public static ConditionsCheckerBuilder HasBuffFromCaster(this ConditionsCheckerBuilder builder, string buff)
+    public static ConditionsBuilder HasBuffFromCaster(this ConditionsBuilder builder, string buff)
     {
       var hasBuff = ElementTool.Create<ContextConditionHasBuffFromCaster>();
       hasBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -30,7 +30,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </summary>
     /// 
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    public static ConditionsCheckerBuilder CasterHasFact(this ConditionsCheckerBuilder builder, string fact)
+    public static ConditionsBuilder CasterHasFact(this ConditionsBuilder builder, string fact)
     {
       var hasFact = ElementTool.Create<ContextConditionCasterHasFact>();
       hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
@@ -42,7 +42,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </summary>
     /// 
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    public static ConditionsCheckerBuilder HasFact(this ConditionsCheckerBuilder builder, string fact)
+    public static ConditionsBuilder HasFact(this ConditionsBuilder builder, string fact)
     {
       var hasFact = ElementTool.Create<ContextConditionHasFact>();
       hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
@@ -52,7 +52,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextConditionTargetIsYourself"/>
     /// </summary>
-    public static ConditionsCheckerBuilder TargetIsYourself(this ConditionsCheckerBuilder builder)
+    public static ConditionsBuilder TargetIsYourself(this ConditionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextConditionTargetIsYourself>());
     }

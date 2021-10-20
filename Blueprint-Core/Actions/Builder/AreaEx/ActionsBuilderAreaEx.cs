@@ -10,18 +10,18 @@ using Kingmaker.Localization;
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for actions involving the game map, dungeons, or locations. See also
-  /// <see cref="KingdomEx.ActionListBuilderKingdomEx">KingdomEx</see>.
+  /// Extension to <see cref="ActionsBuilder"/> for actions involving the game map, dungeons, or locations. See also
+  /// <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderAreaEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderAreaEx
   {
     //----- Kingmaker.Dungeon.Actions -----//
 
     /// <summary>
     /// Adds <see cref="ActionCreateImportedCompanion"/>
     /// </summary>
-    public static ActionListBuilder CreateImportedCompanion(this ActionListBuilder builder, int index)
+    public static ActionsBuilder CreateImportedCompanion(this ActionsBuilder builder, int index)
     {
       var createCompanion = ElementTool.Create<ActionCreateImportedCompanion>();
       createCompanion.Index = index;
@@ -31,7 +31,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionEnterToDungeon"/>
     /// </summary>
-    public static ActionListBuilder TeleportToLastDungeonStageEntrance(this ActionListBuilder builder, int minStage = 1)
+    public static ActionsBuilder TeleportToLastDungeonStageEntrance(this ActionsBuilder builder, int minStage = 1)
     {
       var teleport = ElementTool.Create<ActionEnterToDungeon>();
       teleport.FirstStage = minStage;
@@ -42,7 +42,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionGoDeeperIntoDungeon"/>
     /// </summary>
-    public static ActionListBuilder EnterNextDungeonStage(this ActionListBuilder builder)
+    public static ActionsBuilder EnterNextDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionGoDeeperIntoDungeon>());
     }
@@ -50,7 +50,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionIncreaseDungeonStage"/>
     /// </summary>
-    public static ActionListBuilder IncrementDungeonStage(this ActionListBuilder builder)
+    public static ActionsBuilder IncrementDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionIncreaseDungeonStage>());
     }
@@ -58,7 +58,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionSetDungeonStage"/>
     /// </summary>
-    public static ActionListBuilder SetDungeonStage(this ActionListBuilder builder, int stage = 1)
+    public static ActionsBuilder SetDungeonStage(this ActionsBuilder builder, int stage = 1)
     {
       var setStage = ElementTool.Create<ActionSetDungeonStage>();
       setStage.Stage = stage;
@@ -73,8 +73,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="newLocation"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint">BlueprintAreaEnterPoint</see></param>
-    public static ActionListBuilder ChangeAreaEntrance(
-        this ActionListBuilder builder, string location, string newLocation)
+    public static ActionsBuilder ChangeAreaEntrance(
+        this ActionsBuilder builder, string location, string newLocation)
     {
       var changeEntrance = ElementTool.Create<AreaEntranceChange>();
       changeEntrance.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
@@ -86,7 +86,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName">ChangeCurrentAreaName</see>
     /// </summary>
-    public static ActionListBuilder ChangeCurrentAreaName(this ActionListBuilder builder, LocalizedString name)
+    public static ActionsBuilder ChangeCurrentAreaName(this ActionsBuilder builder, LocalizedString name)
     {
       var changeName = ElementTool.Create<ChangeCurrentAreaName>();
       changeName.NewName = name;
@@ -97,7 +97,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName">ChangeCurrentAreaName</see>
     /// </summary>
-    public static ActionListBuilder ResetCurrentAreaName(this ActionListBuilder builder)
+    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
     {
       var changeName = ElementTool.Create<ChangeCurrentAreaName>();
       changeName.RestoreDefault = true;
@@ -108,7 +108,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter">AddCampingEncounter</see>
     /// </summary>
-    public static ActionListBuilder AddCampingEncounter(this ActionListBuilder builder, string encounter)
+    public static ActionsBuilder AddCampingEncounter(this ActionsBuilder builder, string encounter)
     {
       var addEncounter = ElementTool.Create<AddCampingEncounter>();
       addEncounter.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(encounter);
@@ -118,7 +118,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject">DestroyMapObject</see>
     /// </summary>
-    public static ActionListBuilder DestroyMapObject(this ActionListBuilder builder, MapObjectEvaluator obj)
+    public static ActionsBuilder DestroyMapObject(this ActionsBuilder builder, MapObjectEvaluator obj)
     {
       var destroy = ElementTool.Create<DestroyMapObject>();
       destroy.MapObject = obj;

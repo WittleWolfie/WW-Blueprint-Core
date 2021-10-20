@@ -11,16 +11,16 @@ using Kingmaker.Visual.Animation;
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for actions involving audiovisual effects such as dialogs, camera,
+  /// Extension to <see cref="ActionsBuilder"/> for actions involving audiovisual effects such as dialogs, camera,
   /// cutscenes, and sounds.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderAVEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderAVEx
   {
     /// <summary>
     /// Adds <see cref="ChangeBookEventImage"/>
     /// </summary>
-    public static ActionListBuilder ChangeBookImage(this ActionListBuilder builder, SpriteLink image)
+    public static ActionsBuilder ChangeBookImage(this ActionsBuilder builder, SpriteLink image)
     {
       var setImage = ElementTool.Create<ChangeBookEventImage>();
       setImage.m_Image = image;
@@ -30,7 +30,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="CameraToPosition"/>
     /// </summary>
-    public static ActionListBuilder MoveCamera(this ActionListBuilder builder, PositionEvaluator position)
+    public static ActionsBuilder MoveCamera(this ActionsBuilder builder, PositionEvaluator position)
     {
       builder.Validate(position);
 
@@ -43,7 +43,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification">AddDialogNotification</see>
     /// </summary>
-    public static ActionListBuilder AddDialogNotification(this ActionListBuilder builder, LocalizedString text)
+    public static ActionsBuilder AddDialogNotification(this ActionsBuilder builder, LocalizedString text)
     {
       var notification = ElementTool.Create<AddDialogNotification>();
       notification.Text = text;
@@ -53,7 +53,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ClearBlood">ClearBlood</see>
     /// </summary>
-    public static ActionListBuilder ClearBlood(this ActionListBuilder builder)
+    public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ClearBlood>());
     }
@@ -61,8 +61,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
-    public static ActionListBuilder RunAnimationClip(
-        this ActionListBuilder builder,
+    public static ActionsBuilder RunAnimationClip(
+        this ActionsBuilder builder,
         AnimationClipWrapper clip,
         ExecutionMode mode = ExecutionMode.Interrupted,
         float transitionIn = 0.25f,
@@ -79,8 +79,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
-    public static ActionListBuilder Bark(
-        this ActionListBuilder builder,
+    public static ActionsBuilder Bark(
+        this ActionsBuilder builder,
         LocalizedString bark,
         bool showIfUnconcious = false,
         bool durationBasedOnTextLength = false)
@@ -95,7 +95,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
-    public static ActionListBuilder SpawnFx(this ActionListBuilder builder, PrefabLink prefab)
+    public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink prefab)
     {
       var spawnFx = ElementTool.Create<ContextActionSpawnFx>();
       spawnFx.PrefabLink = prefab;
@@ -107,7 +107,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
-    public static ActionListBuilder PlaySound(this ActionListBuilder builder, string soundName)
+    public static ActionsBuilder PlaySound(this ActionsBuilder builder, string soundName)
     {
       var playSound = ElementTool.Create<ContextActionPlaySound>();
       playSound.SoundName = soundName;

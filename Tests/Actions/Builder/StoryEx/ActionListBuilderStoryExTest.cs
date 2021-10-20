@@ -19,7 +19,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
     [Fact]
     public void CompleteEtude()
     {
-      var actions = ActionListBuilder.New().CompleteEtude(EtudeGuid).Build();
+      var actions = ActionsBuilder.New().CompleteEtude(EtudeGuid).Build();
 
       Assert.Single(actions.Actions);
       var completeEtude = (CompleteEtude)actions.Actions[0];
@@ -34,7 +34,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
     {
       var evaluator = ElementTool.Create<Dialog>();
 
-      var actions = ActionListBuilder.New().CompleteEtude(EtudeGuid, evaluator: evaluator).Build();
+      var actions = ActionsBuilder.New().CompleteEtude(EtudeGuid, evaluator: evaluator).Build();
 
       Assert.Single(actions.Actions);
       var completeEtude = (CompleteEtude)actions.Actions[0];
@@ -51,7 +51,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
       var value = ElementTool.Create<IntConstant>();
       value.Value = 12;
 
-      var actions = ActionListBuilder.New().ChangeRomance(RomanceGuid, value).Build();
+      var actions = ActionsBuilder.New().ChangeRomance(RomanceGuid, value).Build();
 
       Assert.Single(actions.Actions);
       var changeRomance = (ChangeRomance)actions.Actions[0];
@@ -67,7 +67,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
     {
       var name = new LocalizedString { Key = "new name" };
 
-      var actions = ActionListBuilder.New().ChangeUnitName(TestUnit, name).Build();
+      var actions = ActionsBuilder.New().ChangeUnitName(TestUnit, name).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];
@@ -85,7 +85,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
       var name = new LocalizedString { Key = "new name" };
 
       var actions =
-          ActionListBuilder.New().ChangeUnitName(TestUnit, name, appendName: true).Build();
+          ActionsBuilder.New().ChangeUnitName(TestUnit, name, appendName: true).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];
@@ -100,7 +100,7 @@ namespace BlueprintCore.Test.Actions.Builder.StoryEx
     [Fact]
     public void ResetUnitName()
     {
-      var actions = ActionListBuilder.New().ResetUnitName(TestUnit).Build();
+      var actions = ActionsBuilder.New().ResetUnitName(TestUnit).Build();
 
       Assert.Single(actions.Actions);
       var changeName = (ChangeUnitName)actions.Actions[0];

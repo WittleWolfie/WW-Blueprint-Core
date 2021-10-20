@@ -126,7 +126,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_AddFacts_System_String___System_Int32_System_Boolean_System_Boolean_Kingmaker_Settings_GameDifficultyOption_">BlueprintUnitFactConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.AddFacts(String[], Int32, Boolean, Boolean, GameDifficultyOption)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionListBuilder_System_Boolean_">BlueprintUnitFactConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.OnSkillCheck(StatType, ActionListBuilder, Boolean)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Facts_BlueprintUnitFactConfigurator_2_OnSkillCheck_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_">BlueprintUnitFactConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.OnSkillCheck(StatType, ActionsBuilder, Boolean)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Logger">BlueprintConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.Logger</a>
@@ -168,7 +168,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_">BlueprintConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.ContextRankConfig(ContextRankConfig)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Actions_Builder_ActionListBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.FactContextActions(ActionListBuilder, ActionListBuilder, ActionListBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.FactContextActions(ActionsBuilder, ActionsBuilder, ActionsBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;BlueprintFeature, FeatureConfigurator&gt;.AddPrerequisiteAlignment(AlignmentMaskType[])</a>
@@ -315,8 +315,8 @@ usage.
 </td></tr><tr><td>Fluent API</td><td>
 <p>
 The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
-work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionListBuilder.html">ActionListBuilder</a> and
-<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsCheckerBuilder.html">ConditionsCheckerBuilder</a> APIs as well.
+work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and
+<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs as well.
 </p>
 <p>
 Complicated components such as
@@ -360,26 +360,26 @@ ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThe
 .Configure();</p>
 <p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
 // Rage is active.
-var applyBuff = ActionListBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
 BuffConfigurator.For(inspiredRageBuff)
 .FactContextActions(
 onActivated:
-ActionListBuilder.New()
+ActionsBuilder.New()
 // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
 // the feat.
 .Conditional(
-ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
 ifTrue: applyBuff)
 // For characters other than the caster, Skald's Vigor is only applied if the caster has the
 // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
 // buffs do not stack so it has no effect.
 .Conditional(
-ConditionsCheckerBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
 onDeactivated:
 // Removes Skald's Vigor when Inspired Rage ends.
 // There is actually a bug with this implementation; Lingering Song will extend the duration of
 // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionListBuilder.New().RemoveBuff(skaldsVigorBuff))
+ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
 .Configure();</code></pre>
 </example><p>
 </div>

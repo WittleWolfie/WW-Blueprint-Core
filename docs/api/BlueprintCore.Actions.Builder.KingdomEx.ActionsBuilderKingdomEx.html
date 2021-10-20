@@ -1,0 +1,3163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionsBuilderKingdomEx
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionsBuilderKingdomEx
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx">
+  
+  
+  <h1 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx" class="text-break">Class ActionsBuilderKingdomEx
+  </h1>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> for actions involving the Kingdom and Crusade
+system.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ActionsBuilderKingdomEx</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.html">BlueprintCore.Actions.Builder.KingdomEx</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ActionsBuilderKingdomEx</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Actions are supported using extension methods. Include the extension namespaces as needed.
+</p>
+<p>
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
+</p>
+<p>
+Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build">Build()</a> twice on the same builder.
+</p>
+<p>
+If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
+<span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
+provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
+    Actions involving the game map, dungeons, or locations. See also
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a> for location related actions specifically
+tied to the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a></td><td>
+  Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">ActionsBuilderBasicEx</a></td><td>
+  Most game mechanics related actions not included in
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a></td><td>
+  Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a></td><td>
+  Actions involving the Kingdom and Crusade system.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">ActionsBuilderMiscEx</a></td><td>
+  Actions without a better extension container such as achievements and CustomEvent.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.html">ActionsBuilderNewEx</a></td><td>
+  Actions defined in BlueprintCore and not available in the base game.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">ActionsBuilderStoryEx</a></td><td>
+  Actions related to the story such as companion stories, quests, name changes, and etudes.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">ActionsBuilderUpgraderEx</a></td><td>
+  All UpgraderOnlyActions.
+</td></tr></tbody></table>
+<example>
+Apply a buff and make a melee attack:
+<pre><code>  // Provides ApplyBuff and MeleeAttack extensions
+  using BlueprintCore.Actions.Builder.ContextEx; 
+<p>var actionList =
+ActionsBuilder.New()
+.ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+.MeleeAttack()
+.build();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ActivateEventDeck_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ActivateEventDeck(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L432">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ActivateEventDeck_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ActivateEventDeck*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ActivateEventDeck_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ActivateEventDeck(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">ActivateEventDeck(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionActivateEventDeck</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ActivateEventDeck(this ActionsBuilder builder, string deck)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">deck</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBP_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResource_Kingmaker_RuleSystem_DiceFormula_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBP(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Kingdom.KingdomResource%2CKingmaker.RuleSystem.DiceFormula%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L442">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBP_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBP*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBP_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResource_Kingmaker_RuleSystem_DiceFormula_System_Int32_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBP(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResource,Kingmaker.RuleSystem.DiceFormula,System.Int32,System.Boolean)">AddBP(ActionsBuilder, KingdomResource, DiceFormula, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionAddBPRandom</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddBP(this ActionsBuilder builder, KingdomResource type, DiceFormula value, int bonus, bool showInEventHistory = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Kingdom.KingdomResource</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceFormula</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">showInEventHistory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResource_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResource(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Kingdom.KingdomResourcesAmount)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L52">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResource_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResource*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResource_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResource(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)">AddCrusadeResource(ActionsBuilder, KingdomResourcesAmount)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.GameActions.ContextActionAddCrusadeResource</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddCrusadeResource(this ActionsBuilder builder, KingdomResourcesAmount amount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Kingdom.KingdomResourcesAmount</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResources_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResources(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Kingdom.KingdomResourcesAmount)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L680">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResources_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResources*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResources_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResources(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)">AddCrusadeResources(ActionsBuilder, KingdomResourcesAmount)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Blueprints.AddCrusadeResources</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddCrusadeResources(this ActionsBuilder builder, KingdomResourcesAmount resources)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Kingdom.KingdomResourcesAmount</span></td>
+        <td><span class="parametername">resources</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeBuilding_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeBuilding(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Int32%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L486">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeBuilding_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeBuilding*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeBuilding_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeBuilding(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32,System.String)">AddFreeBuilding(ActionsBuilder, String, Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionAddFreeBuilding</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddFreeBuilding(this ActionsBuilder builder, string building, int count = 1, string settlement = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">building</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">settlement</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.BlueprintSettlement</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeMercRerolls_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeMercRerolls(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L507">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeMercRerolls_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeMercRerolls*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeMercRerolls_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeMercRerolls(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)">AddFreeMercRerolls(ActionsBuilder, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionAddMercenaryReroll</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddFreeMercRerolls(this ActionsBuilder builder, int count = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Int32%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L463">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomBuff_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomBuff*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32,System.String,System.Boolean,System.Boolean)">AddKingdomBuff(ActionsBuilder, String, Int32, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionAddBuff</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddKingdomBuff(this ActionsBuilder builder, string buff, int durationOverrideDays = 0, string targetRegion = null, bool applyToRegion = true, bool applyToAdjacentRegions = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">durationOverrideDays</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">targetRegion</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintRegion</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToRegion</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToAdjacentRegions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRandomKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRandomKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L519">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRandomKingdomBuff_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRandomKingdomBuff*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRandomKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___System_Int32_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRandomKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[],System.Int32)">AddRandomKingdomBuff(ActionsBuilder, String[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionAddRandomBuff</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddRandomKingdomBuff(this ActionsBuilder builder, string[] buffs, int durationOverrideDays = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">buffs</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">durationOverrideDays</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ArtisanRequestHelp_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ArtisanRequestHelp(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L535">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ArtisanRequestHelp_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ArtisanRequestHelp*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ArtisanRequestHelp_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ArtisanRequestHelp(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">ArtisanRequestHelp(ActionsBuilder, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionArtisanRequestHelp</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ArtisanRequestHelp(this ActionsBuilder builder, string artisan, string project)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">artisan</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">project</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_BuffSquad_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_SquadFilter_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.BuffSquad(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue%2CKingmaker.Crusade.GlobalMagic.SquadFilter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L97">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_BuffSquad_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.BuffSquad*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_BuffSquad_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_SquadFilter_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.BuffSquad(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue,Kingmaker.Crusade.GlobalMagic.SquadFilter)">BuffSquad(ActionsBuilder, String, GlobalMagicValue, SquadFilter)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.AddBuffToSquad</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder BuffSquad(this ActionsBuilder builder, string buff, GlobalMagicValue durationHours, SquadFilter filter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buff</span></td>
+        <td><p><span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">durationHours</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.SquadFilter</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeArmyMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeArmyMorale(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L113">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeArmyMorale_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeArmyMorale*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeArmyMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeArmyMorale(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">ChangeArmyMorale(ActionsBuilder, GlobalMagicValue, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeArmyMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">ChangeArmyMorale(ActionsBuilder, GlobalMagicValue, GlobalMagicValue)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ChangeArmyMorale(this ActionsBuilder builder, GlobalMagicValue duration, GlobalMagicValue change)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">duration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">change</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeTacticalMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeTacticalMorale(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L693">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeTacticalMorale_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeTacticalMorale*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ChangeTacticalMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ChangeTacticalMorale(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)">ChangeTacticalMorale(ActionsBuilder, ContextValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ChangeTacticalMorale</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ChangeTacticalMorale(this ActionsBuilder builder, ContextValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CollectKingdomLoot_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CollectKingdomLoot(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L554">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CollectKingdomLoot_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CollectKingdomLoot*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CollectKingdomLoot_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CollectKingdomLoot(BlueprintCore.Actions.Builder.ActionsBuilder)">CollectKingdomLoot(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionCollectLoot</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CollectKingdomLoot(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ConquerRegion_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ConquerRegion(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L564">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ConquerRegion_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ConquerRegion*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ConquerRegion_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ConquerRegion(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">ConquerRegion(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionConquerRegion</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ConquerRegion(this ActionsBuilder builder, string region)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">region</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.Blueprints.BlueprintRegion</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmy_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Single__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmy(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L252">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmy_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmy*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmy_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Single__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmy(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Single},System.Nullable{System.Boolean})">CreateCrusaderArmy(ActionsBuilder, String, String, String, Nullable&lt;Int32&gt;, Nullable&lt;Single&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CreateCrusaderArmy(this ActionsBuilder builder, string army, string location, string leader = null, int? movePoints = null, float? speed = null, bool? applyRecruitIncrease = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">army</span></td>
+        <td><p><span class="xref">Kingmaker.Armies.Blueprints.BlueprintArmyPreset</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">leader</span></td>
+        <td><p><span class="xref">Kingmaker.Armies.BlueprintArmyLeader</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">movePoints</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">speed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">applyRecruitIncrease</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmyFromLosses_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmyFromLosses(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L273">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmyFromLosses_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmyFromLosses*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateCrusaderArmyFromLosses_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_Int32_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateCrusaderArmyFromLosses(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32,System.Int32,System.Boolean)">CreateCrusaderArmyFromLosses(ActionsBuilder, String, Int32, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CreateCrusaderArmyFromLosses(this ActionsBuilder builder, string location, int sumExperience, int maxSquads, bool applyRecruitIncrease = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">sumExperience</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxSquads</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyRecruitIncrease</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmy_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Boolean_System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmy(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L289">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmy_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmy*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmy_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Boolean_System_Nullable_System_Single__" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmy(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.String,System.Boolean,System.Nullable{System.Single})">CreateDemonArmy(ActionsBuilder, String, String, String, Boolean, Nullable&lt;Single&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CreateDemonArmy(this ActionsBuilder builder, string army, string location, string leader = null, bool targetNearestEnemy = false, float? speed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">army</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">leader</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">targetNearestEnemy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">speed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmyTargetingLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmyTargetingLocation(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L312">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmyTargetingLocation_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmyTargetingLocation*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateDemonArmyTargetingLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateDemonArmyTargetingLocation(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32})">CreateDemonArmyTargetingLocation(ActionsBuilder, String, String, String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CreateDemonArmyTargetingLocation(this ActionsBuilder builder, string army, string location, string targetLocation, string onTargetReached = null, string leader = null, int? daysToTarget = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">army</span></td>
+        <td><p><span class="xref">Kingmaker.Armies.Blueprints.BlueprintArmyPreset</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">targetLocation</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">onTargetReached</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.BlueprintActionList</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">leader</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">daysToTarget</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateGarrison_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateGarrison(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L380">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateGarrison_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateGarrison*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_CreateGarrison_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.CreateGarrison(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.String,System.Boolean)">CreateGarrison(ActionsBuilder, String, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.CreateGarrison</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder CreateGarrison(this ActionsBuilder builder, string army, string location, string leader = null, bool noReward = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">army</span></td>
+        <td><p><span class="xref">Kingmaker.Armies.Blueprints.BlueprintArmyPreset</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">leader</span></td>
+        <td><p><span class="xref">Kingmaker.Armies.BlueprintArmyLeader</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">noReward</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DestroyAllSettlements_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DestroyAllSettlements(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L574">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DestroyAllSettlements_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DestroyAllSettlements*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DestroyAllSettlements_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DestroyAllSettlements(BlueprintCore.Actions.Builder.ActionsBuilder)">DestroyAllSettlements(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionDestroyAllSettlements</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder DestroyAllSettlements(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DisableKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DisableKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L582">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DisableKingdom_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DisableKingdom*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_DisableKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.DisableKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)">DisableKingdom(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionDisable</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder DisableKingdom(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableAutoCrusade_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableAutoCrusade(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L546">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableAutoCrusade_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableAutoCrusade*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableAutoCrusade_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableAutoCrusade(BlueprintCore.Actions.Builder.ActionsBuilder)">EnableAutoCrusade(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionChangeToAutoCrusade</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder EnableAutoCrusade(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L590">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableKingdom_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableKingdom*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_EnableKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.EnableKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)">EnableKingdom(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionEnable</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder EnableKingdom(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FakeSkipTime_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FakeSkipTime(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L125">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FakeSkipTime_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FakeSkipTime*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FakeSkipTime_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FakeSkipTime(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">FakeSkipTime(ActionsBuilder, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FakeSkipTime_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">FakeSkipTime(ActionsBuilder, GlobalMagicValue)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FakeSkipTime(this ActionsBuilder builder, GlobalMagicValue days)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">days</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlement(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L601">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlement_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlement*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">FillSettlement(ActionsBuilder, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionFillSettlement</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FillSettlement(this ActionsBuilder builder, string settlement, string buildList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">settlement</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.BlueprintSettlement</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buildList</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.AI.SettlementBuildList</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlementByLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlementByLocation(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L616">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlementByLocation_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlementByLocation*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FillSettlementByLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FillSettlementByLocation(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">FillSettlementByLocation(ActionsBuilder, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionFillSettlementByLocation</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FillSettlementByLocation(this ActionsBuilder builder, string location, string buildList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">buildList</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.AI.SettlementBuildList</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FinishRandomBuilding_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FinishRandomBuilding(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L629">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FinishRandomBuilding_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FinishRandomBuilding*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FinishRandomBuilding_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FinishRandomBuilding(BlueprintCore.Actions.Builder.ActionsBuilder)">FinishRandomBuilding(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionFinishRandomBuilding</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FinishRandomBuilding(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L637">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundKingdom_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundKingdom*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundKingdom(BlueprintCore.Actions.Builder.ActionsBuilder)">FoundKingdom(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionFoundKingdom</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FoundKingdom(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundSettlement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundSettlement(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L648">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundSettlement_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundSettlement*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_FoundSettlement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.FoundSettlement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">FoundSettlement(ActionsBuilder, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionFoundSettlement</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder FoundSettlement(this ActionsBuilder builder, string location, string settlement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">location</span></td>
+        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">settlement</span></td>
+        <td><p><span class="xref">Kingmaker.Kingdom.BlueprintSettlement</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainArmyDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainArmyDamage(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.SquadFilter%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L135">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainArmyDamage_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainArmyDamage*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainArmyDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainArmyDamage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.SquadFilter,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">GainArmyDamage(ActionsBuilder, SquadFilter, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.DamageLogic.GainDiceArmyDamage</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder GainArmyDamage(this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue dmgDice)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.SquadFilter</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">dmgDice</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainGlobalSpell_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainGlobalSpell(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L161">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainGlobalSpell_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainGlobalSpell*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GainGlobalSpell_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GainGlobalSpell(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">GainGlobalSpell(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.GainGlobalMagicSpell</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder GainGlobalSpell(this ActionsBuilder builder, string spell)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">spell</span></td>
+        <td><p><span class="xref">Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GlobalTeleport_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GlobalTeleport(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L183">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GlobalTeleport_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GlobalTeleport*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GlobalTeleport_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GlobalTeleport(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">GlobalTeleport(ActionsBuilder, ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.OpenTeleportationInterface</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder GlobalTeleport(this ActionsBuilder builder, ActionsBuilder onTeleport)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">onTeleport</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantExtraArmyAction_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantExtraArmyAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L38">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantExtraArmyAction_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantExtraArmyAction*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantExtraArmyAction_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantExtraArmyAction(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean)">GrantExtraArmyAction(ActionsBuilder, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.GameActions.ArmyAdditionalAction</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder GrantExtraArmyAction(this ActionsBuilder builder, bool usableInCurrentTurn = true, bool usableInBonusMoraleTurn = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">usableInCurrentTurn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">usableInBonusMoraleTurn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantLeaderExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IntEvaluator_System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantLeaderExp(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.IntEvaluator%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L660">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantLeaderExp_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantLeaderExp*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_GrantLeaderExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IntEvaluator_System_Nullable_System_Single__" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.GrantLeaderExp(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.IntEvaluator,System.Nullable{System.Single})">GrantLeaderExp(ActionsBuilder, IntEvaluator, Nullable&lt;Single&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.KingdomActionGainLeaderExperience</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder GrantLeaderExp(this ActionsBuilder builder, IntEvaluator exp, float? leaderLevelMultiplier = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">exp</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td><span class="parametername">leaderLevelMultiplier</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_IncreaseMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.IncreaseMorale(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.RuleSystem.DiceFormula%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L409">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_IncreaseMorale_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.IncreaseMorale*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_IncreaseMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.IncreaseMorale(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.DiceFormula,System.Int32)">IncreaseMorale(ActionsBuilder, DiceFormula, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.AddMorale</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder IncreaseMorale(this ActionsBuilder builder, DiceFormula value, int bonus)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceFormula</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadLeaders(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.ContextDiceValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L725">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadLeaders_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadLeaders*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadLeaders(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextDiceValue)">KillSquadLeaders(ActionsBuilder, ContextDiceValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSquadUnitsKill</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder KillSquadLeaders(this ActionsBuilder builder, ContextDiceValue count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextDiceValue</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this to kill leader units from the caster's squad. Use <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_">KillSquadUnits(ActionsBuilder, Single)</a> for regular units.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadUnits(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L710">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadUnits_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadUnits*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.KillSquadUnits(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single)">KillSquadUnits(ActionsBuilder, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSquadUnitsKill</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder KillSquadUnits(this ActionsBuilder builder, float percent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">percent</span></td>
+        <td><p>Percentage of squad units to kill as a float between 0.0 and 1.0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this to kill non-leader units from the caster's squad. Use <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_KillSquadLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_">KillSquadLeaders(ActionsBuilder, ContextDiceValue)</a> for leaders units.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_PutGlobalSpellOnCooldown_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.PutGlobalSpellOnCooldown(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L173">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_PutGlobalSpellOnCooldown_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.PutGlobalSpellOnCooldown*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_PutGlobalSpellOnCooldown_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.PutGlobalSpellOnCooldown(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">PutGlobalSpellOnCooldown(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.ManuallySetGlobalSpellCooldown</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder PutGlobalSpellOnCooldown(this ActionsBuilder builder, string spell)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">spell</span></td>
+        <td><p><span class="xref">Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ReduceMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ReduceMorale(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.RuleSystem.DiceFormula%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L418">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ReduceMorale_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ReduceMorale*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ReduceMorale_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceFormula_System_Int32_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ReduceMorale(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.DiceFormula,System.Int32)">ReduceMorale(ActionsBuilder, DiceFormula, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Kingdom.Actions.AddMorale</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ReduceMorale(this ActionsBuilder builder, DiceFormula value, int bonus)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceFormula</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveArmyFacts_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveArmyFacts(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L65">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveArmyFacts_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveArmyFacts*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveArmyFacts_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveArmyFacts(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[])">RemoveArmyFacts(ActionsBuilder, String[])</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.GameActions.ContextActionArmyRemoveFacts</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RemoveArmyFacts(this ActionsBuilder builder, params string[] facts)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">facts</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveGlobalSpell_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveGlobalSpell(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L195">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveGlobalSpell_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveGlobalSpell*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveGlobalSpell_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveGlobalSpell(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">RemoveGlobalSpell(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.RemoveGlobalMagicSpell</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RemoveGlobalSpell(this ActionsBuilder builder, string spell)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">spell</span></td>
+        <td><p><span class="xref">Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveUnitsByExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveUnitsByExp(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.SquadFilter%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L147">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveUnitsByExp_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveUnitsByExp*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveUnitsByExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RemoveUnitsByExp(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.SquadFilter,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">RemoveUnitsByExp(ActionsBuilder, SquadFilter, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RemoveUnitsByExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_SquadFilter_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_">RemoveUnitsByExp(ActionsBuilder, SquadFilter, GlobalMagicValue)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RemoveUnitsByExp(this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue exp)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.SquadFilter</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">exp</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderAction_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderAction(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L77">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderAction_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderAction*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderAction_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderAction(BlueprintCore.Actions.Builder.ActionsBuilder)">RestoreLeaderAction(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.GameActions.ContextActionRestoreLeaderAction</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderMana_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderMana(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L205">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderMana_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderMana*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_RestoreLeaderMana_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.RestoreLeaderMana(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">RestoreLeaderMana(ActionsBuilder, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.RepairLeaderMana</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RestoreLeaderMana(this ActionsBuilder builder, GlobalMagicValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_StopUnit_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.StopUnit(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L85">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_StopUnit_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.StopUnit*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_StopUnit_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.StopUnit(BlueprintCore.Actions.Builder.ActionsBuilder)">StopUnit(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.GameActions.ContextActionStopUnit</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder StopUnit(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonMoreUnits_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonMoreUnits(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.GlobalMagicValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L215">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonMoreUnits_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonMoreUnits*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonMoreUnits_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_GlobalMagicValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonMoreUnits(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.GlobalMagicValue)">SummonMoreUnits(ActionsBuilder, GlobalMagicValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonExistUnits</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder SummonMoreUnits(this ActionsBuilder builder, GlobalMagicValue expCost)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.GlobalMagicValue</span></td>
+        <td><span class="parametername">expCost</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonRandomGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_Actions_SummonLogics_SummonRandomGroup_RandomGroup___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonRandomGroup(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup.RandomGroup%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L226">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonRandomGroup_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonRandomGroup*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonRandomGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Crusade_GlobalMagic_Actions_SummonLogics_SummonRandomGroup_RandomGroup___" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonRandomGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup.RandomGroup[])">SummonRandomGroup(ActionsBuilder, SummonRandomGroup.RandomGroup[])</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder SummonRandomGroup(this ActionsBuilder builder, params SummonRandomGroup.RandomGroup[] groups)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup.RandomGroup</span>[]</td>
+        <td><span class="parametername">groups</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonSquad_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonSquad(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L739">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonSquad_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonSquad*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_SummonSquad_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.SummonSquad(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.UnitLogic.Mechanics.ContextValue,BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">SummonSquad(ActionsBuilder, String, ContextValue, ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSummonTacticalSquad</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder SummonSquad(this ActionsBuilder builder, string unit, ContextValue count, ActionsBuilder onSpawn = null, string summonPool = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.BlueprintUnit</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">onSpawn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">summonPool</span></td>
+        <td><p><span class="xref">Kingmaker.Blueprints.BlueprintSummonPool</span></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatDealDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatDealDamage(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.RuleSystem.Rules.Damage.DamageTypeDescription%2CKingmaker.RuleSystem.DiceType%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L760">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatDealDamage_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatDealDamage*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatDealDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_System_Boolean_System_Nullable_System_Int32__" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatDealDamage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription,Kingmaker.RuleSystem.DiceType,Kingmaker.UnitLogic.Mechanics.ContextValue,System.Boolean,System.Boolean,System.Nullable{System.Int32})">TacticalCombatDealDamage(ActionsBuilder, DamageTypeDescription, DiceType, ContextValue, Boolean, Boolean, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionTacticalCombatDealDamage</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder TacticalCombatDealDamage(this ActionsBuilder builder, DamageTypeDescription type, DiceType diceType, ContextValue diceRolls = null, bool dealHalf = false, bool ignoreCrit = false, int? minHPAfterDmg = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceType</span></td>
+        <td><span class="parametername">diceType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">diceRolls</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">dealHalf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ignoreCrit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">minHPAfterDmg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatHeal_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatHeal(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.RuleSystem.DiceType%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L787">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatHeal_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatHeal*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatHeal_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TacticalCombatHeal(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.DiceType,Kingmaker.UnitLogic.Mechanics.ContextValue)">TacticalCombatHeal(ActionsBuilder, DiceType, ContextValue)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionTacticalCombatHealTarget</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder TacticalCombatHeal(this ActionsBuilder builder, DiceType diceType = DiceType.D6, ContextValue diceRolls = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceType</span></td>
+        <td><span class="parametername">diceType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">diceRolls</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TeleportArmy_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TeleportArmy(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L238">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TeleportArmy_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TeleportArmy*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TeleportArmy_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.TeleportArmy(BlueprintCore.Actions.Builder.ActionsBuilder)">TeleportArmy(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Crusade.GlobalMagic.Actions.TeleportArmyAction</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder TeleportArmy(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TylerGoeringer/WW-Blueprint-Core/blob/main/Blueprint-Core/Actions/Builder/KingdomEx/ActionsBuilderKingdomEx.cs/#L31" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -11,7 +11,7 @@ namespace BlueprintCore.Test.Conditions.Builder.NewEx
     [Fact]
     public void IsDemoralizeAction()
     {
-      var conditions = ConditionsCheckerBuilder.New().IsDemoralizeAction().Build();
+      var conditions = ConditionsBuilder.New().IsDemoralizeAction().Build();
 
       Assert.Single(conditions.Conditions);
       var isDemoralize = (IsDemoralizeAction)conditions.Conditions[0];
@@ -21,7 +21,7 @@ namespace BlueprintCore.Test.Conditions.Builder.NewEx
     [Fact]
     public void TargetInMeleeRange()
     {
-      var conditions = ConditionsCheckerBuilder.New().TargetInMeleeRange().Build();
+      var conditions = ConditionsBuilder.New().TargetInMeleeRange().Build();
 
       Assert.Single(conditions.Conditions);
       var inMeleeRange = (TargetInMeleeRange)conditions.Conditions[0];

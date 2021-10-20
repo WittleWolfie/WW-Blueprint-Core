@@ -45,7 +45,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       return AbilityConfigurator.For(guid)
           .SetType(AbilityType.Extraordinary)
-          .RunActions(ActionListBuilder.New());
+          .RunActions(ActionsBuilder.New());
     }
 
     [Fact]
@@ -757,7 +757,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
-          .RunActions(ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .RunActions(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -777,7 +777,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
           .RunActions(
-              ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
               SavingThrowType.Reflex)
           .Configure();
 
@@ -799,7 +799,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
           .RunActions(
-              ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
               SavingThrowType.Fortitude)
           .Configure();
 
@@ -808,7 +808,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(initialComponent);
 
       AbilityConfigurator.For(Guid)
-          .RunActions(ActionListBuilder.New().MeleeAttack(), SavingThrowType.Will)
+          .RunActions(ActionsBuilder.New().MeleeAttack(), SavingThrowType.Will)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -829,7 +829,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       GetConfigurator(Guid)
           .DeliveredByWeapon()
-          .OnMiss(ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -849,7 +849,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       GetConfigurator(Guid)
           .DeliveredByWeapon()
           .OnMiss(
-              ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
               useTargetSelector: false)
           .Configure();
 
@@ -870,12 +870,12 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       // First pass
       GetConfigurator(Guid)
           .DeliveredByWeapon()
-          .OnMiss(ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
           .Configure();
 
       AbilityConfigurator.For(Guid)
           .OnMiss(
-              ActionListBuilder.New().MeleeAttack(),
+              ActionsBuilder.New().MeleeAttack(),
               useTargetSelector: false)
           .Configure();
 
@@ -896,7 +896,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       Assert.Throws<InvalidOperationException>(
           () => AbilityConfigurator.For(Guid)
-              .OnMiss(ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+              .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
               .Configure());
     }
 
@@ -904,7 +904,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     public void OnCast()
     {
       GetConfigurator(Guid)
-          .OnCast(ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnCast(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -923,8 +923,8 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       GetConfigurator(Guid)
           .OnCast(
-              ActionListBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
-              ConditionsCheckerBuilder.New().IsDemoralizeAction().TargetInMeleeRange())
+              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ConditionsBuilder.New().IsDemoralizeAction().TargetInMeleeRange())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);

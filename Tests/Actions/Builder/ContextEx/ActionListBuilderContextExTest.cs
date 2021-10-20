@@ -38,7 +38,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ApplyBuff()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ApplyBuff(BuffGuid, useDurationSeconds: true, durationSeconds: 1f)
               .Build();
 
@@ -64,7 +64,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       var duration = ContextDuration.Fixed(2);
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ApplyBuff(BuffGuid, duration: duration)
               .Build();
 
@@ -88,7 +88,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ApplyBuff_WithPermanentDuration()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ApplyBuff(BuffGuid, permanent: true)
               .Build();
 
@@ -112,7 +112,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ApplyBuff_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ApplyBuff(
                   BuffGuid,
                   permanent: true,
@@ -143,13 +143,13 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ApplyBuff_WithoutDuration()
     {
       Assert.Throws<InvalidOperationException>(
-          () => ActionListBuilder.New().ApplyBuff(BuffGuid).Build());
+          () => ActionsBuilder.New().ApplyBuff(BuffGuid).Build());
     }
 
     [Fact]
     public void AddFeature()
     {
-      var actions = ActionListBuilder.New().AddFeature(FeatureGuid).Build();
+      var actions = ActionsBuilder.New().AddFeature(FeatureGuid).Build();
 
       Assert.Single(actions.Actions);
       var addFeature = (ContextActionAddFeature)actions.Actions[0];
@@ -161,7 +161,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void AddLocustClone()
     {
-      var actions = ActionListBuilder.New().AddLocustClone(FeatureGuid).Build();
+      var actions = ActionsBuilder.New().AddLocustClone(FeatureGuid).Build();
 
       Assert.Single(actions.Actions);
       var addClone = (ContextActionAddLocustClone)actions.Actions[0];
@@ -173,7 +173,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void AeonRollbackState()
     {
-      var actions = ActionListBuilder.New().AeonRollbackState().Build();
+      var actions = ActionsBuilder.New().AeonRollbackState().Build();
 
       Assert.Single(actions.Actions);
       var rollbackState = (ContextActionAeonRollbackToSavedState)actions.Actions[0];
@@ -203,7 +203,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupArmorEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ArmorEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
@@ -233,7 +233,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupArmorEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ArmorEnchantPool(
                 EnchantPoolType.SacredArmorPool,
                 ContextDuration.Fixed(6),
@@ -271,7 +271,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupArmorEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ShieldArmorEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
@@ -301,7 +301,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupArmorEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ShieldArmorEnchantPool(
                 EnchantPoolType.SacredArmorPool,
                 ContextDuration.Fixed(6),
@@ -356,7 +356,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .WeaponEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
@@ -386,7 +386,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .WeaponEnchantPool(
                 EnchantPoolType.SacredWeaponPool,
                 ContextDuration.Fixed(6),
@@ -424,7 +424,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ShieldWeaponEnchantPool(EnchantPoolType.ArcanePool, ContextDuration.Fixed(3))
               .Build();
 
@@ -454,7 +454,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ShieldWeaponEnchantPool(
                 EnchantPoolType.SacredWeaponPool,
                 ContextDuration.Fixed(6),
@@ -490,7 +490,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void AttackWithWeapon()
     {
       var actions =
-          ActionListBuilder.New().AttackWithWeapon(StatType.Intelligence, WeaponGuid).Build();
+          ActionsBuilder.New().AttackWithWeapon(StatType.Intelligence, WeaponGuid).Build();
 
       Assert.Single(actions.Actions);
       var attack = (ContextActionAttackWithWeapon)actions.Actions[0];
@@ -503,7 +503,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void BatteringBlast()
     {
-      var actions = ActionListBuilder.New().BatteringBlast().Build();
+      var actions = ActionsBuilder.New().BatteringBlast().Build();
 
       Assert.Single(actions.Actions);
       var blast = (ContextActionBatteringBlast)actions.Actions[0];
@@ -515,7 +515,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void BatteringBlast_Remove()
     {
-      var actions = ActionListBuilder.New().BatteringBlast(true).Build();
+      var actions = ActionsBuilder.New().BatteringBlast(true).Build();
 
       Assert.Single(actions.Actions);
       var blast = (ContextActionBatteringBlast)actions.Actions[0];
@@ -527,7 +527,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void BreakFree()
     {
-      var actions = ActionListBuilder.New().BreakFree().Build();
+      var actions = ActionsBuilder.New().BreakFree().Build();
 
       Assert.Single(actions.Actions);
       var breakFree = (ContextActionBreakFree)actions.Actions[0];
@@ -543,12 +543,12 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void BreakFree_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .BreakFree(
                   useCMB: true,
                   useCMD: true,
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFail: ActionListBuilder.New().SwitchToDemoralizeTarget())
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -565,7 +565,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void BreathOfLife()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .BreathOfLife(
                   new ContextDiceValue
                   {
@@ -587,7 +587,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void BreathOfMoney()
     {
-      var actions = ActionListBuilder.New().BreathOfMoney(1, 5).Build();
+      var actions = ActionsBuilder.New().BreathOfMoney(1, 5).Build();
 
       Assert.Single(actions.Actions);
       var breathOfMoney = (ContextActionBreathOfMoney)actions.Actions[0];
@@ -601,7 +601,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SetSharedValue()
     {
       var actions =
-          ActionListBuilder.New().SetSharedValue(AbilitySharedValue.DamageBonus, 3).Build();
+          ActionsBuilder.New().SetSharedValue(AbilitySharedValue.DamageBonus, 3).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -616,7 +616,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SetSharedValueToHD()
     {
       var actions =
-          ActionListBuilder.New().SetSharedValueToHD(AbilitySharedValue.Damage).Build();
+          ActionsBuilder.New().SetSharedValueToHD(AbilitySharedValue.Damage).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -630,7 +630,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void AddToSharedValue()
     {
       var actions =
-          ActionListBuilder.New().AddToSharedValue(AbilitySharedValue.DungeonBoonValue, 5).Build();
+          ActionsBuilder.New().AddToSharedValue(AbilitySharedValue.DungeonBoonValue, 5).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -644,7 +644,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void MultiplySharedValue()
     {
-      var actions = ActionListBuilder.New().MultiplySharedValue(AbilitySharedValue.Heal, 4).Build();
+      var actions = ActionsBuilder.New().MultiplySharedValue(AbilitySharedValue.Heal, 4).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -659,7 +659,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DivideSharedValueBy2()
     {
       var actions =
-          ActionListBuilder.New().DivideSharedValueBy2(AbilitySharedValue.StatBonus).Build();
+          ActionsBuilder.New().DivideSharedValueBy2(AbilitySharedValue.StatBonus).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -673,7 +673,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DivideSharedValueBy4()
     {
       var actions =
-          ActionListBuilder.New().DivideSharedValueBy4(AbilitySharedValue.Duration).Build();
+          ActionsBuilder.New().DivideSharedValueBy4(AbilitySharedValue.Duration).Build();
 
       Assert.Single(actions.Actions);
       var setValue = (ContextActionChangeSharedValue)actions.Actions[0];
@@ -686,7 +686,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ClearSummonPool()
     {
-      var actions = ActionListBuilder.New().ClearSummonPool(SummonPoolGuid).Build();
+      var actions = ActionsBuilder.New().ClearSummonPool(SummonPoolGuid).Build();
 
       Assert.Single(actions.Actions);
       var clearSummons = (ContextActionClearSummonPool)actions.Actions[0];
@@ -700,10 +700,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void CombatManeuver()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
           .CombatManeuver(
               Kingmaker.RuleSystem.Rules.CombatManeuver.Disarm,
-              ActionListBuilder.New().MeleeAttack())
+              ActionsBuilder.New().MeleeAttack())
           .Build();
 
       Assert.Single(actions.Actions);
@@ -721,10 +721,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void CombatManeuver_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
           .CombatManeuver(
               Kingmaker.RuleSystem.Rules.CombatManeuver.Grapple,
-              ActionListBuilder.New().MeleeAttack(),
+              ActionsBuilder.New().MeleeAttack(),
               ignoreConcealment: true,
               batteringBlast: true,
               useStat: StatType.Strength,
@@ -754,7 +754,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void CustomCombatManeuver()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CustomCombatManeuver(Kingmaker.RuleSystem.Rules.CombatManeuver.DirtyTrickBlind)
               .Build();
 
@@ -771,11 +771,11 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void CustomCombatManeuver_WithActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .CustomCombatManeuver(
                   Kingmaker.RuleSystem.Rules.CombatManeuver.DirtyTrickBlind,
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFail: ActionListBuilder.New().SwitchToDemoralizeTarget())
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -790,7 +790,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void AfterSavingThrow()
     {
-      var actions = ActionListBuilder.New().AfterSavingThrow().Build();
+      var actions = ActionsBuilder.New().AfterSavingThrow().Build();
 
       Assert.Single(actions.Actions);
       var onSave = (ContextActionConditionalSaved)actions.Actions[0];
@@ -804,10 +804,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void AfterSavingThrow_WithActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AfterSavingThrow(
-                  ifPassed: ActionListBuilder.New().MeleeAttack(),
-                  ifFailed: ActionListBuilder.New().SwitchToDemoralizeTarget())
+                  ifPassed: ActionsBuilder.New().MeleeAttack(),
+                  ifFailed: ActionsBuilder.New().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -822,7 +822,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealDamage(
                   TestDamageTypeDescription,
                   new ContextDiceValue
@@ -859,7 +859,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealDamage(
                   TestDamageTypeDescription,
                   new ContextDiceValue
@@ -907,7 +907,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealDamagePreRolled()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealDamagePreRolled(TestDamageTypeDescription, AbilitySharedValue.Damage)
               .Build();
 
@@ -935,7 +935,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealDamagePreRolled_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealDamagePreRolled(
                   TestDamageTypeDescription,
                   AbilitySharedValue.Damage,
@@ -976,7 +976,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealAbilityDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealAbilityDamage(
                   StatType.Strength,
                   new ContextDiceValue
@@ -1011,7 +1011,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealAbilityDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealAbilityDamage(
                   StatType.Strength,
                   new ContextDiceValue
@@ -1056,7 +1056,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealPermanentNegativeLevels()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealPermanentNegativeLevels(
                   new ContextDiceValue
                   {
@@ -1088,7 +1088,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealPermanentNegativeLevels_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealPermanentNegativeLevels(
                   new ContextDiceValue
                   {
@@ -1126,7 +1126,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealTempNegativeLevels()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealTempNegativeLevels(
                   new ContextDiceValue
                   {
@@ -1160,7 +1160,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void DealTempNegativeLevels_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .DealTempNegativeLevels(
                   new ContextDiceValue
                   {
@@ -1200,7 +1200,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DealWeaponDamage()
     {
-      var actions = ActionListBuilder.New().DealWeaponDamage().Build();
+      var actions = ActionsBuilder.New().DealWeaponDamage().Build();
 
       Assert.Single(actions.Actions);
       var dmg = (ContextActionDealWeaponDamage)actions.Actions[0];
@@ -1212,7 +1212,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DealWeaponDamage_AllowRanged()
     {
-      var actions = ActionListBuilder.New().DealWeaponDamage(true).Build();
+      var actions = ActionsBuilder.New().DealWeaponDamage(true).Build();
 
       Assert.Single(actions.Actions);
       var dmg = (ContextActionDealWeaponDamage)actions.Actions[0];
@@ -1224,7 +1224,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DetectSecretDoors()
     {
-      var actions = ActionListBuilder.New().DetectSecretDoors().Build();
+      var actions = ActionsBuilder.New().DetectSecretDoors().Build();
 
       Assert.Single(actions.Actions);
       var detectDoors = (ContextActionDetectSecretDoors)actions.Actions[0];
@@ -1234,7 +1234,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DevourWithSwarm()
     {
-      var actions = ActionListBuilder.New().DevourWithSwarm().Build();
+      var actions = ActionsBuilder.New().DevourWithSwarm().Build();
 
       Assert.Single(actions.Actions);
       var devour = (ContextActionDevourBySwarm)actions.Actions[0];
@@ -1244,7 +1244,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Disarm()
     {
-      var actions = ActionListBuilder.New().Disarm().Build();
+      var actions = ActionsBuilder.New().Disarm().Build();
 
       Assert.Single(actions.Actions);
       var disarm = (ContextActionDisarm)actions.Actions[0];
@@ -1254,7 +1254,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DismissAOE()
     {
-      var actions = ActionListBuilder.New().DismissAOE().Build();
+      var actions = ActionsBuilder.New().DismissAOE().Build();
 
       Assert.Single(actions.Actions);
       var dismissAOE = (ContextActionDismissAreaEffect)actions.Actions[0];
@@ -1264,7 +1264,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Dismount()
     {
-      var actions = ActionListBuilder.New().Dismount().Build();
+      var actions = ActionsBuilder.New().Dismount().Build();
 
       Assert.Single(actions.Actions);
       var dismount = (ContextActionDismount)actions.Actions[0];
@@ -1275,7 +1275,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void Dispel()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Dispel(
                   ContextActionDispelMagic.BuffType.All,
                   RuleDispelMagic.CheckType.CasterLevel,
@@ -1310,7 +1310,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void Dispel_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Dispel(
                   ContextActionDispelMagic.BuffType.FromSpells,
                   RuleDispelMagic.CheckType.SkillDC,
@@ -1319,8 +1319,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   removeOnlyOne: true,
                   bonus: 3,
                   contextBonus: 5,
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFail: ActionListBuilder.New().SwitchToDemoralizeTarget(),
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget(),
                   limitToSchools:
                       new SpellSchool[] { SpellSchool.Abjuration, SpellSchool.Conjuration },
                   limitToDescriptor: SpellDescriptor.Fire,
@@ -1361,7 +1361,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void DropItems()
     {
-      var actions = ActionListBuilder.New().DropItems().Build();
+      var actions = ActionsBuilder.New().DropItems().Build();
 
       Assert.Single(actions.Actions);
       var dropItems = (ContextActionDropItems)actions.Actions[0];
@@ -1372,7 +1372,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void EnchantWornItem()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .EnchantWornItem(
                   EquipmentEnchantmentGuid, EquipSlotBase.SlotType.Armor, ContextDuration.Fixed(2))
               .Build();
@@ -1395,7 +1395,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void EnchantWornItem_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .EnchantWornItem(
                   EquipmentEnchantmentGuid,
                   EquipSlotBase.SlotType.Belt,
@@ -1421,7 +1421,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void FinishObjective()
     {
-      var actions = ActionListBuilder.New().FinishObjective(QuestObjectiveGuid).Build();
+      var actions = ActionsBuilder.New().FinishObjective(QuestObjectiveGuid).Build();
 
       Assert.Single(actions.Actions);
       var finish = (ContextActionFinishObjective)actions.Actions[0];
@@ -1435,8 +1435,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnEachSwallowedUnit()
     {
       var actions =
-          ActionListBuilder.New()
-              .OnEachSwallowedUnit(ActionListBuilder.New().MeleeAttack())
+          ActionsBuilder.New()
+              .OnEachSwallowedUnit(ActionsBuilder.New().MeleeAttack())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1449,7 +1449,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void GiveExperience()
     {
-      var actions = ActionListBuilder.New().GiveExperience().Build();
+      var actions = ActionsBuilder.New().GiveExperience().Build();
 
       Assert.Single(actions.Actions);
       var giveXP = (ContextActionGiveExperience)actions.Actions[0];
@@ -1459,7 +1459,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Grapple()
     {
-      var actions = ActionListBuilder.New().Grapple().Build();
+      var actions = ActionsBuilder.New().Grapple().Build();
 
       Assert.Single(actions.Actions);
       var grapple = (ContextActionGrapple)actions.Actions[0];
@@ -1473,7 +1473,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void Grapple_WithBuffs()
     {
       var actions =
-          ActionListBuilder.New().Grapple(casterBuff: BuffGuid, targetBuff: ExtraBuffGuid).Build();
+          ActionsBuilder.New().Grapple(casterBuff: BuffGuid, targetBuff: ExtraBuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var grapple = (ContextActionGrapple)actions.Actions[0];
@@ -1486,7 +1486,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void HealNegativeLevels()
     {
-      var actions = ActionListBuilder.New().HealNegativeLevels().Build();
+      var actions = ActionsBuilder.New().HealNegativeLevels().Build();
 
       Assert.Single(actions.Actions);
       var heal = (ContextActionHealEnergyDrain)actions.Actions[0];
@@ -1500,7 +1500,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void HealNegativeLevels_WithLevels()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .HealNegativeLevels(
                   tempLevels: EnergyDrainHealType.All, permanentLevels: EnergyDrainHealType.One)
               .Build();
@@ -1517,7 +1517,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void HealStatDamage()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .HealStatDamage(
                   ContextActionHealStatDamage.StatDamageHealType.HealAllDamage,
                   ContextActionHealStatDamage.StatClass.Mental)
@@ -1537,7 +1537,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void HealStatDamage_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .HealStatDamage(
                   ContextActionHealStatDamage.StatDamageHealType.Dice,
                   ContextActionHealStatDamage.StatClass.Physical,
@@ -1571,7 +1571,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void HealTarget()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .HealTarget(
                   new ContextDiceValue
                   {
@@ -1593,7 +1593,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void HideInPlainSight()
     {
-      var actions = ActionListBuilder.New().HideInPlainSight().Build();
+      var actions = ActionsBuilder.New().HideInPlainSight().Build();
 
       Assert.Single(actions.Actions);
       var hide = (ContextActionHideInPlainSight)actions.Actions[0];
@@ -1603,7 +1603,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Kill()
     {
-      var actions = ActionListBuilder.New().Kill().Build();
+      var actions = ActionsBuilder.New().Kill().Build();
 
       Assert.Single(actions.Actions);
       var kill = (ContextActionKill)actions.Actions[0];
@@ -1615,7 +1615,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Kill_WithDismember()
     {
-      var actions = ActionListBuilder.New().Kill(UnitState.DismemberType.LimbsApart).Build();
+      var actions = ActionsBuilder.New().Kill(UnitState.DismemberType.LimbsApart).Build();
 
       Assert.Single(actions.Actions);
       var kill = (ContextActionKill)actions.Actions[0];
@@ -1627,7 +1627,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Knockdown()
     {
-      var actions = ActionListBuilder.New().Knockdown().Build();
+      var actions = ActionsBuilder.New().Knockdown().Build();
 
       Assert.Single(actions.Actions);
       var knockdown = (ContextActionKnockdownTarget)actions.Actions[0];
@@ -1637,7 +1637,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void KnowledgeCheck()
     {
-      var actions = ActionListBuilder.New().KnowledgeCheck().Build();
+      var actions = ActionsBuilder.New().KnowledgeCheck().Build();
 
       Assert.Single(actions.Actions);
       var knowledgeCheck = (ContextActionMakeKnowledgeCheck)actions.Actions[0];
@@ -1651,10 +1651,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void KnowledgeCheck_WithActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .KnowledgeCheck(
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFail: ActionListBuilder.New().SwitchToDemoralizeTarget())
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1668,7 +1668,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void MarkOwnerForDismemberment()
     {
-      var actions = ActionListBuilder.New().MarkOwnerForDismemberment().Build();
+      var actions = ActionsBuilder.New().MarkOwnerForDismemberment().Build();
 
       Assert.Single(actions.Actions);
       var markForDismemberment = (ContextActionMarkForceDismemberOwner)actions.Actions[0];
@@ -1681,7 +1681,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void MarkOwnerForDismemberment_WithType()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MarkOwnerForDismemberment(UnitState.DismemberType.InPower)
               .Build();
 
@@ -1695,7 +1695,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void MeleeAttack()
     {
-      var actions = ActionListBuilder.New().MeleeAttack().Build();
+      var actions = ActionsBuilder.New().MeleeAttack().Build();
 
       Assert.Single(actions.Actions);
       var meleeAttack = (ContextActionMeleeAttack)actions.Actions[0];
@@ -1712,7 +1712,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void MeleeAttack_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MeleeAttack(
                   autoCritThreat: true,
                   autoCritConfirm: true,
@@ -1735,7 +1735,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Mount()
     {
-      var actions = ActionListBuilder.New().Mount().Build();
+      var actions = ActionsBuilder.New().Mount().Build();
 
       Assert.Single(actions.Actions);
       var mount = (ContextActionMount)actions.Actions[0];
@@ -1745,7 +1745,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void OnCaster()
     {
-      var actions = ActionListBuilder.New().OnCaster(ActionListBuilder.New().MeleeAttack()).Build();
+      var actions = ActionsBuilder.New().OnCaster(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onCaster = (ContextActionOnContextCaster)actions.Actions[0];
@@ -1758,7 +1758,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void OnOwner()
     {
-      var actions = ActionListBuilder.New().OnOwner(ActionListBuilder.New().MeleeAttack()).Build();
+      var actions = ActionsBuilder.New().OnOwner(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onCaster = (ContextActionOnOwner)actions.Actions[0];
@@ -1772,7 +1772,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnRandomEnemyInAOE()
     {
       var actions =
-          ActionListBuilder.New().OnRandomEnemyInAOE(ActionListBuilder.New().MeleeAttack()).Build();
+          ActionsBuilder.New().OnRandomEnemyInAOE(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onEnemy = (ContextActionOnRandomAreaTarget)actions.Actions[0];
@@ -1786,8 +1786,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnRandomUnitNearTarget()
     {
       var actions =
-          ActionListBuilder.New()
-              .OnRandomUnitNearTarget(ActionListBuilder.New().MeleeAttack(), 3)
+          ActionsBuilder.New()
+              .OnRandomUnitNearTarget(ActionsBuilder.New().MeleeAttack(), 3)
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1807,9 +1807,9 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnRandomUnitNearTarget_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .OnRandomUnitNearTarget(
-                  ActionListBuilder.New().MeleeAttack(),
+                  ActionsBuilder.New().MeleeAttack(),
                   5,
                   numTargets: 4,
                   targetEnemies: false,
@@ -1833,7 +1833,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnSwarmTargets()
     {
       var actions =
-          ActionListBuilder.New().OnSwarmTargets(ActionListBuilder.New().MeleeAttack()).Build();
+          ActionsBuilder.New().OnSwarmTargets(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onTarget = (ContextActionOnSwarmTargets)actions.Actions[0];
@@ -1847,7 +1847,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnPartyMembers()
     {
       var actions =
-          ActionListBuilder.New().OnPartyMembers(ActionListBuilder.New().MeleeAttack()).Build();
+          ActionsBuilder.New().OnPartyMembers(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onParty = (ContextActionPartyMembers)actions.Actions[0];
@@ -1860,7 +1860,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ProjectileFx()
     {
-      var actions = ActionListBuilder.New().ProjectileFx(ProjectileGuid).Build();
+      var actions = ActionsBuilder.New().ProjectileFx(ProjectileGuid).Build();
 
       Assert.Single(actions.Actions);
       var projectileFx = (ContextActionProjectileFx)actions.Actions[0];
@@ -1873,7 +1873,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ProvokeOpportunityAttackFromCaster()
     {
-      var actions = ActionListBuilder.New().ProvokeOpportunityAttackFromCaster().Build();
+      var actions = ActionsBuilder.New().ProvokeOpportunityAttackFromCaster().Build();
 
       Assert.Single(actions.Actions);
       var attack = (ContextActionProvokeAttackFromCaster)actions.Actions[0];
@@ -1883,7 +1883,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ProvokeOpportunityAttack()
     {
-      var actions = ActionListBuilder.New().ProvokeOpportunityAttack().Build();
+      var actions = ActionsBuilder.New().ProvokeOpportunityAttack().Build();
 
       Assert.Single(actions.Actions);
       var attack = (ContextActionProvokeAttackOfOpportunity)actions.Actions[0];
@@ -1895,7 +1895,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ProvokeOpportunityAttack_CasterProvokes()
     {
-      var actions = ActionListBuilder.New().ProvokeOpportunityAttack(casterProvokes: true).Build();
+      var actions = ActionsBuilder.New().ProvokeOpportunityAttack(casterProvokes: true).Build();
 
       Assert.Single(actions.Actions);
       var attack = (ContextActionProvokeAttackOfOpportunity)actions.Actions[0];
@@ -1907,7 +1907,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Push()
     {
-      var actions = ActionListBuilder.New().Push(3).Build();
+      var actions = ActionsBuilder.New().Push(3).Build();
 
       Assert.Single(actions.Actions);
       var push = (ContextActionPush)actions.Actions[0];
@@ -1920,7 +1920,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Push_Provokes()
     {
-      var actions = ActionListBuilder.New().Push(12, provokeOpportunityAttack: true).Build();
+      var actions = ActionsBuilder.New().Push(12, provokeOpportunityAttack: true).Build();
 
       Assert.Single(actions.Actions);
       var push = (ContextActionPush)actions.Actions[0];
@@ -1934,10 +1934,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RandomActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RandomActions(
-                  (actions: ActionListBuilder.New().MeleeAttack(), weight: 2),
-                  (actions: ActionListBuilder.New().SwitchToDemoralizeTarget(), weight: 3))
+                  (actions: ActionsBuilder.New().MeleeAttack(), weight: 2),
+                  (actions: ActionsBuilder.New().SwitchToDemoralizeTarget(), weight: 3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1954,7 +1954,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RangedAttack()
     {
-      var actions = ActionListBuilder.New().RangedAttack().Build();
+      var actions = ActionsBuilder.New().RangedAttack().Build();
 
       Assert.Single(actions.Actions);
       var meleeAttack = (ContextActionRangedAttack)actions.Actions[0];
@@ -1971,7 +1971,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RangedAttack_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RangedAttack(
                   autoCritThreat: true,
                   autoCritConfirm: true,
@@ -1998,7 +1998,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Armor.SpendCharges = true;
       Armor.Charges = 5;
 
-      var actions = ActionListBuilder.New().RecoverItemCharges(ArmorGuid).Build();
+      var actions = ActionsBuilder.New().RecoverItemCharges(ArmorGuid).Build();
 
       Assert.Single(actions.Actions);
       var recoverCharges = (ContextActionRecoverItemCharges)actions.Actions[0];
@@ -2012,7 +2012,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ChangeBuffDuration()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ChangeBuffDuration(BuffGuid, ContextDuration.Fixed(7), true)
               .Build();
 
@@ -2030,7 +2030,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void ChangeBuffDuration_OnTarget()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ChangeBuffDuration(BuffGuid, ContextDuration.Fixed(3), false, true)
               .Build();
 
@@ -2047,7 +2047,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RemoveBuff()
     {
-      var actions = ActionListBuilder.New().RemoveBuff(BuffGuid).Build();
+      var actions = ActionsBuilder.New().RemoveBuff(BuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var removeBuff = (ContextActionRemoveBuff)actions.Actions[0];
@@ -2062,7 +2062,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RemoveBuff_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RemoveBuff(BuffGuid, removeRank: true, toCaster: true)
               .Build();
 
@@ -2080,7 +2080,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     {
       SpellDescriptor descriptor = SpellDescriptor.Paralysis | SpellDescriptor.MindAffecting;
 
-      var actions = ActionListBuilder.New().RemoveBuffsWithDescriptor(descriptor).Build();
+      var actions = ActionsBuilder.New().RemoveBuffsWithDescriptor(descriptor).Build();
 
       Assert.Single(actions.Actions);
       var removeBuffs = (ContextActionRemoveBuffsByDescriptor)actions.Actions[0];
@@ -2096,7 +2096,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SpellDescriptor descriptor = SpellDescriptor.Paralysis;
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RemoveBuffsWithDescriptor(descriptor, includeThisBuff: true)
               .Build();
 
@@ -2111,7 +2111,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RemoveBuffStack()
     {
-      var actions = ActionListBuilder.New().RemoveBuffStack(BuffGuid).Build();
+      var actions = ActionsBuilder.New().RemoveBuffStack(BuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var removeStack = (ContextActionRemoveBuffSingleStack)actions.Actions[0];
@@ -2123,7 +2123,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RemoveDeathDoor()
     {
-      var actions = ActionListBuilder.New().RemoveDeathDoor().Build();
+      var actions = ActionsBuilder.New().RemoveDeathDoor().Build();
 
       Assert.Single(actions.Actions);
       var removeDeathDoor = (ContextActionRemoveDeathDoor)actions.Actions[0];
@@ -2133,7 +2133,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RemoveSelf()
     {
-      var actions = ActionListBuilder.New().RemoveSelf().Build();
+      var actions = ActionsBuilder.New().RemoveSelf().Build();
 
       Assert.Single(actions.Actions);
       var remove = (ContextActionRemoveSelf)actions.Actions[0];
@@ -2144,9 +2144,9 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RepeatActions()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RepeatActions(
-                  ActionListBuilder.New().MeleeAttack(),
+                  ActionsBuilder.New().MeleeAttack(),
                   new ContextDiceValue
                   {
                     DiceType = DiceType.One,
@@ -2171,7 +2171,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RestoreSpells()
     {
       var actions =
-          ActionListBuilder.New().RestoreSpells(SpellbookGuid, ExtraSpellbookGuid).Build();
+          ActionsBuilder.New().RestoreSpells(SpellbookGuid, ExtraSpellbookGuid).Build();
 
       Assert.Single(actions.Actions);
       var restoreSpells = (ContextActionRestoreSpells)actions.Actions[0];
@@ -2187,7 +2187,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Resurrect()
     {
-      var actions = ActionListBuilder.New().Resurrect(0.5f).Build();
+      var actions = ActionsBuilder.New().Resurrect(0.5f).Build();
 
       Assert.Single(actions.Actions);
       var resurrect = (ContextActionResurrect)actions.Actions[0];
@@ -2201,7 +2201,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Resurrect_WithCustomBuff()
     {
-      var actions = ActionListBuilder.New().Resurrect(0.5f, resurrectBuff: BuffGuid).Build();
+      var actions = ActionsBuilder.New().Resurrect(0.5f, resurrectBuff: BuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var resurrect = (ContextActionResurrect)actions.Actions[0];
@@ -2215,7 +2215,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ResurrectAndFullRestore()
     {
-      var actions = ActionListBuilder.New().ResurrectAndFullRestore().Build();
+      var actions = ActionsBuilder.New().ResurrectAndFullRestore().Build();
 
       Assert.Single(actions.Actions);
       var resurrect = (ContextActionResurrect)actions.Actions[0];
@@ -2228,7 +2228,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ResurrectAndFullRestore_WithCustomBuff()
     {
-      var actions = ActionListBuilder.New().ResurrectAndFullRestore().Build();
+      var actions = ActionsBuilder.New().ResurrectAndFullRestore().Build();
 
       Assert.Single(actions.Actions);
       var resurrect = (ContextActionResurrect)actions.Actions[0];
@@ -2242,8 +2242,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SavingThrow()
     {
       var actions =
-          ActionListBuilder.New()
-              .SavingThrow(SavingThrowType.Reflex, ActionListBuilder.New().MeleeAttack())
+          ActionsBuilder.New()
+              .SavingThrow(SavingThrowType.Reflex, ActionsBuilder.New().MeleeAttack())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2263,14 +2263,14 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SavingThrow_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SavingThrow(
                   SavingThrowType.Will,
-                  ActionListBuilder.New().MeleeAttack(),
+                  ActionsBuilder.New().MeleeAttack(),
                   customDC: 15,
                   fromBuff: true,
-                  (conditions: ConditionsCheckerBuilder.New().IsDemoralizeAction(), 3),
-                  (conditions: ConditionsCheckerBuilder.New().TargetInMeleeRange(), 4))
+                  (conditions: ConditionsBuilder.New().IsDemoralizeAction(), 3),
+                  (conditions: ConditionsBuilder.New().TargetInMeleeRange(), 4))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2302,10 +2302,10 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void RunActionWithGreatestValue()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RunActionWithGreatestValue(
-                  (value: 5, ActionListBuilder.New().MeleeAttack()),
-                  (value: 10, ActionListBuilder.New().SwitchToDemoralizeTarget()))
+                  (value: 5, ActionsBuilder.New().MeleeAttack()),
+                  (value: 10, ActionsBuilder.New().SwitchToDemoralizeTarget()))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2327,7 +2327,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SkillCheck()
     {
-      var actions = ActionListBuilder.New().SkillCheck(StatType.CheckBluff).Build();
+      var actions = ActionsBuilder.New().SkillCheck(StatType.CheckBluff).Build();
 
       Assert.Single(actions.Actions);
       var skillCheck = (ContextActionSkillCheck)actions.Actions[0];
@@ -2350,14 +2350,14 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SkillCheck_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SkillCheck(
                   StatType.CheckDiplomacy,
                   customDC: 20,
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFail: ActionListBuilder.New().SwitchToDemoralizeTarget(),
-                  (condition: ConditionsCheckerBuilder.New().IsDemoralizeAction(), value: 5),
-                  (condition: ConditionsCheckerBuilder.New().TargetInMeleeRange(), value: 3))
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+                  (condition: ConditionsBuilder.New().IsDemoralizeAction(), value: 5),
+                  (condition: ConditionsBuilder.New().TargetInMeleeRange(), value: 3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2394,7 +2394,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SkillCheckWithFailureDegrees()
     {
       var actions =
-          ActionListBuilder.New().SkillCheckWithFailureDegrees(StatType.CheckBluff).Build();
+          ActionsBuilder.New().SkillCheckWithFailureDegrees(StatType.CheckBluff).Build();
 
       Assert.Single(actions.Actions);
       var skillCheck = (ContextActionSkillCheck)actions.Actions[0];
@@ -2417,15 +2417,15 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SkillCheckWithFailureDegrees_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SkillCheckWithFailureDegrees(
                   StatType.CheckDiplomacy,
                   customDC: 20,
-                  onSuccess: ActionListBuilder.New().MeleeAttack(),
-                  onFailBy5to10: ActionListBuilder.New().SwitchToDemoralizeTarget(),
-                  onFailBy10orMore: ActionListBuilder.New().Mount(),
-                  (condition: ConditionsCheckerBuilder.New().IsDemoralizeAction(), value: 5),
-                  (condition: ConditionsCheckerBuilder.New().TargetInMeleeRange(), value: 3))
+                  onSuccess: ActionsBuilder.New().MeleeAttack(),
+                  onFailBy5to10: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+                  onFailBy10orMore: ActionsBuilder.New().Mount(),
+                  (condition: ConditionsBuilder.New().IsDemoralizeAction(), value: 5),
+                  (condition: ConditionsBuilder.New().TargetInMeleeRange(), value: 3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2463,7 +2463,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void OnPets()
     {
-      var actions = ActionListBuilder.New().OnPets(ActionListBuilder.New().MeleeAttack()).Build();
+      var actions = ActionsBuilder.New().OnPets(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var onPets = (ContextActionsOnPet)actions.Actions[0];
@@ -2480,9 +2480,9 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void OnPets_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .OnPets(
-                  ActionListBuilder.New().MeleeAttack(),
+                  ActionsBuilder.New().MeleeAttack(),
                   anyPetType: true,
                   type: PetType.MythicSkeletalChampion)
               .Build();
@@ -2502,7 +2502,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SpawnAOE()
     {
       var actions =
-          ActionListBuilder.New().SpawnAOE(AbilityAOEGuid, ContextDuration.Fixed(2)).Build();
+          ActionsBuilder.New().SpawnAOE(AbilityAOEGuid, ContextDuration.Fixed(2)).Build();
 
       Assert.Single(actions.Actions);
       var spawnAOE = (ContextActionSpawnAreaEffect)actions.Actions[0];
@@ -2517,7 +2517,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SpawnControllableProjectile()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SpawnControllableProjectile(ControllableProjectileGuid, BuffGuid)
               .Build();
 
@@ -2538,7 +2538,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Unit.m_Faction = Faction.ToReference<BlueprintFactionReference>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SpawnMonster(
                   UnitGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 7 },
@@ -2569,12 +2569,12 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Unit.m_Faction = Faction.ToReference<BlueprintFactionReference>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SpawnMonster(
                   UnitGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 7 },
                   ContextDuration.Fixed(6),
-                  onSpawn: ActionListBuilder.New().MeleeAttack(),
+                  onSpawn: ActionsBuilder.New().MeleeAttack(),
                   level: 6,
                   controllable: true,
                   linkToCaster: false)
@@ -2605,7 +2605,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Unit.m_Faction = Faction.ToReference<BlueprintFactionReference>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SpawnMonsterUsingSummonPool(
                   UnitGuid,
                   SummonPoolGuid,
@@ -2638,14 +2638,14 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Unit.m_Faction = Faction.ToReference<BlueprintFactionReference>();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SpawnMonsterUsingSummonPool(
                   UnitGuid,
                   SummonPoolGuid,
                   new ContextDiceValue { DiceType = DiceType.One, DiceCountValue = 4 },
                   ContextDuration.Fixed(6),
                   useSummonPoolLimit: true,
-                  onSpawn: ActionListBuilder.New().MeleeAttack(),
+                  onSpawn: ActionsBuilder.New().MeleeAttack(),
                   level: 1,
                   controllable: true,
                   linkToCaster: false)
@@ -2674,7 +2674,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SpawnMonsterUnlinked()
     {
-      var actions = ActionListBuilder.New().SpawnMonsterUnlinked(UnitGuid).Build();
+      var actions = ActionsBuilder.New().SpawnMonsterUnlinked(UnitGuid).Build();
 
       Assert.Single(actions.Actions);
       var spawn = (ContextActionSpawnUnlinkedMonster)actions.Actions[0];
@@ -2686,7 +2686,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SpendOpportunityAttack()
     {
-      var actions = ActionListBuilder.New().SpendOpportunityAttack().Build();
+      var actions = ActionsBuilder.New().SpendOpportunityAttack().Build();
 
       Assert.Single(actions.Actions);
       var spend = (ContextActionSpendAttackOfOpportunity)actions.Actions[0];
@@ -2696,7 +2696,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void StealBuffs()
     {
-      var actions = ActionListBuilder.New().StealBuffs(SpellDescriptor.Chaos).Build();
+      var actions = ActionsBuilder.New().StealBuffs(SpellDescriptor.Chaos).Build();
 
       Assert.Single(actions.Actions);
       var steal = (ContextActionStealBuffs)actions.Actions[0];
@@ -2708,7 +2708,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SwallowWhole()
     {
-      var actions = ActionListBuilder.New().SwallowWhole().Build();
+      var actions = ActionsBuilder.New().SwallowWhole().Build();
 
       Assert.Single(actions.Actions);
       var swallow = (ContextActionSwallowWhole)actions.Actions[0];
@@ -2720,7 +2720,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SwallowWhole_WithBuff()
     {
-      var actions = ActionListBuilder.New().SwallowWhole(BuffGuid).Build();
+      var actions = ActionsBuilder.New().SwallowWhole(BuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var swallow = (ContextActionSwallowWhole)actions.Actions[0];
@@ -2732,7 +2732,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void AddToSwarmTargets()
     {
-      var actions = ActionListBuilder.New().AddToSwarmTargets().Build();
+      var actions = ActionsBuilder.New().AddToSwarmTargets().Build();
 
       Assert.Single(actions.Actions);
       var addTarget = (ContextActionSwarmTarget)actions.Actions[0];
@@ -2744,7 +2744,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RemoveFromSwarmTargets()
     {
-      var actions = ActionListBuilder.New().RemoveFromSwarmTargets().Build();
+      var actions = ActionsBuilder.New().RemoveFromSwarmTargets().Build();
 
       Assert.Single(actions.Actions);
       var removeTarget = (ContextActionSwarmTarget)actions.Actions[0];
@@ -2756,7 +2756,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Teleport()
     {
-      var actions = ActionListBuilder.New().Teleport().Build();
+      var actions = ActionsBuilder.New().Teleport().Build();
 
       Assert.Single(actions.Actions);
       var teleport = (ContextActionTranslocate)actions.Actions[0];
@@ -2766,7 +2766,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void Unsummon()
     {
-      var actions = ActionListBuilder.New().Unsummon().Build();
+      var actions = ActionsBuilder.New().Unsummon().Build();
 
       Assert.Single(actions.Actions);
       var unsummon = (ContextActionUnsummon)actions.Actions[0];
@@ -2776,7 +2776,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RestoreResource()
     {
-      var actions = ActionListBuilder.New().RestoreResource(AbilityResourceGuid).Build();
+      var actions = ActionsBuilder.New().RestoreResource(AbilityResourceGuid).Build();
 
       Assert.Single(actions.Actions);
       var restore = (ContextRestoreResource)actions.Actions[0];
@@ -2792,7 +2792,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RestoreResource_WithAmount()
     {
-      var actions = ActionListBuilder.New().RestoreResource(AbilityResourceGuid, 12).Build();
+      var actions = ActionsBuilder.New().RestoreResource(AbilityResourceGuid, 12).Build();
 
       Assert.Single(actions.Actions);
       var restore = (ContextRestoreResource)actions.Actions[0];
@@ -2809,7 +2809,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void RestoreAllResourcesToFull()
     {
-      var actions = ActionListBuilder.New().RestoreAllResourcesToFull().Build();
+      var actions = ActionsBuilder.New().RestoreAllResourcesToFull().Build();
 
       Assert.Single(actions.Actions);
       var restore = (ContextRestoreResource)actions.Actions[0];
@@ -2821,7 +2821,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SpendResource()
     {
-      var actions = ActionListBuilder.New().SpendResource(AbilityResourceGuid).Build();
+      var actions = ActionsBuilder.New().SpendResource(AbilityResourceGuid).Build();
 
       Assert.Single(actions.Actions);
       var spend = (ContextSpendResource)actions.Actions[0];
@@ -2836,7 +2836,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SpendResource_WithAmount()
     {
-      var actions = ActionListBuilder.New().SpendResource(AbilityResourceGuid, 10).Build();
+      var actions = ActionsBuilder.New().SpendResource(AbilityResourceGuid, 10).Build();
 
       Assert.Single(actions.Actions);
       var spend = (ContextSpendResource)actions.Actions[0];
@@ -2871,7 +2871,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     {
       SetupDemoralize();
 
-      var actions = ActionListBuilder.New().Demoralize().Build();
+      var actions = ActionsBuilder.New().Demoralize().Build();
 
       Assert.Single(actions.Actions);
       var demoralize = (Demoralize)actions.Actions[0];
@@ -2899,7 +2899,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupDemoralize();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .Demoralize(
                   bonus: 3,
                   dazzlingDisplay: true,
@@ -2908,7 +2908,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   swordlordProwess: ShatterConfidenceFeature,
                   shatterConfidenceFeature: DisplayWeaponProwess,
                   shatterConfidenceBuff: Frightened,
-                  tricksterRank3Actions: ActionListBuilder.New().MeleeAttack())
+                  tricksterRank3Actions: ActionsBuilder.New().MeleeAttack())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2938,7 +2938,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MagicWeapon(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
                   ContextDuration.Fixed(3),
@@ -2972,7 +2972,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MagicWeapon(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
                   ContextDuration.Fixed(4),
@@ -3008,7 +3008,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MagicFang(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
                   ContextDuration.Fixed(3),
@@ -3041,7 +3041,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       SetupWeaponEnchantPool();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .MagicFang(
                   new string[] { PlusOneWeapon, PlusTwoWeapon },
                   ContextDuration.Fixed(5),
@@ -3072,7 +3072,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SwordlordAdaptiveTacticsAdd()
     {
-      var actions = ActionListBuilder.New().SwordlordAdaptiveTacticsAdd(BuffGuid).Build();
+      var actions = ActionsBuilder.New().SwordlordAdaptiveTacticsAdd(BuffGuid).Build();
 
       Assert.Single(actions.Actions);
       var add = (SwordlordAdaptiveTacticsAdd)actions.Actions[0];
@@ -3084,7 +3084,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SwordlordAdaptiveTacticsClear()
     {
-      var actions = ActionListBuilder.New().SwordlordAdaptiveTacticsClear().Build();
+      var actions = ActionsBuilder.New().SwordlordAdaptiveTacticsClear().Build();
 
       Assert.Single(actions.Actions);
       var clear = (SwordlordAdaptiveTacticsClear)actions.Actions[0];
@@ -3096,7 +3096,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ResetAlignment()
     {
-      var actions = ActionListBuilder.New().ResetAlignment().Build();
+      var actions = ActionsBuilder.New().ResetAlignment().Build();
 
       Assert.Single(actions.Actions);
       var resetAlignment = (ContextActionResetAlignment)actions.Actions[0];
@@ -3108,7 +3108,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void ResetAlignment_RemoveMythicLock()
     {
-      var actions = ActionListBuilder.New().ResetAlignment(true).Build();
+      var actions = ActionsBuilder.New().ResetAlignment(true).Build();
 
       Assert.Single(actions.Actions);
       var resetAlignment = (ContextActionResetAlignment)actions.Actions[0];
@@ -3121,7 +3121,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void SwarmAttack()
     {
       var actions =
-          ActionListBuilder.New().SwarmAttack(ActionListBuilder.New().MeleeAttack()).Build();
+          ActionsBuilder.New().SwarmAttack(ActionsBuilder.New().MeleeAttack()).Build();
 
       Assert.Single(actions.Actions);
       var attack = (ContextActionSwarmAttack)actions.Actions[0];
@@ -3134,7 +3134,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     [Fact]
     public void SwitchDualCompanion()
     {
-      var actions = ActionListBuilder.New().SwitchDualCompanion().Build();
+      var actions = ActionsBuilder.New().SwitchDualCompanion().Build();
 
       Assert.Single(actions.Actions);
       var switchCompanion = (ContextActionSwitchDualCompanion)actions.Actions[0];
@@ -3147,7 +3147,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void GiveRandomTrashToPlayer()
     {
       var actions =
-          ActionListBuilder.New().GiveRandomTrashToPlayer(TrashLootType.Scrolls, 2).Build();
+          ActionsBuilder.New().GiveRandomTrashToPlayer(TrashLootType.Scrolls, 2).Build();
 
       Assert.Single(actions.Actions);
       var giveTrash = (ContextActionAddRandomTrashItem)actions.Actions[0];
@@ -3163,7 +3163,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
     public void GiveRandomTrashToPlayer_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .GiveRandomTrashToPlayer(TrashLootType.Scrolls, 3, identify: true, silent: true)
               .Build();
 

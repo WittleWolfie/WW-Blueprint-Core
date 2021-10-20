@@ -69,8 +69,8 @@ namespace BlueprintCore.Blueprints
   ///   <description>
   ///     <para>
   ///     The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
-  ///     work with the <see cref="ActionListBuilder"/> and
-  ///     <see cref="Conditions.Builder.ConditionsCheckerBuilder">ConditionsCheckerBuilder</see> APIs as well.
+  ///     work with the <see cref="ActionsBuilder"/> and
+  ///     <see cref="Conditions.Builder.ConditionsBuilder">ConditionsBuilder</see> APIs as well.
   ///     </para>
   ///     <para>
   ///     Complicated components such as
@@ -122,26 +122,26 @@ namespace BlueprintCore.Blueprints
   ///   
   ///   // Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
   ///   // Rage is active.
-  ///   var applyBuff = ActionListBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+  ///   var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
   ///   BuffConfigurator.For(inspiredRageBuff)
   ///       .FactContextActions(
   ///           onActivated:
-  ///               ActionListBuilder.New()
+  ///               ActionsBuilder.New()
   ///                   // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
   ///                   // the feat.
   ///                   .Conditional(
-  ///                       ConditionsCheckerBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+  ///                       ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
   ///                       ifTrue: applyBuff)
   ///                   // For characters other than the caster, Skald's Vigor is only applied if the caster has the
   ///                   // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
   ///                   // buffs do not stack so it has no effect.
   ///                   .Conditional(
-  ///                       ConditionsCheckerBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+  ///                       ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
   ///           onDeactivated:
   ///               // Removes Skald's Vigor when Inspired Rage ends.
   ///               // There is actually a bug with this implementation; Lingering Song will extend the duration of
   ///               // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-  ///               ActionListBuilder.New().RemoveBuff(skaldsVigorBuff))
+  ///               ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   ///       .Configure();
   /// </code>
   /// </example>
@@ -343,9 +343,9 @@ namespace BlueprintCore.Blueprints
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
     public TBuilder FactContextActions(
-        ActionListBuilder onActivated = null,
-        ActionListBuilder onDeactivated = null,
-        ActionListBuilder onNewRound = null,
+        ActionsBuilder onActivated = null,
+        ActionsBuilder onDeactivated = null,
+        ActionsBuilder onNewRound = null,
         ComponentMerge behavior = ComponentMerge.Merge,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {

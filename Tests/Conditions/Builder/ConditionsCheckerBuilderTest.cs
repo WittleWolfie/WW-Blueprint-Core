@@ -12,7 +12,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     [Fact]
     public void UseOr()
     {
-      var conditions = ConditionsCheckerBuilder.New().UseOr().Build();
+      var conditions = ConditionsBuilder.New().UseOr().Build();
 
       Assert.Equal(Operation.Or, conditions.Operation);
       Assert.NotNull(conditions.Conditions);
@@ -22,7 +22,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     public void MultipleConditions()
     {
       var conditions =
-          ConditionsCheckerBuilder.New()
+          ConditionsBuilder.New()
               .IsDemoralizeAction()
               .TargetInMeleeRange()
               .TargetIsYourself()

@@ -16,11 +16,11 @@ using System.Collections.Generic;
 namespace BlueprintCore.Actions.Builder.BasicEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for most game mechanics related actions not included in
-  /// <see cref="ContextEx.ActionListBuilderContextEx">ContextEx</see>.
+  /// Extension to <see cref="ActionsBuilder"/> for most game mechanics related actions not included in
+  /// <see cref="ContextEx.ActionsBuilderContextEx">ContextEx</see>.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderBasicEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderBasicEx
   {
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
@@ -29,8 +29,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/>BlueprintBuff</param>
-    public static ActionListBuilder AttachBuff(
-        this ActionListBuilder builder, string buff, UnitEvaluator target, IntEvaluator duration)
+    public static ActionsBuilder AttachBuff(
+        this ActionsBuilder builder, string buff, UnitEvaluator target, IntEvaluator duration)
     {
       builder.Validate(target);
       builder.Validate(duration);
@@ -45,9 +45,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="CreaturesAround"/>
     /// </summary>
-    public static ActionListBuilder OnCreaturesAround(
-        this ActionListBuilder builder,
-        ActionListBuilder actions,
+    public static ActionsBuilder OnCreaturesAround(
+        this ActionsBuilder builder,
+        ActionsBuilder actions,
         FloatEvaluator radius,
         PositionEvaluator center,
         bool checkLos = false,
@@ -70,7 +70,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/>BlueprintUnitFact</param>
-    public static ActionListBuilder AddFact(this ActionListBuilder builder, string fact, UnitEvaluator target)
+    public static ActionsBuilder AddFact(this ActionsBuilder builder, string fact, UnitEvaluator target)
     {
       builder.Validate(target);
 
@@ -83,7 +83,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="AddFatigueHours"/>
     /// </summary>
-    public static ActionListBuilder AddFatigue(this ActionListBuilder builder, IntEvaluator hours, UnitEvaluator target)
+    public static ActionsBuilder AddFatigue(this ActionsBuilder builder, IntEvaluator hours, UnitEvaluator target)
     {
       builder.Validate(hours);
       builder.Validate(target);
@@ -97,8 +97,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment">ChangeAlignment</see>
     /// </summary>
-    public static ActionListBuilder ChangeAlignment(
-        this ActionListBuilder builder, UnitEvaluator target, Alignment alignment)
+    public static ActionsBuilder ChangeAlignment(
+        this ActionsBuilder builder, UnitEvaluator target, Alignment alignment)
     {
       builder.Validate(target);
 
@@ -112,8 +112,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment">ChangePlayerAlignment</see>
     /// </summary>
-    public static ActionListBuilder ChangePlayerAlignment(
-        this ActionListBuilder builder, Alignment alignment, bool unlockAlignment = false)
+    public static ActionsBuilder ChangePlayerAlignment(
+        this ActionsBuilder builder, Alignment alignment, bool unlockAlignment = false)
     {
       var changeAlignment = ElementTool.Create<ChangePlayerAlignment>();
       changeAlignment.TargetAlignment = alignment;
@@ -124,8 +124,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DamageParty">DamageParty</see>
     /// </summary>
-    public static ActionListBuilder DamageParty(
-        this ActionListBuilder builder,
+    public static ActionsBuilder DamageParty(
+        this ActionsBuilder builder,
         DamageDescription damage,
         UnitEvaluator source = null,
         bool enableBattleLog = true)
@@ -146,8 +146,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DealDamage">DealDamage</see>
     /// </summary>
-    public static ActionListBuilder DealDamage(
-        this ActionListBuilder builder,
+    public static ActionsBuilder DealDamage(
+        this ActionsBuilder builder,
         UnitEvaluator target,
         DamageDescription damage,
         UnitEvaluator source = null,
@@ -174,8 +174,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage">DealStatDamage</see>
     /// </summary>
-    public static ActionListBuilder DealStatDamage(
-        this ActionListBuilder builder,
+    public static ActionsBuilder DealStatDamage(
+        this ActionsBuilder builder,
         UnitEvaluator target,
         StatType type,
         DiceFormula damageDice,
@@ -206,8 +206,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="AddItemsToCollection"/>
     /// </summary>
-    public static ActionListBuilder AddItems(
-        this ActionListBuilder builder,
+    public static ActionsBuilder AddItems(
+        this ActionsBuilder builder,
         List<LootEntry> items,
         ItemsCollectionEvaluator toCollection,
         bool silent = false,
@@ -228,8 +228,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     /// 
     /// <param name="loot"><see cref="BlueprintUnitLoot">BlueprintUnitLoot</see></param>
-    public static ActionListBuilder AddItemsFromBlueprint(
-        this ActionListBuilder builder,
+    public static ActionsBuilder AddItemsFromBlueprint(
+        this ActionsBuilder builder,
         string loot,
         ItemsCollectionEvaluator toCollection,
         bool silent = false,
@@ -270,8 +270,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </remarks>
     /// 
     /// <param name="item"><see cref="BlueprintItem"/></param>
-    public static ActionListBuilder GiveItemToPlayer(
-        this ActionListBuilder builder,
+    public static ActionsBuilder GiveItemToPlayer(
+        this ActionsBuilder builder,
         string item,
         int count = 1,
         bool silent = false,
@@ -293,8 +293,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
 
     /// <inheritdoc cref="GiveItemToPlayer"/>
     /// <param name="equipment"><see cref="BlueprintItemEquipment"/></param>
-    public static ActionListBuilder GiveEquipmentToPlayer(
-        this ActionListBuilder builder,
+    public static ActionsBuilder GiveEquipmentToPlayer(
+        this ActionsBuilder builder,
         string equipment,
         bool equip = false,
         UnitEvaluator equipOn = null,
@@ -323,8 +323,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
 
     /// <inheritdoc cref="GiveItemToPlayer"/>
     /// <param name="handItem"><see cref="BlueprintItemEquipmentHand"/></param>
-    public static ActionListBuilder GiveHandSlotItemToPlayer(
-        this ActionListBuilder builder,
+    public static ActionsBuilder GiveHandSlotItemToPlayer(
+        this ActionsBuilder builder,
         string handItem,
         bool equip = false,
         UnitEvaluator equipOn = null,
@@ -346,8 +346,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
           preferredHandSlot: preferredHandSlot);
     }
 
-    private static ActionListBuilder GiveItemToPlayer(
-        ActionListBuilder builder,
+    private static ActionsBuilder GiveItemToPlayer(
+        ActionsBuilder builder,
         BlueprintItem item,
         int count,
         bool silent,
@@ -377,8 +377,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="AdvanceUnitLevel"/>
     /// </summary>
-    public static ActionListBuilder AdvanceLevel(
-        this ActionListBuilder builder, UnitEvaluator unit, IntEvaluator targetLevel)
+    public static ActionsBuilder AdvanceLevel(
+        this ActionsBuilder builder, UnitEvaluator unit, IntEvaluator targetLevel)
     {
       builder.Validate(unit);
       builder.Validate(targetLevel);
@@ -392,8 +392,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyUnit">DestroyUnit</see>
     /// </summary>
-    public static ActionListBuilder DestroyUnit(
-        this ActionListBuilder builder, UnitEvaluator unit, bool fadeOut = false)
+    public static ActionsBuilder DestroyUnit(
+        this ActionsBuilder builder, UnitEvaluator unit, bool fadeOut = false)
     {
       builder.Validate(unit);
 
@@ -406,8 +406,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="CombineToGroup"/>
     /// </summary>
-    public static ActionListBuilder AddUnitToGroup(
-        this ActionListBuilder builder, UnitEvaluator unit, UnitEvaluator group)
+    public static ActionsBuilder AddUnitToGroup(
+        this ActionsBuilder builder, UnitEvaluator unit, UnitEvaluator group)
     {
       builder.Validate(unit);
       builder.Validate(group);
@@ -421,8 +421,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ClearUnitReturnPosition">ClearUnitReturnPosition</see>
     /// </summary>
-    public static ActionListBuilder ClearUnitReturnPosition(
-        this ActionListBuilder builder, UnitEvaluator unit)
+    public static ActionsBuilder ClearUnitReturnPosition(
+        this ActionsBuilder builder, UnitEvaluator unit)
     {
       builder.Validate(unit);
 
@@ -432,7 +432,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <inheritdoc cref="ClearUnitReturnPosition"/>
-    public static ActionListBuilder ClearAllUnitReturnPosition(this ActionListBuilder builder)
+    public static ActionsBuilder ClearAllUnitReturnPosition(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ClearUnitReturnPosition>());
     }
@@ -442,8 +442,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     /// 
     /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
-    public static ActionListBuilder AddUnitToSummonPool(
-        this ActionListBuilder builder, UnitEvaluator unit, string pool)
+    public static ActionsBuilder AddUnitToSummonPool(
+        this ActionsBuilder builder, UnitEvaluator unit, string pool)
     {
       builder.Validate(unit);
 
@@ -458,8 +458,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     /// 
     /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
-    public static ActionListBuilder RemoveUnitFromSummonPool(
-        this ActionListBuilder builder, UnitEvaluator unit, string pool)
+    public static ActionsBuilder RemoveUnitFromSummonPool(
+        this ActionsBuilder builder, UnitEvaluator unit, string pool)
     {
       builder.Validate(unit);
 

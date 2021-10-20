@@ -7,11 +7,11 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionListBuilder"/> for actions without a better extension container such as achievements
+  /// Extension to <see cref="ActionsBuilder"/> for actions without a better extension container such as achievements
   /// and CustomEvent.
   /// </summary>
-  /// <inheritdoc cref="ActionListBuilder"/>
-  public static class ActionListBuilderMiscEx
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderMiscEx
   {
     //----- Kingmaker.Achievements.Actions -----//
 
@@ -20,7 +20,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </summary>
     /// 
     /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
-    public static ActionListBuilder IncrementAchievement(this ActionListBuilder builder, string achievement)
+    public static ActionsBuilder IncrementAchievement(this ActionsBuilder builder, string achievement)
     {
       var increment = ElementTool.Create<ActionAchievementIncrementCounter>();
       increment.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </summary>
     /// 
     /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
-    public static ActionListBuilder UnlockAchievement(this ActionListBuilder builder, string achievement)
+    public static ActionsBuilder UnlockAchievement(this ActionsBuilder builder, string achievement)
     {
       var unlock = ElementTool.Create<ActionAchievementUnlock>();
       unlock.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(achievement);
@@ -44,11 +44,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion">CreateCustomCompanion</see>
     /// </summary>
-    public static ActionListBuilder CreateCustomCompanion(
-        this ActionListBuilder builder,
+    public static ActionsBuilder CreateCustomCompanion(
+        this ActionsBuilder builder,
         bool free = false,
         bool matchPlayerXp = false,
-        ActionListBuilder onCreate = null)
+        ActionsBuilder onCreate = null)
     {
       var createCompanion = ElementTool.Create<CreateCustomCompanion>();
       createCompanion.ForFree = free;
@@ -60,7 +60,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent">CustomEvent</see>
     /// </summary>
-    public static ActionListBuilder CustomEvent(this ActionListBuilder builder, string eventId)
+    public static ActionsBuilder CustomEvent(this ActionsBuilder builder, string eventId)
     {
       var customEvent = ElementTool.Create<CustomEvent>();
       customEvent.EventId = eventId;

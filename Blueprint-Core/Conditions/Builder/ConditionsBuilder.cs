@@ -31,42 +31,42 @@ namespace BlueprintCore.Conditions.Builder
   /// <list type="table">
   /// <listheader>Extensions</listheader>
   /// <item>
-  ///   <term><see cref="AreaEx.ConditionsCheckerBuilderAreaEx">AreaEx</see></term>
+  ///   <term><see cref="AreaEx.ConditionsBuilderAreaEx">AreaEx</see></term>
   ///   <description>
   ///     Conditions involving the game map, dungeons, or locations. See also
-  ///     <see cref="KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see> for location related conditions
+  ///     <see cref="KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see> for location related conditions
   ///     specifically tied to the Kingdom and Crusade system.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="BasicEx.ConditionsCheckerBuilderBasicEx">BasicEx</see></term>
+  ///   <term><see cref="BasicEx.ConditionsBuilderBasicEx">BasicEx</see></term>
   ///   <description>
   ///     Most game mechanics related conditions not included in
-  ///     <see cref="ContextEx.ConditionsCheckerBuilderContextEx">ContextEx</see>.
+  ///     <see cref="ContextEx.ConditionsBuilderContextEx">ContextEx</see>.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="ContextEx.ConditionsCheckerBuilderContextEx">ContextEx</see></term>
+  ///   <term><see cref="ContextEx.ConditionsBuilderContextEx">ContextEx</see></term>
   ///   <description>
   ///     Most <see cref="Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition">ContextCondition</see> types. Some
   ///     <see cref="Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition">ContextCondition</see> types are in more
-  ///     specific extensions such as <see cref="KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see>.
+  ///     specific extensions such as <see cref="KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see>.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="KingdomEx.ConditionsCheckerBuilderKingdomEx">KingdomEx</see></term>
+  ///   <term><see cref="KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see></term>
   ///   <description>
   ///     Conditions involving the Kingdom and Crusade system.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="NewEx.ConditionsCheckerBuilderNewEx">NewEx</see></term>
+  ///   <term><see cref="NewEx.ConditionsBuilderNewEx">NewEx</see></term>
   ///   <description>
   ///     Conditions defined in BlueprintCore and not available in the base game.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="StoryEx.ConditionsCheckerBuilderStoryEx">StoryEx</see></term>
+  ///   <term><see cref="StoryEx.ConditionsBuilderStoryEx">StoryEx</see></term>
   ///   <description>
   ///     Conditions related to the story such as companion stories, quests, name changes, and etudes.
   ///   </description>
@@ -76,32 +76,32 @@ namespace BlueprintCore.Conditions.Builder
   /// <example>
   /// Make a melee attack if the target is in range:
   /// <code>
-  ///   // Provides the MeleeAttack extension for ActionListBuilder
+  ///   // Provides the MeleeAttack extension for ActionsBuilder
   ///   using BlueprintCore.Actions.Builder.ContextEx; 
-  ///   // Provides the TargetInMeleeRange extension for ConditionsCheckerBuilder
+  ///   // Provides the TargetInMeleeRange extension for ConditionsBuilder
   ///   using BlueprintCore.Conditions.Builder.NewEx;
   /// 
   ///   var actionList =
-  ///       ActionListBuilder.New()
+  ///       ActionsBuilder.New()
   ///           .Conditional(
-  ///               ConditionsCheckerBuilder.New().TargetInMeleeRange(),
-  ///               ifTrue: ActionListBuilder.New().MeleeAttack())
+  ///               ConditionsBuilder.New().TargetInMeleeRange(),
+  ///               ifTrue: ActionsBuilder.New().MeleeAttack())
   ///           .build();
   /// </code>
   /// </example>
   /// </remarks>
-  public class ConditionsCheckerBuilder
+  public class ConditionsBuilder
   {
-    private static readonly LogWrapper Logger = LogWrapper.GetInternal("ConditionsCheckerBuilder");
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("ConditionsBuilder");
 
     private Operation OperationType = Operation.And;
     private readonly List<Condition> Conditions = new();
     private readonly List<string> ValidationWarnings = new();
 
-    private ConditionsCheckerBuilder() { }
+    private ConditionsBuilder() { }
 
-    /// <returns>A new <see cref="ConditionsCheckerBuilder"/></returns>
-    public static ConditionsCheckerBuilder New() { return new ConditionsCheckerBuilder(); }
+    /// <returns>A new <see cref="ConditionsBuilder"/></returns>
+    public static ConditionsBuilder New() { return new ConditionsBuilder(); }
 
     /// <returns>
     /// A <see cref="ConditionsChecker"/> containing all specified conditions. Any validation errors are logged as a
@@ -125,7 +125,7 @@ namespace BlueprintCore.Conditions.Builder
     /// <summary>
     /// Causes the checker to return true if at least one conditions check passes. By default all checks must pass.
     /// </summary>
-    public ConditionsCheckerBuilder UseOr()
+    public ConditionsBuilder UseOr()
     {
       OperationType = Operation.Or;
       return this;
@@ -138,7 +138,7 @@ namespace BlueprintCore.Conditions.Builder
     /// It is recommended to only call this from an extension class or when adding a condition type not supported by the
     /// builder.
     /// </remarks>
-    public ConditionsCheckerBuilder Add(Condition condition)
+    public ConditionsBuilder Add(Condition condition)
     {
       Validate(condition);
       Conditions.Add(condition);

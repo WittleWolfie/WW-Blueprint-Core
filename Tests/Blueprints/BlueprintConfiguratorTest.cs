@@ -65,9 +65,9 @@ namespace BlueprintCore.Test.Blueprints
     {
       GetConfigurator(Guid)
           .FactContextActions(
-              onActivated: ActionListBuilder.New().MeleeAttack().MeleeAttack(),
-              onDeactivated: ActionListBuilder.New().MeleeAttack(),
-              onNewRound: ActionListBuilder.New().SwitchToDemoralizeTarget())
+              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Test.Blueprints
     public void FactContextActions_WithActivatedOnly()
     {
       GetConfigurator(Guid)
-          .FactContextActions(onActivated: ActionListBuilder.New().MeleeAttack().MeleeAttack())
+          .FactContextActions(onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -108,7 +108,7 @@ namespace BlueprintCore.Test.Blueprints
     public void FactContextActions_WithDeactivatedOnly()
     {
       GetConfigurator(Guid)
-          .FactContextActions(onDeactivated: ActionListBuilder.New().MeleeAttack())
+          .FactContextActions(onDeactivated: ActionsBuilder.New().MeleeAttack())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -126,7 +126,7 @@ namespace BlueprintCore.Test.Blueprints
     public void FactContextActions_WithNewRoundOnly()
     {
       GetConfigurator(Guid)
-          .FactContextActions(onNewRound: ActionListBuilder.New().SwitchToDemoralizeTarget())
+          .FactContextActions(onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -146,16 +146,16 @@ namespace BlueprintCore.Test.Blueprints
       // First pass
       GetConfigurator(Guid)
           .FactContextActions(
-              onActivated: ActionListBuilder.New().MeleeAttack().MeleeAttack(),
-              onDeactivated: ActionListBuilder.New().MeleeAttack(),
-              onNewRound: ActionListBuilder.New().SwitchToDemoralizeTarget())
+              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
           .Configure();
 
       GetConfigurator(Guid)
           .FactContextActions(
-              onActivated: ActionListBuilder.New().SwitchToDemoralizeTarget(),
-              onDeactivated: ActionListBuilder.New().MeleeAttack(),
-              onNewRound: ActionListBuilder.New().MeleeAttack())
+              onActivated: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().MeleeAttack())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);

@@ -19,7 +19,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void TestAddFactIfEtudePlaying()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddFactIfEtudePlaying(
                   AddFactIfEtudePlaying.TargetType.AllCompanions,
                   BuffGuid,
@@ -38,7 +38,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void FixKingdomSystemBuffsAndStats()
     {
-      var actions = ActionListBuilder.New().FixKingdomSystemBuffsAndStats().Build();
+      var actions = ActionsBuilder.New().FixKingdomSystemBuffsAndStats().Build();
 
       Assert.Single(actions.Actions);
       var fix = (FixKingdomSystemBuffsAndStats)actions.Actions[0];
@@ -55,7 +55,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void FixKingdomSystemBuffsAndStats_WithOptionalValues()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .FixKingdomSystemBuffsAndStats(
                   statPerFinances: 2f,
                   statPerMaterials: 20f,
@@ -79,7 +79,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void ReEnterScriptZone()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ReEnterScriptZone(new EntityReference { EntityNameInEditor = "script" })
               .Build();
 
@@ -93,7 +93,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RefreshCrusadeLogistic()
     {
-      var actions = ActionListBuilder.New().RefreshCrusadeLogistic().Build();
+      var actions = ActionsBuilder.New().RefreshCrusadeLogistic().Build();
 
       Assert.Single(actions.Actions);
       var refresh = (RefreshCrusadeLogistic)actions.Actions[0];
@@ -103,7 +103,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RefreshSettingsPreset()
     {
-      var actions = ActionListBuilder.New().RefreshSettingsPreset().Build();
+      var actions = ActionsBuilder.New().RefreshSettingsPreset().Build();
 
       Assert.Single(actions.Actions);
       var refresh = (RefreshSettingsPreset)actions.Actions[0];
@@ -113,7 +113,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RemoveFact()
     {
-      var actions = ActionListBuilder.New().RemoveFact(BuffGuid, AbilityGuid).Build();
+      var actions = ActionsBuilder.New().RemoveFact(BuffGuid, AbilityGuid).Build();
 
       Assert.Single(actions.Actions);
       var removeFact =
@@ -131,7 +131,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void ResetMinDifficulty()
     {
-      var actions = ActionListBuilder.New().ResetMinDifficulty().Build();
+      var actions = ActionsBuilder.New().ResetMinDifficulty().Build();
 
       Assert.Single(actions.Actions);
       var resetDifficulty = (ResetMinDifficulty)actions.Actions[0];
@@ -141,7 +141,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void FixItemInInventory()
     {
-      var actions = ActionListBuilder.New().FixItemInInventory(removeItem: ItemGuid).Build();
+      var actions = ActionsBuilder.New().FixItemInInventory(removeItem: ItemGuid).Build();
 
       Assert.Single(actions.Actions);
       var fix = (FixItemInInventory)actions.Actions[0];
@@ -156,7 +156,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void FixItemInInventory_EquipItem()
     {
       var actions =
-          ActionListBuilder.New().FixItemInInventory(addItem: ItemGuid, equipItem: true).Build();
+          ActionsBuilder.New().FixItemInInventory(addItem: ItemGuid, equipItem: true).Build();
 
       Assert.Single(actions.Actions);
       var fix = (FixItemInInventory)actions.Actions[0];
@@ -170,7 +170,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void ReCreateOnLoad()
     {
-      var actions = ActionListBuilder.New().ReCreateOnLoad().Build();
+      var actions = ActionsBuilder.New().ReCreateOnLoad().Build();
 
       Assert.Single(actions.Actions);
       var reCreate = (RecreateOnLoad)actions.Actions[0];
@@ -180,7 +180,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void SetAlignmentFromBlueprint()
     {
-      var actions = ActionListBuilder.New().SetAlignmentFromBlueprint().Build();
+      var actions = ActionsBuilder.New().SetAlignmentFromBlueprint().Build();
 
       Assert.Single(actions.Actions);
       var setAlignment = (SetAlignmentFromBlueprint)actions.Actions[0];
@@ -190,7 +190,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void SetHandsFromBlueprint()
     {
-      var actions = ActionListBuilder.New().SetHandsFromBlueprint().Build();
+      var actions = ActionsBuilder.New().SetHandsFromBlueprint().Build();
 
       Assert.Single(actions.Actions);
       var setHands = (SetHandsFromBlueprint)actions.Actions[0];
@@ -223,7 +223,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
       SetUpFeatureFromProgression();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddFeatureFromProgression(FeatureGuid, ProgressionGuid, 5)
               .Build();
 
@@ -246,7 +246,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
       SetUpFeatureFromProgression();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .AddFeatureFromProgression(
                   FeatureGuid,
                   ProgressionGuid,
@@ -275,7 +275,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void ReCheckEtude()
     {
-      var actions = ActionListBuilder.New().ReCheckEtude(EtudeGuid).Build();
+      var actions = ActionsBuilder.New().ReCheckEtude(EtudeGuid).Build();
 
       Assert.Single(actions.Actions);
       var reCheck = (RecheckEtude)actions.Actions[0];
@@ -288,7 +288,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void ReCheckEtude_redoAfterTrigger()
     {
-      var actions = ActionListBuilder.New().ReCheckEtude(EtudeGuid, redoAfterTrigger: true).Build();
+      var actions = ActionsBuilder.New().ReCheckEtude(EtudeGuid, redoAfterTrigger: true).Build();
 
       Assert.Single(actions.Actions);
       var reCheck = (RecheckEtude)actions.Actions[0];
@@ -301,7 +301,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RefreshAllArmyLeaders()
     {
-      var actions = ActionListBuilder.New().RefreshAllArmyLeaders().Build();
+      var actions = ActionsBuilder.New().RefreshAllArmyLeaders().Build();
 
       Assert.Single(actions.Actions);
       var refresh = (RefreshAllArmyLeaders)actions.Actions[0];
@@ -313,7 +313,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RefreshAllArmyLeaders_OnlyPlayer()
     {
-      var actions = ActionListBuilder.New().RefreshAllArmyLeaders(true).Build();
+      var actions = ActionsBuilder.New().RefreshAllArmyLeaders(true).Build();
 
       Assert.Single(actions.Actions);
       var refresh = (RefreshAllArmyLeaders)actions.Actions[0];
@@ -328,7 +328,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
       SetUpFeatureFromProgression();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RemoveFeatureFromProgression(FeatureGuid, ProgressionGuid, 5)
               .Build();
 
@@ -350,7 +350,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
       SetUpFeatureFromProgression();
 
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .RemoveFeatureFromProgression(
                   FeatureGuid,
                   ProgressionGuid,
@@ -376,7 +376,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void ReplaceFeature()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ReplaceFeature(FeatureGuid, ExtraFeatureGuid, ProgressionGuid)
               .Build();
 
@@ -398,7 +398,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void ReplaceFeature_WithIgnoreFeature()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .ReplaceFeature(
                   FeatureGuid, ExtraFeatureGuid, ProgressionGuid, ignoreFeature: ExtraFeatureGuid)
               .Build();
@@ -421,7 +421,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void RestartTacticalCombat()
     {
-      var actions = ActionListBuilder.New().RestartTacticalCombat().Build();
+      var actions = ActionsBuilder.New().RestartTacticalCombat().Build();
 
       Assert.Single(actions.Actions);
       var restart = (RestartTacticalCombat)actions.Actions[0];
@@ -432,7 +432,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     public void SetSharedVendorTable()
     {
       var actions =
-          ActionListBuilder.New()
+          ActionsBuilder.New()
               .SetSharedVendorTable(VendorTableGuid, TestUnit)
               .Build();
 
@@ -448,7 +448,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void ForceStartEtude()
     {
-      var actions = ActionListBuilder.New().ForceStartEtude(EtudeGuid).Build();
+      var actions = ActionsBuilder.New().ForceStartEtude(EtudeGuid).Build();
 
       Assert.Single(actions.Actions);
       var startEtude = (StartEtudeForced)actions.Actions[0];
@@ -460,7 +460,7 @@ namespace BlueprintCore.Test.Actions.Builder.UpgraderEx
     [Fact]
     public void UnStartEtude()
     {
-      var actions = ActionListBuilder.New().UnStartEtude(EtudeGuid).Build();
+      var actions = ActionsBuilder.New().UnStartEtude(EtudeGuid).Build();
 
       Assert.Single(actions.Actions);
       var unStartEtude = (UnStartEtude)actions.Actions[0];

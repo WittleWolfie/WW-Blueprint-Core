@@ -34,11 +34,11 @@ namespace BlueprintCore.Blueprints
     /// 
     /// <example>
     /// Add a mapping for the Power Attack feat and check to see if the caster has it in a
-    /// <see cref="Conditions.Builder.ConditionsCheckerBuilder">ConditionsCheckerbuilder</see>:
+    /// <see cref="Conditions.Builder.ConditionsBuilder">ConditionsBuilder</see>:
     /// <code>
     ///   BlueprintTool.AddGuidsByName(
     ///       new Dictionary&lt;string, string> { { "PowerAttackFeat", "9972f33f977fc724c838e59641b2fca5" } });
-    ///   var conditionsChecker = ConditionsCheckerBuilder.New().CasterHasFact("PowerAttackFeat").Build();
+    ///   var conditionsChecker = ConditionsBuilder.New().CasterHasFact("PowerAttackFeat").Build();
     /// </code>
     /// </example>
     /// </remarks>
@@ -62,10 +62,10 @@ namespace BlueprintCore.Blueprints
     /// 
     /// <example>
     /// Add a mapping for the Power Attack feat and check to see if the caster has it in a
-    /// <see cref="Conditions.Builder.ConditionsCheckerBuilder">ConditionsCheckerbuilder</see>:
+    /// <see cref="Conditions.Builder.ConditionsBuilder">ConditionsBuilder</see>:
     /// <code>
     ///   BlueprintTool.AddGuidsByName(("PowerAttackFeat", "9972f33f977fc724c838e59641b2fca5"));
-    ///   var conditionsChecker = ConditionsCheckerBuilder.New().CasterHasFact("PowerAttackFeat").Build();
+    ///   var conditionsChecker = ConditionsBuilder.New().CasterHasFact("PowerAttackFeat").Build();
     /// </code>
     /// </example>
     /// </remarks>
