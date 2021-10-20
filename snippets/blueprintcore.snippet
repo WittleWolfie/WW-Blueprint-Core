@@ -2,7 +2,7 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>ActionListBuilder Method</Title>
+      <Title>ActionsBuilder Method</Title>
       <Shortcut>actm</Shortcut>
     </Header>
     <Snippet>
@@ -11,7 +11,7 @@
         /// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
-        public static ActionListBuilder $name$(this ActionListBuilder builder)
+        public static ActionsBuilder $name$(this ActionsBuilder builder)
         {
           var $varName$ = ElementTool.Create<$type$>();
           $end$
@@ -47,7 +47,7 @@
         [Fact]
         public void $name$()
         {
-          var actions = ActionListBuilder.New().$name$().Build();
+          var actions = ActionsBuilder.New().$name$().Build();
           
           Assert.Single(actions.Actions);
           var $varName$ = ($type$)actions.Actions[0];
@@ -84,7 +84,7 @@
         /// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
-        public static ConditionsCheckerBuilder $name$(this ConditionsCheckerBuilder builder)
+        public static ConditionsBuilder $name$(this ConditionsBuilder builder)
         {
           var $varName$ = ElementTool.Create<$type$>();
           $end$
@@ -111,7 +111,7 @@
 
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>ConditionsCheckerBuilder Test</Title>
+      <Title>ConditionsBuilder Test</Title>
       <Shortcut>condt</Shortcut>
     </Header>
     <Snippet>
@@ -120,7 +120,7 @@
         [Fact]
         public void $name$()
         {
-          var conditions = ConditionsCheckerBuilder.New().$name$().Build();
+          var conditions = ConditionsBuilder.New().$name$().Build();
           
           Assert.Single(conditions.Conditions);
           var $varName$ = ($type$)conditions.Conditions[0];
