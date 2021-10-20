@@ -8,6 +8,17 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="api\.gitignore" />
+    <Compile Remove="_site\**" />
+    <EmbeddedResource Remove="_site\**" />
+    <None Remove="api\BlueprintCore.*.yml" />
+    <None Remove="_site\**" />
+    <None Remove="api\.manifest" />
+    <None Remove="api\BlueprintCore.yml" />
+    <None Remove="log.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
