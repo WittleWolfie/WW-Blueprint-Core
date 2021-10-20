@@ -8,9 +8,7 @@
           ]
         }
       ],
-      "dest": "api",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "dest": "api"
     }
   ],
   "build": {
@@ -37,17 +35,6 @@
         ]
       }
     ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
@@ -55,10 +42,6 @@
       "default"
     ],
     "postProcessors": [],
-    "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "markdownEngineName": "markdig"
   }
 }

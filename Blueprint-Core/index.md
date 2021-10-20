@@ -2,7 +2,7 @@
 
 Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.
 
-# Status: WIP
+## Status: WIP
 
 Not ready for use as a library yet. There are a few key things that need to be finalized before I
 publish:
