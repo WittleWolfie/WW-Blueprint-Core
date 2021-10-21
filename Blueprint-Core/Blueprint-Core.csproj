@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <TargetFramework>net4.7.1</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
     <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -16,6 +16,7 @@
     <Description>Fluent API library for creating, modifying, and validating Blueprints in Pathfinder: Wrath of the Righteous.</Description>
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
@@ -117,11 +118,5 @@
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
     <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="..\Assemblies\" PubliciseCompilerGenerated="true" />
     <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(PrivateAssembly)" />
-  </Target>
-  <Target Name="Deploy" AfterTargets="Build">
-    <ItemGroup>
-      <ModFiles Include="..\Blueprint-Core\bin\Debug\net4.7.1\Blueprint-Core.dll; ..\Blueprint-Core\bin\Debug\net4.7.1\Info.json" />
-    </ItemGroup>
-    <Copy SourceFiles="@(ModFiles)" DestinationFolder="$(WRATH_DIR)\Mods\BlueprintCore" />
   </Target>
 </Project>
