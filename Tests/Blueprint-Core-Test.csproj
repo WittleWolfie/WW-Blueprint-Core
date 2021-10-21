@@ -38,34 +38,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
-    <Content Include="Actions\Builder\AreaEx\ActionsBuilderAreaExTest.cs" />
-    <Content Include="Actions\Builder\AVEx\ActionsBuilderAVExTest.cs" />
-    <Content Include="Actions\Builder\BasicEx\ActionsBuilderBasicExTest.cs" />
-    <Content Include="Actions\Builder\ContextEx\ActionsBuilderContextExTest.cs" />
-    <Content Include="Actions\Builder\KingdomEx\ActionsBuilderKingdomExTest.cs" />
-    <Content Include="Actions\Builder\MiscEx\ActionsBuilderMiscExTest.cs" />
-    <Content Include="Actions\Builder\NewEx\ActionsBuilderNewExTest.cs" />
-    <Content Include="Actions\Builder\StoryEx\ActionsBuilderStoryExTest.cs" />
-    <Content Include="Actions\Builder\UpgraderEx\ActionsBuilderUpgraderExTest.cs" />
-    <Content Include="Actions\Builder\ActionsBuilderTest.cs" />
-    <Content Include="Asserts\ElementAsserts.cs" />
-    <Content Include="Asserts\PrereqAsserts.cs" />
-    <Content Include="Blueprints\Abilities\AbilityConfiguratorTest.cs" />
-    <Content Include="Blueprints\Buffs\BuffConfiguratorTest.cs" />
-    <Content Include="Blueprints\Classes\Selection\FeatureSelectionConfiguratorTest.cs" />
-    <Content Include="Blueprints\Classes\CommonFeatureConfiguratorTest.cs" />
-    <Content Include="Blueprints\Classes\FeatureConfiguratorTest.cs" />
-    <Content Include="Blueprints\Components\ContextRankConfigsTest.cs" />
-    <Content Include="Blueprints\Facts\BlueprintUnitFactConfiguratorTest.cs" />
-    <Content Include="Blueprints\BlueprintConfiguratorTest.cs" />
-    <Content Include="Blueprints\BlueprintToolTest.cs" />
-    <Content Include="Conditions\Builder\ContextEx\ConditionsBuilderContextExTest.cs" />
-    <Content Include="Conditions\Builder\NewEx\ConditionsBuilderNewExTest.cs" />
-    <Content Include="Conditions\Builder\ConditionsBuilderTest.cs" />
-    <Content Include="BlueprintPatch.cs" />
-    <Content Include="HarmonyFixture.cs" />
-    <Content Include="LoggerPatch.cs" />
-    <Content Include="UnityPatches.cs" />
-    <Content Include="Util.cs" />
   </ItemGroup>
 </Project>
