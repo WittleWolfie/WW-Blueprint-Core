@@ -56,11 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Info.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
