@@ -6,6 +6,16 @@
     <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.2.0</Version>
+    <Authors>WittleWolfie</Authors>
+    <Company />
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://wittlewolfie.github.io/WW-Blueprint-Core/</PackageProjectUrl>
+    <PackageId>WW-Blueprint-Core</PackageId>
+    <Description>Fluent API library for creating, modifying, and validating Blueprints in Pathfinder: Wrath of the Righteous.</Description>
+    <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
+    <PackageTags>pathfinder;wrath</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
@@ -14,6 +24,10 @@
     <None Remove="**\*.yml" />
     <None Remove="api\.manifest" />
     <None Remove="log.txt" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
