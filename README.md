@@ -2,7 +2,7 @@
 
 Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.
 
-[![NuGet Status](http://nugetstatus.com/WW-Blueprint-Core.png)](http://nugetstatus.com/packages/WW-Blueprint-Core)
+[![NuGet](https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square)](https://www.nuget.org/packages/WW-Blueprint-Core)
 
 ## Features
 
