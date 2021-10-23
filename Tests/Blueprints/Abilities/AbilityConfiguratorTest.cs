@@ -1,11 +1,10 @@
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Actions.Builder.NewEx;
-using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Blueprints.Abilities;
 using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Test.Blueprints.Facts;
@@ -24,6 +23,7 @@ using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System;
@@ -757,7 +757,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
-          .RunActions(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .RunActions(ActionsBuilder.New().BreakFree().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -765,7 +765,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(runAction);
 
       Assert.Equal(2, runAction.Actions.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(runAction.Actions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(runAction.Actions.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(runAction.Actions.Actions[1]);
 
       Assert.False(runAction.HasSavingThrow);
@@ -777,7 +777,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
           .RunActions(
-              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().BreakFree().MeleeAttack(),
               SavingThrowType.Reflex)
           .Configure();
 
@@ -786,7 +786,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(runAction);
 
       Assert.Equal(2, runAction.Actions.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(runAction.Actions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(runAction.Actions.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(runAction.Actions.Actions[1]);
 
       Assert.Equal(SavingThrowType.Reflex, runAction.SavingThrowType);
@@ -799,7 +799,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       AbilityConfigurator.For(Guid)
           .SetType(AbilityType.Extraordinary)
           .RunActions(
-              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().BreakFree().MeleeAttack(),
               SavingThrowType.Fortitude)
           .Configure();
 
@@ -816,7 +816,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(runAction);
 
       Assert.Equal(3, runAction.Actions.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(runAction.Actions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(runAction.Actions.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(runAction.Actions.Actions[1]);
       Assert.IsType<ContextActionMeleeAttack>(runAction.Actions.Actions[2]);
 
@@ -829,7 +829,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       GetConfigurator(Guid)
           .DeliveredByWeapon()
-          .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnMiss(ActionsBuilder.New().BreakFree().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -837,7 +837,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(onMiss);
 
       Assert.Equal(2, onMiss.MissAction.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(onMiss.MissAction.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onMiss.MissAction.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onMiss.MissAction.Actions[1]);
 
       Assert.True(onMiss.UseTargetSelector);
@@ -849,7 +849,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       GetConfigurator(Guid)
           .DeliveredByWeapon()
           .OnMiss(
-              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
+              ActionsBuilder.New().BreakFree().MeleeAttack(),
               useTargetSelector: false)
           .Configure();
 
@@ -858,7 +858,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(onMiss);
 
       Assert.Equal(2, onMiss.MissAction.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(onMiss.MissAction.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onMiss.MissAction.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onMiss.MissAction.Actions[1]);
 
       Assert.False(onMiss.UseTargetSelector);
@@ -870,7 +870,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       // First pass
       GetConfigurator(Guid)
           .DeliveredByWeapon()
-          .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnMiss(ActionsBuilder.New().BreakFree().MeleeAttack())
           .Configure();
 
       AbilityConfigurator.For(Guid)
@@ -884,7 +884,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(onMiss);
 
       Assert.Equal(3, onMiss.MissAction.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(onMiss.MissAction.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onMiss.MissAction.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onMiss.MissAction.Actions[1]);
       Assert.IsType<ContextActionMeleeAttack>(onMiss.MissAction.Actions[2]);
 
@@ -896,7 +896,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       Assert.Throws<InvalidOperationException>(
           () => AbilityConfigurator.For(Guid)
-              .OnMiss(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+              .OnMiss(ActionsBuilder.New().BreakFree().MeleeAttack())
               .Configure());
     }
 
@@ -904,7 +904,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     public void OnCast()
     {
       GetConfigurator(Guid)
-          .OnCast(ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack())
+          .OnCast(ActionsBuilder.New().BreakFree().MeleeAttack())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -912,7 +912,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(onCast);
 
       Assert.Equal(2, onCast.Actions.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(onCast.Actions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onCast.Actions.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onCast.Actions.Actions[1]);
 
       Assert.Empty(onCast.Conditions.Conditions);
@@ -923,8 +923,8 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       GetConfigurator(Guid)
           .OnCast(
-              ActionsBuilder.New().SwitchToDemoralizeTarget().MeleeAttack(),
-              ConditionsBuilder.New().IsDemoralizeAction().TargetInMeleeRange())
+              ActionsBuilder.New().BreakFree().MeleeAttack(),
+              ConditionsBuilder.New().TargetIsYourself().TargetInMeleeRange())
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -932,11 +932,11 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.NotNull(onCast);
 
       Assert.Equal(2, onCast.Actions.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(onCast.Actions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onCast.Actions.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onCast.Actions.Actions[1]);
 
       Assert.Equal(2, onCast.Conditions.Conditions.Length);
-      Assert.IsType<IsDemoralizeAction>(onCast.Conditions.Conditions[0]);
+      Assert.IsType<ContextConditionTargetIsYourself>(onCast.Conditions.Conditions[0]);
       Assert.IsType<TargetInMeleeRange>(onCast.Conditions.Conditions[1]);
     }
 

@@ -9,16 +9,6 @@ namespace BlueprintCore.Test.Conditions.Builder.NewEx
   public class ConditionsBuilderNewExTest : TestBase
   {
     [Fact]
-    public void IsDemoralizeAction()
-    {
-      var conditions = ConditionsBuilder.New().IsDemoralizeAction().Build();
-
-      Assert.Single(conditions.Conditions);
-      var isDemoralize = (IsDemoralizeAction)conditions.Conditions[0];
-      ElementAsserts.IsValid(isDemoralize);
-    }
-
-    [Fact]
     public void TargetInMeleeRange()
     {
       var conditions = ConditionsBuilder.New().TargetInMeleeRange().Build();

@@ -1,12 +1,6 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: BlueprintCore
-  name: BlueprintCore
-  href: api/BlueprintCore.html
-  commentId: N:BlueprintCore
-  fullName: BlueprintCore
-  nameWithType: BlueprintCore
 - uid: BlueprintCore.Abilities.Restrictions.New
   name: BlueprintCore.Abilities.Restrictions.New
   href: api/BlueprintCore.Abilities.Restrictions.New.html
@@ -2864,19 +2858,6 @@ references:
   commentId: T:BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx
   fullName: BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx
   nameWithType: ActionsBuilderNewEx
-- uid: BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget(BlueprintCore.Actions.Builder.ActionsBuilder)
-  name: SwitchToDemoralizeTarget(ActionsBuilder)
-  href: api/BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.html#BlueprintCore_Actions_Builder_NewEx_ActionsBuilderNewEx_SwitchToDemoralizeTarget_BlueprintCore_Actions_Builder_ActionsBuilder_
-  commentId: M:BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget(BlueprintCore.Actions.Builder.ActionsBuilder)
-  fullName: BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget(BlueprintCore.Actions.Builder.ActionsBuilder)
-  nameWithType: ActionsBuilderNewEx.SwitchToDemoralizeTarget(ActionsBuilder)
-- uid: BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget*
-  name: SwitchToDemoralizeTarget
-  href: api/BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.html#BlueprintCore_Actions_Builder_NewEx_ActionsBuilderNewEx_SwitchToDemoralizeTarget_
-  commentId: Overload:BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.Builder.NewEx.ActionsBuilderNewEx.SwitchToDemoralizeTarget
-  nameWithType: ActionsBuilderNewEx.SwitchToDemoralizeTarget
 - uid: BlueprintCore.Actions.Builder.StoryEx
   name: BlueprintCore.Actions.Builder.StoryEx
   href: api/BlueprintCore.Actions.Builder.StoryEx.html
@@ -3219,82 +3200,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UnStartEtude
   nameWithType: ActionsBuilderUpgraderEx.UnStartEtude
-- uid: BlueprintCore.Actions.New
-  name: BlueprintCore.Actions.New
-  href: api/BlueprintCore.Actions.New.html
-  commentId: N:BlueprintCore.Actions.New
-  fullName: BlueprintCore.Actions.New
-  nameWithType: BlueprintCore.Actions.New
-- uid: BlueprintCore.Actions.New.SwitchToDemoralizeTarget
-  name: SwitchToDemoralizeTarget
-  href: api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html
-  commentId: T:BlueprintCore.Actions.New.SwitchToDemoralizeTarget
-  fullName: BlueprintCore.Actions.New.SwitchToDemoralizeTarget
-  nameWithType: SwitchToDemoralizeTarget
-- uid: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption
-  name: GetCaption()
-  href: api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html#BlueprintCore_Actions_New_SwitchToDemoralizeTarget_GetCaption
-  commentId: M:BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption
-  fullName: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption()
-  nameWithType: SwitchToDemoralizeTarget.GetCaption()
-- uid: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption*
-  name: GetCaption
-  href: api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html#BlueprintCore_Actions_New_SwitchToDemoralizeTarget_GetCaption_
-  commentId: Overload:BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.GetCaption
-  nameWithType: SwitchToDemoralizeTarget.GetCaption
-- uid: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction
-  name: RunAction()
-  href: api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html#BlueprintCore_Actions_New_SwitchToDemoralizeTarget_RunAction
-  commentId: M:BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction
-  fullName: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction()
-  nameWithType: SwitchToDemoralizeTarget.RunAction()
-- uid: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction*
-  name: RunAction
-  href: api/BlueprintCore.Actions.New.SwitchToDemoralizeTarget.html#BlueprintCore_Actions_New_SwitchToDemoralizeTarget_RunAction_
-  commentId: Overload:BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.New.SwitchToDemoralizeTarget.RunAction
-  nameWithType: SwitchToDemoralizeTarget.RunAction
-- uid: BlueprintCore.Actions.Patches
-  name: BlueprintCore.Actions.Patches
-  href: api/BlueprintCore.Actions.Patches.html
-  commentId: N:BlueprintCore.Actions.Patches
-  fullName: BlueprintCore.Actions.Patches
-  nameWithType: BlueprintCore.Actions.Patches
-- uid: BlueprintCore.Actions.Patches.DemoralizePatch
-  name: DemoralizePatch
-  href: api/BlueprintCore.Actions.Patches.DemoralizePatch.html
-  commentId: T:BlueprintCore.Actions.Patches.DemoralizePatch
-  fullName: BlueprintCore.Actions.Patches.DemoralizePatch
-  nameWithType: DemoralizePatch
-- uid: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive
-  name: DemoralizeActive
-  href: api/BlueprintCore.Actions.Patches.DemoralizePatch.html#BlueprintCore_Actions_Patches_DemoralizePatch_DemoralizeActive
-  commentId: P:BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive
-  fullName: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive
-  nameWithType: DemoralizePatch.DemoralizeActive
-- uid: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive*
-  name: DemoralizeActive
-  href: api/BlueprintCore.Actions.Patches.DemoralizePatch.html#BlueprintCore_Actions_Patches_DemoralizePatch_DemoralizeActive_
-  commentId: Overload:BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeActive
-  nameWithType: DemoralizePatch.DemoralizeActive
-- uid: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget
-  name: DemoralizeTarget
-  href: api/BlueprintCore.Actions.Patches.DemoralizePatch.html#BlueprintCore_Actions_Patches_DemoralizePatch_DemoralizeTarget
-  commentId: P:BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget
-  fullName: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget
-  nameWithType: DemoralizePatch.DemoralizeTarget
-- uid: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget*
-  name: DemoralizeTarget
-  href: api/BlueprintCore.Actions.Patches.DemoralizePatch.html#BlueprintCore_Actions_Patches_DemoralizePatch_DemoralizeTarget_
-  commentId: Overload:BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.Patches.DemoralizePatch.DemoralizeTarget
-  nameWithType: DemoralizePatch.DemoralizeTarget
 - uid: BlueprintCore.Blueprints
   name: BlueprintCore.Blueprints
   href: api/BlueprintCore.Blueprints.html
@@ -6081,19 +5986,6 @@ references:
   commentId: T:BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx
   fullName: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx
   nameWithType: ConditionsBuilderNewEx
-- uid: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction(BlueprintCore.Conditions.Builder.ConditionsBuilder)
-  name: IsDemoralizeAction(ConditionsBuilder)
-  href: api/BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_IsDemoralizeAction_BlueprintCore_Conditions_Builder_ConditionsBuilder_
-  commentId: M:BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction(BlueprintCore.Conditions.Builder.ConditionsBuilder)
-  fullName: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction(BlueprintCore.Conditions.Builder.ConditionsBuilder)
-  nameWithType: ConditionsBuilderNewEx.IsDemoralizeAction(ConditionsBuilder)
-- uid: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction*
-  name: IsDemoralizeAction
-  href: api/BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_IsDemoralizeAction_
-  commentId: Overload:BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction
-  isSpec: "True"
-  fullName: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.IsDemoralizeAction
-  nameWithType: ConditionsBuilderNewEx.IsDemoralizeAction
 - uid: BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.TargetInMeleeRange(BlueprintCore.Conditions.Builder.ConditionsBuilder)
   name: TargetInMeleeRange(ConditionsBuilder)
   href: api/BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_
@@ -6113,38 +6005,6 @@ references:
   commentId: N:BlueprintCore.Conditions.New
   fullName: BlueprintCore.Conditions.New
   nameWithType: BlueprintCore.Conditions.New
-- uid: BlueprintCore.Conditions.New.IsDemoralizeAction
-  name: IsDemoralizeAction
-  href: api/BlueprintCore.Conditions.New.IsDemoralizeAction.html
-  commentId: T:BlueprintCore.Conditions.New.IsDemoralizeAction
-  fullName: BlueprintCore.Conditions.New.IsDemoralizeAction
-  nameWithType: IsDemoralizeAction
-- uid: BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition
-  name: CheckCondition()
-  href: api/BlueprintCore.Conditions.New.IsDemoralizeAction.html#BlueprintCore_Conditions_New_IsDemoralizeAction_CheckCondition
-  commentId: M:BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition
-  fullName: BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition()
-  nameWithType: IsDemoralizeAction.CheckCondition()
-- uid: BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition*
-  name: CheckCondition
-  href: api/BlueprintCore.Conditions.New.IsDemoralizeAction.html#BlueprintCore_Conditions_New_IsDemoralizeAction_CheckCondition_
-  commentId: Overload:BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition
-  isSpec: "True"
-  fullName: BlueprintCore.Conditions.New.IsDemoralizeAction.CheckCondition
-  nameWithType: IsDemoralizeAction.CheckCondition
-- uid: BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption
-  name: GetConditionCaption()
-  href: api/BlueprintCore.Conditions.New.IsDemoralizeAction.html#BlueprintCore_Conditions_New_IsDemoralizeAction_GetConditionCaption
-  commentId: M:BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption
-  fullName: BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption()
-  nameWithType: IsDemoralizeAction.GetConditionCaption()
-- uid: BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption*
-  name: GetConditionCaption
-  href: api/BlueprintCore.Conditions.New.IsDemoralizeAction.html#BlueprintCore_Conditions_New_IsDemoralizeAction_GetConditionCaption_
-  commentId: Overload:BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption
-  isSpec: "True"
-  fullName: BlueprintCore.Conditions.New.IsDemoralizeAction.GetConditionCaption
-  nameWithType: IsDemoralizeAction.GetConditionCaption
 - uid: BlueprintCore.Conditions.New.TargetInMeleeRange
   name: TargetInMeleeRange
   href: api/BlueprintCore.Conditions.New.TargetInMeleeRange.html
@@ -6177,50 +6037,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Conditions.New.TargetInMeleeRange.GetConditionCaption
   nameWithType: TargetInMeleeRange.GetConditionCaption
-- uid: BlueprintCore.Fixes
-  name: BlueprintCore.Fixes
-  href: api/BlueprintCore.Fixes.html
-  commentId: N:BlueprintCore.Fixes
-  fullName: BlueprintCore.Fixes
-  nameWithType: BlueprintCore.Fixes
-- uid: BlueprintCore.Fixes.RuleTempModifierTooltips
-  name: RuleTempModifierTooltips
-  href: api/BlueprintCore.Fixes.RuleTempModifierTooltips.html
-  commentId: T:BlueprintCore.Fixes.RuleTempModifierTooltips
-  fullName: BlueprintCore.Fixes.RuleTempModifierTooltips
-  nameWithType: RuleTempModifierTooltips
-- uid: BlueprintCore.Main
-  name: Main
-  href: api/BlueprintCore.Main.html
-  commentId: T:BlueprintCore.Main
-  fullName: BlueprintCore.Main
-  nameWithType: Main
-- uid: BlueprintCore.Main.Init
-  name: Init()
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Init
-  commentId: M:BlueprintCore.Main.Init
-  fullName: BlueprintCore.Main.Init()
-  nameWithType: Main.Init()
-- uid: BlueprintCore.Main.Init*
-  name: Init
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Init_
-  commentId: Overload:BlueprintCore.Main.Init
-  isSpec: "True"
-  fullName: BlueprintCore.Main.Init
-  nameWithType: Main.Init
-- uid: BlueprintCore.Main.TotallyNewFunction
-  name: TotallyNewFunction()
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_TotallyNewFunction
-  commentId: M:BlueprintCore.Main.TotallyNewFunction
-  fullName: BlueprintCore.Main.TotallyNewFunction()
-  nameWithType: Main.TotallyNewFunction()
-- uid: BlueprintCore.Main.TotallyNewFunction*
-  name: TotallyNewFunction
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_TotallyNewFunction_
-  commentId: Overload:BlueprintCore.Main.TotallyNewFunction
-  isSpec: "True"
-  fullName: BlueprintCore.Main.TotallyNewFunction
-  nameWithType: Main.TotallyNewFunction
 - uid: BlueprintCore.Utils
   name: BlueprintCore.Utils
   href: api/BlueprintCore.Utils.html

@@ -1,7 +1,5 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Actions.Builder.NewEx;
-using BlueprintCore.Actions.New;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Test.Asserts;
@@ -53,7 +51,7 @@ namespace BlueprintCore.Test.Actions.Builder
               .Conditional(
                   conditions,
                   ifTrue: ActionsBuilder.New().MeleeAttack(),
-                  ifFalse: ActionsBuilder.New().SwitchToDemoralizeTarget())
+                  ifFalse: ActionsBuilder.New().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -67,7 +65,7 @@ namespace BlueprintCore.Test.Actions.Builder
       Assert.IsType<ContextActionMeleeAttack>(conditional.IfTrue.Actions[0]);
 
       Assert.Single(conditional.IfFalse.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(conditional.IfFalse.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(conditional.IfFalse.Actions[0]);
     }
 
     [Fact]
@@ -79,7 +77,7 @@ namespace BlueprintCore.Test.Actions.Builder
           ActionsBuilder.New()
               .Conditional(
                   conditions,
-                  ifTrue: ActionsBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
+                  ifTrue: ActionsBuilder.New().MeleeAttack().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -91,7 +89,7 @@ namespace BlueprintCore.Test.Actions.Builder
 
       Assert.Equal(2, conditional.IfTrue.Actions.Length);
       Assert.IsType<ContextActionMeleeAttack>(conditional.IfTrue.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(conditional.IfTrue.Actions[1]);
+      Assert.IsType<ContextActionBreakFree>(conditional.IfTrue.Actions[1]);
     }
 
     [Fact]
@@ -103,7 +101,7 @@ namespace BlueprintCore.Test.Actions.Builder
           ActionsBuilder.New()
               .Conditional(
                   conditions,
-                  ifFalse: ActionsBuilder.New().MeleeAttack().SwitchToDemoralizeTarget())
+                  ifFalse: ActionsBuilder.New().MeleeAttack().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -115,7 +113,7 @@ namespace BlueprintCore.Test.Actions.Builder
 
       Assert.Equal(2, conditional.IfFalse.Actions.Length);
       Assert.IsType<ContextActionMeleeAttack>(conditional.IfFalse.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(conditional.IfFalse.Actions[1]);
+      Assert.IsType<ContextActionBreakFree>(conditional.IfFalse.Actions[1]);
     }
 
     [Fact]

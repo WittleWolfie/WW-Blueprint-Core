@@ -23,12 +23,11 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .IsDemoralizeAction()
               .TargetInMeleeRange()
               .TargetIsYourself()
               .Build();
 
-      Assert.Equal(3, conditions.Conditions.Length);
+      Assert.Equal(2, conditions.Conditions.Length);
       foreach (Element element in conditions.Conditions)
       {
         ElementAsserts.IsValid(element);

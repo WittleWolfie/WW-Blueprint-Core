@@ -1,6 +1,3 @@
-using BlueprintCore.Actions.New;
-using BlueprintCore.Utils;
-
 namespace BlueprintCore.Actions.Builder.NewEx
 {
   /// <summary>
@@ -8,14 +5,5 @@ namespace BlueprintCore.Actions.Builder.NewEx
   /// game.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
-  public static class ActionsBuilderNewEx
-  {
-    /// <summary>
-    /// Adds <see cref="SwitchToDemoralizeTarget"/>
-    /// </summary>
-    public static ActionsBuilder SwitchToDemoralizeTarget(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<SwitchToDemoralizeTarget>());
-    }
-  }
+  public static class ActionsBuilderNewEx { }
 }

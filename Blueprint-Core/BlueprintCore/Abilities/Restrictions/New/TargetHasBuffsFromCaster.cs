@@ -79,11 +79,11 @@ namespace BlueprintCore.Abilities.Restrictions.New
     [SerializeField]
     public BlueprintBuffReference[] Buffs;
 
-    [SerializeField]
     /// <summary>
     /// If set to true, all buffs must be present and applied by the caster. Otherwise the restriction passes as long as
     /// one buff is present and applied by the caster.
     /// </summary>
+    [SerializeField]
     public bool RequireAllBuffs;
   }
 

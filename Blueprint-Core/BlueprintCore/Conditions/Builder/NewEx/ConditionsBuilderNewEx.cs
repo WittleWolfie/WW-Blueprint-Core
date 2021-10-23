@@ -11,13 +11,6 @@ namespace BlueprintCore.Conditions.Builder.NewEx
   public static class ConditionsBuilderNewEx
   {
     /// <summary>
-    /// Adds <see cref="New.IsDemoralizeAction">IsDemoralizeAction</see>
-    /// </summary>
-    public static ConditionsBuilder IsDemoralizeAction(this ConditionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<IsDemoralizeAction>());
-    }
-    /// <summary>
     /// Adds <see cref="New.TargetInMeleeRange">TargetInMeleeRange</see>
     /// </summary>
     public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builder)

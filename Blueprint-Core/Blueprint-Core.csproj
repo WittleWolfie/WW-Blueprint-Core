@@ -32,14 +32,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\Assemblies\0Harmony.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>

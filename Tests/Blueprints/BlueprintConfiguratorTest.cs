@@ -1,7 +1,5 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Actions.Builder.NewEx;
-using BlueprintCore.Actions.New;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
@@ -67,7 +65,7 @@ namespace BlueprintCore.Test.Blueprints
           .FactContextActions(
               onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
               onDeactivated: ActionsBuilder.New().MeleeAttack(),
-              onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
+              onNewRound: ActionsBuilder.New().BreakFree())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -82,7 +80,7 @@ namespace BlueprintCore.Test.Blueprints
       Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
 
       Assert.Single(contextActions.NewRound.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(contextActions.NewRound.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
     }
 
     [Fact]
@@ -126,7 +124,7 @@ namespace BlueprintCore.Test.Blueprints
     public void FactContextActions_WithNewRoundOnly()
     {
       GetConfigurator(Guid)
-          .FactContextActions(onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
+          .FactContextActions(onNewRound: ActionsBuilder.New().BreakFree())
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -134,7 +132,7 @@ namespace BlueprintCore.Test.Blueprints
       Assert.NotNull(contextActions);
 
       Assert.Single(contextActions.NewRound.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(contextActions.NewRound.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
 
       Assert.NotNull(contextActions.Activated.Actions);
       Assert.NotNull(contextActions.Deactivated.Actions);
@@ -148,12 +146,12 @@ namespace BlueprintCore.Test.Blueprints
           .FactContextActions(
               onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
               onDeactivated: ActionsBuilder.New().MeleeAttack(),
-              onNewRound: ActionsBuilder.New().SwitchToDemoralizeTarget())
+              onNewRound: ActionsBuilder.New().BreakFree())
           .Configure();
 
       GetConfigurator(Guid)
           .FactContextActions(
-              onActivated: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+              onActivated: ActionsBuilder.New().BreakFree(),
               onDeactivated: ActionsBuilder.New().MeleeAttack(),
               onNewRound: ActionsBuilder.New().MeleeAttack())
           .Configure();
@@ -165,14 +163,14 @@ namespace BlueprintCore.Test.Blueprints
       Assert.Equal(3, contextActions.Activated.Actions.Length);
       Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
-      Assert.IsType<SwitchToDemoralizeTarget>(contextActions.Activated.Actions[2]);
+      Assert.IsType<ContextActionBreakFree>(contextActions.Activated.Actions[2]);
 
       Assert.Equal(2, contextActions.Deactivated.Actions.Length);
       Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[1]);
 
       Assert.Equal(2, contextActions.NewRound.Actions.Length);
-      Assert.IsType<SwitchToDemoralizeTarget>(contextActions.NewRound.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(contextActions.NewRound.Actions[1]);
     }
 

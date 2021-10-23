@@ -1,9 +1,8 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.BasicEx;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Actions.Builder.NewEx;
-using BlueprintCore.Actions.New;
 using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Test.Asserts;
@@ -26,6 +25,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
 using Xunit;
 using static BlueprintCore.Test.TestData;
@@ -548,7 +548,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   useCMB: true,
                   useCMD: true,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
+                  onFail: ActionsBuilder.New().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -558,7 +558,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.True(breakFree.UseCMB);
       Assert.True(breakFree.UseCMD);
       Assert.IsType<ContextActionMeleeAttack>(breakFree.Success.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(breakFree.Failure.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(breakFree.Failure.Actions[0]);
     }
 
     [Fact]
@@ -775,7 +775,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
               .CustomCombatManeuver(
                   Kingmaker.RuleSystem.Rules.CombatManeuver.DirtyTrickBlind,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
+                  onFail: ActionsBuilder.New().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -784,7 +784,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
 
       Assert.Equal(Kingmaker.RuleSystem.Rules.CombatManeuver.DirtyTrickBlind, maneuver.Type);
       Assert.IsType<ContextActionMeleeAttack>(maneuver.Success.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(maneuver.Failure.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(maneuver.Failure.Actions[0]);
     }
 
     [Fact]
@@ -807,7 +807,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
           ActionsBuilder.New()
               .AfterSavingThrow(
                   ifPassed: ActionsBuilder.New().MeleeAttack(),
-                  ifFailed: ActionsBuilder.New().SwitchToDemoralizeTarget())
+                  ifFailed: ActionsBuilder.New().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -815,7 +815,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       ElementAsserts.IsValid(onSave);
 
       Assert.IsType<ContextActionMeleeAttack>(onSave.Succeed.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(onSave.Failed.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(onSave.Failed.Actions[0]);
     }
 
     [Fact]
@@ -1320,7 +1320,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   bonus: 3,
                   contextBonus: 5,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+                  onFail: ActionsBuilder.New().BreakFree(),
                   limitToSchools:
                       new SpellSchool[] { SpellSchool.Abjuration, SpellSchool.Conjuration },
                   limitToDescriptor: SpellDescriptor.Fire,
@@ -1350,7 +1350,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.Single(dispel.OnSuccess.Actions);
       Assert.IsType<ContextActionMeleeAttack>(dispel.OnSuccess.Actions[0]);
       Assert.Single(dispel.OnFail.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(dispel.OnFail.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(dispel.OnFail.Actions[0]);
 
       Assert.Equal(2, dispel.Schools.Length);
       Assert.Contains(SpellSchool.Abjuration, dispel.Schools);
@@ -1654,7 +1654,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
           ActionsBuilder.New()
               .KnowledgeCheck(
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget())
+                  onFail: ActionsBuilder.New().BreakFree())
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1662,7 +1662,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       ElementAsserts.IsValid(knowledgeCheck);
 
       Assert.IsType<ContextActionMeleeAttack>(knowledgeCheck.SuccessActions.Actions[0]);
-      Assert.IsType<SwitchToDemoralizeTarget>(knowledgeCheck.FailActions.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(knowledgeCheck.FailActions.Actions[0]);
     }
 
     [Fact]
@@ -1937,7 +1937,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
           ActionsBuilder.New()
               .RandomActions(
                   (actions: ActionsBuilder.New().MeleeAttack(), weight: 2),
-                  (actions: ActionsBuilder.New().SwitchToDemoralizeTarget(), weight: 3))
+                  (actions: ActionsBuilder.New().BreakFree(), weight: 3))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -1948,7 +1948,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.Single(randomActions.m_Actions[0].Action.Actions);
       Assert.IsType<ContextActionMeleeAttack>(randomActions.m_Actions[0].Action.Actions[0]);
       Assert.Single(randomActions.m_Actions[1].Action.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(randomActions.m_Actions[1].Action.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(randomActions.m_Actions[1].Action.Actions[0]);
     }
 
     [Fact]
@@ -2269,7 +2269,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   ActionsBuilder.New().MeleeAttack(),
                   customDC: 15,
                   fromBuff: true,
-                  (conditions: ConditionsBuilder.New().IsDemoralizeAction(), 3),
+                  (conditions: ConditionsBuilder.New().TargetIsYourself(), 3),
                   (conditions: ConditionsBuilder.New().TargetInMeleeRange(), 4))
               .Build();
 
@@ -2288,7 +2288,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
 
       Assert.Equal(2, savingThrow.m_ConditionalDCIncrease.Length);
       Assert.Single(savingThrow.m_ConditionalDCIncrease[0].Condition.Conditions);
-      Assert.IsType<IsDemoralizeAction>(
+      Assert.IsType<ContextConditionTargetIsYourself>(
           savingThrow.m_ConditionalDCIncrease[0].Condition.Conditions[0]);
       Assert.Equal(3, savingThrow.m_ConditionalDCIncrease[0].Value.Value);
 
@@ -2305,7 +2305,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
           ActionsBuilder.New()
               .RunActionWithGreatestValue(
                   (value: 5, ActionsBuilder.New().MeleeAttack()),
-                  (value: 10, ActionsBuilder.New().SwitchToDemoralizeTarget()))
+                  (value: 10, ActionsBuilder.New().BreakFree()))
               .Build();
 
       Assert.Single(actions.Actions);
@@ -2321,7 +2321,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
 
       Assert.Equal(10, run.m_Variants[1].Value.Value);
       Assert.Single(run.m_Variants[1].Action.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(run.m_Variants[1].Action.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(run.m_Variants[1].Action.Actions[0]);
     }
 
     [Fact]
@@ -2355,8 +2355,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   StatType.CheckDiplomacy,
                   customDC: 20,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFail: ActionsBuilder.New().SwitchToDemoralizeTarget(),
-                  (condition: ConditionsBuilder.New().IsDemoralizeAction(), value: 5),
+                  onFail: ActionsBuilder.New().BreakFree(),
+                  (condition: ConditionsBuilder.New().TargetIsYourself(), value: 5),
                   (condition: ConditionsBuilder.New().TargetInMeleeRange(), value: 3))
               .Build();
 
@@ -2372,7 +2372,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.Single(skillCheck.Success.Actions);
       Assert.IsType<ContextActionMeleeAttack>(skillCheck.Success.Actions[0]);
       Assert.Single(skillCheck.Failure.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(skillCheck.Failure.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(skillCheck.Failure.Actions[0]);
 
       Assert.False(skillCheck.CalculateDCDifference);
       Assert.Empty(skillCheck.FailureDiffMoreOrEqual5Less10.Actions);
@@ -2380,7 +2380,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
 
       Assert.Equal(2, skillCheck.m_ConditionalDCIncrease.Length);
       Assert.Single(skillCheck.m_ConditionalDCIncrease[0].Condition.Conditions);
-      Assert.IsType<IsDemoralizeAction>(
+      Assert.IsType<ContextConditionTargetIsYourself>(
           skillCheck.m_ConditionalDCIncrease[0].Condition.Conditions[0]);
       Assert.Equal(5, skillCheck.m_ConditionalDCIncrease[0].Value.Value);
 
@@ -2422,9 +2422,9 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   StatType.CheckDiplomacy,
                   customDC: 20,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
-                  onFailBy5to10: ActionsBuilder.New().SwitchToDemoralizeTarget(),
+                  onFailBy5to10: ActionsBuilder.New().BreakFree(),
                   onFailBy10orMore: ActionsBuilder.New().Mount(),
-                  (condition: ConditionsBuilder.New().IsDemoralizeAction(), value: 5),
+                  (condition: ConditionsBuilder.New().TargetIsYourself(), value: 5),
                   (condition: ConditionsBuilder.New().TargetInMeleeRange(), value: 3))
               .Build();
 
@@ -2443,14 +2443,14 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
 
       Assert.True(skillCheck.CalculateDCDifference);
       Assert.Single(skillCheck.FailureDiffMoreOrEqual5Less10.Actions);
-      Assert.IsType<SwitchToDemoralizeTarget>(skillCheck.FailureDiffMoreOrEqual5Less10.Actions[0]);
+      Assert.IsType<ContextActionBreakFree>(skillCheck.FailureDiffMoreOrEqual5Less10.Actions[0]);
 
       Assert.Single(skillCheck.FailureDiffMoreOrEqual5Less10.Actions);
       Assert.IsType<ContextActionMount>(skillCheck.FailureDiffMoreOrEqual10.Actions[0]);
 
       Assert.Equal(2, skillCheck.m_ConditionalDCIncrease.Length);
       Assert.Single(skillCheck.m_ConditionalDCIncrease[0].Condition.Conditions);
-      Assert.IsType<IsDemoralizeAction>(
+      Assert.IsType<ContextConditionTargetIsYourself>(
           skillCheck.m_ConditionalDCIncrease[0].Condition.Conditions[0]);
       Assert.Equal(5, skillCheck.m_ConditionalDCIncrease[0].Value.Value);
 
