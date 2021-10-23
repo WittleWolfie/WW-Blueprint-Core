@@ -21,12 +21,6 @@ namespace BlueprintCore.Blueprints
     /// After calling this function you can reference blueprints by Name in BlueprintCore APIs.
     /// </para>
     /// 
-    /// <para>
-    /// If a Name has already been registered to a different Guid an exception is thrown. This could be an error in your
-    /// mod or it could be a conflict with another mod. To prevent this from happening it is recommended to include an
-    /// identifier unique to your mod. e.g. TabletopTweaks might prepend "TT": "TT-PowerAttackFeat".
-    /// </para>
-    /// 
     /// <example>
     /// Add a mapping for the Power Attack feat and check to see if the caster has it in a
     /// <see cref="Conditions.Builder.ConditionsBuilder">ConditionsBuilder</see>:
@@ -47,12 +41,6 @@ namespace BlueprintCore.Blueprints
     /// <remarks>
     /// <para>
     /// After calling this function you can reference blueprints by Name in BlueprintCore APIs.
-    /// </para>
-    /// 
-    /// <para>
-    /// If a Name has already been registered to a different Guid an exception is thrown. This could be an error in your
-    /// mod or it could be a conflict with another mod. To prevent this from happening it is recommended to include an
-    /// identifier unique to your mod. e.g. TabletopTweaks might prepend "TT": "TT-PowerAttackFeat".
     /// </para>
     /// 
     /// <example>
@@ -81,9 +69,7 @@ namespace BlueprintCore.Blueprints
                   {
                     throw new InvalidOperationException(
                         $"Duplicate GuidByName. {entry.name} - {entry.guid} requested, but"
-                        + $" {entry.name} already maps to {guid}.\n"
-                        + $"This indicates an error in single mod or an incompatibility between two"
-                        + $" mods. ");
+                        + $" {entry.name} already maps to {guid}.\n");
                   }
                 }
 
@@ -149,17 +135,6 @@ namespace BlueprintCore.Blueprints
             $"Failed to fetch blueprint: {nameOrGuid} - {assetId}.\nIs the type correct? {typeof(T)}");
       }
     }
-
-    /**
-     * Returns a reference to the Blueprint with the specified nameOrId. The referenced Blueprint
-     * does not have to be in the game library, but it will throw an exception if the reference is
-     * used before the Blueprint has been added.
-     *
-     * If nameOrId is null, it will return a typed reference with a null Guid.
-     *
-     * @param nameOrId Use the name if you have specified a mapping with AddGuidsByName; use the
-     *   AssetId / Guid otherwise.
-     */
 
     /// <summary>Returns a blueprint reference for the specified Name or Guid</summary>
     /// 
