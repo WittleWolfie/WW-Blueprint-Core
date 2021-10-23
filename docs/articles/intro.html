@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Add your introductions here! </title>
+    <title>Getting Started </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Add your introductions here! ">
+    <meta name="title" content="Getting Started ">
     <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,9 +67,67 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="add-your-introductions-here">Add your introductions here!</h1>
+<h1 id="getting-started">Getting Started</h1>
 
-<p>Adding my introductions!</p>
+<ol>
+<li>Set up your project. If you haven't written mods for any Pathfinder game, start with the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a> on the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">OwlcatModdingWiki</a>.</li>
+<li>Create a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">public assembly</a>.</li>
+<li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.
+<ul>
+<li>The package contains a folder named <code>BlueprintCore</code> that contains the library source code which is included directly in your project.</li>
+</ul>
+</li>
+<li>You're ready to go!</li>
+</ol>
+<h1 id="blueprint-configurators">Blueprint Configurators</h1>
+<p>Every supported concrete blueprint type has a corresponding configurator. e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.Buffs.BuffConfigurator.html">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
+<p>Basic usage of all configurators is the same:</p>
+<ol>
+<li>Instantiate a configurator using <code>For()</code> or <code>Create()</code>
+<ul>
+<li><code>For()</code> creates a configurator for an existing blueprint</li>
+<li><code>Create()</code> creates and registers a new blueprint</li>
+</ul>
+</li>
+<li>Modify the blueprint using the configurator methods</li>
+<li>Commit the configuration with <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a>
+<ul>
+<li>Until this is called, no changes are made to the blueprint</li>
+<li>After commit the blueprint is validated and any errors are logged as warnings</li>
+</ul>
+</li>
+</ol>
+<h2 id="common-methods">Common Methods</h2>
+<ul>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent</a>
+<ul>
+<li>Used internally by all configurator methods that add a new component.</li>
+<li>Adds a <code>BlueprintComponent</code> of any type. Prefer using configurator methods whenever possible.</li>
+<li>Eventually the configurators will support all in-game components, at which point this should only be used for components implemented in your project.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">AddUniqueComponent</a>
+<ul>
+<li>Similar to <code>AddComponent</code>, but for components for which only one can exist in a blueprint.</li>
+<li>Supports user defined conflict resolution if multiple components are present. See <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">ComponentMerge</a>.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RemoveComponents</a>
+<ul>
+<li>Removes any components matching the supplied <code>Func&lt;BlueprintComponent, bool&gt;</code>.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure</a>
+<ul>
+<li>Executes an <code>Action</code> on the blueprint as the last step in configuration.</li>
+</ul>
+</li>
+</ul>
+<h2 id="fields-and-component-methods">Fields and Component Methods</h2>
+<h2 id="example-simple-mage-armor-implementation">Example: Simple Mage Armor Implementation</h2>
+<h1 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h1>
+<h1 id="referencing-blueprints">Referencing Blueprints</h1>
+<h1 id="logging-and-utils">Logging and Utils</h1>
 </article>
           </div>
           
