@@ -1,4 +1,4 @@
-# Getting Started
+## Getting Started
 
 1. Set up your project. If you haven't written mods for any Pathfinder game, start with the [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide) on the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
 2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
@@ -6,7 +6,7 @@
     * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
 4. You're ready to go!
 
-# Blueprint Configurators
+## Blueprint Configurators
 
 Every supported concrete blueprint type has a corresponding configurator. e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.Buffs.BuffConfigurator) is the configurator for `BlueprintBuff`.
 
@@ -20,7 +20,7 @@ Basic usage of all configurators is the same:
     * Until this is called, no changes are made to the blueprint
     * After commit the blueprint is validated and any errors are logged as warnings
 
-## Common Methods
+### Common Methods
 
 * [AddComponent](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent))
     * Used internally by all configurator methods that add a new component.
@@ -34,12 +34,12 @@ Basic usage of all configurators is the same:
 * [OnConfigure](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigure(System.Action{`0}[]))
     * Executes an `Action` on the blueprint as the last step in configuration.
 
-## Fields and Component Methods
+### Fields and Component Methods
 
-## Example: Simple Mage Armor Implementation
+### Example: Simple Mage Armor Implementation
 
-# ActionsBuilder and ConditionsBuilder
+## ActionsBuilder and ConditionsBuilder
 
-# Referencing Blueprints
+## Referencing Blueprints
 
-# Logging and Utils
+## Logging and Utils
