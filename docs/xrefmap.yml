@@ -6195,19 +6195,32 @@ references:
   commentId: T:BlueprintCore.Main
   fullName: BlueprintCore.Main
   nameWithType: Main
-- uid: BlueprintCore.Main.Version
-  name: Version
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Version
-  commentId: P:BlueprintCore.Main.Version
-  fullName: BlueprintCore.Main.Version
-  nameWithType: Main.Version
-- uid: BlueprintCore.Main.Version*
-  name: Version
-  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Version_
-  commentId: Overload:BlueprintCore.Main.Version
+- uid: BlueprintCore.Main.Init
+  name: Init()
+  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Init
+  commentId: M:BlueprintCore.Main.Init
+  fullName: BlueprintCore.Main.Init()
+  nameWithType: Main.Init()
+- uid: BlueprintCore.Main.Init*
+  name: Init
+  href: api/BlueprintCore.Main.html#BlueprintCore_Main_Init_
+  commentId: Overload:BlueprintCore.Main.Init
   isSpec: "True"
-  fullName: BlueprintCore.Main.Version
-  nameWithType: Main.Version
+  fullName: BlueprintCore.Main.Init
+  nameWithType: Main.Init
+- uid: BlueprintCore.Main.TotallyNewFunction
+  name: TotallyNewFunction()
+  href: api/BlueprintCore.Main.html#BlueprintCore_Main_TotallyNewFunction
+  commentId: M:BlueprintCore.Main.TotallyNewFunction
+  fullName: BlueprintCore.Main.TotallyNewFunction()
+  nameWithType: Main.TotallyNewFunction()
+- uid: BlueprintCore.Main.TotallyNewFunction*
+  name: TotallyNewFunction
+  href: api/BlueprintCore.Main.html#BlueprintCore_Main_TotallyNewFunction_
+  commentId: Overload:BlueprintCore.Main.TotallyNewFunction
+  isSpec: "True"
+  fullName: BlueprintCore.Main.TotallyNewFunction
+  nameWithType: Main.TotallyNewFunction
 - uid: BlueprintCore.Utils
   name: BlueprintCore.Utils
   href: api/BlueprintCore.Utils.html

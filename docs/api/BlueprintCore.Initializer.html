@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
+    <title>Class Initializer
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
+    <meta name="title" content="Class Initializer
    ">
     <meta name="generator" content="docfx 2.58.4.0">
     
@@ -68,57 +68,71 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ComponentMerge">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Initializer">
   
   
-  <h1 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge" data-uid="BlueprintCore.Blueprints.BlueprintConfigurator`2.ComponentMerge" class="text-break">Enum BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
+  <h1 id="BlueprintCore_Initializer" data-uid="BlueprintCore.Initializer" class="text-break">Class Initializer
   </h1>
-  <div class="markdown level0 summary"><p>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</p>
+  <div class="markdown level0 summary"><p>Container class for library initialization.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.html">BlueprintCore.Blueprints</a></h6>
-  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
-  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum ComponentMerge</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Initializer</span></div>
   </div>
-  <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>When adding a component that is unique, the function accepts a <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.ComponentMerge.html">BlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge</a> and
-<span class="xref">System.Action</span> argument to resolve the conflict. Whenever possible, a reasonable default behavior is
-provided. Usually this is in the form of concatenating two components that represent lists or combining flags.</p>
-</div>
-  <h3 id="fields">Fields
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.html">BlueprintCore</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Initializer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Initializer</code></pre>
+  </div>
+  <h3 id="methods">Methods
   </h3>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_Fail">Fail</td>
-        <td><p>Default. Throws an exception.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_Merge">Merge</td>
-        <td><p>The two components are merged into one. Requires an <span class="xref">System.Action</span> to define merge behavior.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_Replace">Replace</td>
-        <td><p>The new component is used and the existing component is removed.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge_Skip">Skip</td>
-        <td><p>Skips the new component. Useful for components without per-instance behavior.</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Initializer_Init.md&amp;value=---%0Auid%3A%20BlueprintCore.Initializer.Init%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/Main.cs/#L35">View Source</a>
+  </span>
+  <a id="BlueprintCore_Initializer_Init_" data-uid="BlueprintCore.Initializer.Init*"></a>
+  <h4 id="BlueprintCore_Initializer_Init" data-uid="BlueprintCore.Initializer.Init">Init()</h4>
+  <div class="markdown level1 summary"><p>Call this to initalize the library before using it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Init()</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Initializer_Init_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Should be called before any library classes are referenced to ensure log messages are correctly associated with
+your assembly.</p>
+</div>
 </article>
           </div>
           
@@ -127,10 +141,10 @@ provided. Usually this is in the form of concatenating two components that repre
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BlueprintConfigurator_2_ComponentMerge.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BlueprintConfigurator%602.ComponentMerge%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Initializer.md&amp;value=---%0Auid%3A%20BlueprintCore.Initializer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/BlueprintConfigurator.cs/#L160" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/Main.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

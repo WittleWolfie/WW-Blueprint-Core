@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using Owlcat.Runtime.Core.Logging;
 
 namespace BlueprintCore.Utils
@@ -15,11 +16,19 @@ namespace BlueprintCore.Utils
   /// </remarks>
   public class LogWrapper
   {
+    /// <summary>
+    /// Controls whether calls to <see cref="Verbose(string)"/> are logged.
+    /// </summary>
     public static bool EnableVerboseLogs = true;
+
+    /// <summary>
+    /// Global log prefix. Should be populated by <see cref="Main.Init"/>
+    /// </summary>
+    internal static string PrefixBase = $"BlueprintCore::Unknown";
 
     internal static LogWrapper GetInternal(string prefix)
     {
-      return Get($"WW-BlueprintCore::{prefix}");
+      return Get($"{PrefixBase}::{prefix}");
     }
 
     /// <summary>
@@ -39,17 +48,23 @@ namespace BlueprintCore.Utils
       Logger = logger;
     }
 
+    /// <summary>
+    /// Logs an error with a stack trace as well as an exception, if provided.
+    /// </summary>
     public virtual void Error(string msg, Exception e = null)
     {
       Logger.Error(msg);
       if (e != null) { Logger.Exception(e); }
     }
-
+    
     public virtual void Info(string msg)
     {
       Logger.Log(msg);
     }
 
+    /// <summary>
+    /// Logs a warning with a stack trace.
+    /// </summary>
     public virtual void Warn(string msg)
     {
       Logger.Warning(msg);
