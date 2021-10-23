@@ -63,27 +63,20 @@
 <h1 id="ww-blueprint-core">WW-Blueprint-Core</h1>
 
 <p>Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.</p>
-<h2 id="status-wip">Status: WIP</h2>
-<p>Not ready for use as a library yet. There are a few key things that need to be finalized before I
-publish:</p>
-<ol>
-<li>Finalize ActionsBuilder extension class distinctions <strong>DONE</strong></li>
-<li>Finalize ConditionsBuilder extension class distinctions <strong>DONE</strong></li>
-<li>Add Create() to BlueprintConfigurator <strong>DONE</strong></li>
-<li>Cleanup Utils APIs <strong>IN PROGRESS</strong></li>
-</ol>
-<p>Once these are done it will be usable but incomplete. Completion is dependent on implementing all
-Actions, Conditions, and Components in the appropriate Builder or Configurator API.</p>
+<p><a href="http://nugetstatus.com/packages/WW-Blueprint-Core"><img src="http://nugetstatus.com/WW-Blueprint-Core.png" alt="NuGet Status"></a></p>
 <h2 id="features">Features</h2>
 <h3 id="blueprint-configurators">Blueprint Configurators</h3>
-<p>Each concrete blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes a fluent API for modifying its field values and blueprint components. Once you call <code>Configure()</code> on a blueprint configurator, all of the changes are committed and validated. If validation fails, all errors are bundled into a warning log message.</p>
+<p>Each concrete blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes a fluent API for modifying its fields and components. Once you call <code>Configure()</code> all of the changes are committed and validated. All validation errors are logged as a warning.</p>
+<p>The API attempts to limit use of <code>BlueprintComponent</code> types to supported blueprints but it is not always possible. If a blueprint does contain an unsupported component it results in a validation error.</p>
 <h3 id="actionlist-and-conditionschecker-builders">ActionList and ConditionsChecker Builders</h3>
-<p><code>ActionList</code> and <code>ConditionsChecker</code> are supported with a builder API. Blueprint configurators take builders are arguments for blueprint components to minimize boilerplate. To simplify their usage, the actual methods for each action or condition are grouped into extension classes by use case. This allows you to ignore actions unrelated to your modification. e.g. If you are only adding new feats you can skip including extension classes like <code>ActionsBuilderKingdomEx</code> which only affect the kingdom building and crusade portion of the game.</p>
+<p><code>ActionsBuilder</code> is a builder API for <code>ActionList</code> and <code>ConditionsBuilder</code> is a builder API for <code>ConditionsChecker</code>. When a configurator or builder requires an <code>ActionList</code> or <code>ConditionsChecker</code> it takes the corresponding builder as an input.</p>
+<p>Since there are a very large number of actions and conditions, each builder class is implemented across several extensions. This limits auto-complete to a subset of related actions. e.g. If you are adding a new ability you can include <code>ActionsBuilderContextEx</code> while ignoring extensions such as <code>ActionsBuilderKingdomEx</code> which only affects kingdom and crusade mechanics.</p>
+<p>Like configurators, builders log validation errors when <code>Build()</code> is called. This happens automatically when a builder is given as an argument to a configurator function.</p>
 <h3 id="validation">Validation</h3>
-<p>All actions, conditions, blueprints, and blueprint components are validated when built or configured. Validation is done through a combination of Wrath's <code>ValidationContext</code> API with additional checks to validate implicit contracts in the code that native validation does not check.</p>
+<p>All objects builder or configured in the library are validated, along with some input objects. Validation uses the game's <code>ValidationContext</code> API as well as custom logic to validate implicit contracts not covered by the game's own validation.</p>
 <h2 id="usage">Usage</h2>
-<p>Right now it's not ready for use--the API may change in breaking ways while I finish the initial release. However, feel free to start using it or even submitting PRs or Issues. I'm particularly interested in feedback on how to logically group Actions and Conditions.</p>
-<p>You can use <code>copy_assemblies.bat</code> to set up your assembly directory for project references: you must set the <code>WRATH_DIR</code> environment variable to the root install directory for Pathfinder: Wrath of the Righteous. You must use a publicized assembly. See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/Publicise-Assemblies">Publicize Assemblies</a> for more details.</p>
+<p>BlueprintCore is available as <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">NuGet package</a> that provides the source code for compilation into your modification. It requires a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">public assembly</a>.</p>
+<p>For more details check the <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html">documentation</a>.</p>
 <h3 id="example">Example</h3>
 <p><strong>Skald's Vigor</strong></p>
 <pre><code class="lang-C#">BuffConfigurator.For(SkladsVigorBuff)

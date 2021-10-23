@@ -2,40 +2,36 @@
 
 Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.
 
-## Status: WIP
-
-Not ready for use as a library yet. There are a few key things that need to be finalized before I
-publish:
-
-1. Finalize ActionsBuilder extension class distinctions **DONE**
-2. Finalize ConditionsBuilder extension class distinctions **DONE**
-3. Add Create() to BlueprintConfigurator **DONE**
-4. Cleanup Utils APIs **IN PROGRESS**
-
-Once these are done it will be usable but incomplete. Completion is dependent on implementing all
-Actions, Conditions, and Components in the appropriate Builder or Configurator API.
+[![NuGet Status](http://nugetstatus.com/WW-Blueprint-Core.png)](http://nugetstatus.com/packages/WW-Blueprint-Core)
 
 ## Features
 
 ### Blueprint Configurators
 
-Each concrete blueprint class has a corresponding configurator, e.g. `BuffConfigurator`, which exposes a fluent API for modifying its field values and blueprint components. Once you call `Configure()` on a blueprint configurator, all of the changes are committed and validated. If validation fails, all errors are bundled into a warning log message.
+Each concrete blueprint class has a corresponding configurator, e.g. `BuffConfigurator`, which exposes a fluent API for modifying its fields and components. Once you call `Configure()` all of the changes are committed and validated. All validation errors are logged as a warning.
+
+The API attempts to limit use of `BlueprintComponent` types to supported blueprints but it is not always possible. If a blueprint does contain an unsupported component it results in a validation error.
 
 ### ActionList and ConditionsChecker Builders
 
-`ActionList` and `ConditionsChecker` are supported with a builder API. Blueprint configurators take builders are arguments for blueprint components to minimize boilerplate. To simplify their usage, the actual methods for each action or condition are grouped into extension classes by use case. This allows you to ignore actions unrelated to your modification. e.g. If you are only adding new feats you can skip including extension classes like `ActionsBuilderKingdomEx` which only affect the kingdom building and crusade portion of the game.
+`ActionsBuilder` is a builder API for `ActionList` and `ConditionsBuilder` is a builder API for `ConditionsChecker`. When a configurator or builder requires an `ActionList` or `ConditionsChecker` it takes the corresponding builder as an input.
+
+Since there are a very large number of actions and conditions, each builder class is implemented across several extensions. This limits auto-complete to a subset of related actions. e.g. If you are adding a new ability you can include `ActionsBuilderContextEx` while ignoring extensions such as `ActionsBuilderKingdomEx` which only affects kingdom and crusade mechanics.
+
+Like configurators, builders log validation errors when `Build()` is called. This happens automatically when a builder is given as an argument to a configurator function.
 
 ### Validation
 
-All actions, conditions, blueprints, and blueprint components are validated when built or configured. Validation is done through a combination of Wrath's `ValidationContext` API with additional checks to validate implicit contracts in the code that native validation does not check.
+All objects builder or configured in the library are validated, along with some input objects. Validation uses the game's `ValidationContext` API as well as custom logic to validate implicit contracts not covered by the game's own validation.
 
 ## Usage
 
-Right now it's not ready for use--the API may change in breaking ways while I finish the initial release. However, feel free to start using it or even submitting PRs or Issues. I'm particularly interested in feedback on how to logically group Actions and Conditions.
+BlueprintCore is available as [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/) that provides the source code for compilation into your modification. It requires a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
 
-You can use `copy_assemblies.bat` to set up your assembly directory for project references: you must set the `WRATH_DIR` environment variable to the root install directory for Pathfinder: Wrath of the Righteous. You must use a publicized assembly. See [Publicize Assemblies](https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/Publicise-Assemblies) for more details.
+For more details check the [documentation](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
 
 ### Example
+
 **Skald's Vigor**
 ```C#
 BuffConfigurator.For(SkladsVigorBuff)
