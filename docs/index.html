@@ -63,7 +63,7 @@
 <h1 id="ww-blueprint-core">WW-Blueprint-Core</h1>
 
 <p>Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.</p>
-<p><a href="http://nugetstatus.com/packages/WW-Blueprint-Core"><img src="http://nugetstatus.com/WW-Blueprint-Core.png" alt="NuGet Status"></a></p>
+<p><a href="https://www.nuget.org/packages/WW-Blueprint-Core"><img src="https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square" alt="NuGet"></a></p>
 <h2 id="features">Features</h2>
 <h3 id="blueprint-configurators">Blueprint Configurators</h3>
 <p>Each concrete blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes a fluent API for modifying its fields and components. Once you call <code>Configure()</code> all of the changes are committed and validated. All validation errors are logged as a warning.</p>
@@ -98,6 +98,16 @@ BuffConfigurator.For(RAGING_SONG_BUFF)
         onDeactivated: ActionsBuilder.New().RemoveBuff(SkaldsVigorBuff))
     .Configure();
 </code></pre>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<ul>
+<li>Thank you to the Owlcat modders who came before me, documenting their process and sharing their code.</li>
+<li>Thank you to the modders on Discord who helped me learn modding so I could create this library.</li>
+</ul>
+<h1 id="interested-in-modding">Interested in modding?</h1>
+<ul>
+<li>Check out the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">OwlcatModdingWiki</a>.</li>
+<li>Join us on <a href="https://discord.gg/zHbMuYT6">Discord</a>.</li>
+</ul>
 </article>
           </div>
           
