@@ -406,7 +406,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       prereq.Level = level;
@@ -424,7 +424,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
       return AddUniqueComponent(prereq, behavior, merge);
     }
@@ -440,7 +440,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
       prereq.OnlySpontaneous = onlySpontaneous;
       prereq.RequiredSpellLevel = minSpellLevel;
@@ -458,7 +458,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
       prereq.Level = minLevel;
       return AddUniqueComponent(prereq, behavior, merge);
     }
@@ -476,7 +476,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.Level = minLevel;
       prereq.Not = negate;
@@ -497,7 +497,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.RequiredSpellLevel = minSpellLevel;
       return AddUniqueComponent(prereq, behavior, merge);
@@ -515,7 +515,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
       prereq.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       prereq.NotPlaying = !playing;
       return AddComponent(prereq);
@@ -532,7 +532,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
@@ -549,7 +549,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
       prereq.m_Features =
           features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray();
       prereq.Amount = requiredNumber;
@@ -565,7 +565,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
       prereq.Not = negate;
       return AddComponent(prereq);
     }
@@ -580,7 +580,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       return AddUniqueComponent(prereq, behavior, merge);
     }
     
@@ -594,7 +594,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       prereq.Companion = true;
       return AddUniqueComponent(prereq, behavior, merge);
     }
@@ -610,7 +610,7 @@ namespace BlueprintCore.Blueprints
         ComponentMerge behavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
-      var prereq = PrereqTools.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
       prereq.Level = level;
       return AddUniqueComponent(prereq, behavior, merge);
     }
@@ -628,7 +628,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
       return AddComponent(prereq);
@@ -645,7 +645,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       return AddComponent(prereq);
     }
@@ -661,7 +661,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
@@ -679,7 +679,7 @@ namespace BlueprintCore.Blueprints
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
       var prereq =
-          PrereqTools.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
+          PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
       prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
       prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
       return AddUniqueComponent(prereq, behavior, merge);
@@ -698,7 +698,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
       // Note: There is no distinction between SpellSpecialization and LearnSpell, despite them
       // being called out independently in the component.
       prereq.ParameterType = FeatureParameterType.LearnSpell;
@@ -720,7 +720,7 @@ namespace BlueprintCore.Blueprints
         bool hideInUI = false)
     {
       var prereq =
-          PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+          PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       prereq.ParameterType = FeatureParameterType.WeaponCategory;
       prereq.WeaponCategory = weapon;
@@ -739,7 +739,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       prereq.ParameterType = FeatureParameterType.SpellSchool;
       prereq.SpellSchool = school;
@@ -758,7 +758,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteParametrizedWeaponSubcategory>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteParametrizedWeaponSubcategory>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(weaponFeature);
       prereq.SubCategory = weapon;
       return AddComponent(prereq);
@@ -774,7 +774,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisitePet>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisitePet>(group, checkInProgression, hideInUI);
       prereq.Type = type;
       prereq.NoCompanion = negate;
       return AddComponent(prereq);
@@ -791,7 +791,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
       prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       return AddComponent(prereq);
     }
@@ -809,7 +809,7 @@ namespace BlueprintCore.Blueprints
         Action<BlueprintComponent, BlueprintComponent> merge = null)
     {
       var prereq =
-          PrereqTools.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
+          PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
       prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
       prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
       return AddUniqueComponent(prereq, behavior, merge);
@@ -825,7 +825,7 @@ namespace BlueprintCore.Blueprints
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var prereq = PrereqTools.Create<PrerequisiteStatValue>(group, checkInProgression, hideInUI);
+      var prereq = PrereqTool.Create<PrerequisiteStatValue>(group, checkInProgression, hideInUI);
       prereq.Stat = type;
       prereq.Value = minValue;
       return AddComponent(prereq);

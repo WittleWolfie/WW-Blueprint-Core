@@ -6328,28 +6328,28 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Utils.LogWrapper.Warn
   nameWithType: LogWrapper.Warn
-- uid: BlueprintCore.Utils.PrereqTools
-  name: PrereqTools
-  href: api/BlueprintCore.Utils.PrereqTools.html
-  commentId: T:BlueprintCore.Utils.PrereqTools
-  fullName: BlueprintCore.Utils.PrereqTools
-  nameWithType: PrereqTools
-- uid: BlueprintCore.Utils.PrereqTools.Create*
+- uid: BlueprintCore.Utils.PrereqTool
+  name: PrereqTool
+  href: api/BlueprintCore.Utils.PrereqTool.html
+  commentId: T:BlueprintCore.Utils.PrereqTool
+  fullName: BlueprintCore.Utils.PrereqTool
+  nameWithType: PrereqTool
+- uid: BlueprintCore.Utils.PrereqTool.Create*
   name: Create
-  href: api/BlueprintCore.Utils.PrereqTools.html#BlueprintCore_Utils_PrereqTools_Create_
-  commentId: Overload:BlueprintCore.Utils.PrereqTools.Create
+  href: api/BlueprintCore.Utils.PrereqTool.html#BlueprintCore_Utils_PrereqTool_Create_
+  commentId: Overload:BlueprintCore.Utils.PrereqTool.Create
   isSpec: "True"
-  fullName: BlueprintCore.Utils.PrereqTools.Create
-  nameWithType: PrereqTools.Create
-- uid: BlueprintCore.Utils.PrereqTools.Create``1(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Utils.PrereqTool.Create
+  nameWithType: PrereqTool.Create
+- uid: BlueprintCore.Utils.PrereqTool.Create``1(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)
   name: Create<T>(Prerequisite.GroupType, Boolean, Boolean)
-  href: api/BlueprintCore.Utils.PrereqTools.html#BlueprintCore_Utils_PrereqTools_Create__1_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_
-  commentId: M:BlueprintCore.Utils.PrereqTools.Create``1(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)
+  href: api/BlueprintCore.Utils.PrereqTool.html#BlueprintCore_Utils_PrereqTool_Create__1_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Utils.PrereqTool.Create``1(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType,System.Boolean,System.Boolean)
   name.vb: Create(Of T)(Prerequisite.GroupType, Boolean, Boolean)
-  fullName: BlueprintCore.Utils.PrereqTools.Create<T>(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType, System.Boolean, System.Boolean)
-  fullName.vb: BlueprintCore.Utils.PrereqTools.Create(Of T)(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType, System.Boolean, System.Boolean)
-  nameWithType: PrereqTools.Create<T>(Prerequisite.GroupType, Boolean, Boolean)
-  nameWithType.vb: PrereqTools.Create(Of T)(Prerequisite.GroupType, Boolean, Boolean)
+  fullName: BlueprintCore.Utils.PrereqTool.Create<T>(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType, System.Boolean, System.Boolean)
+  fullName.vb: BlueprintCore.Utils.PrereqTool.Create(Of T)(Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite.GroupType, System.Boolean, System.Boolean)
+  nameWithType: PrereqTool.Create<T>(Prerequisite.GroupType, Boolean, Boolean)
+  nameWithType.vb: PrereqTool.Create(Of T)(Prerequisite.GroupType, Boolean, Boolean)
 - uid: BlueprintCore.Utils.Validator
   name: Validator
   href: api/BlueprintCore.Utils.Validator.html

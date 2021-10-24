@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Classes.Selection
         bool checkInProgression = false,
         bool hideInUI = false)
     {
-      var selectionPossible = PrereqTools.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
       selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
       return AddComponent(selectionPossible);
     }

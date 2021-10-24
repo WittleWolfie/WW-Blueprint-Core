@@ -141,3 +141,33 @@ Whenever a method in the library needs to reference a blueprint it accepts a `st
 The method parameter comment for blueprint strings declare the type of blueprint expected.
 
 ## Logging and Utils
+
+### Tools
+
+Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:
+
+* [BlueprintTool](xref:BlueprintCore.Blueprints.BlueprintTool)
+    * Use this to create, fetch, and provide a name to guid mapping for blueprints.
+* [ElementTool](xref:BlueprintCore.Utils.ElementTool)
+    * Use this to create or initialize types inheriting from `Element`.
+* [PrereqTool](xref:BlueprintCore.Utils.PrereqTool)
+    * Use this to create types inheriting from `Prerequisite`.
+
+### Type Constructors
+
+Utility classes are provided to simplify creating game objects.
+
+* [ContextDuration](xref:BlueprintCore.Utils.ContextDuration)
+    * Utility for creating `ContextDurationValue`.
+* [ContextValues](xref:BlueprintCore.Utils.ContextValues)
+    * Utility for creating `ContextValue`.
+* [ContextRankConfigs](xref:BlueprintCore.Blueprints.Components.ContextRankConfigs)
+    * Utility for creating `ContextRankConfig`.
+    
+### Logging
+
+[LogWrapper](xref:BlueprintCore.Utils.LogWrapper) wraps the game's `LogChannel` class to provide control over verbose log output. It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.
+
+### Validator
+
+[Validator](xref:BlueprintCore.Utils.Validator) is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints. Any game objects you create outside of the library can be validated using [Validator#Check()](xref:BlueprintCore.Utils.Validator.Check(System.Object)).

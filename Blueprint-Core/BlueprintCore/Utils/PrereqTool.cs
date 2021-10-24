@@ -5,7 +5,7 @@ namespace BlueprintCore.Utils
   /// <summary>
   /// Tool for operations on <see cref="Prerequisite"/> objects.
   /// </summary>
-  public static class PrereqTools
+  public static class PrereqTool
   {
     /// <summary>
     /// Instantiates a <see cref="Prerequisite"/> object and sets the provided fields.

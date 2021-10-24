@@ -240,6 +240,48 @@ ActionsBuilder.New()
 <p>Whenever a method in the library needs to reference a blueprint it accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>.</p>
 <p>The method parameter comment for blueprint strings declare the type of blueprint expected.</p>
 <h2 id="logging-and-utils">Logging and Utils</h2>
+<h3 id="tools">Tools</h3>
+<p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
+<ul>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintTool.html">BlueprintTool</a>
+<ul>
+<li>Use this to create, fetch, and provide a name to guid mapping for blueprints.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.ElementTool.html">ElementTool</a>
+<ul>
+<li>Use this to create or initialize types inheriting from <code>Element</code>.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.PrereqTool.html">PrereqTool</a>
+<ul>
+<li>Use this to create types inheriting from <code>Prerequisite</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="type-constructors">Type Constructors</h3>
+<p>Utility classes are provided to simplify creating game objects.</p>
+<ul>
+<li><a class="xref" href="../api/BlueprintCore.Utils.ContextDuration.html">ContextDuration</a>
+<ul>
+<li>Utility for creating <code>ContextDurationValue</code>.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.ContextValues.html">ContextValues</a>
+<ul>
+<li>Utility for creating <code>ContextValue</code>.</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
+<ul>
+<li>Utility for creating <code>ContextRankConfig</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="logging">Logging</h3>
+<p><a class="xref" href="../api/BlueprintCore.Utils.LogWrapper.html">LogWrapper</a> wraps the game's <code>LogChannel</code> class to provide control over verbose log output. It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.</p>
+<h3 id="validator">Validator</h3>
+<p><a class="xref" href="../api/BlueprintCore.Utils.Validator.html">Validator</a> is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints. Any game objects you create outside of the library can be validated using <a class="xref" href="../api/BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Validator#Check()</a>.</p>
 </article>
           </div>
           

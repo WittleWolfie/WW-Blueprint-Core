@@ -17,14 +17,19 @@ namespace BlueprintCore.Utils
   public class LogWrapper
   {
     /// <summary>
-    /// Controls whether calls to <see cref="Verbose(string)"/> are logged.
+    /// Controls whether calls to <see cref="Verbose(string)"/> are logged. Defaults to false.
     /// </summary>
-    public static bool EnableVerboseLogs = true;
+    /// 
+    /// <remarks>
+    /// Set this to true while developing or debugging. Consider making this a setting in your modification so users can
+    /// capture detailed logs when reporting a problem.
+    /// </remarks>
+    public static bool EnableVerboseLogs = false;
 
     /// <summary>
     /// Global log prefix. Should be populated by <see cref="Main.Init"/>
     /// </summary>
-    internal static string PrefixBase = $"BlueprintCore::Unknown";
+    internal static string PrefixBase = $"BlueprintCore::{typeof(LogWrapper).Assembly.GetName().Name}";
 
     internal static LogWrapper GetInternal(string prefix)
     {
