@@ -52,9 +52,6 @@ Ready for use but support for full feature set is in progress.</PackageReleaseNo
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\Assemblies\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityModManager">
-      <HintPath>..\Assemblies\UnityModManager.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
