@@ -17,6 +17,9 @@
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
     <IncludeBuildOutput>false</IncludeBuildOutput>
+    <PackageReleaseNotes>Initial Alpha release.
+
+Ready for use but support for full feature set is in progress.</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="**\*.cs" Exclude="obj\**" />
