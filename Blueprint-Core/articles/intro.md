@@ -6,6 +6,8 @@
     * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
 4. You're ready to go!
 
+If you're interested in contributing see [How to Contribute](contributing.md).
+
 ## Blueprint Configurators
 
 Every supported concrete blueprint type has a corresponding configurator. e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.Buffs.BuffConfigurator) is the configurator for `BlueprintBuff`.

@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to Contribute </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to Contribute ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-contribute">How to Contribute</h1>
+
+<p>Contributions are welcome!</p>
+<ol>
+<li><a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork</a> the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core">Project Repo</a></li>
+<li>Make your changes in the forked repo</li>
+<li>Submit a <a href="https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request">Pull Request</a></li>
+</ol>
+<h2 id="local-project-setup">Local Project Setup</h2>
+<ol>
+<li>Install NuGet Packages
+<ul>
+<li><a href="https://www.nuget.org/packages/Aze.Publicise.MSBuild.Task/1.0.0">Aze.Publicise.MSBuild.Task</a></li>
+<li><a href="https://www.nuget.org/packages/docfx.console/">docfx.console</a></li>
+</ul>
+</li>
+<li>Configure Environment Variables
+<ul>
+<li><code>WRATH_DIR</code> environment variable must be the root installation directory for the game
+<ul>
+<li>Usually this is <code>C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Clean the project
+<ul>
+<li>This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp</li>
+<li>If you don't have Unity Mod Manager installed you also need to put</li>
+</ul>
+</li>
+<li>Configure Hard Links
+<ul>
+<li>Delete the <code>docs</code> folder in the root directory and <code>index.md</code> in the root of the Blueprint-Core project</li>
+<li>Open an admin command promt, navigate to the solution's directory, and run the following commands:
+<ul>
+<li><code>mklink /h Blueprint-Core\index.md README.md</code></li>
+<li><code>mklink /j docs Blueprint-Core\_site</code></li>
+</ul>
+</li>
+<li>This is needed to update documentation when building changes</li>
+</ul>
+</li>
+</ol>
+<h2 id="pull-request-requirements">Pull Request Requirements</h2>
+<ol>
+<li>Change Description
+<ul>
+<li>What was modified, removed, or added?</li>
+<li>Why is the change needed?</li>
+</ul>
+</li>
+<li>Add/Update Unit Tests</li>
+<li>Code Style
+<ul>
+<li>Limit lines to 120 characters
+<ul>
+<li>Relaxed for comments, especially comments with long links</li>
+</ul>
+</li>
+<li>Always use braces, even for one line statements</li>
+<li>Stay consistent with existing code and prefer common C# styling otherwise</li>
+</ul>
+</li>
+<li>Documentation
+<ul>
+<li>Use XML style comments</li>
+<li>Builder and configurator methods that modify or create game types or fields must declare the type or field in their comment summary</li>
+<li>String arguments that are used to reference blueprints must declare the type of blueprint they represent</li>
+</ul>
+</li>
+<li>No Patches
+<ul>
+<li>Harmony patches are not allowed. Since multiple mods may include this library it would result in multiple copies of the patch being installed, potentially causing incompatibility issues.</li>
+</ul>
+</li>
+<li>Before Committing
+<ul>
+<li>Rebuild the solution to ensure documentation is updated</li>
+<li>Run all unit tests</li>
+</ul>
+</li>
+</ol>
+<h2 id="what-to-contribute">What to Contribute</h2>
+<h3 id="documentation">Documentation</h3>
+<p>This is likely the most helpful thing you can contribute. One of the biggest challenges to modding the game is understanding the behavior of game classes such as actions, conditions, and blueprint components.</p>
+<p>If you use and understand one of these classes, update the corresponding configurator or builder methods to explain the in-game effect and proper usage.</p>
+<h3 id="new-blueprint-configurators">New Blueprint Configurators</h3>
+<p>Once 1.0 is released all blueprint types will have configurators. It will take some time and new configurators will
+speed up the full release.</p>
+<ul>
+<li>Provide the appropriate <code>Create()</code> and <code>For()</code> methods</li>
+<li>Configurator inheritance should follow the blueprint class inheritance structure</li>
+<li>A new configurator should support all fields before submitting</li>
+<li>Component methods in configurators should only be exposed to blueprint types that support them</li>
+</ul>
+<h3 id="new-configurator-and-builder-methods">New Configurator and Builder Methods</h3>
+<p>Once 1.0 is released all blueprint, action, and conditions types will have methods. It will take some time and any contributions speed up the full release.</p>
+<ul>
+<li>Methods should enforce proper usage
+<ul>
+<li>Validate all required inputs are specified</li>
+<li>Provide sensible defaults for optional inputs</li>
+<li>Use multiple methods for a type whenever there are distinct valid configurations
+<ul>
+<li>Example: <a class="xref" href="../api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DealDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">DealDamage</a> and related methods</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Indicate the game type or field created or modified in the method comment summary</li>
+<li>Document the blueprint type of any string arguments used to reference blueprints</li>
+</ul>
+<h3 id="new-actions-conditions-and-components">New Actions, Conditions, and Components</h3>
+<p>If you create new actions, conditions, or blueprint components that can be re-used, feel free to add them to the library.</p>
+<ul>
+<li>Implement the necessary configurator and builder methods to support them</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/articles/contributing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
