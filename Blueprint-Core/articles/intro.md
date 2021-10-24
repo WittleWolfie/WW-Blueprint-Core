@@ -80,7 +80,7 @@ Basic usage both builders is the same:
 
 1. Instantiate a builder using `New()`
 2. Add actions/conditions using builder methods
-    * `ConditionsBuilder` has a special method, [UseOr()](BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr) which results in a `ConditionsChecker` that will pass if any one condition passes. By default all conditions must pass.
+    * `ConditionsBuilder` has a special method, [UseOr()](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr) which results in a `ConditionsChecker` that will pass if any one condition passes. By default all conditions must pass.
 3. Build the list with `Build()`
     * When an `ActionList` or `ConditionsChecker` is needed in a library method you do not need to call `Build()`. Instead the builder is passed into the method directly and `Build()` is called by the library.
     * Calling build logs validation errors as a warning.
@@ -135,5 +135,9 @@ ActionsBuilder.New()
 ```
 
 ## Referencing Blueprints
+
+Whenever a method in the library needs to reference a blueprint it accepts a `string` argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using [BlueprintTool#AddGuidsByName()](xref:BlueprintCore.Blueprints.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary{System.String,System.String})).
+
+The method parameter comment for blueprint strings declare the type of blueprint expected.
 
 ## Logging and Utils

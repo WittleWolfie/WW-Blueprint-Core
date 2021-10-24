@@ -157,7 +157,7 @@
 <li>Instantiate a builder using <code>New()</code></li>
 <li>Add actions/conditions using builder methods
 <ul>
-<li><code>ConditionsBuilder</code> has a special method, <a href="BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr">UseOr()</a> which results in a <code>ConditionsChecker</code> that will pass if any one condition passes. By default all conditions must pass.</li>
+<li><code>ConditionsBuilder</code> has a special method, <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_UseOr">UseOr()</a> which results in a <code>ConditionsChecker</code> that will pass if any one condition passes. By default all conditions must pass.</li>
 </ul>
 </li>
 <li>Build the list with <code>Build()</code>
@@ -237,6 +237,8 @@ ActionsBuilder.New()
     .Build();
 </code></pre>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
+<p>Whenever a method in the library needs to reference a blueprint it accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>.</p>
+<p>The method parameter comment for blueprint strings declare the type of blueprint expected.</p>
 <h2 id="logging-and-utils">Logging and Utils</h2>
 </article>
           </div>
