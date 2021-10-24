@@ -125,7 +125,6 @@ namespace BlueprintCore.Blueprints.Abilities
       return this;
     }
 
-    /** (Fields) CanTargetPoint, CanTargetEnemies, CanTargetFriends, CanTargetSelf */
     /// <summary>
     /// Sets <see cref="BlueprintAbility.CanTargetPoint"/>, <see cref="BlueprintAbility.CanTargetEnemies"/>,
     /// <see cref="BlueprintAbility.CanTargetFriends"/>, and <see cref="BlueprintAbility.CanTargetSelf"/>

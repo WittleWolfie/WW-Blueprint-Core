@@ -258,17 +258,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(enchant);
     }
 
-    /** 
-     * ContextActionShieldWeaponEnchantPool
-     *
-     * The caster's shield is enchanted based on its available enhancement bonus.
-     * e.g. If the shield can be enchanted to +4 but already has a +1 enchantment,
-     * plusThreeEnchantment is applied.
-     *
-     * See SacredWeapon for example usage.
-     *
-     * @param plus*Enchantment BlueprintItemEnchantment Defaults to TemporaryEnhancement*
-     */
     /// <summary>
     /// Adds <see cref="ContextActionShieldWeaponEnchantPool"/>
     /// </summary>
