@@ -99,14 +99,14 @@ namespace BlueprintCore.Actions.Builder
   /// <example>
   /// Apply a buff and make a melee attack:
   /// <code>
-  ///   // Provides ApplyBuff and MeleeAttack extensions
-  ///   using BlueprintCore.Actions.Builder.ContextEx; 
+  /// // Provides ApplyBuff and MeleeAttack extensions
+  /// using BlueprintCore.Actions.Builder.ContextEx; 
   /// 
-  ///   var actionList =
-  ///       ActionsBuilder.New()
-  ///           .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
-  ///           .MeleeAttack()
-  ///           .build();
+  /// var actionList =
+  ///     ActionsBuilder.New()
+  ///         .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+  ///         .MeleeAttack()
+  ///         .build();
   /// </code>
   /// </example>
   /// </remarks>

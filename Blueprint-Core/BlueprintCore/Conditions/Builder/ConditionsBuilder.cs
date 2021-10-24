@@ -76,17 +76,17 @@ namespace BlueprintCore.Conditions.Builder
   /// <example>
   /// Make a melee attack if the target is in range:
   /// <code>
-  ///   // Provides the MeleeAttack extension for ActionsBuilder
-  ///   using BlueprintCore.Actions.Builder.ContextEx; 
-  ///   // Provides the TargetInMeleeRange extension for ConditionsBuilder
-  ///   using BlueprintCore.Conditions.Builder.NewEx;
+  /// // Provides the MeleeAttack extension for ActionsBuilder
+  /// using BlueprintCore.Actions.Builder.ContextEx; 
+  /// // Provides the TargetInMeleeRange extension for ConditionsBuilder
+  /// using BlueprintCore.Conditions.Builder.NewEx;
   /// 
-  ///   var actionList =
-  ///       ActionsBuilder.New()
-  ///           .Conditional(
-  ///               ConditionsBuilder.New().TargetInMeleeRange(),
-  ///               ifTrue: ActionsBuilder.New().MeleeAttack())
-  ///           .build();
+  /// var actionList =
+  ///     ActionsBuilder.New()
+  ///         .Conditional(
+  ///             ConditionsBuilder.New().TargetInMeleeRange(),
+  ///             ifTrue: ActionsBuilder.New().MeleeAttack())
+  ///         .build();
   /// </code>
   /// </example>
   /// </remarks>

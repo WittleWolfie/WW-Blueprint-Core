@@ -85,64 +85,64 @@ namespace BlueprintCore.Blueprints
   /// <example>
   /// Add the Skald's Vigor and Greater Skald's Vigor feats (minus UI icons):
   /// <code>
-  ///   var skaldClass = "WW-SkaldClass";
-  ///   var inspiredRageFeature = "WW-InspiredRageFeature";
-  ///   var inspiredRageBuff = "WW-InspiredRageBuff";
-  ///   var skaldsVigorBuff = "WW-SkaldsVigorBuff";
-  ///   var skaldsVigorFeat = "WW-SkaldsVigorFeat";
-  ///   var greaterSkaldsVigorFeat = "WW-GreaterSkaldsVigorFeat";
+  /// var skaldClass = "WW-SkaldClass";
+  /// var inspiredRageFeature = "WW-InspiredRageFeature";
+  /// var inspiredRageBuff = "WW-InspiredRageBuff";
+  /// var skaldsVigorBuff = "WW-SkaldsVigorBuff";
+  /// var skaldsVigorFeat = "WW-SkaldsVigorFeat";
+  /// var greaterSkaldsVigorFeat = "WW-GreaterSkaldsVigorFeat";
   ///   
-  ///   // Register the names
-  ///   BlueprintTool.AddGuidsByName(
-  ///       (skaldClass, "6afa347d804838b48bda16acb0573dc0"),
-  ///       (inspiredRageFeature, "1a639eadc2c3ed546bc4bb236864cd0c"),
-  ///       (inspiredRageBuff, "75b3978757908d24aaaecaf2dc209b89"),
-  ///       // New blueprints and guids
-  ///       (skaldsVigorBuff, "35fa838eb545491fbe73d593a3c456ed"),
-  ///       (skaldsVigorFeat, "59f825ec85744ac29e7d49201561638d"),
-  ///       (greaterSkaldsVigorFeat, "b97fa348973a4c5a916d78e9ed029e1f"));
-  ///   
-  ///   // Load the icons and strings (not provided by library)
-  ///   var skaldsVigorIcon = LoadSkaldsVigorIcon();
-  ///   var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-  ///   var skaldsVigorName = LoadSkaldsVigorName();
-  ///   var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-  ///   var skaldsVigorDescription = LoadSkaldsVigorDescription();
-  ///   var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();
+  /// // Register the names
+  /// BlueprintTool.AddGuidsByName(
+  ///     (skaldClass, "6afa347d804838b48bda16acb0573dc0"),
+  ///     (inspiredRageFeature, "1a639eadc2c3ed546bc4bb236864cd0c"),
+  ///     (inspiredRageBuff, "75b3978757908d24aaaecaf2dc209b89"),
+  ///     // New blueprints and guids
+  ///     (skaldsVigorBuff, "35fa838eb545491fbe73d593a3c456ed"),
+  ///     (skaldsVigorFeat, "59f825ec85744ac29e7d49201561638d"),
+  ///     (greaterSkaldsVigorFeat, "b97fa348973a4c5a916d78e9ed029e1f"));
+  ///  
+  /// // Load the icons and strings (not provided by library)
+  /// var skaldsVigorIcon = LoadSkaldsVigorIcon();
+  /// var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+  /// var skaldsVigorName = LoadSkaldsVigorName();
+  /// var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+  /// var skaldsVigorDescription = LoadSkaldsVigorDescription();
+  /// var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();
   /// 
-  ///   // Create the buff
-  ///   BuffConfigurator.New(skaldsVigorBuff)
-  ///       .ContextRankConfig(
-  ///           // Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-  ///           ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-  ///       // Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-  ///       // it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-  ///       .FastHealing(1, bonusValue: ContextValues.Rank())
-  ///       .Configure();
+  /// // Create the buff
+  /// BuffConfigurator.New(skaldsVigorBuff)
+  ///     .ContextRankConfig(
+  ///         // Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+  ///         ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+  ///     // Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+  ///     // it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+  ///     .FastHealing(1, bonusValue: ContextValues.Rank())
+  ///     .Configure();
   ///   
-  ///   // Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-  ///   // Rage is active.
-  ///   var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-  ///   BuffConfigurator.For(inspiredRageBuff)
-  ///       .FactContextActions(
-  ///           onActivated:
-  ///               ActionsBuilder.New()
-  ///                   // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-  ///                   // the feat.
-  ///                   .Conditional(
-  ///                       ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-  ///                       ifTrue: applyBuff)
-  ///                   // For characters other than the caster, Skald's Vigor is only applied if the caster has the
-  ///                   // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-  ///                   // buffs do not stack so it has no effect.
-  ///                   .Conditional(
-  ///                       ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-  ///           onDeactivated:
-  ///               // Removes Skald's Vigor when Inspired Rage ends.
-  ///               // There is actually a bug with this implementation; Lingering Song will extend the duration of
-  ///               // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-  ///               ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-  ///       .Configure();
+  /// // Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+  /// // Rage is active.
+  /// var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+  /// BuffConfigurator.For(inspiredRageBuff)
+  ///     .FactContextActions(
+  ///         onActivated:
+  ///             ActionsBuilder.New()
+  ///                 // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+  ///                 // the feat.
+  ///                 .Conditional(
+  ///                     ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+  ///                     ifTrue: applyBuff)
+  ///                 // For characters other than the caster, Skald's Vigor is only applied if the caster has the
+  ///                 // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+  ///                 // buffs do not stack so it has no effect.
+  ///                 .Conditional(
+  ///                     ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+  ///         onDeactivated:
+  ///             // Removes Skald's Vigor when Inspired Rage ends.
+  ///             // There is actually a bug with this implementation; Lingering Song will extend the duration of
+  ///             // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+  ///             ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
+  ///     .Configure();
   /// </code>
   /// </example>
   /// </remarks>

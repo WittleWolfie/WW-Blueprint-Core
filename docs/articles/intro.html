@@ -93,7 +93,7 @@
 <li>Commit the configuration with <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a>
 <ul>
 <li>Until this is called, no changes are made to the blueprint</li>
-<li>After commit the blueprint is validated and any errors are logged as warnings</li>
+<li>After commit the blueprint is validated and any errors are logged as a warning</li>
 </ul>
 </li>
 </ol>
@@ -140,7 +140,7 @@
 <li>Validation identifies and logs an error if any invalid component is present.</li>
 </ol>
 <p>Validation is required because the problem may already exist in the blueprint and because the configurator API uses an inheritance structure that mirrors the inheritance of blueprint types. Unfortunately, the component restrictions cannot be implemented with this type of inheritance. In other words: the configurator limits available components for a given blueprint type to the best of its ability but cannot guarantee that all exposed methods work.</p>
-<h3 id="example-simple-ac-buff">Example: Simple AC Buff</h3>
+<h3 id="example-ac-buff">Example: AC Buff</h3>
 <p>The following snippet creates a new <code>BlueprintBuff</code> that grants fast healing 1 until combat ends.</p>
 <pre><code class="lang-C#">BuffConfigurator.Create(Name, Guid)
     .SetDisplayName(DisplayName)
@@ -151,6 +151,91 @@
     .Configure();
 </code></pre>
 <h2 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h2>
+<p>Actions and conditions in the game are always used in the form of <code>ActionList</code> and <code>ConditionsChecker</code>. <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> provide builder APIs for constructing them.</p>
+<p>Basic usage both builders is the same:</p>
+<ol>
+<li>Instantiate a builder using <code>New()</code></li>
+<li>Add actions/conditions using builder methods
+<ul>
+<li><code>ConditionsBuilder</code> has a special method, <a href="BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr">UseOr()</a> which results in a <code>ConditionsChecker</code> that will pass if any one condition passes. By default all conditions must pass.</li>
+</ul>
+</li>
+<li>Build the list with <code>Build()</code>
+<ul>
+<li>When an <code>ActionList</code> or <code>ConditionsChecker</code> is needed in a library method you do not need to call <code>Build()</code>. Instead the builder is passed into the method directly and <code>Build()</code> is called by the library.</li>
+<li>Calling build logs validation errors as a warning.</li>
+</ul>
+</li>
+</ol>
+<p>As with configurator methods, builder methods declare the game type they implement in their comment summary.</p>
+<h3 id="extensions">Extensions</h3>
+<p>Actions and conditions are not scoped to certain blueprint types the same way that <code>BlueprintComponent</code> types are. To limit the number of actions and conditions available when using <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a>, specific types are implemented in extension methods.</p>
+<p>The extension methods are logically grouped so for any given builder you most likely will only need to include a single extension namespace. The extension groups are the same for both builders:</p>
+<ul>
+<li>AreaEx
+<ul>
+<li>Extensions involving the game map, dungeons, or locations.</li>
+<li>Types specifically related to the Kingdom and Crusade system are in KingdomEx.</li>
+</ul>
+</li>
+<li>AVEx
+<ul>
+<li>Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.</li>
+<li><code>ActionsBuilder</code> only.</li>
+</ul>
+</li>
+<li>BasicEx
+<ul>
+<li>Extensions for most game mechanics not included in ContextEx.</li>
+</ul>
+</li>
+<li>ContextEx
+<ul>
+<li>Extensions for <code>ContextAction</code> and <code>ContextCondition</code> types.</li>
+<li>Some types are implemented in more specific extensions such as KingdomEx.</li>
+</ul>
+</li>
+<li>KingdomEx
+<ul>
+<li>Extensions for the Kingom and Crusade systems.</li>
+</ul>
+</li>
+<li>MiscEx
+<ul>
+<li>Extensions that are not game mechanics related and don't fit into other categories.</li>
+<li>Examples include things like achievement related actions.</li>
+</ul>
+</li>
+<li>NewEx
+<ul>
+<li>Extensions for types provided by BlueprintCore.</li>
+</ul>
+</li>
+<li>StoryEx
+<ul>
+<li>Extensions related to the story such as companion stories, quests, and etudes.</li>
+</ul>
+</li>
+<li>UpgraderEx
+<ul>
+<li>Extensions for all <code>UpgraderOnlyActions</code> types.</li>
+<li><code>ActionsBuilder</code> only.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-melee-attack">Example: Melee Attack</h3>
+<p>The following snippet creates a new <code>ActionList</code> that initiates a melee attack if the target is in melee range.</p>
+<pre><code>// Extension for MeleeAttack() which is a ContextAction
+using BlueprintCore.Actions.Builder.ContextEx;
+// Extension for TargetInMeleeRange() which is a new condition in the library
+using BlueprintCore.Conditions.Builder.NewEx;
+
+ActionsBuilder.New()
+    .Conditional(
+        ConditionsBuilder.New().TargetInMeleeRange(),
+        ifTrue: ActionsBuilder.New().MeleeAttack())
+    .Build();
+</code></pre>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
 <h2 id="logging-and-utils">Logging and Utils</h2>
 </article>

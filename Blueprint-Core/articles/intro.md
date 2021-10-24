@@ -18,7 +18,7 @@ Basic usage of all configurators is the same:
 2. Modify the blueprint using the configurator methods
 3. Commit the configuration with [Configure()](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.Configure)
     * Until this is called, no changes are made to the blueprint
-    * After commit the blueprint is validated and any errors are logged as warnings
+    * After commit the blueprint is validated and any errors are logged as a warning
 
 ### Common Methods
 
@@ -58,7 +58,7 @@ The configurator API attempts to enforce these requirements through two mechanis
 
 Validation is required because the problem may already exist in the blueprint and because the configurator API uses an inheritance structure that mirrors the inheritance of blueprint types. Unfortunately, the component restrictions cannot be implemented with this type of inheritance. In other words: the configurator limits available components for a given blueprint type to the best of its ability but cannot guarantee that all exposed methods work.
 
-### Example: Simple AC Buff
+### Example: AC Buff
 
 The following snippet creates a new `BlueprintBuff` that grants fast healing 1 until combat ends.
 
@@ -73,6 +73,66 @@ BuffConfigurator.Create(Name, Guid)
 ```
 
 ## ActionsBuilder and ConditionsBuilder
+
+Actions and conditions in the game are always used in the form of `ActionList` and `ConditionsChecker`. [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder) provide builder APIs for constructing them.
+
+Basic usage both builders is the same:
+
+1. Instantiate a builder using `New()`
+2. Add actions/conditions using builder methods
+    * `ConditionsBuilder` has a special method, [UseOr()](BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr) which results in a `ConditionsChecker` that will pass if any one condition passes. By default all conditions must pass.
+3. Build the list with `Build()`
+    * When an `ActionList` or `ConditionsChecker` is needed in a library method you do not need to call `Build()`. Instead the builder is passed into the method directly and `Build()` is called by the library.
+    * Calling build logs validation errors as a warning.
+
+As with configurator methods, builder methods declare the game type they implement in their comment summary.
+
+### Extensions
+
+Actions and conditions are not scoped to certain blueprint types the same way that `BlueprintComponent` types are. To limit the number of actions and conditions available when using [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder), specific types are implemented in extension methods.
+
+The extension methods are logically grouped so for any given builder you most likely will only need to include a single extension namespace. The extension groups are the same for both builders:
+
+* AreaEx
+    * Extensions involving the game map, dungeons, or locations.
+    * Types specifically related to the Kingdom and Crusade system are in KingdomEx.
+* AVEx
+    * Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
+    * `ActionsBuilder` only.
+* BasicEx
+    * Extensions for most game mechanics not included in ContextEx.
+* ContextEx
+    * Extensions for `ContextAction` and `ContextCondition` types.
+    * Some types are implemented in more specific extensions such as KingdomEx.
+* KingdomEx
+    * Extensions for the Kingom and Crusade systems.
+* MiscEx
+    * Extensions that are not game mechanics related and don't fit into other categories.
+    * Examples include things like achievement related actions.
+* NewEx
+    * Extensions for types provided by BlueprintCore.
+* StoryEx
+    * Extensions related to the story such as companion stories, quests, and etudes.
+* UpgraderEx
+    * Extensions for all `UpgraderOnlyActions` types.
+    * `ActionsBuilder` only.
+
+### Example: Melee Attack
+
+The following snippet creates a new `ActionList` that initiates a melee attack if the target is in melee range.
+
+```
+// Extension for MeleeAttack() which is a ContextAction
+using BlueprintCore.Actions.Builder.ContextEx;
+// Extension for TargetInMeleeRange() which is a new condition in the library
+using BlueprintCore.Conditions.Builder.NewEx;
+
+ActionsBuilder.New()
+    .Conditional(
+        ConditionsBuilder.New().TargetInMeleeRange(),
+        ifTrue: ActionsBuilder.New().MeleeAttack())
+    .Build();
+```
 
 ## Referencing Blueprints
 
