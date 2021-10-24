@@ -153,9 +153,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp">
-        <![CDATA[
-        OnConfigureInternal(blueprint => $end$);
-        ]]>
+        <![CDATA[OnConfigureInternal(blueprint => $end$);]]>
       </Code>
     </Snippet>
   </CodeSnippet>
@@ -217,7 +215,7 @@
               .$name$()
               .Configure();
               
-          var $varName$ = new BlueprintTool.Get<$class$>(Guid);
+          var $varName$ = BlueprintTool.Get<$class$>(Guid);
           $end$
         }
         ]]>
@@ -296,7 +294,7 @@
               .$name$()
               .Configure();
               
-          var $varName$ = new BlueprintTool.Get<T>(Guid);
+          var $varName$ = BlueprintTool.Get<T>(Guid);
           $end$
         }
         ]]>

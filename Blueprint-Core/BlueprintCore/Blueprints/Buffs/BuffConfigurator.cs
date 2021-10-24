@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics;
@@ -50,25 +51,11 @@ namespace BlueprintCore.Blueprints.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="AddEffectFastHealing"/>
+    /// Sets <see cref="BlueprintBuff.IsClassFeature"/>
     /// </summary>
-    public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
+    public BuffConfigurator SetIsClassFeature(bool isClassFeature = true)
     {
-      var fastHealing = new AddEffectFastHealing
-      {
-        Heal = baseValue,
-        Bonus = bonusValue ?? 0
-      };
-      return AddComponent(fastHealing);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveWhenCombatEnded"/>
-    /// </summary>
-    public BuffConfigurator RemoveWhenCombatEnds()
-    {
-      AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
-      return this;
+      return OnConfigureInternal(blueprint => blueprint.IsClassFeature = isClassFeature);
     }
 
     /// <summary>
@@ -92,6 +79,90 @@ namespace BlueprintCore.Blueprints.Buffs
       {
         DisableFlags |= flag;
       }
+      return this;
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.Stacking"/>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="SetRanks(int)"/> for <see cref="StackingType.Rank"/></remarks>
+    public BuffConfigurator SetStackingType(StackingType type)
+    {
+      if (type == StackingType.Rank)
+      {
+        throw new InvalidOperationException("Use SetRanks() for StackingType.Rank.");
+      }
+
+      return OnConfigureInternal(blueprint => blueprint.Stacking = type);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.Ranks"/>
+    /// </summary>
+    ///
+    /// <remarks>Also sets <see cref="BlueprintBuff.Stacking"/> to <see cref="StackingType.Rank"/></remarks>
+    public BuffConfigurator SetRanks(int ranks)
+    {
+      return OnConfigureInternal(
+          blueprint =>
+          {
+            blueprint.Stacking = StackingType.Rank;
+            blueprint.Ranks = ranks;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.TickEachSecond"/>
+    /// </summary>
+    public BuffConfigurator SetTickEachSecond(bool tickEachSecond = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.TickEachSecond = tickEachSecond);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.Frequency"/>
+    /// </summary>
+    public BuffConfigurator SetFrequency(DurationRate rate)
+    {
+      return OnConfigureInternal(blueprint => blueprint.Frequency = rate);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.FxOnStart"/>
+    /// </summary>
+    public BuffConfigurator SetFxOnStart(PrefabLink prefab)
+    {
+      return OnConfigureInternal(blueprint => blueprint.FxOnStart = prefab);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintBuff.FxOnRemove"/>
+    /// </summary>
+    public BuffConfigurator SetFxOnRemove(PrefabLink prefab)
+    {
+      return OnConfigureInternal(blueprint => blueprint.FxOnRemove = prefab);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddEffectFastHealing"/>
+    /// </summary>
+    public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
+    {
+      var fastHealing = new AddEffectFastHealing
+      {
+        Heal = baseValue,
+        Bonus = bonusValue ?? 0
+      };
+      return AddComponent(fastHealing);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveWhenCombatEnded"/>
+    /// </summary>
+    public BuffConfigurator RemoveWhenCombatEnds()
+    {
+      AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
       return this;
     }
 

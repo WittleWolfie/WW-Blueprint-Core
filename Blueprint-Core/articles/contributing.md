@@ -33,8 +33,10 @@ Contributions are welcome!
 3. Code Style
     * Limit lines to 120 characters
         * Relaxed for comments, especially comments with long links
+    * 2 Space Indent, 4 Space Indent for wrapped lines
     * Always use braces, even for one line statements
     * Stay consistent with existing code and prefer common C# styling otherwise
+    * Remove unused and sort usings
 4. Documentation
     * Use XML style comments
     * Builder and configurator methods that modify or create game types or fields must declare the type or field in their comment summary

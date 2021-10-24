@@ -26,6 +26,7 @@ using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.RandomEncounters.Settings;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -560,5 +561,6 @@ namespace BlueprintCore.Test
     public static readonly DamageTypeDescription TestDamageTypeDescription =
         new() { Type = DamageType.Energy };
     public static readonly Sprite TestSprite = (Sprite)FormatterServices.GetUninitializedObject(typeof(Sprite));
+    public static readonly PrefabLink Prefab = (PrefabLink)FormatterServices.GetUninitializedObject(typeof(PrefabLink));
   }
 }
