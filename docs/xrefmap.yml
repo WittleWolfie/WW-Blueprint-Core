@@ -5307,6 +5307,22 @@ references:
   commentId: T:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator
   fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator
   nameWithType: FeatureSelectionConfigurator
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures(System.String[])
+  name: AddFeatures(String[])
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_AddFeatures_System_String___
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures(System.String[])
+  name.vb: AddFeatures(String())
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures(System.String[])
+  fullName.vb: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures(System.String())
+  nameWithType: FeatureSelectionConfigurator.AddFeatures(String[])
+  nameWithType.vb: FeatureSelectionConfigurator.AddFeatures(String())
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures*
+  name: AddFeatures
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_AddFeatures_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.AddFeatures
+  nameWithType: FeatureSelectionConfigurator.AddFeatures
 - uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.For(System.String)
   name: For(String)
   href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_For_System_String_
@@ -5352,6 +5368,74 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.PrerequisiteSelectionPossible
   nameWithType: FeatureSelectionConfigurator.PrerequisiteSelectionPossible
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures(System.String[])
+  name: RemoveFeatures(String[])
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_RemoveFeatures_System_String___
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures(System.String[])
+  name.vb: RemoveFeatures(String())
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures(System.String[])
+  fullName.vb: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures(System.String())
+  nameWithType: FeatureSelectionConfigurator.RemoveFeatures(String[])
+  nameWithType.vb: FeatureSelectionConfigurator.RemoveFeatures(String())
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures*
+  name: RemoveFeatures
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_RemoveFeatures_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.RemoveFeatures
+  nameWithType: FeatureSelectionConfigurator.RemoveFeatures
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites(System.Boolean)
+  name: SetIgnorePrerequisites(Boolean)
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetIgnorePrerequisites_System_Boolean_
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites(System.Boolean)
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites(System.Boolean)
+  nameWithType: FeatureSelectionConfigurator.SetIgnorePrerequisites(Boolean)
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites*
+  name: SetIgnorePrerequisites
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetIgnorePrerequisites_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetIgnorePrerequisites
+  nameWithType: FeatureSelectionConfigurator.SetIgnorePrerequisites
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode(Kingmaker.Blueprints.Classes.Selection.SelectionMode)
+  name: SetMode(SelectionMode)
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetMode_Kingmaker_Blueprints_Classes_Selection_SelectionMode_
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode(Kingmaker.Blueprints.Classes.Selection.SelectionMode)
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode(Kingmaker.Blueprints.Classes.Selection.SelectionMode)
+  nameWithType: FeatureSelectionConfigurator.SetMode(SelectionMode)
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode*
+  name: SetMode
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetMode_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetMode
+  nameWithType: FeatureSelectionConfigurator.SetMode
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  name: SetPrimaryGroup(FeatureGroup)
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetPrimaryGroup_Kingmaker_Blueprints_Classes_FeatureGroup_
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  nameWithType: FeatureSelectionConfigurator.SetPrimaryGroup(FeatureGroup)
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup*
+  name: SetPrimaryGroup
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetPrimaryGroup_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetPrimaryGroup
+  nameWithType: FeatureSelectionConfigurator.SetPrimaryGroup
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  name: SetSecondaryGroup(FeatureGroup)
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetSecondaryGroup_Kingmaker_Blueprints_Classes_FeatureGroup_
+  commentId: M:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup(Kingmaker.Blueprints.Classes.FeatureGroup)
+  nameWithType: FeatureSelectionConfigurator.SetSecondaryGroup(FeatureGroup)
+- uid: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup*
+  name: SetSecondaryGroup
+  href: api/BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Classes_Selection_FeatureSelectionConfigurator_SetSecondaryGroup_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.Selection.FeatureSelectionConfigurator.SetSecondaryGroup
+  nameWithType: FeatureSelectionConfigurator.SetSecondaryGroup
 - uid: BlueprintCore.Blueprints.Components
   name: BlueprintCore.Blueprints.Components
   href: api/BlueprintCore.Blueprints.Components.html
