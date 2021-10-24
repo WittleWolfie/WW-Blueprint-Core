@@ -5189,6 +5189,57 @@ references:
   fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).RemoveIsPrerequisiteFor
   nameWithType: CommonFeatureConfigurator<T, TBuilder>.RemoveIsPrerequisiteFor
   nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).RemoveIsPrerequisiteFor
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetIsClassFeature(System.Boolean)
+  name: SetIsClassFeature(Boolean)
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetIsClassFeature_System_Boolean_
+  commentId: M:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetIsClassFeature(System.Boolean)
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetIsClassFeature(System.Boolean)
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetIsClassFeature(System.Boolean)
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetIsClassFeature(Boolean)
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetIsClassFeature(Boolean)
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetIsClassFeature*
+  name: SetIsClassFeature
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetIsClassFeature_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetIsClassFeature
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetIsClassFeature
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetIsClassFeature
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetIsClassFeature
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetIsClassFeature
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetRanks(System.Int32)
+  name: SetRanks(Int32)
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetRanks_System_Int32_
+  commentId: M:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetRanks(System.Int32)
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetRanks(System.Int32)
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetRanks(System.Int32)
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetRanks(Int32)
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetRanks(Int32)
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetRanks*
+  name: SetRanks
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetRanks_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetRanks
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetRanks
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetRanks
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetRanks
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetRanks
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetReapplyOnLevelUp(System.Boolean)
+  name: SetReapplyOnLevelUp(Boolean)
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetReapplyOnLevelUp_System_Boolean_
+  commentId: M:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetReapplyOnLevelUp(System.Boolean)
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetReapplyOnLevelUp(System.Boolean)
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetReapplyOnLevelUp(System.Boolean)
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetReapplyOnLevelUp(Boolean)
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetReapplyOnLevelUp(Boolean)
+- uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetReapplyOnLevelUp*
+  name: SetReapplyOnLevelUp
+  href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_SetReapplyOnLevelUp_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.SetReapplyOnLevelUp
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator<T, TBuilder>.SetReapplyOnLevelUp
+  fullName.vb: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator(Of T, TBuilder).SetReapplyOnLevelUp
+  nameWithType: CommonFeatureConfigurator<T, TBuilder>.SetReapplyOnLevelUp
+  nameWithType.vb: CommonFeatureConfigurator(Of T, TBuilder).SetReapplyOnLevelUp
 - uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2.ValidateInternal
   name: ValidateInternal()
   href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html#BlueprintCore_Blueprints_Classes_CommonFeatureConfigurator_2_ValidateInternal

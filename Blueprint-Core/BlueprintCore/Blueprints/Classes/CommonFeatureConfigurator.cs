@@ -29,21 +29,29 @@ namespace BlueprintCore.Blueprints.Classes
     protected CommonFeatureConfigurator(string name) : base(name) { }
 
     /// <summary>
-    /// Adds or modifies <see cref="FeatureTagsComponent"/>
+    /// Modifies <see cref="BlueprintFeature.Groups"/>
     /// </summary>
-    public TBuilder AddFeatureTags(params FeatureTag[] tags)
+    public TBuilder AddFeatureGroups(params FeatureGroup[] groups)
     {
-      foreach (FeatureTag tag in tags) { EnableFeatureTags |= tag; }
+      EnableGroups.AddRange(groups);
       return Self;
     }
 
     /// <summary>
-    /// Modifies <see cref="FeatureTagsComponent"/>
+    /// Modifies <see cref="BlueprintFeature.Groups"/>
     /// </summary>
-    public TBuilder RemoveFeatureTags(params FeatureTag[] tags)
+    public TBuilder RemoveFeatureGroups(params FeatureGroup[] groups)
     {
-      foreach (FeatureTag tag in tags) { DisableFeatureTags |= tag; }
+      DisableGroups.AddRange(groups);
       return Self;
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeature.IsClassFeature"/>
+    /// </summary>
+    public TBuilder SetIsClassFeature(bool isClassFeature = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.IsClassFeature = isClassFeature);
     }
 
     /// <summary>
@@ -74,20 +82,36 @@ namespace BlueprintCore.Blueprints.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// Sets <see cref="BlueprintFeature.Ranks"/>
     /// </summary>
-    public TBuilder AddFeatureGroups(params FeatureGroup[] groups)
+    public TBuilder SetRanks(int ranks)
     {
-      EnableGroups.AddRange(groups);
+      return OnConfigureInternal(blueprint => blueprint.Ranks = ranks);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeature.ReapplyOnLevelUp"/>
+    /// </summary>
+    public TBuilder SetReapplyOnLevelUp(bool reapply = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.ReapplyOnLevelUp = reapply);
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="FeatureTagsComponent"/>
+    /// </summary>
+    public TBuilder AddFeatureTags(params FeatureTag[] tags)
+    {
+      foreach (FeatureTag tag in tags) { EnableFeatureTags |= tag; }
       return Self;
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// Modifies <see cref="FeatureTagsComponent"/>
     /// </summary>
-    public TBuilder RemoveFeatureGroups(params FeatureGroup[] groups)
+    public TBuilder RemoveFeatureTags(params FeatureTag[] tags)
     {
-      DisableGroups.AddRange(groups);
+      foreach (FeatureTag tag in tags) { DisableFeatureTags |= tag; }
       return Self;
     }
 

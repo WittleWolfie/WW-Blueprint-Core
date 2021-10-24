@@ -18,59 +18,74 @@ namespace BlueprintCore.Test.Blueprints.Classes
     protected CommonFeatureConfiguratorTest() : base() { }
 
     [Fact]
-    public void AddFeatureTags()
+    public void AddFeatureGroups()
     {
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      var tags = blueprint.GetComponent<FeatureTagsComponent>();
-      Assert.NotNull(tags);
-
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+      Assert.Equal(2, blueprint.Groups.Length);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
     }
 
     [Fact]
-    public void AddFeatureTags_WithExisting()
+    public void AddFeatureGroups_WithExisting()
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Teamwork)
+          .AddFeatureGroups(FeatureGroup.Feat)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      var tags = blueprint.GetComponent<FeatureTagsComponent>();
-      Assert.NotNull(tags);
-
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Teamwork));
+      Assert.Equal(3, blueprint.Groups.Length);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Feat, blueprint.Groups);
     }
 
     [Fact]
-    public void RemoveFeatureTags()
+    public void RemoveFeatureGroups()
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveFeatureTags(FeatureTag.Defense)
+          .RemoveFeatureGroups(FeatureGroup.Domain)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      var tags = blueprint.GetComponent<FeatureTagsComponent>();
-      Assert.NotNull(tags);
+      Assert.Single(blueprint.Groups);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+    }
 
-      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
-      Assert.False(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+    [Fact]
+    public void SetIsClassFeature()
+    {
+      GetConfigurator(Guid)
+          .SetIsClassFeature()
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.True(feature.IsClassFeature);
+    }
+
+    [Fact]
+    public void SetIsClassFeature_False()
+    {
+      GetConfigurator(Guid)
+          .SetIsClassFeature(false)
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.False(feature.IsClassFeature);
     }
 
     [Fact]
@@ -127,52 +142,92 @@ namespace BlueprintCore.Test.Blueprints.Classes
     }
 
     [Fact]
-    public void AddFeatureGroups()
+    public void SetRanks()
     {
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .SetRanks(3)
           .Configure();
 
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      Assert.Equal(2, blueprint.Groups.Length);
-      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
-      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(3, feature.Ranks);
     }
 
     [Fact]
-    public void AddFeatureGroups_WithExisting()
+    public void SetReapplyOnLevelUp()
     {
-      // First pass
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .SetReapplyOnLevelUp()
           .Configure();
 
-      GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.Feat)
-          .Configure();
-
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      Assert.Equal(3, blueprint.Groups.Length);
-      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
-      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
-      Assert.Contains(FeatureGroup.Feat, blueprint.Groups);
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.True(feature.ReapplyOnLevelUp);
     }
 
     [Fact]
-    public void RemoveFeatureGroups()
+    public void SetReapplyOnLevelUp_False()
     {
-      // First pass
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .SetReapplyOnLevelUp(false)
           .Configure();
 
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.False(feature.ReapplyOnLevelUp);
+    }
+
+    [Fact]
+    public void AddFeatureTags()
+    {
       GetConfigurator(Guid)
-          .RemoveFeatureGroups(FeatureGroup.Domain)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      Assert.Single(blueprint.Groups);
-      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+    }
+
+    [Fact]
+    public void AddFeatureTags_WithExisting()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Teamwork)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Teamwork));
+    }
+
+    [Fact]
+    public void RemoveFeatureTags()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .RemoveFeatureTags(FeatureTag.Defense)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.False(tags.FeatureTags.HasFlag(FeatureTag.Defense));
     }
   }
 }
