@@ -7,8 +7,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        /// <summary>
+        <![CDATA[/// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
         public static ActionsBuilder $name$(this ActionsBuilder builder)
@@ -16,8 +15,7 @@
           var $varName$ = ElementTool.Create<$type$>();
           $end$
           return builder.Add($varName$);
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -43,8 +41,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        [Fact]
+        <![CDATA[[Fact]
         public void $name$()
         {
           var actions = ActionsBuilder.New().$name$().Build();
@@ -53,8 +50,7 @@
           var $varName$ = ($type$)actions.Actions[0];
           ElementAsserts.IsValid($varName$);
           $end$
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -80,8 +76,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        /// <summary>
+        <![CDATA[/// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
         public static ConditionsBuilder $name$(this ConditionsBuilder builder)
@@ -89,8 +84,7 @@
           var $varName$ = ElementTool.Create<$type$>();
           $end$
           return builder.Add($varName$);
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -116,8 +110,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        [Fact]
+        <![CDATA[[Fact]
         public void $name$()
         {
           var conditions = ConditionsBuilder.New().$name$().Build();
@@ -126,8 +119,7 @@
           var $varName$ = ($type$)conditions.Conditions[0];
           ElementAsserts.IsValid($varName$);
           $end$
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -165,8 +157,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        /// <summary>
+        <![CDATA[/// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
         public $class$ $name$()
@@ -176,8 +167,7 @@
           $end$
           };
           return AddComponent($varName$);
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="false">
@@ -207,8 +197,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        [Fact]
+        <![CDATA[[Fact]
         public void $name$()
         {
           GetConfigurator(Guid)
@@ -217,8 +206,7 @@
               
           var $varName$ = BlueprintTool.Get<$class$>(Guid);
           $end$
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -248,8 +236,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        /// <summary>
+        <![CDATA[/// <summary>
         /// Adds <see cref="$type$"/>
         /// </summary>
         public TBuilder $name$()
@@ -259,8 +246,7 @@
           $end$
           };
           return AddComponent($varName$);
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
@@ -286,8 +272,7 @@
     </Header>
     <Snippet>
       <Code Language="CSharp" Kind="method decl">
-        <![CDATA[
-        [Fact]
+        <![CDATA[[Fact]
         public void $name$()
         {
           GetConfigurator(Guid)
@@ -296,8 +281,7 @@
               
           var $varName$ = BlueprintTool.Get<T>(Guid);
           $end$
-        }
-        ]]>
+        }]]>
       </Code>
       <Declarations>
         <Literal Editable="true">
