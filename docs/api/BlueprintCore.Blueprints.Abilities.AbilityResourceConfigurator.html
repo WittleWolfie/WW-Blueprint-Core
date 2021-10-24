@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AbilityResourceConfigurator
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AbilityResourceConfigurator
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator" class="text-break">Class AbilityResourceConfigurator
+  </h1>
+  <div class="markdown level0 summary"><p>Configurator for <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html">BlueprintConfigurator</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource</span>, <a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a>&gt;</div>
+    <div class="level2"><span class="xref">AbilityResourceConfigurator</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Logger">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Self">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Name">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Blueprint">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.Blueprint</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.Configure()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.AddComponent(BlueprintComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigure_System_Action__0____">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.OnConfigure(Action&lt;BlueprintAbilityResource&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_OnConfigureInternal_System_Action__0____">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.OnConfigureInternal(Action&lt;BlueprintAbilityResource&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.AddUniqueComponent(BlueprintComponent, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.AddSpellDescriptors(SpellDescriptor[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemoveSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.RemoveSpellDescriptors(SpellDescriptor[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ContextRankConfig_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.ContextRankConfig(ContextRankConfig)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_FactContextActions_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.FactContextActions(ActionsBuilder, ActionsBuilder, ActionsBuilder, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddPrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.AddPrerequisiteAlignment(AlignmentMaskType[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_RemovePrerequisiteAlignment_Kingmaker_UnitLogic_Alignments_AlignmentMaskType___">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.RemovePrerequisiteAlignment(AlignmentMaskType[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteArchetype_System_String_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteArchetype(String, String, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteCasterType(Boolean, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCasterTypeSpellLevel_System_Boolean_System_Boolean_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteCasterTypeSpellLevel(Boolean, Boolean, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCharacterLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteCharacterLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassLevel_System_String_System_Int32_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteClassLevel(String, Int32, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteClassSpellLevel_System_String_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteClassSpellLevel(String, Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteEtude_System_String_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteEtude(String, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteFeaturesFromList_System_String___System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteFeaturesFromList(String[], Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteIsPet_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteIsPet(Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMainCharacter_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteMainCharacter(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteCompanion_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteCompanion(Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteMythicLevel_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteMythicLevel(Int32, Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoArchetype_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteNoArchetype(String, String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoClass_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteNoClass(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNoFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteNoFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteNotProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteNotProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellFeature_System_String_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteParameterizedSpellFeature(String, String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponFeature_System_String_Kingmaker_Enums_WeaponCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteParameterizedWeaponFeature(String, WeaponCategory, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedSpellSchoolFeature_System_String_Kingmaker_Blueprints_Classes_Spells_SpellSchool_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteParameterizedSpellSchoolFeature(String, SpellSchool, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteParameterizedWeaponSubcategory_System_String_Kingmaker_Enums_WeaponSubCategory_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteParameterizedWeaponSubcategory(String, WeaponSubCategory, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePet_Kingmaker_Enums_PetType_System_Boolean_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisitePet(PetType, Boolean, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisitePlayerHasFeature_System_String_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisitePlayerHasFeature(String, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteProficient_Kingmaker_Enums_WeaponCategory___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_BlueprintCore_Blueprints_BlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteProficient(WeaponCategory[], ArmorProficiencyGroup[], Prerequisite.GroupType, Boolean, Boolean, BlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_PrerequisiteStat_Kingmaker_EntitySystem_Stats_StatType_System_Int32_Kingmaker_Blueprints_Classes_Prerequisites_Prerequisite_GroupType_System_Boolean_System_Boolean_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.PrerequisiteStat(StatType, Int32, Prerequisite.GroupType, Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.ConfigureInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.ValidateInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_">BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;.AddValidationWarning(String)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Abilities.html">BlueprintCore.Blueprints.Abilities</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AbilityResourceConfigurator : BlueprintConfigurator&lt;BlueprintAbilityResource, AbilityResourceConfigurator&gt;</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Implementation is done using the
+<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
+    Each configurator provides a function to create a new blueprint and register it in the game library.
+</td></tr><tr><td>Component Type Safety</td><td>
+<p>
+Blueprints are very permissive; any <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> can be added to any blueprint type. In
+reality many component types are only functional on certain types of blueprints, defined using attributes.
+</p>
+<p>
+The configurator API mimics the inheritance structure of blueprint types in the game to restrict the available
+types of components. The API does not perfectly implement these restrictions because inheritance cannot
+represent the restrictions completely. In those cases type safety is provided through validation.
+</p>
+<p>
+See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
+for more information on component and blueprint type safety.
+</p>
+</td></tr><tr><td>Validation</td><td>
+<p>
+When <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_Configure">Configure()</a> is called a combination of Owlcat provided and custom validation logic checks the
+blueprint for errors. All errors are then logged. This validates the blueprint only contains supported
+component types as well as checking for some implicit usage errors, such as
+<a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
+usage.
+</p>
+<p>See <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> for more details on how validation works.</p>
+</td></tr><tr><td>Fluent API</td><td>
+<p>
+The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
+work with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and
+<a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs as well.
+</p>
+<p>
+Complicated components such as
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span> which do not
+work well with the configurator API have their own helper classes.
+e.g. <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
+</p>
+</td></tr></tbody></table>
+<example>
+Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
+<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
+var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
+var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
+var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
+var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
+var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
+<p>// Register the names
+BlueprintTool.AddGuidsByName(
+(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
+(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
+(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
+// New blueprints and guids
+(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
+(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
+(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
+<p>// Load the icons and strings (not provided by library)
+var skaldsVigorIcon = LoadSkaldsVigorIcon();
+var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+var skaldsVigorName = LoadSkaldsVigorName();
+var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+var skaldsVigorDescription = LoadSkaldsVigorDescription();
+var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
+<p>// Create the buff
+BuffConfigurator.New(skaldsVigorBuff)
+.ContextRankConfig(
+// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+.FastHealing(1, bonusValue: ContextValues.Rank())
+.Configure();</p>
+<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+// Rage is active.
+var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+BuffConfigurator.For(inspiredRageBuff)
+.FactContextActions(
+onActivated:
+ActionsBuilder.New()
+// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+// the feat.
+.Conditional(
+ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ifTrue: applyBuff)
+// For characters other than the caster, Skald's Vigor is only applied if the caster has the
+// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+// buffs do not stack so it has no effect.
+.Conditional(
+ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+onDeactivated:
+// Removes Skald's Vigor when Inspired Rage ends.
+// There is actually a bug with this implementation; Lingering Song will extend the duration of
+// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
+.Configure();</code></pre>
+</example><p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ConfigureInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L86">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ConfigureInternal_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ConfigureInternal" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal">ConfigureInternal()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ConfigureInternal()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.BlueprintConfigurator&lt;Kingmaker.Blueprints.BlueprintAbilityResource, BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator&gt;.ConfigureInternal()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_DisableMax.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.DisableMax%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L73">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_DisableMax_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.DisableMax*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_DisableMax" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.DisableMax">DisableMax()</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.m_UseMax</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator DisableMax()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_For_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.For(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L15">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_For_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.For*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_For_System_String_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.For(System.String)">For(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a configurator for the given blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AbilityResourceConfigurator For(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_For_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this function if the blueprint exists in the game library. If you're using
+<a href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModifiationTemplate</a> your
+JSON blueprints should already exist.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L18">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_System_String_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New(System.String)">New(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a blueprint and returns its configurator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AbilityResourceConfigurator New(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this function to create a new blueprint if you provided a mapping with
+<a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>. Otherwise use <a class="xref" href="BlueprintCore.Blueprints.Buffs.BuffConfigurator.html#BlueprintCore_Blueprints_Buffs_BuffConfigurator_New_System_String_System_String_">New(String, String)</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L25">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_New_System_String_System_String_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.New(System.String,System.String)">New(String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a blueprint and returns its configurator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AbilityResourceConfigurator New(string name, string assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDescription_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDescription(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L42">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDescription_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDescription*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDescription_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDescription(Kingmaker.Localization.LocalizedString)">SetDescription(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.LocalizedDescription</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator SetDescription(LocalizedString description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDisplayName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDisplayName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L34">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDisplayName_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDisplayName*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetDisplayName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetDisplayName(Kingmaker.Localization.LocalizedString)">SetDisplayName(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.LocalizedName</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator SetDisplayName(LocalizedString name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetIcon_UnityEngine_Sprite_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetIcon(UnityEngine.Sprite)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L50">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetIcon_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetIcon*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetIcon_UnityEngine_Sprite_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetIcon(UnityEngine.Sprite)">SetIcon(Sprite)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.m_Icon</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator SetIcon(Sprite icon)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Sprite</span></td>
+        <td><span class="parametername">icon</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMax_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMax(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L60">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMax_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMax*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMax_System_Int32_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMax(System.Int32)">SetMax(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.m_Max</span> and <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.m_UseMax</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator SetMax(int max)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMin_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L81">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMin_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMin_System_Int32_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin(System.Int32)">SetMin(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets <span class="xref">Kingmaker.Blueprints.BlueprintAbilityResource.m_Min</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityResourceConfigurator SetMin(int min)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ValidateInternal.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L88">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ValidateInternal_" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal*"></a>
+  <h4 id="BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ValidateInternal" data-uid="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal">ValidateInternal()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ValidateInternal()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.BlueprintConfigurator&lt;Kingmaker.Blueprints.BlueprintAbilityResource, BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator&gt;.ValidateInternal()</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Abilities/AbilityResourceConfigurator.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

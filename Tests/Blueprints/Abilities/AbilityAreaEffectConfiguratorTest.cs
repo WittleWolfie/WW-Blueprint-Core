@@ -185,5 +185,21 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.Equal(3, aoe.m_SizeInCells);
       Assert.True(aoe.CanBeUsedInTacticalCombat);
     }
+
+    [Fact]
+    public void DisableInTacticalCombat()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .SetSizeInTacticalCombat(3)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .DisableInTacticalCombat()
+          .Configure();
+
+      var aoe = BlueprintTool.Get<BlueprintAbilityAreaEffect>(Guid);
+      Assert.False(aoe.CanBeUsedInTacticalCombat);
+    }
   }
 }

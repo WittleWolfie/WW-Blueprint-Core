@@ -118,6 +118,14 @@ namespace BlueprintCore.Blueprints.Abilities
           });
     }
 
+    /// <summary>
+    /// Sets <see cref="BlueprintAbilityAreaEffect.CanBeUsedInTacticalCombat"/>
+    /// </summary>
+    public AbilityAreaEffectConfigurator DisableInTacticalCombat()
+    {
+      return OnConfigureInternal(blueprint => blueprint.CanBeUsedInTacticalCombat = false);
+    }
+
     protected override void ConfigureInternal() { }
 
     protected override void ValidateInternal() { }
