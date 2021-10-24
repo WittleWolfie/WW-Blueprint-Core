@@ -10,7 +10,7 @@ namespace BlueprintCore.Test
 {
   public static class BlueprintPatch
   {
-    private static readonly Dictionary<BlueprintGuid, SimpleBlueprint> BlueprintCache = new();
+    private static Dictionary<BlueprintGuid, SimpleBlueprint> BlueprintCache = new();
     public static bool Enabled = true;
 
     public static void Add(params SimpleBlueprint[] blueprint)
@@ -27,10 +27,8 @@ namespace BlueprintCore.Test
 
     public static void Clear()
     {
-      BlueprintCache.Clear();
-      AccessTools
-          .StaticFieldRefAccess<Dictionary<string, Guid>>(typeof(BlueprintTool), "GuidsByName")
-          .Clear();
+      BlueprintCache = new();
+      AccessTools.StaticFieldRefAccess<Dictionary<string, Guid>>(typeof(BlueprintTool), "GuidsByName") = new();
     }
 
     [HarmonyPatch(typeof(BlueprintsCache), "Load")]
