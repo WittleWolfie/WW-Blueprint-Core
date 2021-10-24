@@ -2,7 +2,7 @@
 
 Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.
 
-[![NuGet Status](http://nugetstatus.com/WW-Blueprint-Core.png)](http://nugetstatus.com/packages/WW-Blueprint-Core)
+[![NuGet](https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square)](https://www.nuget.org/packages/WW-Blueprint-Core)
 
 ## Features
 
@@ -53,3 +53,13 @@ BuffConfigurator.For(RAGING_SONG_BUFF)
         onDeactivated: ActionsBuilder.New().RemoveBuff(SkaldsVigorBuff))
     .Configure();
 ```
+
+# Acknowledgements
+
+* Thank you to the Owlcat modders who came before me, documenting their process and sharing their code.
+* Thank you to the modders on Discord who helped me learn modding so I could create this library.
+
+# Interested in modding?
+
+* Check out the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
+* Join us on [Discord](https://discord.gg/zHbMuYT6).

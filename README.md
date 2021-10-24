@@ -53,3 +53,13 @@ BuffConfigurator.For(RAGING_SONG_BUFF)
         onDeactivated: ActionsBuilder.New().RemoveBuff(SkaldsVigorBuff))
     .Configure();
 ```
+
+# Acknowledgements
+
+* Thank you to the Owlcat modders who came before me, documenting their process and sharing their code.
+* Thank you to the modders on Discord who helped me learn modding so I could create this library.
+
+# Interested in modding?
+
+* Check out the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
+* Join us on [Discord](https://discord.gg/zHbMuYT6).
