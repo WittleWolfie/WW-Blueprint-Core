@@ -67,7 +67,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="getting-started">Getting Started</h2>
+<h1 id="getting-started">Getting Started</h1>
 
 <ol>
 <li>Set up your project. If you haven't written mods for any Pathfinder game, start with the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a> on the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">OwlcatModdingWiki</a>.</li>
@@ -123,8 +123,33 @@
 </ul>
 </li>
 </ul>
-<h3 id="fields-and-component-methods">Fields and Component Methods</h3>
-<h3 id="example-simple-mage-armor-implementation">Example: Simple Mage Armor Implementation</h3>
+<h3 id="modifying-fields">Modifying Fields</h3>
+<p>Each configurator exposes methods to set and modify fields. The comment summary for these methods links to the field they modify.</p>
+<p>Simple fields such as booleans and integers are usually controlled by methods of the form <code>SetX()</code> while more complex or correlated fields have methods enforcing implicit contracts. For example, fields representing flags are often modified using <code>AddX()</code> and <code>RemoveY()</code> methods.</p>
+<p>When a new configurator is added all fields should be exposed. If support for a field is missing either:</p>
+<ol>
+<li>The game code has been altered by a patch or modification</li>
+<li>The field is never actually used in-game</li>
+</ol>
+<h3 id="adding-components">Adding Components</h3>
+<p>Each <code>BlueprintComponent</code> type exposes methods to create and add them to the blueprint. The comment summary for these methods links to the type of component they create, or in some cases modify.</p>
+<p>Within the game library you can add any component to any blueprint since they are all stored in a <code>BlueprintComponent</code> array. In reality, each component has restrictions on how it is used such as which type of blueprint and whether there can be more than one copy in a blueprint. See the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> article on the wiki for more details.</p>
+<p>The configurator API attempts to enforce these requirements through two mechanisms:</p>
+<ol>
+<li>Each component type is added to a blueprint through its own method(s) only exposed by supported blueprint types.</li>
+<li>Validation identifies and logs an error if any invalid component is present.</li>
+</ol>
+<p>Validation is required because the problem may already exist in the blueprint and because the configurator API uses an inheritance structure that mirrors the inheritance of blueprint types. Unfortunately, the component restrictions cannot be implemented with this type of inheritance. In other words: the configurator limits available components for a given blueprint type to the best of its ability but cannot guarantee that all exposed methods work.</p>
+<h3 id="example-simple-ac-buff">Example: Simple AC Buff</h3>
+<p>The following snippet creates a new <code>BlueprintBuff</code> that grants fast healing 1 until combat ends.</p>
+<pre><code class="lang-C#">BuffConfigurator.Create(Name, Guid)
+    .SetDisplayName(DisplayName)
+    .SetDescription(Description)
+    .SetIcon(Icon)
+    .FastHealing(1)
+    .RemoveWhenCombatEnds()
+    .Configure();
+</code></pre>
 <h2 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h2>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
 <h2 id="logging-and-utils">Logging and Utils</h2>
