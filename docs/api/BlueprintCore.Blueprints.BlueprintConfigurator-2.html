@@ -82,6 +82,7 @@
     <div class="level1"><span class="xref">BlueprintConfigurator&lt;T, TBuilder&gt;</span></div>
       <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html">AbilityAreaEffectConfigurator</a></div>
       <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html">AbilityResourceConfigurator</a></div>
+      <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html">ArchetypeConfigurator</a></div>
       <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Facts.BlueprintUnitFactConfigurator-2.html">BlueprintUnitFactConfigurator&lt;T, TBuilder&gt;</a></div>
   </div>
   <div class="inheritedMembers">
@@ -687,7 +688,7 @@ Throws <span class="xref">System.InvalidOperationException</span> if called twic
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void ConfigureInternal()</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void ConfigureInternal()</code></pre>
   </div>
   <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ConfigureInternal_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Components are added to the blueprint after this step.</p>
@@ -2830,7 +2831,7 @@ should use this to ensure the blueprint is configured before user configuration 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void ValidateInternal()</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void ValidateInternal()</code></pre>
   </div>
   <h5 id="BlueprintCore_Blueprints_BlueprintConfigurator_2_ValidateInternal_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implementations should report errors using <a class="xref" href="BlueprintCore.Blueprints.BlueprintConfigurator-2.html#BlueprintCore_Blueprints_BlueprintConfigurator_2_AddValidationWarning_System_String_">AddValidationWarning(String)</a>.</p>

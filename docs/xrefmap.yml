@@ -3231,19 +3231,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ApplySpellResistance
   nameWithType: AbilityAreaEffectConfigurator.ApplySpellResistance
-- uid: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal
-  name: ConfigureInternal()
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityAreaEffectConfigurator_ConfigureInternal
-  commentId: M:BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal()
-  nameWithType: AbilityAreaEffectConfigurator.ConfigureInternal()
-- uid: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal*
-  name: ConfigureInternal
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityAreaEffectConfigurator_ConfigureInternal_
-  commentId: Overload:BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal
-  isSpec: "True"
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ConfigureInternal
-  nameWithType: AbilityAreaEffectConfigurator.ConfigureInternal
 - uid: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.DisableInTacticalCombat
   name: DisableInTacticalCombat()
   href: api/BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityAreaEffectConfigurator_DisableInTacticalCombat
@@ -3406,19 +3393,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.SetTargetType
   nameWithType: AbilityAreaEffectConfigurator.SetTargetType
-- uid: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal
-  name: ValidateInternal()
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityAreaEffectConfigurator_ValidateInternal
-  commentId: M:BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal()
-  nameWithType: AbilityAreaEffectConfigurator.ValidateInternal()
-- uid: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal*
-  name: ValidateInternal
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityAreaEffectConfigurator_ValidateInternal_
-  commentId: Overload:BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal
-  isSpec: "True"
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityAreaEffectConfigurator.ValidateInternal
-  nameWithType: AbilityAreaEffectConfigurator.ValidateInternal
 - uid: BlueprintCore.Blueprints.Abilities.AbilityConfigurator
   name: AbilityConfigurator
   href: api/BlueprintCore.Blueprints.Abilities.AbilityConfigurator.html
@@ -4074,19 +4048,6 @@ references:
   commentId: T:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator
   fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator
   nameWithType: AbilityResourceConfigurator
-- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal
-  name: ConfigureInternal()
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ConfigureInternal
-  commentId: M:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal()
-  nameWithType: AbilityResourceConfigurator.ConfigureInternal()
-- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal*
-  name: ConfigureInternal
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ConfigureInternal_
-  commentId: Overload:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal
-  isSpec: "True"
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ConfigureInternal
-  nameWithType: AbilityResourceConfigurator.ConfigureInternal
 - uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.DisableMax
   name: DisableMax()
   href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_DisableMax
@@ -4197,19 +4158,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin
   nameWithType: AbilityResourceConfigurator.SetMin
-- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal
-  name: ValidateInternal()
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ValidateInternal
-  commentId: M:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal()
-  nameWithType: AbilityResourceConfigurator.ValidateInternal()
-- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal*
-  name: ValidateInternal
-  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_ValidateInternal_
-  commentId: Overload:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal
-  isSpec: "True"
-  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.ValidateInternal
-  nameWithType: AbilityResourceConfigurator.ValidateInternal
 - uid: BlueprintCore.Blueprints.BlueprintConfigurator`2
   name: BlueprintConfigurator<T, TBuilder>
   href: api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html
@@ -5387,6 +5335,70 @@ references:
   commentId: N:BlueprintCore.Blueprints.Classes
   fullName: BlueprintCore.Blueprints.Classes
   nameWithType: BlueprintCore.Blueprints.Classes
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator
+  name: ArchetypeConfigurator
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html
+  commentId: T:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator
+  nameWithType: ArchetypeConfigurator
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For(System.String)
+  name: For(String)
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_For_System_String_
+  commentId: M:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For(System.String)
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For(System.String)
+  nameWithType: ArchetypeConfigurator.For(String)
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For*
+  name: For
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_For_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.For
+  nameWithType: ArchetypeConfigurator.For
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String)
+  name: New(String)
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_New_System_String_
+  commentId: M:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String)
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String)
+  nameWithType: ArchetypeConfigurator.New(String)
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String,System.String)
+  name: New(String, String)
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_New_System_String_System_String_
+  commentId: M:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String,System.String)
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New(System.String, System.String)
+  nameWithType: ArchetypeConfigurator.New(String, String)
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New*
+  name: New
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_New_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.New
+  nameWithType: ArchetypeConfigurator.New
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription(Kingmaker.Localization.LocalizedString)
+  name: SetDescription(LocalizedString)
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_SetDescription_Kingmaker_Localization_LocalizedString_
+  commentId: M:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription(Kingmaker.Localization.LocalizedString)
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription(Kingmaker.Localization.LocalizedString)
+  nameWithType: ArchetypeConfigurator.SetDescription(LocalizedString)
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription*
+  name: SetDescription
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_SetDescription_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDescription
+  nameWithType: ArchetypeConfigurator.SetDescription
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName(Kingmaker.Localization.LocalizedString)
+  name: SetDisplayName(LocalizedString)
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_SetDisplayName_Kingmaker_Localization_LocalizedString_
+  commentId: M:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName(Kingmaker.Localization.LocalizedString)
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName(Kingmaker.Localization.LocalizedString)
+  nameWithType: ArchetypeConfigurator.SetDisplayName(LocalizedString)
+- uid: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName*
+  name: SetDisplayName
+  href: api/BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html#BlueprintCore_Blueprints_Classes_ArchetypeConfigurator_SetDisplayName_
+  commentId: Overload:BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.SetDisplayName
+  nameWithType: ArchetypeConfigurator.SetDisplayName
 - uid: BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator`2
   name: CommonFeatureConfigurator<T, TBuilder>
   href: api/BlueprintCore.Blueprints.Classes.CommonFeatureConfigurator-2.html
