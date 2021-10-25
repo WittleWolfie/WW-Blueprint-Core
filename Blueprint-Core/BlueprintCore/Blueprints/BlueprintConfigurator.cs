@@ -842,7 +842,7 @@ namespace BlueprintCore.Blueprints
     /// <summary>Type specific configuration implemented in child classes.</summary>
     /// 
     /// <remarks>Components are added to the blueprint after this step.</remarks>
-    protected abstract void ConfigureInternal();
+    protected virtual void ConfigureInternal() { }
 
     private void OnConfigure()
     {
@@ -893,7 +893,7 @@ namespace BlueprintCore.Blueprints
     /// <summary>Type specific validation implemented in child classes.</summary>
     /// 
     /// <remarks>Implementations should report errors using <see cref="AddValidationWarning(string)"/>.</remarks>
-    protected abstract void ValidateInternal();
+    protected virtual void ValidateInternal() { }
 
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 

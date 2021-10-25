@@ -82,9 +82,5 @@ namespace BlueprintCore.Blueprints.Abilities
     {
       return OnConfigureInternal(blueprint => blueprint.m_Min = min);
     }
-
-    protected override void ConfigureInternal() { }
-
-    protected override void ValidateInternal() { }
   }
 }

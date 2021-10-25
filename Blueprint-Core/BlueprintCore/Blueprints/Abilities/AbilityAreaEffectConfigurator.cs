@@ -125,9 +125,5 @@ namespace BlueprintCore.Blueprints.Abilities
     {
       return OnConfigureInternal(blueprint => blueprint.CanBeUsedInTacticalCombat = false);
     }
-
-    protected override void ConfigureInternal() { }
-
-    protected override void ValidateInternal() { }
   }
 }
