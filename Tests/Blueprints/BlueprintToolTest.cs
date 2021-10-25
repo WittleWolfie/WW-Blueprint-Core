@@ -10,31 +10,30 @@ using Xunit;
 namespace BlueprintCore.Test.Blueprints
 {
   [Collection("Harmony")]
-  public class BlueprintToolTest : IDisposable
+  public class BlueprintToolTest
   {
     private static readonly string UnusedGuid = "137f7548-e57f-4e4a-8d76-7f2d174c6d5d";
 
     //----- BlueprintAbility (By Name) -----//
     private static readonly string AbilityGuid = "0897de3e-4097-4cfa-bcfc-755119e36bf7";
-    private BlueprintAbility Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
+    private BlueprintAbility Ability;
 
     //----- BlueprintBuff (By Name)  -----//
     private static readonly string BuffGuid = "efcfcdbe-2988-4ab4-941f-2d81f02e1e0b";
-    private BlueprintBuff Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
+    private BlueprintBuff Buff;
 
     //----- BlueprintFeature -----//
     private static readonly string FeatureGuid = "43a37f22-fc6a-44e9-b66e-d3dd41ef6ebc";
-    private BlueprintFeature Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
+    private BlueprintFeature Feature;
 
-    public BlueprintToolTest() : base() { }
-
-    public void Dispose()
+    public BlueprintToolTest() : base()
     {
-      Ability = null;
-      Buff = null;
-      Feature = null;
+      BlueprintPatch.Init();
+      LoggerPatch.Logger.Reset();
 
-      BlueprintPatch.Clear();
+      Ability = BlueprintPatch.Create<BlueprintAbility>(AbilityGuid);
+      Buff = BlueprintPatch.Create<BlueprintBuff>(BuffGuid);
+      Feature = BlueprintPatch.Create<BlueprintFeature>(FeatureGuid);
     }
 
     [Fact]

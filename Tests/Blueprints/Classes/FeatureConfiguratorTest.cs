@@ -3,12 +3,11 @@ using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Test.Blueprints.Classes
 {
-  /**
-   * Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with
-   * FeatureSelectionConfiguratorTest.
-   */
-  public class FeatureConfiguratorTest
-      : CommonFeatureConfiguratorTest<BlueprintFeature, FeatureConfigurator>
+  /// <summary>
+  /// Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with
+  /// classes inheriting from BlueprintFeature.
+  /// </summary>
+  public class FeatureConfiguratorTest : CommonFeatureConfiguratorTest<BlueprintFeature, FeatureConfigurator>
   {
     public FeatureConfiguratorTest() : base()
     {
