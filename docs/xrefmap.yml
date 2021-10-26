@@ -4145,6 +4145,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMax
   nameWithType: AbilityResourceConfigurator.SetMax
+- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount(BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder)
+  name: SetMaxAmount(ResourceAmountBuilder)
+  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMaxAmount_BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_
+  commentId: M:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount(BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder)
+  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount(BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder)
+  nameWithType: AbilityResourceConfigurator.SetMaxAmount(ResourceAmountBuilder)
+- uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount*
+  name: SetMaxAmount
+  href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMaxAmount_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMaxAmount
+  nameWithType: AbilityResourceConfigurator.SetMaxAmount
 - uid: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin(System.Int32)
   name: SetMin(Int32)
   href: api/BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.html#BlueprintCore_Blueprints_Abilities_AbilityResourceConfigurator_SetMin_System_Int32_
@@ -4158,6 +4171,83 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Abilities.AbilityResourceConfigurator.SetMin
   nameWithType: AbilityResourceConfigurator.SetMin
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder
+  name: ResourceAmountBuilder
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html
+  commentId: T:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder
+  nameWithType: ResourceAmountBuilder
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build
+  name: Build()
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_Build
+  commentId: M:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build()
+  nameWithType: ResourceAmountBuilder.Build()
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build*
+  name: Build
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_Build_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.Build
+  nameWithType: ResourceAmountBuilder.Build
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel(System.String[],System.Int32)
+  name: IncreaseByLevel(String[], Int32)
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByLevel_System_String___System_Int32_
+  commentId: M:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel(System.String[],System.Int32)
+  name.vb: IncreaseByLevel(String(), Int32)
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel(System.String[], System.Int32)
+  fullName.vb: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel(System.String(), System.Int32)
+  nameWithType: ResourceAmountBuilder.IncreaseByLevel(String[], Int32)
+  nameWithType.vb: ResourceAmountBuilder.IncreaseByLevel(String(), Int32)
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel*
+  name: IncreaseByLevel
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByLevel_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevel
+  nameWithType: ResourceAmountBuilder.IncreaseByLevel
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(System.String[],System.Single,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name: IncreaseByLevelStartPlusDivStep(String[], Single, Int32, Int32, Int32, Int32, Int32)
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByLevelStartPlusDivStep_System_String___System_Single_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(System.String[],System.Single,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  name.vb: IncreaseByLevelStartPlusDivStep(String(), Single, Int32, Int32, Int32, Int32, Int32)
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(System.String[], System.Single, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  fullName.vb: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(System.String(), System.Single, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType: ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(String[], Single, Int32, Int32, Int32, Int32, Int32)
+  nameWithType.vb: ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep(String(), Single, Int32, Int32, Int32, Int32, Int32)
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep*
+  name: IncreaseByLevelStartPlusDivStep
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByLevelStartPlusDivStep_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep
+  nameWithType: ResourceAmountBuilder.IncreaseByLevelStartPlusDivStep
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat(Kingmaker.EntitySystem.Stats.StatType)
+  name: IncreaseByStat(StatType)
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByStat_Kingmaker_EntitySystem_Stats_StatType_
+  commentId: M:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat(Kingmaker.EntitySystem.Stats.StatType)
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat(Kingmaker.EntitySystem.Stats.StatType)
+  nameWithType: ResourceAmountBuilder.IncreaseByStat(StatType)
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat*
+  name: IncreaseByStat
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_IncreaseByStat_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.IncreaseByStat
+  nameWithType: ResourceAmountBuilder.IncreaseByStat
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New(System.Int32)
+  name: New(Int32)
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_New_System_Int32_
+  commentId: M:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New(System.Int32)
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New(System.Int32)
+  nameWithType: ResourceAmountBuilder.New(Int32)
+- uid: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New*
+  name: New
+  href: api/BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.html#BlueprintCore_Blueprints_Abilities_ResourceAmountBuilder_New_
+  commentId: Overload:BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Abilities.ResourceAmountBuilder.New
+  nameWithType: ResourceAmountBuilder.New
 - uid: BlueprintCore.Blueprints.BlueprintConfigurator`2
   name: BlueprintConfigurator<T, TBuilder>
   href: api/BlueprintCore.Blueprints.BlueprintConfigurator-2.html
