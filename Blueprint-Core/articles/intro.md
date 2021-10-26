@@ -12,6 +12,8 @@ If you're interested in contributing see [How to Contribute](contributing.md).
 
 Every supported concrete blueprint type has a corresponding configurator. e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.Buffs.BuffConfigurator) is the configurator for `BlueprintBuff`.
 
+For blueprint types not supported by the library you can use [BlueprintConfigurator](xref:BlueprintCore.Blueprints.BlueprintConfigurator`1). This won't expose all fields and supported components for the type but allows use of the configurator API and validation with any blueprint type.
+
 Basic usage of all configurators is the same:
 
 1. Instantiate a configurator using `For()` or `Create()`

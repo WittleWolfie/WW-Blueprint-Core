@@ -82,6 +82,7 @@
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
 <h2 id="blueprint-configurators">Blueprint Configurators</h2>
 <p>Every supported concrete blueprint type has a corresponding configurator. e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.Buffs.BuffConfigurator.html">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
+<p>For blueprint types not supported by the library you can use <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html">BlueprintConfigurator</a>. This won't expose all fields and supported components for the type but allows use of the configurator API and validation with any blueprint type.</p>
 <p>Basic usage of all configurators is the same:</p>
 <ol>
 <li>Instantiate a configurator using <code>For()</code> or <code>Create()</code>
