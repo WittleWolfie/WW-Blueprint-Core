@@ -7,7 +7,7 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.3.2</Version>
+    <Version>0.4.0</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -18,9 +18,7 @@
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <PackageReleaseNotes>Initial Alpha release.
-
-Ready for use but support for full feature set is in progress.</PackageReleaseNotes>
+    <PackageReleaseNotes>Usable with any blueprint type but full API functionality is in progress.</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="**\*.cs" Exclude="obj\**" />
