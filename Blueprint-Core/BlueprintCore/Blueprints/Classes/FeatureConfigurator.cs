@@ -4,7 +4,7 @@ namespace BlueprintCore.Blueprints.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintFeature"/>.</summary>
   /// <inheritdoc/>
-  public class FeatureConfigurator : CommonFeatureConfigurator<BlueprintFeature, FeatureConfigurator>
+  public class FeatureConfigurator : BaseFeatureConfigurator<BlueprintFeature, FeatureConfigurator>
   {
     private FeatureConfigurator(string name) : base(name) { }
 

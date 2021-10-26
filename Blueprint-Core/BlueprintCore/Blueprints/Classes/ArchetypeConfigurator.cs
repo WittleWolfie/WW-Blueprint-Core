@@ -5,7 +5,7 @@ namespace BlueprintCore.Blueprints.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintArchetype"/>.</summary>
   /// <inheritdoc/>
-  public class ArchetypeConfigurator : BlueprintConfigurator<BlueprintArchetype, ArchetypeConfigurator>
+  public class ArchetypeConfigurator : BaseBlueprintConfigurator<BlueprintArchetype, ArchetypeConfigurator>
   {
     private ArchetypeConfigurator(string name) : base(name) { }
 

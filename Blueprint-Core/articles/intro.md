@@ -18,22 +18,22 @@ Basic usage of all configurators is the same:
     * `For()` creates a configurator for an existing blueprint
     * `Create()` creates and registers a new blueprint
 2. Modify the blueprint using the configurator methods
-3. Commit the configuration with [Configure()](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.Configure)
+3. Commit the configuration with [Configure()](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.Configure)
     * Until this is called, no changes are made to the blueprint
     * After commit the blueprint is validated and any errors are logged as a warning
 
 ### Common Methods
 
-* [AddComponent](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent))
+* [AddComponent](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent))
     * Used internally by all configurator methods that add a new component.
     * Adds a `BlueprintComponent` of any type. Prefer using configurator methods whenever possible.
     * Eventually the configurators will support all in-game components, at which point this should only be used for components implemented in your project.
-* [AddUniqueComponent](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.BlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent}))
+* [AddUniqueComponent](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.BaseBlueprintConfigurator{`0,`1}.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent}))
     * Similar to `AddComponent`, but for components for which only one can exist in a blueprint.
-    * Supports user defined conflict resolution if multiple components are present. See [ComponentMerge](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.ComponentMerge).
-* [RemoveComponents](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.RemoveComponents(System.Func{Kingmaker.Blueprints.BlueprintComponent,System.Boolean}))
+    * Supports user defined conflict resolution if multiple components are present. See [ComponentMerge](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.ComponentMerge).
+* [RemoveComponents](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.RemoveComponents(System.Func{Kingmaker.Blueprints.BlueprintComponent,System.Boolean}))
     * Removes any components matching the supplied `Func<BlueprintComponent, bool>`.
-* [OnConfigure](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2.OnConfigure(System.Action{`0}[]))
+* [OnConfigure](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.OnConfigure(System.Action{`0}[]))
     * Executes an `Action` on the blueprint as the last step in configuration.
 
 ### Modifying Fields

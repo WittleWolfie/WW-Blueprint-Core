@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace BlueprintCore.Blueprints.Classes
+    <title>Enum BaseBlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace BlueprintCore.Blueprints.Classes
+    <meta name="title" content="Enum BaseBlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
    ">
     <meta name="generator" content="docfx 2.58.4.0">
     
@@ -68,24 +68,57 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Classes">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.ComponentMerge">
   
-  <h1 id="BlueprintCore_Blueprints_Classes" data-uid="BlueprintCore.Blueprints.Classes" class="text-break">Namespace BlueprintCore.Blueprints.Classes
+  
+  <h1 id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge" data-uid="BlueprintCore.Blueprints.BaseBlueprintConfigurator`2.ComponentMerge" class="text-break">Enum BaseBlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.html">BlueprintCore.Blueprints</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum ComponentMerge</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>When adding a component that is unique, the function accepts a <a class="xref" href="BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.ComponentMerge.html">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge</a> and
+<span class="xref">System.Action</span> argument to resolve the conflict. Whenever possible, a reasonable default behavior is
+provided. Usually this is in the form of concatenating two components that represent lists or combining flags.</p>
+</div>
+  <h3 id="fields">Fields
   </h3>
-      <h4><a class="xref" href="BlueprintCore.Blueprints.Classes.ArchetypeConfigurator.html">ArchetypeConfigurator</a></h4>
-      <section><p>Configurator for <span class="xref">Kingmaker.Blueprints.Classes.BlueprintArchetype</span>.</p>
-</section>
-      <h4><a class="xref" href="BlueprintCore.Blueprints.Classes.BaseFeatureConfigurator-2.html">BaseFeatureConfigurator&lt;T, TBuilder&gt;</a></h4>
-      <section><p>Implements common fields and component support for blueprints inheriting from <span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span>.</p>
-</section>
-      <h4><a class="xref" href="BlueprintCore.Blueprints.Classes.FeatureConfigurator.html">FeatureConfigurator</a></h4>
-      <section><p>Configurator for <span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span>.</p>
-</section>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_Fail">Fail</td>
+        <td><p>Default. Throws an exception.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_Merge">Merge</td>
+        <td><p>The two components are merged into one. Requires an <span class="xref">System.Action</span> to define merge behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_Replace">Replace</td>
+        <td><p>The new component is used and the existing component is removed.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge_Skip">Skip</td>
+        <td><p>Skips the new component. Useful for components without per-instance behavior.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -93,6 +126,12 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_ComponentMerge.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.BaseBlueprintConfigurator%602.ComponentMerge%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/BaseBlueprintConfigurator.cs/#L160" class="contribution-link">View Source</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

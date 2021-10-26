@@ -16,9 +16,9 @@ namespace BlueprintCore.Blueprints.Facts
   /// </summary>
   /// <inheritdoc/>
   public abstract class BlueprintUnitFactConfigurator<T, TBuilder>
-      : BlueprintConfigurator<T, TBuilder>
+      : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintUnitFact
-      where TBuilder : BlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
     protected BlueprintUnitFactConfigurator(string name) : base(name) { }
 

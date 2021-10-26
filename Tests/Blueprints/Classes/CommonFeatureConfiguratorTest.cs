@@ -13,7 +13,7 @@ namespace BlueprintCore.Test.Blueprints.Classes
   public abstract class CommonFeatureConfiguratorTest<T, TBuilder>
       : BlueprintUnitFactConfiguratorTest<T, TBuilder>
       where T : BlueprintFeature
-      where TBuilder : CommonFeatureConfigurator<T, TBuilder>
+      where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
     protected CommonFeatureConfiguratorTest() : base() { }
 

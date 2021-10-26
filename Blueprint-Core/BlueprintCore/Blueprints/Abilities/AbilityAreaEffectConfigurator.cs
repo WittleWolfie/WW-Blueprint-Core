@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Abilities
   /// <summary>Configurator for <see cref="BlueprintAbilityAreaEffect"/>.</summary>
   /// <inheritdoc/>
   public class AbilityAreaEffectConfigurator
-      : BlueprintConfigurator<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
+      : BaseBlueprintConfigurator<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
   {
     private AbilityAreaEffectConfigurator(string name) : base(name) { }
 

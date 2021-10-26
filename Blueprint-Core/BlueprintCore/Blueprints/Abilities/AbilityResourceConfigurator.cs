@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Abilities
   /// <summary>Configurator for <see cref="BlueprintAbilityResource"/>.</summary>
   /// <inheritdoc/>
   public class AbilityResourceConfigurator
-      : BlueprintConfigurator<BlueprintAbilityResource, AbilityResourceConfigurator>
+      : BaseBlueprintConfigurator<BlueprintAbilityResource, AbilityResourceConfigurator>
   {
     private AbilityResourceConfigurator(string name) : base(name) { }
 

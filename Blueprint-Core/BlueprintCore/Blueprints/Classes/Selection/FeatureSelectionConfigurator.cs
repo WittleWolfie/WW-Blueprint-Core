@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Classes.Selection
   /// <summary>Configurator for <see cref="BlueprintFeatureSelection"/>.</summary>
   /// <inheritdoc/>
   public class FeatureSelectionConfigurator
-      : CommonFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
+      : BaseFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
   {
     private FeatureSelectionConfigurator(string name) : base(name) { }
 

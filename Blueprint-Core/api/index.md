@@ -4,7 +4,7 @@ New to BlueprintCore? [Start here](../articles/intro.md)!
 
 ### Quick Links
 
-* [BlueprintConfigurator](xref:BlueprintCore.Blueprints.BlueprintConfigurator`2)
+* [BaseBlueprintConfigurator](xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator`2)
 * [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder)
 * [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder)
 * [BlueprintTool](xref:BlueprintCore.Blueprints.BlueprintTool)

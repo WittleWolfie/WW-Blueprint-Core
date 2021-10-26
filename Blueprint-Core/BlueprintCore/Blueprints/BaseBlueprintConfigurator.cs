@@ -146,9 +146,9 @@ namespace BlueprintCore.Blueprints
   /// </code>
   /// </example>
   /// </remarks>
-  public abstract class BlueprintConfigurator<T, TBuilder>
+  public abstract class BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintScriptableObject
-      where TBuilder : BlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
     /// <summary>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</summary>
     /// 
@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints
     protected readonly string Name;
     protected readonly T Blueprint;
 
-    protected BlueprintConfigurator(string name)
+    protected BaseBlueprintConfigurator(string name)
     {
       Self = (TBuilder)this;
       Name = name;

@@ -13,9 +13,9 @@ namespace BlueprintCore.Blueprints.Classes
   /// Implements common fields and component support for blueprints inheriting from <see cref="BlueprintFeature"/>.
   /// </summary>
   /// <inheritdoc/>
-  public abstract class CommonFeatureConfigurator<T, TBuilder> : BlueprintUnitFactConfigurator<T, TBuilder>
+  public abstract class BaseFeatureConfigurator<T, TBuilder> : BlueprintUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeature
-      where TBuilder : BlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
     private FeatureTag EnableFeatureTags;
     private FeatureTag DisableFeatureTags;
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Classes
     private readonly List<FeatureGroup> EnableGroups = new();
     private readonly List<FeatureGroup> DisableGroups = new();
 
-    protected CommonFeatureConfigurator(string name) : base(name) { }
+    protected BaseFeatureConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Modifies <see cref="BlueprintFeature.Groups"/>

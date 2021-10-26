@@ -24,7 +24,7 @@ namespace BlueprintCore.Test.Blueprints
   [Collection("Harmony")]
   public abstract class BlueprintConfiguratorTest<T, TBuilder> : TestBase
       where T : BlueprintScriptableObject
-      where TBuilder : BlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
     // Serves as the guid for the primary test blueprint. Concrete child classes must instantiate
     // create and register a blueprint using this guid;
@@ -36,7 +36,7 @@ namespace BlueprintCore.Test.Blueprints
      * 
      * For example, SpellDescriptors are only valid for Ability, AbilityAreaEffect, Buff, and
      * Feature. Since BlueprintScriptableObject is the only type they share in common, the
-     * functionality is included in BlueprintConfigurator. Those tests can call this function to
+     * functionality is included in BaseBlueprintConfigurator. Those tests can call this function to
      * validate that supported types work properly and unsupported types throw an exception.
      */
     protected void RunTest(Action test, params Type[] validTypes)
