@@ -10,12 +10,11 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Blueprints.Classes
 {
-  public abstract class CommonFeatureConfiguratorTest<T, TBuilder>
-      : BlueprintUnitFactConfiguratorTest<T, TBuilder>
+  public abstract class BaseFeatureConfiguratorTest<T, TBuilder> : BlueprintUnitFactConfiguratorTest<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
-    protected CommonFeatureConfiguratorTest() : base() { }
+    protected BaseFeatureConfiguratorTest() : base() { }
 
     [Fact]
     public void AddFeatureGroups()

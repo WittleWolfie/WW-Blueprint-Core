@@ -16,7 +16,7 @@ using static BlueprintCore.Test.TestData;
 namespace BlueprintCore.Test.Blueprints.Facts
 {
   public abstract class BlueprintUnitFactConfiguratorTest<T, TBuilder>
-      : BlueprintConfiguratorTest<T, TBuilder>
+      : BaseBlueprintConfiguratorTest<T, TBuilder>
       where T : BlueprintUnitFact
       where TBuilder : BlueprintUnitFactConfigurator<T, TBuilder>
   {

@@ -10,7 +10,7 @@ using static BlueprintCore.Test.TestData;
 namespace BlueprintCore.Test.Blueprints.Classes.Features
 {
   public class FeatureSelectionConfiguratorTest
-      : CommonFeatureConfiguratorTest<BlueprintFeatureSelection, FeatureSelectionConfigurator>
+      : BaseFeatureConfiguratorTest<BlueprintFeatureSelection, FeatureSelectionConfigurator>
   {
     public FeatureSelectionConfiguratorTest() : base()
     {

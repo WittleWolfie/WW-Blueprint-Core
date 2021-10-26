@@ -5045,6 +5045,57 @@ references:
   fullName.vb: BlueprintCore.Blueprints.BaseBlueprintConfigurator(Of T, TBuilder).ValidateInternal
   nameWithType: BaseBlueprintConfigurator<T, TBuilder>.ValidateInternal
   nameWithType.vb: BaseBlueprintConfigurator(Of T, TBuilder).ValidateInternal
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1
+  name: BlueprintConfigurator<T>
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html
+  commentId: T:BlueprintCore.Blueprints.BlueprintConfigurator`1
+  name.vb: BlueprintConfigurator(Of T)
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T)
+  nameWithType: BlueprintConfigurator<T>
+  nameWithType.vb: BlueprintConfigurator(Of T)
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1.For(System.String)
+  name: For(String)
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html#BlueprintCore_Blueprints_BlueprintConfigurator_1_For_System_String_
+  commentId: M:BlueprintCore.Blueprints.BlueprintConfigurator`1.For(System.String)
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>.For(System.String)
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T).For(System.String)
+  nameWithType: BlueprintConfigurator<T>.For(String)
+  nameWithType.vb: BlueprintConfigurator(Of T).For(String)
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1.For*
+  name: For
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html#BlueprintCore_Blueprints_BlueprintConfigurator_1_For_
+  commentId: Overload:BlueprintCore.Blueprints.BlueprintConfigurator`1.For
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>.For
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T).For
+  nameWithType: BlueprintConfigurator<T>.For
+  nameWithType.vb: BlueprintConfigurator(Of T).For
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1.New(System.String)
+  name: New(String)
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html#BlueprintCore_Blueprints_BlueprintConfigurator_1_New_System_String_
+  commentId: M:BlueprintCore.Blueprints.BlueprintConfigurator`1.New(System.String)
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>.New(System.String)
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T).New(System.String)
+  nameWithType: BlueprintConfigurator<T>.New(String)
+  nameWithType.vb: BlueprintConfigurator(Of T).New(String)
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1.New(System.String,System.String)
+  name: New(String, String)
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html#BlueprintCore_Blueprints_BlueprintConfigurator_1_New_System_String_System_String_
+  commentId: M:BlueprintCore.Blueprints.BlueprintConfigurator`1.New(System.String,System.String)
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>.New(System.String, System.String)
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T).New(System.String, System.String)
+  nameWithType: BlueprintConfigurator<T>.New(String, String)
+  nameWithType.vb: BlueprintConfigurator(Of T).New(String, String)
+- uid: BlueprintCore.Blueprints.BlueprintConfigurator`1.New*
+  name: New
+  href: api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html#BlueprintCore_Blueprints_BlueprintConfigurator_1_New_
+  commentId: Overload:BlueprintCore.Blueprints.BlueprintConfigurator`1.New
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.BlueprintConfigurator<T>.New
+  fullName.vb: BlueprintCore.Blueprints.BlueprintConfigurator(Of T).New
+  nameWithType: BlueprintConfigurator<T>.New
+  nameWithType.vb: BlueprintConfigurator(Of T).New
 - uid: BlueprintCore.Blueprints.BlueprintExtensions
   name: BlueprintExtensions
   href: api/BlueprintCore.Blueprints.BlueprintExtensions.html

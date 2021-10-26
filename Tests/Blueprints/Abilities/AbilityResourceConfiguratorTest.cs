@@ -9,7 +9,7 @@ using static BlueprintCore.Test.TestData;
 namespace BlueprintCore.Test.Blueprints.Abilities
 {
   public class AbilityResourceConfiguratorTest
-      : BlueprintConfiguratorTest<BlueprintAbilityResource, AbilityResourceConfigurator>
+      : BaseBlueprintConfiguratorTest<BlueprintAbilityResource, AbilityResourceConfigurator>
   {
     public AbilityResourceConfiguratorTest() : base()
     {

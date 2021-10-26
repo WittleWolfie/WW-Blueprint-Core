@@ -7,7 +7,7 @@ using static BlueprintCore.Test.TestData;
 namespace BlueprintCore.Test.Blueprints.Abilities
 {
   public class AbilityAreaEffectConfiguratorTest
-      : BlueprintConfiguratorTest<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
+      : BaseBlueprintConfiguratorTest<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
   {
     public AbilityAreaEffectConfiguratorTest() : base()
     {

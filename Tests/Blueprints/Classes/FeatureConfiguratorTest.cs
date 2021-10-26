@@ -7,7 +7,7 @@ namespace BlueprintCore.Test.Blueprints.Classes
   /// Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with
   /// classes inheriting from BlueprintFeature.
   /// </summary>
-  public class FeatureConfiguratorTest : CommonFeatureConfiguratorTest<BlueprintFeature, FeatureConfigurator>
+  public class FeatureConfiguratorTest : BaseFeatureConfiguratorTest<BlueprintFeature, FeatureConfigurator>
   {
     public FeatureConfiguratorTest() : base()
     {

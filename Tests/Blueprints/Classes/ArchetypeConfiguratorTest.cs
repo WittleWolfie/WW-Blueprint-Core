@@ -10,7 +10,7 @@ namespace BlueprintCore.Test.Blueprints.Classes
    * Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with
    * FeatureSelectionConfiguratorTest.
    */
-  public class ArchetypeConfiguratorTest : BlueprintConfiguratorTest<BlueprintArchetype, ArchetypeConfigurator>
+  public class ArchetypeConfiguratorTest : BaseBlueprintConfiguratorTest<BlueprintArchetype, ArchetypeConfigurator>
   {
     public ArchetypeConfiguratorTest() : base()
     {
