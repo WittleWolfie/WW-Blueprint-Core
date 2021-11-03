@@ -10,6 +10,7 @@ using Kingmaker.Localization;
 
 namespace BlueprintCoreGen.Templates.Actions
 {
+  [Template(TemplateType.AreaAction)]
   static class AreaActions
   {
     //----- Kingmaker.Dungeon.Actions -----//

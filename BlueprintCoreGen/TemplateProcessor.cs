@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BlueprintCoreGen.Templates;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ namespace BlueprintCoreGen
     {
       Import,
       Namespace,
+      ClassAttribute,
       ClassDeclaration,
       MethodComment,
       MethodAttribute,
@@ -22,13 +24,14 @@ namespace BlueprintCoreGen
       MethodBody
     }
 
-    private static readonly Regex Import = new Regex(@"using [\w\.]+;", RegexOptions.Compiled);
-    private static readonly Regex Namespace = new Regex(@"namespace [\w\.]+", RegexOptions.Compiled);
-    private static readonly Regex ClassDeclaration = new Regex(@"[\s\w]*class \w+", RegexOptions.Compiled);
-    private static readonly Regex MethodComment = new Regex(@"\s+/// .*", RegexOptions.Compiled);
-    private static readonly Regex MethodAttribute = new Regex(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
-    private static readonly Regex MethodDeclaration = new Regex(@"\s+public .*", RegexOptions.Compiled);
-    private static readonly Regex MethodBody = new Regex(@"\s+\{", RegexOptions.Compiled);
+    private static readonly Regex Import = new(@"using [\w\.]+;", RegexOptions.Compiled);
+    private static readonly Regex Namespace = new(@"namespace [\w\.]+", RegexOptions.Compiled);
+    private static readonly Regex ClassAttribute = new(@"\s+\[Template\(TemplateType\.(\w+)\)\]", RegexOptions.Compiled);
+    private static readonly Regex ClassDeclaration = new(@"[\s\w]*class \w+", RegexOptions.Compiled);
+    private static readonly Regex MethodComment = new(@"\s+/// .*", RegexOptions.Compiled);
+    private static readonly Regex MethodAttribute = new(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
+    private static readonly Regex MethodDeclaration = new(@"\s+public .*", RegexOptions.Compiled);
+    private static readonly Regex MethodBody = new(@"\s+\{", RegexOptions.Compiled);
 
     public static readonly List<Template> Templates = new();
 
@@ -43,7 +46,7 @@ namespace BlueprintCoreGen
 
     private static Template ProcessTemplateFile(string file)
     {
-      var template = new Template(Path.GetFileNameWithoutExtension(file));
+      var template = new Template();
 
       var stage = Stage.Import;
       StringBuilder method = new();
@@ -54,11 +57,27 @@ namespace BlueprintCoreGen
         switch (stage)
         {
           case Stage.Import:
-            if (Import.IsMatch(line)) { template.AddImport(line); }
-            else if (Namespace.IsMatch(line)) { stage = Stage.Namespace; }
+            if (Import.IsMatch(line))
+            {
+              template.AddImport(line);
+            }
+            else if (Namespace.IsMatch(line))
+            {
+              stage = Stage.Namespace;
+            }
             break;
           case Stage.Namespace:
-            if (ClassDeclaration.IsMatch(line)) { stage = Stage.ClassDeclaration; }
+            if (ClassAttribute.IsMatch(line))
+            {
+              template.Type = Enum.Parse<TemplateType>(ClassAttribute.Match(line).Groups[1].Value);
+              stage = Stage.ClassAttribute;
+            }
+            break;
+          case Stage.ClassAttribute:
+            if (ClassDeclaration.IsMatch(line))
+            {
+              stage = Stage.ClassDeclaration;
+            }
             break;
           case Stage.ClassDeclaration:
             if (MethodComment.IsMatch(line))
@@ -112,11 +131,9 @@ namespace BlueprintCoreGen
 
   public class Template
   {
-    public readonly string ClassName;
+    public TemplateType Type;
     private readonly List<string> Imports = new();
     private readonly Dictionary<Type, List<string>> Methods = new();
-
-    public Template(string className) { ClassName = className; }
 
     public void AddImport(string import) { Imports.Add(import); }
 
