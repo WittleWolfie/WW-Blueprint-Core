@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
-using System.Linq;
-using BlueprintCoreGen.Templates;
 
 namespace BlueprintCoreGen
 {
@@ -16,19 +14,12 @@ namespace BlueprintCoreGen
 
       TemplateProcessor.Run();
 
-      List<Template> areaActionTemplates =
-          TemplateProcessor.Templates.Where(t => t.Type == TemplateType.AreaAction).ToList();
-
-
-
       foreach (Template template in TemplateProcessor.Templates)
       {
-        Console.WriteLine($"Template: {template.Type}");
-        Console.WriteLine($"Imports:\n{template.GetImports()}");
-        Console.WriteLine($"Methods:\n{template.GetAllMethods()}");
+        File.WriteAllText($"{template.ClassName}.cs", template.GetClassText());
+        Console.WriteLine($"Created: {template.ClassName}");
+        Console.WriteLine($"Types:\n{string.Join('\n', template.GetImplementedTypes())}");
       }
-
-
     }
   }
 }

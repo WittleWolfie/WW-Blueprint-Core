@@ -1,6 +1,7 @@
-﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using BlueprintCoreGen.Templates;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
@@ -8,10 +9,14 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 
-namespace BlueprintCoreGen.Templates.Actions
+namespace BlueprintCoreGen.Actions.Builder.AreaEx
 {
-  [Template(TemplateType.AreaAction)]
-  static class AreaActions
+  /// <summary>
+  /// Extension to <see cref="ActionsBuilder"/> for actions involving the game map, dungeons, or locations. See also
+  /// <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
+  /// </summary>
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderAreaEx
   {
     //----- Kingmaker.Dungeon.Actions -----//
 

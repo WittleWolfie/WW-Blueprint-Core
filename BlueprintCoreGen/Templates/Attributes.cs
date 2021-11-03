@@ -1,54 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueprintCoreGen.Templates
 {
+  /// <summary>
+  /// Identifies which game type is constructed by the method.
+  /// </summary>
   [AttributeUsage(AttributeTargets.Method)]
   public class ImplementsAttribute : Attribute
   {
-    private Type Type;
-
-    public ImplementsAttribute(Type type) { Type = type; }
-  }
-
-  public enum TemplateType
-  {
-    Unknown,
-
-    // Blueprint types
-    Blueprint,
-    BlueprintComponent,
-
-    // Action types
-    Action,
-    AreaAction,
-    AVAction,
-    BasicAction,
-    ContextAction,
-    KingdomAction,
-    MiscAction,
-    NewAction,
-    StoryAction,
-    UpgraderAction,
-
-    // Condition types
-    Condition,
-    AreaCondition,
-    BasicCondition,
-    ContextCondition,
-    KingdomCondition,
-    NewCondition,
-    StoryCondition
-  }
-
-  [AttributeUsage(AttributeTargets.Class)]
-  public class Template : Attribute
-  {
-    private TemplateType Type;
-
-    public Template(TemplateType type) { Type = type; }
+#pragma warning disable IDE0060 // Remove unused parameter
+    public ImplementsAttribute(Type type) { }
+#pragma warning restore IDE0060 // Remove unused parameter
   }
 }

@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Templates\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
@@ -25,14 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Templates\Components\" />
-    <Folder Include="Templates\Conditions\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\Actions\AreaActions.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    <Folder Include="Templates\**" />
   </ItemGroup>
 
 </Project>
