@@ -26,9 +26,6 @@ namespace BlueprintCore.Utils
     /// </remarks>
     public static bool EnableVerboseLogs = false;
 
-    /// <summary>
-    /// Global log prefix. Should be populated by <see cref="Main.Init"/>
-    /// </summary>
     internal static string PrefixBase = $"BlueprintCore::{typeof(LogWrapper).Assembly.GetName().Name}";
 
     internal static LogWrapper GetInternal(string prefix)
