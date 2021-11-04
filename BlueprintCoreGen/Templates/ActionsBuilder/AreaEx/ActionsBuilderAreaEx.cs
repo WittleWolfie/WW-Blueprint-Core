@@ -136,5 +136,9 @@ namespace BlueprintCoreGen.Actions.Builder.AreaEx
       destroy.MapObject = obj;
       return builder.Add(destroy);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Corruption.DecreaseCorruptionLevelAction)]
   }
 }

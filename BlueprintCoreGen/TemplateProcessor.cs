@@ -14,9 +14,7 @@ namespace BlueprintCoreGen
   /// 
   /// <remarks>
   /// <para>
-  /// Two annotations are used to convert the classes as well as special logic to convert the namespace from
-  /// BlueprintCoreGen to BlueprintCore. The reason for using BlueprintCoreGen in the first place is to prevent
-  /// namespace conflicts while allowing the code to compile so it can be validated with intellisense.
+  /// Attributes are used to convert template classes with additional logic to customize the output.
   /// </para>
   /// <list type="bullet">
   /// <listheader>Attributes</listheader>
@@ -37,28 +35,37 @@ namespace BlueprintCoreGen
   ///   with Replacement. Cannot be used before the namespace declaration.
   ///   </description>
   /// </item>
+  /// <item>
+  ///   <term>Generate</term>
+  ///   <description>
+  ///   Generate tags indicate where in the template to insert generated types.
+  ///   e.g. <c>// [Generate(typeof(Conditional))]</c> is automatically replaced a method for the Conditional action.
+  ///   </description>
+  /// </item>
   /// </list>
   /// </remarks>
   public static class TemplateProcessor
   {
     private static readonly Regex Replace = new(@"\s*// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
+    private static readonly Regex Generate = new(@"\s*// \[Generate\((.*)\)\]", RegexOptions.Compiled);
     private static readonly Regex Namespace = new(@"namespace [\w\.]+", RegexOptions.Compiled);
     private static readonly Regex MethodAttribute = new(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
-    public static readonly List<Template> Templates = new();
+    public static readonly List<Template> ActionTemplates = new();
 
     public static void Run()
     {
-      var directory = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
-      foreach (string file in Directory.GetFiles(directory, "*.cs", SearchOption.AllDirectories))
+      var templatesRoot = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
+      var actionsBuilderRoot = Path.Combine(templatesRoot, "ActionsBuilder");
+      foreach (string file in Directory.GetFiles(actionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
       {
-        Templates.Add(ProcessTemplateFile(file));
+        ActionTemplates.Add(ProcessTemplateFile(file, Path.GetRelativePath(templatesRoot, file)));
       }
     }
 
-    private static Template ProcessTemplateFile(string file)
+    private static Template ProcessTemplateFile(string file, string relativePath)
     {
-      var template = new Template(Path.GetFileNameWithoutExtension(file));
+      var template = new Template(relativePath);
 
       (string Old, string New)? replacement = null;
       foreach (var line in File.ReadAllLines(file))
@@ -74,6 +81,14 @@ namespace BlueprintCoreGen
         {
           template.AddLine(line.Replace(replacement?.Old, replacement?.New));
           replacement = null;
+          continue;
+        }
+
+        if (Generate.IsMatch(line))
+        {
+          var type = AccessTools.TypeByName(Generate.Match(line).Groups[1].Value);
+          template.AddMethod(CodeGenerator.CreateMethod(type));
+          template.AddType(type);
           continue;
         }
 
@@ -96,13 +111,17 @@ namespace BlueprintCoreGen
 
   public class Template
   {
-    public readonly string ClassName;
+    public readonly string RelativePath;
     private readonly StringBuilder ClassText = new();
     private readonly HashSet<Type> ImplementedTypes = new();
 
-    public Template(string className) { ClassName = className; }
+    public Template(string filePath)
+    {
+      RelativePath = filePath;
+    }
 
     public void AddLine(string line) { ClassText.AppendLine(line); }
+    public void AddMethod(string method) { ClassText.Append(method); }
 
     public void AddType(Type type)
     {
