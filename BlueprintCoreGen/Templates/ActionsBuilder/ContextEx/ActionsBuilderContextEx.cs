@@ -1,7 +1,8 @@
+// [Replace("// ", "")]
+// using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
-using BlueprintCoreGen.Templates;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;

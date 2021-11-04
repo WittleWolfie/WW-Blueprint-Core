@@ -6966,6 +6966,31 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Utils.ElementTool.Init
   nameWithType: ElementTool.Init
+- uid: BlueprintCore.Utils.GeneratedAttribute
+  name: GeneratedAttribute
+  href: api/BlueprintCore.Utils.GeneratedAttribute.html
+  commentId: T:BlueprintCore.Utils.GeneratedAttribute
+  fullName: BlueprintCore.Utils.GeneratedAttribute
+  nameWithType: GeneratedAttribute
+- uid: BlueprintCore.Utils.ImplementsAttribute
+  name: ImplementsAttribute
+  href: api/BlueprintCore.Utils.ImplementsAttribute.html
+  commentId: T:BlueprintCore.Utils.ImplementsAttribute
+  fullName: BlueprintCore.Utils.ImplementsAttribute
+  nameWithType: ImplementsAttribute
+- uid: BlueprintCore.Utils.ImplementsAttribute.#ctor(System.Type)
+  name: ImplementsAttribute(Type)
+  href: api/BlueprintCore.Utils.ImplementsAttribute.html#BlueprintCore_Utils_ImplementsAttribute__ctor_System_Type_
+  commentId: M:BlueprintCore.Utils.ImplementsAttribute.#ctor(System.Type)
+  fullName: BlueprintCore.Utils.ImplementsAttribute.ImplementsAttribute(System.Type)
+  nameWithType: ImplementsAttribute.ImplementsAttribute(Type)
+- uid: BlueprintCore.Utils.ImplementsAttribute.#ctor*
+  name: ImplementsAttribute
+  href: api/BlueprintCore.Utils.ImplementsAttribute.html#BlueprintCore_Utils_ImplementsAttribute__ctor_
+  commentId: Overload:BlueprintCore.Utils.ImplementsAttribute.#ctor
+  isSpec: "True"
+  fullName: BlueprintCore.Utils.ImplementsAttribute.ImplementsAttribute
+  nameWithType: ImplementsAttribute.ImplementsAttribute
 - uid: BlueprintCore.Utils.LogWrapper
   name: LogWrapper
   href: api/BlueprintCore.Utils.LogWrapper.html

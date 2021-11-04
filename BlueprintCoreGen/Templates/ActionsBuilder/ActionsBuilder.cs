@@ -1,11 +1,10 @@
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Utils;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BlueprintCore.Conditions.Builder;
-using BlueprintCore.Utils;
-using BlueprintCoreGen.Templates;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.ElementsSystem;
 
 namespace BlueprintCoreGen.Actions.Builder
 {

@@ -1,6 +1,7 @@
+// [Replace("// ", "")]
+// using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
-using BlueprintCoreGen.Templates;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;

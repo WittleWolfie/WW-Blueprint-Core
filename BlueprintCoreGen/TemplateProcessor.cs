@@ -21,7 +21,7 @@ namespace BlueprintCoreGen
   /// <list type="bullet">
   /// <listheader>Attributes</listheader>
   /// <item>
-  ///   <term><see cref="Templates.ImplementsAttribute"/></term>
+  ///   <term><see cref="ImplementsAttribute"/></term>
   ///   <description>
   ///   Use on methods that implement a game type such as a <see cref="Kingmaker.ElementsSystem.GameAction"/> or
   ///   <see cref="Kingmaker.ElementsSystem.Condition"/>. This is used to determine which types need automatically
@@ -41,7 +41,7 @@ namespace BlueprintCoreGen
   /// </remarks>
   public static class TemplateProcessor
   {
-    private static readonly Regex Replace = new(@"\s+// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
+    private static readonly Regex Replace = new(@"\s*// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
     private static readonly Regex Namespace = new(@"namespace [\w\.]+", RegexOptions.Compiled);
     private static readonly Regex MethodAttribute = new(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
@@ -60,7 +60,6 @@ namespace BlueprintCoreGen
     {
       var template = new Template(Path.GetFileNameWithoutExtension(file));
 
-      bool foundNamespace = false;
       (string Old, string New)? replacement = null;
       foreach (var line in File.ReadAllLines(file))
       {
@@ -78,33 +77,18 @@ namespace BlueprintCoreGen
           continue;
         }
 
-        // Technically this could all be one big if/else but I found the continue easier to read at a glance.
-        if (!foundNamespace)
+        if (Namespace.IsMatch(line))
         {
-          if (Namespace.IsMatch(line))
-          {
-            // Convert the namespace for BlueprintCore
-            template.AddLine(line.Replace("BlueprintCoreGen", "BlueprintCore"));
-            foundNamespace = true;
-          }
-          else if (!line.Contains("BlueprintCoreGen"))
-          {
-            // Skip BlueprintCoreGen imports
-            template.AddLine(line);
-          }
+          // Convert the namespace for BlueprintCore
+          template.AddLine(line.Replace("BlueprintCoreGen", "BlueprintCore"));
+          continue;
         }
-        else
+         
+        if (MethodAttribute.IsMatch(line))
         {
-          if (MethodAttribute.IsMatch(line))
-          {
-            // The attribute is a processor directive; don't add the line to the output
-            template.AddType(AccessTools.TypeByName(MethodAttribute.Match(line).Groups[1].Value));
-          }
-          else
-          {
-            template.AddLine(line);
-          }
+          template.AddType(AccessTools.TypeByName(MethodAttribute.Match(line).Groups[1].Value));
         }
+        template.AddLine(line);
       }
       return template;
     }

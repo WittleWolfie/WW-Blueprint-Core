@@ -1,3 +1,5 @@
+// [Replace("// ", "")]
+// using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -5,9 +7,8 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation.Actions;
 using Kingmaker.Visual.Animation;
-using BlueprintCoreGen.Templates;
+using Kingmaker.Visual.Animation.Actions;
 
 namespace BlueprintCoreGen.Actions.Builder.AVEx
 {

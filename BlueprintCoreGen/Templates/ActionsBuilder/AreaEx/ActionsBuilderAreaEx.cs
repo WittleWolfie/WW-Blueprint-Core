@@ -1,7 +1,7 @@
-using BlueprintCore.Actions.Builder;
+// [Replace("// ", "")]
+// using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
-using BlueprintCoreGen.Templates;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
