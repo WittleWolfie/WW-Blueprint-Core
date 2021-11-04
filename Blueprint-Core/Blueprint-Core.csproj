@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -66,7 +66,7 @@
   </ItemGroup>
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
-      <Assemblies Include="$(WRATH_DIR)\Wrath_Data\Managed\*.dll; $(WRATH_DIR)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
+      <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll; $(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
       <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
       <PublicAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
       <PrivateAssembly Include="..\Assemblies\Assembly-CSharp.dll" />

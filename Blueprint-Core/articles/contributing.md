@@ -12,7 +12,7 @@ Contributions are welcome!
     * [Aze.Publicise.MSBuild.Task](https://www.nuget.org/packages/Aze.Publicise.MSBuild.Task/1.0.0)
     * [docfx.console](https://www.nuget.org/packages/docfx.console/)
 2. Configure Environment Variables
-    * `WRATH_DIR` environment variable must be the root installation directory for the game
+    * `WrathPath` environment variable must be the root installation directory for the game
         * Usually this is `C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure`
 3. Clean the project
     * This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp
