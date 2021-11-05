@@ -36,6 +36,8 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="articles\toc.yml" />
+    <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
