@@ -255,7 +255,8 @@ OR<br>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProgression(this ContextRankConfig config, params ProgressionEntry[] entries)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CustomProgression with anonymous tuples.&quot;)]
+public static ContextRankConfig CustomProgression(this ContextRankConfig config, params ProgressionEntry[] entries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -307,11 +308,80 @@ entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.Context
 </p>
 <example>
 <pre><code>  ContextRankConfigs.CharacterLevel()
-      .Custom(
+      .CustomProgression(
           new ProgressionEntry(5, 1),
           new ProgressionEntry(10, 2),
           new ProgressionEntry(13, 4),
           new ProgressionEntry(18, 6));</code></pre>
+<ul><li>Levels 1-5<code>Result = 1</code></li><li>Levels 6-10<code>Result = 2</code></li><li>Levels 11-13<code>Result = 4</code></li><li>Levels 14+<code>Result = 6</code></li></ul>
+</example>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.ValueTuple%7BSystem.Int32%2CSystem.Int32%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L478">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.ValueTuple{System.Int32,System.Int32}[])">CustomProgression(ContextRankConfig, (Int32 Base, Int32 Progression)[])</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.Custom</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProgression(this ContextRankConfig config, params (int Base, int Progression)[] progression)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Int32</span>&gt;[]</td>
+        <td><span class="parametername">progression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Entries must be provided in ascending order by their Base.
+</p>
+<p>
+The result is the <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.ProgressionValue</span> of
+the first entry where the config&apos;s BaseValue is less than or equal to the entry&apos;s
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.BaseValue</span>. If the config&apos;s BaseValue is
+greater than all entry <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.BaseValue</span>, the last
+entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.ProgressionValue</span> is returned.
+</p>
+<example>
+<pre><code>  ContextRankConfigs.CharacterLevel().CustomProgression((5, 1), (10, 2), (13, 4), (18, 6));</code></pre>
 <ul><li>Levels 1-5<code>Result = 1</code></li><li>Levels 6-10<code>Result = 2</code></li><li>Levels 11-13<code>Result = 4</code></li><li>Levels 14+<code>Result = 6</code></li></ul>
 </example>
 </div>
@@ -607,6 +677,113 @@ OR<br>
   </table>
   <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenDoubleThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.StartPlusDoubleDivStep</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Single%2CSystem.Single%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L531">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a linear custom progression: <code>ProgressionValue = a * BaseValue + b</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig LinearProgression(this ContextRankConfig config, float a, float b, int startingBaseValue = 1, int maxBaseValue = 40, int progressionValueBeforeStart = 0, int? minProgressionValue = null, int? maxProgressionValue = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startingBaseValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxBaseValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">progressionValueBeforeStart</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">minProgressionValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">maxProgressionValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+When <code>BaseValue</code> is less than <code data-dev-comment-type="paramref" class="paramref">startingBaseValue</code> the result is
+<code data-dev-comment-type="paramref" class="paramref">progressionValueBeforeStart</code>.
+</p>
+<p>
+When <code>BaseValue</code> is greater than or equal to
+<code data-dev-comment-type="paramref" class="paramref">startingBaseValue</code> the result is <code>a * BaseValue + b</code>.
+</p>
+<p>
+When <code>BaseValue</code> exceeds <code data-dev-comment-type="paramref" class="paramref">maxBaseValue</code> the result is <code>a * MaxBaseValue + b</code>.
+</p>
+<p>
+If specified, <code data-dev-comment-type="paramref" class="paramref">maxProgressionValue</code> sets the maximum result.
+</p>
+<p>
+If specified, <code data-dev-comment-type="paramref" class="paramref">minProgressionValue</code> sets the minimum result.
+</p>
+<p>Results are truncated so 3.6 becomes 3.</p>
+<example>
+The following config returns 0 until <code>CharacterLevel</code> is 4, then <code>1 + 3/4 * CharacterLevel</code>
+<pre><code>  ContextRankConfigs.CharacterLevel().LinearProgression(0.75f, 1, startingBaseValue = 4);</code></pre>
+</example>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>

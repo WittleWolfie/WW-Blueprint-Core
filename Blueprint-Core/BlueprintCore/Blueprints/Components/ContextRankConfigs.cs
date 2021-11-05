@@ -401,7 +401,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <example>
     /// <code>
     ///   ContextRankConfigs.CharacterLevel()
-    ///       .Custom(
+    ///       .CustomProgression(
     ///           new ProgressionEntry(5, 1),
     ///           new ProgressionEntry(10, 2),
     ///           new ProgressionEntry(13, 4),
@@ -427,6 +427,7 @@ namespace BlueprintCore.Blueprints.Components
     /// </list>
     /// </example>
     /// </remarks>
+    [Obsolete("Use CustomProgression with anonymous tuples.")]
     public static ContextRankConfig CustomProgression(
         this ContextRankConfig config, params ProgressionEntry[] entries)
     {
@@ -434,11 +435,138 @@ namespace BlueprintCore.Blueprints.Components
       config.m_CustomProgression = entries;
       return config;
     }
+
+    /// <summary>Implements <see cref="ContextRankProgression.Custom"/></summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// Entries must be provided in ascending order by their Base.
+    /// </para>
+    /// 
+    /// <para>
+    /// The result is the <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> of
+    /// the first entry where the config's BaseValue is less than or equal to the entry's
+    /// <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValue</see>. If the config's BaseValue is
+    /// greater than all entry <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValues</see>, the last
+    /// entry's <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> is returned.
+    /// </para>
+    /// 
+    /// <example>
+    /// <code>
+    ///   ContextRankConfigs.CharacterLevel().CustomProgression((5, 1), (10, 2), (13, 4), (18, 6));
+    /// </code>
+    /// <list type="bullet">
+    /// <item>
+    ///   <term>Levels 1-5</term>
+    ///   <description><c>Result = 1</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 6-10</term>
+    ///   <description><c>Result = 2</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 11-13</term>
+    ///   <description><c>Result = 4</c></description>
+    /// </item>
+    /// <item>
+    ///   <term>Levels 14+</term>
+    ///   <description><c>Result = 6</c></description>
+    /// </item>
+    /// </list>
+    /// </example>
+    /// </remarks>
+    public static ContextRankConfig CustomProgression(
+        this ContextRankConfig config, params (int Base, int Progression)[] progression)
+    {
+      config.m_Progression = ContextRankProgression.Custom;
+      config.m_CustomProgression =
+          progression.ToList()
+              .Select(
+                  entry =>
+                    new ContextRankConfig.CustomProgressionItem
+                    {
+                      BaseValue = entry.Base,
+                      ProgressionValue = entry.Progression
+                    })
+              .ToArray();
+      return config;
+    }
+
+    /// <summary>
+    /// Creates a linear custom progression: <c>ProgressionValue = a * BaseValue + b</c>.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// When <c>BaseValue</c> is less than <paramref name="startingBaseValue"/> the result is
+    /// <paramref name="progressionValueBeforeStart"/>.
+    /// </para>
+    /// 
+    /// <para>
+    /// When <c>BaseValue</c> is greater than or equal to
+    /// <paramref name="startingBaseValue"/> the result is <c>a * BaseValue + b</c>.
+    /// </para>
+    /// 
+    /// <para>
+    /// When <c>BaseValue</c> exceeds <paramref name="maxBaseValue"/> the result is <c>a * MaxBaseValue + b</c>.
+    /// </para>
+    /// 
+    /// <para>
+    /// If specified, <paramref name="maxProgressionValue"/> sets the maximum result.
+    /// </para>
+    /// 
+    /// <para>
+    /// If specified, <paramref name="minProgressionValue"/> sets the minimum result.
+    /// </para>
+    /// 
+    /// <para>Results are truncated so 3.6 becomes 3.</para>
+    /// 
+    /// <example>
+    /// The following config returns 0 until <c>CharacterLevel</c> is 4, then <c>1 + 3/4 * CharacterLevel</c>
+    /// <code>
+    ///   ContextRankConfigs.CharacterLevel().LinearProgression(0.75f, 1, startingBaseValue = 4);
+    /// </code>
+    /// </example>
+    /// </remarks>
+    public static ContextRankConfig LinearProgression(
+        this ContextRankConfig config,
+        float a,
+        float b,
+        int startingBaseValue = 1,
+        int maxBaseValue = 40,
+        int progressionValueBeforeStart = 0,
+        int? minProgressionValue = null,
+        int? maxProgressionValue = null)
+    {
+      List<(int Base, int Progression)> progression = new();
+      int? lastProgressionValue = null;
+      // Building in reverse simplifies creating a sparsely populated progression.
+      for (int baseValue = maxBaseValue; baseValue >= startingBaseValue; baseValue--)
+      {
+        int progressionValue =
+            Math.Min(
+                Math.Max(
+                    (int)(a * baseValue + b),
+                    minProgressionValue is null ? int.MinValue : minProgressionValue.Value),
+                maxProgressionValue is null ? int.MaxValue : maxProgressionValue.Value);
+        // Only add an entry if the progression value changes.
+        if (progressionValue != lastProgressionValue)
+        {
+          progression.Add((Base: baseValue, Progression: progressionValue));
+          lastProgressionValue = progressionValue;
+        }
+      }
+      progression.Add((Base: startingBaseValue - 1, Progression: progressionValueBeforeStart));
+
+      progression.Reverse();
+      return config.CustomProgression(progression.ToArray());
+    }
   }
 
   /// <summary>
   /// Wrapper providing a constructor for <see cref="ContextRankConfig.CustomProgressionItem"/>
   /// </summary>
+  [Obsolete("Use CustomProgression with anonymous tuples.")]
   public class ProgressionEntry : ContextRankConfig.CustomProgressionItem
   {
     public ProgressionEntry(int baseValue, int progressionValue) : base()

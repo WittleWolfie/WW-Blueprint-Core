@@ -6307,6 +6307,15 @@ references:
   fullName.vb: BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, BlueprintCore.Blueprints.Components.ProgressionEntry())
   nameWithType: ProgressionExtensions.CustomProgression(ContextRankConfig, ProgressionEntry[])
   nameWithType.vb: ProgressionExtensions.CustomProgression(ContextRankConfig, ProgressionEntry())
+- uid: BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.ValueTuple{System.Int32,System.Int32}[])
+  name: CustomProgression(ContextRankConfig, (Int32 Base, Int32 Progression)[])
+  href: api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html#BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____
+  commentId: M:BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.ValueTuple{System.Int32,System.Int32}[])
+  name.vb: CustomProgression(ContextRankConfig, (Base As Int32, Progression As Int32)(Of Int32, Int32)())
+  fullName: BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, System.ValueTuple<System.Int32, System.Int32>[])
+  fullName.vb: BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, System.ValueTuple(Of System.Int32, System.Int32)())
+  nameWithType: ProgressionExtensions.CustomProgression(ContextRankConfig, (Int32 Base, Int32 Progression)[])
+  nameWithType.vb: ProgressionExtensions.CustomProgression(ContextRankConfig, (Base As Int32, Progression As Int32)(Of Int32, Int32)())
 - uid: BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression*
   name: CustomProgression
   href: api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html#BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_
@@ -6379,6 +6388,22 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenDoubleThenAdd1
   nameWithType: ProgressionExtensions.DivideByThenDoubleThenAdd1
+- uid: BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name: LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable<Int32>, Nullable<Int32>)
+  href: api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html#BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__
+  commentId: M:BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})
+  name.vb: LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable(Of Int32), Nullable(Of Int32))
+  fullName: BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, System.Single, System.Single, System.Int32, System.Int32, System.Int32, System.Nullable<System.Int32>, System.Nullable<System.Int32>)
+  fullName.vb: BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig, System.Single, System.Single, System.Int32, System.Int32, System.Int32, System.Nullable(Of System.Int32), System.Nullable(Of System.Int32))
+  nameWithType: ProgressionExtensions.LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable<Int32>, Nullable<Int32>)
+  nameWithType.vb: ProgressionExtensions.LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable(Of Int32), Nullable(Of Int32))
+- uid: BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression*
+  name: LinearProgression
+  href: api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html#BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_
+  commentId: Overload:BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression
+  isSpec: "True"
+  fullName: BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression
+  nameWithType: ProgressionExtensions.LinearProgression
 - uid: BlueprintCore.Blueprints.Components.ProgressionExtensions.MultiplyBy(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)
   name: MultiplyBy(ContextRankConfig, Int32)
   href: api/BlueprintCore.Blueprints.Components.ProgressionExtensions.html#BlueprintCore_Blueprints_Components_ProgressionExtensions_MultiplyBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_

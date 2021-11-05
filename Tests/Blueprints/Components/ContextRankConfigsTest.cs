@@ -701,6 +701,26 @@ namespace BlueprintCore.Test.Blueprints.Components
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
+      var config = initialConfig.CustomProgression((2, 2), (4, 6), (8, 12));
+
+      Assert.Equal(initialConfig, config);
+      Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
+
+      Assert.Equal(3, config.m_CustomProgression.Length);
+      Assert.Equal(2, config.m_CustomProgression[0].BaseValue);
+      Assert.Equal(2, config.m_CustomProgression[0].ProgressionValue);
+      Assert.Equal(4, config.m_CustomProgression[1].BaseValue);
+      Assert.Equal(6, config.m_CustomProgression[1].ProgressionValue);
+      Assert.Equal(8, config.m_CustomProgression[2].BaseValue);
+      Assert.Equal(12, config.m_CustomProgression[2].ProgressionValue);
+    }
+
+    [Fact]
+    public void CustomProgression_UsingProgessionEntry()
+    {
+      var initialConfig = ContextRankConfigs.CharacterLevel();
+      Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
+
       var levelTwo = new ProgressionEntry(2, 2);
       var levelFour = new ProgressionEntry(4, 6);
       var levelEight = new ProgressionEntry(8, 12);
@@ -713,6 +733,100 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(levelTwo, config.m_CustomProgression[0]);
       Assert.Equal(levelFour, config.m_CustomProgression[1]);
       Assert.Equal(levelEight, config.m_CustomProgression[2]);
+    }
+    
+    [Fact]
+    public void LinearProgression()
+    {
+      var initialConfig = ContextRankConfigs.CharacterLevel();
+      Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
+
+      var config = initialConfig.LinearProgression(2, 1);
+
+      Assert.Equal(initialConfig, config);
+      Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
+
+      Assert.Equal(41, config.m_CustomProgression.Length);
+      AssertProgressionItem((0, 0), config.m_CustomProgression[0]);
+      AssertProgressionItem((1, 3), config.m_CustomProgression[1]);
+      AssertProgressionItem((2, 5), config.m_CustomProgression[2]);
+      AssertProgressionItem((3, 7), config.m_CustomProgression[3]);
+      AssertProgressionItem((4, 9), config.m_CustomProgression[4]);
+      AssertProgressionItem((5, 11), config.m_CustomProgression[5]);
+      AssertProgressionItem((6, 13), config.m_CustomProgression[6]);
+      AssertProgressionItem((7, 15), config.m_CustomProgression[7]);
+      AssertProgressionItem((8, 17), config.m_CustomProgression[8]);
+      AssertProgressionItem((9, 19), config.m_CustomProgression[9]);
+      AssertProgressionItem((10, 21), config.m_CustomProgression[10]);
+      AssertProgressionItem((11, 23), config.m_CustomProgression[11]);
+      AssertProgressionItem((12, 25), config.m_CustomProgression[12]);
+      AssertProgressionItem((13, 27), config.m_CustomProgression[13]);
+      AssertProgressionItem((14, 29), config.m_CustomProgression[14]);
+      AssertProgressionItem((15, 31), config.m_CustomProgression[15]);
+      AssertProgressionItem((16, 33), config.m_CustomProgression[16]);
+      AssertProgressionItem((17, 35), config.m_CustomProgression[17]);
+      AssertProgressionItem((18, 37), config.m_CustomProgression[18]);
+      AssertProgressionItem((19, 39), config.m_CustomProgression[19]);
+      AssertProgressionItem((20, 41), config.m_CustomProgression[20]);
+      AssertProgressionItem((21, 43), config.m_CustomProgression[21]);
+      AssertProgressionItem((22, 45), config.m_CustomProgression[22]);
+      AssertProgressionItem((23, 47), config.m_CustomProgression[23]);
+      AssertProgressionItem((24, 49), config.m_CustomProgression[24]);
+      AssertProgressionItem((25, 51), config.m_CustomProgression[25]);
+      AssertProgressionItem((26, 53), config.m_CustomProgression[26]);
+      AssertProgressionItem((27, 55), config.m_CustomProgression[27]);
+      AssertProgressionItem((28, 57), config.m_CustomProgression[28]);
+      AssertProgressionItem((29, 59), config.m_CustomProgression[29]);
+      AssertProgressionItem((30, 61), config.m_CustomProgression[30]);
+      AssertProgressionItem((31, 63), config.m_CustomProgression[31]);
+      AssertProgressionItem((32, 65), config.m_CustomProgression[32]);
+      AssertProgressionItem((33, 67), config.m_CustomProgression[33]);
+      AssertProgressionItem((34, 69), config.m_CustomProgression[34]);
+      AssertProgressionItem((35, 71), config.m_CustomProgression[35]);
+      AssertProgressionItem((36, 73), config.m_CustomProgression[36]);
+      AssertProgressionItem((37, 75), config.m_CustomProgression[37]);
+      AssertProgressionItem((38, 77), config.m_CustomProgression[38]);
+      AssertProgressionItem((39, 79), config.m_CustomProgression[39]);
+      AssertProgressionItem((40, 81), config.m_CustomProgression[40]);
+    }
+
+    [Fact]
+    public void LinearProgression_WithOptionalValues()
+    {
+      var initialConfig = ContextRankConfigs.CharacterLevel();
+      Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
+
+      var config =
+          initialConfig.LinearProgression(
+              0.75f,
+              0.25f,
+              startingBaseValue: 4,
+              maxBaseValue: 20,
+              progressionValueBeforeStart: 1,
+              minProgressionValue: 4,
+              maxProgressionValue: 12);
+
+      Assert.Equal(initialConfig, config);
+      Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
+
+      Assert.Equal(10, config.m_CustomProgression.Length);
+      AssertProgressionItem((3, 1), config.m_CustomProgression[0]);
+      AssertProgressionItem((6, 4), config.m_CustomProgression[1]);
+      AssertProgressionItem((7, 5), config.m_CustomProgression[2]);
+      AssertProgressionItem((8, 6), config.m_CustomProgression[3]);
+      AssertProgressionItem((10, 7), config.m_CustomProgression[4]);
+      AssertProgressionItem((11, 8), config.m_CustomProgression[5]);
+      AssertProgressionItem((12, 9), config.m_CustomProgression[6]);
+      AssertProgressionItem((14, 10), config.m_CustomProgression[7]);
+      AssertProgressionItem((15, 11), config.m_CustomProgression[8]);
+      AssertProgressionItem((20, 12), config.m_CustomProgression[9]);
+    }
+
+    private static void AssertProgressionItem(
+        (int Base, int Progression) expected, ContextRankConfig.CustomProgressionItem actual)
+    {
+      Assert.Equal(expected.Base, actual.BaseValue);
+      Assert.Equal(expected.Progression, actual.ProgressionValue);
     }
   }
 }
