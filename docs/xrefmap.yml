@@ -2228,6 +2228,45 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ActivateEventDeck
   nameWithType: ActionsBuilderKingdomEx.ActivateEventDeck
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  name: AddAddGrowthBonus(ActionsBuilder, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddAddGrowthBonus_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddAddGrowthBonus(ActionsBuilder, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus*
+  name: AddAddGrowthBonus
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddAddGrowthBonus_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddGrowthBonus
+  nameWithType: ActionsBuilderKingdomEx.AddAddGrowthBonus
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Single)
+  name: AddAddMercenaryToPool(ActionsBuilder, String, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddAddMercenaryToPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddAddMercenaryToPool(ActionsBuilder, String, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool*
+  name: AddAddMercenaryToPool
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddAddMercenaryToPool_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddAddMercenaryToPool
+  nameWithType: ActionsBuilderKingdomEx.AddAddMercenaryToPool
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Armies.TacticalCombat.Grid.TacticalMapObstacle.Link)
+  name: AddBlockTacticalCell(ActionsBuilder, TacticalMapObstacle.Link)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBlockTacticalCell_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Armies_TacticalCombat_Grid_TacticalMapObstacle_Link_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Armies.TacticalCombat.Grid.TacticalMapObstacle.Link)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Armies.TacticalCombat.Grid.TacticalMapObstacle.Link)
+  nameWithType: ActionsBuilderKingdomEx.AddBlockTacticalCell(ActionsBuilder, TacticalMapObstacle.Link)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell*
+  name: AddBlockTacticalCell
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBlockTacticalCell_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBlockTacticalCell
+  nameWithType: ActionsBuilderKingdomEx.AddBlockTacticalCell
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBP(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResource,Kingmaker.RuleSystem.DiceFormula,System.Int32,System.Boolean)
   name: AddBP(ActionsBuilder, KingdomResource, DiceFormula, Int32, Boolean)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddBP_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResource_Kingmaker_RuleSystem_DiceFormula_System_Int32_System_Boolean_
@@ -2241,6 +2280,32 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddBP
   nameWithType: ActionsBuilderKingdomEx.AddBP
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  name: AddChangeKingdomMoraleMaximum(ActionsBuilder, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddChangeKingdomMoraleMaximum_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum(ActionsBuilder, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum*
+  name: AddChangeKingdomMoraleMaximum
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddChangeKingdomMoraleMaximum_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum
+  nameWithType: ActionsBuilderKingdomEx.AddChangeKingdomMoraleMaximum
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Single)
+  name: AddChangeMercenaryWeight(ActionsBuilder, String, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddChangeMercenaryWeight_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddChangeMercenaryWeight(ActionsBuilder, String, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight*
+  name: AddChangeMercenaryWeight
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddChangeMercenaryWeight_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight
+  nameWithType: ActionsBuilderKingdomEx.AddChangeMercenaryWeight
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResource(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)
   name: AddCrusadeResource(ActionsBuilder, KingdomResourcesAmount)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResource_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_
@@ -2267,6 +2332,45 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResources
   nameWithType: ActionsBuilderKingdomEx.AddCrusadeResources
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddDecreaseRecruitsGrowth(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddDecreaseRecruitsGrowth_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth*
+  name: AddDecreaseRecruitsGrowth
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddDecreaseRecruitsGrowth_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth
+  nameWithType: ActionsBuilderKingdomEx.AddDecreaseRecruitsGrowth
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddDecreaseRecruitsPool(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddDecreaseRecruitsPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddDecreaseRecruitsPool(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool*
+  name: AddDecreaseRecruitsPool
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddDecreaseRecruitsPool_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool
+  nameWithType: ActionsBuilderKingdomEx.AddDecreaseRecruitsPool
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Int32,System.Single,System.String,System.String)
+  name: AddExchangeRecruits(ActionsBuilder, Int32, Int32, Single, String, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddExchangeRecruits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_System_Int32_System_Single_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Int32,System.Single,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32, System.Int32, System.Single, System.String, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddExchangeRecruits(ActionsBuilder, Int32, Int32, Single, String, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits*
+  name: AddExchangeRecruits
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddExchangeRecruits_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits
+  nameWithType: ActionsBuilderKingdomEx.AddExchangeRecruits
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeBuilding(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32,System.String)
   name: AddFreeBuilding(ActionsBuilder, String, Int32, String)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddFreeBuilding_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_
@@ -2293,6 +2397,519 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddFreeMercRerolls
   nameWithType: ActionsBuilderKingdomEx.AddFreeMercRerolls
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddIncreaseRecruitsGrowth(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddIncreaseRecruitsGrowth_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth*
+  name: AddIncreaseRecruitsGrowth
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddIncreaseRecruitsGrowth_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth
+  nameWithType: ActionsBuilderKingdomEx.AddIncreaseRecruitsGrowth
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddIncreaseRecruitsPool(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddIncreaseRecruitsPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddIncreaseRecruitsPool(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool*
+  name: AddIncreaseRecruitsPool
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddIncreaseRecruitsPool_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddIncreaseRecruitsPool
+  nameWithType: ActionsBuilderKingdomEx.AddIncreaseRecruitsPool
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddKingdomActionGetArtisanGift(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetArtisanGift_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift*
+  name: AddKingdomActionGetArtisanGift
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetArtisanGift_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGift
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddKingdomActionGetArtisanGiftWithCertainTier(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetArtisanGiftWithCertainTier_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier*
+  name: AddKingdomActionGetArtisanGiftWithCertainTier
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetArtisanGiftWithCertainTier_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetArtisanGiftWithCertainTier
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Single)
+  name: AddKingdomActionGetPartyGoldByUnitsCount(ActionsBuilder, Int32, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetPartyGoldByUnitsCount_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount(ActionsBuilder, Int32, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount*
+  name: AddKingdomActionGetPartyGoldByUnitsCount
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetPartyGoldByUnitsCount_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetPartyGoldByUnitsCount
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount,System.Single)
+  name: AddKingdomActionGetResourcesByUnitsCount(ActionsBuilder, KingdomResourcesAmount, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetResourcesByUnitsCount_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.KingdomResourcesAmount, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount(ActionsBuilder, KingdomResourcesAmount, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount*
+  name: AddKingdomActionGetResourcesByUnitsCount
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetResourcesByUnitsCount_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetResourcesByUnitsCount
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,Kingmaker.Kingdom.KingdomResource,System.Int32)
+  name: AddKingdomActionGetResourcesPercent(ActionsBuilder, Single, KingdomResource, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetResourcesPercent_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_Kingmaker_Kingdom_KingdomResource_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,Kingmaker.Kingdom.KingdomResource,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single, Kingmaker.Kingdom.KingdomResource, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent(ActionsBuilder, Single, KingdomResource, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent*
+  name: AddKingdomActionGetResourcesPercent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGetResourcesPercent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGetResourcesPercent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.Loot.LootEntry[])
+  name: AddKingdomActionGiveLoot(ActionsBuilder, LootEntry[])
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGiveLoot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_Loot_LootEntry___
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.Loot.LootEntry[])
+  name.vb: AddKingdomActionGiveLoot(ActionsBuilder, LootEntry())
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Blueprints.Loot.LootEntry[])
+  fullName.vb: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Blueprints.Loot.LootEntry())
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(ActionsBuilder, LootEntry[])
+  nameWithType.vb: ActionsBuilderKingdomEx.AddKingdomActionGiveLoot(ActionsBuilder, LootEntry())
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot*
+  name: AddKingdomActionGiveLoot
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionGiveLoot_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionGiveLoot
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionGiveLoot
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.Settlements.SettlementState.LevelType,System.String)
+  name: AddKingdomActionImproveSettlement(ActionsBuilder, SettlementState.LevelType, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionImproveSettlement_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.Settlements.SettlementState.LevelType,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.Settlements.SettlementState.LevelType, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement(ActionsBuilder, SettlementState.LevelType, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement*
+  name: AddKingdomActionImproveSettlement
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionImproveSettlement_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionImproveSettlement
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomStats.Type)
+  name: AddKingdomActionImproveStat(ActionsBuilder, KingdomStats.Type)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionImproveStat_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomStats_Type_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomStats.Type)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.KingdomStats.Type)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionImproveStat(ActionsBuilder, KingdomStats.Type)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat*
+  name: AddKingdomActionImproveStat
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionImproveStat_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionImproveStat
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionImproveStat
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomStats.Type,System.Int32,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionMakeRoll(ActionsBuilder, KingdomStats.Type, Int32, ActionsBuilder, ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionMakeRoll_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomStats_Type_System_Int32_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomStats.Type,System.Int32,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.KingdomStats.Type, System.Int32, BlueprintCore.Actions.Builder.ActionsBuilder, BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionMakeRoll(ActionsBuilder, KingdomStats.Type, Int32, ActionsBuilder, ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll*
+  name: AddKingdomActionMakeRoll
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionMakeRoll_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionMakeRoll
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionMakeRoll
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single)
+  name: AddKingdomActionModifyBuildTime(ActionsBuilder, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyBuildTime_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime(ActionsBuilder, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime*
+  name: AddKingdomActionModifyBuildTime
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyBuildTime_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyBuildTime
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)
+  name: AddKingdomActionModifyClaims(ActionsBuilder, Single, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyClaims_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyClaims(ActionsBuilder, Single, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims*
+  name: AddKingdomActionModifyClaims
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyClaims_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyClaims
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyClaims
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  name: AddKingdomActionModifyEventDC(ActionsBuilder, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyEventDC_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC(ActionsBuilder, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC*
+  name: AddKingdomActionModifyEventDC
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyEventDC_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyEventDC
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single)
+  name: AddKingdomActionModifyRankTime(ActionsBuilder, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyRankTime_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime(ActionsBuilder, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime*
+  name: AddKingdomActionModifyRankTime
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyRankTime_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyRankTime
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single,System.Single)
+  name: AddKingdomActionModifyRE(ActionsBuilder, Single, Single, Single)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyRE_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single,System.Single)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single, System.Single, System.Single)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyRE(ActionsBuilder, Single, Single, Single)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE*
+  name: AddKingdomActionModifyRE
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyRE_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyRE
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyRE
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,Kingmaker.RuleSystem.DiceFormula)
+  name: AddKingdomActionModifyStatRandom(ActionsBuilder, Boolean, DiceFormula)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyStatRandom_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_Kingmaker_RuleSystem_DiceFormula_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,Kingmaker.RuleSystem.DiceFormula)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom(BlueprintCore.Actions.Builder.ActionsBuilder, System.Boolean, Kingmaker.RuleSystem.DiceFormula)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom(ActionsBuilder, Boolean, DiceFormula)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom*
+  name: AddKingdomActionModifyStatRandom
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyStatRandom_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyStatRandom
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,Kingmaker.Kingdom.KingdomStats.Changes)
+  name: AddKingdomActionModifyStats(ActionsBuilder, Boolean, KingdomStats.Changes)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyStats_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_Kingmaker_Kingdom_KingdomStats_Changes_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,Kingmaker.Kingdom.KingdomStats.Changes)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats(BlueprintCore.Actions.Builder.ActionsBuilder, System.Boolean, Kingmaker.Kingdom.KingdomStats.Changes)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyStats(ActionsBuilder, Boolean, KingdomStats.Changes)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats*
+  name: AddKingdomActionModifyStats
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyStats_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyStats
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyStats
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,Kingmaker.Kingdom.KingdomStatusChangeReason,Kingmaker.Localization.SharedStringAsset,Kingmaker.Kingdom.KingdomStatusType)
+  name: AddKingdomActionModifyUnrest(ActionsBuilder, Boolean, Boolean, KingdomStatusChangeReason, SharedStringAsset, KingdomStatusType)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyUnrest_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_Kingmaker_Kingdom_KingdomStatusChangeReason_Kingmaker_Localization_SharedStringAsset_Kingmaker_Kingdom_KingdomStatusType_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,Kingmaker.Kingdom.KingdomStatusChangeReason,Kingmaker.Localization.SharedStringAsset,Kingmaker.Kingdom.KingdomStatusType)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest(BlueprintCore.Actions.Builder.ActionsBuilder, System.Boolean, System.Boolean, Kingmaker.Kingdom.KingdomStatusChangeReason, Kingmaker.Localization.SharedStringAsset, Kingmaker.Kingdom.KingdomStatusType)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest(ActionsBuilder, Boolean, Boolean, KingdomStatusChangeReason, SharedStringAsset, KingdomStatusType)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest*
+  name: AddKingdomActionModifyUnrest
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionModifyUnrest_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionModifyUnrest
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  name: AddKingdomActionNextChapter(ActionsBuilder, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionNextChapter_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionNextChapter(ActionsBuilder, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter*
+  name: AddKingdomActionNextChapter
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionNextChapter_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionNextChapter
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionNextChapter
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionPullRankupChangesIntoDialog(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionPullRankupChangesIntoDialog_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog*
+  name: AddKingdomActionPullRankupChangesIntoDialog
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionPullRankupChangesIntoDialog_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionPullRankupChangesIntoDialog
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionRemoveAllLeaders(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveAllLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders*
+  name: AddKingdomActionRemoveAllLeaders
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveAllLeaders_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveAllLeaders
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.String,System.Boolean)
+  name: AddKingdomActionRemoveBuff(ActionsBuilder, String, Boolean, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean, System.String, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff(ActionsBuilder, String, Boolean, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff*
+  name: AddKingdomActionRemoveBuff
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveBuff_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveBuff
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)
+  name: AddKingdomActionRemoveEvent(ActionsBuilder, String, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent(ActionsBuilder, String, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent*
+  name: AddKingdomActionRemoveEvent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveEvent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveEvent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddKingdomActionRemoveEventDeck(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveEventDeck_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck*
+  name: AddKingdomActionRemoveEventDeck
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRemoveEventDeck_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRemoveEventDeck
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  name: AddKingdomActionRequestArtisanGift(ActionsBuilder, String, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRequestArtisanGift_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift(ActionsBuilder, String, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift*
+  name: AddKingdomActionRequestArtisanGift
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRequestArtisanGift_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRequestArtisanGift
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionResetRecurrence(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResetRecurrence_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence*
+  name: AddKingdomActionResetRecurrence
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResetRecurrence_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResetRecurrence
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddKingdomActionResolveCrusadeEvent(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveCrusadeEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent*
+  name: AddKingdomActionResolveCrusadeEvent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveCrusadeEvent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveCrusadeEvent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Kingdom.Blueprints.EventResult.MarginType,Kingmaker.Enums.Alignment,System.Boolean)
+  name: AddKingdomActionResolveEvent(ActionsBuilder, String, EventResult.MarginType, Alignment, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Kingdom_Blueprints_EventResult_MarginType_Kingmaker_Enums_Alignment_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Kingdom.Blueprints.EventResult.MarginType,Kingmaker.Enums.Alignment,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, Kingmaker.Kingdom.Blueprints.EventResult.MarginType, Kingmaker.Enums.Alignment, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveEvent(ActionsBuilder, String, EventResult.MarginType, Alignment, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent*
+  name: AddKingdomActionResolveEvent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveEvent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveEvent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveEvent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddKingdomActionResolveProject(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveProject_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveProject(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject*
+  name: AddKingdomActionResolveProject
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionResolveProject_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionResolveProject
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionResolveProject
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionRestartEvent(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRestartEvent_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRestartEvent(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent*
+  name: AddKingdomActionRestartEvent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRestartEvent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRestartEvent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRestartEvent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.Actions.KingdomActionRollbackRecurrence.RollbackType,System.Int32,System.Int32,System.Single,System.Boolean,System.Boolean,System.Boolean)
+  name: AddKingdomActionRollbackRecurrence(ActionsBuilder, KingdomActionRollbackRecurrence.RollbackType, Int32, Int32, Single, Boolean, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRollbackRecurrence_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_Actions_KingdomActionRollbackRecurrence_RollbackType_System_Int32_System_Int32_System_Single_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.Actions.KingdomActionRollbackRecurrence.RollbackType,System.Int32,System.Int32,System.Single,System.Boolean,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.Actions.KingdomActionRollbackRecurrence.RollbackType, System.Int32, System.Int32, System.Single, System.Boolean, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence(ActionsBuilder, KingdomActionRollbackRecurrence.RollbackType, Int32, Int32, Single, Boolean, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence*
+  name: AddKingdomActionRollbackRecurrence
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionRollbackRecurrence_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionRollbackRecurrence
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionSetAlignment(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetAlignment_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetAlignment(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment*
+  name: AddKingdomActionSetAlignment
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetAlignment_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetAlignment
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetAlignment
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionSetNotVisible(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetNotVisible_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible*
+  name: AddKingdomActionSetNotVisible
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetNotVisible_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetNotVisible
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount,Kingmaker.Kingdom.KingdomResourcesAmount,System.Boolean)
+  name: AddKingdomActionSetRegionalIncome(ActionsBuilder, KingdomResourcesAmount, KingdomResourcesAmount, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetRegionalIncome_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_Kingmaker_Kingdom_KingdomResourcesAmount_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount,Kingmaker.Kingdom.KingdomResourcesAmount,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.KingdomResourcesAmount, Kingmaker.Kingdom.KingdomResourcesAmount, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome(ActionsBuilder, KingdomResourcesAmount, KingdomResourcesAmount, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome*
+  name: AddKingdomActionSetRegionalIncome
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetRegionalIncome_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetRegionalIncome
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomActionSetVisible(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetVisible_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetVisible(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible*
+  name: AddKingdomActionSetVisible
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSetVisible_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSetVisible
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSetVisible
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[],Kingmaker.Armies.ArmyFaction,System.String[])
+  name: AddKingdomActionSpawnRandomArmy(ActionsBuilder, String[], ArmyFaction, String[])
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSpawnRandomArmy_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___Kingmaker_Armies_ArmyFaction_System_String___
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[],Kingmaker.Armies.ArmyFaction,System.String[])
+  name.vb: AddKingdomActionSpawnRandomArmy(ActionsBuilder, String(), ArmyFaction, String())
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(BlueprintCore.Actions.Builder.ActionsBuilder, System.String[], Kingmaker.Armies.ArmyFaction, System.String[])
+  fullName.vb: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(BlueprintCore.Actions.Builder.ActionsBuilder, System.String(), Kingmaker.Armies.ArmyFaction, System.String())
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(ActionsBuilder, String[], ArmyFaction, String[])
+  nameWithType.vb: ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy(ActionsBuilder, String(), ArmyFaction, String())
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy*
+  name: AddKingdomActionSpawnRandomArmy
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionSpawnRandomArmy_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionSpawnRandomArmy
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.Boolean,System.Int32,System.Boolean,System.Boolean,System.Boolean)
+  name: AddKingdomActionStartEvent(ActionsBuilder, String, String, Boolean, Int32, Boolean, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionStartEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_System_Boolean_System_Int32_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String,System.Boolean,System.Int32,System.Boolean,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String, System.Boolean, System.Int32, System.Boolean, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionStartEvent(ActionsBuilder, String, String, Boolean, Int32, Boolean, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent*
+  name: AddKingdomActionStartEvent
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionStartEvent_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionStartEvent
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionStartEvent
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddKingdomActionUnlockArtisan(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionUnlockArtisan_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan*
+  name: AddKingdomActionUnlockArtisan
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomActionUnlockArtisan_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomActionUnlockArtisan
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32,System.String,System.Boolean,System.Boolean)
   name: AddKingdomBuff(ActionsBuilder, String, Int32, String, Boolean, Boolean)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_System_String_System_Boolean_System_Boolean_
@@ -2306,6 +2923,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomBuff
   nameWithType: ActionsBuilderKingdomEx.AddKingdomBuff
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  name: AddKingdomFlagIncrement(ActionsBuilder, String, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomFlagIncrement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomFlagIncrement(ActionsBuilder, String, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement*
+  name: AddKingdomFlagIncrement
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomFlagIncrement_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomFlagIncrement
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomFlagIncrement
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomIncreaseIncome(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,Kingmaker.Kingdom.KingdomResource)
   name: AddKingdomIncreaseIncome(ActionsBuilder, Int32, KingdomResource)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomIncreaseIncome_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_Kingmaker_Kingdom_KingdomResource_
@@ -2319,6 +2949,45 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomIncreaseIncome
   nameWithType: ActionsBuilderKingdomEx.AddKingdomIncreaseIncome
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddKingdomMoraleFlagUpdateIncome(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomMoraleFlagUpdateIncome_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome*
+  name: AddKingdomMoraleFlagUpdateIncome
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomMoraleFlagUpdateIncome_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomMoraleFlagUpdateIncome
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddKingdomMoraleUpdateIncome(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomMoraleUpdateIncome_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome*
+  name: AddKingdomMoraleUpdateIncome
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomMoraleUpdateIncome_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomMoraleUpdateIncome
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Kingdom.Flags.KingdomMoraleFlag.State,System.Int32)
+  name: AddKingdomSetFlagState(ActionsBuilder, String, KingdomMoraleFlag.State, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomSetFlagState_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Kingdom_Flags_KingdomMoraleFlag_State_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Kingdom.Flags.KingdomMoraleFlag.State,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, Kingmaker.Kingdom.Flags.KingdomMoraleFlag.State, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomSetFlagState(ActionsBuilder, String, KingdomMoraleFlag.State, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState*
+  name: AddKingdomSetFlagState
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomSetFlagState_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddKingdomSetFlagState
+  nameWithType: ActionsBuilderKingdomEx.AddKingdomSetFlagState
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRandomKingdomBuff(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[],System.Int32)
   name: AddRandomKingdomBuff(ActionsBuilder, String[], Int32)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRandomKingdomBuff_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___System_Int32_
@@ -2335,6 +3004,97 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRandomKingdomBuff
   nameWithType: ActionsBuilderKingdomEx.AddRandomKingdomBuff
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  name: AddReduceNegativeMorale(ActionsBuilder, Int32)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddReduceNegativeMorale_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32)
+  nameWithType: ActionsBuilderKingdomEx.AddReduceNegativeMorale(ActionsBuilder, Int32)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale*
+  name: AddReduceNegativeMorale
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddReduceNegativeMorale_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReduceNegativeMorale
+  nameWithType: ActionsBuilderKingdomEx.AddReduceNegativeMorale
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)
+  name: AddRemoveCrusadeResources(ActionsBuilder, KingdomResourcesAmount)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveCrusadeResources_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Kingdom.KingdomResourcesAmount)
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveCrusadeResources(ActionsBuilder, KingdomResourcesAmount)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources*
+  name: AddRemoveCrusadeResources
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveCrusadeResources_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveCrusadeResources
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddRemoveMercenaryFromPool(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveMercenaryFromPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool*
+  name: AddRemoveMercenaryFromPool
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveMercenaryFromPool_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  name: AddReplaceBuildings(ActionsBuilder, String, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddReplaceBuildings_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddReplaceBuildings(ActionsBuilder, String, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings*
+  name: AddReplaceBuildings
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddReplaceBuildings_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddReplaceBuildings
+  nameWithType: ActionsBuilderKingdomEx.AddReplaceBuildings
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddSetRecruitPoint(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddSetRecruitPoint_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddSetRecruitPoint(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint*
+  name: AddSetRecruitPoint
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddSetRecruitPoint_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddSetRecruitPoint
+  nameWithType: ActionsBuilderKingdomEx.AddSetRecruitPoint
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  name: AddTacticalCombatRecoverLeaderMana(ActionsBuilder, ContextValue)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddTacticalCombatRecoverLeaderMana_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.UnitLogic.Mechanics.ContextValue)
+  nameWithType: ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana(ActionsBuilder, ContextValue)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana*
+  name: AddTacticalCombatRecoverLeaderMana
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddTacticalCombatRecoverLeaderMana_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana
+  nameWithType: ActionsBuilderKingdomEx.AddTacticalCombatRecoverLeaderMana
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddUnlockUnitsGrowth(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddUnlockUnitsGrowth_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderKingdomEx.AddUnlockUnitsGrowth(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth*
+  name: AddUnlockUnitsGrowth
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddUnlockUnitsGrowth_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddUnlockUnitsGrowth
+  nameWithType: ActionsBuilderKingdomEx.AddUnlockUnitsGrowth
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.ArtisanRequestHelp(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
   name: ArtisanRequestHelp(ActionsBuilder, String, String)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_ArtisanRequestHelp_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_

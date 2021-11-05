@@ -1,25 +1,36 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
+using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.GameActions;
+using Kingmaker.Armies.TacticalCombat.Grid;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Crusade.GlobalMagic.Actions.DamageLogic;
 using Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.Armies.Actions;
+using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Kingdom.Flags;
+using Kingmaker.Kingdom.Settlements;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.KingdomEx
@@ -865,6 +876,1076 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       var element = ElementTool.Create<KingdomIncreaseIncome>();
       element.Bonus = Bonus;
       element.ResourceType = ResourceType;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeKingdomMoraleMaximum"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ChangeKingdomMoraleMaximum))]
+    public static ActionsBuilder AddChangeKingdomMoraleMaximum(
+        this ActionsBuilder builder,
+        Int32 m_MaxValueDelta)
+    {
+      builder.Validate(m_MaxValueDelta);
+      var element = ElementTool.Create<ChangeKingdomMoraleMaximum>();
+      element.m_MaxValueDelta = m_MaxValueDelta;
+      return builder.Add(element);
+    }
+    //// [Generate(Kingmaker.Kingdom.Flags.KingdomAddMoraleFlags)]
+
+    /// <summary>
+    /// Adds <see cref="KingdomFlagIncrement"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_TargetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    [Generated]
+    [Implements(typeof(KingdomFlagIncrement))]
+    public static ActionsBuilder AddKingdomFlagIncrement(
+        this ActionsBuilder builder,
+        string m_TargetFlag,
+        Int32 m_Increment)
+    {
+      builder.Validate(m_Increment);
+      var element = ElementTool.Create<KingdomFlagIncrement>();
+      element.m_TargetFlag =
+          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      element.m_Increment = m_Increment;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomMoraleFlagUpdateIncome"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_TargetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    [Generated]
+    [Implements(typeof(KingdomMoraleFlagUpdateIncome))]
+    public static ActionsBuilder AddKingdomMoraleFlagUpdateIncome(
+        this ActionsBuilder builder,
+        string m_TargetFlag)
+    {
+      var element = ElementTool.Create<KingdomMoraleFlagUpdateIncome>();
+      element.m_TargetFlag =
+          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomMoraleUpdateIncome"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomMoraleUpdateIncome))]
+    public static ActionsBuilder AddKingdomMoraleUpdateIncome(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomMoraleUpdateIncome>());
+    }
+    //// [Generate(Kingmaker.Kingdom.Flags.KingdomRemoveMoraleFlags)]
+
+    /// <summary>
+    /// Adds <see cref="KingdomSetFlagState"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_TargetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    [Generated]
+    [Implements(typeof(KingdomSetFlagState))]
+    public static ActionsBuilder AddKingdomSetFlagState(
+        this ActionsBuilder builder,
+        string m_TargetFlag,
+        KingdomMoraleFlag.State m_State,
+        Int32 m_MaxDays)
+    {
+      builder.Validate(m_State);
+      builder.Validate(m_MaxDays);
+      var element = ElementTool.Create<KingdomSetFlagState>();
+      element.m_TargetFlag =
+          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      element.m_State = m_State;
+      element.m_MaxDays = m_MaxDays;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReduceNegativeMorale"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ReduceNegativeMorale))]
+    public static ActionsBuilder AddReduceNegativeMorale(
+        this ActionsBuilder builder,
+        Int32 m_Value)
+    {
+      builder.Validate(m_Value);
+      var element = ElementTool.Create<ReduceNegativeMorale>();
+      element.m_Value = m_Value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddGrowthBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddGrowthBonus))]
+    public static ActionsBuilder AddAddGrowthBonus(
+        this ActionsBuilder builder,
+        Int32 Bonus)
+    {
+      builder.Validate(Bonus);
+      var element = ElementTool.Create<AddGrowthBonus>();
+      element.Bonus = Bonus;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddMercenaryToPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(AddMercenaryToPool))]
+    public static ActionsBuilder AddAddMercenaryToPool(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Single m_Weight)
+    {
+      builder.Validate(m_Weight);
+      var element = ElementTool.Create<AddMercenaryToPool>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Weight = m_Weight;
+      return builder.Add(element);
+    }
+    //// [Generate(Kingmaker.Kingdom.Armies.Actions.AddTacticalArmyFeature)]
+
+    /// <summary>
+    /// Adds <see cref="ChangeMercenaryWeight"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(ChangeMercenaryWeight))]
+    public static ActionsBuilder AddChangeMercenaryWeight(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Single m_Weight)
+    {
+      builder.Validate(m_Weight);
+      var element = ElementTool.Create<ChangeMercenaryWeight>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Weight = m_Weight;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DecreaseRecruitsGrowth"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(DecreaseRecruitsGrowth))]
+    public static ActionsBuilder AddDecreaseRecruitsGrowth(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Int32 Count)
+    {
+      builder.Validate(Count);
+      var element = ElementTool.Create<DecreaseRecruitsGrowth>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.Count = Count;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DecreaseRecruitsPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(DecreaseRecruitsPool))]
+    public static ActionsBuilder AddDecreaseRecruitsPool(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Int32 Count)
+    {
+      builder.Validate(Count);
+      var element = ElementTool.Create<DecreaseRecruitsPool>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.Count = Count;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ExchangeRecruits"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_OldUnit"><see cref="BlueprintUnit"/></param>
+    /// <param name="m_NewUnit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(ExchangeRecruits))]
+    public static ActionsBuilder AddExchangeRecruits(
+        this ActionsBuilder builder,
+        Int32 NewGrowth,
+        Int32 OldGrowth,
+        Single ConvertCoefficient,
+        string m_OldUnit,
+        string m_NewUnit)
+    {
+      builder.Validate(NewGrowth);
+      builder.Validate(OldGrowth);
+      builder.Validate(ConvertCoefficient);
+      var element = ElementTool.Create<ExchangeRecruits>();
+      element.NewGrowth = NewGrowth;
+      element.OldGrowth = OldGrowth;
+      element.ConvertCoefficient = ConvertCoefficient;
+      element.m_OldUnit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_OldUnit);
+      element.m_NewUnit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_NewUnit);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IncreaseRecruitsGrowth"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(IncreaseRecruitsGrowth))]
+    public static ActionsBuilder AddIncreaseRecruitsGrowth(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Int32 Count)
+    {
+      builder.Validate(Count);
+      var element = ElementTool.Create<IncreaseRecruitsGrowth>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.Count = Count;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IncreaseRecruitsPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(IncreaseRecruitsPool))]
+    public static ActionsBuilder AddIncreaseRecruitsPool(
+        this ActionsBuilder builder,
+        string m_Unit,
+        Int32 Count)
+    {
+      builder.Validate(Count);
+      var element = ElementTool.Create<IncreaseRecruitsPool>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.Count = Count;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveMercenaryFromPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(RemoveMercenaryFromPool))]
+    public static ActionsBuilder AddRemoveMercenaryFromPool(
+        this ActionsBuilder builder,
+        string m_Unit)
+    {
+      var element = ElementTool.Create<RemoveMercenaryFromPool>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceBuildings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_OldBuilding"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="m_NewBuilding"><see cref="BlueprintSettlementBuilding"/></param>
+    [Generated]
+    [Implements(typeof(ReplaceBuildings))]
+    public static ActionsBuilder AddReplaceBuildings(
+        this ActionsBuilder builder,
+        string m_OldBuilding,
+        string m_NewBuilding)
+    {
+      var element = ElementTool.Create<ReplaceBuildings>();
+      element.m_OldBuilding =
+          BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_OldBuilding);
+      element.m_NewBuilding =
+          BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_NewBuilding);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetRecruitPoint"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Point"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(SetRecruitPoint))]
+    public static ActionsBuilder AddSetRecruitPoint(
+        this ActionsBuilder builder,
+        string m_Point)
+    {
+      var element = ElementTool.Create<SetRecruitPoint>();
+      element.m_Point =
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Point);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlockUnitsGrowth"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(UnlockUnitsGrowth))]
+    public static ActionsBuilder AddUnlockUnitsGrowth(
+        this ActionsBuilder builder,
+        string m_Unit)
+    {
+      var element = ElementTool.Create<UnlockUnitsGrowth>();
+      element.m_Unit =
+          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGetArtisanGift"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionGetArtisanGift))]
+    public static ActionsBuilder AddKingdomActionGetArtisanGift(
+        this ActionsBuilder builder,
+        string m_Artisan)
+    {
+      var element = ElementTool.Create<KingdomActionGetArtisanGift>();
+      element.m_Artisan =
+          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGetArtisanGiftWithCertainTier"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionGetArtisanGiftWithCertainTier))]
+    public static ActionsBuilder AddKingdomActionGetArtisanGiftWithCertainTier(
+        this ActionsBuilder builder,
+        string m_Artisan,
+        Int32 tier)
+    {
+      builder.Validate(tier);
+      var element = ElementTool.Create<KingdomActionGetArtisanGiftWithCertainTier>();
+      element.m_Artisan =
+          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.tier = tier;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGetPartyGoldByUnitsCount"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionGetPartyGoldByUnitsCount))]
+    public static ActionsBuilder AddKingdomActionGetPartyGoldByUnitsCount(
+        this ActionsBuilder builder,
+        Int32 m_GoldPerUnit,
+        Single m_Coefficient)
+    {
+      builder.Validate(m_GoldPerUnit);
+      builder.Validate(m_Coefficient);
+      var element = ElementTool.Create<KingdomActionGetPartyGoldByUnitsCount>();
+      element.m_GoldPerUnit = m_GoldPerUnit;
+      element.m_Coefficient = m_Coefficient;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGetResourcesByUnitsCount"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionGetResourcesByUnitsCount))]
+    public static ActionsBuilder AddKingdomActionGetResourcesByUnitsCount(
+        this ActionsBuilder builder,
+        KingdomResourcesAmount m_ResourcePerUnit,
+        Single m_Coefficient)
+    {
+      builder.Validate(m_ResourcePerUnit);
+      builder.Validate(m_Coefficient);
+      var element = ElementTool.Create<KingdomActionGetResourcesByUnitsCount>();
+      element.m_ResourcePerUnit = m_ResourcePerUnit;
+      element.m_Coefficient = m_Coefficient;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGetResourcesPercent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionGetResourcesPercent))]
+    public static ActionsBuilder AddKingdomActionGetResourcesPercent(
+        this ActionsBuilder builder,
+        Single m_Percent,
+        KingdomResource m_ResourceType,
+        Int32 m_MaxResourceCountGained)
+    {
+      builder.Validate(m_Percent);
+      builder.Validate(m_ResourceType);
+      builder.Validate(m_MaxResourceCountGained);
+      var element = ElementTool.Create<KingdomActionGetResourcesPercent>();
+      element.m_Percent = m_Percent;
+      element.m_ResourceType = m_ResourceType;
+      element.m_MaxResourceCountGained = m_MaxResourceCountGained;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGiveLoot"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionGiveLoot))]
+    public static ActionsBuilder AddKingdomActionGiveLoot(
+        this ActionsBuilder builder,
+        LootEntry[] Loot)
+    {
+      foreach (var item in Loot)
+      {
+        builder.Validate(item);
+      }
+      var element = ElementTool.Create<KingdomActionGiveLoot>();
+      element.Loot = Loot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionImproveSettlement"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_SpecificSettlement"><see cref="BlueprintSettlement"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionImproveSettlement))]
+    public static ActionsBuilder AddKingdomActionImproveSettlement(
+        this ActionsBuilder builder,
+        SettlementState.LevelType ToLevel,
+        string m_SpecificSettlement)
+    {
+      builder.Validate(ToLevel);
+      var element = ElementTool.Create<KingdomActionImproveSettlement>();
+      element.ToLevel = ToLevel;
+      element.m_SpecificSettlement =
+          BlueprintTool.GetRef<BlueprintSettlement.Reference>(m_SpecificSettlement);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionImproveStat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionImproveStat))]
+    public static ActionsBuilder AddKingdomActionImproveStat(
+        this ActionsBuilder builder,
+        KingdomStats.Type StatType)
+    {
+      builder.Validate(StatType);
+      var element = ElementTool.Create<KingdomActionImproveStat>();
+      element.StatType = StatType;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionMakeRoll"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionMakeRoll))]
+    public static ActionsBuilder AddKingdomActionMakeRoll(
+        this ActionsBuilder builder,
+        KingdomStats.Type Stat,
+        Int32 DC,
+        ActionsBuilder OnSuccess,
+        ActionsBuilder OnFailure)
+    {
+      builder.Validate(Stat);
+      builder.Validate(DC);
+      builder.Validate(OnSuccess);
+      builder.Validate(OnFailure);
+      var element = ElementTool.Create<KingdomActionMakeRoll>();
+      element.Stat = Stat;
+      element.DC = DC;
+      element.OnSuccess = OnSuccess.Build();
+      element.OnFailure = OnFailure.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyBuildTime"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyBuildTime))]
+    public static ActionsBuilder AddKingdomActionModifyBuildTime(
+        this ActionsBuilder builder,
+        Single ChangeTime)
+    {
+      builder.Validate(ChangeTime);
+      var element = ElementTool.Create<KingdomActionModifyBuildTime>();
+      element.ChangeTime = ChangeTime;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyClaims"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyClaims))]
+    public static ActionsBuilder AddKingdomActionModifyClaims(
+        this ActionsBuilder builder,
+        Single ChangeTime,
+        Single ChangeCost)
+    {
+      builder.Validate(ChangeTime);
+      builder.Validate(ChangeCost);
+      var element = ElementTool.Create<KingdomActionModifyClaims>();
+      element.ChangeTime = ChangeTime;
+      element.ChangeCost = ChangeCost;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyEventDC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyEventDC))]
+    public static ActionsBuilder AddKingdomActionModifyEventDC(
+        this ActionsBuilder builder,
+        Int32 Modifier)
+    {
+      builder.Validate(Modifier);
+      var element = ElementTool.Create<KingdomActionModifyEventDC>();
+      element.Modifier = Modifier;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyRE"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyRE))]
+    public static ActionsBuilder AddKingdomActionModifyRE(
+        this ActionsBuilder builder,
+        Single UnclaimedChange,
+        Single ClaimedChange,
+        Single UpgradedChange)
+    {
+      builder.Validate(UnclaimedChange);
+      builder.Validate(ClaimedChange);
+      builder.Validate(UpgradedChange);
+      var element = ElementTool.Create<KingdomActionModifyRE>();
+      element.UnclaimedChange = UnclaimedChange;
+      element.ClaimedChange = ClaimedChange;
+      element.UpgradedChange = UpgradedChange;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyRankTime"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyRankTime))]
+    public static ActionsBuilder AddKingdomActionModifyRankTime(
+        this ActionsBuilder builder,
+        Single ChangeTime)
+    {
+      builder.Validate(ChangeTime);
+      var element = ElementTool.Create<KingdomActionModifyRankTime>();
+      element.ChangeTime = ChangeTime;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyStatRandom"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyStatRandom))]
+    public static ActionsBuilder AddKingdomActionModifyStatRandom(
+        this ActionsBuilder builder,
+        Boolean IncludeInEventStats,
+        DiceFormula Change)
+    {
+      builder.Validate(IncludeInEventStats);
+      builder.Validate(Change);
+      var element = ElementTool.Create<KingdomActionModifyStatRandom>();
+      element.IncludeInEventStats = IncludeInEventStats;
+      element.Change = Change;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyStats"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyStats))]
+    public static ActionsBuilder AddKingdomActionModifyStats(
+        this ActionsBuilder builder,
+        Boolean IncludeInEventStats,
+        KingdomStats.Changes Changes)
+    {
+      builder.Validate(IncludeInEventStats);
+      builder.Validate(Changes);
+      var element = ElementTool.Create<KingdomActionModifyStats>();
+      element.IncludeInEventStats = IncludeInEventStats;
+      element.Changes = Changes;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionModifyUnrest"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionModifyUnrest))]
+    public static ActionsBuilder AddKingdomActionModifyUnrest(
+        this ActionsBuilder builder,
+        Boolean MakeBetter,
+        Boolean Bounded,
+        KingdomStatusChangeReason Reason,
+        SharedStringAsset ReasonString,
+        KingdomStatusType UpTo)
+    {
+      builder.Validate(MakeBetter);
+      builder.Validate(Bounded);
+      builder.Validate(Reason);
+      builder.Validate(ReasonString);
+      builder.Validate(UpTo);
+      var element = ElementTool.Create<KingdomActionModifyUnrest>();
+      element.MakeBetter = MakeBetter;
+      element.Bounded = Bounded;
+      element.Reason = Reason;
+      element.ReasonString = ReasonString;
+      element.UpTo = UpTo;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionNextChapter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionNextChapter))]
+    public static ActionsBuilder AddKingdomActionNextChapter(
+        this ActionsBuilder builder,
+        Int32 ChapterNumber)
+    {
+      builder.Validate(ChapterNumber);
+      var element = ElementTool.Create<KingdomActionNextChapter>();
+      element.ChapterNumber = ChapterNumber;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionPullRankupChangesIntoDialog"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionPullRankupChangesIntoDialog))]
+    public static ActionsBuilder AddKingdomActionPullRankupChangesIntoDialog(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionPullRankupChangesIntoDialog>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRemoveAllLeaders"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionRemoveAllLeaders))]
+    public static ActionsBuilder AddKingdomActionRemoveAllLeaders(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionRemoveAllLeaders>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRemoveBuff"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Blueprint"><see cref="BlueprintKingdomBuff"/></param>
+    /// <param name="m_Region"><see cref="BlueprintRegion"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionRemoveBuff))]
+    public static ActionsBuilder AddKingdomActionRemoveBuff(
+        this ActionsBuilder builder,
+        string m_Blueprint,
+        Boolean ApplyToRegion,
+        string m_Region,
+        Boolean m_AllBuffs)
+    {
+      builder.Validate(ApplyToRegion);
+      builder.Validate(m_AllBuffs);
+      var element = ElementTool.Create<KingdomActionRemoveBuff>();
+      element.m_Blueprint =
+          BlueprintTool.GetRef<BlueprintKingdomBuffReference>(m_Blueprint);
+      element.ApplyToRegion = ApplyToRegion;
+      element.m_Region =
+          BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
+      element.m_AllBuffs = m_AllBuffs;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRemoveEvent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_EventBlueprint"><see cref="BlueprintKingdomEventBase"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionRemoveEvent))]
+    public static ActionsBuilder AddKingdomActionRemoveEvent(
+        this ActionsBuilder builder,
+        string m_EventBlueprint,
+        Boolean CancelIfInProgress,
+        Boolean AllIfMultiple)
+    {
+      builder.Validate(CancelIfInProgress);
+      builder.Validate(AllIfMultiple);
+      var element = ElementTool.Create<KingdomActionRemoveEvent>();
+      element.m_EventBlueprint =
+          BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_EventBlueprint);
+      element.CancelIfInProgress = CancelIfInProgress;
+      element.AllIfMultiple = AllIfMultiple;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRemoveEventDeck"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Deck"><see cref="BlueprintKingdomDeck"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionRemoveEventDeck))]
+    public static ActionsBuilder AddKingdomActionRemoveEventDeck(
+        this ActionsBuilder builder,
+        string m_Deck)
+    {
+      var element = ElementTool.Create<KingdomActionRemoveEventDeck>();
+      element.m_Deck =
+          BlueprintTool.GetRef<BlueprintKingdomDeckReference>(m_Deck);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRequestArtisanGift"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="m_ItemType"><see cref="ArtisanItemDeck"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionRequestArtisanGift))]
+    public static ActionsBuilder AddKingdomActionRequestArtisanGift(
+        this ActionsBuilder builder,
+        string m_Artisan,
+        string m_ItemType)
+    {
+      var element = ElementTool.Create<KingdomActionRequestArtisanGift>();
+      element.m_Artisan =
+          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.m_ItemType =
+          BlueprintTool.GetRef<ArtisanItemDeckReference>(m_ItemType);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionResetRecurrence"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionResetRecurrence))]
+    public static ActionsBuilder AddKingdomActionResetRecurrence(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionResetRecurrence>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionResolveCrusadeEvent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_EventBlueprint"><see cref="BlueprintCrusadeEvent"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionResolveCrusadeEvent))]
+    public static ActionsBuilder AddKingdomActionResolveCrusadeEvent(
+        this ActionsBuilder builder,
+        string m_EventBlueprint,
+        Int32 m_SolutionIndex)
+    {
+      builder.Validate(m_SolutionIndex);
+      var element = ElementTool.Create<KingdomActionResolveCrusadeEvent>();
+      element.m_EventBlueprint =
+          BlueprintTool.GetRef<BlueprintCrusadeEvent.Reference>(m_EventBlueprint);
+      element.m_SolutionIndex = m_SolutionIndex;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionResolveEvent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_EventBlueprint"><see cref="BlueprintKingdomEvent"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionResolveEvent))]
+    public static ActionsBuilder AddKingdomActionResolveEvent(
+        this ActionsBuilder builder,
+        string m_EventBlueprint,
+        EventResult.MarginType Result,
+        Alignment Alignment,
+        Boolean FinalResolve)
+    {
+      builder.Validate(Result);
+      builder.Validate(Alignment);
+      builder.Validate(FinalResolve);
+      var element = ElementTool.Create<KingdomActionResolveEvent>();
+      element.m_EventBlueprint =
+          BlueprintTool.GetRef<BlueprintKingdomEventReference>(m_EventBlueprint);
+      element.Result = Result;
+      element.Alignment = Alignment;
+      element.FinalResolve = FinalResolve;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionResolveProject"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_EventBlueprint"><see cref="BlueprintKingdomProject"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionResolveProject))]
+    public static ActionsBuilder AddKingdomActionResolveProject(
+        this ActionsBuilder builder,
+        string m_EventBlueprint)
+    {
+      var element = ElementTool.Create<KingdomActionResolveProject>();
+      element.m_EventBlueprint =
+          BlueprintTool.GetRef<BlueprintKingdomProjectReference>(m_EventBlueprint);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRestartEvent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionRestartEvent))]
+    public static ActionsBuilder AddKingdomActionRestartEvent(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionRestartEvent>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionRollbackRecurrence"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionRollbackRecurrence))]
+    public static ActionsBuilder AddKingdomActionRollbackRecurrence(
+        this ActionsBuilder builder,
+        KingdomActionRollbackRecurrence.RollbackType m_Type,
+        Int32 m_LastNDays,
+        Int32 m_LastNTimes,
+        Single m_ResourcesRatio,
+        Boolean m_IncludeResources,
+        Boolean m_IncludeResourcesPerTurn,
+        Boolean m_IncludeStats)
+    {
+      builder.Validate(m_Type);
+      builder.Validate(m_LastNDays);
+      builder.Validate(m_LastNTimes);
+      builder.Validate(m_ResourcesRatio);
+      builder.Validate(m_IncludeResources);
+      builder.Validate(m_IncludeResourcesPerTurn);
+      builder.Validate(m_IncludeStats);
+      var element = ElementTool.Create<KingdomActionRollbackRecurrence>();
+      element.m_Type = m_Type;
+      element.m_LastNDays = m_LastNDays;
+      element.m_LastNTimes = m_LastNTimes;
+      element.m_ResourcesRatio = m_ResourcesRatio;
+      element.m_IncludeResources = m_IncludeResources;
+      element.m_IncludeResourcesPerTurn = m_IncludeResourcesPerTurn;
+      element.m_IncludeStats = m_IncludeStats;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionSetAlignment"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionSetAlignment))]
+    public static ActionsBuilder AddKingdomActionSetAlignment(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionSetAlignment>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionSetNotVisible"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionSetNotVisible))]
+    public static ActionsBuilder AddKingdomActionSetNotVisible(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionSetNotVisible>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionSetRegionalIncome"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionSetRegionalIncome))]
+    public static ActionsBuilder AddKingdomActionSetRegionalIncome(
+        this ActionsBuilder builder,
+        KingdomResourcesAmount IncomePerClaimed,
+        KingdomResourcesAmount IncomePerUpgraded,
+        Boolean Add)
+    {
+      builder.Validate(IncomePerClaimed);
+      builder.Validate(IncomePerUpgraded);
+      builder.Validate(Add);
+      var element = ElementTool.Create<KingdomActionSetRegionalIncome>();
+      element.IncomePerClaimed = IncomePerClaimed;
+      element.IncomePerUpgraded = IncomePerUpgraded;
+      element.Add = Add;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionSetVisible"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomActionSetVisible))]
+    public static ActionsBuilder AddKingdomActionSetVisible(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<KingdomActionSetVisible>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionSpawnRandomArmy"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Armies"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="m_Locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionSpawnRandomArmy))]
+    public static ActionsBuilder AddKingdomActionSpawnRandomArmy(
+        this ActionsBuilder builder,
+        string[] m_Armies,
+        ArmyFaction m_Faction,
+        string[] m_Locations)
+    {
+      builder.Validate(m_Faction);
+      var element = ElementTool.Create<KingdomActionSpawnRandomArmy>();
+      element.m_Armies =
+          m_Armies.Select(bp => BlueprintTool.GetRef<BlueprintArmyPresetReference>(bp)).ToList();
+      element.m_Faction = m_Faction;
+      element.m_Locations =
+          m_Locations.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToList();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionStartEvent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Event"><see cref="BlueprintKingdomEventBase"/></param>
+    /// <param name="m_Region"><see cref="BlueprintRegion"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionStartEvent))]
+    public static ActionsBuilder AddKingdomActionStartEvent(
+        this ActionsBuilder builder,
+        string m_Event,
+        string m_Region,
+        Boolean RandomRegion,
+        Int32 DelayDays,
+        Boolean StartNextMonth,
+        Boolean CheckTriggerImmediately,
+        Boolean CheckTriggerOnStart)
+    {
+      builder.Validate(RandomRegion);
+      builder.Validate(DelayDays);
+      builder.Validate(StartNextMonth);
+      builder.Validate(CheckTriggerImmediately);
+      builder.Validate(CheckTriggerOnStart);
+      var element = ElementTool.Create<KingdomActionStartEvent>();
+      element.m_Event =
+          BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_Event);
+      element.m_Region =
+          BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
+      element.RandomRegion = RandomRegion;
+      element.DelayDays = DelayDays;
+      element.StartNextMonth = StartNextMonth;
+      element.CheckTriggerImmediately = CheckTriggerImmediately;
+      element.CheckTriggerOnStart = CheckTriggerOnStart;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionUnlockArtisan"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    [Generated]
+    [Implements(typeof(KingdomActionUnlockArtisan))]
+    public static ActionsBuilder AddKingdomActionUnlockArtisan(
+        this ActionsBuilder builder,
+        string m_Artisan)
+    {
+      var element = ElementTool.Create<KingdomActionUnlockArtisan>();
+      element.m_Artisan =
+          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveCrusadeResources"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RemoveCrusadeResources))]
+    public static ActionsBuilder AddRemoveCrusadeResources(
+        this ActionsBuilder builder,
+        KingdomResourcesAmount m_ResourcesAmount)
+    {
+      builder.Validate(m_ResourcesAmount);
+      var element = ElementTool.Create<RemoveCrusadeResources>();
+      element.m_ResourcesAmount = m_ResourcesAmount;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlockTacticalCell"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(BlockTacticalCell))]
+    public static ActionsBuilder AddBlockTacticalCell(
+        this ActionsBuilder builder,
+        TacticalMapObstacle.Link m_ObstaclePrefab)
+    {
+      builder.Validate(m_ObstaclePrefab);
+      var element = ElementTool.Create<BlockTacticalCell>();
+      element.m_ObstaclePrefab = m_ObstaclePrefab;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TacticalCombatRecoverLeaderMana"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalCombatRecoverLeaderMana))]
+    public static ActionsBuilder AddTacticalCombatRecoverLeaderMana(
+        this ActionsBuilder builder,
+        ContextValue m_Value)
+    {
+      builder.Validate(m_Value);
+      var element = ElementTool.Create<TacticalCombatRecoverLeaderMana>();
+      element.m_Value = m_Value;
       return builder.Add(element);
     }
   }
