@@ -358,8 +358,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string m_Spell,
         string m_Spellbook)
     {
-      builder.Validate(m_Spell);
-      builder.Validate(m_Spellbook);
       var element = ElementTool.Create<RemoveSpell>();
       element.m_Spell =
           BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
@@ -379,7 +377,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         this ActionsBuilder builder,
         string m_Feature)
     {
-      builder.Validate(m_Feature);
       var element = ElementTool.Create<RestoreClassFeature>();
       element.m_Feature =
           BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);

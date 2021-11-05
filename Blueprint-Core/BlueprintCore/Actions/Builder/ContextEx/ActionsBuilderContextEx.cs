@@ -6,19 +6,25 @@ using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.Settings;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Actions;
+using Kingmaker.UnitLogic.Class.Kineticist.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
@@ -2032,6 +2038,142 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       addTrash.m_Identify = identify;
       addTrash.m_Silent = silent;
       return builder.Add(addTrash);
+    }
+
+    //----- Auto Generated -----//
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAcceptBurn"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionAcceptBurn))]
+    public static ActionsBuilder AddContextActionAcceptBurn(
+        this ActionsBuilder builder,
+        ContextValue Value)
+    {
+      builder.Validate(Value);
+      var element = ElementTool.Create<ContextActionAcceptBurn>();
+      element.Value = Value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionHealBurn"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionHealBurn))]
+    public static ActionsBuilder AddContextActionHealBurn(
+        this ActionsBuilder builder,
+        ContextValue Value)
+    {
+      builder.Validate(Value);
+      var element = ElementTool.Create<ContextActionHealBurn>();
+      element.Value = Value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffActionAddStatBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(BuffActionAddStatBonus))]
+    public static ActionsBuilder AddBuffActionAddStatBonus(
+        this ActionsBuilder builder,
+        StatType Stat,
+        ContextValue Value,
+        ModifierDescriptor Descriptor)
+    {
+      builder.Validate(Stat);
+      builder.Validate(Value);
+      builder.Validate(Descriptor);
+      var element = ElementTool.Create<BuffActionAddStatBonus>();
+      element.Stat = Stat;
+      element.Value = Value;
+      element.Descriptor = Descriptor;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedBurden"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityCustomSharedBurden))]
+    public static ActionsBuilder AddAbilityCustomSharedBurden(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedGrace"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityCustomSharedGrace))]
+    public static ActionsBuilder AddAbilityCustomSharedGrace(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionDetachFromSpawner"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionDetachFromSpawner))]
+    public static ActionsBuilder AddContextActionDetachFromSpawner(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionPrintHDRestrictionToCombatLog"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionPrintHDRestrictionToCombatLog))]
+    public static ActionsBuilder AddContextActionPrintHDRestrictionToCombatLog(
+        this ActionsBuilder builder,
+        ContextValue HitDice)
+    {
+      builder.Validate(HitDice);
+      var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
+      element.HitDice = HitDice;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionReduceDebilitatingBuffsDuration"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionReduceDebilitatingBuffsDuration))]
+    public static ActionsBuilder AddContextActionReduceDebilitatingBuffsDuration(
+        this ActionsBuilder builder,
+        StatsAdjustmentsType StatsAdjustmentsType)
+    {
+      builder.Validate(StatsAdjustmentsType);
+      var element = ElementTool.Create<ContextActionReduceDebilitatingBuffsDuration>();
+      element.StatsAdjustmentsType = StatsAdjustmentsType;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionRestoreAllSpellSlots"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ExcludeSpellbooks"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    [Implements(typeof(ContextActionRestoreAllSpellSlots))]
+    public static ActionsBuilder AddContextActionRestoreAllSpellSlots(
+        this ActionsBuilder builder,
+        UnitEvaluator m_Target,
+        Int32 m_UpToSpellLevel,
+        string[] m_ExcludeSpellbooks)
+    {
+      builder.Validate(m_Target);
+      builder.Validate(m_UpToSpellLevel);
+      var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
+      element.m_Target = m_Target;
+      element.m_UpToSpellLevel = m_UpToSpellLevel;
+      element.m_ExcludeSpellbooks =
+          m_ExcludeSpellbooks.Select(bp => BlueprintTool.GetRef<BlueprintSpellbookReference>(bp)).ToList();
+      return builder.Add(element);
     }
   }
 }

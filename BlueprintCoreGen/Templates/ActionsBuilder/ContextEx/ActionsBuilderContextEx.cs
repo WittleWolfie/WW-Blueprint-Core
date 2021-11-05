@@ -2034,5 +2034,25 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       addTrash.m_Silent = silent;
       return builder.Add(addTrash);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.UnitLogic.Class.Kineticist.Actions.ContextActionAcceptBurn)]
+
+    // [Generate(Kingmaker.UnitLogic.Class.Kineticist.Actions.ContextActionHealBurn)]
+
+    // [Generate(Kingmaker.UnitLogic.Buffs.Actions.BuffActionAddStatBonus)]
+
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Actions.AbilityCustomSharedBurden)]
+
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Actions.AbilityCustomSharedGrace)]
+
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionDetachFromSpawner)]
+
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionPrintHDRestrictionToCombatLog)]
+
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionReduceDebilitatingBuffsDuration)]
+
+    // [Generate(Kingmaker.UnitLogic.Abilities.Components.ContextActionRestoreAllSpellSlots)]
   }
 }

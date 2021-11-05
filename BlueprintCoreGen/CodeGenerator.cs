@@ -59,9 +59,14 @@ namespace BlueprintCoreGen
           else
           { 
             method.AddImport(blueprintType?.blueprint);
+            method.AddImport(blueprintType?.reference);
             paramComments.Add(
                 $"{Tabs(2)}/// <param name=\"{field.Name}\"><see cref=\"{blueprintType?.blueprint.Name}\"/></param>");
 
+            var refTypeName =
+                blueprintType?.reference.DeclaringType is null
+                    ? blueprintType?.reference.Name
+                    : $"{blueprintType?.reference.DeclaringType.Name}.{blueprintType?.reference.Name}";
             if (blueprintType.Value.isList)
             {
               // Using Linq so make sure it's imported
@@ -70,14 +75,14 @@ namespace BlueprintCoreGen
               declaration.Add($"{Tabs(4)}string[] {field.Name},");
 
               fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
-              fieldAssignment.Add($"{Tabs(5)}{field.Name}.Select(bp => BlueprintTool.GetRef<{typeName}>(bp).ToList();");
+              fieldAssignment.Add($"{Tabs(5)}{field.Name}.Select(bp => BlueprintTool.GetRef<{refTypeName}>(bp)).ToList();");
             }
             else
             {
               declaration.Add($"{Tabs(4)}string {field.Name},");
 
               fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
-              fieldAssignment.Add($"{Tabs(5)}BlueprintTool.GetRef<{typeName}>({field.Name});");
+              fieldAssignment.Add($"{Tabs(5)}BlueprintTool.GetRef<{refTypeName}>({field.Name});");
             }
           }
         }
@@ -117,14 +122,22 @@ namespace BlueprintCoreGen
     {
       List<string> validation = new();
       Type enumerableType = GetEnumerableType(type);
-      if (enumerableType is not null && enumerableType.IsSubclassOf(typeof(object)) && enumerableType != typeof(string))
+      if (
+          enumerableType is not null
+          && enumerableType.IsSubclassOf(typeof(object))
+          && !enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase))
+          && enumerableType != typeof(string))
       {
         validation.Add($"{Tabs(3)}foreach (var item in {name})");
         validation.Add($"{Tabs(3)}{{");
         validation.Add($"{Tabs(4)}builder.Validate(item);");
         validation.Add($"{Tabs(3)}}}");
       }
-      else if (type.IsSubclassOf(typeof(object)) && enumerableType != typeof(string))
+      else if (
+          enumerableType is null
+          && type.IsSubclassOf(typeof(object))
+          && !type.IsSubclassOf(typeof(BlueprintReferenceBase))
+          && type != typeof(string))
       {
         validation.Add($"{Tabs(3)}builder.Validate({name});");
       }
@@ -141,16 +154,16 @@ namespace BlueprintCoreGen
       return new string(' ', 2*count);
     }
 
-    private static (Type blueprint, bool isList)? GetBlueprintType(Type type)
+    private static (Type blueprint, Type reference, bool isList)? GetBlueprintType(Type type)
     {
       Type enumerableType = GetEnumerableType(type);
       if (enumerableType != null && enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase)))
       {
-        return (GetBlueprintTypeFromReferenceType(enumerableType), true);
+        return (GetBlueprintTypeFromReferenceType(enumerableType), enumerableType, true);
       }
       else if (type.IsSubclassOf(typeof(BlueprintReferenceBase)))
       {
-        return (GetBlueprintTypeFromReferenceType(type), false);
+        return (GetBlueprintTypeFromReferenceType(type), type, false);
       }
       return null;
     }

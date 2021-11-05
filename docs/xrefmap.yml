@@ -686,6 +686,126 @@ references:
   commentId: T:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx
   fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx
   nameWithType: ActionsBuilderContextEx
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddAbilityCustomSharedBurden(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddAbilityCustomSharedBurden_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderContextEx.AddAbilityCustomSharedBurden(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden*
+  name: AddAbilityCustomSharedBurden
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddAbilityCustomSharedBurden_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedBurden
+  nameWithType: ActionsBuilderContextEx.AddAbilityCustomSharedBurden
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddAbilityCustomSharedGrace(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddAbilityCustomSharedGrace_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderContextEx.AddAbilityCustomSharedGrace(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace*
+  name: AddAbilityCustomSharedGrace
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddAbilityCustomSharedGrace_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddAbilityCustomSharedGrace
+  nameWithType: ActionsBuilderContextEx.AddAbilityCustomSharedGrace
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.EntitySystem.Stats.StatType,Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.Enums.ModifierDescriptor)
+  name: AddBuffActionAddStatBonus(ActionsBuilder, StatType, ContextValue, ModifierDescriptor)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddBuffActionAddStatBonus_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_Enums_ModifierDescriptor_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.EntitySystem.Stats.StatType,Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.Enums.ModifierDescriptor)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.EntitySystem.Stats.StatType, Kingmaker.UnitLogic.Mechanics.ContextValue, Kingmaker.Enums.ModifierDescriptor)
+  nameWithType: ActionsBuilderContextEx.AddBuffActionAddStatBonus(ActionsBuilder, StatType, ContextValue, ModifierDescriptor)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus*
+  name: AddBuffActionAddStatBonus
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddBuffActionAddStatBonus_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddBuffActionAddStatBonus
+  nameWithType: ActionsBuilderContextEx.AddBuffActionAddStatBonus
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  name: AddContextActionAcceptBurn(ActionsBuilder, ContextValue)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionAcceptBurn_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.UnitLogic.Mechanics.ContextValue)
+  nameWithType: ActionsBuilderContextEx.AddContextActionAcceptBurn(ActionsBuilder, ContextValue)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn*
+  name: AddContextActionAcceptBurn
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionAcceptBurn_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionAcceptBurn
+  nameWithType: ActionsBuilderContextEx.AddContextActionAcceptBurn
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddContextActionDetachFromSpawner(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionDetachFromSpawner_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderContextEx.AddContextActionDetachFromSpawner(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner*
+  name: AddContextActionDetachFromSpawner
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionDetachFromSpawner_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionDetachFromSpawner
+  nameWithType: ActionsBuilderContextEx.AddContextActionDetachFromSpawner
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  name: AddContextActionHealBurn(ActionsBuilder, ContextValue)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionHealBurn_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.UnitLogic.Mechanics.ContextValue)
+  nameWithType: ActionsBuilderContextEx.AddContextActionHealBurn(ActionsBuilder, ContextValue)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn*
+  name: AddContextActionHealBurn
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionHealBurn_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionHealBurn
+  nameWithType: ActionsBuilderContextEx.AddContextActionHealBurn
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  name: AddContextActionPrintHDRestrictionToCombatLog(ActionsBuilder, ContextValue)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionPrintHDRestrictionToCombatLog_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.UnitLogic.Mechanics.ContextValue)
+  nameWithType: ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog(ActionsBuilder, ContextValue)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog*
+  name: AddContextActionPrintHDRestrictionToCombatLog
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionPrintHDRestrictionToCombatLog_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog
+  nameWithType: ActionsBuilderContextEx.AddContextActionPrintHDRestrictionToCombatLog
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Settings.StatsAdjustmentsType)
+  name: AddContextActionReduceDebilitatingBuffsDuration(ActionsBuilder, StatsAdjustmentsType)
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionReduceDebilitatingBuffsDuration_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Settings_StatsAdjustmentsType_
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Settings.StatsAdjustmentsType)
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Settings.StatsAdjustmentsType)
+  nameWithType: ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration(ActionsBuilder, StatsAdjustmentsType)
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration*
+  name: AddContextActionReduceDebilitatingBuffsDuration
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionReduceDebilitatingBuffsDuration_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration
+  nameWithType: ActionsBuilderContextEx.AddContextActionReduceDebilitatingBuffsDuration
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Int32,System.String[])
+  name: AddContextActionRestoreAllSpellSlots(ActionsBuilder, UnitEvaluator, Int32, String[])
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionRestoreAllSpellSlots_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Int32_System_String___
+  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Int32,System.String[])
+  name.vb: AddContextActionRestoreAllSpellSlots(ActionsBuilder, UnitEvaluator, Int32, String())
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator, System.Int32, System.String[])
+  fullName.vb: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator, System.Int32, System.String())
+  nameWithType: ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(ActionsBuilder, UnitEvaluator, Int32, String[])
+  nameWithType.vb: ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots(ActionsBuilder, UnitEvaluator, Int32, String())
+- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots*
+  name: AddContextActionRestoreAllSpellSlots
+  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddContextActionRestoreAllSpellSlots_
+  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots
+  nameWithType: ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots
 - uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddFeature(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
   name: AddFeature(ActionsBuilder, String)
   href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddFeature_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
@@ -2807,6 +2927,32 @@ references:
   commentId: T:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx
   fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx
   nameWithType: ActionsBuilderMiscEx
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,System.String)
+  name: AddAddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,System.String)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.VendorEvaluator, System.String)
+  nameWithType: ActionsBuilderMiscEx.AddAddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction*
+  name: AddAddVendorItemsAction
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction
+  nameWithType: ActionsBuilderMiscEx.AddAddVendorItemsAction
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddClearVendorTable(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderMiscEx.AddClearVendorTable(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable*
+  name: AddClearVendorTable
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddClearVendorTable_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable
+  nameWithType: ActionsBuilderMiscEx.AddClearVendorTable
 - uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])
   name: AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])
   href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___

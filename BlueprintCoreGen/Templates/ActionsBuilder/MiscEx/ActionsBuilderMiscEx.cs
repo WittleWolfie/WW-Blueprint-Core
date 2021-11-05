@@ -10,7 +10,7 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
 {
   /// <summary>
   /// Extension to <see cref="ActionsBuilder"/> for actions without a better extension container such as achievements
-  /// and CustomEvent.
+  /// vendor actions, and CustomEvent.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderMiscEx
@@ -76,5 +76,9 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     //----- Auto Generated -----//
 
     // [Generate(Kingmaker.Tutorial.Actions.ShowNewTutorial)]
+
+    // [Generate(Kingmaker.UnitLogic.FactLogic.AddVendorItemsAction)]
+
+    // [Generate(Kingmaker.UnitLogic.FactLogic.ClearVendorTable)]
   }
 }

@@ -3,15 +3,19 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
+using Kingmaker.UnitLogic.FactLogic;
 
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /// <summary>
   /// Extension to <see cref="ActionsBuilder"/> for actions without a better extension container such as achievements
-  /// and CustomEvent.
+  /// vendor actions, and CustomEvent.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderMiscEx
@@ -88,7 +92,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string m_Tutorial,
         TutorialContextDataEvaluator[] Evaluators)
     {
-      builder.Validate(m_Tutorial);
       foreach (var item in Evaluators)
       {
         builder.Validate(item);
@@ -97,6 +100,43 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.m_Tutorial =
           BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
       element.Evaluators = Evaluators;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddVendorItemsAction"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_VendorTable"><see cref="BlueprintUnitLoot"/></param>
+    [Generated]
+    [Implements(typeof(AddVendorItemsAction))]
+    public static ActionsBuilder AddAddVendorItemsAction(
+        this ActionsBuilder builder,
+        VendorEvaluator m_VendorEvaluator,
+        string m_VendorTable)
+    {
+      builder.Validate(m_VendorEvaluator);
+      var element = ElementTool.Create<AddVendorItemsAction>();
+      element.m_VendorEvaluator = m_VendorEvaluator;
+      element.m_VendorTable =
+          BlueprintTool.GetRef<BlueprintUnitLootReference>(m_VendorTable);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearVendorTable"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Table"><see cref="BlueprintSharedVendorTable"/></param>
+    [Generated]
+    [Implements(typeof(ClearVendorTable))]
+    public static ActionsBuilder AddClearVendorTable(
+        this ActionsBuilder builder,
+        string m_Table)
+    {
+      var element = ElementTool.Create<ClearVendorTable>();
+      element.m_Table =
+          BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
       return builder.Add(element);
     }
   }
