@@ -150,6 +150,7 @@ namespace BlueprintCoreGen
     public void AddMethod(Method method)
     {
       Imports.AddRange(method.Imports);
+      ClassText.AppendLine();
       ClassText.Append(method.Text);
     }
 
