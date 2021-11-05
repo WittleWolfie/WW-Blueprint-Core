@@ -334,6 +334,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
 
     //----- Auto Generated -----//
 
+
     /// <summary>
     /// Adds <see cref="SetRaceFromBlueprint"/> (Auto Generated)
     /// </summary>
@@ -343,6 +344,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     {
       return builder.Add(ElementTool.Create<SetRaceFromBlueprint>());
     }
+
 
     /// <summary>
     /// Adds <see cref="RemoveSpell"/> (Auto Generated)
@@ -364,6 +366,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
           BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
       return builder.Add(element);
     }
+
 
     /// <summary>
     /// Adds <see cref="RestoreClassFeature"/> (Auto Generated)

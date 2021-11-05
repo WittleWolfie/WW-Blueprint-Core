@@ -806,19 +806,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots
   nameWithType: ActionsBuilderContextEx.AddContextActionRestoreAllSpellSlots
-- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.PositionEvaluator,System.Boolean,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)
-  name: AddCreaturesAround(ActionsBuilder, FloatEvaluator, PositionEvaluator, Boolean, Boolean, ActionsBuilder)
-  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddCreaturesAround_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_PositionEvaluator_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_
-  commentId: M:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.PositionEvaluator,System.Boolean,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)
-  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.FloatEvaluator, Kingmaker.ElementsSystem.PositionEvaluator, System.Boolean, System.Boolean, BlueprintCore.Actions.Builder.ActionsBuilder)
-  nameWithType: ActionsBuilderContextEx.AddCreaturesAround(ActionsBuilder, FloatEvaluator, PositionEvaluator, Boolean, Boolean, ActionsBuilder)
-- uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround*
-  name: AddCreaturesAround
-  href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddCreaturesAround_
-  commentId: Overload:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddCreaturesAround
-  nameWithType: ActionsBuilderContextEx.AddCreaturesAround
 - uid: BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddFeature(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
   name: AddFeature(ActionsBuilder, String)
   href: api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddFeature_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_

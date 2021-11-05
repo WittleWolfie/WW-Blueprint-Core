@@ -2041,6 +2041,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
     //----- Auto Generated -----//
 
+
     /// <summary>
     /// Adds <see cref="ContextActionAcceptBurn"/> (Auto Generated)
     /// </summary>
@@ -2056,6 +2057,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(element);
     }
 
+
     /// <summary>
     /// Adds <see cref="ContextActionHealBurn"/> (Auto Generated)
     /// </summary>
@@ -2070,6 +2072,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Value = Value;
       return builder.Add(element);
     }
+
 
     /// <summary>
     /// Adds <see cref="BuffActionAddStatBonus"/> (Auto Generated)
@@ -2092,6 +2095,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(element);
     }
 
+
     /// <summary>
     /// Adds <see cref="AbilityCustomSharedBurden"/> (Auto Generated)
     /// </summary>
@@ -2101,6 +2105,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
     }
+
 
     /// <summary>
     /// Adds <see cref="AbilityCustomSharedGrace"/> (Auto Generated)
@@ -2112,6 +2117,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
     }
 
+
     /// <summary>
     /// Adds <see cref="ContextActionDetachFromSpawner"/> (Auto Generated)
     /// </summary>
@@ -2121,6 +2127,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
     }
+
 
     /// <summary>
     /// Adds <see cref="ContextActionPrintHDRestrictionToCombatLog"/> (Auto Generated)
@@ -2137,6 +2144,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       return builder.Add(element);
     }
 
+
     /// <summary>
     /// Adds <see cref="ContextActionReduceDebilitatingBuffsDuration"/> (Auto Generated)
     /// </summary>
@@ -2151,6 +2159,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.StatsAdjustmentsType = StatsAdjustmentsType;
       return builder.Add(element);
     }
+
 
     /// <summary>
     /// Adds <see cref="ContextActionRestoreAllSpellSlots"/> (Auto Generated)

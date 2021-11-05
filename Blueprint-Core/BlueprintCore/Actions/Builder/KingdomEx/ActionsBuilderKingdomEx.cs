@@ -849,6 +849,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
 
     //----- Auto Generated -----//
 
+
     /// <summary>
     /// Adds <see cref="KingdomIncreaseIncome"/> (Auto Generated)
     /// </summary>

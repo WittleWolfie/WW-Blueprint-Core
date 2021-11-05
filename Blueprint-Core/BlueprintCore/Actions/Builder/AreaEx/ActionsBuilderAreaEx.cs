@@ -138,6 +138,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
 
     //----- Auto Generated -----//
 
+
     /// <summary>
     /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
     /// </summary>
