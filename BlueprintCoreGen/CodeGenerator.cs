@@ -27,7 +27,7 @@ namespace BlueprintCoreGen
       method.Imports.Add(GetImport(type));
 
       method.Text.AppendLine($"{Tabs(2)}/// <summary>");
-      method.Text.AppendLine($"{Tabs(2)}/// Adds <see cref=\"{type.Name}\"/>");
+      method.Text.AppendLine($"{Tabs(2)}/// Adds <see cref=\"{type.Name}\"/> (Auto Generated)");
       method.Text.AppendLine($"{Tabs(2)}/// </summary>");
 
       List<string> declaration = new();
@@ -43,28 +43,42 @@ namespace BlueprintCoreGen
         foreach(FieldInfo field in fields)
         {
           var fieldType = field.FieldType;
-          method.Imports.Add(field.FieldType.Namespace);
-          declaration.Add($"{Tabs(4)}{fieldType.Name} {field.Name},");
+          method.AddImport(fieldType);
+
+          var typeName =
+              fieldType.DeclaringType is null ? fieldType.Name : $"{fieldType.DeclaringType.Name}.{fieldType.Name}";
 
           fieldValidation.AddRange(GetBuilderFieldValidation(field.Name, fieldType));
 
           var blueprintType = GetBlueprintType(fieldType);
           if (blueprintType == null)
           {
+            declaration.Add($"{Tabs(4)}{typeName} {field.Name},");
             fieldAssignment.Add($"{Tabs(3)}element.{field.Name} = {field.Name};");
           }
           else
           { 
-            // TODO: Complete implementation
-            method.Imports.Add(blueprintType?.blueprint.Namespace);
-            method.Imports.Add(blueprintType?.reference.Namespace);
+            method.AddImport(blueprintType?.blueprint);
             paramComments.Add(
                 $"{Tabs(2)}/// <param name=\"{field.Name}\"><see cref=\"{blueprintType?.blueprint.Name}\"/></param>");
 
-            fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
-            fieldAssignment.Add($"{Tabs(5)}{field.Name} is null");
-            fieldAssignment.Add($"{Tabs(7)}? null");
-            fieldAssignment.Add($"{Tabs(7)}: BlueprintTool.GetRef<>");
+            if (blueprintType.Value.isList)
+            {
+              // Using Linq so make sure it's imported
+              method.AddImport(typeof(Enumerable));
+
+              declaration.Add($"{Tabs(4)}string[] {field.Name},");
+
+              fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
+              fieldAssignment.Add($"{Tabs(5)}{field.Name}.Select(bp => BlueprintTool.GetRef<{typeName}>(bp).ToList();");
+            }
+            else
+            {
+              declaration.Add($"{Tabs(4)}string {field.Name},");
+
+              fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
+              fieldAssignment.Add($"{Tabs(5)}BlueprintTool.GetRef<{typeName}>({field.Name});");
+            }
           }
         }
 
@@ -102,10 +116,7 @@ namespace BlueprintCoreGen
     private static List<string> GetBuilderFieldValidation(string name, Type type)
     {
       List<string> validation = new();
-      Type enumerableType =
-          type.GetInterfaces()
-              .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-              ?.GetGenericArguments()[0];
+      Type enumerableType = GetEnumerableType(type);
       if (enumerableType is not null && enumerableType.IsSubclassOf(typeof(object)) && enumerableType != typeof(string))
       {
         validation.Add($"{Tabs(3)}foreach (var item in {name})");
@@ -130,9 +141,35 @@ namespace BlueprintCoreGen
       return new string(' ', 2*count);
     }
 
-    private static (Type blueprint, Type reference)? GetBlueprintType(Type type)
+    private static (Type blueprint, bool isList)? GetBlueprintType(Type type)
     {
+      Type enumerableType = GetEnumerableType(type);
+      if (enumerableType != null && enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase)))
+      {
+        return (GetBlueprintTypeFromReferenceType(enumerableType), true);
+      }
+      else if (type.IsSubclassOf(typeof(BlueprintReferenceBase)))
+      {
+        return (GetBlueprintTypeFromReferenceType(type), false);
+      }
       return null;
+    }
+
+    private static Type GetBlueprintTypeFromReferenceType(Type type)
+    {
+      var refType = type;
+      while (!(refType.IsGenericType && refType.GetGenericTypeDefinition() == typeof(BlueprintReference<>)))
+      {
+        refType = refType.BaseType;
+      }
+      return refType.GenericTypeArguments[0];
+    }
+
+    private static Type GetEnumerableType(Type type)
+    {
+      return type.GetInterfaces()
+          .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+          ?.GetGenericArguments()[0];
     }
   }
 
@@ -143,5 +180,10 @@ namespace BlueprintCoreGen
   {
     public readonly List<string> Imports = new();
     public readonly StringBuilder Text = new();
+
+    public void AddImport(Type type)
+    {
+      Imports.Add($"using {type.Namespace};");
+    }
   }
 }

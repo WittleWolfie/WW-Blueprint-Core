@@ -72,5 +72,9 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
       customEvent.EventId = eventId;
       return builder.Add(customEvent);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Tutorial.Actions.ShowNewTutorial)]
   }
 }
