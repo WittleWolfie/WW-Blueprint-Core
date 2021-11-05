@@ -7,7 +7,7 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.4.0</Version>
+    <Version>0.4.1</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
