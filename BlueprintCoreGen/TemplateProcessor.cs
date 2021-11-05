@@ -32,7 +32,7 @@ namespace BlueprintCoreGen
   ///   A simple tag instructing the processor to run <see cref="string.Replace(string, string?)"/> on the next line.
   ///   Implemented using a comment because attributes in C# cannot be applied to arbitrary lines of code. e.g.
   ///   <c>// [Replace("Original", "Replacement")]</c> would replace occurrences of the text Original on the next line
-  ///   with Replacement. Cannot be used before the namespace declaration.
+  ///   with Replacement.
   ///   </description>
   /// </item>
   /// <item>
@@ -47,8 +47,9 @@ namespace BlueprintCoreGen
   public static class TemplateProcessor
   {
     private static readonly Regex Replace = new(@"\s*// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
-    private static readonly Regex Generate = new(@"\s*// \[Generate\((.*)\)\]", RegexOptions.Compiled);
+    private static readonly Regex Import = new(@"using [\w\.]+;", RegexOptions.Compiled);
     private static readonly Regex Namespace = new(@"namespace [\w\.]+", RegexOptions.Compiled);
+    private static readonly Regex Generate = new(@"\s*// \[Generate\((.*)\)\]", RegexOptions.Compiled);
     private static readonly Regex MethodAttribute = new(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
     public static readonly List<Template> ActionTemplates = new();
@@ -67,51 +68,63 @@ namespace BlueprintCoreGen
     {
       var template = new Template(relativePath);
 
+      string currentLine;
       (string Old, string New)? replacement = null;
       foreach (var line in File.ReadAllLines(file))
       {
-        if (Replace.IsMatch(line))
+        currentLine = line;
+        if (Replace.IsMatch(currentLine))
         {
-          Match match = Replace.Match(line);
+          Match match = Replace.Match(currentLine);
           replacement = (match.Groups[1].Value, match.Groups[2].Value);
           continue;
         }
 
         if (replacement != null)
         {
-          template.AddLine(line.Replace(replacement?.Old, replacement?.New));
+          currentLine = currentLine.Replace(replacement?.Old, replacement?.New);
           replacement = null;
+        }
+
+        if (Import.IsMatch(currentLine))
+        {
+          template.AddImport(currentLine);
           continue;
         }
 
-        if (Generate.IsMatch(line))
+        if (Namespace.IsMatch(currentLine))
         {
-          var type = AccessTools.TypeByName(Generate.Match(line).Groups[1].Value);
+          // Convert the namespace for BlueprintCore
+          template.AddLine(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
+          continue;
+        }
+
+        if (Generate.IsMatch(currentLine))
+        {
+          var type = AccessTools.TypeByName(Generate.Match(currentLine).Groups[1].Value);
           template.AddMethod(CodeGenerator.CreateMethod(type));
           template.AddType(type);
           continue;
         }
-
-        if (Namespace.IsMatch(line))
-        {
-          // Convert the namespace for BlueprintCore
-          template.AddLine(line.Replace("BlueprintCoreGen", "BlueprintCore"));
-          continue;
-        }
          
-        if (MethodAttribute.IsMatch(line))
+        if (MethodAttribute.IsMatch(currentLine))
         {
-          template.AddType(AccessTools.TypeByName(MethodAttribute.Match(line).Groups[1].Value));
+          template.AddType(AccessTools.TypeByName(MethodAttribute.Match(currentLine).Groups[1].Value));
         }
-        template.AddLine(line);
+        template.AddLine(currentLine);
       }
       return template;
     }
   }
 
+  /// <summary>
+  /// A processed class template used to generate the output class file.
+  /// </summary>
   public class Template
   {
+    // Relative directory path for the output class
     public readonly string RelativePath;
+    private readonly List<string> Imports = new();
     private readonly StringBuilder ClassText = new();
     private readonly HashSet<Type> ImplementedTypes = new();
 
@@ -120,16 +133,46 @@ namespace BlueprintCoreGen
       RelativePath = filePath;
     }
 
-    public void AddLine(string line) { ClassText.AppendLine(line); }
-    public void AddMethod(string method) { ClassText.Append(method); }
+    /// <summary>
+    /// Adds an import to the output class.
+    /// </summary>
+    public void AddImport(string import) { Imports.Add(import); }
 
+    /// <summary>
+    /// Adds a line of text the output class.
+    /// </summary>
+    public void AddLine(string line) { ClassText.AppendLine(line); }
+
+    /// <summary>
+    /// Adds a generated method to the output class.
+    /// </summary>
+    public void AddMethod(Method method)
+    {
+      Imports.AddRange(method.Imports);
+      ClassText.Append(method.Text);
+    }
+
+    /// <summary>
+    /// Adds a type implemented in the output class.
+    /// </summary>
     public void AddType(Type type)
     {
       if (!ImplementedTypes.Contains(type)) { ImplementedTypes.Add(type); }
     }
 
-    public string GetClassText() { return ClassText.ToString(); }
+    /// <returns>
+    /// Text representation of the output class. Only call once.
+    /// </returns>
+    public string GetClassText()
+    {
+      Imports.Sort();
+      ClassText.Insert(0, string.Join('\n', Imports.Distinct()) + '\n');
+      return ClassText.ToString();
+    }
 
+    /// <returns>
+    /// List of types implemented in the output class.
+    /// </returns>
     public List<Type> GetImplementedTypes() { return ImplementedTypes.ToList(); }
   }
 }
