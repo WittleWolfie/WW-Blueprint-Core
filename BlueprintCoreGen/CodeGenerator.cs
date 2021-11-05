@@ -93,7 +93,7 @@ namespace BlueprintCoreGen
         declaration.Add(lastParameter.Replace(',', ')'));
 
         body.AddRange(fieldValidation);
-        body.Add($"{Tabs(3)}var element = ElementTool.Create<{type.Name}>());");
+        body.Add($"{Tabs(3)}var element = ElementTool.Create<{type.Name}>();");
         body.AddRange(fieldAssignment);
         body.Add($"{Tabs(3)}return builder.Add(element);");
       }

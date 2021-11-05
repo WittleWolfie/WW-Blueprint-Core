@@ -1,6 +1,8 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
@@ -21,6 +23,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionCreateImportedCompanion"/>
     /// </summary>
+    [Implements(typeof(ActionCreateImportedCompanion))]
     public static ActionsBuilder CreateImportedCompanion(this ActionsBuilder builder, int index)
     {
       var createCompanion = ElementTool.Create<ActionCreateImportedCompanion>();
@@ -31,6 +34,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionEnterToDungeon"/>
     /// </summary>
+    [Implements(typeof(ActionEnterToDungeon))]
     public static ActionsBuilder TeleportToLastDungeonStageEntrance(this ActionsBuilder builder, int minStage = 1)
     {
       var teleport = ElementTool.Create<ActionEnterToDungeon>();
@@ -42,6 +46,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionGoDeeperIntoDungeon"/>
     /// </summary>
+    [Implements(typeof(ActionGoDeeperIntoDungeon))]
     public static ActionsBuilder EnterNextDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionGoDeeperIntoDungeon>());
@@ -50,6 +55,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionIncreaseDungeonStage"/>
     /// </summary>
+    [Implements(typeof(ActionIncreaseDungeonStage))]
     public static ActionsBuilder IncrementDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionIncreaseDungeonStage>());
@@ -58,6 +64,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionSetDungeonStage"/>
     /// </summary>
+    [Implements(typeof(ActionSetDungeonStage))]
     public static ActionsBuilder SetDungeonStage(this ActionsBuilder builder, int stage = 1)
     {
       var setStage = ElementTool.Create<ActionSetDungeonStage>();
@@ -73,6 +80,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="newLocation"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint">BlueprintAreaEnterPoint</see></param>
+    [Implements(typeof(AreaEntranceChange))]
     public static ActionsBuilder ChangeAreaEntrance(
         this ActionsBuilder builder, string location, string newLocation)
     {
@@ -86,6 +94,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName">ChangeCurrentAreaName</see>
     /// </summary>
+    [Implements(typeof(ChangeCurrentAreaName))]
     public static ActionsBuilder ChangeCurrentAreaName(this ActionsBuilder builder, LocalizedString name)
     {
       var changeName = ElementTool.Create<ChangeCurrentAreaName>();
@@ -97,6 +106,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName">ChangeCurrentAreaName</see>
     /// </summary>
+    [Implements(typeof(ChangeCurrentAreaName))]
     public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
     {
       var changeName = ElementTool.Create<ChangeCurrentAreaName>();
@@ -108,6 +118,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter">AddCampingEncounter</see>
     /// </summary>
+    [Implements(typeof(AddCampingEncounter))]
     public static ActionsBuilder AddCampingEncounter(this ActionsBuilder builder, string encounter)
     {
       var addEncounter = ElementTool.Create<AddCampingEncounter>();
@@ -118,11 +129,24 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject">DestroyMapObject</see>
     /// </summary>
+    [Implements(typeof(DestroyMapObject))]
     public static ActionsBuilder DestroyMapObject(this ActionsBuilder builder, MapObjectEvaluator obj)
     {
       var destroy = ElementTool.Create<DestroyMapObject>();
       destroy.MapObject = obj;
       return builder.Add(destroy);
+    }
+
+    //----- Auto Generated -----//
+
+    /// <summary>
+    /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DecreaseCorruptionLevelAction))]
+    public static ActionsBuilder AddDecreaseCorruptionLevelAction(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DecreaseCorruptionLevelAction>());
     }
   }
 }

@@ -263,7 +263,8 @@ not call twice on the same builder.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ActionsBuilder Conditional(ConditionsBuilder conditions, ActionsBuilder ifTrue = null, ActionsBuilder ifFalse = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Implements(typeof(Conditional))]
+public ActionsBuilder Conditional(ConditionsBuilder conditions, ActionsBuilder ifTrue = null, ActionsBuilder ifFalse = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -338,44 +339,6 @@ not call twice on the same builder.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_Validate_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.Validate(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L176">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_ActionsBuilder_Validate_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Validate*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_Validate_System_Object_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Validate(System.Object)">Validate(Object)</h4>
-  <div class="markdown level1 summary"><p>Runs the object through <a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a>, adding any errors to the
-validation warnings.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Validate(object obj)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">obj</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Actions_Builder_ActionsBuilder_Validate_System_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Exposed for use by extension classes to bundle warnings into the builder. Other classes can use
-<a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a> directly.</p>
-</div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_CreateImportedCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_">ActionsBuilderAreaEx.CreateImportedCompanion(ActionsBuilder, Int32)</a>
@@ -406,6 +369,9 @@ validation warnings.</p>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_DestroyMapObject_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_">ActionsBuilderAreaEx.DestroyMapObject(ActionsBuilder, MapObjectEvaluator)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddDecreaseCorruptionLevelAction_BlueprintCore_Actions_Builder_ActionsBuilder_">ActionsBuilderAreaEx.AddDecreaseCorruptionLevelAction(ActionsBuilder)</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ChangeBookImage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_SpriteLink_">ActionsBuilderAVEx.ChangeBookImage(ActionsBuilder, SpriteLink)</a>
@@ -960,6 +926,9 @@ validation warnings.</p>
       <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_TacticalCombatHeal_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_">ActionsBuilderKingdomEx.TacticalCombatHeal(ActionsBuilder, DiceType, ContextValue)</a>
   </div>
   <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddKingdomIncreaseIncome_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_Kingmaker_Kingdom_KingdomResource_">ActionsBuilderKingdomEx.AddKingdomIncreaseIncome(ActionsBuilder, Int32, KingdomResource)</a>
+  </div>
+  <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">ActionsBuilderMiscEx.IncrementAchievement(ActionsBuilder, String)</a>
   </div>
   <div>
@@ -970,6 +939,9 @@ validation warnings.</p>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">ActionsBuilderMiscEx.CustomEvent(ActionsBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___">ActionsBuilderMiscEx.AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_CompleteEtude_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_ElementsSystem_BlueprintEvaluator_">ActionsBuilderStoryEx.CompleteEtude(ActionsBuilder, String, BlueprintEvaluator)</a>
@@ -1042,6 +1014,15 @@ validation warnings.</p>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">ActionsBuilderUpgraderEx.UnStartEtude(ActionsBuilder, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_AddSetRaceFromBlueprint_BlueprintCore_Actions_Builder_ActionsBuilder_">ActionsBuilderUpgraderEx.AddSetRaceFromBlueprint(ActionsBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_AddRemoveSpell_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_">ActionsBuilderUpgraderEx.AddRemoveSpell(ActionsBuilder, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_AddRestoreClassFeature_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">ActionsBuilderUpgraderEx.AddRestoreClassFeature(ActionsBuilder, String)</a>
   </div>
 </article>
           </div>

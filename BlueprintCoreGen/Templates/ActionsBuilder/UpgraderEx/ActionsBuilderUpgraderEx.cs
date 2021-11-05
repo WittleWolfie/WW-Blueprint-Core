@@ -330,5 +330,13 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
       unStartEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       return builder.Add(unStartEtude);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetRaceFromBlueprint)]
+
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveSpell)]
+
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RestoreClassFeature)]
   }
 }

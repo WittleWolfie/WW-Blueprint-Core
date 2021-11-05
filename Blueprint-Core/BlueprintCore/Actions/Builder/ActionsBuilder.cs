@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BlueprintCore.Actions.Builder
 {
@@ -148,6 +148,7 @@ namespace BlueprintCore.Actions.Builder
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
     /// </summary>
+    [Implements(typeof(Conditional))]
     public ActionsBuilder Conditional(
         ConditionsBuilder conditions, ActionsBuilder ifTrue = null, ActionsBuilder ifFalse = null)
     {
@@ -173,7 +174,7 @@ namespace BlueprintCore.Actions.Builder
     /// <see cref="Validator.Check(object)">Validator.Check()</see> directly.
     /// </remarks>
     /// <param name="obj"></param>
-    public void Validate(object obj)
+    internal void Validate(object obj)
     {
       Validator.Check(obj).ForEach(str => ValidationWarnings.AppendLine(str));
     }

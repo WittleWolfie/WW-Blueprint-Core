@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -5,8 +6,8 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation.Actions;
 using Kingmaker.Visual.Animation;
+using Kingmaker.Visual.Animation.Actions;
 
 namespace BlueprintCore.Actions.Builder.AVEx
 {
@@ -20,6 +21,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ChangeBookEventImage"/>
     /// </summary>
+    [Implements(typeof(ChangeBookEventImage))]
     public static ActionsBuilder ChangeBookImage(this ActionsBuilder builder, SpriteLink image)
     {
       var setImage = ElementTool.Create<ChangeBookEventImage>();
@@ -30,6 +32,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="CameraToPosition"/>
     /// </summary>
+    [Implements(typeof(CameraToPosition))]
     public static ActionsBuilder MoveCamera(this ActionsBuilder builder, PositionEvaluator position)
     {
       builder.Validate(position);
@@ -43,6 +46,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Adds
     /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification">AddDialogNotification</see>
     /// </summary>
+    [Implements(typeof(AddDialogNotification))]
     public static ActionsBuilder AddDialogNotification(this ActionsBuilder builder, LocalizedString text)
     {
       var notification = ElementTool.Create<AddDialogNotification>();
@@ -53,6 +57,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ClearBlood">ClearBlood</see>
     /// </summary>
+    [Implements(typeof(ClearBlood))]
     public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ClearBlood>());
@@ -61,6 +66,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
+    [Implements(typeof(ContextActionRunAnimationClip))]
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
         AnimationClipWrapper clip,
@@ -79,6 +85,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
+    [Implements(typeof(ContextActionShowBark))]
     public static ActionsBuilder Bark(
         this ActionsBuilder builder,
         LocalizedString bark,
@@ -95,6 +102,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
+    [Implements(typeof(ContextActionSpawnFx))]
     public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink prefab)
     {
       var spawnFx = ElementTool.Create<ContextActionSpawnFx>();
@@ -107,6 +115,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
+    [Implements(typeof(ContextActionPlaySound))]
     public static ActionsBuilder PlaySound(this ActionsBuilder builder, string soundName)
     {
       var playSound = ElementTool.Create<ContextActionPlaySound>();

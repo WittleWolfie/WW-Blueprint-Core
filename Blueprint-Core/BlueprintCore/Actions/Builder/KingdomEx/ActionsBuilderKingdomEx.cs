@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
@@ -19,6 +20,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.KingdomEx
@@ -35,6 +37,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ArmyAdditionalAction"/>
     /// </summary>
+    [Implements(typeof(ArmyAdditionalAction))]
     public static ActionsBuilder GrantExtraArmyAction(
         this ActionsBuilder builder,
         bool usableInCurrentTurn = true,
@@ -49,6 +52,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
+    [Implements(typeof(ContextActionAddCrusadeResource))]
     public static ActionsBuilder AddCrusadeResource(
         this ActionsBuilder builder, KingdomResourcesAmount amount)
     {
@@ -62,6 +66,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(ContextActionArmyRemoveFacts))]
     public static ActionsBuilder RemoveArmyFacts(
         this ActionsBuilder builder, params string[] facts)
     {
@@ -74,6 +79,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionRestoreLeaderAction"/>
     /// </summary>
+    [Implements(typeof(ContextActionRestoreLeaderAction))]
     public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
@@ -82,6 +88,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionStopUnit"/>
     /// </summary>
+    [Implements(typeof(ContextActionStopUnit))]
     public static ActionsBuilder StopUnit(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionStopUnit>());
@@ -94,6 +101,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
+    [Implements(typeof(AddBuffToSquad))]
     public static ActionsBuilder BuffSquad(
         this ActionsBuilder builder,
         string buff,
@@ -110,6 +118,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ChangeArmyMorale"/>
     /// </summary>
+    [Implements(typeof(ChangeArmyMorale))]
     public static ActionsBuilder ChangeArmyMorale(
           this ActionsBuilder builder, GlobalMagicValue duration, GlobalMagicValue change)
     {
@@ -122,6 +131,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="FakeSkipTime"/>
     /// </summary>
+    [Implements(typeof(FakeSkipTime))]
     public static ActionsBuilder FakeSkipTime(this ActionsBuilder builder, GlobalMagicValue days)
     {
       var skipTime = ElementTool.Create<FakeSkipTime>();
@@ -132,6 +142,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="GainDiceArmyDamage"/>
     /// </summary>
+    [Implements(typeof(GainDiceArmyDamage))]
     public static ActionsBuilder GainArmyDamage(
         this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue dmgDice)
     {
@@ -144,6 +155,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveUnitsByExp"/>
     /// </summary>
+    [Implements(typeof(RemoveUnitsByExp))]
     public static ActionsBuilder RemoveUnitsByExp(
         this ActionsBuilder builder, SquadFilter filter, GlobalMagicValue exp)
     {
@@ -158,6 +170,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    [Implements(typeof(GainGlobalMagicSpell))]
     public static ActionsBuilder GainGlobalSpell(this ActionsBuilder builder, string spell)
     {
       var gainSpell = ElementTool.Create<GainGlobalMagicSpell>();
@@ -170,6 +183,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    [Implements(typeof(ManuallySetGlobalSpellCooldown))]
     public static ActionsBuilder PutGlobalSpellOnCooldown(this ActionsBuilder builder, string spell)
     {
       var activateCooldown = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
@@ -180,6 +194,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="OpenTeleportationInterface"/>
     /// </summary>
+    [Implements(typeof(OpenTeleportationInterface))]
     public static ActionsBuilder GlobalTeleport(this ActionsBuilder builder, ActionsBuilder onTeleport)
     {
       var teleport = ElementTool.Create<OpenTeleportationInterface>();
@@ -192,6 +207,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    [Implements(typeof(RemoveGlobalMagicSpell))]
     public static ActionsBuilder RemoveGlobalSpell(this ActionsBuilder builder, string spell)
     {
       var removespell = ElementTool.Create<RemoveGlobalMagicSpell>();
@@ -202,6 +218,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RepairLeaderMana"/>
     /// </summary>
+    [Implements(typeof(RepairLeaderMana))]
     public static ActionsBuilder RestoreLeaderMana(this ActionsBuilder builder, GlobalMagicValue value)
     {
       var restoreMana = ElementTool.Create<RepairLeaderMana>();
@@ -212,6 +229,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="SummonExistUnits"/>
     /// </summary>
+    [Implements(typeof(SummonExistUnits))]
     public static ActionsBuilder SummonMoreUnits(
         this ActionsBuilder builder, GlobalMagicValue expCost)
     {
@@ -223,6 +241,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics.SummonRandomGroup">SummonRandomGroup</see>
     /// </summary>
+    [Implements(typeof(SummonRandomGroup))]
     public static ActionsBuilder SummonRandomGroup(
         this ActionsBuilder builder,
         params SummonRandomGroup.RandomGroup[] groups)
@@ -235,6 +254,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="TeleportArmyAction"/>
     /// </summary>
+    [Implements(typeof(TeleportArmyAction))]
     public static ActionsBuilder TeleportArmy(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<TeleportArmyAction>());
@@ -249,6 +269,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <param name="army"><see cref="BlueprintArmyPreset"/></param>
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
+    [Implements(typeof(CreateArmy))]
     public static ActionsBuilder CreateCrusaderArmy(
         this ActionsBuilder builder,
         string army,
@@ -270,6 +291,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="CreateCrusaderArmy"/>
+    [Implements(typeof(CreateArmy))]
     public static ActionsBuilder CreateCrusaderArmyFromLosses(
         this ActionsBuilder builder,
         string location,
@@ -286,6 +308,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="CreateCrusaderArmy"/>
+    [Implements(typeof(CreateArmy))]
     public static ActionsBuilder CreateDemonArmy(
         this ActionsBuilder builder,
         string army,
@@ -309,6 +332,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="targetLocation"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="onTargetReached"><see cref="BlueprintActionList"/></param>
+    [Implements(typeof(CreateArmy))]
     public static ActionsBuilder CreateDemonArmyTargetingLocation(
         this ActionsBuilder builder,
         string army,
@@ -377,6 +401,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <param name="army"><see cref="BlueprintArmyPreset"/></param>
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
+    [Implements(typeof(CreateGarrison))]
     public static ActionsBuilder CreateGarrison(
         this ActionsBuilder builder,
         string army,
@@ -406,6 +431,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddMorale"/>
     /// </summary>
+    [Implements(typeof(AddMorale))]
     public static ActionsBuilder IncreaseMorale(this ActionsBuilder builder, DiceFormula value, int bonus)
     {
       var increaseMorale = ElementTool.Create<AddMorale>();
@@ -415,6 +441,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <inheritdoc cref="IncreaseMorale"/>
+    [Implements(typeof(AddMorale))]
     public static ActionsBuilder ReduceMorale(this ActionsBuilder builder, DiceFormula value, int bonus)
     {
       var reduceMorale = ElementTool.Create<AddMorale>();
@@ -429,6 +456,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="deck"><see cref="BlueprintKingdomDeck"/></param>
+    [Implements(typeof(KingdomActionActivateEventDeck))]
     public static ActionsBuilder ActivateEventDeck(this ActionsBuilder builder, string deck)
     {
       var activateDeck = ElementTool.Create<KingdomActionActivateEventDeck>();
@@ -439,6 +467,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddBPRandom"/>
     /// </summary>
+    [Implements(typeof(KingdomActionAddBPRandom))]
     public static ActionsBuilder AddBP(
         this ActionsBuilder builder,
         KingdomResource type,
@@ -460,6 +489,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="buff"><see cref="BlueprintKingdomBuff"/></param>
     /// <param name="targetRegion"><see cref="BlueprintRegion"/></param>
+    [Implements(typeof(KingdomActionAddBuff))]
     public static ActionsBuilder AddKingdomBuff(
         this ActionsBuilder builder,
         string buff,
@@ -483,6 +513,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="building"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding">BlueprintSettlementBuilding</see></param>
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
+    [Implements(typeof(KingdomActionAddFreeBuilding))]
     public static ActionsBuilder AddFreeBuilding(
         this ActionsBuilder builder, string building, int count = 1, string settlement = null)
     {
@@ -504,6 +535,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddMercenaryReroll"/>
     /// </summary>
+    [Implements(typeof(KingdomActionAddMercenaryReroll))]
     public static ActionsBuilder AddFreeMercRerolls(this ActionsBuilder builder, int count = 1)
     {
       var addMercRerolls = ElementTool.Create<KingdomActionAddMercenaryReroll>();
@@ -516,6 +548,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="buffs"><see cref="BlueprintKingdomBuff"/></param>
+    [Implements(typeof(KingdomActionAddRandomBuff))]
     public static ActionsBuilder AddRandomKingdomBuff(
         this ActionsBuilder builder, string[] buffs, int durationOverrideDays = 0)
     {
@@ -532,6 +565,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan">BlueprintKingdomArtisan</see></param>
     /// <param name="project"><see cref="BlueprintKingdomProject"/></param>
+    [Implements(typeof(KingdomActionArtisanRequestHelp))]
     public static ActionsBuilder ArtisanRequestHelp(this ActionsBuilder builder, string artisan, string project)
     {
       var requestHelp = ElementTool.Create<KingdomActionArtisanRequestHelp>();
@@ -543,6 +577,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionChangeToAutoCrusade"/>
     /// </summary>
+    [Implements(typeof(KingdomActionChangeToAutoCrusade))]
     public static ActionsBuilder EnableAutoCrusade(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionChangeToAutoCrusade>());
@@ -551,6 +586,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionCollectLoot"/>
     /// </summary>
+    [Implements(typeof(KingdomActionCollectLoot))]
     public static ActionsBuilder CollectKingdomLoot(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
@@ -561,6 +597,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </summary>
     /// 
     /// <param name="region"><see cref="BlueprintRegion"/></param>
+    [Implements(typeof(KingdomActionConquerRegion))]
     public static ActionsBuilder ConquerRegion(this ActionsBuilder builder, string region)
     {
       var conquer = ElementTool.Create<KingdomActionConquerRegion>();
@@ -571,6 +608,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionDestroyAllSettlements"/>
     /// </summary>
+    [Implements(typeof(KingdomActionDestroyAllSettlements))]
     public static ActionsBuilder DestroyAllSettlements(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDestroyAllSettlements>());
@@ -579,6 +617,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionDisable"/>
     /// </summary>
+    [Implements(typeof(KingdomActionDisable))]
     public static ActionsBuilder DisableKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDisable>());
@@ -587,6 +626,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionEnable"/>
     /// </summary>
+    [Implements(typeof(KingdomActionEnable))]
     public static ActionsBuilder EnableKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionEnable>());
@@ -598,6 +638,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
     /// <param name="buildList"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList">SettlementBuildList</see></param>
+    [Implements(typeof(KingdomActionFillSettlement))]
     public static ActionsBuilder FillSettlement(
         this ActionsBuilder builder, string settlement, string buildList)
     {
@@ -613,6 +654,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="buildList"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList">SettlementBuildList</see></param>
+    [Implements(typeof(KingdomActionFillSettlementByLocation))]
     public static ActionsBuilder FillSettlementByLocation(
         this ActionsBuilder builder, string location, string buildList)
     {
@@ -626,6 +668,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFinishRandomBuilding"/>
     /// </summary>
+    [Implements(typeof(KingdomActionFinishRandomBuilding))]
     public static ActionsBuilder FinishRandomBuilding(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFinishRandomBuilding>());
@@ -634,6 +677,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFoundKingdom"/>
     /// </summary>
+    [Implements(typeof(KingdomActionFoundKingdom))]
     public static ActionsBuilder FoundKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
@@ -645,6 +689,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
+    [Implements(typeof(KingdomActionFoundSettlement))]
     public static ActionsBuilder FoundSettlement(
         this ActionsBuilder builder, string location, string settlement)
     {
@@ -657,6 +702,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionGainLeaderExperience"/>
     /// </summary>
+    [Implements(typeof(KingdomActionGainLeaderExperience))]
     public static ActionsBuilder GrantLeaderExp(
         this ActionsBuilder builder, IntEvaluator exp, float? leaderLevelMultiplier = null)
     {
@@ -677,6 +723,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Kingdom.Blueprints.AddCrusadeResources">AddCrusadeResources</see>
     /// </summary>
+    [Implements(typeof(AddCrusadeResources))]
     public static ActionsBuilder AddCrusadeResources(
         this ActionsBuilder builder, KingdomResourcesAmount resources)
     {
@@ -690,6 +737,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Actions.ChangeTacticalMorale">ChangeTacticalMorale</see>
     /// </summary>
+    [Implements(typeof(ChangeTacticalMorale))]
     public static ActionsBuilder ChangeTacticalMorale(
         this ActionsBuilder builder, ContextValue value)
     {
@@ -707,6 +755,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     /// 
     /// <param name="percent">Percentage of squad units to kill as a float between 0.0 and 1.0.</param>
+    [Implements(typeof(ContextActionSquadUnitsKill))]
     public static ActionsBuilder KillSquadUnits(this ActionsBuilder builder, float percent)
     {
       var kill = ElementTool.Create<ContextActionSquadUnitsKill>();
@@ -722,6 +771,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <remarks>
     /// Use this to kill leader units from the caster's squad. Use <see cref="KillSquadUnits"/> for regular units.
     /// </remarks>
+    [Implements(typeof(ContextActionSquadUnitsKill))]
     public static ActionsBuilder KillSquadLeaders(
         this ActionsBuilder builder, ContextDiceValue count)
     {
@@ -736,6 +786,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// 
     /// <param name="unit"><see cref="BlueprintUnit"/></param>
     /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    [Implements(typeof(ContextActionSummonTacticalSquad))]
     public static ActionsBuilder SummonSquad(
         this ActionsBuilder builder,
         string unit,
@@ -757,6 +808,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
     /// </summary>
+    [Implements(typeof(ContextActionTacticalCombatDealDamage))]
     public static ActionsBuilder TacticalCombatDealDamage(
         this ActionsBuilder builder,
         DamageTypeDescription type,
@@ -784,6 +836,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatHealTarget"/>
     /// </summary>
+    [Implements(typeof(ContextActionTacticalCombatHealTarget))]
     public static ActionsBuilder TacticalCombatHeal(
         this ActionsBuilder builder,
         DiceType diceType = DiceType.D6,
@@ -793,6 +846,26 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       heal.DiceType = diceType;
       heal.RollsCount = diceRolls ?? heal.RollsCount;
       return builder.Add(heal);
+    }
+
+    //----- Auto Generated -----//
+
+    /// <summary>
+    /// Adds <see cref="KingdomIncreaseIncome"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(KingdomIncreaseIncome))]
+    public static ActionsBuilder AddKingdomIncreaseIncome(
+        this ActionsBuilder builder,
+        Int32 Bonus,
+        KingdomResource ResourceType)
+    {
+      builder.Validate(Bonus);
+      builder.Validate(ResourceType);
+      var element = ElementTool.Create<KingdomIncreaseIncome>();
+      element.Bonus = Bonus;
+      element.ResourceType = ResourceType;
+      return builder.Add(element);
     }
   }
 }

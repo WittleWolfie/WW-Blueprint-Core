@@ -1,8 +1,11 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Tutorial;
+using Kingmaker.Tutorial.Actions;
 
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
@@ -20,6 +23,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </summary>
     /// 
     /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
+    [Implements(typeof(ActionAchievementIncrementCounter))]
     public static ActionsBuilder IncrementAchievement(this ActionsBuilder builder, string achievement)
     {
       var increment = ElementTool.Create<ActionAchievementIncrementCounter>();
@@ -32,6 +36,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </summary>
     /// 
     /// <param name="achievement"><see cref="Kingmaker.Achievements.Blueprints.AchievementData">AchievementData</see></param>
+    [Implements(typeof(ActionAchievementUnlock))]
     public static ActionsBuilder UnlockAchievement(this ActionsBuilder builder, string achievement)
     {
       var unlock = ElementTool.Create<ActionAchievementUnlock>();
@@ -44,6 +49,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion">CreateCustomCompanion</see>
     /// </summary>
+    [Implements(typeof(CreateCustomCompanion))]
     public static ActionsBuilder CreateCustomCompanion(
         this ActionsBuilder builder,
         bool free = false,
@@ -60,11 +66,38 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent">CustomEvent</see>
     /// </summary>
+    [Implements(typeof(CustomEvent))]
     public static ActionsBuilder CustomEvent(this ActionsBuilder builder, string eventId)
     {
       var customEvent = ElementTool.Create<CustomEvent>();
       customEvent.EventId = eventId;
       return builder.Add(customEvent);
+    }
+
+    //----- Auto Generated -----//
+
+    /// <summary>
+    /// Adds <see cref="ShowNewTutorial"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Tutorial"><see cref="BlueprintTutorial"/></param>
+    [Generated]
+    [Implements(typeof(ShowNewTutorial))]
+    public static ActionsBuilder AddShowNewTutorial(
+        this ActionsBuilder builder,
+        string m_Tutorial,
+        TutorialContextDataEvaluator[] Evaluators)
+    {
+      builder.Validate(m_Tutorial);
+      foreach (var item in Evaluators)
+      {
+        builder.Validate(item);
+      }
+      var element = ElementTool.Create<ShowNewTutorial>();
+      element.m_Tutorial =
+          BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
+      element.Evaluators = Evaluators;
+      return builder.Add(element);
     }
   }
 }

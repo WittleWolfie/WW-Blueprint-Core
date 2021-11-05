@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
@@ -22,6 +23,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </summary>
     /// 
     /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    [Implements(typeof(CompleteEtude))]
     public static ActionsBuilder CompleteEtude(
         this ActionsBuilder builder, string etude, BlueprintEvaluator evaluator = null)
     {
@@ -40,6 +42,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </summary>
     /// 
     /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
+    [Implements(typeof(ChangeRomance))]
     public static ActionsBuilder ChangeRomance(
        this ActionsBuilder builder, string romance, IntEvaluator value)
     {
@@ -54,6 +57,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName">ChangeUnitName</see>
     /// </summary>
+    [Implements(typeof(ChangeUnitName))]
     public static ActionsBuilder ChangeUnitName(
         this ActionsBuilder builder,
         UnitEvaluator unit,
@@ -68,8 +72,9 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       changeName.AddToTheName = appendName;
       return builder.Add(changeName);
     }
-    
+
     /// <inheritdoc cref="ChangeUnitName"/>
+    [Implements(typeof(ChangeUnitName))]
     public static ActionsBuilder ResetUnitName(
         this ActionsBuilder builder, UnitEvaluator unit)
     {

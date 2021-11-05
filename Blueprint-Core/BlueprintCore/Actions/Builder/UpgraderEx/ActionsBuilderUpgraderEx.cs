@@ -1,10 +1,14 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.UpgraderEx
@@ -23,6 +27,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// 
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
+    [Implements(typeof(AddFactIfEtudePlaying))]
     public static ActionsBuilder AddFactIfEtudePlaying(
         this ActionsBuilder builder,
         AddFactIfEtudePlaying.TargetType target,
@@ -39,6 +44,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.FixKingdomSystemBuffsAndStats">FixKingdomSystemBuffsAndStats</see>
     /// </summary>
+    [Implements(typeof(FixKingdomSystemBuffsAndStats))]
     public static ActionsBuilder FixKingdomSystemBuffsAndStats(
         this ActionsBuilder builder,
         float? statPerFinances = null,
@@ -61,6 +67,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="ReenterScriptzone"/>
     /// </summary>
+    [Implements(typeof(ReenterScriptzone))]
     public static ActionsBuilder ReEnterScriptZone(this ActionsBuilder builder, EntityReference scriptZone)
     {
       var reEnter = ElementTool.Create<ReenterScriptzone>();
@@ -71,6 +78,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshCrusadeLogistic">RefreshCrusadeLogistic</see>
     /// </summary>
+    [Implements(typeof(RefreshCrusadeLogistic))]
     public static ActionsBuilder RefreshCrusadeLogistic(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RefreshCrusadeLogistic>());
@@ -79,6 +87,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshSettingsPreset">RefreshSettingsPreset</see>
     /// </summary>
+    [Implements(typeof(RefreshSettingsPreset))]
     public static ActionsBuilder RefreshSettingsPreset(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RefreshSettingsPreset>());
@@ -92,6 +101,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <param name="ignoreFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see>
     /// If the target has any of these facts, the fact will not be removed.
     /// </param>
+    [Implements(typeof(RemoveFact))]
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
         string fact,
@@ -108,6 +118,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.ResetMinDifficulty">ResetMinDifficulty</see>
     /// </summary>
+    [Implements(typeof(ResetMinDifficulty))]
     public static ActionsBuilder ResetMinDifficulty(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ResetMinDifficulty>());
@@ -119,6 +130,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// 
     /// <param name="addItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem">BlueprintItem</see></param>
     /// <param name="removeItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem">BlueprintItem</see></param>
+    [Implements(typeof(FixItemInInventory))]
     public static ActionsBuilder FixItemInInventory(
         this ActionsBuilder builder,
         string addItem = null,
@@ -135,6 +147,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RecreateOnLoad"/>
     /// </summary>
+    [Implements(typeof(RecreateOnLoad))]
     public static ActionsBuilder ReCreateOnLoad(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RecreateOnLoad>());
@@ -143,6 +156,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint">SetAlignmentFromBlueprint</see>
     /// </summary>
+    [Implements(typeof(SetAlignmentFromBlueprint))]
     public static ActionsBuilder SetAlignmentFromBlueprint(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SetAlignmentFromBlueprint>());
@@ -151,6 +165,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetHandsFromBlueprint">SetHandsFromBlueprint</see>
     /// </summary>
+    [Implements(typeof(SetHandsFromBlueprint))]
     public static ActionsBuilder SetHandsFromBlueprint(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SetHandsFromBlueprint>());
@@ -165,6 +180,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
     /// <param name="selection"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection">BlueprintFeatureSelection</see></param>
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    [Implements(typeof(AddFeatureFromProgression))]
     public static ActionsBuilder AddFeatureFromProgression(
         this ActionsBuilder builder,
         string feature,
@@ -189,6 +205,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
+    [Implements(typeof(RecheckEtude))]
     public static ActionsBuilder ReCheckEtude(
         this ActionsBuilder builder, string etude, bool redoAfterTrigger = false)
     {
@@ -201,6 +218,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RefreshAllArmyLeaders">RefreshAllArmyLeaders</see>
     /// </summary>
+    [Implements(typeof(RefreshAllArmyLeaders))]
     public static ActionsBuilder RefreshAllArmyLeaders(this ActionsBuilder builder, bool playerOnly = false)
     {
       var refresh = ElementTool.Create<RefreshAllArmyLeaders>();
@@ -216,6 +234,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <param name="progression"><see cref="Kingmaker.Blueprints.Classes.BlueprintProgression">BlueprintProgression</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    [Implements(typeof(RemoveFeatureFromProgression))]
     public static ActionsBuilder RemoveFeatureFromProgression(
         this ActionsBuilder builder,
         string feature,
@@ -243,6 +262,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <param name="newFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     /// <param name="progression"><see cref="Kingmaker.Blueprints.Classes.BlueprintProgression">BlueprintProgression</see></param>
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    [Implements(typeof(ReplaceFeature))]
     public static ActionsBuilder ReplaceFeature(
         this ActionsBuilder builder,
         string oldFeature,
@@ -263,6 +283,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RestartTacticalCombat">RestartTacticalCombat</see>
     /// </summary>
+    [Implements(typeof(RestartTacticalCombat))]
     public static ActionsBuilder RestartTacticalCombat(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RestartTacticalCombat>());
@@ -273,6 +294,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </summary>
     /// 
     /// <param name="table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable">BlueprintSharedVendorTable</see></param>
+    [Implements(typeof(SetSharedVendorTable))]
     public static ActionsBuilder SetSharedVendorTable(
         this ActionsBuilder builder, string table, UnitEvaluator unit)
     {
@@ -290,6 +312,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
+    [Implements(typeof(StartEtudeForced))]
     public static ActionsBuilder ForceStartEtude(this ActionsBuilder builder, string etude)
     {
       var startEtude = ElementTool.Create<StartEtudeForced>();
@@ -302,11 +325,65 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
+    [Implements(typeof(UnStartEtude))]
     public static ActionsBuilder UnStartEtude(this ActionsBuilder builder, string etude)
     {
       var unStartEtude = ElementTool.Create<UnStartEtude>();
       unStartEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       return builder.Add(unStartEtude);
+    }
+
+    //----- Auto Generated -----//
+
+    /// <summary>
+    /// Adds <see cref="SetRaceFromBlueprint"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetRaceFromBlueprint))]
+    public static ActionsBuilder AddSetRaceFromBlueprint(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<SetRaceFromBlueprint>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveSpell"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    [Implements(typeof(RemoveSpell))]
+    public static ActionsBuilder AddRemoveSpell(
+        this ActionsBuilder builder,
+        string m_Spell,
+        string m_Spellbook)
+    {
+      builder.Validate(m_Spell);
+      builder.Validate(m_Spellbook);
+      var element = ElementTool.Create<RemoveSpell>();
+      element.m_Spell =
+          BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
+      element.m_Spellbook =
+          BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RestoreClassFeature"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(RestoreClassFeature))]
+    public static ActionsBuilder AddRestoreClassFeature(
+        this ActionsBuilder builder,
+        string m_Feature)
+    {
+      builder.Validate(m_Feature);
+      var element = ElementTool.Create<RestoreClassFeature>();
+      element.m_Feature =
+          BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      return builder.Add(element);
     }
   }
 }

@@ -46,11 +46,12 @@ namespace BlueprintCoreGen
   /// </remarks>
   public static class TemplateProcessor
   {
-    private static readonly Regex Replace = new(@"\s*// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
-    private static readonly Regex Import = new(@"using [\w\.]+;", RegexOptions.Compiled);
-    private static readonly Regex Namespace = new(@"namespace [\w\.]+", RegexOptions.Compiled);
-    private static readonly Regex Generate = new(@"\s*// \[Generate\((.*)\)\]", RegexOptions.Compiled);
-    private static readonly Regex MethodAttribute = new(@"\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
+    private static readonly Regex Replace = new(@"^\s*// \[Replace\(""(.*)"", ""(.*)""\)\]", RegexOptions.Compiled);
+    private static readonly Regex Import = new(@"^using [\w\.]+;", RegexOptions.Compiled);
+    private static readonly Regex Namespace = new(@"^namespace [\w\.]+", RegexOptions.Compiled);
+    private static readonly Regex Generate = new(@"^\s*// \[Generate\((.*)\)\]", RegexOptions.Compiled);
+    private static readonly Regex MethodAttribute =
+        new(@"^\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
     public static readonly List<Template> ActionTemplates = new();
 

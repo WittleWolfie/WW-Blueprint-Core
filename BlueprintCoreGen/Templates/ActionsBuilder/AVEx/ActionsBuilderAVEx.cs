@@ -103,7 +103,6 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
-
     [Implements(typeof(ContextActionSpawnFx))]
     public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink prefab)
     {
