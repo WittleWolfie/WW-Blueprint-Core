@@ -2,6 +2,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Components
