@@ -74,9 +74,7 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     //----- Auto Generated -----//
 
     // [Generate(Kingmaker.Tutorial.Actions.ShowNewTutorial)]
-
     // [Generate(Kingmaker.UnitLogic.FactLogic.AddVendorItemsAction)]
-
     // [Generate(Kingmaker.UnitLogic.FactLogic.ClearVendorTable)]
   }
 }

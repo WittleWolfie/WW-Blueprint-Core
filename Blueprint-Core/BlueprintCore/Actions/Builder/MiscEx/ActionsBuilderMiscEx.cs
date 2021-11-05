@@ -103,7 +103,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       return builder.Add(element);
     }
 
-
     /// <summary>
     /// Adds <see cref="AddVendorItemsAction"/> (Auto Generated)
     /// </summary>
@@ -123,7 +122,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
           BlueprintTool.GetRef<BlueprintUnitLootReference>(m_VendorTable);
       return builder.Add(element);
     }
-
 
     /// <summary>
     /// Adds <see cref="ClearVendorTable"/> (Auto Generated)
