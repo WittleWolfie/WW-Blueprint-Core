@@ -3,10 +3,12 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
+using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Armies.TacticalCombat.Grid;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
@@ -19,6 +21,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Armies.Actions;
 using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
@@ -893,7 +896,23 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_MaxValueDelta = m_MaxValueDelta;
       return builder.Add(element);
     }
-    //// [Generate(Kingmaker.Kingdom.Flags.KingdomAddMoraleFlags)]
+
+    /// <summary>
+    /// Adds <see cref="KingdomAddMoraleFlags"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_NewFlags"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    [Generated]
+    [Implements(typeof(KingdomAddMoraleFlags))]
+    public static ActionsBuilder AddKingdomAddMoraleFlags(
+        this ActionsBuilder builder,
+        string[] m_NewFlags)
+    {
+      var element = ElementTool.Create<KingdomAddMoraleFlags>();
+      element.m_NewFlags =
+          m_NewFlags.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="KingdomFlagIncrement"/> (Auto Generated)
@@ -941,7 +960,23 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       return builder.Add(ElementTool.Create<KingdomMoraleUpdateIncome>());
     }
-    //// [Generate(Kingmaker.Kingdom.Flags.KingdomRemoveMoraleFlags)]
+
+    /// <summary>
+    /// Adds <see cref="KingdomRemoveMoraleFlags"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_FlagsToRemove"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    [Generated]
+    [Implements(typeof(KingdomRemoveMoraleFlags))]
+    public static ActionsBuilder AddKingdomRemoveMoraleFlags(
+        this ActionsBuilder builder,
+        string[] m_FlagsToRemove)
+    {
+      var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
+      element.m_FlagsToRemove =
+          m_FlagsToRemove.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="KingdomSetFlagState"/> (Auto Generated)
@@ -1015,7 +1050,42 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_Weight = m_Weight;
       return builder.Add(element);
     }
-    //// [Generate(Kingmaker.Kingdom.Armies.Actions.AddTacticalArmyFeature)]
+
+    /// <summary>
+    /// Adds <see cref="AddTacticalArmyFeature"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ArmyUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="m_Features"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(AddTacticalArmyFeature))]
+    public static ActionsBuilder AddAddTacticalArmyFeature(
+        this ActionsBuilder builder,
+        MercenariesIncludeOption m_MercenariesFilter,
+        Boolean m_ByTag,
+        ArmyProperties m_ArmyTag,
+        Boolean m_ByUnits,
+        string[] m_ArmyUnits,
+        string[] m_Features,
+        ArmyFaction m_Faction)
+    {
+      builder.Validate(m_MercenariesFilter);
+      builder.Validate(m_ByTag);
+      builder.Validate(m_ArmyTag);
+      builder.Validate(m_ByUnits);
+      builder.Validate(m_Faction);
+      var element = ElementTool.Create<AddTacticalArmyFeature>();
+      element.m_MercenariesFilter = m_MercenariesFilter;
+      element.m_ByTag = m_ByTag;
+      element.m_ArmyTag = m_ArmyTag;
+      element.m_ByUnits = m_ByUnits;
+      element.m_ArmyUnits =
+          m_ArmyUnits.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
+      element.m_Features =
+          m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
+      element.m_Faction = m_Faction;
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="ChangeMercenaryWeight"/> (Auto Generated)

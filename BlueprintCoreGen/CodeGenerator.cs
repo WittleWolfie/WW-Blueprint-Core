@@ -77,24 +77,25 @@ namespace BlueprintCoreGen
           }
           else
           { 
-            method.AddImport(blueprintType?.blueprint);
-            method.AddImport(blueprintType?.reference);
+            method.AddImport(blueprintType.Type);
+            method.AddImport(blueprintType.ReferenceType);
             paramComments.Add(
-                $"{Tabs(2)}/// <param name=\"{field.Name}\"><see cref=\"{blueprintType?.blueprint.Name}\"/></param>");
+                $"{Tabs(2)}/// <param name=\"{field.Name}\"><see cref=\"{blueprintType.Type.Name}\"/></param>");
 
             var refTypeName =
-                blueprintType?.reference.DeclaringType is null
-                    ? blueprintType?.reference.Name
-                    : $"{blueprintType?.reference.DeclaringType.Name}.{blueprintType?.reference.Name}";
-            if (blueprintType.Value.isList)
+                blueprintType.ReferenceType.DeclaringType is null
+                    ? blueprintType.ReferenceType.Name
+                    : $"{blueprintType.ReferenceType.DeclaringType.Name}.{blueprintType.ReferenceType.Name}";
+            if (blueprintType.IsList || blueprintType.IsArray)
             {
               // Using Linq so make sure it's imported
               method.AddImport(typeof(Enumerable));
 
               declaration.Add($"{Tabs(4)}string[] {field.Name},");
 
+              var toEnumerable = blueprintType.IsList ? "ToList()" : "ToArray()";
               fieldAssignment.Add($"{Tabs(3)}element.{field.Name} =");
-              fieldAssignment.Add($"{Tabs(5)}{field.Name}.Select(bp => BlueprintTool.GetRef<{refTypeName}>(bp)).ToList();");
+              fieldAssignment.Add($"{Tabs(5)}{field.Name}.Select(bp => BlueprintTool.GetRef<{refTypeName}>(bp)).{toEnumerable};");
             }
             else
             {
@@ -173,18 +174,36 @@ namespace BlueprintCoreGen
       return new string(' ', 2*count);
     }
 
-    private static (Type blueprint, Type reference, bool isList)? GetBlueprintType(Type type)
+    private static BlueprintType GetBlueprintType(Type type)
     {
       Type enumerableType = GetEnumerableType(type);
       if (enumerableType != null && enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase)))
       {
-        return (GetBlueprintTypeFromReferenceType(enumerableType), enumerableType, true);
+        if (IsList(type))
+        {
+          return BlueprintType.ForList(GetBlueprintTypeFromReferenceType(enumerableType), enumerableType);
+        }
+        return BlueprintType.ForArray(GetBlueprintTypeFromReferenceType(enumerableType), enumerableType);
       }
       else if (type.IsSubclassOf(typeof(BlueprintReferenceBase)))
       {
-        return (GetBlueprintTypeFromReferenceType(type), type, false);
+        return new BlueprintType(GetBlueprintTypeFromReferenceType(type), type);
       }
       return null;
+    }
+
+    private static bool IsList(Type type)
+    {
+      var baseType = type;
+      while (baseType is not null)
+      {
+        if (baseType.IsGenericType && baseType.GetGenericTypeDefinition() == typeof(List<>))
+        {
+          return true;
+        }
+        baseType = baseType.BaseType;
+      }
+      return false;
     }
 
     private static Type GetBlueprintTypeFromReferenceType(Type type)
@@ -202,6 +221,30 @@ namespace BlueprintCoreGen
       return type.GetInterfaces()
           .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
           ?.GetGenericArguments()[0];
+    }
+
+    private class BlueprintType
+    {
+      public readonly Type Type;
+      public readonly Type ReferenceType;
+      public bool IsList { get; private set; }
+      public bool IsArray { get; private set; }
+
+      public BlueprintType(Type type, Type referenceType)
+      {
+        Type = type;
+        ReferenceType = referenceType;
+      }
+
+      public static BlueprintType ForList(Type type, Type referenceType)
+      {
+        return new BlueprintType(type, referenceType) { IsList = true };
+      }
+
+      public static BlueprintType ForArray(Type type, Type referenceType)
+      {
+        return new BlueprintType(type, referenceType) { IsArray = true };
+      }
     }
   }
 
