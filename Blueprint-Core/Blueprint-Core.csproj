@@ -36,6 +36,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="articles\changes.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="articles\toc.yml" />
     <None Include="toc.yml" />
   </ItemGroup>
