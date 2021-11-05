@@ -847,5 +847,9 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
       heal.RollsCount = diceRolls ?? heal.RollsCount;
       return builder.Add(heal);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Kingdom.Actions.KingdomIncreaseIncome)]
   }
 }
