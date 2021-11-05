@@ -8,7 +8,6 @@ namespace BlueprintCoreGen
 {
   public static class CodeGenerator
   {
-    // TODO: Need to generate unit test!
     public static Method CreateMethod(Type type)
     {
       if (type.IsSubclassOf(typeof(GameAction)))
