@@ -1,4 +1,6 @@
-﻿using Kingmaker.Blueprints;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Conditions.Builder;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
@@ -53,8 +55,25 @@ namespace BlueprintCoreGen
           var blueprintType = GetBlueprintType(fieldType);
           if (blueprintType == null)
           {
-            declaration.Add($"{Tabs(4)}{typeName} {field.Name},");
-            fieldAssignment.Add($"{Tabs(3)}element.{field.Name} = {field.Name};");
+            if (fieldType == typeof(ActionList))
+            {
+              method.AddImport(typeof(ActionsBuilder));
+
+              declaration.Add($"{Tabs(4)}ActionsBuilder {field.Name},");
+              fieldAssignment.Add($"{Tabs(3)}element.{field.Name} = {field.Name}.Build();");
+            }
+            else if (fieldType == typeof(ConditionsChecker))
+            {
+              method.AddImport(typeof(ConditionsBuilder));
+
+              declaration.Add($"{Tabs(4)}ConditionsBuilder {field.Name},");
+              fieldAssignment.Add($"{Tabs(3)}element.{field.Name} = {field.Name}.Build();");
+            }
+            else
+            {
+              declaration.Add($"{Tabs(4)}{typeName} {field.Name},");
+              fieldAssignment.Add($"{Tabs(3)}element.{field.Name} = {field.Name};");
+            }
           }
           else
           { 

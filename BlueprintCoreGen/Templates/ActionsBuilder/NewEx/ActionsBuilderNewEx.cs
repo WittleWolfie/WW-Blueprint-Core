@@ -1,6 +1,3 @@
-// [Replace("// ", "")]
-// using BlueprintCore.Actions.Builder;
-
 namespace BlueprintCoreGen.Actions.Builder.NewEx
 {
   /// <summary>

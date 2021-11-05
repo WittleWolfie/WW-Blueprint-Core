@@ -1,5 +1,3 @@
-// [Replace("// ", "")]
-// using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
