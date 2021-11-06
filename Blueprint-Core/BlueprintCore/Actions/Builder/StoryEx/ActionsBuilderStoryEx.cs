@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
@@ -685,56 +686,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<RomanceSetMinimum>();
       element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
       element.ValueEvaluator = ValueEvaluator;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ScriptZoneActivate"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ScriptZoneActivate))]
-    public static ActionsBuilder AddScriptZoneActivate(
-        this ActionsBuilder builder,
-        EntityReference ScriptZone)
-    {
-      builder.Validate(ScriptZone);
-      
-      var element = ElementTool.Create<ScriptZoneActivate>();
-      element.ScriptZone = ScriptZone;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ScriptZoneDeactivate"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ScriptZoneDeactivate))]
-    public static ActionsBuilder AddScriptZoneDeactivate(
-        this ActionsBuilder builder,
-        EntityReference ScriptZone)
-    {
-      builder.Validate(ScriptZone);
-      
-      var element = ElementTool.Create<ScriptZoneDeactivate>();
-      element.ScriptZone = ScriptZone;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ScripZoneUnits"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ScripZoneUnits))]
-    public static ActionsBuilder AddScripZoneUnits(
-        this ActionsBuilder builder,
-        EntityReference ScriptZone,
-        ActionsBuilder Actions)
-    {
-      builder.Validate(ScriptZone);
-      
-      var element = ElementTool.Create<ScripZoneUnits>();
-      element.ScriptZone = ScriptZone;
-      element.Actions = Actions.Build();
       return builder.Add(element);
     }
 

@@ -1,4 +1,6 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Blueprints;
@@ -19,6 +21,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.BasicEx
 {
@@ -984,6 +987,64 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="Spawn"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(Spawn))]
+    public static ActionsBuilder AddSpawn(
+        this ActionsBuilder builder,
+        EntityReference[] Spawners,
+        ActionsBuilder ActionsOnSpawn)
+    {
+      foreach (var item in Spawners)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<Spawn>();
+      element.Spawners = Spawners;
+      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpawnBySummonPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Pool"><see cref="BlueprintSummonPool"/></param>
+    [Generated]
+    [Implements(typeof(SpawnBySummonPool))]
+    public static ActionsBuilder AddSpawnBySummonPool(
+        this ActionsBuilder builder,
+        string m_Pool,
+        ActionsBuilder ActionsOnSpawn)
+    {
+      
+      var element = ElementTool.Create<SpawnBySummonPool>();
+      element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_Pool);
+      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpawnByUnitGroup"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpawnByUnitGroup))]
+    public static ActionsBuilder AddSpawnByUnitGroup(
+        this ActionsBuilder builder,
+        EntityReference Group,
+        ActionsBuilder ActionsOnSpawn)
+    {
+      builder.Validate(Group);
+      
+      var element = ElementTool.Create<SpawnByUnitGroup>();
+      element.Group = Group;
+      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="StatusEffect"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -1002,6 +1063,89 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Unit = Unit;
       element.Condition = Condition;
       element.Remove = Remove;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Summon"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    [Generated]
+    [Implements(typeof(Summon))]
+    public static ActionsBuilder AddSummon(
+        this ActionsBuilder builder,
+        string m_Unit,
+        string m_SummonPool,
+        Boolean GroupBySummonPool,
+        TransformEvaluator Transform,
+        Vector3 Offset,
+        ActionsBuilder OnSummmon)
+    {
+      builder.Validate(GroupBySummonPool);
+      builder.Validate(Transform);
+      builder.Validate(Offset);
+      
+      var element = ElementTool.Create<Summon>();
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.GroupBySummonPool = GroupBySummonPool;
+      element.Transform = Transform;
+      element.Offset = Offset;
+      element.OnSummmon = OnSummmon.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SummonPoolUnits"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    [Generated]
+    [Implements(typeof(SummonPoolUnits))]
+    public static ActionsBuilder AddSummonPoolUnits(
+        this ActionsBuilder builder,
+        string m_SummonPool,
+        ConditionsBuilder Conditions,
+        ActionsBuilder Actions)
+    {
+      
+      var element = ElementTool.Create<SummonPoolUnits>();
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.Conditions = Conditions.Build();
+      element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SummonUnitCopy"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_CopyBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    [Generated]
+    [Implements(typeof(SummonUnitCopy))]
+    public static ActionsBuilder AddSummonUnitCopy(
+        this ActionsBuilder builder,
+        UnitEvaluator CopyFrom,
+        LocatorEvaluator Locator,
+        string m_CopyBlueprint,
+        string m_SummonPool,
+        Boolean DoNotCreateItems,
+        ActionsBuilder OnSummon)
+    {
+      builder.Validate(CopyFrom);
+      builder.Validate(Locator);
+      builder.Validate(DoNotCreateItems);
+      
+      var element = ElementTool.Create<SummonUnitCopy>();
+      element.CopyFrom = CopyFrom;
+      element.Locator = Locator;
+      element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CopyBlueprint);
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.DoNotCreateItems = DoNotCreateItems;
+      element.OnSummon = OnSummon.Build();
       return builder.Add(element);
     }
 

@@ -513,7 +513,13 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RollPartySkillCheck)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RollSkillCheck)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionHolder)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Spawn)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnBySummonPool)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnByUnitGroup)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Summon)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SummonPoolUnits)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SummonUnitCopy)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchActivatableAbility)]
 
   }

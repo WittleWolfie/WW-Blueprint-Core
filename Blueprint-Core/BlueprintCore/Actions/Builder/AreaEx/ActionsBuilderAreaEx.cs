@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
@@ -453,6 +454,116 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       var element = ElementTool.Create<RevealGlobalMap>();
       element.Points = Points.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToArray();
       element.RevealEdges = RevealEdges;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScriptZoneActivate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScriptZoneActivate))]
+    public static ActionsBuilder AddScriptZoneActivate(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScriptZoneActivate>();
+      element.ScriptZone = ScriptZone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScriptZoneDeactivate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScriptZoneDeactivate))]
+    public static ActionsBuilder AddScriptZoneDeactivate(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScriptZoneDeactivate>();
+      element.ScriptZone = ScriptZone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScripZoneUnits"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScripZoneUnits))]
+    public static ActionsBuilder AddScripZoneUnits(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone,
+        ActionsBuilder Actions)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScripZoneUnits>();
+      element.ScriptZone = ScriptZone;
+      element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetDeviceState"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetDeviceState))]
+    public static ActionsBuilder AddSetDeviceState(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Device,
+        IntEvaluator State)
+    {
+      builder.Validate(Device);
+      builder.Validate(State);
+      
+      var element = ElementTool.Create<SetDeviceState>();
+      element.Device = Device;
+      element.State = State;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetDeviceTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetDeviceTrigger))]
+    public static ActionsBuilder AddSetDeviceTrigger(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Device,
+        String Trigger)
+    {
+      builder.Validate(Device);
+      foreach (var item in Trigger)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<SetDeviceTrigger>();
+      element.Device = Device;
+      element.Trigger = Trigger;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetDisableDevice"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetDisableDevice))]
+    public static ActionsBuilder AddSetDisableDevice(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject,
+        Int32 OverrideDC)
+    {
+      builder.Validate(MapObject);
+      builder.Validate(OverrideDC);
+      
+      var element = ElementTool.Create<SetDisableDevice>();
+      element.MapObject = MapObject;
+      element.OverrideDC = OverrideDC;
       return builder.Add(element);
     }
 
