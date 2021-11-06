@@ -6,6 +6,7 @@
     <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <BuildDocFx Condition=" '$(Configuration)'=='Debug' ">false</BuildDocFx>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>0.4.1</Version>
     <Authors>WittleWolfie</Authors>
