@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BlueprintCoreGen.CodeGen;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -149,9 +150,9 @@ namespace BlueprintCoreGen
     /// </summary>
     public void AddMethod(Method method)
     {
-      Imports.AddRange(method.Imports);
+      Imports.AddRange(method.GetImports());
       ClassText.AppendLine();
-      ClassText.Append(method.Text);
+      ClassText.Append(method.GetText());
     }
 
     /// <summary>

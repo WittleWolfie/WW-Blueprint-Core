@@ -84,5 +84,13 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
       changeName.ReturnTheOldName = true;
       return builder.Add(changeName);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnmarkAnswersSelected)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Unrecruit)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudeProgressBar)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudes)]
   }
 }
