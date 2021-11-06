@@ -1,8 +1,13 @@
 ﻿# Changelog
 
+## v0.6.0 Release
+
+* Completed ConditionsBuilder API using auto-generated methods
+* Moved SwitchDualCompanion from StoryEx to BasicEx to mirror ContextActionSwitchDualCompanion
+
 ## v0.5.0 Release
 
-* Completed ActionsBuilder API using auto-generated functions
+* Completed ActionsBuilder API using auto-generated methods
 
 ## v0.4.1 Release
 

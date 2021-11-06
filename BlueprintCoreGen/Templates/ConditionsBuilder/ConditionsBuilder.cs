@@ -60,6 +60,12 @@ namespace BlueprintCoreGen.Conditions.Builder
   ///   </description>
   /// </item>
   /// <item>
+  ///   <term><see cref="NewEx.ConditionsBuilderMiscEx">MiscEx</see></term>
+  ///   <description>
+  ///     Conditions without a better extension container such as game difficulty.
+  ///   </description>
+  /// </item>
+  /// <item>
   ///   <term><see cref="NewEx.ConditionsBuilderNewEx">NewEx</see></term>
   ///   <description>
   ///     Conditions defined in BlueprintCore and not available in the base game.

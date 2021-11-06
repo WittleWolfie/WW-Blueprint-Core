@@ -133,7 +133,6 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchAzataIsland)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchChapter)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDoor)]
-    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchFaction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchInteraction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchRoaming)]
