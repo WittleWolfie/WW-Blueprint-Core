@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
@@ -164,6 +165,28 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="IsListContainsItem"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="List"><see cref="BlueprintItemsList"/></param>
+    [Generated]
+    [Implements(typeof(IsListContainsItem))]
+    public static ConditionsBuilder AddIsListContainsItem(
+        this ConditionsBuilder builder,
+        ItemEvaluator Item,
+        string List,
+        bool negate = false)
+    {
+      builder.Validate(Item);
+      
+      var element = ElementTool.Create<IsListContainsItem>();
+      element.Item = Item;
+      element.List = BlueprintTool.GetRef<BlueprintItemsList.Reference>(List);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsRespecAllowed"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -174,6 +197,24 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     {
       
       var element = ElementTool.Create<IsRespecAllowed>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsUnitCustomCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsUnitCustomCompanion))]
+    public static ConditionsBuilder AddIsUnitCustomCompanion(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<IsUnitCustomCompanion>();
+      element.Unit = Unit;
       element.Not = negate;
       return builder.Add(element);
     }

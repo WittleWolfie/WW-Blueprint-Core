@@ -96,6 +96,30 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="IsLootEmpty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsLootEmpty))]
+    public static ConditionsBuilder AddIsLootEmpty(
+        this ConditionsBuilder builder,
+        EntityReference LootObject,
+        MapObjectEvaluator MapObject,
+        Boolean EvaluateMapObject,
+        bool negate = false)
+    {
+      builder.Validate(LootObject);
+      builder.Validate(MapObject);
+      builder.Validate(EvaluateMapObject);
+      
+      var element = ElementTool.Create<IsLootEmpty>();
+      element.LootObject = LootObject;
+      element.MapObject = MapObject;
+      element.EvaluateMapObject = EvaluateMapObject;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsPartyInNaturalSetting"/> (Auto Generated)
     /// </summary>
     [Generated]

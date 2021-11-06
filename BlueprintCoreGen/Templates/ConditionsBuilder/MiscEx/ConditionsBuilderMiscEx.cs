@@ -17,7 +17,9 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForRespec)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsListContainsItem)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsRespecAllowed)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree)]
     // [Generate(Kingmaker.ElementsSystem.IsleStateCondition)]
 

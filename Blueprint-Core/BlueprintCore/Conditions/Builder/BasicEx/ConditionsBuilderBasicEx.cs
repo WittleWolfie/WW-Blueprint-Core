@@ -361,6 +361,100 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="IsUnitLevelLessThan"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsUnitLevelLessThan))]
+    public static ConditionsBuilder AddIsUnitLevelLessThan(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        Int32 Level,
+        Boolean CheckExperience,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Level);
+      builder.Validate(CheckExperience);
+      
+      var element = ElementTool.Create<IsUnitLevelLessThan>();
+      element.Unit = Unit;
+      element.Level = Level;
+      element.CheckExperience = CheckExperience;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ItemBlueprint"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Blueprint"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(ItemBlueprint))]
+    public static ConditionsBuilder AddItemBlueprint(
+        this ConditionsBuilder builder,
+        ItemEvaluator Item,
+        string Blueprint,
+        bool negate = false)
+    {
+      builder.Validate(Item);
+      
+      var element = ElementTool.Create<ItemBlueprint>();
+      element.Item = Item;
+      element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(Blueprint);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ItemFromCollectionCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ItemFromCollectionCondition))]
+    public static ConditionsBuilder AddItemFromCollectionCondition(
+        this ConditionsBuilder builder,
+        ItemsCollectionEvaluator Items,
+        Boolean Any,
+        ConditionsBuilder Condition,
+        bool negate = false)
+    {
+      builder.Validate(Items);
+      builder.Validate(Any);
+      
+      var element = ElementTool.Create<ItemFromCollectionCondition>();
+      element.Items = Items;
+      element.Any = Any;
+      element.Condition = Condition.Build();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ItemsEnough"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ItemToCheck"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(ItemsEnough))]
+    public static ConditionsBuilder AddItemsEnough(
+        this ConditionsBuilder builder,
+        Boolean Money,
+        string m_ItemToCheck,
+        Int32 Quantity,
+        bool negate = false)
+    {
+      builder.Validate(Money);
+      builder.Validate(Quantity);
+      
+      var element = ElementTool.Create<ItemsEnough>();
+      element.Money = Money;
+      element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToCheck);
+      element.Quantity = Quantity;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="PartyCanUseAbility"/> (Auto Generated)
     /// </summary>
     [Generated]

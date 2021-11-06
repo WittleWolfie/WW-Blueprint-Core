@@ -13,6 +13,7 @@
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.InCapital)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.AreaVisited)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CurrentAreaIs)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsLootEmpty)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsPartyInNaturalSetting)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.LocationRevealed)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.MapObjectDestroyed)]
