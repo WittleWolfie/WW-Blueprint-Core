@@ -218,6 +218,58 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGlobalMapTeleport
   nameWithType: ActionsBuilderAreaEx.AddGlobalMapTeleport
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  name: AddMarkLocationClosed(ActionsBuilder, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkLocationClosed_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean)
+  nameWithType: ActionsBuilderAreaEx.AddMarkLocationClosed(ActionsBuilder, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed*
+  name: AddMarkLocationClosed
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkLocationClosed_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationClosed
+  nameWithType: ActionsBuilderAreaEx.AddMarkLocationClosed
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  name: AddMarkLocationExplored(ActionsBuilder, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkLocationExplored_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean)
+  nameWithType: ActionsBuilderAreaEx.AddMarkLocationExplored(ActionsBuilder, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored*
+  name: AddMarkLocationExplored
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkLocationExplored_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkLocationExplored
+  nameWithType: ActionsBuilderAreaEx.AddMarkLocationExplored
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)
+  name: AddMarkOnLocalMap(ActionsBuilder, MapObjectEvaluator, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkOnLocalMap_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.MapObjectEvaluator, System.Boolean)
+  nameWithType: ActionsBuilderAreaEx.AddMarkOnLocalMap(ActionsBuilder, MapObjectEvaluator, Boolean)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap*
+  name: AddMarkOnLocalMap
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddMarkOnLocalMap_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddMarkOnLocalMap
+  nameWithType: ActionsBuilderAreaEx.AddMarkOnLocalMap
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddRemoveCampingEncounter(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddRemoveCampingEncounter_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderAreaEx.AddRemoveCampingEncounter(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter*
+  name: AddRemoveCampingEncounter
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddRemoveCampingEncounter_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddRemoveCampingEncounter
+  nameWithType: ActionsBuilderAreaEx.AddRemoveCampingEncounter
 - uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ChangeAreaEntrance(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
   name: ChangeAreaEntrance(ActionsBuilder, String, String)
   href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ChangeAreaEntrance_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
@@ -360,6 +412,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddDialogNotification
   nameWithType: ActionsBuilderAVEx.AddDialogNotification
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)
+  name: AddOverrideRainIntesity(ActionsBuilder, Single, Single)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddOverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder, System.Single, System.Single)
+  nameWithType: ActionsBuilderAVEx.AddOverrideRainIntesity(ActionsBuilder, Single, Single)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity*
+  name: AddOverrideRainIntesity
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddOverrideRainIntesity_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity
+  nameWithType: ActionsBuilderAVEx.AddOverrideRainIntesity
 - uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)
   name: AddPlay2DSound(ActionsBuilder, String, Boolean, Boolean)
   href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_
@@ -739,6 +804,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead
   nameWithType: ActionsBuilderBasicEx.AddRaiseDead
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
+  name: AddRemoveDeathDoor(ActionsBuilder, UnitEvaluator)
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddRemoveDeathDoor_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_
+  commentId: M:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator)
+  nameWithType: ActionsBuilderBasicEx.AddRemoveDeathDoor(ActionsBuilder, UnitEvaluator)
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor*
+  name: AddRemoveDeathDoor
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddRemoveDeathDoor_
+  commentId: Overload:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRemoveDeathDoor
+  nameWithType: ActionsBuilderBasicEx.AddRemoveDeathDoor
 - uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddUnitToGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)
   name: AddUnitToGroup(ActionsBuilder, UnitEvaluator, UnitEvaluator)
   href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddUnitToGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_
@@ -2673,6 +2751,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddDecreaseRecruitsPool
   nameWithType: ActionsBuilderKingdomEx.AddDecreaseRecruitsPool
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddEnterKingdomInterface(ActionsBuilder, String, ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddEnterKingdomInterface_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderKingdomEx.AddEnterKingdomInterface(ActionsBuilder, String, ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface*
+  name: AddEnterKingdomInterface
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddEnterKingdomInterface_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddEnterKingdomInterface
+  nameWithType: ActionsBuilderKingdomEx.AddEnterKingdomInterface
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddExchangeRecruits(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Int32,System.Single,System.String,System.String)
   name: AddExchangeRecruits(ActionsBuilder, Int32, Int32, Single, String, String)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddExchangeRecruits_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_System_Int32_System_Single_System_String_System_String_
@@ -3377,6 +3468,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveCrusadeResources
   nameWithType: ActionsBuilderKingdomEx.AddRemoveCrusadeResources
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Armies.Blueprints.ArmyType)
+  name: AddRemoveDemonArmies(ActionsBuilder, String, ArmyType)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveDemonArmies_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Armies_Blueprints_ArmyType_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Armies.Blueprints.ArmyType)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, Kingmaker.Armies.Blueprints.ArmyType)
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveDemonArmies(ActionsBuilder, String, ArmyType)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies*
+  name: AddRemoveDemonArmies
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveDemonArmies_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveDemonArmies
+  nameWithType: ActionsBuilderKingdomEx.AddRemoveDemonArmies
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddRemoveMercenaryFromPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
   name: AddRemoveMercenaryFromPool(ActionsBuilder, String)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddRemoveMercenaryFromPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
@@ -4102,6 +4206,35 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver
   nameWithType: ActionsBuilderMiscEx.AddGameOver
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[])
+  name: AddRemoveAllAreasFromSave(ActionsBuilder, String[])
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveAllAreasFromSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[])
+  name.vb: AddRemoveAllAreasFromSave(ActionsBuilder, String())
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(BlueprintCore.Actions.Builder.ActionsBuilder, System.String[])
+  fullName.vb: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(BlueprintCore.Actions.Builder.ActionsBuilder, System.String())
+  nameWithType: ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(ActionsBuilder, String[])
+  nameWithType.vb: ActionsBuilderMiscEx.AddRemoveAllAreasFromSave(ActionsBuilder, String())
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave*
+  name: AddRemoveAllAreasFromSave
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveAllAreasFromSave_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAllAreasFromSave
+  nameWithType: ActionsBuilderMiscEx.AddRemoveAllAreasFromSave
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  name: AddRemoveAreaFromSave(ActionsBuilder, String, String)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveAreaFromSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String)
+  nameWithType: ActionsBuilderMiscEx.AddRemoveAreaFromSave(ActionsBuilder, String, String)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave*
+  name: AddRemoveAreaFromSave
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveAreaFromSave_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveAreaFromSave
+  nameWithType: ActionsBuilderMiscEx.AddRemoveAreaFromSave
 - uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])
   name: AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])
   href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___
@@ -4236,6 +4369,32 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance
   nameWithType: ActionsBuilderStoryEx.AddLockRomance
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  name: AddMoveAzataIslandToLocation(ActionsBuilder, String, String)
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddMoveAzataIslandToLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String)
+  nameWithType: ActionsBuilderStoryEx.AddMoveAzataIslandToLocation(ActionsBuilder, String, String)
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation*
+  name: AddMoveAzataIslandToLocation
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddMoveAzataIslandToLocation_
+  commentId: Overload:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToLocation
+  nameWithType: ActionsBuilderStoryEx.AddMoveAzataIslandToLocation
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddMoveAzataIslandToNearestCrossroad(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddMoveAzataIslandToNearestCrossroad_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad*
+  name: AddMoveAzataIslandToNearestCrossroad
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddMoveAzataIslandToNearestCrossroad_
+  commentId: Overload:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad
+  nameWithType: ActionsBuilderStoryEx.AddMoveAzataIslandToNearestCrossroad
 - uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddUnmarkAnswersSelected(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[])
   name: AddUnmarkAnswersSelected(ActionsBuilder, String[])
   href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddUnmarkAnswersSelected_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___
