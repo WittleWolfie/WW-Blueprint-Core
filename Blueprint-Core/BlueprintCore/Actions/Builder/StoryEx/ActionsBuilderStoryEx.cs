@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
+using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
@@ -166,6 +167,43 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<LockRomance>();
       element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MoveAzataIslandToLocation"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(MoveAzataIslandToLocation))]
+    public static ActionsBuilder AddMoveAzataIslandToLocation(
+        this ActionsBuilder builder,
+        string m_GlobalMap,
+        string m_Location)
+    {
+      
+      var element = ElementTool.Create<MoveAzataIslandToLocation>();
+      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MoveAzataIslandToNearestCrossroad"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
+    [Generated]
+    [Implements(typeof(MoveAzataIslandToNearestCrossroad))]
+    public static ActionsBuilder AddMoveAzataIslandToNearestCrossroad(
+        this ActionsBuilder builder,
+        string m_GlobalMap)
+    {
+      
+      var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
+      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
       return builder.Add(element);
     }
 
