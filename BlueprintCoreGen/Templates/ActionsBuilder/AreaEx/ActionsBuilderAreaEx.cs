@@ -149,6 +149,7 @@ namespace BlueprintCoreGen.Actions.Builder.AreaEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveAreaFromSave)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveCampingEncounter)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ResetLocationPerceptionCheck)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockCookingRecipe)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockLocation)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockMapEdge)]
     // [Generate(Kingmaker.ElementsSystem.GameActionSetIsleLock)]

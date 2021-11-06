@@ -376,6 +376,23 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="UnlockCookingRecipe"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Recipe"><see cref="BlueprintCookingRecipe"/></param>
+    [Generated]
+    [Implements(typeof(UnlockCookingRecipe))]
+    public static ActionsBuilder AddUnlockCookingRecipe(
+        this ActionsBuilder builder,
+        string m_Recipe)
+    {
+      
+      var element = ElementTool.Create<UnlockCookingRecipe>();
+      element.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(m_Recipe);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnlockLocation"/> (Auto Generated)
     /// </summary>
     ///

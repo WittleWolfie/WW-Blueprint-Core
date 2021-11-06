@@ -280,5 +280,76 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.Parameters = Parameters;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="StopCustomMusic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StopCustomMusic))]
+    public static ActionsBuilder AddStopCustomMusic(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<StopCustomMusic>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="StopCutscene"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Cutscene"><see cref="Cutscene"/></param>
+    [Generated]
+    [Implements(typeof(StopCutscene))]
+    public static ActionsBuilder AddStopCutscene(
+        this ActionsBuilder builder,
+        string m_Cutscene,
+        UnitEvaluator WithUnit,
+        StopCutscene.UnitCheckType m_CheckType)
+    {
+      builder.Validate(WithUnit);
+      builder.Validate(m_CheckType);
+      
+      var element = ElementTool.Create<StopCutscene>();
+      element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(m_Cutscene);
+      element.WithUnit = WithUnit;
+      element.m_CheckType = m_CheckType;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ToggleObjectFx"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ToggleObjectFx))]
+    public static ActionsBuilder AddToggleObjectFx(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Target,
+        Boolean ToggleOn)
+    {
+      builder.Validate(Target);
+      builder.Validate(ToggleOn);
+      
+      var element = ElementTool.Create<ToggleObjectFx>();
+      element.Target = Target;
+      element.ToggleOn = ToggleOn;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ToggleObjectMusic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ToggleObjectMusic))]
+    public static ActionsBuilder AddToggleObjectMusic(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Target,
+        Boolean ToggleOn)
+    {
+      builder.Validate(Target);
+      builder.Validate(ToggleOn);
+      
+      var element = ElementTool.Create<ToggleObjectMusic>();
+      element.Target = Target;
+      element.ToggleOn = ToggleOn;
+      return builder.Add(element);
+    }
   }
 }

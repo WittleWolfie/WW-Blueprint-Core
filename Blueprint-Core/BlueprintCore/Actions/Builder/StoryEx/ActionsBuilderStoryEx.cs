@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -302,6 +303,100 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartDialog"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Dialogue"><see cref="BlueprintDialog"/></param>
+    [Generated]
+    [Implements(typeof(StartDialog))]
+    public static ActionsBuilder AddStartDialog(
+        this ActionsBuilder builder,
+        UnitEvaluator DialogueOwner,
+        string m_Dialogue,
+        BlueprintEvaluator DialogEvaluator,
+        LocalizedString SpeakerName)
+    {
+      builder.Validate(DialogueOwner);
+      builder.Validate(DialogEvaluator);
+      builder.Validate(SpeakerName);
+      
+      var element = ElementTool.Create<StartDialog>();
+      element.DialogueOwner = DialogueOwner;
+      element.m_Dialogue = BlueprintTool.GetRef<BlueprintDialogReference>(m_Dialogue);
+      element.DialogEvaluator = DialogEvaluator;
+      element.SpeakerName = SpeakerName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartEtude"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Etude"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    [Implements(typeof(StartEtude))]
+    public static ActionsBuilder AddStartEtude(
+        this ActionsBuilder builder,
+        string Etude,
+        BlueprintEvaluator EtudeEvaluator,
+        Boolean Evaluate)
+    {
+      builder.Validate(EtudeEvaluator);
+      builder.Validate(Evaluate);
+      
+      var element = ElementTool.Create<StartEtude>();
+      element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(Etude);
+      element.EtudeEvaluator = EtudeEvaluator;
+      element.Evaluate = Evaluate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TimeSkip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TimeSkip))]
+    public static ActionsBuilder AddTimeSkip(
+        this ActionsBuilder builder,
+        TimeSkip.SkipType m_Type,
+        IntEvaluator MinutesToSkip,
+        TimeOfDay TimeOfDay,
+        Boolean NoFatigue,
+        Boolean MatchTimeOfDay)
+    {
+      builder.Validate(m_Type);
+      builder.Validate(MinutesToSkip);
+      builder.Validate(TimeOfDay);
+      builder.Validate(NoFatigue);
+      builder.Validate(MatchTimeOfDay);
+      
+      var element = ElementTool.Create<TimeSkip>();
+      element.m_Type = m_Type;
+      element.MinutesToSkip = MinutesToSkip;
+      element.TimeOfDay = TimeOfDay;
+      element.NoFatigue = NoFatigue;
+      element.MatchTimeOfDay = MatchTimeOfDay;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlockCompanionStory"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Story"><see cref="BlueprintCompanionStory"/></param>
+    [Generated]
+    [Implements(typeof(UnlockCompanionStory))]
+    public static ActionsBuilder AddUnlockCompanionStory(
+        this ActionsBuilder builder,
+        string m_Story)
+    {
+      
+      var element = ElementTool.Create<UnlockCompanionStory>();
+      element.m_Story = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(m_Story);
       return builder.Add(element);
     }
 

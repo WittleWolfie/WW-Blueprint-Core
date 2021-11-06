@@ -130,6 +130,10 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCustomMusic)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCutscene)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StopCustomMusic)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectFx)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectMusic)]
 
   }
 }
