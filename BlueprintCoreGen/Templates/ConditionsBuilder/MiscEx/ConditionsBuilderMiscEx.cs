@@ -13,6 +13,15 @@
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.DifficultyHigherThan)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.EnlargedEncountersCapacity)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.GameModeActive)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled)]
+
+
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.False)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsEqual)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.OrAndLogic)]
 
   }
 }
