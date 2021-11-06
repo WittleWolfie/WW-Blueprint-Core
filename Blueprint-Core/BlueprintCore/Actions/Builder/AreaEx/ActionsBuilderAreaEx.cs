@@ -173,6 +173,28 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="GlobalMapTeleport"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GlobalMapTeleport))]
+    public static ActionsBuilder AddGlobalMapTeleport(
+        this ActionsBuilder builder,
+        LocationEvaluator Destination,
+        FloatEvaluator SkipHours,
+        Boolean UpdateLocationVisitedTime)
+    {
+      builder.Validate(Destination);
+      builder.Validate(SkipHours);
+      builder.Validate(UpdateLocationVisitedTime);
+      
+      var element = ElementTool.Create<GlobalMapTeleport>();
+      element.Destination = Destination;
+      element.SkipHours = SkipHours;
+      element.UpdateLocationVisitedTime = UpdateLocationVisitedTime;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -241,5 +263,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       element.m_Isle = m_Isle;
       element.m_StateName = m_StateName;
       return builder.Add(element);
-    }  }
+    }
+  }
 }
