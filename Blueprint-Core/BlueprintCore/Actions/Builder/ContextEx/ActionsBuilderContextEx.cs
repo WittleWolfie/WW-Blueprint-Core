@@ -2042,6 +2042,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="ContextActionAcceptBurn"/> (Auto Generated)
     /// </summary>
@@ -2052,6 +2053,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue Value)
     {
       builder.Validate(Value);
+      
       var element = ElementTool.Create<ContextActionAcceptBurn>();
       element.Value = Value;
       return builder.Add(element);
@@ -2067,6 +2069,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue Value)
     {
       builder.Validate(Value);
+      
       var element = ElementTool.Create<ContextActionHealBurn>();
       element.Value = Value;
       return builder.Add(element);
@@ -2086,6 +2089,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(Stat);
       builder.Validate(Value);
       builder.Validate(Descriptor);
+      
       var element = ElementTool.Create<BuffActionAddStatBonus>();
       element.Stat = Stat;
       element.Value = Value;
@@ -2133,6 +2137,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue HitDice)
     {
       builder.Validate(HitDice);
+      
       var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
       element.HitDice = HitDice;
       return builder.Add(element);
@@ -2148,6 +2153,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         StatsAdjustmentsType StatsAdjustmentsType)
     {
       builder.Validate(StatsAdjustmentsType);
+      
       var element = ElementTool.Create<ContextActionReduceDebilitatingBuffsDuration>();
       element.StatsAdjustmentsType = StatsAdjustmentsType;
       return builder.Add(element);
@@ -2168,12 +2174,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       builder.Validate(m_Target);
       builder.Validate(m_UpToSpellLevel);
+      
       var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
       element.m_Target = m_Target;
       element.m_UpToSpellLevel = m_UpToSpellLevel;
-      element.m_ExcludeSpellbooks =
-          m_ExcludeSpellbooks.Select(bp => BlueprintTool.GetRef<BlueprintSpellbookReference>(bp)).ToList();
+      element.m_ExcludeSpellbooks = m_ExcludeSpellbooks.Select(bp => BlueprintTool.GetRef<BlueprintSpellbookReference>(bp)).ToList();
       return builder.Add(element);
-    }
-  }
+    }  }
 }

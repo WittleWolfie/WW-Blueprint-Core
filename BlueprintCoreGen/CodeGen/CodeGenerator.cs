@@ -43,7 +43,7 @@ namespace BlueprintCoreGen.CodeGen
           method.AddComment(field.GetParamComment());
           method.AddParamDeclaration(field.GetParamDeclaration());
 
-          field.GetValidation().ForEach(line => method.AddBodyLine($"{line};"));
+          field.GetValidation().ForEach(line => method.AddBodyLine($"{line}"));
         }
         method.CloseDeclaration();
 
@@ -51,7 +51,7 @@ namespace BlueprintCoreGen.CodeGen
         method.AddBodyLine($"var element = ElementTool.Create<{type.Name}>();");
         foreach (var field in fields)
         {
-          method.AddBodyLine($"element.{field.GetAssignment()};");
+          method.AddBodyLine($"element.{field.GetAssignment()}");
         }
         method.AddBodyLine($"return builder.Add(element);");
       }

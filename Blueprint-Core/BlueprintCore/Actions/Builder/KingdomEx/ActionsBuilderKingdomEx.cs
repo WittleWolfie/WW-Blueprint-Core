@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
@@ -8,7 +7,6 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Armies.TacticalCombat.Grid;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
@@ -23,7 +21,6 @@ using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Armies.Actions;
-using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
@@ -864,6 +861,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="KingdomIncreaseIncome"/> (Auto Generated)
     /// </summary>
@@ -876,6 +874,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(Bonus);
       builder.Validate(ResourceType);
+      
       var element = ElementTool.Create<KingdomIncreaseIncome>();
       element.Bonus = Bonus;
       element.ResourceType = ResourceType;
@@ -892,6 +891,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 m_MaxValueDelta)
     {
       builder.Validate(m_MaxValueDelta);
+      
       var element = ElementTool.Create<ChangeKingdomMoraleMaximum>();
       element.m_MaxValueDelta = m_MaxValueDelta;
       return builder.Add(element);
@@ -908,9 +908,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string[] m_NewFlags)
     {
+      
       var element = ElementTool.Create<KingdomAddMoraleFlags>();
-      element.m_NewFlags =
-          m_NewFlags.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
+      element.m_NewFlags = m_NewFlags.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
       return builder.Add(element);
     }
 
@@ -927,9 +927,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 m_Increment)
     {
       builder.Validate(m_Increment);
+      
       var element = ElementTool.Create<KingdomFlagIncrement>();
-      element.m_TargetFlag =
-          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
       element.m_Increment = m_Increment;
       return builder.Add(element);
     }
@@ -945,9 +945,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_TargetFlag)
     {
+      
       var element = ElementTool.Create<KingdomMoraleFlagUpdateIncome>();
-      element.m_TargetFlag =
-          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
       return builder.Add(element);
     }
 
@@ -972,9 +972,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string[] m_FlagsToRemove)
     {
+      
       var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
-      element.m_FlagsToRemove =
-          m_FlagsToRemove.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
+      element.m_FlagsToRemove = m_FlagsToRemove.Select(bp => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(bp)).ToArray();
       return builder.Add(element);
     }
 
@@ -993,9 +993,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(m_State);
       builder.Validate(m_MaxDays);
+      
       var element = ElementTool.Create<KingdomSetFlagState>();
-      element.m_TargetFlag =
-          BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
+      element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(m_TargetFlag);
       element.m_State = m_State;
       element.m_MaxDays = m_MaxDays;
       return builder.Add(element);
@@ -1011,6 +1011,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 m_Value)
     {
       builder.Validate(m_Value);
+      
       var element = ElementTool.Create<ReduceNegativeMorale>();
       element.m_Value = m_Value;
       return builder.Add(element);
@@ -1026,6 +1027,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Bonus)
     {
       builder.Validate(Bonus);
+      
       var element = ElementTool.Create<AddGrowthBonus>();
       element.Bonus = Bonus;
       return builder.Add(element);
@@ -1044,9 +1046,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Single m_Weight)
     {
       builder.Validate(m_Weight);
+      
       var element = ElementTool.Create<AddMercenaryToPool>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.m_Weight = m_Weight;
       return builder.Add(element);
     }
@@ -1074,15 +1076,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(m_ArmyTag);
       builder.Validate(m_ByUnits);
       builder.Validate(m_Faction);
+      
       var element = ElementTool.Create<AddTacticalArmyFeature>();
       element.m_MercenariesFilter = m_MercenariesFilter;
       element.m_ByTag = m_ByTag;
       element.m_ArmyTag = m_ArmyTag;
       element.m_ByUnits = m_ByUnits;
-      element.m_ArmyUnits =
-          m_ArmyUnits.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
-      element.m_Features =
-          m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
+      element.m_ArmyUnits = m_ArmyUnits.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
+      element.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
       element.m_Faction = m_Faction;
       return builder.Add(element);
     }
@@ -1100,9 +1101,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Single m_Weight)
     {
       builder.Validate(m_Weight);
+      
       var element = ElementTool.Create<ChangeMercenaryWeight>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.m_Weight = m_Weight;
       return builder.Add(element);
     }
@@ -1120,9 +1121,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Count)
     {
       builder.Validate(Count);
+      
       var element = ElementTool.Create<DecreaseRecruitsGrowth>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.Count = Count;
       return builder.Add(element);
     }
@@ -1140,9 +1141,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Count)
     {
       builder.Validate(Count);
+      
       var element = ElementTool.Create<DecreaseRecruitsPool>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.Count = Count;
       return builder.Add(element);
     }
@@ -1166,14 +1167,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(NewGrowth);
       builder.Validate(OldGrowth);
       builder.Validate(ConvertCoefficient);
+      
       var element = ElementTool.Create<ExchangeRecruits>();
       element.NewGrowth = NewGrowth;
       element.OldGrowth = OldGrowth;
       element.ConvertCoefficient = ConvertCoefficient;
-      element.m_OldUnit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_OldUnit);
-      element.m_NewUnit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_NewUnit);
+      element.m_OldUnit = BlueprintTool.GetRef<BlueprintUnitReference>(m_OldUnit);
+      element.m_NewUnit = BlueprintTool.GetRef<BlueprintUnitReference>(m_NewUnit);
       return builder.Add(element);
     }
 
@@ -1190,9 +1190,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Count)
     {
       builder.Validate(Count);
+      
       var element = ElementTool.Create<IncreaseRecruitsGrowth>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.Count = Count;
       return builder.Add(element);
     }
@@ -1210,9 +1210,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Count)
     {
       builder.Validate(Count);
+      
       var element = ElementTool.Create<IncreaseRecruitsPool>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       element.Count = Count;
       return builder.Add(element);
     }
@@ -1228,9 +1228,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Unit)
     {
+      
       var element = ElementTool.Create<RemoveMercenaryFromPool>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       return builder.Add(element);
     }
 
@@ -1247,11 +1247,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string m_OldBuilding,
         string m_NewBuilding)
     {
+      
       var element = ElementTool.Create<ReplaceBuildings>();
-      element.m_OldBuilding =
-          BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_OldBuilding);
-      element.m_NewBuilding =
-          BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_NewBuilding);
+      element.m_OldBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_OldBuilding);
+      element.m_NewBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(m_NewBuilding);
       return builder.Add(element);
     }
 
@@ -1266,9 +1265,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Point)
     {
+      
       var element = ElementTool.Create<SetRecruitPoint>();
-      element.m_Point =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Point);
+      element.m_Point = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Point);
       return builder.Add(element);
     }
 
@@ -1283,9 +1282,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Unit)
     {
+      
       var element = ElementTool.Create<UnlockUnitsGrowth>();
-      element.m_Unit =
-          BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
       return builder.Add(element);
     }
 
@@ -1300,9 +1299,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Artisan)
     {
+      
       var element = ElementTool.Create<KingdomActionGetArtisanGift>();
-      element.m_Artisan =
-          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
       return builder.Add(element);
     }
 
@@ -1319,9 +1318,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 tier)
     {
       builder.Validate(tier);
+      
       var element = ElementTool.Create<KingdomActionGetArtisanGiftWithCertainTier>();
-      element.m_Artisan =
-          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
       element.tier = tier;
       return builder.Add(element);
     }
@@ -1338,6 +1337,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(m_GoldPerUnit);
       builder.Validate(m_Coefficient);
+      
       var element = ElementTool.Create<KingdomActionGetPartyGoldByUnitsCount>();
       element.m_GoldPerUnit = m_GoldPerUnit;
       element.m_Coefficient = m_Coefficient;
@@ -1356,6 +1356,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(m_ResourcePerUnit);
       builder.Validate(m_Coefficient);
+      
       var element = ElementTool.Create<KingdomActionGetResourcesByUnitsCount>();
       element.m_ResourcePerUnit = m_ResourcePerUnit;
       element.m_Coefficient = m_Coefficient;
@@ -1376,6 +1377,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(m_Percent);
       builder.Validate(m_ResourceType);
       builder.Validate(m_MaxResourceCountGained);
+      
       var element = ElementTool.Create<KingdomActionGetResourcesPercent>();
       element.m_Percent = m_Percent;
       element.m_ResourceType = m_ResourceType;
@@ -1396,6 +1398,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         builder.Validate(item);
       }
+      
       var element = ElementTool.Create<KingdomActionGiveLoot>();
       element.Loot = Loot;
       return builder.Add(element);
@@ -1414,10 +1417,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string m_SpecificSettlement)
     {
       builder.Validate(ToLevel);
+      
       var element = ElementTool.Create<KingdomActionImproveSettlement>();
       element.ToLevel = ToLevel;
-      element.m_SpecificSettlement =
-          BlueprintTool.GetRef<BlueprintSettlement.Reference>(m_SpecificSettlement);
+      element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(m_SpecificSettlement);
       return builder.Add(element);
     }
 
@@ -1431,6 +1434,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomStats.Type StatType)
     {
       builder.Validate(StatType);
+      
       var element = ElementTool.Create<KingdomActionImproveStat>();
       element.StatType = StatType;
       return builder.Add(element);
@@ -1450,8 +1454,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(Stat);
       builder.Validate(DC);
-      builder.Validate(OnSuccess);
-      builder.Validate(OnFailure);
+      
       var element = ElementTool.Create<KingdomActionMakeRoll>();
       element.Stat = Stat;
       element.DC = DC;
@@ -1470,6 +1473,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Single ChangeTime)
     {
       builder.Validate(ChangeTime);
+      
       var element = ElementTool.Create<KingdomActionModifyBuildTime>();
       element.ChangeTime = ChangeTime;
       return builder.Add(element);
@@ -1487,6 +1491,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(ChangeTime);
       builder.Validate(ChangeCost);
+      
       var element = ElementTool.Create<KingdomActionModifyClaims>();
       element.ChangeTime = ChangeTime;
       element.ChangeCost = ChangeCost;
@@ -1503,6 +1508,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 Modifier)
     {
       builder.Validate(Modifier);
+      
       var element = ElementTool.Create<KingdomActionModifyEventDC>();
       element.Modifier = Modifier;
       return builder.Add(element);
@@ -1522,6 +1528,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(UnclaimedChange);
       builder.Validate(ClaimedChange);
       builder.Validate(UpgradedChange);
+      
       var element = ElementTool.Create<KingdomActionModifyRE>();
       element.UnclaimedChange = UnclaimedChange;
       element.ClaimedChange = ClaimedChange;
@@ -1539,6 +1546,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Single ChangeTime)
     {
       builder.Validate(ChangeTime);
+      
       var element = ElementTool.Create<KingdomActionModifyRankTime>();
       element.ChangeTime = ChangeTime;
       return builder.Add(element);
@@ -1556,6 +1564,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(IncludeInEventStats);
       builder.Validate(Change);
+      
       var element = ElementTool.Create<KingdomActionModifyStatRandom>();
       element.IncludeInEventStats = IncludeInEventStats;
       element.Change = Change;
@@ -1574,6 +1583,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(IncludeInEventStats);
       builder.Validate(Changes);
+      
       var element = ElementTool.Create<KingdomActionModifyStats>();
       element.IncludeInEventStats = IncludeInEventStats;
       element.Changes = Changes;
@@ -1598,6 +1608,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(Reason);
       builder.Validate(ReasonString);
       builder.Validate(UpTo);
+      
       var element = ElementTool.Create<KingdomActionModifyUnrest>();
       element.MakeBetter = MakeBetter;
       element.Bounded = Bounded;
@@ -1617,6 +1628,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 ChapterNumber)
     {
       builder.Validate(ChapterNumber);
+      
       var element = ElementTool.Create<KingdomActionNextChapter>();
       element.ChapterNumber = ChapterNumber;
       return builder.Add(element);
@@ -1659,12 +1671,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(ApplyToRegion);
       builder.Validate(m_AllBuffs);
+      
       var element = ElementTool.Create<KingdomActionRemoveBuff>();
-      element.m_Blueprint =
-          BlueprintTool.GetRef<BlueprintKingdomBuffReference>(m_Blueprint);
+      element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(m_Blueprint);
       element.ApplyToRegion = ApplyToRegion;
-      element.m_Region =
-          BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
+      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
       element.m_AllBuffs = m_AllBuffs;
       return builder.Add(element);
     }
@@ -1684,9 +1695,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       builder.Validate(CancelIfInProgress);
       builder.Validate(AllIfMultiple);
+      
       var element = ElementTool.Create<KingdomActionRemoveEvent>();
-      element.m_EventBlueprint =
-          BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_EventBlueprint);
+      element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_EventBlueprint);
       element.CancelIfInProgress = CancelIfInProgress;
       element.AllIfMultiple = AllIfMultiple;
       return builder.Add(element);
@@ -1703,9 +1714,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Deck)
     {
+      
       var element = ElementTool.Create<KingdomActionRemoveEventDeck>();
-      element.m_Deck =
-          BlueprintTool.GetRef<BlueprintKingdomDeckReference>(m_Deck);
+      element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(m_Deck);
       return builder.Add(element);
     }
 
@@ -1722,11 +1733,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string m_Artisan,
         string m_ItemType)
     {
+      
       var element = ElementTool.Create<KingdomActionRequestArtisanGift>();
-      element.m_Artisan =
-          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
-      element.m_ItemType =
-          BlueprintTool.GetRef<ArtisanItemDeckReference>(m_ItemType);
+      element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.m_ItemType = BlueprintTool.GetRef<ArtisanItemDeckReference>(m_ItemType);
       return builder.Add(element);
     }
 
@@ -1753,9 +1763,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Int32 m_SolutionIndex)
     {
       builder.Validate(m_SolutionIndex);
+      
       var element = ElementTool.Create<KingdomActionResolveCrusadeEvent>();
-      element.m_EventBlueprint =
-          BlueprintTool.GetRef<BlueprintCrusadeEvent.Reference>(m_EventBlueprint);
+      element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintCrusadeEvent.Reference>(m_EventBlueprint);
       element.m_SolutionIndex = m_SolutionIndex;
       return builder.Add(element);
     }
@@ -1777,9 +1787,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(Result);
       builder.Validate(Alignment);
       builder.Validate(FinalResolve);
+      
       var element = ElementTool.Create<KingdomActionResolveEvent>();
-      element.m_EventBlueprint =
-          BlueprintTool.GetRef<BlueprintKingdomEventReference>(m_EventBlueprint);
+      element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomEventReference>(m_EventBlueprint);
       element.Result = Result;
       element.Alignment = Alignment;
       element.FinalResolve = FinalResolve;
@@ -1797,9 +1807,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_EventBlueprint)
     {
+      
       var element = ElementTool.Create<KingdomActionResolveProject>();
-      element.m_EventBlueprint =
-          BlueprintTool.GetRef<BlueprintKingdomProjectReference>(m_EventBlueprint);
+      element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(m_EventBlueprint);
       return builder.Add(element);
     }
 
@@ -1835,6 +1845,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(m_IncludeResources);
       builder.Validate(m_IncludeResourcesPerTurn);
       builder.Validate(m_IncludeStats);
+      
       var element = ElementTool.Create<KingdomActionRollbackRecurrence>();
       element.m_Type = m_Type;
       element.m_LastNDays = m_LastNDays;
@@ -1880,6 +1891,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(IncomePerClaimed);
       builder.Validate(IncomePerUpgraded);
       builder.Validate(Add);
+      
       var element = ElementTool.Create<KingdomActionSetRegionalIncome>();
       element.IncomePerClaimed = IncomePerClaimed;
       element.IncomePerUpgraded = IncomePerUpgraded;
@@ -1912,12 +1924,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string[] m_Locations)
     {
       builder.Validate(m_Faction);
+      
       var element = ElementTool.Create<KingdomActionSpawnRandomArmy>();
-      element.m_Armies =
-          m_Armies.Select(bp => BlueprintTool.GetRef<BlueprintArmyPresetReference>(bp)).ToList();
+      element.m_Armies = m_Armies.Select(bp => BlueprintTool.GetRef<BlueprintArmyPresetReference>(bp)).ToList();
       element.m_Faction = m_Faction;
-      element.m_Locations =
-          m_Locations.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToList();
+      element.m_Locations = m_Locations.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToList();
       return builder.Add(element);
     }
 
@@ -1944,11 +1955,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(StartNextMonth);
       builder.Validate(CheckTriggerImmediately);
       builder.Validate(CheckTriggerOnStart);
+      
       var element = ElementTool.Create<KingdomActionStartEvent>();
-      element.m_Event =
-          BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_Event);
-      element.m_Region =
-          BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
+      element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_Event);
+      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(m_Region);
       element.RandomRegion = RandomRegion;
       element.DelayDays = DelayDays;
       element.StartNextMonth = StartNextMonth;
@@ -1968,9 +1978,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Artisan)
     {
+      
       var element = ElementTool.Create<KingdomActionUnlockArtisan>();
-      element.m_Artisan =
-          BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
+      element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
       return builder.Add(element);
     }
 
@@ -1984,6 +1994,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount m_ResourcesAmount)
     {
       builder.Validate(m_ResourcesAmount);
+      
       var element = ElementTool.Create<RemoveCrusadeResources>();
       element.m_ResourcesAmount = m_ResourcesAmount;
       return builder.Add(element);
@@ -1999,6 +2010,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         TacticalMapObstacle.Link m_ObstaclePrefab)
     {
       builder.Validate(m_ObstaclePrefab);
+      
       var element = ElementTool.Create<BlockTacticalCell>();
       element.m_ObstaclePrefab = m_ObstaclePrefab;
       return builder.Add(element);
@@ -2014,6 +2026,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ContextValue m_Value)
     {
       builder.Validate(m_Value);
+      
       var element = ElementTool.Create<TacticalCombatRecoverLeaderMana>();
       element.m_Value = m_Value;
       return builder.Add(element);
@@ -2036,13 +2049,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       builder.Validate(m_SumExperience);
       builder.Validate(m_SquadsMaxCount);
       builder.Validate(m_ApplyRecruitIncrease);
+      
       var element = ElementTool.Create<CreateArmyFromLosses>();
       element.m_SumExperience = m_SumExperience;
       element.m_SquadsMaxCount = m_SquadsMaxCount;
-      element.m_Location =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
       element.m_ApplyRecruitIncrease = m_ApplyRecruitIncrease;
       return builder.Add(element);
-    }
-  }
+    }  }
 }

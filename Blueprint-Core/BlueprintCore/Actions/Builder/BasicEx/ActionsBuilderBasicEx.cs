@@ -12,7 +12,6 @@ using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -497,6 +496,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="DetachBuff"/> (Auto Generated)
     /// </summary>
@@ -510,9 +510,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator Target)
     {
       builder.Validate(Target);
+      
       var element = ElementTool.Create<DetachBuff>();
-      element.m_Buff =
-          BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
       element.Target = Target;
       return builder.Add(element);
     }
@@ -527,6 +527,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator Unit)
     {
       builder.Validate(Unit);
+      
       var element = ElementTool.Create<DisableExperienceFromUnit>();
       element.Unit = Unit;
       return builder.Add(element);
@@ -556,6 +557,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(DamageDice);
       builder.Validate(DamageBonus);
       builder.Validate(DisableBattleLog);
+      
       var element = ElementTool.Create<DrainEnergy>();
       element.NoSource = NoSource;
       element.Source = Source;
@@ -586,6 +588,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(Modifier);
       builder.Validate(Count);
       builder.Validate(Dummy);
+      
       var element = ElementTool.Create<GainExp>();
       element.Encounter = Encounter;
       element.CR = CR;
@@ -605,6 +608,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Int32 Levels)
     {
       builder.Validate(Levels);
+      
       var element = ElementTool.Create<GainMythicLevel>();
       element.Levels = Levels;
       return builder.Add(element);
@@ -620,6 +624,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator HealSource)
     {
       builder.Validate(HealSource);
+      
       var element = ElementTool.Create<HealParty>();
       element.HealSource = HealSource;
       return builder.Add(element);
@@ -641,6 +646,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(Target);
       builder.Validate(ToFullHP);
       builder.Validate(HealAmount);
+      
       var element = ElementTool.Create<HealUnit>();
       element.Source = Source;
       element.Target = Target;
@@ -664,9 +670,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Charges);
       builder.Validate(Collection);
+      
       var element = ElementTool.Create<ItemSetCharges>();
-      element.m_Item =
-          BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
       element.Charges = Charges;
       element.Collection = Collection;
       return builder.Add(element);
@@ -690,6 +696,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(Critical);
       builder.Validate(DisableBattleLog);
       builder.Validate(RemoveExp);
+      
       var element = ElementTool.Create<Kill>();
       element.Target = Target;
       element.Killer = Killer;
@@ -711,10 +718,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Unit);
       builder.Validate(TargetLevel);
+      
       var element = ElementTool.Create<LevelUpUnit>();
       element.Unit = Unit;
       element.TargetLevel = TargetLevel;
       return builder.Add(element);
-    }
-  }
+    }  }
 }

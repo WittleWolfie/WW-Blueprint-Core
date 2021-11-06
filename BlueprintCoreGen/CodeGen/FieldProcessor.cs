@@ -88,9 +88,9 @@ namespace BlueprintCoreGen.CodeGen
       {
         case FieldType.Actions:
         case FieldType.Conditions:
-          return $"{Info.Name} = {Info.Name}.Build()";
+          return $"{Info.Name} = {Info.Name}.Build();";
         default:
-          return $"{Info.Name} = {Info.Name}";
+          return $"{Info.Name} = {Info.Name};";
       }
     }
 
@@ -102,7 +102,7 @@ namespace BlueprintCoreGen.CodeGen
         case FieldType.Conditions:
           return new();
         default:
-          return new() { $"builder.Validate({Info.Name})" };
+          return new() { $"builder.Validate({Info.Name});" };
       }
     }
 
@@ -171,7 +171,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         $"foreach (var item in {Info.Name})",
         $"{{",
-        $"  builder.Validate(item)",
+        $"  builder.Validate(item);",
         $"}}"
       };
     }
@@ -200,7 +200,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public override string GetAssignment()
     {
-      return $"{Info.Name} = BlueprintTool.GetRef<{GetTypeName(Info.FieldType)}>({Info.Name})";
+      return $"{Info.Name} = BlueprintTool.GetRef<{GetTypeName(Info.FieldType)}>({Info.Name});";
     }
 
     public override List<string> GetValidation()
@@ -236,7 +236,7 @@ namespace BlueprintCoreGen.CodeGen
     public override string GetAssignment()
     {
       var toEnumerable = IsList(Info.FieldType) ? "ToList()" : "ToArray()";
-      return $"{Info.Name} = {Info.Name}.Select(bp => BlueprintTool.GetRef<{GetTypeName(ReferenceType)}>(bp)).{toEnumerable}";
+      return $"{Info.Name} = {Info.Name}.Select(bp => BlueprintTool.GetRef<{GetTypeName(ReferenceType)}>(bp)).{toEnumerable};";
     }
 
     public override List<Type> GetImports()

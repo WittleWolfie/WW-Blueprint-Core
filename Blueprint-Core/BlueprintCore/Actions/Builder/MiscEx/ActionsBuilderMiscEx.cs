@@ -1,13 +1,8 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
@@ -86,6 +81,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="ShowNewTutorial"/> (Auto Generated)
     /// </summary>
@@ -102,9 +98,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       {
         builder.Validate(item);
       }
+      
       var element = ElementTool.Create<ShowNewTutorial>();
-      element.m_Tutorial =
-          BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
+      element.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
       element.Evaluators = Evaluators;
       return builder.Add(element);
     }
@@ -122,10 +118,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string m_VendorTable)
     {
       builder.Validate(m_VendorEvaluator);
+      
       var element = ElementTool.Create<AddVendorItemsAction>();
       element.m_VendorEvaluator = m_VendorEvaluator;
-      element.m_VendorTable =
-          BlueprintTool.GetRef<BlueprintUnitLootReference>(m_VendorTable);
+      element.m_VendorTable = BlueprintTool.GetRef<BlueprintUnitLootReference>(m_VendorTable);
       return builder.Add(element);
     }
 
@@ -140,9 +136,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         string m_Table)
     {
+      
       var element = ElementTool.Create<ClearVendorTable>();
-      element.m_Table =
-          BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
+      element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
       return builder.Add(element);
     }
 
@@ -162,14 +158,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string[] PlayerFeatures,
         ActionsBuilder AdditionalActions)
     {
-      builder.Validate(AdditionalActions);
+      
       var element = ElementTool.Create<AddPremiumReward>();
-      element.m_DlcReward =
-          BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
-      element.Items =
-          Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToList();
-      element.PlayerFeatures =
-          PlayerFeatures.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToList();
+      element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
+      element.Items = Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToList();
+      element.PlayerFeatures = PlayerFeatures.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToList();
       element.AdditionalActions = AdditionalActions.Build();
       return builder.Add(element);
     }
@@ -189,10 +182,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         builder.Validate(item);
       }
       builder.Validate(Break);
+      
       var element = ElementTool.Create<DebugLog>();
       element.Log = Log;
       element.Break = Break;
       return builder.Add(element);
-    }
-  }
+    }  }
 }

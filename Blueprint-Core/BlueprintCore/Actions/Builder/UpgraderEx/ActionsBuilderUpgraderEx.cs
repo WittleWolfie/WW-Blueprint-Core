@@ -1,13 +1,10 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.UpgraderEx
@@ -335,6 +332,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="SetRaceFromBlueprint"/> (Auto Generated)
     /// </summary>
@@ -358,11 +356,10 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string m_Spell,
         string m_Spellbook)
     {
+      
       var element = ElementTool.Create<RemoveSpell>();
-      element.m_Spell =
-          BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
-      element.m_Spellbook =
-          BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
+      element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
+      element.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
       return builder.Add(element);
     }
 
@@ -377,10 +374,9 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         this ActionsBuilder builder,
         string m_Feature)
     {
+      
       var element = ElementTool.Create<RestoreClassFeature>();
-      element.m_Feature =
-          BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
       return builder.Add(element);
-    }
-  }
+    }  }
 }

@@ -2,7 +2,6 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
@@ -143,6 +142,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     //----- Auto Generated -----//
 
 
+
     /// <summary>
     /// Adds <see cref="AskPlayerForLocationName"/> (Auto Generated)
     /// </summary>
@@ -162,9 +162,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       builder.Validate(Title);
       builder.Validate(Hint);
       builder.Validate(Default);
+      
       var element = ElementTool.Create<AskPlayerForLocationName>();
-      element.m_Location =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
       element.Obligatory = Obligatory;
       element.Title = Title;
       element.Hint = Hint;
@@ -195,9 +195,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         AutoSaveMode AutoSaveMode)
     {
       builder.Validate(AutoSaveMode);
+      
       var element = ElementTool.Create<CapitalExit>();
-      element.m_Destination =
-          BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_Destination);
+      element.m_Destination = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_Destination);
       element.AutoSaveMode = AutoSaveMode;
       return builder.Add(element);
     }
@@ -214,6 +214,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       builder.Validate(m_Isle);
       builder.Validate(m_IsLock);
+      
       var element = ElementTool.Create<GameActionSetIsleLock>();
       element.m_Isle = m_Isle;
       element.m_IsLock = m_IsLock;
@@ -235,10 +236,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       {
         builder.Validate(item);
       }
+      
       var element = ElementTool.Create<GameActionSetIsleState>();
       element.m_Isle = m_Isle;
       element.m_StateName = m_StateName;
       return builder.Add(element);
-    }
-  }
+    }  }
 }

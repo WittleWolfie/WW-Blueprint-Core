@@ -4,7 +4,11 @@ using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.StoryEx
 {
@@ -84,5 +88,123 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       changeName.ReturnTheOldName = true;
       return builder.Add(changeName);
     }
-  }
+
+    //----- Auto Generated -----//
+
+
+
+    /// <summary>
+    /// Adds <see cref="AlignmentSelector"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AlignmentSelector))]
+    public static ActionsBuilder AddAlignmentSelector(
+        this ActionsBuilder builder,
+        Boolean SelectClosest,
+        AlignmentSelector.ActionAndCondition LawfulGood,
+        AlignmentSelector.ActionAndCondition NeutralGood,
+        AlignmentSelector.ActionAndCondition ChaoticGood,
+        AlignmentSelector.ActionAndCondition LawfulNeutral,
+        AlignmentSelector.ActionAndCondition TrueNeutral,
+        AlignmentSelector.ActionAndCondition ChaoticNeutral,
+        AlignmentSelector.ActionAndCondition LawfulEvil,
+        AlignmentSelector.ActionAndCondition NeutralEvil,
+        AlignmentSelector.ActionAndCondition ChaoticEvil,
+        Dictionary<Alignment,AlignmentSelector.ActionAndCondition> m_ActionsByAlignment)
+    {
+      builder.Validate(SelectClosest);
+      builder.Validate(LawfulGood);
+      builder.Validate(NeutralGood);
+      builder.Validate(ChaoticGood);
+      builder.Validate(LawfulNeutral);
+      builder.Validate(TrueNeutral);
+      builder.Validate(ChaoticNeutral);
+      builder.Validate(LawfulEvil);
+      builder.Validate(NeutralEvil);
+      builder.Validate(ChaoticEvil);
+      foreach (var item in m_ActionsByAlignment)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<AlignmentSelector>();
+      element.SelectClosest = SelectClosest;
+      element.LawfulGood = LawfulGood;
+      element.NeutralGood = NeutralGood;
+      element.ChaoticGood = ChaoticGood;
+      element.LawfulNeutral = LawfulNeutral;
+      element.TrueNeutral = TrueNeutral;
+      element.ChaoticNeutral = ChaoticNeutral;
+      element.LawfulEvil = LawfulEvil;
+      element.NeutralEvil = NeutralEvil;
+      element.ChaoticEvil = ChaoticEvil;
+      element.m_ActionsByAlignment = m_ActionsByAlignment;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnmarkAnswersSelected"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Answers"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    [Implements(typeof(UnmarkAnswersSelected))]
+    public static ActionsBuilder AddUnmarkAnswersSelected(
+        this ActionsBuilder builder,
+        string[] m_Answers)
+    {
+      
+      var element = ElementTool.Create<UnmarkAnswersSelected>();
+      element.m_Answers = m_Answers.Select(bp => BlueprintTool.GetRef<BlueprintAnswerReference>(bp)).ToArray();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Unrecruit"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_CompanionBlueprint"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(Unrecruit))]
+    public static ActionsBuilder AddUnrecruit(
+        this ActionsBuilder builder,
+        string m_CompanionBlueprint,
+        ActionsBuilder OnUnrecruit)
+    {
+      
+      var element = ElementTool.Create<Unrecruit>();
+      element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CompanionBlueprint);
+      element.OnUnrecruit = OnUnrecruit.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UpdateEtudeProgressBar"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Etude"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    [Implements(typeof(UpdateEtudeProgressBar))]
+    public static ActionsBuilder AddUpdateEtudeProgressBar(
+        this ActionsBuilder builder,
+        IntEvaluator Progress,
+        string Etude)
+    {
+      builder.Validate(Progress);
+      
+      var element = ElementTool.Create<UpdateEtudeProgressBar>();
+      element.Progress = Progress;
+      element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(Etude);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UpdateEtudes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UpdateEtudes))]
+    public static ActionsBuilder AddUpdateEtudes(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<UpdateEtudes>());
+    }  }
 }
