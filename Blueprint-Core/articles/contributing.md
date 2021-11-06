@@ -44,7 +44,7 @@ Contributions are welcome!
 5. No Patches
     * Harmony patches are not allowed. Since multiple mods may include this library it would result in multiple copies of the patch being installed, potentially causing incompatibility issues.
 6. Before Committing
-    * Rebuild the solution to ensure documentation is updated
+    * Rebuild the solution using the Release configuration to ensure documentation is updated
     * Run all unit tests
 
 ## What to Contribute
@@ -76,6 +76,16 @@ Once 1.0 is released all blueprint, action, and conditions types will have metho
         * Example: [DealDamage](xref:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealDamage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription,Kingmaker.UnitLogic.Mechanics.ContextDiceValue,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{Kingmaker.UnitLogic.Abilities.AbilitySharedValue},System.Nullable{Kingmaker.UnitLogic.Abilities.AbilitySharedValue})) and related methods
 * Indicate the game type or field created or modified in the method comment summary
 * Document the blueprint type of any string arguments used to reference blueprints
+
+### Using BlueprintCoreGen
+
+As of v0.5.0, the ActionsBuilder API is completed through auto-generated methods. If you want to make any changes to an ActionsBuilder class update the corresponding class in the BlueprintCoreGen project. Once your changes are done, run the project and copy the output files into Blueprint-Core.
+
+BlueprintCoreGen is configured to be run directly from Visual Studio and output files in `bin/<Release|Debug>/net5.0/`:
+
+* `Templates` folder is a copy of the project files
+* `missing_types.txt` lists game types detected but not implemented
+* `ActionsBuilder` folder contains the generated ActionsBuilder classes
 
 ### New Actions, Conditions, and Components
 
