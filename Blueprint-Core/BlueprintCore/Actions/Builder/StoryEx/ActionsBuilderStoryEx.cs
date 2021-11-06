@@ -10,6 +10,7 @@ using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.UI;
+using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -238,6 +239,44 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="InterruptAllActions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(InterruptAllActions))]
+    public static ActionsBuilder AddInterruptAllActions(
+        this ActionsBuilder builder,
+        UnitEvaluator m_Unit)
+    {
+      builder.Validate(m_Unit);
+      
+      var element = ElementTool.Create<InterruptAllActions>();
+      element.m_Unit = m_Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LockAlignment"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LockAlignment))]
+    public static ActionsBuilder AddLockAlignment(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        AlignmentMaskType AlignmentMask,
+        Alignment TargetAlignment)
+    {
+      builder.Validate(Unit);
+      builder.Validate(AlignmentMask);
+      builder.Validate(TargetAlignment);
+      
+      var element = ElementTool.Create<LockAlignment>();
+      element.Unit = Unit;
+      element.AlignmentMask = AlignmentMask;
+      element.TargetAlignment = TargetAlignment;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="LockFlag"/> (Auto Generated)
     /// </summary>
     ///
@@ -268,6 +307,60 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<LockRomance>();
       element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MakeItemNonRemovable"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(MakeItemNonRemovable))]
+    public static ActionsBuilder AddMakeItemNonRemovable(
+        this ActionsBuilder builder,
+        string m_Item,
+        Boolean NonRemovable)
+    {
+      builder.Validate(NonRemovable);
+      
+      var element = ElementTool.Create<MakeItemNonRemovable>();
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.NonRemovable = NonRemovable;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MarkAnswersSelected"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Answers"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    [Implements(typeof(MarkAnswersSelected))]
+    public static ActionsBuilder AddMarkAnswersSelected(
+        this ActionsBuilder builder,
+        string[] m_Answers)
+    {
+      
+      var element = ElementTool.Create<MarkAnswersSelected>();
+      element.m_Answers = m_Answers.Select(bp => BlueprintTool.GetRef<BlueprintAnswerReference>(bp)).ToArray();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MarkCuesSeen"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Cues"><see cref="BlueprintCueBase"/></param>
+    [Generated]
+    [Implements(typeof(MarkCuesSeen))]
+    public static ActionsBuilder AddMarkCuesSeen(
+        this ActionsBuilder builder,
+        string[] m_Cues)
+    {
+      
+      var element = ElementTool.Create<MarkCuesSeen>();
+      element.m_Cues = m_Cues.Select(bp => BlueprintTool.GetRef<BlueprintCueBaseReference>(bp)).ToArray();
       return builder.Add(element);
     }
 
@@ -306,6 +399,122 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MovePartyItemsAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MovePartyItemsAction))]
+    public static ActionsBuilder AddMovePartyItemsAction(
+        this ActionsBuilder builder,
+        MovePartyItemsAction.ItemType PickupTypes,
+        ItemsCollectionEvaluator TargetCollection,
+        MovePartyItemsAction.LeaveSettings m_LeaveEquipmentOf)
+    {
+      builder.Validate(PickupTypes);
+      builder.Validate(TargetCollection);
+      builder.Validate(m_LeaveEquipmentOf);
+      
+      var element = ElementTool.Create<MovePartyItemsAction>();
+      element.PickupTypes = PickupTypes;
+      element.TargetCollection = TargetCollection;
+      element.m_LeaveEquipmentOf = m_LeaveEquipmentOf;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OverrideUnitReturnPosition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(OverrideUnitReturnPosition))]
+    public static ActionsBuilder AddOverrideUnitReturnPosition(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        PositionEvaluator Position,
+        FloatEvaluator Orientation)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Position);
+      builder.Validate(Orientation);
+      
+      var element = ElementTool.Create<OverrideUnitReturnPosition>();
+      element.Unit = Unit;
+      element.Position = Position;
+      element.Orientation = Orientation;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PartyMembersAttach"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyMembersAttach))]
+    public static ActionsBuilder AddPartyMembersAttach(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<PartyMembersAttach>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="PartyMembersDetach"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_DetachAllExcept"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(PartyMembersDetach))]
+    public static ActionsBuilder AddPartyMembersDetach(
+        this ActionsBuilder builder,
+        string[] m_DetachAllExcept,
+        Boolean m_RestrictPartySize,
+        Int32 m_PartySize,
+        ActionsBuilder AfterDetach)
+    {
+      builder.Validate(m_RestrictPartySize);
+      builder.Validate(m_PartySize);
+      
+      var element = ElementTool.Create<PartyMembersDetach>();
+      element.m_DetachAllExcept = m_DetachAllExcept.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
+      element.m_RestrictPartySize = m_RestrictPartySize;
+      element.m_PartySize = m_PartySize;
+      element.AfterDetach = AfterDetach.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PartyMembersDetachEvaluated"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyMembersDetachEvaluated))]
+    public static ActionsBuilder AddPartyMembersDetachEvaluated(
+        this ActionsBuilder builder,
+        UnitEvaluator[] DetachThese,
+        ActionsBuilder AfterDetach,
+        Boolean m_RestrictPartySize,
+        Int32 m_PartySize)
+    {
+      foreach (var item in DetachThese)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(m_RestrictPartySize);
+      builder.Validate(m_PartySize);
+      
+      var element = ElementTool.Create<PartyMembersDetachEvaluated>();
+      element.DetachThese = DetachThese;
+      element.AfterDetach = AfterDetach.Build();
+      element.m_RestrictPartySize = m_RestrictPartySize;
+      element.m_PartySize = m_PartySize;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PartyMembersSwapAttachedAndDetached"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyMembersSwapAttachedAndDetached))]
+    public static ActionsBuilder AddPartyMembersSwapAttachedAndDetached(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<PartyMembersSwapAttachedAndDetached>());
     }
 
     /// <summary>

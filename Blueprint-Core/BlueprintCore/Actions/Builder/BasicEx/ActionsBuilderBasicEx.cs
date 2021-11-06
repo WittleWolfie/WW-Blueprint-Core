@@ -1,10 +1,12 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
+using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -775,6 +777,43 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="PartyUnits"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyUnits))]
+    public static ActionsBuilder AddPartyUnits(
+        this ActionsBuilder builder,
+        Player.CharactersList m_UnitsList,
+        ActionsBuilder Actions)
+    {
+      builder.Validate(m_UnitsList);
+      
+      var element = ElementTool.Create<PartyUnits>();
+      element.m_UnitsList = m_UnitsList;
+      element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PartyUseAbility"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyUseAbility))]
+    public static ActionsBuilder AddPartyUseAbility(
+        this ActionsBuilder builder,
+        AbilitiesHelper.AbilityDescription Description,
+        Boolean AllowItems)
+    {
+      builder.Validate(Description);
+      builder.Validate(AllowItems);
+      
+      var element = ElementTool.Create<PartyUseAbility>();
+      element.Description = Description;
+      element.AllowItems = AllowItems;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RaiseDead"/> (Auto Generated)
     /// </summary>
     ///
@@ -791,6 +830,25 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       var element = ElementTool.Create<RaiseDead>();
       element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
       element.riseAllCompanions = riseAllCompanions;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RandomAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RandomAction))]
+    public static ActionsBuilder AddRandomAction(
+        this ActionsBuilder builder,
+        ActionAndWeight[] Actions)
+    {
+      foreach (var item in Actions)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<RandomAction>();
+      element.Actions = Actions;
       return builder.Add(element);
     }
 

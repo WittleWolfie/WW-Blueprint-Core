@@ -246,6 +246,32 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="LocalMapSetDirty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LocalMapSetDirty))]
+    public static ActionsBuilder AddLocalMapSetDirty(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<LocalMapSetDirty>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="MakeServiceCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MakeServiceCaster))]
+    public static ActionsBuilder AddMakeServiceCaster(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<MakeServiceCaster>();
+      element.Unit = Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="MarkLocationClosed"/> (Auto Generated)
     /// </summary>
     ///
@@ -301,6 +327,22 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       var element = ElementTool.Create<MarkOnLocalMap>();
       element.MapObject = MapObject;
       element.Hidden = Hidden;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OpenLootContainer"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(OpenLootContainer))]
+    public static ActionsBuilder AddOpenLootContainer(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject)
+    {
+      builder.Validate(MapObject);
+      
+      var element = ElementTool.Create<OpenLootContainer>();
+      element.MapObject = MapObject;
       return builder.Add(element);
     }
 

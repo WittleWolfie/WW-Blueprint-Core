@@ -79,6 +79,8 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AddPremiumReward)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DebugLog)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MakeAutoSave)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.OpenSelectMythicUI)]
 
   }
 }

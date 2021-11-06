@@ -504,7 +504,10 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Kill)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.LevelUpUnit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MeleeAttack)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PartyUnits)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PartyUseAbility)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RaiseDead)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RandomAction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDeathDoor)]
 
   }

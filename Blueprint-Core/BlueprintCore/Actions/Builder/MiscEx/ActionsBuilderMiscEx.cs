@@ -205,5 +205,41 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Reason = Reason;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="MakeAutoSave"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MakeAutoSave))]
+    public static ActionsBuilder AddMakeAutoSave(
+        this ActionsBuilder builder,
+        Boolean SaveForImport)
+    {
+      builder.Validate(SaveForImport);
+      
+      var element = ElementTool.Create<MakeAutoSave>();
+      element.SaveForImport = SaveForImport;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OpenSelectMythicUI"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(OpenSelectMythicUI))]
+    public static ActionsBuilder AddOpenSelectMythicUI(
+        this ActionsBuilder builder,
+        ActionsBuilder m_AfterCommitActions,
+        Boolean m_LockStopChargen,
+        ActionsBuilder m_AfterStopActions)
+    {
+      builder.Validate(m_LockStopChargen);
+      
+      var element = ElementTool.Create<OpenSelectMythicUI>();
+      element.m_AfterCommitActions = m_AfterCommitActions.Build();
+      element.m_LockStopChargen = m_LockStopChargen;
+      element.m_AfterStopActions = m_AfterStopActions.Build();
+      return builder.Add(element);
+    }
   }
 }
