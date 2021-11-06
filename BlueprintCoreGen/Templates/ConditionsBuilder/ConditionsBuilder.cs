@@ -2,7 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.ElementsSystem;
 using System.Collections.Generic;
 
-namespace BlueprintCore.Conditions.Builder
+namespace BlueprintCoreGen.Conditions.Builder
 {
   /// <summary>
   /// Fluent builder for <see cref="ConditionsChecker"/>
@@ -92,7 +92,8 @@ namespace BlueprintCore.Conditions.Builder
   /// </remarks>
   public class ConditionsBuilder
   {
-    private static readonly LogWrapper Logger = LogWrapper.GetInternal("ConditionsBuilder");
+    // [Replace("Get", "GetInternal")]
+    private static readonly LogWrapper Logger = LogWrapper.Get("ConditionsBuilder");
 
     private Operation OperationType = Operation.And;
     private readonly List<Condition> Conditions = new();

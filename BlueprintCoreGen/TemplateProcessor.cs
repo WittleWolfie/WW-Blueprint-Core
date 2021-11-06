@@ -55,14 +55,22 @@ namespace BlueprintCoreGen
         new(@"^\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
     public static readonly List<Template> ActionTemplates = new();
+    public static readonly List<Template> ConditionTemplates = new();
 
     public static void Run()
     {
       var templatesRoot = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
+
       var actionsBuilderRoot = Path.Combine(templatesRoot, "ActionsBuilder");
       foreach (string file in Directory.GetFiles(actionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
       {
         ActionTemplates.Add(ProcessTemplateFile(file, Path.GetRelativePath(templatesRoot, file)));
+      }
+
+      var conditionsBuilderRoot = Path.Combine(templatesRoot, "ConditionsBuilder");
+      foreach (string file in Directory.GetFiles(conditionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
+      {
+        ConditionTemplates.Add(ProcessTemplateFile(file, Path.GetRelativePath(templatesRoot, file)));
       }
     }
 

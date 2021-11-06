@@ -14,6 +14,10 @@ namespace BlueprintCoreGen.CodeGen
       {
         return CreateBuilderMethod("ActionsBuilder", type);
       }
+      if (type.IsSubclassOf(typeof(Condition)))
+      {
+        return CreateBuilderMethod("ConditionsBuilder", type);
+      }
       return new(2);
     }
 

@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.ElementsSystem;
+using Kingmaker.TextTools;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,32 +20,61 @@ namespace BlueprintCoreGen
 
       TemplateProcessor.Run();
 
-      HashSet<Type> implementedActionTypes = new();
-      foreach (Template template in TemplateProcessor.ActionTemplates)
-      {
-        // Create the directories if necessary
-        FileInfo result = new FileInfo(template.RelativePath);
-        result.Directory.Create();
-
-        File.WriteAllText(template.RelativePath, template.GetClassText());
-        implementedActionTypes.UnionWith(template.GetImplementedTypes());
-      }
-
-      List<Type> actionsToGenerate = new();
-      foreach (Type actionType in gameTypes.Where(t => t.IsSubclassOf(typeof(GameAction))))
-      {
-        if (!actionType.IsAbstract && !implementedActionTypes.Contains(actionType))
-        {
-          Console.WriteLine(actionType);
-          actionsToGenerate.Add(actionType);
-        }
-      }
+      List<Type> actionsToGenerate = ProcessActions(gameTypes);
+      List<Type> conditionsToGenerate = ProcessConditions(gameTypes);
 
       StringBuilder missingTypes = new();
       missingTypes.AppendLine("Missing Action Types:");
       actionsToGenerate.ForEach(actionType => missingTypes.AppendLine($"// [Generate({actionType})]"));
+      missingTypes.AppendLine();
+      missingTypes.AppendLine("Missing Condition Types:");
+      conditionsToGenerate.ForEach(conditionType => missingTypes.AppendLine($"// [Generate({conditionType})]"));
 
       File.WriteAllText("missing_types.txt", missingTypes.ToString());
+    }
+
+    private static List<Type> ProcessActions(Type[] gameTypes)
+    {
+      HashSet<Type> implementedActionTypes = new();
+      foreach (Template template in TemplateProcessor.ActionTemplates)
+      {
+        WriteTemplateToFile(template);
+        implementedActionTypes.UnionWith(template.GetImplementedTypes());
+      }
+      return GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
+    }
+
+    private static List<Type> ProcessConditions(Type[] gameTypes)
+    {
+      HashSet<Type> implementedConditionTypes = new();
+      foreach (Template template in TemplateProcessor.ConditionTemplates)
+      {
+        WriteTemplateToFile(template);
+        implementedConditionTypes.UnionWith(template.GetImplementedTypes());
+      }
+      return GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
+    }
+
+    private static List<Type> GetMissingTypes(Type baseType, HashSet<Type> implementedTypes, Type[] gameTypes)
+    {
+      List<Type> missingTypes = new();
+      foreach (Type type in gameTypes.Where(t => t.IsSubclassOf(baseType)))
+      {
+        if (!type.IsAbstract && !implementedTypes.Contains(type))
+        {
+          missingTypes.Add(type);
+        }
+      }
+      return missingTypes;
+    }
+
+    private static void WriteTemplateToFile(Template template)
+    {
+      // Create the directories if necessary
+      FileInfo result = new FileInfo(template.RelativePath);
+      result.Directory.Create();
+
+      File.WriteAllText(template.RelativePath, template.GetClassText());
     }
   }
 }
