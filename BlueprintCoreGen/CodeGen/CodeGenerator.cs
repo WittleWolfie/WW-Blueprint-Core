@@ -2,32 +2,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace BlueprintCoreGen.CodeGen
 {
   public static class CodeGenerator
   {
+    private enum BuilderType
+    {
+      ActionsBuilder,
+      ConditionsBuilder
+    }
     public static Method CreateMethod(Type type)
     {
       if (type.IsSubclassOf(typeof(GameAction)))
       {
-        return CreateBuilderMethod("ActionsBuilder", type);
+        return CreateBuilderMethod(BuilderType.ActionsBuilder, type);
       }
       if (type.IsSubclassOf(typeof(Condition)))
       {
-        return CreateBuilderMethod("ConditionsBuilder", type);
+        return CreateBuilderMethod(BuilderType.ConditionsBuilder, type);
       }
       return new(2);
     }
 
-    private static Method CreateBuilderMethod(string builderType, Type type)
+    private static Method CreateBuilderMethod(BuilderType builderType, Type type)
     {
+
       // Filter fields which are usually not required for instantiation.
       var fields =
           type.GetFields()
-              .Where(field => !field.Name.Contains("__BackingField") && field.Name != "name")
-              .Select(field => FieldProcessor.Process(field));
+              .Where(
+                  field => !field.Name.Contains("__BackingField")
+                  && field.Name != "name")
+              .Select(
+                  field =>
+                  {
+                    if (builderType == BuilderType.ConditionsBuilder && field.Name == "Not")
+                    {
+                      return new NegateConditionField();
+                    }
+                    return FieldProcessor.Process(field);
+                  })
+              .ToList();
 
       Method method = new(2);
       method.AddImport(type);
@@ -40,15 +58,19 @@ namespace BlueprintCoreGen.CodeGen
         method.AddDeclaration($"public static {builderType} Add{type.Name}(");
         method.AddParamDeclaration($"this {builderType} builder");
 
+        List<IField> optionalFields = new();
         foreach (var field in fields)
         {
-          field.GetImports().ForEach(import => method.AddImport(import));
-
-          method.AddComment(field.GetParamComment());
-          method.AddParamDeclaration(field.GetParamDeclaration());
-
-          field.GetValidation().ForEach(line => method.AddBodyLine($"{line}"));
+          if (field.IsOptional())
+          {
+            optionalFields.Add(field);
+          }
+          else
+          {
+            method.AddField(field);
+          }
         }
+        optionalFields.ForEach(field => method.AddField(field));
         method.CloseDeclaration();
 
         method.AddBodyLine("");
@@ -59,6 +81,13 @@ namespace BlueprintCoreGen.CodeGen
         }
         method.AddBodyLine($"return builder.Add(element);");
       }
+      else if (builderType == BuilderType.ConditionsBuilder)
+      {
+        method.AddDeclaration(
+            $"public static {builderType} Add{type.Name}(this {builderType} builder, bool negate = false)");
+        method.AddBodyLine($"");
+        method.AddBodyLine($"return builder.Add(ElementTool.Create<{type.Name}>());");
+      }
       else
       {
         method.AddDeclaration($"public static {builderType} Add{type.Name}(this {builderType} builder)");
@@ -66,6 +95,16 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return method;
+    }
+
+    private static void AddField(this Method method, IField field)
+    {
+      field.GetImports().ForEach(import => method.AddImport(import));
+
+      method.AddComment(field.GetParamComment());
+      method.AddParamDeclaration(field.GetParamDeclaration());
+
+      field.GetValidation().ForEach(line => method.AddBodyLine($"{line}"));
     }
   }
 

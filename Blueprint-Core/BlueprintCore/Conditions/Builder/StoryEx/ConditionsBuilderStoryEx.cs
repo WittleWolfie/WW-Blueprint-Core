@@ -32,13 +32,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddBarkBanterPlayed(
         this ConditionsBuilder builder,
         string m_Banter,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<BarkBanterPlayed>();
       element.m_Banter = BlueprintTool.GetRef<BlueprintBarkBanterReference>(m_Banter);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -52,13 +51,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddDialogSeen(
         this ConditionsBuilder builder,
         string m_Dialog,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<DialogSeen>();
       element.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(m_Dialog);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -70,14 +68,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAlignmentCheck(
         this ConditionsBuilder builder,
         AlignmentComponent Alignment,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Alignment);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<AlignmentCheck>();
       element.Alignment = Alignment;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -91,13 +88,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAnotherEtudeOfGroupIsPlaying(
         this ConditionsBuilder builder,
         string m_Group,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<AnotherEtudeOfGroupIsPlaying>();
       element.m_Group = BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(m_Group);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -112,15 +108,14 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         this ConditionsBuilder builder,
         string m_AnswersList,
         Boolean CurrentDialog,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CurrentDialog);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<AnswerListShown>();
       element.m_AnswersList = BlueprintTool.GetRef<BlueprintAnswersListReference>(m_AnswersList);
       element.CurrentDialog = CurrentDialog;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -135,15 +130,14 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         this ConditionsBuilder builder,
         string m_Answer,
         Boolean CurrentDialog,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CurrentDialog);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<AnswerSelected>();
       element.m_Answer = BlueprintTool.GetRef<BlueprintAnswerReference>(m_Answer);
       element.CurrentDialog = CurrentDialog;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -157,13 +151,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddCompanionStoryUnlocked(
         this ConditionsBuilder builder,
         string m_CompanionStory,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CompanionStoryUnlocked>();
       element.m_CompanionStory = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(m_CompanionStory);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -178,15 +171,14 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         this ConditionsBuilder builder,
         string m_Cue,
         Boolean CurrentDialog,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CurrentDialog);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CueSeen>();
       element.m_Cue = BlueprintTool.GetRef<BlueprintCueBaseReference>(m_Cue);
       element.CurrentDialog = CurrentDialog;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -198,14 +190,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddCurrentChapter(
         this ConditionsBuilder builder,
         Int32 Chapter,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Chapter);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CurrentChapter>();
       element.Chapter = Chapter;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -218,16 +209,15 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         this ConditionsBuilder builder,
         Boolean First,
         Boolean Last,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(First);
       builder.Validate(Last);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CutsceneQueueState>();
       element.First = First;
       element.Last = Last;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -239,14 +229,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddDayOfTheMonth(
         this ConditionsBuilder builder,
         Int32 Day,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Day);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<DayOfTheMonth>();
       element.Day = Day;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -258,14 +247,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddDayOfTheWeek(
         this ConditionsBuilder builder,
         DayOfWeek Day,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Day);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<DayOfTheWeek>();
       element.Day = Day;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -277,14 +265,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddDayTime(
         this ConditionsBuilder builder,
         TimeOfDay Time,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Time);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<DayTime>();
       element.Time = Time;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -303,14 +290,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         Boolean Playing,
         Boolean CompletionInProgress,
         Boolean Completed,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(NotStarted);
       builder.Validate(Started);
       builder.Validate(Playing);
       builder.Validate(CompletionInProgress);
       builder.Validate(Completed);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<EtudeStatus>();
       element.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(m_Etude);
@@ -319,7 +305,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
       element.Playing = Playing;
       element.CompletionInProgress = CompletionInProgress;
       element.Completed = Completed;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -335,17 +321,16 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         string m_Flag,
         Int32 MinValue,
         Int32 MaxValue,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(MinValue);
       builder.Validate(MaxValue);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<FlagInRange>();
       element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_Flag);
       element.MinValue = MinValue;
       element.MaxValue = MaxValue;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -361,20 +346,19 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         string m_ConditionFlag,
         Boolean ExceptSpecifiedValues,
         List<Int32> SpecifiedValues,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(ExceptSpecifiedValues);
       foreach (var item in SpecifiedValues)
       {
         builder.Validate(item);
       }
-      builder.Validate(Not);
       
       var element = ElementTool.Create<FlagUnlocked>();
       element.m_ConditionFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_ConditionFlag);
       element.ExceptSpecifiedValues = ExceptSpecifiedValues;
       element.SpecifiedValues = SpecifiedValues;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -385,12 +369,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(IsLegendPathSelected))]
     public static ConditionsBuilder AddIsLegendPathSelected(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsLegendPathSelected>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -402,14 +385,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddPlayerAlignmentIs(
         this ConditionsBuilder builder,
         AlignmentMaskType Alignment,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Alignment);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PlayerAlignmentIs>();
       element.Alignment = Alignment;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -420,12 +402,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerHasNoCharactersOnRoster))]
     public static ConditionsBuilder AddPlayerHasNoCharactersOnRoster(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PlayerHasNoCharactersOnRoster>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -436,12 +417,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerHasRecruitsOnRoster))]
     public static ConditionsBuilder AddPlayerHasRecruitsOnRoster(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PlayerHasRecruitsOnRoster>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -458,16 +438,15 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         Boolean CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckGroup);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PlayerSignificantClassIs>();
       element.CheckGroup = CheckGroup;
       element.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
       element.m_CharacterClassGroup = BlueprintTool.GetRef<BlueprintCharacterClassGroupReference>(m_CharacterClassGroup);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -484,16 +463,15 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         Boolean CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckGroup);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PlayerTopClassIs>();
       element.CheckGroup = CheckGroup;
       element.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
       element.m_CharacterClassGroup = BlueprintTool.GetRef<BlueprintCharacterClassGroupReference>(m_CharacterClassGroup);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -508,15 +486,14 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         this ConditionsBuilder builder,
         string m_Quest,
         QuestState State,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(State);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<QuestStatus>();
       element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(m_Quest);
       element.State = State;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -530,13 +507,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddRomanceLocked(
         this ConditionsBuilder builder,
         string m_Romance,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<RomanceLocked>();
       element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
   }

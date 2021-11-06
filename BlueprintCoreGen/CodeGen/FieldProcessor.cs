@@ -12,7 +12,7 @@ namespace BlueprintCoreGen.CodeGen
 {
   public static class FieldProcessor
   {
-    public static Field Process(FieldInfo field)
+    public static IField Process(FieldInfo field)
     {
       var enumerableType = GetEnumerableType(field.FieldType);
       if (enumerableType != null)
@@ -44,7 +44,17 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class Field
+  public interface IField
+  {
+    bool IsOptional();
+    string GetParamComment();
+    string GetParamDeclaration();
+    string GetAssignment();
+    List<string> GetValidation();
+    List<Type> GetImports();
+  }
+
+  public class Field : IField
   {
     protected FieldInfo Info { get; private set; }
 
@@ -65,6 +75,11 @@ namespace BlueprintCoreGen.CodeGen
       {
         Type = FieldType.Default;
       }
+    }
+
+    public virtual bool IsOptional()
+    {
+      return false;
     }
 
     public virtual string GetParamComment()
@@ -166,6 +181,41 @@ namespace BlueprintCoreGen.CodeGen
       Default = 0,
       Conditions,
       Actions
+    }
+  }
+
+  public class NegateConditionField : IField
+  {
+    public NegateConditionField() { }
+
+    public bool IsOptional()
+    {
+      return true;
+    }
+
+    public string GetParamComment()
+    {
+      return null;
+    }
+
+    public string GetParamDeclaration()
+    {
+      return "bool negate = false";
+    }
+
+    public string GetAssignment()
+    {
+      return "Not = negate;";
+    }
+
+    public List<Type> GetImports()
+    {
+      return new();
+    }
+
+    public List<string> GetValidation()
+    {
+      return new();
     }
   }
 

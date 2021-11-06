@@ -80,14 +80,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionDistanceToTarget(
         this ConditionsBuilder builder,
         Feet DistanceGreater,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(DistanceGreater);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionDistanceToTarget>();
       element.DistanceGreater = DistanceGreater;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -100,16 +99,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         Boolean CheckCaster,
         AlignmentComponent Alignment,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckCaster);
       builder.Validate(Alignment);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionAlignment>();
       element.CheckCaster = CheckCaster;
       element.Alignment = Alignment;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -121,14 +119,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionAlignmentDifference(
         this ConditionsBuilder builder,
         Int32 AlignmentStepDifference,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(AlignmentStepDifference);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionAlignmentDifference>();
       element.AlignmentStepDifference = AlignmentStepDifference;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -139,12 +136,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionAlive))]
     public static ConditionsBuilder AddContextConditionAlive(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionAlive>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -159,15 +155,14 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         string Buff,
         ContextValue RankValue,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(RankValue);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionBuffRank>();
       element.Buff = BlueprintTool.GetRef<BlueprintBuffReference>(Buff);
       element.RankValue = RankValue;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -179,14 +174,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionCasterHasBuffWithDescriptor(
         this ConditionsBuilder builder,
         SpellDescriptorWrapper SpellDescriptor,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(SpellDescriptor);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCasterHasBuffWithDescriptor>();
       element.SpellDescriptor = SpellDescriptor;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -197,12 +191,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCasterIsPartyEnemy))]
     public static ConditionsBuilder AddContextConditionCasterIsPartyEnemy(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCasterIsPartyEnemy>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -213,12 +206,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCasterWeaponInTwoHands))]
     public static ConditionsBuilder AddContextConditionCasterWeaponInTwoHands(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCasterWeaponInTwoHands>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -234,17 +226,16 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         Boolean CheckCaster,
         string m_Class,
         Int32 MinLevel,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckCaster);
       builder.Validate(MinLevel);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCharacterClass>();
       element.CheckCaster = CheckCaster;
       element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
       element.MinLevel = MinLevel;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -258,18 +249,17 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         ContextConditionCompare.Type m_Type,
         ContextValue CheckValue,
         ContextValue TargetValue,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_Type);
       builder.Validate(CheckValue);
       builder.Validate(TargetValue);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCompare>();
       element.m_Type = m_Type;
       element.CheckValue = CheckValue;
       element.TargetValue = TargetValue;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -282,16 +272,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         ContextConditionCompareCasterHP.CompareType m_CompareType,
         ContextValue Value,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_CompareType);
       builder.Validate(Value);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCompareCasterHP>();
       element.m_CompareType = m_CompareType;
       element.Value = Value;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -304,16 +293,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         ContextConditionCompareTargetHP.CompareType m_CompareType,
         ContextValue Value,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_CompareType);
       builder.Validate(Value);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionCompareTargetHP>();
       element.m_CompareType = m_CompareType;
       element.Value = Value;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -324,12 +312,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionFavoredEnemy))]
     public static ConditionsBuilder AddContextConditionFavoredEnemy(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionFavoredEnemy>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -343,13 +330,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionHasBuff(
         this ConditionsBuilder builder,
         string m_Buff,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHasBuff>();
       element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -361,14 +347,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionHasBuffWithDescriptor(
         this ConditionsBuilder builder,
         SpellDescriptorWrapper SpellDescriptor,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(SpellDescriptor);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHasBuffWithDescriptor>();
       element.SpellDescriptor = SpellDescriptor;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -384,17 +369,16 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         Boolean Money,
         string m_ItemToCheck,
         Int32 Quantity,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Money);
       builder.Validate(Quantity);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHasItem>();
       element.Money = Money;
       element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToCheck);
       element.Quantity = Quantity;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -405,12 +389,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionHasTouchSpellCharge))]
     public static ConditionsBuilder AddContextConditionHasTouchSpellCharge(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHasTouchSpellCharge>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -424,13 +407,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionHasUniqueBuff(
         this ConditionsBuilder builder,
         string m_Buff,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHasUniqueBuff>();
       element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -444,18 +426,17 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         Int32 HitDice,
         Boolean AddSharedValue,
         AbilitySharedValue SharedValue,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(HitDice);
       builder.Validate(AddSharedValue);
       builder.Validate(SharedValue);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionHitDice>();
       element.HitDice = HitDice;
       element.AddSharedValue = AddSharedValue;
       element.SharedValue = SharedValue;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -466,12 +447,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsAlly))]
     public static ConditionsBuilder AddContextConditionIsAlly(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsAlly>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -482,12 +462,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsAmuletEquipped))]
     public static ConditionsBuilder AddContextConditionIsAmuletEquipped(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsAmuletEquipped>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -498,12 +477,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsAnimalCompanion))]
     public static ConditionsBuilder AddContextConditionIsAnimalCompanion(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsAnimalCompanion>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -514,12 +492,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsCaster))]
     public static ConditionsBuilder AddContextConditionIsCaster(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsCaster>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -530,12 +507,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsEnemy))]
     public static ConditionsBuilder AddContextConditionIsEnemy(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsEnemy>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -546,12 +522,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsFlanked))]
     public static ConditionsBuilder AddContextConditionIsFlanked(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsFlanked>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -562,12 +537,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsFlatFooted))]
     public static ConditionsBuilder AddContextConditionIsFlatFooted(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsFlatFooted>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -578,12 +552,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsHelpless))]
     public static ConditionsBuilder AddContextConditionIsHelpless(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsHelpless>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -594,12 +567,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsInCombat))]
     public static ConditionsBuilder AddContextConditionIsInCombat(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsInCombat>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -610,12 +582,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsMainTarget))]
     public static ConditionsBuilder AddContextConditionIsMainTarget(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsMainTarget>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -626,12 +597,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsPartyMember))]
     public static ConditionsBuilder AddContextConditionIsPartyMember(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsPartyMember>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -642,12 +612,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsPetDead))]
     public static ConditionsBuilder AddContextConditionIsPetDead(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsPetDead>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -658,12 +627,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsRing1Equipped))]
     public static ConditionsBuilder AddContextConditionIsRing1Equipped(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsRing1Equipped>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -674,12 +642,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsRing2Equipped))]
     public static ConditionsBuilder AddContextConditionIsRing2Equipped(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsRing2Equipped>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -691,14 +658,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionIsShieldEquipped(
         this ConditionsBuilder builder,
         Boolean CheckCaster,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckCaster);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsShieldEquipped>();
       element.CheckCaster = CheckCaster;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -709,12 +675,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsTwoHandedEquipped))]
     public static ConditionsBuilder AddContextConditionIsTwoHandedEquipped(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsTwoHandedEquipped>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -725,12 +690,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsUnconscious))]
     public static ConditionsBuilder AddContextConditionIsUnconscious(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsUnconscious>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -746,14 +710,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         WeaponRangeType RangeType,
         WeaponCategory Category,
         Boolean CheckOnCaster,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(CheckWeaponRangeType);
       builder.Validate(CheckWeaponCategory);
       builder.Validate(RangeType);
       builder.Validate(Category);
       builder.Validate(CheckOnCaster);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionIsWeaponEquipped>();
       element.CheckWeaponRangeType = CheckWeaponRangeType;
@@ -761,7 +724,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
       element.RangeType = RangeType;
       element.Category = Category;
       element.CheckOnCaster = CheckOnCaster;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -772,12 +735,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionMaximumBurn))]
     public static ConditionsBuilder AddContextConditionMaximumBurn(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionMaximumBurn>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -788,12 +750,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionPeaceful))]
     public static ConditionsBuilder AddContextConditionPeaceful(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionPeaceful>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -807,18 +768,17 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         AbilitySharedValue SharedValue,
         Int32 HigherOrEqual,
         Boolean Inverted,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(SharedValue);
       builder.Validate(HigherOrEqual);
       builder.Validate(Inverted);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionSharedValueHigher>();
       element.SharedValue = SharedValue;
       element.HigherOrEqual = HigherOrEqual;
       element.Inverted = Inverted;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -831,16 +791,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         AbilitySharedValue SharedValue,
         Boolean Inverted,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(SharedValue);
       builder.Validate(Inverted);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionSharedValueHitDice>();
       element.SharedValue = SharedValue;
       element.Inverted = Inverted;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -854,18 +813,17 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         Size Size,
         Boolean Invert,
         Boolean CheckCaster,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Size);
       builder.Validate(Invert);
       builder.Validate(CheckCaster);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionSize>();
       element.Size = Size;
       element.Invert = Invert;
       element.CheckCaster = CheckCaster;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -878,16 +836,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         Int32 N,
         StatType Stat,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(N);
       builder.Validate(Stat);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionStatValue>();
       element.N = N;
       element.Stat = Stat;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -899,14 +856,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionStealth(
         this ConditionsBuilder builder,
         ContextConditionStealth.CheckTarget m_CheckTarget,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_CheckTarget);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionStealth>();
       element.m_CheckTarget = m_CheckTarget;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -917,12 +873,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionTargetCanSeeInvisible))]
     public static ConditionsBuilder AddContextConditionTargetCanSeeInvisible(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionTargetCanSeeInvisible>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -933,12 +888,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionTargetIsArcaneCaster))]
     public static ConditionsBuilder AddContextConditionTargetIsArcaneCaster(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionTargetIsArcaneCaster>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -952,13 +906,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionTargetIsBlueprint(
         this ConditionsBuilder builder,
         string m_Unit,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionTargetIsBlueprint>();
       element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -969,12 +922,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionTargetIsDivineCaster))]
     public static ConditionsBuilder AddContextConditionTargetIsDivineCaster(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionTargetIsDivineCaster>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -985,12 +937,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionTargetIsEngaged))]
     public static ConditionsBuilder AddContextConditionTargetIsEngaged(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionTargetIsEngaged>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -1002,14 +953,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionUnconsciousAllyFarThan(
         this ConditionsBuilder builder,
         Feet Distance,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Distance);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionUnconsciousAllyFarThan>();
       element.Distance = Distance;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
   }

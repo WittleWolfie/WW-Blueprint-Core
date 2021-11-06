@@ -28,14 +28,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddBuffConditionCheckRoundNumber(
         this ConditionsBuilder builder,
         Int32 RoundNumber,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(RoundNumber);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<BuffConditionCheckRoundNumber>();
       element.RoundNumber = RoundNumber;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -50,15 +49,14 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         string ConditionsHolder,
         ParametrizedContextSetter Parameters,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Parameters);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CheckConditionsHolder>();
       element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(ConditionsHolder);
       element.Parameters = Parameters;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -71,16 +69,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         PositionEvaluator Point1,
         PositionEvaluator Point2,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Point1);
       builder.Validate(Point2);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CheckLos>();
       element.Point1 = Point1;
       element.Point2 = Point2;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -95,15 +92,14 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         UnitEvaluator Target,
         string m_Buff,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Target);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<HasBuff>();
       element.Target = Target;
       element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -118,15 +114,14 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
         string m_Fact,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<HasFact>();
       element.Unit = Unit;
       element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -139,16 +134,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         UnitEvaluator FirstUnit,
         UnitEvaluator SecondUnit,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(FirstUnit);
       builder.Validate(SecondUnit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsEnemy>();
       element.FirstUnit = FirstUnit;
       element.SecondUnit = SecondUnit;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -161,16 +155,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
         Boolean Player,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
       builder.Validate(Player);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsInCombat>();
       element.Unit = Unit;
       element.Player = Player;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -181,12 +174,11 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     [Implements(typeof(IsInTurnBasedCombat))]
     public static ConditionsBuilder AddIsInTurnBasedCombat(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsInTurnBasedCombat>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -198,14 +190,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddIsPartyMember(
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsPartyMember>();
       element.Unit = Unit;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -217,14 +208,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddIsUnconscious(
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsUnconscious>();
       element.Unit = Unit;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -237,16 +227,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         AbilitiesHelper.AbilityDescription Description,
         Boolean AllowItems,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Description);
       builder.Validate(AllowItems);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PartyCanUseAbility>();
       element.Description = Description;
       element.AllowItems = AllowItems;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -260,13 +249,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddSummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
         string m_SummonPool,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<SummonPoolExistsAndEmpty>();
       element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -278,14 +266,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddUnitIsDead(
         this ConditionsBuilder builder,
         UnitEvaluator Target,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Target);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<UnitIsDead>();
       element.Target = Target;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -297,14 +284,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddUnitIsHidden(
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<UnitIsHidden>();
       element.Unit = Unit;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
   }

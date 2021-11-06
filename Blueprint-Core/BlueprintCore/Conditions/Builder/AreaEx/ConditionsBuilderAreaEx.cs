@@ -29,16 +29,15 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         Int32 MinLevel,
         Int32 MaxLevel,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(MinLevel);
       builder.Validate(MaxLevel);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionDungeonStage>();
       element.MinLevel = MinLevel;
       element.MaxLevel = MaxLevel;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -49,12 +48,11 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     [Implements(typeof(InCapital))]
     public static ConditionsBuilder AddInCapital(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<InCapital>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -68,13 +66,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddAreaVisited(
         this ConditionsBuilder builder,
         string m_Area,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<AreaVisited>();
       element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -88,13 +85,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddCurrentAreaIs(
         this ConditionsBuilder builder,
         string m_Area,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<CurrentAreaIs>();
       element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -108,13 +104,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddLocationRevealed(
         this ConditionsBuilder builder,
         string m_Location,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<LocationRevealed>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -126,14 +121,13 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddMapObjectDestroyed(
         this ConditionsBuilder builder,
         MapObjectEvaluator MapObject,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(MapObject);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<MapObjectDestroyed>();
       element.MapObject = MapObject;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -145,14 +139,13 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddMapObjectRevealed(
         this ConditionsBuilder builder,
         MapObjectEvaluator MapObject,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(MapObject);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<MapObjectRevealed>();
       element.MapObject = MapObject;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -165,16 +158,15 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         PartyInScriptZone.CheckType m_Check,
         EntityReference m_ScriptZone,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_Check);
       builder.Validate(m_ScriptZone);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<PartyInScriptZone>();
       element.m_Check = m_Check;
       element.m_ScriptZone = m_ScriptZone;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -187,16 +179,15 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
         MapObjectEvaluator ScriptZone,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
       builder.Validate(ScriptZone);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<UnitInScriptZone>();
       element.Unit = Unit;
       element.ScriptZone = ScriptZone;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -211,15 +202,14 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         string m_AreaPart,
         UnitEvaluator Unit,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Unit);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<UnitIsInAreaPart>();
       element.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(m_AreaPart);
       element.Unit = Unit;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -231,14 +221,13 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     public static ConditionsBuilder AddUnitIsInFogOfWar(
         this ConditionsBuilder builder,
         UnitEvaluator Target,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Target);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<UnitIsInFogOfWar>();
       element.Target = Target;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
   }

@@ -31,20 +31,19 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         Boolean Reverse,
         Boolean CheckOnlyForMonster,
         DifficultyPresetAsset m_Difficulty,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(Less);
       builder.Validate(Reverse);
       builder.Validate(CheckOnlyForMonster);
       builder.Validate(m_Difficulty);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<ContextConditionDifficultyHigherThan>();
       element.Less = Less;
       element.Reverse = Reverse;
       element.CheckOnlyForMonster = CheckOnlyForMonster;
       element.m_Difficulty = m_Difficulty;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -56,14 +55,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddDifficultyHigherThan(
         this ConditionsBuilder builder,
         DifficultyPresetAsset m_Difficulty,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_Difficulty);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<DifficultyHigherThan>();
       element.m_Difficulty = m_Difficulty;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -74,12 +72,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(EnlargedEncountersCapacity))]
     public static ConditionsBuilder AddEnlargedEncountersCapacity(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<EnlargedEncountersCapacity>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -90,12 +87,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(Paused))]
     public static ConditionsBuilder AddPaused(
         this ConditionsBuilder builder,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<Paused>();
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -107,14 +103,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddGameModeActive(
         this ConditionsBuilder builder,
         GameModeType.Enum m_GameMode,
-        Boolean Not)
+        bool negate = false)
     {
       builder.Validate(m_GameMode);
-      builder.Validate(Not);
       
       var element = ElementTool.Create<GameModeActive>();
       element.m_GameMode = m_GameMode;
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
 
@@ -128,13 +123,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddIsDLCEnabled(
         this ConditionsBuilder builder,
         string m_BlueprintDlcReward,
-        Boolean Not)
+        bool negate = false)
     {
-      builder.Validate(Not);
       
       var element = ElementTool.Create<IsDLCEnabled>();
       element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_BlueprintDlcReward);
-      element.Not = Not;
+      element.Not = negate;
       return builder.Add(element);
     }
   }
