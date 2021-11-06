@@ -312,26 +312,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="MakeItemNonRemovable"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(MakeItemNonRemovable))]
-    public static ActionsBuilder AddMakeItemNonRemovable(
-        this ActionsBuilder builder,
-        string m_Item,
-        Boolean NonRemovable)
-    {
-      builder.Validate(NonRemovable);
-      
-      var element = ElementTool.Create<MakeItemNonRemovable>();
-      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
-      element.NonRemovable = NonRemovable;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="MarkAnswersSelected"/> (Auto Generated)
     /// </summary>
     ///
@@ -399,28 +379,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="MovePartyItemsAction"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(MovePartyItemsAction))]
-    public static ActionsBuilder AddMovePartyItemsAction(
-        this ActionsBuilder builder,
-        MovePartyItemsAction.ItemType PickupTypes,
-        ItemsCollectionEvaluator TargetCollection,
-        MovePartyItemsAction.LeaveSettings m_LeaveEquipmentOf)
-    {
-      builder.Validate(PickupTypes);
-      builder.Validate(TargetCollection);
-      builder.Validate(m_LeaveEquipmentOf);
-      
-      var element = ElementTool.Create<MovePartyItemsAction>();
-      element.PickupTypes = PickupTypes;
-      element.TargetCollection = TargetCollection;
-      element.m_LeaveEquipmentOf = m_LeaveEquipmentOf;
       return builder.Add(element);
     }
 

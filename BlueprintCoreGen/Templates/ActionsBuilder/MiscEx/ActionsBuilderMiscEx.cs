@@ -80,10 +80,19 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DebugLog)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MakeAutoSave)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MakeItemNonRemovable)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.OpenSelectMythicUI)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemFromPlayer)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemsFromCollection)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDuplicateItems)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RestoreItemsCountInCollection)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SellCollectibleItems)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipAllItems)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipItem)]
 
   }
 }

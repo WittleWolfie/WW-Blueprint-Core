@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
@@ -223,6 +224,48 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="MakeItemNonRemovable"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(MakeItemNonRemovable))]
+    public static ActionsBuilder AddMakeItemNonRemovable(
+        this ActionsBuilder builder,
+        string m_Item,
+        Boolean NonRemovable)
+    {
+      builder.Validate(NonRemovable);
+      
+      var element = ElementTool.Create<MakeItemNonRemovable>();
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.NonRemovable = NonRemovable;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MovePartyItemsAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MovePartyItemsAction))]
+    public static ActionsBuilder AddMovePartyItemsAction(
+        this ActionsBuilder builder,
+        MovePartyItemsAction.ItemType PickupTypes,
+        ItemsCollectionEvaluator TargetCollection,
+        MovePartyItemsAction.LeaveSettings m_LeaveEquipmentOf)
+    {
+      builder.Validate(PickupTypes);
+      builder.Validate(TargetCollection);
+      builder.Validate(m_LeaveEquipmentOf);
+      
+      var element = ElementTool.Create<MovePartyItemsAction>();
+      element.PickupTypes = PickupTypes;
+      element.TargetCollection = TargetCollection;
+      element.m_LeaveEquipmentOf = m_LeaveEquipmentOf;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="OpenSelectMythicUI"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -243,6 +286,60 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="RemoveItemFromPlayer"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ItemToRemove"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(RemoveItemFromPlayer))]
+    public static ActionsBuilder AddRemoveItemFromPlayer(
+        this ActionsBuilder builder,
+        Boolean Money,
+        Boolean RemoveAll,
+        string m_ItemToRemove,
+        Boolean m_Silent,
+        Int32 Quantity,
+        Single Percentage)
+    {
+      builder.Validate(Money);
+      builder.Validate(RemoveAll);
+      builder.Validate(m_Silent);
+      builder.Validate(Quantity);
+      builder.Validate(Percentage);
+      
+      var element = ElementTool.Create<RemoveItemFromPlayer>();
+      element.Money = Money;
+      element.RemoveAll = RemoveAll;
+      element.m_ItemToRemove = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToRemove);
+      element.m_Silent = m_Silent;
+      element.Quantity = Quantity;
+      element.Percentage = Percentage;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveItemsFromCollection"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RemoveItemsFromCollection))]
+    public static ActionsBuilder AddRemoveItemsFromCollection(
+        this ActionsBuilder builder,
+        ItemsCollectionEvaluator Collection,
+        List<LootEntry> Loot)
+    {
+      builder.Validate(Collection);
+      foreach (var item in Loot)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<RemoveItemsFromCollection>();
+      element.Collection = Collection;
+      element.Loot = Loot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveDuplicateItems"/> (Auto Generated)
     /// </summary>
     ///
@@ -259,6 +356,49 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       var element = ElementTool.Create<RemoveDuplicateItems>();
       element.Unit = Unit;
       element.m_Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(m_Blueprint);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RestoreItemsCountInCollection"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(RestoreItemsCountInCollection))]
+    public static ActionsBuilder AddRestoreItemsCountInCollection(
+        this ActionsBuilder builder,
+        string m_Item,
+        ItemsCollectionEvaluator Collection,
+        IntEvaluator Count)
+    {
+      builder.Validate(Collection);
+      builder.Validate(Count);
+      
+      var element = ElementTool.Create<RestoreItemsCountInCollection>();
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.Collection = Collection;
+      element.Count = Count;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SellCollectibleItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ItemToSell"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(SellCollectibleItems))]
+    public static ActionsBuilder AddSellCollectibleItems(
+        this ActionsBuilder builder,
+        string m_ItemToSell,
+        Boolean HalfPrice)
+    {
+      builder.Validate(HalfPrice);
+      
+      var element = ElementTool.Create<SellCollectibleItems>();
+      element.m_ItemToSell = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToSell);
+      element.HalfPrice = HalfPrice;
       return builder.Add(element);
     }
 
@@ -300,6 +440,73 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       var element = ElementTool.Create<SetVendorPriceModifier>();
       element.VendorUnit = VendorUnit;
       element.m_Entries = m_Entries;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartTrade"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StartTrade))]
+    public static ActionsBuilder AddStartTrade(
+        this ActionsBuilder builder,
+        UnitEvaluator Vendor)
+    {
+      builder.Validate(Vendor);
+      
+      var element = ElementTool.Create<StartTrade>();
+      element.Vendor = Vendor;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnequipAllItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnequipAllItems))]
+    public static ActionsBuilder AddUnequipAllItems(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        ItemsCollectionEvaluator DestinationContainer,
+        Boolean Silent)
+    {
+      builder.Validate(Target);
+      builder.Validate(DestinationContainer);
+      builder.Validate(Silent);
+      
+      var element = ElementTool.Create<UnequipAllItems>();
+      element.Target = Target;
+      element.DestinationContainer = DestinationContainer;
+      element.Silent = Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnequipItem"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(UnequipItem))]
+    public static ActionsBuilder AddUnequipItem(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        ItemsCollectionEvaluator DestinationContainer,
+        Boolean Silent,
+        string m_Item,
+        Boolean All)
+    {
+      builder.Validate(Unit);
+      builder.Validate(DestinationContainer);
+      builder.Validate(Silent);
+      builder.Validate(All);
+      
+      var element = ElementTool.Create<UnequipItem>();
+      element.Unit = Unit;
+      element.DestinationContainer = DestinationContainer;
+      element.Silent = Silent;
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.All = All;
       return builder.Add(element);
     }
   }

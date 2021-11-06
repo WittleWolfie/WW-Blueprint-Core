@@ -512,6 +512,125 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="TeleportParty"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_exitPositon"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(TeleportParty))]
+    public static ActionsBuilder AddTeleportParty(
+        this ActionsBuilder builder,
+        string m_exitPositon,
+        AutoSaveMode AutoSaveMode,
+        Boolean ForcePauseAfterTeleport,
+        ActionsBuilder AfterTeleport)
+    {
+      builder.Validate(AutoSaveMode);
+      builder.Validate(ForcePauseAfterTeleport);
+      
+      var element = ElementTool.Create<TeleportParty>();
+      element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_exitPositon);
+      element.AutoSaveMode = AutoSaveMode;
+      element.ForcePauseAfterTeleport = ForcePauseAfterTeleport;
+      element.AfterTeleport = AfterTeleport.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TranslocatePlayer"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TranslocatePlayer))]
+    public static ActionsBuilder AddTranslocatePlayer(
+        this ActionsBuilder builder,
+        EntityReference transolcatePosition,
+        Boolean ByFormationAndWithPets,
+        Boolean ScrollCameraToPlayer)
+    {
+      builder.Validate(transolcatePosition);
+      builder.Validate(ByFormationAndWithPets);
+      builder.Validate(ScrollCameraToPlayer);
+      
+      var element = ElementTool.Create<TranslocatePlayer>();
+      element.transolcatePosition = transolcatePosition;
+      element.ByFormationAndWithPets = ByFormationAndWithPets;
+      element.ScrollCameraToPlayer = ScrollCameraToPlayer;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TranslocateUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TranslocateUnit))]
+    public static ActionsBuilder AddTranslocateUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        EntityReference translocatePosition,
+        PositionEvaluator translocatePositionEvaluator,
+        Boolean m_CopyRotation,
+        FloatEvaluator translocateOrientationEvaluator)
+    {
+      builder.Validate(Unit);
+      builder.Validate(translocatePosition);
+      builder.Validate(translocatePositionEvaluator);
+      builder.Validate(m_CopyRotation);
+      builder.Validate(translocateOrientationEvaluator);
+      
+      var element = ElementTool.Create<TranslocateUnit>();
+      element.Unit = Unit;
+      element.translocatePosition = translocatePosition;
+      element.translocatePositionEvaluator = translocatePositionEvaluator;
+      element.m_CopyRotation = m_CopyRotation;
+      element.translocateOrientationEvaluator = translocateOrientationEvaluator;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TrapCastSpell"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Spell"><see cref="BlueprintAbility"/></param>
+    [Generated]
+    [Implements(typeof(TrapCastSpell))]
+    public static ActionsBuilder AddTrapCastSpell(
+        this ActionsBuilder builder,
+        string m_Spell,
+        MapObjectEvaluator TrapObject,
+        UnitEvaluator TriggeringUnit,
+        PositionEvaluator TargetPoint,
+        PositionEvaluator ActorPosition,
+        Boolean DisableBattleLog,
+        Boolean OverrideDC,
+        Int32 DC,
+        Boolean OverrideSpellLevel,
+        Int32 SpellLevel)
+    {
+      builder.Validate(TrapObject);
+      builder.Validate(TriggeringUnit);
+      builder.Validate(TargetPoint);
+      builder.Validate(ActorPosition);
+      builder.Validate(DisableBattleLog);
+      builder.Validate(OverrideDC);
+      builder.Validate(DC);
+      builder.Validate(OverrideSpellLevel);
+      builder.Validate(SpellLevel);
+      
+      var element = ElementTool.Create<TrapCastSpell>();
+      element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
+      element.TrapObject = TrapObject;
+      element.TriggeringUnit = TriggeringUnit;
+      element.TargetPoint = TargetPoint;
+      element.ActorPosition = ActorPosition;
+      element.DisableBattleLog = DisableBattleLog;
+      element.OverrideDC = OverrideDC;
+      element.DC = DC;
+      element.OverrideSpellLevel = OverrideSpellLevel;
+      element.SpellLevel = SpellLevel;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnlockCookingRecipe"/> (Auto Generated)
     /// </summary>
     ///
