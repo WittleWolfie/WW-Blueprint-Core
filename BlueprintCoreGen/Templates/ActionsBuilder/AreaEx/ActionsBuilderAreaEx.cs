@@ -137,6 +137,10 @@ namespace BlueprintCoreGen.Actions.Builder.AreaEx
 
     //----- Auto Generated -----//
 
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AskPlayerForLocationName)]
     // [Generate(Kingmaker.Corruption.DecreaseCorruptionLevelAction)]
+    // [Generate(Kingmaker.AreaLogic.Capital.CapitalExit)]
+    // [Generate(Kingmaker.ElementsSystem.GameActionSetIsleLock)]
+    // [Generate(Kingmaker.ElementsSystem.GameActionSetIsleState)]
   }
 }

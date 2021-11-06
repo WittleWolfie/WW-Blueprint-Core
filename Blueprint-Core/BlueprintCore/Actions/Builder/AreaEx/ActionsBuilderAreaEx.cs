@@ -1,12 +1,16 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+using System;
 
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
@@ -140,6 +144,35 @@ namespace BlueprintCore.Actions.Builder.AreaEx
 
 
     /// <summary>
+    /// Adds <see cref="AskPlayerForLocationName"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(AskPlayerForLocationName))]
+    public static ActionsBuilder AddAskPlayerForLocationName(
+        this ActionsBuilder builder,
+        string m_Location,
+        Boolean Obligatory,
+        LocalizedString Title,
+        LocalizedString Hint,
+        LocalizedString Default)
+    {
+      builder.Validate(Obligatory);
+      builder.Validate(Title);
+      builder.Validate(Hint);
+      builder.Validate(Default);
+      var element = ElementTool.Create<AskPlayerForLocationName>();
+      element.m_Location =
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.Obligatory = Obligatory;
+      element.Title = Title;
+      element.Hint = Hint;
+      element.Default = Default;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -147,6 +180,65 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddDecreaseCorruptionLevelAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<DecreaseCorruptionLevelAction>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="CapitalExit"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Destination"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(CapitalExit))]
+    public static ActionsBuilder AddCapitalExit(
+        this ActionsBuilder builder,
+        string m_Destination,
+        AutoSaveMode AutoSaveMode)
+    {
+      builder.Validate(AutoSaveMode);
+      var element = ElementTool.Create<CapitalExit>();
+      element.m_Destination =
+          BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_Destination);
+      element.AutoSaveMode = AutoSaveMode;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GameActionSetIsleLock"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GameActionSetIsleLock))]
+    public static ActionsBuilder AddGameActionSetIsleLock(
+        this ActionsBuilder builder,
+        IsleEvaluator m_Isle,
+        Boolean m_IsLock)
+    {
+      builder.Validate(m_Isle);
+      builder.Validate(m_IsLock);
+      var element = ElementTool.Create<GameActionSetIsleLock>();
+      element.m_Isle = m_Isle;
+      element.m_IsLock = m_IsLock;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GameActionSetIsleState"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GameActionSetIsleState))]
+    public static ActionsBuilder AddGameActionSetIsleState(
+        this ActionsBuilder builder,
+        IsleEvaluator m_Isle,
+        String m_StateName)
+    {
+      builder.Validate(m_Isle);
+      foreach (var item in m_StateName)
+      {
+        builder.Validate(item);
+      }
+      var element = ElementTool.Create<GameActionSetIsleState>();
+      element.m_Isle = m_Isle;
+      element.m_StateName = m_StateName;
+      return builder.Add(element);
     }
   }
 }

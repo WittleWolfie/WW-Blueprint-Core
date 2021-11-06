@@ -2018,5 +2018,31 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_Value = m_Value;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="CreateArmyFromLosses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(CreateArmyFromLosses))]
+    public static ActionsBuilder AddCreateArmyFromLosses(
+        this ActionsBuilder builder,
+        Int32 m_SumExperience,
+        Int32 m_SquadsMaxCount,
+        string m_Location,
+        Boolean m_ApplyRecruitIncrease)
+    {
+      builder.Validate(m_SumExperience);
+      builder.Validate(m_SquadsMaxCount);
+      builder.Validate(m_ApplyRecruitIncrease);
+      var element = ElementTool.Create<CreateArmyFromLosses>();
+      element.m_SumExperience = m_SumExperience;
+      element.m_SquadsMaxCount = m_SquadsMaxCount;
+      element.m_Location =
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.m_ApplyRecruitIncrease = m_ApplyRecruitIncrease;
+      return builder.Add(element);
+    }
   }
 }

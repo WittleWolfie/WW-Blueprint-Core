@@ -1,14 +1,20 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
 using Kingmaker.UnitLogic.FactLogic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
@@ -137,6 +143,55 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       var element = ElementTool.Create<ClearVendorTable>();
       element.m_Table =
           BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddPremiumReward"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_DlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="Items"><see cref="BlueprintItem"/></param>
+    /// <param name="PlayerFeatures"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(AddPremiumReward))]
+    public static ActionsBuilder AddAddPremiumReward(
+        this ActionsBuilder builder,
+        string m_DlcReward,
+        string[] Items,
+        string[] PlayerFeatures,
+        ActionsBuilder AdditionalActions)
+    {
+      builder.Validate(AdditionalActions);
+      var element = ElementTool.Create<AddPremiumReward>();
+      element.m_DlcReward =
+          BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
+      element.Items =
+          Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToList();
+      element.PlayerFeatures =
+          PlayerFeatures.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToList();
+      element.AdditionalActions = AdditionalActions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DebugLog"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DebugLog))]
+    public static ActionsBuilder AddDebugLog(
+        this ActionsBuilder builder,
+        String Log,
+        Boolean Break)
+    {
+      foreach (var item in Log)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(Break);
+      var element = ElementTool.Create<DebugLog>();
+      element.Log = Log;
+      element.Break = Break;
       return builder.Add(element);
     }
   }

@@ -127,6 +127,19 @@ references:
   commentId: T:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx
   fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx
   nameWithType: ActionsBuilderAreaEx
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,Kingmaker.Localization.LocalizedString,Kingmaker.Localization.LocalizedString,Kingmaker.Localization.LocalizedString)
+  name: AddAskPlayerForLocationName(ActionsBuilder, String, Boolean, LocalizedString, LocalizedString, LocalizedString)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddAskPlayerForLocationName_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_Kingmaker_Localization_LocalizedString_Kingmaker_Localization_LocalizedString_Kingmaker_Localization_LocalizedString_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,Kingmaker.Localization.LocalizedString,Kingmaker.Localization.LocalizedString,Kingmaker.Localization.LocalizedString)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean, Kingmaker.Localization.LocalizedString, Kingmaker.Localization.LocalizedString, Kingmaker.Localization.LocalizedString)
+  nameWithType: ActionsBuilderAreaEx.AddAskPlayerForLocationName(ActionsBuilder, String, Boolean, LocalizedString, LocalizedString, LocalizedString)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName*
+  name: AddAskPlayerForLocationName
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddAskPlayerForLocationName_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddAskPlayerForLocationName
+  nameWithType: ActionsBuilderAreaEx.AddAskPlayerForLocationName
 - uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCampingEncounter(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
   name: AddCampingEncounter(ActionsBuilder, String)
   href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddCampingEncounter_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
@@ -140,6 +153,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCampingEncounter
   nameWithType: ActionsBuilderAreaEx.AddCampingEncounter
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.EntitySystem.Persistence.AutoSaveMode)
+  name: AddCapitalExit(ActionsBuilder, String, AutoSaveMode)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddCapitalExit_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_EntitySystem_Persistence_AutoSaveMode_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.EntitySystem.Persistence.AutoSaveMode)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, Kingmaker.EntitySystem.Persistence.AutoSaveMode)
+  nameWithType: ActionsBuilderAreaEx.AddCapitalExit(ActionsBuilder, String, AutoSaveMode)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit*
+  name: AddCapitalExit
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddCapitalExit_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddCapitalExit
+  nameWithType: ActionsBuilderAreaEx.AddCapitalExit
 - uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddDecreaseCorruptionLevelAction(BlueprintCore.Actions.Builder.ActionsBuilder)
   name: AddDecreaseCorruptionLevelAction(ActionsBuilder)
   href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddDecreaseCorruptionLevelAction_BlueprintCore_Actions_Builder_ActionsBuilder_
@@ -153,6 +179,32 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddDecreaseCorruptionLevelAction
   nameWithType: ActionsBuilderAreaEx.AddDecreaseCorruptionLevelAction
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.Boolean)
+  name: AddGameActionSetIsleLock(ActionsBuilder, IsleEvaluator, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddGameActionSetIsleLock_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.IsleEvaluator, System.Boolean)
+  nameWithType: ActionsBuilderAreaEx.AddGameActionSetIsleLock(ActionsBuilder, IsleEvaluator, Boolean)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock*
+  name: AddGameActionSetIsleLock
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddGameActionSetIsleLock_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleLock
+  nameWithType: ActionsBuilderAreaEx.AddGameActionSetIsleLock
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.String)
+  name: AddGameActionSetIsleState(ActionsBuilder, IsleEvaluator, String)
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddGameActionSetIsleState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.String)
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.IsleEvaluator, System.String)
+  nameWithType: ActionsBuilderAreaEx.AddGameActionSetIsleState(ActionsBuilder, IsleEvaluator, String)
+- uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState*
+  name: AddGameActionSetIsleState
+  href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddGameActionSetIsleState_
+  commentId: Overload:BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.AddGameActionSetIsleState
+  nameWithType: ActionsBuilderAreaEx.AddGameActionSetIsleState
 - uid: BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ChangeAreaEntrance(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
   name: ChangeAreaEntrance(ActionsBuilder, String, String)
   href: api/BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ChangeAreaEntrance_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
@@ -2322,6 +2374,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddChangeMercenaryWeight
   nameWithType: ActionsBuilderKingdomEx.AddChangeMercenaryWeight
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Int32,System.String,System.Boolean)
+  name: AddCreateArmyFromLosses(ActionsBuilder, Int32, Int32, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCreateArmyFromLosses_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_System_Int32_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses(BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32,System.Int32,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses(BlueprintCore.Actions.Builder.ActionsBuilder, System.Int32, System.Int32, System.String, System.Boolean)
+  nameWithType: ActionsBuilderKingdomEx.AddCreateArmyFromLosses(ActionsBuilder, Int32, Int32, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses*
+  name: AddCreateArmyFromLosses
+  href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCreateArmyFromLosses_
+  commentId: Overload:BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCreateArmyFromLosses
+  nameWithType: ActionsBuilderKingdomEx.AddCreateArmyFromLosses
 - uid: BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.AddCrusadeResource(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Kingdom.KingdomResourcesAmount)
   name: AddCrusadeResource(ActionsBuilder, KingdomResourcesAmount)
   href: api/BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html#BlueprintCore_Actions_Builder_KingdomEx_ActionsBuilderKingdomEx_AddCrusadeResource_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_KingdomResourcesAmount_
@@ -3735,6 +3800,22 @@ references:
   commentId: T:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx
   fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx
   nameWithType: ActionsBuilderMiscEx
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String[],System.String[],BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddAddPremiumReward(ActionsBuilder, String, String[], String[], ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String[],System.String[],BlueprintCore.Actions.Builder.ActionsBuilder)
+  name.vb: AddAddPremiumReward(ActionsBuilder, String, String(), String(), ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String[], System.String[], BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName.vb: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String(), System.String(), BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderMiscEx.AddAddPremiumReward(ActionsBuilder, String, String[], String[], ActionsBuilder)
+  nameWithType.vb: ActionsBuilderMiscEx.AddAddPremiumReward(ActionsBuilder, String, String(), String(), ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward*
+  name: AddAddPremiumReward
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddPremiumReward_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward
+  nameWithType: ActionsBuilderMiscEx.AddAddPremiumReward
 - uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,System.String)
   name: AddAddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)
   href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_
@@ -3761,6 +3842,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable
   nameWithType: ActionsBuilderMiscEx.AddClearVendorTable
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  name: AddDebugLog(ActionsBuilder, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddDebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean)
+  nameWithType: ActionsBuilderMiscEx.AddDebugLog(ActionsBuilder, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog*
+  name: AddDebugLog
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddDebugLog_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog
+  nameWithType: ActionsBuilderMiscEx.AddDebugLog
 - uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])
   name: AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])
   href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___
