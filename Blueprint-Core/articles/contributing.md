@@ -46,6 +46,7 @@ Contributions are welcome!
 6. Before Committing
     * Rebuild the solution using the Release configuration to ensure documentation is updated
     * Run all unit tests
+        * Note: If tests throw exceptions when adding blueprints from TestData just re-run them. There is an issue with static data sticking around that I have not been able to resolve.
 
 ## What to Contribute
 
