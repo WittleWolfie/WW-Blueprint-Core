@@ -1,4 +1,5 @@
 using BlueprintCore.Blueprints;
+using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -19,10 +20,11 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     [Implements(typeof(ContextConditionHasBuffFromCaster))]
-    public static ConditionsBuilder HasBuffFromCaster(this ConditionsBuilder builder, string buff)
+    public static ConditionsBuilder HasBuffFromCaster(this ConditionsBuilder builder, string buff, bool negate = false)
     {
       var hasBuff = ElementTool.Create<ContextConditionHasBuffFromCaster>();
       hasBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      hasBuff.Not = negate;
       return builder.Add(hasBuff);
     }
 
@@ -32,10 +34,11 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     /// 
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(ContextConditionCasterHasFact))]
-    public static ConditionsBuilder CasterHasFact(this ConditionsBuilder builder, string fact)
+    public static ConditionsBuilder CasterHasFact(this ConditionsBuilder builder, string fact, bool negate = false)
     {
       var hasFact = ElementTool.Create<ContextConditionCasterHasFact>();
       hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      hasFact.Not = negate;
       return builder.Add(hasFact);
     }
 
@@ -45,10 +48,11 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     /// 
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(ContextConditionHasFact))]
-    public static ConditionsBuilder HasFact(this ConditionsBuilder builder, string fact)
+    public static ConditionsBuilder HasFact(this ConditionsBuilder builder, string fact, bool negate = false)
     {
       var hasFact = ElementTool.Create<ContextConditionHasFact>();
       hasFact.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      hasFact.Not = negate;
       return builder.Add(hasFact);
     }
 
@@ -56,9 +60,11 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionTargetIsYourself"/>
     /// </summary>
     [Implements(typeof(ContextConditionTargetIsYourself))]
-    public static ConditionsBuilder TargetIsYourself(this ConditionsBuilder builder)
+    public static ConditionsBuilder TargetIsYourself(this ConditionsBuilder builder, bool negate = false)
     {
-      return builder.Add(ElementTool.Create<ContextConditionTargetIsYourself>());
+      var condition = ElementTool.Create<ContextConditionTargetIsYourself>();
+      condition.Not = negate;
+      return builder.Add(condition);
     }
 
     //----- Auto Generated -----//

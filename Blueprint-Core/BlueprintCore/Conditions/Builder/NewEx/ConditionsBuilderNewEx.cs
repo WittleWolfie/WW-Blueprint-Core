@@ -14,9 +14,11 @@ namespace BlueprintCore.Conditions.Builder.NewEx
     /// Adds <see cref="New.TargetInMeleeRange">TargetInMeleeRange</see>
     /// </summary>
     [Implements(typeof(TargetInMeleeRange))]
-    public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builder)
+    public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builder, bool negate = false)
     {
-      return builder.Add(ElementTool.Create<TargetInMeleeRange>());
+      var condition = ElementTool.Create<TargetInMeleeRange>();
+      condition.Not = negate;
+      return builder.Add(condition);
     }
   }
 }
