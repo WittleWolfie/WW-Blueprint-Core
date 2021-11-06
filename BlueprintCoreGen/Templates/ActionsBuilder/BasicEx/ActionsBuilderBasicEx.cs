@@ -489,5 +489,18 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
       addSummon.Unit = unit;
       return builder.Add(addSummon);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DetachBuff)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DisableExperienceFromUnit)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DrainEnergy)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GainExp)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GainMythicLevel)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.HealParty)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.HealUnit)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ItemSetCharges)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Kill)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.LevelUpUnit)]
   }
 }

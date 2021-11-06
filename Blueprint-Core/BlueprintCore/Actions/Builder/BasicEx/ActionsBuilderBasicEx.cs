@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
@@ -9,7 +10,10 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 
@@ -488,6 +492,229 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       addSummon.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
       addSummon.Unit = unit;
       return builder.Add(addSummon);
+    }
+
+    //----- Auto Generated -----//
+
+
+    /// <summary>
+    /// Adds <see cref="DetachBuff"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    [Implements(typeof(DetachBuff))]
+    public static ActionsBuilder AddDetachBuff(
+        this ActionsBuilder builder,
+        string m_Buff,
+        UnitEvaluator Target)
+    {
+      builder.Validate(Target);
+      var element = ElementTool.Create<DetachBuff>();
+      element.m_Buff =
+          BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      element.Target = Target;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DisableExperienceFromUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DisableExperienceFromUnit))]
+    public static ActionsBuilder AddDisableExperienceFromUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit)
+    {
+      builder.Validate(Unit);
+      var element = ElementTool.Create<DisableExperienceFromUnit>();
+      element.Unit = Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DrainEnergy"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DrainEnergy))]
+    public static ActionsBuilder AddDrainEnergy(
+        this ActionsBuilder builder,
+        Boolean NoSource,
+        UnitEvaluator Source,
+        UnitEvaluator Target,
+        EnergyDrainType Type,
+        Rounds Duration,
+        DiceFormula DamageDice,
+        Int32 DamageBonus,
+        Boolean DisableBattleLog)
+    {
+      builder.Validate(NoSource);
+      builder.Validate(Source);
+      builder.Validate(Target);
+      builder.Validate(Type);
+      builder.Validate(Duration);
+      builder.Validate(DamageDice);
+      builder.Validate(DamageBonus);
+      builder.Validate(DisableBattleLog);
+      var element = ElementTool.Create<DrainEnergy>();
+      element.NoSource = NoSource;
+      element.Source = Source;
+      element.Target = Target;
+      element.Type = Type;
+      element.Duration = Duration;
+      element.DamageDice = DamageDice;
+      element.DamageBonus = DamageBonus;
+      element.DisableBattleLog = DisableBattleLog;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GainExp"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GainExp))]
+    public static ActionsBuilder AddGainExp(
+        this ActionsBuilder builder,
+        EncounterType Encounter,
+        Int32 CR,
+        Single Modifier,
+        IntEvaluator Count,
+        Boolean Dummy)
+    {
+      builder.Validate(Encounter);
+      builder.Validate(CR);
+      builder.Validate(Modifier);
+      builder.Validate(Count);
+      builder.Validate(Dummy);
+      var element = ElementTool.Create<GainExp>();
+      element.Encounter = Encounter;
+      element.CR = CR;
+      element.Modifier = Modifier;
+      element.Count = Count;
+      element.Dummy = Dummy;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GainMythicLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GainMythicLevel))]
+    public static ActionsBuilder AddGainMythicLevel(
+        this ActionsBuilder builder,
+        Int32 Levels)
+    {
+      builder.Validate(Levels);
+      var element = ElementTool.Create<GainMythicLevel>();
+      element.Levels = Levels;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HealParty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HealParty))]
+    public static ActionsBuilder AddHealParty(
+        this ActionsBuilder builder,
+        UnitEvaluator HealSource)
+    {
+      builder.Validate(HealSource);
+      var element = ElementTool.Create<HealParty>();
+      element.HealSource = HealSource;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HealUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HealUnit))]
+    public static ActionsBuilder AddHealUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Source,
+        UnitEvaluator Target,
+        Boolean ToFullHP,
+        IntEvaluator HealAmount)
+    {
+      builder.Validate(Source);
+      builder.Validate(Target);
+      builder.Validate(ToFullHP);
+      builder.Validate(HealAmount);
+      var element = ElementTool.Create<HealUnit>();
+      element.Source = Source;
+      element.Target = Target;
+      element.ToFullHP = ToFullHP;
+      element.HealAmount = HealAmount;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ItemSetCharges"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(ItemSetCharges))]
+    public static ActionsBuilder AddItemSetCharges(
+        this ActionsBuilder builder,
+        string m_Item,
+        IntEvaluator Charges,
+        ItemsCollectionEvaluator Collection)
+    {
+      builder.Validate(Charges);
+      builder.Validate(Collection);
+      var element = ElementTool.Create<ItemSetCharges>();
+      element.m_Item =
+          BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
+      element.Charges = Charges;
+      element.Collection = Collection;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Kill"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(Kill))]
+    public static ActionsBuilder AddKill(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        UnitEvaluator Killer,
+        Boolean Critical,
+        Boolean DisableBattleLog,
+        Boolean RemoveExp)
+    {
+      builder.Validate(Target);
+      builder.Validate(Killer);
+      builder.Validate(Critical);
+      builder.Validate(DisableBattleLog);
+      builder.Validate(RemoveExp);
+      var element = ElementTool.Create<Kill>();
+      element.Target = Target;
+      element.Killer = Killer;
+      element.Critical = Critical;
+      element.DisableBattleLog = DisableBattleLog;
+      element.RemoveExp = RemoveExp;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LevelUpUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LevelUpUnit))]
+    public static ActionsBuilder AddLevelUpUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        IntEvaluator TargetLevel)
+    {
+      builder.Validate(Unit);
+      builder.Validate(TargetLevel);
+      var element = ElementTool.Create<LevelUpUnit>();
+      element.Unit = Unit;
+      element.TargetLevel = TargetLevel;
+      return builder.Add(element);
     }
   }
 }
