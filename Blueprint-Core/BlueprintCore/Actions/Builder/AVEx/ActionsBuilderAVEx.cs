@@ -131,6 +131,25 @@ namespace BlueprintCore.Actions.Builder.AVEx
 
 
     /// <summary>
+    /// Adds <see cref="OverrideRainIntesity"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(OverrideRainIntesity))]
+    public static ActionsBuilder AddOverrideRainIntesity(
+        this ActionsBuilder builder,
+        Single RainIntensity,
+        Single Duration)
+    {
+      builder.Validate(RainIntensity);
+      builder.Validate(Duration);
+      
+      var element = ElementTool.Create<OverrideRainIntesity>();
+      element.RainIntensity = RainIntensity;
+      element.Duration = Duration;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="Play2DSound"/> (Auto Generated)
     /// </summary>
     [Generated]

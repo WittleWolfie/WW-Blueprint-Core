@@ -124,6 +124,7 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
 
     //----- Auto Generated -----//
 
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.OverrideRainIntesity)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play2DSound)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play3DSound)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot)]

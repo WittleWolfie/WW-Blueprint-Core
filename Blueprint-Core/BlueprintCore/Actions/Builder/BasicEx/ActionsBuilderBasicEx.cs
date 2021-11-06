@@ -769,5 +769,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.riseAllCompanions = riseAllCompanions;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="RemoveDeathDoor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RemoveDeathDoor))]
+    public static ActionsBuilder AddRemoveDeathDoor(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<RemoveDeathDoor>();
+      element.Unit = Unit;
+      return builder.Add(element);
+    }
   }
 }
