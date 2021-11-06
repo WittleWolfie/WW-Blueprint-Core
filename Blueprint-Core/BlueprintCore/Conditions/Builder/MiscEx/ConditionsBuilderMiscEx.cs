@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -128,6 +129,45 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
       
       var element = ElementTool.Create<IsDLCEnabled>();
       element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_BlueprintDlcReward);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RespecIsFree"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RespecIsFree))]
+    public static ConditionsBuilder AddRespecIsFree(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<RespecIsFree>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsleStateCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsleStateCondition))]
+    public static ConditionsBuilder AddIsleStateCondition(
+        this ConditionsBuilder builder,
+        IsleEvaluator m_Isle,
+        String m_State,
+        bool negate = false)
+    {
+      builder.Validate(m_Isle);
+      foreach (var item in m_State)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<IsleStateCondition>();
+      element.m_Isle = m_Isle;
+      element.m_State = m_State;
       element.Not = negate;
       return builder.Add(element);
     }

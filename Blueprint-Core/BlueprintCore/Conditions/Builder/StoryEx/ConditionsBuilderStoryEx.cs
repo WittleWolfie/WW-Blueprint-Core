@@ -378,6 +378,27 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="MonthFromList"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MonthFromList))]
+    public static ConditionsBuilder AddMonthFromList(
+        this ConditionsBuilder builder,
+        Int32[] Months,
+        bool negate = false)
+    {
+      foreach (var item in Months)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<MonthFromList>();
+      element.Months = Months;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="PlayerAlignmentIs"/> (Auto Generated)
     /// </summary>
     [Generated]

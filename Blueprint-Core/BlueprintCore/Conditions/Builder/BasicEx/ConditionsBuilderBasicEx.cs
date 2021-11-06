@@ -1,4 +1,5 @@
 using BlueprintCore.Blueprints;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers;
@@ -240,6 +241,74 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="PartyUnits"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PartyUnits))]
+    public static ConditionsBuilder AddPartyUnits(
+        this ConditionsBuilder builder,
+        Boolean Any,
+        ConditionsBuilder Conditions,
+        bool negate = false)
+    {
+      builder.Validate(Any);
+      
+      var element = ElementTool.Create<PartyUnits>();
+      element.Any = Any;
+      element.Conditions = Conditions.Build();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PcFemale"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PcFemale))]
+    public static ConditionsBuilder AddPcFemale(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<PcFemale>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PcMale"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PcMale))]
+    public static ConditionsBuilder AddPcMale(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<PcMale>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PcRace"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PcRace))]
+    public static ConditionsBuilder AddPcRace(
+        this ConditionsBuilder builder,
+        Race Race,
+        bool negate = false)
+    {
+      builder.Validate(Race);
+      
+      var element = ElementTool.Create<PcRace>();
+      element.Race = Race;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SummonPoolExistsAndEmpty"/> (Auto Generated)
     /// </summary>
     ///
@@ -290,6 +359,153 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
       
       var element = ElementTool.Create<UnitIsHidden>();
       element.Unit = Unit;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitBlueprint"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Blueprint"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(UnitBlueprint))]
+    public static ConditionsBuilder AddUnitBlueprint(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Blueprint,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<UnitBlueprint>();
+      element.Unit = Unit;
+      element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_Blueprint);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitClass"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    [Implements(typeof(UnitClass))]
+    public static ConditionsBuilder AddUnitClass(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Class,
+        IntEvaluator MinLevel,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      builder.Validate(MinLevel);
+      
+      var element = ElementTool.Create<UnitClass>();
+      element.Unit = Unit;
+      element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
+      element.MinLevel = MinLevel;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitEqual"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitEqual))]
+    public static ConditionsBuilder AddUnitEqual(
+        this ConditionsBuilder builder,
+        UnitEvaluator FirstUnit,
+        UnitEvaluator SecondUnit,
+        bool negate = false)
+    {
+      builder.Validate(FirstUnit);
+      builder.Validate(SecondUnit);
+      
+      var element = ElementTool.Create<UnitEqual>();
+      element.FirstUnit = FirstUnit;
+      element.SecondUnit = SecondUnit;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitFromSpawnerIsDead"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitFromSpawnerIsDead))]
+    public static ConditionsBuilder AddUnitFromSpawnerIsDead(
+        this ConditionsBuilder builder,
+        EntityReference Target,
+        bool negate = false)
+    {
+      builder.Validate(Target);
+      
+      var element = ElementTool.Create<UnitFromSpawnerIsDead>();
+      element.Target = Target;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitFromSummonPool"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    [Generated]
+    [Implements(typeof(UnitFromSummonPool))]
+    public static ConditionsBuilder AddUnitFromSummonPool(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_SummonPool,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<UnitFromSummonPool>();
+      element.Unit = Unit;
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitGender"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitGender))]
+    public static ConditionsBuilder AddUnitGender(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        Gender Gender,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Gender);
+      
+      var element = ElementTool.Create<UnitGender>();
+      element.Unit = Unit;
+      element.Gender = Gender;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitIsNull"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitIsNull))]
+    public static ConditionsBuilder AddUnitIsNull(
+        this ConditionsBuilder builder,
+        UnitEvaluator Target,
+        bool negate = false)
+    {
+      builder.Validate(Target);
+      
+      var element = ElementTool.Create<UnitIsNull>();
+      element.Target = Target;
       element.Not = negate;
       return builder.Add(element);
     }

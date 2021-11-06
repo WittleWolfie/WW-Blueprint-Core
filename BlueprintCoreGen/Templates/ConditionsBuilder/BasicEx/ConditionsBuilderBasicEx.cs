@@ -20,9 +20,20 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsPartyMember)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnconscious)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyCanUseAbility)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyUnits)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PcFemale)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PcMale)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PcRace)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolExistsAndEmpty)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsDead)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsHidden)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitBlueprint)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitClass)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitEqual)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitFromSpawnerIsDead)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitFromSummonPool)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitGender)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsNull)]
 
   }
 }

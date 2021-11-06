@@ -26,6 +26,7 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.FlagInRange)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.FlagUnlocked)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsLegendPathSelected)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.MonthFromList)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerHasNoCharactersOnRoster)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerHasRecruitsOnRoster)]

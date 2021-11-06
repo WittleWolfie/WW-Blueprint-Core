@@ -15,6 +15,8 @@
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.GameModeActive)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree)]
+    // [Generate(Kingmaker.ElementsSystem.IsleStateCondition)]
 
   }
 }
