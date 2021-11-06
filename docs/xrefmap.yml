@@ -3998,6 +3998,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog
   nameWithType: ActionsBuilderMiscEx.AddDebugLog
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Player.GameOverReasonType)
+  name: AddGameOver(ActionsBuilder, Player.GameOverReasonType)
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddGameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_
+  commentId: M:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Player.GameOverReasonType)
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Player.GameOverReasonType)
+  nameWithType: ActionsBuilderMiscEx.AddGameOver(ActionsBuilder, Player.GameOverReasonType)
+- uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver*
+  name: AddGameOver
+  href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddGameOver_
+  commentId: Overload:BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver
+  nameWithType: ActionsBuilderMiscEx.AddGameOver
 - uid: BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])
   name: AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])
   href: api/BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___

@@ -78,5 +78,7 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.UnitLogic.FactLogic.ClearVendorTable)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AddPremiumReward)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DebugLog)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver)]
+
   }
 }

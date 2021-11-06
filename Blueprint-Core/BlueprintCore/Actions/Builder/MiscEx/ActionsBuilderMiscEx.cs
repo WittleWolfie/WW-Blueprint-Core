@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using Kingmaker;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -187,5 +188,22 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Log = Log;
       element.Break = Break;
       return builder.Add(element);
-    }  }
+    }
+
+    /// <summary>
+    /// Adds <see cref="GameOver"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(GameOver))]
+    public static ActionsBuilder AddGameOver(
+        this ActionsBuilder builder,
+        Player.GameOverReasonType Reason)
+    {
+      builder.Validate(Reason);
+      
+      var element = ElementTool.Create<GameOver>();
+      element.Reason = Reason;
+      return builder.Add(element);
+    }
+  }
 }
