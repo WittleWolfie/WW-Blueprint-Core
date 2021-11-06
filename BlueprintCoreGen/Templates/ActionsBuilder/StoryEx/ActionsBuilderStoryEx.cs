@@ -88,9 +88,12 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     //----- Auto Generated -----//
 
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DismissAllCompanions)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.LockRomance)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnmarkAnswersSelected)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Unrecruit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudeProgressBar)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudes)]
+
   }
 }

@@ -143,6 +143,33 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="DismissAllCompanions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DismissAllCompanions))]
+    public static ActionsBuilder AddDismissAllCompanions(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DismissAllCompanions>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="LockRomance"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Romance"><see cref="BlueprintRomanceCounter"/></param>
+    [Generated]
+    [Implements(typeof(LockRomance))]
+    public static ActionsBuilder AddLockRomance(
+        this ActionsBuilder builder,
+        string m_Romance)
+    {
+      
+      var element = ElementTool.Create<LockRomance>();
+      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnmarkAnswersSelected"/> (Auto Generated)
     /// </summary>
     ///
@@ -206,5 +233,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddUpdateEtudes(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<UpdateEtudes>());
-    }  }
+    }
+  }
 }
