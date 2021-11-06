@@ -911,5 +911,8 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     // [Generate(Kingmaker.Armies.TacticalCombat.Components.BlockTacticalCell)]
     // [Generate(Kingmaker.Armies.TacticalCombat.Components.TacticalCombatRecoverLeaderMana)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmyFromLosses)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.EnterKingdomInterface)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDemonArmies)]
+
   }
 }

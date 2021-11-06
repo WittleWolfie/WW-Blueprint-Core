@@ -2056,5 +2056,45 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
       element.m_ApplyRecruitIncrease = m_ApplyRecruitIncrease;
       return builder.Add(element);
-    }  }
+    }
+
+    /// <summary>
+    /// Adds <see cref="EnterKingdomInterface"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ReturnPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(EnterKingdomInterface))]
+    public static ActionsBuilder AddEnterKingdomInterface(
+        this ActionsBuilder builder,
+        string m_ReturnPoint,
+        ActionsBuilder TriggerAfterAuto)
+    {
+      
+      var element = ElementTool.Create<EnterKingdomInterface>();
+      element.m_ReturnPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_ReturnPoint);
+      element.TriggerAfterAuto = TriggerAfterAuto.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveDemonArmies"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ArmyPreset"><see cref="BlueprintArmyPreset"/></param>
+    [Generated]
+    [Implements(typeof(RemoveDemonArmies))]
+    public static ActionsBuilder AddRemoveDemonArmies(
+        this ActionsBuilder builder,
+        string m_ArmyPreset,
+        ArmyType m_ArmyType)
+    {
+      builder.Validate(m_ArmyType);
+      
+      var element = ElementTool.Create<RemoveDemonArmies>();
+      element.m_ArmyPreset = BlueprintTool.GetRef<BlueprintArmyPresetReference>(m_ArmyPreset);
+      element.m_ArmyType = m_ArmyType;
+      return builder.Add(element);
+    }
+  }
 }
