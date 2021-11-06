@@ -280,5 +280,27 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Date = Date;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="SetVendorPriceModifier"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetVendorPriceModifier))]
+    public static ActionsBuilder AddSetVendorPriceModifier(
+        this ActionsBuilder builder,
+        UnitEvaluator VendorUnit,
+        SetVendorPriceModifier.Entry[] m_Entries)
+    {
+      builder.Validate(VendorUnit);
+      foreach (var item in m_Entries)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<SetVendorPriceModifier>();
+      element.VendorUnit = VendorUnit;
+      element.m_Entries = m_Entries;
+      return builder.Add(element);
+    }
   }
 }

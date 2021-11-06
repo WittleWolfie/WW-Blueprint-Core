@@ -510,6 +510,11 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RandomAction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDeathDoor)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RollPartySkillCheck)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RollSkillCheck)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionHolder)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchActivatableAbility)]
 
   }
 }

@@ -781,6 +781,22 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="SetDialogPosition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetDialogPosition))]
+    public static ActionsBuilder AddSetDialogPosition(
+        this ActionsBuilder builder,
+        PositionEvaluator Position)
+    {
+      builder.Validate(Position);
+      
+      var element = ElementTool.Create<SetDialogPosition>();
+      element.Position = Position;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SetMythicLevelForMainCharacter"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -990,6 +1006,22 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<SwitchAzataIsland>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
       element.IsOn = IsOn;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchChapter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchChapter))]
+    public static ActionsBuilder AddSwitchChapter(
+        this ActionsBuilder builder,
+        Int32 Chapter)
+    {
+      builder.Validate(Chapter);
+      
+      var element = ElementTool.Create<SwitchChapter>();
+      element.Chapter = Chapter;
       return builder.Add(element);
     }
 

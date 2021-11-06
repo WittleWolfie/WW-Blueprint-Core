@@ -437,6 +437,26 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="RevealGlobalMap"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Points"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(RevealGlobalMap))]
+    public static ActionsBuilder AddRevealGlobalMap(
+        this ActionsBuilder builder,
+        string[] Points,
+        Boolean RevealEdges)
+    {
+      builder.Validate(RevealEdges);
+      
+      var element = ElementTool.Create<RevealGlobalMap>();
+      element.Points = Points.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToArray();
+      element.RevealEdges = RevealEdges;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ShowMultiEntrance"/> (Auto Generated)
     /// </summary>
     ///
@@ -450,6 +470,44 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       
       var element = ElementTool.Create<ShowMultiEntrance>();
       element.m_Map = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(m_Map);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpotMapObject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpotMapObject))]
+    public static ActionsBuilder AddSpotMapObject(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Target,
+        UnitEvaluator Spotter)
+    {
+      builder.Validate(Target);
+      builder.Validate(Spotter);
+      
+      var element = ElementTool.Create<SpotMapObject>();
+      element.Target = Target;
+      element.Spotter = Spotter;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpotUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpotUnit))]
+    public static ActionsBuilder AddSpotUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        UnitEvaluator Spotter)
+    {
+      builder.Validate(Target);
+      builder.Validate(Spotter);
+      
+      var element = ElementTool.Create<SpotUnit>();
+      element.Target = Target;
+      element.Spotter = Spotter;
       return builder.Add(element);
     }
 

@@ -914,6 +914,8 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.EnterKingdomInterface)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RecruiteArmyLeader)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDemonArmies)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveGarrison)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitFromArmy)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetWarCampLocation)]
 
   }

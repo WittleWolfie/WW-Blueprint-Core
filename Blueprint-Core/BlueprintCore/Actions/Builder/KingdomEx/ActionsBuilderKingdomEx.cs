@@ -2115,6 +2115,85 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="RemoveGarrison"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(RemoveGarrison))]
+    public static ActionsBuilder AddRemoveGarrison(
+        this ActionsBuilder builder,
+        string m_Location,
+        Boolean HandleAsGarrisonDefeated)
+    {
+      builder.Validate(HandleAsGarrisonDefeated);
+      
+      var element = ElementTool.Create<RemoveGarrison>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.HandleAsGarrisonDefeated = HandleAsGarrisonDefeated;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveUnitFromArmy"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_UnitToRemove"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(RemoveUnitFromArmy))]
+    public static ActionsBuilder AddRemoveUnitFromArmy(
+        this ActionsBuilder builder,
+        ArmiesEvaluator m_Armies,
+        RemoveUnitFromArmy.RemoveUnitFromArmyMode m_Mode,
+        Boolean m_RemoveCheapestUnit,
+        Boolean m_RemoveSpecificUnit,
+        string m_UnitToRemove,
+        Boolean m_LimitUnitExperienceMinimum,
+        Int32 m_UnitExperienceMinimum,
+        Boolean m_LimitUnitExperienceMaximum,
+        Int32 m_UnitExperienceMaximum,
+        UnitTag[] m_UnitTagWhitelist,
+        UnitTag[] m_UnitTagBlacklist,
+        Int32 m_Experience,
+        Single m_Percentage)
+    {
+      builder.Validate(m_Armies);
+      builder.Validate(m_Mode);
+      builder.Validate(m_RemoveCheapestUnit);
+      builder.Validate(m_RemoveSpecificUnit);
+      builder.Validate(m_LimitUnitExperienceMinimum);
+      builder.Validate(m_UnitExperienceMinimum);
+      builder.Validate(m_LimitUnitExperienceMaximum);
+      builder.Validate(m_UnitExperienceMaximum);
+      foreach (var item in m_UnitTagWhitelist)
+      {
+        builder.Validate(item);
+      }
+      foreach (var item in m_UnitTagBlacklist)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(m_Experience);
+      builder.Validate(m_Percentage);
+      
+      var element = ElementTool.Create<RemoveUnitFromArmy>();
+      element.m_Armies = m_Armies;
+      element.m_Mode = m_Mode;
+      element.m_RemoveCheapestUnit = m_RemoveCheapestUnit;
+      element.m_RemoveSpecificUnit = m_RemoveSpecificUnit;
+      element.m_UnitToRemove = BlueprintTool.GetRef<BlueprintUnitReference>(m_UnitToRemove);
+      element.m_LimitUnitExperienceMinimum = m_LimitUnitExperienceMinimum;
+      element.m_UnitExperienceMinimum = m_UnitExperienceMinimum;
+      element.m_LimitUnitExperienceMaximum = m_LimitUnitExperienceMaximum;
+      element.m_UnitExperienceMaximum = m_UnitExperienceMaximum;
+      element.m_UnitTagWhitelist = m_UnitTagWhitelist;
+      element.m_UnitTagBlacklist = m_UnitTagBlacklist;
+      element.m_Experience = m_Experience;
+      element.m_Percentage = m_Percentage;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SetWarCampLocation"/> (Auto Generated)
     /// </summary>
     ///

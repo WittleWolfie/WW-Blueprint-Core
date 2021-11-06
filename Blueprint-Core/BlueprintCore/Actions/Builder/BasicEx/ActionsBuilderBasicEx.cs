@@ -8,12 +8,14 @@ using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -885,6 +887,144 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       var element = ElementTool.Create<RemoveFact>();
       element.Unit = Unit;
       element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RollPartySkillCheck"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RollPartySkillCheck))]
+    public static ActionsBuilder AddRollPartySkillCheck(
+        this ActionsBuilder builder,
+        StatType Stat,
+        Int32 DC,
+        Boolean LogSuccess,
+        Boolean LogFailure,
+        ActionsBuilder OnSuccess,
+        ActionsBuilder OnFailure)
+    {
+      builder.Validate(Stat);
+      builder.Validate(DC);
+      builder.Validate(LogSuccess);
+      builder.Validate(LogFailure);
+      
+      var element = ElementTool.Create<RollPartySkillCheck>();
+      element.Stat = Stat;
+      element.DC = DC;
+      element.LogSuccess = LogSuccess;
+      element.LogFailure = LogFailure;
+      element.OnSuccess = OnSuccess.Build();
+      element.OnFailure = OnFailure.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RollSkillCheck"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RollSkillCheck))]
+    public static ActionsBuilder AddRollSkillCheck(
+        this ActionsBuilder builder,
+        StatType Stat,
+        UnitEvaluator Unit,
+        Int32 DC,
+        Boolean LogSuccess,
+        Boolean LogFailure,
+        Boolean Voice,
+        Boolean ForbidPartyHelpInCamp,
+        ActionsBuilder OnSuccess,
+        ActionsBuilder OnFailure)
+    {
+      builder.Validate(Stat);
+      builder.Validate(Unit);
+      builder.Validate(DC);
+      builder.Validate(LogSuccess);
+      builder.Validate(LogFailure);
+      builder.Validate(Voice);
+      builder.Validate(ForbidPartyHelpInCamp);
+      
+      var element = ElementTool.Create<RollSkillCheck>();
+      element.Stat = Stat;
+      element.Unit = Unit;
+      element.DC = DC;
+      element.LogSuccess = LogSuccess;
+      element.LogFailure = LogFailure;
+      element.Voice = Voice;
+      element.ForbidPartyHelpInCamp = ForbidPartyHelpInCamp;
+      element.OnSuccess = OnSuccess.Build();
+      element.OnFailure = OnFailure.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RunActionHolder"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Holder"><see cref="ActionsHolder"/></param>
+    [Generated]
+    [Implements(typeof(RunActionHolder))]
+    public static ActionsBuilder AddRunActionHolder(
+        this ActionsBuilder builder,
+        String Comment,
+        string Holder,
+        ParametrizedContextSetter Parameters)
+    {
+      foreach (var item in Comment)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(Parameters);
+      
+      var element = ElementTool.Create<RunActionHolder>();
+      element.Comment = Comment;
+      element.Holder = BlueprintTool.GetRef<ActionsReference>(Holder);
+      element.Parameters = Parameters;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StatusEffect"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StatusEffect))]
+    public static ActionsBuilder AddStatusEffect(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        UnitCondition Condition,
+        Boolean Remove)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Condition);
+      builder.Validate(Remove);
+      
+      var element = ElementTool.Create<StatusEffect>();
+      element.Unit = Unit;
+      element.Condition = Condition;
+      element.Remove = Remove;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchActivatableAbility"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Ability"><see cref="BlueprintActivatableAbility"/></param>
+    [Generated]
+    [Implements(typeof(SwitchActivatableAbility))]
+    public static ActionsBuilder AddSwitchActivatableAbility(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Ability,
+        Boolean IsOn)
+    {
+      builder.Validate(Unit);
+      builder.Validate(IsOn);
+      
+      var element = ElementTool.Create<SwitchActivatableAbility>();
+      element.Unit = Unit;
+      element.m_Ability = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(m_Ability);
+      element.IsOn = IsOn;
       return builder.Add(element);
     }
   }
