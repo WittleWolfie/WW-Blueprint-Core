@@ -360,6 +360,71 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddDialogNotification
   nameWithType: ActionsBuilderAVEx.AddDialogNotification
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)
+  name: AddPlay2DSound(ActionsBuilder, String, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderAVEx.AddPlay2DSound(ActionsBuilder, String, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound*
+  name: AddPlay2DSound
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound
+  nameWithType: ActionsBuilderAVEx.AddPlay2DSound
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Blueprints.EntityReference,System.Boolean,System.Boolean,System.Boolean)
+  name: AddPlay3DSound(ActionsBuilder, String, EntityReference, Boolean, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Blueprints.EntityReference,System.Boolean,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, Kingmaker.Blueprints.EntityReference, System.Boolean, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderAVEx.AddPlay3DSound(ActionsBuilder, String, EntityReference, Boolean, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound*
+  name: AddPlay3DSound
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay3DSound_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound
+  nameWithType: ActionsBuilderAVEx.AddPlay3DSound
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Visual.Animation.AnimationClipWrapper,Kingmaker.ElementsSystem.UnitEvaluator,System.Single,System.Single)
+  name: AddPlayAnimationOneShot(ActionsBuilder, AnimationClipWrapper, UnitEvaluator, Single, Single)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Visual.Animation.AnimationClipWrapper,Kingmaker.ElementsSystem.UnitEvaluator,System.Single,System.Single)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.Visual.Animation.AnimationClipWrapper, Kingmaker.ElementsSystem.UnitEvaluator, System.Single, System.Single)
+  nameWithType: ActionsBuilderAVEx.AddPlayAnimationOneShot(ActionsBuilder, AnimationClipWrapper, UnitEvaluator, Single, Single)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot*
+  name: AddPlayAnimationOneShot
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayAnimationOneShot_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot
+  nameWithType: ActionsBuilderAVEx.AddPlayAnimationOneShot
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  name: AddPlayCustomMusic(ActionsBuilder, String, String)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.String)
+  nameWithType: ActionsBuilderAVEx.AddPlayCustomMusic(ActionsBuilder, String, String)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic*
+  name: AddPlayCustomMusic
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCustomMusic_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic
+  nameWithType: ActionsBuilderAVEx.AddPlayCustomMusic
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean,Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter)
+  name: AddPlayCutscene(ActionsBuilder, String, Boolean, Boolean, ParametrizedContextSetter)
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_
+  commentId: M:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean,Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter)
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean, System.Boolean, Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter)
+  nameWithType: ActionsBuilderAVEx.AddPlayCutscene(ActionsBuilder, String, Boolean, Boolean, ParametrizedContextSetter)
+- uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene*
+  name: AddPlayCutscene
+  href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCutscene_
+  commentId: Overload:BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene
+  nameWithType: ActionsBuilderAVEx.AddPlayCutscene
 - uid: BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Bark(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Localization.LocalizedString,System.Boolean,System.Boolean)
   name: Bark(ActionsBuilder, LocalizedString, Boolean, Boolean)
   href: api/BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Bark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_System_Boolean_System_Boolean_

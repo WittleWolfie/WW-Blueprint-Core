@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints;
+﻿using BlueprintCore.Blueprints;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace BlueprintCoreGen.CodeGen
         }
         else
         {
-          return new EnumerableField(field);
+          return new EnumerableField(field, enumerableType);
         }
       }
       else if(field.FieldType.IsSubclassOf(typeof(BlueprintReferenceBase)))
@@ -102,6 +103,7 @@ namespace BlueprintCoreGen.CodeGen
         case FieldType.Conditions:
           return new();
         default:
+          if (Info.FieldType == typeof(string)) return new();
           return new() { $"builder.Validate({Info.Name});" };
       }
     }
@@ -163,10 +165,16 @@ namespace BlueprintCoreGen.CodeGen
 
   public class EnumerableField : Field
   {
-    public EnumerableField(FieldInfo fieldInfo) : base(fieldInfo) { }
+    private readonly Type EnumerableType;
+
+    public EnumerableField(FieldInfo fieldInfo, Type enumerableType) : base(fieldInfo)
+    {
+      EnumerableType = enumerableType;
+    }
 
     public override List<string> GetValidation()
     {
+      if (EnumerableType == typeof(string)) return new();
       return new List<string>
       {
         $"foreach (var item in {Info.Name})",
@@ -206,6 +214,13 @@ namespace BlueprintCoreGen.CodeGen
     public override List<string> GetValidation()
     {
       return new();
+    }
+
+    public override List<Type> GetImports()
+    {
+      List<Type> imports = base.GetImports();
+      imports.Add(typeof(BlueprintTool));
+      return imports;
     }
 
     private static Type GetBlueprintTypeFromReferenceType(Type referenceType)

@@ -741,7 +741,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(Target);
       builder.Validate(AutoHit);
       builder.Validate(IgnoreStatBonus);
-
+      
       var element = ElementTool.Create<MeleeAttack>();
       element.Caster = Caster;
       element.Target = Target;
@@ -763,7 +763,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Boolean riseAllCompanions)
     {
       builder.Validate(riseAllCompanions);
-
+      
       var element = ElementTool.Create<RaiseDead>();
       element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
       element.riseAllCompanions = riseAllCompanions;

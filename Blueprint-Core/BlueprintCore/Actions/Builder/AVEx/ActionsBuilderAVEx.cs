@@ -1,12 +1,16 @@
+using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
+using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
+using System;
 
 namespace BlueprintCore.Actions.Builder.AVEx
 {
@@ -120,6 +124,142 @@ namespace BlueprintCore.Actions.Builder.AVEx
       var playSound = ElementTool.Create<ContextActionPlaySound>();
       playSound.SoundName = soundName;
       return builder.Add(playSound);
+    }
+
+    //----- Auto Generated -----//
+
+
+
+    /// <summary>
+    /// Adds <see cref="Play2DSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(Play2DSound))]
+    public static ActionsBuilder AddPlay2DSound(
+        this ActionsBuilder builder,
+        String SoundName,
+        Boolean SetSex,
+        Boolean SetRace)
+    {
+      foreach (var item in SoundName)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(SetSex);
+      builder.Validate(SetRace);
+      
+      var element = ElementTool.Create<Play2DSound>();
+      element.SoundName = SoundName;
+      element.SetSex = SetSex;
+      element.SetRace = SetRace;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Play3DSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(Play3DSound))]
+    public static ActionsBuilder AddPlay3DSound(
+        this ActionsBuilder builder,
+        String SoundName,
+        EntityReference SoundSourceObject,
+        Boolean SetSex,
+        Boolean SetRace,
+        Boolean SetCurrentSpeaker)
+    {
+      foreach (var item in SoundName)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(SoundSourceObject);
+      builder.Validate(SetSex);
+      builder.Validate(SetRace);
+      builder.Validate(SetCurrentSpeaker);
+      
+      var element = ElementTool.Create<Play3DSound>();
+      element.SoundName = SoundName;
+      element.SoundSourceObject = SoundSourceObject;
+      element.SetSex = SetSex;
+      element.SetRace = SetRace;
+      element.SetCurrentSpeaker = SetCurrentSpeaker;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PlayAnimationOneShot"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PlayAnimationOneShot))]
+    public static ActionsBuilder AddPlayAnimationOneShot(
+        this ActionsBuilder builder,
+        AnimationClipWrapper m_ClipWrapper,
+        UnitEvaluator Unit,
+        Single TransitionIn,
+        Single TransitionOut)
+    {
+      builder.Validate(m_ClipWrapper);
+      builder.Validate(Unit);
+      builder.Validate(TransitionIn);
+      builder.Validate(TransitionOut);
+      
+      var element = ElementTool.Create<PlayAnimationOneShot>();
+      element.m_ClipWrapper = m_ClipWrapper;
+      element.Unit = Unit;
+      element.TransitionIn = TransitionIn;
+      element.TransitionOut = TransitionOut;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PlayCustomMusic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PlayCustomMusic))]
+    public static ActionsBuilder AddPlayCustomMusic(
+        this ActionsBuilder builder,
+        String MusicEventStart,
+        String MusicEventStop)
+    {
+      foreach (var item in MusicEventStart)
+      {
+        builder.Validate(item);
+      }
+      foreach (var item in MusicEventStop)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<PlayCustomMusic>();
+      element.MusicEventStart = MusicEventStart;
+      element.MusicEventStop = MusicEventStop;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PlayCutscene"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Cutscene"><see cref="Cutscene"/></param>
+    [Generated]
+    [Implements(typeof(PlayCutscene))]
+    public static ActionsBuilder AddPlayCutscene(
+        this ActionsBuilder builder,
+        string m_Cutscene,
+        Boolean PutInQueue,
+        Boolean CheckExistence,
+        ParametrizedContextSetter Parameters)
+    {
+      builder.Validate(PutInQueue);
+      builder.Validate(CheckExistence);
+      builder.Validate(Parameters);
+      
+      var element = ElementTool.Create<PlayCutscene>();
+      element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(m_Cutscene);
+      element.PutInQueue = PutInQueue;
+      element.CheckExistence = CheckExistence;
+      element.Parameters = Parameters;
+      return builder.Add(element);
     }
   }
 }

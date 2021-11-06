@@ -121,5 +121,14 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
       playSound.SoundName = soundName;
       return builder.Add(playSound);
     }
+
+    //----- Auto Generated -----//
+
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play2DSound)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play3DSound)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCustomMusic)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCutscene)]
+
   }
 }
