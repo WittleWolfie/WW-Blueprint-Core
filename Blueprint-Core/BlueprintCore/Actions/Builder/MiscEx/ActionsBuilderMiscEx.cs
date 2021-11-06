@@ -241,5 +241,44 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.m_AfterStopActions = m_AfterStopActions.Build();
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="RemoveDuplicateItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Blueprint"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(RemoveDuplicateItems))]
+    public static ActionsBuilder AddRemoveDuplicateItems(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Blueprint)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<RemoveDuplicateItems>();
+      element.Unit = Unit;
+      element.m_Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(m_Blueprint);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetStartDate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetStartDate))]
+    public static ActionsBuilder AddSetStartDate(
+        this ActionsBuilder builder,
+        String Date)
+    {
+      foreach (var item in Date)
+      {
+        builder.Validate(item);
+      }
+      
+      var element = ElementTool.Create<SetStartDate>();
+      element.Date = Date;
+      return builder.Add(element);
+    }
   }
 }

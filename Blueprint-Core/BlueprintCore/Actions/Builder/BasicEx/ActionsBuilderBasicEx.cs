@@ -867,5 +867,25 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Unit = Unit;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="RemoveFact"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Fact"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    [Implements(typeof(RemoveFact))]
+    public static ActionsBuilder AddRemoveFact(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Fact)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<RemoveFact>();
+      element.Unit = Unit;
+      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
+      return builder.Add(element);
+    }
   }
 }

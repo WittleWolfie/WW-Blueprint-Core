@@ -364,6 +364,25 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="RemoveAmbush"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RemoveAmbush))]
+    public static ActionsBuilder AddRemoveAmbush(
+        this ActionsBuilder builder,
+        UnitEvaluator m_Unit,
+        Boolean m_ExitStealth)
+    {
+      builder.Validate(m_Unit);
+      builder.Validate(m_ExitStealth);
+      
+      var element = ElementTool.Create<RemoveAmbush>();
+      element.m_Unit = m_Unit;
+      element.m_ExitStealth = m_ExitStealth;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveAreaFromSave"/> (Auto Generated)
     /// </summary>
     ///
@@ -414,6 +433,23 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       
       var element = ElementTool.Create<ResetLocationPerceptionCheck>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShowMultiEntrance"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Map"><see cref="BlueprintMultiEntrance"/></param>
+    [Generated]
+    [Implements(typeof(ShowMultiEntrance))]
+    public static ActionsBuilder AddShowMultiEntrance(
+        this ActionsBuilder builder,
+        string m_Map)
+    {
+      
+      var element = ElementTool.Create<ShowMultiEntrance>();
+      element.m_Map = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(m_Map);
       return builder.Add(element);
     }
 

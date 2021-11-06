@@ -509,6 +509,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RaiseDead)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RandomAction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDeathDoor)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact)]
 
   }
 }

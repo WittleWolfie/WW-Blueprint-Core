@@ -5,6 +5,7 @@ using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
+using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
@@ -518,6 +519,90 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="RecruitInactive"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_CompanionBlueprint"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(RecruitInactive))]
+    public static ActionsBuilder AddRecruitInactive(
+        this ActionsBuilder builder,
+        string m_CompanionBlueprint,
+        ActionsBuilder OnRecruit)
+    {
+      
+      var element = ElementTool.Create<RecruitInactive>();
+      element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CompanionBlueprint);
+      element.OnRecruit = OnRecruit.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RelockInteraction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RelockInteraction))]
+    public static ActionsBuilder AddRelockInteraction(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject)
+    {
+      builder.Validate(MapObject);
+      
+      var element = ElementTool.Create<RelockInteraction>();
+      element.MapObject = MapObject;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveMythicLevels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RemoveMythicLevels))]
+    public static ActionsBuilder AddRemoveMythicLevels(
+        this ActionsBuilder builder,
+        Int32 Levels)
+    {
+      builder.Validate(Levels);
+      
+      var element = ElementTool.Create<RemoveMythicLevels>();
+      element.Levels = Levels;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceAllMythicLevelsWithMythicHeroLevels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ReplaceAllMythicLevelsWithMythicHeroLevels))]
+    public static ActionsBuilder AddReplaceAllMythicLevelsWithMythicHeroLevels(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ReplaceAllMythicLevelsWithMythicHeroLevels>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceFeatureInProgression"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Remove"><see cref="BlueprintFeature"/></param>
+    /// <param name="m_Add"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(ReplaceFeatureInProgression))]
+    public static ActionsBuilder AddReplaceFeatureInProgression(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Remove,
+        string m_Add)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<ReplaceFeatureInProgression>();
+      element.Unit = Unit;
+      element.m_Remove = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Remove);
+      element.m_Add = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Add);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ResetQuest"/> (Auto Generated)
     /// </summary>
     ///
@@ -554,6 +639,25 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<ResetQuestObjective>();
       element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RespecCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RespecCompanion))]
+    public static ActionsBuilder AddRespecCompanion(
+        this ActionsBuilder builder,
+        Boolean ForFree,
+        Boolean MatchPlayerXpExactly)
+    {
+      builder.Validate(ForFree);
+      builder.Validate(MatchPlayerXpExactly);
+      
+      var element = ElementTool.Create<RespecCompanion>();
+      element.ForFree = ForFree;
+      element.MatchPlayerXpExactly = MatchPlayerXpExactly;
       return builder.Add(element);
     }
 
@@ -644,6 +748,87 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<ScripZoneUnits>();
       element.ScriptZone = ScriptZone;
       element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetMythicLevelForMainCharacter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetMythicLevelForMainCharacter))]
+    public static ActionsBuilder AddSetMythicLevelForMainCharacter(
+        this ActionsBuilder builder,
+        Int32 DesireLevel)
+    {
+      builder.Validate(DesireLevel);
+      
+      var element = ElementTool.Create<SetMythicLevelForMainCharacter>();
+      element.DesireLevel = DesireLevel;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetObjectiveStatus"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(SetObjectiveStatus))]
+    public static ActionsBuilder AddSetObjectiveStatus(
+        this ActionsBuilder builder,
+        SummonPoolCountTrigger.ObjectiveStatus Status,
+        string m_Objective,
+        Boolean StartObjectiveIfNone)
+    {
+      builder.Validate(Status);
+      builder.Validate(StartObjectiveIfNone);
+      
+      var element = ElementTool.Create<SetObjectiveStatus>();
+      element.Status = Status;
+      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      element.StartObjectiveIfNone = StartObjectiveIfNone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetPortrait"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Portrait"><see cref="BlueprintPortrait"/></param>
+    [Generated]
+    [Implements(typeof(SetPortrait))]
+    public static ActionsBuilder AddSetPortrait(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        string m_Portrait)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<SetPortrait>();
+      element.Unit = Unit;
+      element.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(m_Portrait);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShiftAlignment"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShiftAlignment))]
+    public static ActionsBuilder AddShiftAlignment(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        AlignmentShiftDirection Alignment,
+        IntEvaluator Amount)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Alignment);
+      builder.Validate(Amount);
+      
+      var element = ElementTool.Create<ShiftAlignment>();
+      element.Unit = Unit;
+      element.Alignment = Alignment;
+      element.Amount = Amount;
       return builder.Add(element);
     }
 

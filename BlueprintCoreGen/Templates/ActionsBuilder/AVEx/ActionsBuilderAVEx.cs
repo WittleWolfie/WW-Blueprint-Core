@@ -130,6 +130,7 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCustomMusic)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCutscene)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ReloadMechanic)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetSoundState)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ShowBark)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnFx)]

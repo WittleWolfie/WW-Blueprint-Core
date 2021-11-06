@@ -2078,6 +2078,23 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="RecruiteArmyLeader"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="ArmyLeader"><see cref="BlueprintArmyLeader"/></param>
+    [Generated]
+    [Implements(typeof(RecruiteArmyLeader))]
+    public static ActionsBuilder AddRecruiteArmyLeader(
+        this ActionsBuilder builder,
+        string ArmyLeader)
+    {
+      
+      var element = ElementTool.Create<RecruiteArmyLeader>();
+      element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(ArmyLeader);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveDemonArmies"/> (Auto Generated)
     /// </summary>
     ///
@@ -2094,6 +2111,23 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       var element = ElementTool.Create<RemoveDemonArmies>();
       element.m_ArmyPreset = BlueprintTool.GetRef<BlueprintArmyPresetReference>(m_ArmyPreset);
       element.m_ArmyType = m_ArmyType;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetWarCampLocation"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(SetWarCampLocation))]
+    public static ActionsBuilder AddSetWarCampLocation(
+        this ActionsBuilder builder,
+        string m_Location)
+    {
+      
+      var element = ElementTool.Create<SetWarCampLocation>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
       return builder.Add(element);
     }
   }

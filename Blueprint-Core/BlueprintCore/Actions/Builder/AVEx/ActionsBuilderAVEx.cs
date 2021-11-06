@@ -284,6 +284,28 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
+    /// Adds <see cref="ReloadMechanic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ReloadMechanic))]
+    public static ActionsBuilder AddReloadMechanic(
+        this ActionsBuilder builder,
+        String Desc,
+        Boolean ClearFx)
+    {
+      foreach (var item in Desc)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(ClearFx);
+      
+      var element = ElementTool.Create<ReloadMechanic>();
+      element.Desc = Desc;
+      element.ClearFx = ClearFx;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SetSoundState"/> (Auto Generated)
     /// </summary>
     [Generated]

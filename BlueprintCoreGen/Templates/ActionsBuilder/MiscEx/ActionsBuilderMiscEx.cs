@@ -81,6 +81,8 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MakeAutoSave)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.OpenSelectMythicUI)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDuplicateItems)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate)]
 
   }
 }
