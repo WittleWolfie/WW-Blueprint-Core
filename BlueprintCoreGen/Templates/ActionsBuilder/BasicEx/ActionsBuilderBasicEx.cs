@@ -502,5 +502,8 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ItemSetCharges)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Kill)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.LevelUpUnit)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MeleeAttack)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RaiseDead)]
+
   }
 }

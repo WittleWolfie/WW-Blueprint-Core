@@ -723,5 +723,51 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Unit = Unit;
       element.TargetLevel = TargetLevel;
       return builder.Add(element);
-    }  }
+    }
+
+    /// <summary>
+    /// Adds <see cref="MeleeAttack"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MeleeAttack))]
+    public static ActionsBuilder AddMeleeAttack(
+        this ActionsBuilder builder,
+        UnitEvaluator Caster,
+        UnitEvaluator Target,
+        Boolean AutoHit,
+        Boolean IgnoreStatBonus)
+    {
+      builder.Validate(Caster);
+      builder.Validate(Target);
+      builder.Validate(AutoHit);
+      builder.Validate(IgnoreStatBonus);
+
+      var element = ElementTool.Create<MeleeAttack>();
+      element.Caster = Caster;
+      element.Target = Target;
+      element.AutoHit = AutoHit;
+      element.IgnoreStatBonus = IgnoreStatBonus;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RaiseDead"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(RaiseDead))]
+    public static ActionsBuilder AddRaiseDead(
+        this ActionsBuilder builder,
+        string m_companion,
+        Boolean riseAllCompanions)
+    {
+      builder.Validate(riseAllCompanions);
+
+      var element = ElementTool.Create<RaiseDead>();
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
+      element.riseAllCompanions = riseAllCompanions;
+      return builder.Add(element);
+    }
+  }
 }

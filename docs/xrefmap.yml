@@ -648,6 +648,32 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddLevelUpUnit
   nameWithType: ActionsBuilderBasicEx.AddLevelUpUnit
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Boolean)
+  name: AddMeleeAttack(ActionsBuilder, UnitEvaluator, UnitEvaluator, Boolean, Boolean)
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddMeleeAttack_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator, Kingmaker.ElementsSystem.UnitEvaluator, System.Boolean, System.Boolean)
+  nameWithType: ActionsBuilderBasicEx.AddMeleeAttack(ActionsBuilder, UnitEvaluator, UnitEvaluator, Boolean, Boolean)
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack*
+  name: AddMeleeAttack
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddMeleeAttack_
+  commentId: Overload:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddMeleeAttack
+  nameWithType: ActionsBuilderBasicEx.AddMeleeAttack
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  name: AddRaiseDead(ActionsBuilder, String, Boolean)
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddRaiseDead_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_
+  commentId: M:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead(BlueprintCore.Actions.Builder.ActionsBuilder, System.String, System.Boolean)
+  nameWithType: ActionsBuilderBasicEx.AddRaiseDead(ActionsBuilder, String, Boolean)
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead*
+  name: AddRaiseDead
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddRaiseDead_
+  commentId: Overload:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddRaiseDead
+  nameWithType: ActionsBuilderBasicEx.AddRaiseDead
 - uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddUnitToGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)
   name: AddUnitToGroup(ActionsBuilder, UnitEvaluator, UnitEvaluator)
   href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddUnitToGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_
@@ -4119,6 +4145,32 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddAlignmentSelector
   nameWithType: ActionsBuilderStoryEx.AddAlignmentSelector
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions(BlueprintCore.Actions.Builder.ActionsBuilder)
+  name: AddDismissAllCompanions(ActionsBuilder)
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddDismissAllCompanions_BlueprintCore_Actions_Builder_ActionsBuilder_
+  commentId: M:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions(BlueprintCore.Actions.Builder.ActionsBuilder)
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions(BlueprintCore.Actions.Builder.ActionsBuilder)
+  nameWithType: ActionsBuilderStoryEx.AddDismissAllCompanions(ActionsBuilder)
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions*
+  name: AddDismissAllCompanions
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddDismissAllCompanions_
+  commentId: Overload:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddDismissAllCompanions
+  nameWithType: ActionsBuilderStoryEx.AddDismissAllCompanions
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  name: AddLockRomance(ActionsBuilder, String)
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddLockRomance_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_
+  commentId: M:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance(BlueprintCore.Actions.Builder.ActionsBuilder, System.String)
+  nameWithType: ActionsBuilderStoryEx.AddLockRomance(ActionsBuilder, String)
+- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance*
+  name: AddLockRomance
+  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddLockRomance_
+  commentId: Overload:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddLockRomance
+  nameWithType: ActionsBuilderStoryEx.AddLockRomance
 - uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddUnmarkAnswersSelected(BlueprintCore.Actions.Builder.ActionsBuilder,System.String[])
   name: AddUnmarkAnswersSelected(ActionsBuilder, String[])
   href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddUnmarkAnswersSelected_BlueprintCore_Actions_Builder_ActionsBuilder_System_String___
