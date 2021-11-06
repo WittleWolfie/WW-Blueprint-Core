@@ -850,6 +850,41 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="SplitUnitGroup"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SplitUnitGroup))]
+    public static ActionsBuilder AddSplitUnitGroup(
+        this ActionsBuilder builder,
+        UnitEvaluator Target)
+    {
+      builder.Validate(Target);
+      
+      var element = ElementTool.Create<SplitUnitGroup>();
+      element.Target = Target;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartCombat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StartCombat))]
+    public static ActionsBuilder AddStartCombat(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit1,
+        UnitEvaluator Unit2)
+    {
+      builder.Validate(Unit1);
+      builder.Validate(Unit2);
+      
+      var element = ElementTool.Create<StartCombat>();
+      element.Unit1 = Unit1;
+      element.Unit2 = Unit2;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="StartDialog"/> (Auto Generated)
     /// </summary>
     ///
@@ -872,6 +907,23 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.m_Dialogue = BlueprintTool.GetRef<BlueprintDialogReference>(m_Dialogue);
       element.DialogEvaluator = DialogEvaluator;
       element.SpeakerName = SpeakerName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartEncounter"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Encounter"><see cref="BlueprintRandomEncounter"/></param>
+    [Generated]
+    [Implements(typeof(StartEncounter))]
+    public static ActionsBuilder AddStartEncounter(
+        this ActionsBuilder builder,
+        string m_Encounter)
+    {
+      
+      var element = ElementTool.Create<StartEncounter>();
+      element.m_Encounter = BlueprintTool.GetRef<BlueprintRandomEncounterReference>(m_Encounter);
       return builder.Add(element);
     }
 
@@ -935,6 +987,31 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="SwitchDoor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchDoor))]
+    public static ActionsBuilder AddSwitchDoor(
+        this ActionsBuilder builder,
+        MapObjectEvaluator Door,
+        Boolean UnlockIfLocked,
+        Boolean CloseIfAlreadyOpen,
+        Boolean OpenIfAlreadyClosed)
+    {
+      builder.Validate(Door);
+      builder.Validate(UnlockIfLocked);
+      builder.Validate(CloseIfAlreadyOpen);
+      builder.Validate(OpenIfAlreadyClosed);
+      
+      var element = ElementTool.Create<SwitchDoor>();
+      element.Door = Door;
+      element.UnlockIfLocked = UnlockIfLocked;
+      element.CloseIfAlreadyOpen = CloseIfAlreadyOpen;
+      element.OpenIfAlreadyClosed = OpenIfAlreadyClosed;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SwitchDualCompanion"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -947,6 +1024,116 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<SwitchDualCompanion>();
       element.Unit = Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchFaction"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Faction"><see cref="BlueprintFaction"/></param>
+    [Generated]
+    [Implements(typeof(SwitchFaction))]
+    public static ActionsBuilder AddSwitchFaction(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        string m_Faction,
+        Boolean IncludeGroup,
+        Boolean ResetAllRelations)
+    {
+      builder.Validate(Target);
+      builder.Validate(IncludeGroup);
+      builder.Validate(ResetAllRelations);
+      
+      var element = ElementTool.Create<SwitchFaction>();
+      element.Target = Target;
+      element.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(m_Faction);
+      element.IncludeGroup = IncludeGroup;
+      element.ResetAllRelations = ResetAllRelations;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchInteraction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchInteraction))]
+    public static ActionsBuilder AddSwitchInteraction(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject,
+        Boolean EnableIfAlreadyDisabled,
+        Boolean DisableIfAlreadyEnabled)
+    {
+      builder.Validate(MapObject);
+      builder.Validate(EnableIfAlreadyDisabled);
+      builder.Validate(DisableIfAlreadyEnabled);
+      
+      var element = ElementTool.Create<SwitchInteraction>();
+      element.MapObject = MapObject;
+      element.EnableIfAlreadyDisabled = EnableIfAlreadyDisabled;
+      element.DisableIfAlreadyEnabled = DisableIfAlreadyEnabled;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchRoaming"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchRoaming))]
+    public static ActionsBuilder AddSwitchRoaming(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        Boolean Disable)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Disable);
+      
+      var element = ElementTool.Create<SwitchRoaming>();
+      element.Unit = Unit;
+      element.Disable = Disable;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchToEnemy"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_FactionToAttack"><see cref="BlueprintFaction"/></param>
+    [Generated]
+    [Implements(typeof(SwitchToEnemy))]
+    public static ActionsBuilder AddSwitchToEnemy(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        string m_FactionToAttack)
+    {
+      builder.Validate(Target);
+      
+      var element = ElementTool.Create<SwitchToEnemy>();
+      element.Target = Target;
+      element.m_FactionToAttack = BlueprintTool.GetRef<BlueprintFactionReference>(m_FactionToAttack);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchToNeutral"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="Faction"><see cref="BlueprintFaction"/></param>
+    [Generated]
+    [Implements(typeof(SwitchToNeutral))]
+    public static ActionsBuilder AddSwitchToNeutral(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        string Faction,
+        Boolean IncludeGroup)
+    {
+      builder.Validate(Target);
+      builder.Validate(IncludeGroup);
+      
+      var element = ElementTool.Create<SwitchToNeutral>();
+      element.Target = Target;
+      element.Faction = BlueprintTool.GetRef<BlueprintFactionReference>(Faction);
+      element.IncludeGroup = IncludeGroup;
       return builder.Add(element);
     }
 
@@ -975,6 +1162,25 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.TimeOfDay = TimeOfDay;
       element.NoFatigue = NoFatigue;
       element.MatchTimeOfDay = MatchTimeOfDay;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitLookAt"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitLookAt))]
+    public static ActionsBuilder AddUnitLookAt(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit,
+        PositionEvaluator Position)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Position);
+      
+      var element = ElementTool.Create<UnitLookAt>();
+      element.Unit = Unit;
+      element.Position = Position;
       return builder.Add(element);
     }
 

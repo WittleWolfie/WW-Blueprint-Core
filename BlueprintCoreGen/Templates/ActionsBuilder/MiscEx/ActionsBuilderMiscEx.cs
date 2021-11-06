@@ -90,6 +90,7 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SellCollectibleItems)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ShowPartySelection)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipAllItems)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipItem)]

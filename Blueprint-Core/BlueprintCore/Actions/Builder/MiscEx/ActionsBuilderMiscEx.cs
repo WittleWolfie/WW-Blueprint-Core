@@ -445,6 +445,23 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="ShowPartySelection"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShowPartySelection))]
+    public static ActionsBuilder AddShowPartySelection(
+        this ActionsBuilder builder,
+        ActionsBuilder ActionsAfterPartySelection,
+        ActionsBuilder ActionsIfCanceled)
+    {
+      
+      var element = ElementTool.Create<ShowPartySelection>();
+      element.ActionsAfterPartySelection = ActionsAfterPartySelection.Build();
+      element.ActionsIfCanceled = ActionsIfCanceled.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="StartTrade"/> (Auto Generated)
     /// </summary>
     [Generated]

@@ -1171,5 +1171,23 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.IsOn = IsOn;
       return builder.Add(element);
     }
+
+    /// <summary>
+    /// Adds <see cref="UnitsFromSpawnersInUnitGroup"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnitsFromSpawnersInUnitGroup))]
+    public static ActionsBuilder AddUnitsFromSpawnersInUnitGroup(
+        this ActionsBuilder builder,
+        EntityReference m_Group,
+        ActionsBuilder Actions)
+    {
+      builder.Validate(m_Group);
+      
+      var element = ElementTool.Create<UnitsFromSpawnersInUnitGroup>();
+      element.m_Group = m_Group;
+      element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
   }
 }

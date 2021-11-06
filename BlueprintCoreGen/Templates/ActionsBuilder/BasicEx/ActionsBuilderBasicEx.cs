@@ -521,6 +521,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SummonPoolUnits)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SummonUnitCopy)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchActivatableAbility)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnitsFromSpawnersInUnitGroup)]
 
   }
 }
