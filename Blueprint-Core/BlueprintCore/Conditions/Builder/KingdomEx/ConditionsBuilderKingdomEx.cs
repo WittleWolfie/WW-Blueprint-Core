@@ -1,5 +1,4 @@
 using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
@@ -12,7 +11,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
 using System.Linq;
-
 namespace BlueprintCore.Conditions.Builder.KingdomEx
 {
   /// <summary>

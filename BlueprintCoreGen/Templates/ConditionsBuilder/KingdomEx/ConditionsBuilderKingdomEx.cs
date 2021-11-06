@@ -1,7 +1,4 @@
-﻿using BlueprintCore.Conditions.New;
-using BlueprintCore.Utils;
-
-namespace BlueprintCoreGen.Conditions.Builder.KingdomEx
+﻿namespace BlueprintCoreGen.Conditions.Builder.KingdomEx
 {
   /// <summary>
   /// Extension to <see cref="ConditionsBuilder"/> for conditions involving the Kingdom and Crusade system.

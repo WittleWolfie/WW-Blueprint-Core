@@ -134,7 +134,7 @@ namespace BlueprintCoreGen
   {
     // Relative directory path for the output class
     public readonly string RelativePath;
-    private readonly List<string> Imports = new();
+    private readonly List<string> Imports = new() { "using BlueprintCore.Utils;" };
     private readonly StringBuilder ClassText = new();
     private readonly HashSet<Type> ImplementedTypes = new();
 
