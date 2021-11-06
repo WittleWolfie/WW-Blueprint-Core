@@ -127,19 +127,21 @@ If a method calls for a string to represent any type of blueprint, you can pass 
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
 provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><see cref="!:AreaEx.ConditionsBuilderAreaEx">AreaEx</see></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">ConditionsBuilderAreaEx</a></td><td>
     Conditions involving the game map, dungeons, or locations. See also
-<see cref="!:KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see> for location related conditions
+<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a> for location related conditions
 specifically tied to the Kingdom and Crusade system.
-</td></tr><tr><td><see cref="!:BasicEx.ConditionsBuilderBasicEx">BasicEx</see></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">ConditionsBuilderBasicEx</a></td><td>
   Most game mechanics related conditions not included in
 <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a>.
 </td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more
-specific extensions such as <see cref="!:KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see>.
-</td></tr><tr><td><see cref="!:KingdomEx.ConditionsBuilderKingdomEx">KingdomEx</see></td><td>
+specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a></td><td>
   Conditions involving the Kingdom and Crusade system.
+</td></tr><tr><td><see cref="!:NewEx.ConditionsBuilderMiscEx">MiscEx</see></td><td>
+  Conditions without a better extension container such as game difficulty.
 </td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">ConditionsBuilderNewEx</a></td><td>
   Conditions defined in BlueprintCore and not available in the base game.
 </td></tr><tr><td><see cref="!:StoryEx.ConditionsBuilderStoryEx">StoryEx</see></td><td>
@@ -166,7 +168,7 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_Add_Kingmaker_ElementsSystem_Condition_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.Add(Kingmaker.ElementsSystem.Condition)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L141">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L147">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Add_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Add*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Add_Kingmaker_ElementsSystem_Condition_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Add(Kingmaker.ElementsSystem.Condition)">Add(Condition)</h4>
@@ -215,10 +217,668 @@ builder.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddFalse.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddFalse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L157">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddFalse_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddFalse*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddFalse" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddFalse">AddFalse()</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.False</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(False))]
+public ConditionsBuilder AddFalse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan(Kingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.ElementsSystem.FloatEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L192">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan(Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.FloatEvaluator)">AddGreaterThan(FloatEvaluator, FloatEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(GreaterThan))]
+public ConditionsBuilder AddGreaterThan(FloatEvaluator Value, FloatEvaluator MinValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">MinValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L177">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThan_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThan(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddGreaterThan(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(GreaterThan))]
+public ConditionsBuilder AddGreaterThan(IntEvaluator Value, IntEvaluator MinValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">MinValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo(Kingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.ElementsSystem.FloatEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L319">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo(Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.FloatEvaluator)">AddGreaterThanOrEqualTo(FloatEvaluator, FloatEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(LessThan))]
+public ConditionsBuilder AddGreaterThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MaxValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">MaxValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L303">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddGreaterThanOrEqualTo_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddGreaterThanOrEqualTo(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddGreaterThanOrEqualTo(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(LessThan))]
+public ConditionsBuilder AddGreaterThanOrEqualTo(IntEvaluator Value, IntEvaluator MaxValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">MaxValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsEqual_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsEqual(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L241">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsEqual_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsEqual*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsEqual_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsEqual(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddIsEqual(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsEqual</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(IsEqual))]
+public ConditionsBuilder AddIsEqual(IntEvaluator FirstValue, IntEvaluator SecondValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">FirstValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">SecondValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsNotEqual_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsNotEqual(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L256">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsNotEqual_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsNotEqual*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddIsNotEqual_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddIsNotEqual(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddIsNotEqual(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsEqual</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(IsEqual))]
+public ConditionsBuilder AddIsNotEqual(IntEvaluator FirstValue, IntEvaluator SecondValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">FirstValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">SecondValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan(Kingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.ElementsSystem.FloatEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L287">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan(Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.FloatEvaluator)">AddLessThan(FloatEvaluator, FloatEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(LessThan))]
+public ConditionsBuilder AddLessThan(FloatEvaluator Value, FloatEvaluator MaxValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">MaxValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L272">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThan_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThan(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddLessThan(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(LessThan))]
+public ConditionsBuilder AddLessThan(IntEvaluator Value, IntEvaluator MaxValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">MaxValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo(Kingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.ElementsSystem.FloatEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L224">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_ElementsSystem_FloatEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo(Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.ElementsSystem.FloatEvaluator)">AddLessThanOrEqualTo(FloatEvaluator, FloatEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(GreaterThan))]
+public ConditionsBuilder AddLessThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MinValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.FloatEvaluator</span></td>
+        <td><span class="parametername">MinValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo(Kingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L208">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddLessThanOrEqualTo_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddLessThanOrEqualTo(Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddLessThanOrEqualTo(IntEvaluator, IntEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(GreaterThan))]
+public ConditionsBuilder AddLessThanOrEqualTo(IntEvaluator Value, IntEvaluator MinValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">Value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">MinValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddOrAndLogic_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddOrAndLogic(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L336">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddOrAndLogic_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddOrAndLogic*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddOrAndLogic_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddOrAndLogic(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddOrAndLogic(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.OrAndLogic</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(OrAndLogic))]
+public ConditionsBuilder AddOrAndLogic(ConditionsBuilder conditions, bool negate = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td><span class="parametername">conditions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_AddTrue.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.AddTrue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L166">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddTrue_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddTrue*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_AddTrue" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.AddTrue">AddTrue()</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.False</span>, negated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(False))]
+public ConditionsBuilder AddTrue()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_Build.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.Build%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L110">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L117">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Build_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Build*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Build" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Build">Build()</h4>
@@ -250,7 +910,7 @@ warning. Do not call twice on the same builder.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_New.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.New%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L104">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L111">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_New_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.New*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_New" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.New">New()</h4>
@@ -281,7 +941,7 @@ warning. Do not call twice on the same builder.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_UseOr.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L128">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L135">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_UseOr_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_UseOr" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr">UseOr()</h4>
@@ -307,59 +967,561 @@ warning. Do not call twice on the same builder.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder_Validate_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder.Validate(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L158">View Source</a>
-  </span>
-  <a id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Validate_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Validate*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Validate_System_Object_" data-uid="BlueprintCore.Conditions.Builder.ConditionsBuilder.Validate(System.Object)">Validate(Object)</h4>
-  <div class="markdown level1 summary"><p>Runs the object through <a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a>, adding any errors to the
-validation warnings.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Validate(object obj)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">obj</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ConditionsBuilder_Validate_System_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Exposed for use by extension classes to bundle warnings into the builder. Other classes can use
-<a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a> directly.</p>
-</div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_">ConditionsBuilderContextEx.HasBuffFromCaster(ConditionsBuilder, String)</a>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddContextConditionDungeonStage_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Int32_System_Boolean_">ConditionsBuilderAreaEx.AddContextConditionDungeonStage(ConditionsBuilder, Int32, Int32, Boolean)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_">ConditionsBuilderContextEx.CasterHasFact(ConditionsBuilder, String)</a>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddInCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderAreaEx.AddInCapital(ConditionsBuilder, Boolean)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_">ConditionsBuilderContextEx.HasFact(ConditionsBuilder, String)</a>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddAreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderAreaEx.AddAreaVisited(ConditionsBuilder, String, Boolean)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsYourself_BlueprintCore_Conditions_Builder_ConditionsBuilder_">ConditionsBuilderContextEx.TargetIsYourself(ConditionsBuilder)</a>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddCurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderAreaEx.AddCurrentAreaIs(ConditionsBuilder, String, Boolean)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_">ConditionsBuilderNewEx.TargetInMeleeRange(ConditionsBuilder)</a>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddIsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_System_Boolean_">ConditionsBuilderAreaEx.AddIsLootEmpty(ConditionsBuilder, EntityReference, MapObjectEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddIsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_GlobalMapZone_System_Boolean_">ConditionsBuilderAreaEx.AddIsPartyInNaturalSetting(ConditionsBuilder, GlobalMapZone, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddLocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderAreaEx.AddLocationRevealed(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddMapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">ConditionsBuilderAreaEx.AddMapObjectDestroyed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddMapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">ConditionsBuilderAreaEx.AddMapObjectRevealed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddPartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType_Kingmaker_Blueprints_EntityReference_System_Boolean_">ConditionsBuilderAreaEx.AddPartyInScriptZone(ConditionsBuilder, PartyInScriptZone.CheckType, EntityReference, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddUnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">ConditionsBuilderAreaEx.AddUnitInScriptZone(ConditionsBuilder, UnitEvaluator, MapObjectEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddUnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderAreaEx.AddUnitIsInAreaPart(ConditionsBuilder, String, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AddUnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderAreaEx.AddUnitIsInFogOfWar(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddDualCompanionInactive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddDualCompanionInactive(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddBuffConditionCheckRoundNumber_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_">ConditionsBuilderBasicEx.AddBuffConditionCheckRoundNumber(ConditionsBuilder, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCheckConditionsHolder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_System_Boolean_">ConditionsBuilderBasicEx.AddCheckConditionsHolder(ConditionsBuilder, String, ParametrizedContextSetter, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCheckItemCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_Designers_EventConditionActionSystem_Conditions_CheckItemCondition_RequiredState_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddCheckItemCondition(ConditionsBuilder, String, CheckItemCondition.RequiredState, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCompanionInParty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddCompanionInParty(ConditionsBuilder, String, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCompanionIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddCompanionIsDead(ConditionsBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCompanionIsLost_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddCompanionIsLost(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCompanionIsUnconscious_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddCompanionIsUnconscious(ConditionsBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddCheckLos_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_PositionEvaluator_Kingmaker_ElementsSystem_PositionEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddCheckLos(ConditionsBuilder, PositionEvaluator, PositionEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddHasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddHasBuff(ConditionsBuilder, UnitEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddHasFact(ConditionsBuilder, UnitEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsEnemy_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddIsEnemy(ConditionsBuilder, UnitEvaluator, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsInCombat_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddIsInCombat(ConditionsBuilder, UnitEvaluator, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsInTurnBasedCombat_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderBasicEx.AddIsInTurnBasedCombat(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsPartyMember_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddIsPartyMember(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsUnconscious_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddIsUnconscious(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddIsUnitLevelLessThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Int32_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddIsUnitLevelLessThan(ConditionsBuilder, UnitEvaluator, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddItemBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddItemBlueprint(ConditionsBuilder, ItemEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddItemFromCollectionCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderBasicEx.AddItemFromCollectionCondition(ConditionsBuilder, ItemsCollectionEvaluator, Boolean, ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddItemsEnough_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_String_System_Int32_System_Boolean_">ConditionsBuilderBasicEx.AddItemsEnough(ConditionsBuilder, Boolean, String, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddPartyCanUseAbility_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Designers_AbilitiesHelper_AbilityDescription_System_Boolean_System_Boolean_">ConditionsBuilderBasicEx.AddPartyCanUseAbility(ConditionsBuilder, AbilitiesHelper.AbilityDescription, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddPartyUnits_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderBasicEx.AddPartyUnits(ConditionsBuilder, Boolean, ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddPcFemale_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderBasicEx.AddPcFemale(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddPcMale_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderBasicEx.AddPcMale(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddPcRace_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Race_System_Boolean_">ConditionsBuilderBasicEx.AddPcRace(ConditionsBuilder, Race, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddSummonPoolExistsAndEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddSummonPoolExistsAndEmpty(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddUnitIsDead(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitIsHidden_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddUnitIsHidden(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddUnitBlueprint(ConditionsBuilder, UnitEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_Kingmaker_ElementsSystem_IntEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddUnitClass(ConditionsBuilder, UnitEvaluator, String, IntEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitEqual_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddUnitEqual(ConditionsBuilder, UnitEvaluator, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitFromSpawnerIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_System_Boolean_">ConditionsBuilderBasicEx.AddUnitFromSpawnerIsDead(ConditionsBuilder, EntityReference, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitFromSummonPool_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_">ConditionsBuilderBasicEx.AddUnitFromSummonPool(ConditionsBuilder, UnitEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Blueprints_Gender_System_Boolean_">ConditionsBuilderBasicEx.AddUnitGender(ConditionsBuilder, UnitEvaluator, Gender, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_AddUnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderBasicEx.AddUnitIsNull(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.HasBuffFromCaster(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.CasterHasFact(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.HasFact(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsYourself_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.TargetIsYourself(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionDistanceToTarget_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Utility_Feet_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionDistanceToTarget(ConditionsBuilder, Feet, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionAlignment_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_Enums_AlignmentComponent_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionAlignment(ConditionsBuilder, Boolean, AlignmentComponent, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionAlignmentDifference_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionAlignmentDifference(ConditionsBuilder, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionAlive_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionAlive(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionBuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionBuffRank(ConditionsBuilder, String, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCasterHasBuffWithDescriptor_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Classes_Spells_SpellDescriptorWrapper_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCasterHasBuffWithDescriptor(ConditionsBuilder, SpellDescriptorWrapper, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCasterIsPartyEnemy_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCasterIsPartyEnemy(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCasterWeaponInTwoHands_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCasterWeaponInTwoHands(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_String_System_Int32_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCharacterClass(ConditionsBuilder, Boolean, String, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCompare_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_Conditions_ContextConditionCompare_Type_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCompare(ConditionsBuilder, ContextConditionCompare.Type, ContextValue, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCompareCasterHP_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_Conditions_ContextConditionCompareCasterHP_CompareType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCompareCasterHP(ConditionsBuilder, ContextConditionCompareCasterHP.CompareType, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionCompareTargetHP_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_Conditions_ContextConditionCompareTargetHP_CompareType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionCompareTargetHP(ConditionsBuilder, ContextConditionCompareTargetHP.CompareType, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionFavoredEnemy_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionFavoredEnemy(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Gender_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionGender(ConditionsBuilder, Gender, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHasBuff(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHasBuffWithDescriptor_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Classes_Spells_SpellDescriptorWrapper_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHasBuffWithDescriptor(ConditionsBuilder, SpellDescriptorWrapper, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_String_System_Int32_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHasItem(ConditionsBuilder, Boolean, String, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHasTouchSpellCharge_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHasTouchSpellCharge(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHasUniqueBuff(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionHitDice_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionHitDice(ConditionsBuilder, Int32, Boolean, AbilitySharedValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsAlly_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsAlly(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsAmuletEquipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsAmuletEquipped(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsAnimalCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsAnimalCompanion(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsCaster(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsEnemy_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsEnemy(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsFlanked_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsFlanked(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsFlatFooted_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsFlatFooted(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsHelpless_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsHelpless(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsInCombat_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsInCombat(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsMainTarget_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsMainTarget(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsPartyMember_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsPartyMember(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsPetDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsPetDead(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsRing1Equipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsRing1Equipped(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsRing2Equipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsRing2Equipped(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsShieldEquipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsShieldEquipped(ConditionsBuilder, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsTwoHandedEquipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsTwoHandedEquipped(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsUnconscious_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsUnconscious(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionIsWeaponEquipped_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_Kingmaker_Enums_WeaponRangeType_Kingmaker_Enums_WeaponCategory_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionIsWeaponEquipped(ConditionsBuilder, Boolean, Boolean, WeaponRangeType, WeaponCategory, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionMaximumBurn_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionMaximumBurn(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionPeaceful_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionPeaceful(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionSharedValueHigher_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_System_Int32_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionSharedValueHigher(ConditionsBuilder, AbilitySharedValue, Int32, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionSharedValueHitDice_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Abilities_AbilitySharedValue_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionSharedValueHitDice(ConditionsBuilder, AbilitySharedValue, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionSize_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_Size_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionSize(ConditionsBuilder, Size, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionStatValue_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_Kingmaker_EntitySystem_Stats_StatType_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionStatValue(ConditionsBuilder, Int32, StatType, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionStealth_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_Conditions_ContextConditionStealth_CheckTarget_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionStealth(ConditionsBuilder, ContextConditionStealth.CheckTarget, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionTargetCanSeeInvisible_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionTargetCanSeeInvisible(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionTargetIsArcaneCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionTargetIsArcaneCaster(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionTargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionTargetIsBlueprint(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionTargetIsDivineCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionTargetIsDivineCaster(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionTargetIsEngaged_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionTargetIsEngaged(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionUnconsciousAllyFarThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Utility_Feet_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionUnconsciousAllyFarThan(ConditionsBuilder, Feet, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextConditionWeaponAnimationStyle_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_View_Animation_WeaponAnimationStyle_System_Boolean_System_Boolean_">ConditionsBuilderContextEx.AddContextConditionWeaponAnimationStyle(ConditionsBuilder, WeaponAnimationStyle, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html#BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_AddContextSwarmHasEnemiesInInnerCircle_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderContextEx.AddContextSwarmHasEnemiesInInnerCircle(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddHasTacticalMorale_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddHasTacticalMorale(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddTacticalCombatSquadHitPointsCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_UnitLogic_Mechanics_CompareOperation_Type_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Boolean_">ConditionsBuilderKingdomEx.AddTacticalCombatSquadHitPointsCondition(ConditionsBuilder, Boolean, CompareOperation.Type, ContextValue, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddTargetHasArmyTag_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Armies_Components_ArmyProperties_System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddTargetHasArmyTag(ConditionsBuilder, ArmyProperties, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddContextConditionGarrisonClear_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddContextConditionGarrisonClear(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddAnySettlementUnderSiege_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddAnySettlementUnderSiege(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomMoraleFlagCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_Kingdom_Flags_KingdomMoraleFlag_State_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomMoraleFlagCondition(ConditionsBuilder, String, KingdomMoraleFlag.State, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddArmyInLocationDefeated_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddArmyInLocationDefeated(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddAutoKingdom_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddAutoKingdom(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddBuildingHasNeighbours_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String___System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddBuildingHasNeighbours(ConditionsBuilder, String[], Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddDaysTillNextMonth_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddDaysTillNextMonth(ConditionsBuilder, Boolean, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddEventLifetime_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddEventLifetime(ConditionsBuilder, Int32, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomAlignmentIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Alignments_AlignmentMaskType_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomAlignmentIs(ConditionsBuilder, AlignmentMaskType, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomAllArmiesInRegionDefeated_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomAllArmiesInRegionDefeated(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomArtisanState_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_Kingdom_Conditions_KingdomArtisanState_CheckType_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomArtisanState(ConditionsBuilder, String, KingdomArtisanState.CheckType, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomBuffIsActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomBuffIsActive(ConditionsBuilder, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomChapterWeek_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomChapterWeek(ConditionsBuilder, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomDay_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomDay(ConditionsBuilder, Boolean, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomEventCanStart_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomEventCanStart(ConditionsBuilder, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomEventIsActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomEventIsActive(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomEventIsBeingResolved_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomEventIsBeingResolved(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomExists(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomHasResolvableEvent_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomHasResolvableEvent(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomHasUpgradeableSettlement_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomHasUpgradeableSettlement(ConditionsBuilder, SettlementState.LevelType, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomIsVisible_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomIsVisible(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomLeaderIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_LeaderType_System_String_System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomLeaderIs(ConditionsBuilder, LeaderType, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomProjectIsAvailable_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomProjectIsAvailable(ConditionsBuilder, String, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomProjectIsDone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomProjectIsDone(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomRankUpConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_KingdomStats_Type_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomRankUpConditions(ConditionsBuilder, KingdomStats.Type, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomRegionIsConquered_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomRegionIsConquered(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomRegionIsUpgraded_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomRegionIsUpgraded(ConditionsBuilder, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomSettlementCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_System_Int32_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomSettlementCount(ConditionsBuilder, SettlementState.LevelType, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomSettlementHasBuilding_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_String_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomSettlementHasBuilding(ConditionsBuilder, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomStatCheck_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_KingdomStats_Type_System_Int32_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomStatCheck(ConditionsBuilder, KingdomStats.Type, Int32, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomStatIsMaximum_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_KingdomStats_Type_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomStatIsMaximum(ConditionsBuilder, KingdomStats.Type, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomTaskResolvedBy_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_LeaderType___System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomTaskResolvedBy(ConditionsBuilder, LeaderType[], Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html#BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AddKingdomUnrestCheck_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Kingdom_KingdomStatusType_System_Boolean_System_Boolean_">ConditionsBuilderKingdomEx.AddKingdomUnrestCheck(ConditionsBuilder, KingdomStatusType, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_System_Boolean_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_">ConditionsBuilderMiscEx.AddContextConditionDifficultyHigherThan(ConditionsBuilder, Boolean, Boolean, Boolean, DifficultyPresetAsset, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_">ConditionsBuilderMiscEx.AddDifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddEnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddEnlargedEncountersCapacity(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddPaused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddPaused(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddGameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_">ConditionsBuilderMiscEx.AddGameModeActive(ConditionsBuilder, GameModeType.Enum, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddHasEnoughMoneyForCustomCompanion(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddHasEnoughMoneyForRespec(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderMiscEx.AddIsDLCEnabled(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_">ConditionsBuilderMiscEx.AddIsListContainsItem(ConditionsBuilder, ItemEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddIsRespecAllowed(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderMiscEx.AddIsUnitCustomCompanion(ConditionsBuilder, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddRespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderMiscEx.AddRespecIsFree(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_">ConditionsBuilderMiscEx.AddIsleStateCondition(ConditionsBuilder, IsleEvaluator, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCheckUnitSeeUnit_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">ConditionsBuilderStoryEx.AddCheckUnitSeeUnit(ConditionsBuilder, UnitEvaluator, UnitEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddBarkBanterPlayed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddBarkBanterPlayed(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddDialogSeen_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddDialogSeen(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddAlignmentCheck_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_AlignmentComponent_System_Boolean_">ConditionsBuilderStoryEx.AddAlignmentCheck(ConditionsBuilder, AlignmentComponent, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddAnotherEtudeOfGroupIsPlaying_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddAnotherEtudeOfGroupIsPlaying(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddAnswerListShown_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_">ConditionsBuilderStoryEx.AddAnswerListShown(ConditionsBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddAnswerSelected_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_">ConditionsBuilderStoryEx.AddAnswerSelected(ConditionsBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddChangeableDynamicIsLoaded_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Area_SceneReference_System_Boolean_">ConditionsBuilderStoryEx.AddChangeableDynamicIsLoaded(ConditionsBuilder, SceneReference, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCheckFailed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddCheckFailed(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCheckPassed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddCheckPassed(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCompanionStoryUnlocked_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddCompanionStoryUnlocked(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCueSeen_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_">ConditionsBuilderStoryEx.AddCueSeen(ConditionsBuilder, String, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCurrentChapter_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_">ConditionsBuilderStoryEx.AddCurrentChapter(ConditionsBuilder, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddCutsceneQueueState_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderStoryEx.AddCutsceneQueueState(ConditionsBuilder, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddDayOfTheMonth_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Boolean_">ConditionsBuilderStoryEx.AddDayOfTheMonth(ConditionsBuilder, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddDayOfTheWeek_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_DayOfWeek_System_Boolean_">ConditionsBuilderStoryEx.AddDayOfTheWeek(ConditionsBuilder, DayOfWeek, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddDayTime_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_AreaLogic_TimeOfDay_System_Boolean_">ConditionsBuilderStoryEx.AddDayTime(ConditionsBuilder, TimeOfDay, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddEtudeStatus_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ConditionsBuilderStoryEx.AddEtudeStatus(ConditionsBuilder, String, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddFlagInRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Int32_System_Int32_System_Boolean_">ConditionsBuilderStoryEx.AddFlagInRange(ConditionsBuilder, String, Int32, Int32, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddFlagUnlocked_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_System_Collections_Generic_List_System_Int32__System_Boolean_">ConditionsBuilderStoryEx.AddFlagUnlocked(ConditionsBuilder, String, Boolean, List&lt;Int32&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddIsLegendPathSelected_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderStoryEx.AddIsLegendPathSelected(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddMonthFromList_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32___System_Boolean_">ConditionsBuilderStoryEx.AddMonthFromList(ConditionsBuilder, Int32[], Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddObjectiveStatus_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_AreaLogic_QuestSystem_QuestObjectiveState_System_Boolean_">ConditionsBuilderStoryEx.AddObjectiveStatus(ConditionsBuilder, String, QuestObjectiveState, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddPlayerAlignmentIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Alignments_AlignmentMaskType_System_Boolean_">ConditionsBuilderStoryEx.AddPlayerAlignmentIs(ConditionsBuilder, AlignmentMaskType, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddPlayerHasNoCharactersOnRoster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderStoryEx.AddPlayerHasNoCharactersOnRoster(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddPlayerHasRecruitsOnRoster_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderStoryEx.AddPlayerHasRecruitsOnRoster(ConditionsBuilder, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddPlayerSignificantClassIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_String_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddPlayerSignificantClassIs(ConditionsBuilder, Boolean, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddPlayerTopClassIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_String_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddPlayerTopClassIs(ConditionsBuilder, Boolean, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddQuestStatus_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_Kingmaker_AreaLogic_QuestSystem_QuestState_System_Boolean_">ConditionsBuilderStoryEx.AddQuestStatus(ConditionsBuilder, String, QuestState, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderStoryEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderStoryEx_AddRomanceLocked_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">ConditionsBuilderStoryEx.AddRomanceLocked(ConditionsBuilder, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">ConditionsBuilderNewEx.TargetInMeleeRange(ConditionsBuilder, Boolean)</a>
   </div>
 </article>
           </div>
@@ -372,7 +1534,7 @@ validation warnings.</p>
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ConditionsBuilder.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ConditionsBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L93" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/ConditionsBuilder.cs/#L100" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
