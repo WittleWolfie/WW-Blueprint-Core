@@ -495,6 +495,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DetachBuff)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DisableExperienceFromUnit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DrainEnergy)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.FakePartyRest)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GainExp)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GainMythicLevel)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.HealParty)]

@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
@@ -10,6 +11,7 @@ using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using System;
+using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
@@ -225,6 +227,25 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="HideMapObject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HideMapObject))]
+    public static ActionsBuilder AddHideMapObject(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject,
+        Boolean Unhide)
+    {
+      builder.Validate(MapObject);
+      builder.Validate(Unhide);
+      
+      var element = ElementTool.Create<HideMapObject>();
+      element.MapObject = MapObject;
+      element.Unhide = Unhide;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="MarkLocationClosed"/> (Auto Generated)
     /// </summary>
     ///
@@ -284,6 +305,43 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="RemoveAllAreasFromSave"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Except"><see cref="BlueprintArea"/></param>
+    [Generated]
+    [Implements(typeof(RemoveAllAreasFromSave))]
+    public static ActionsBuilder AddRemoveAllAreasFromSave(
+        this ActionsBuilder builder,
+        string[] m_Except)
+    {
+      
+      var element = ElementTool.Create<RemoveAllAreasFromSave>();
+      element.m_Except = m_Except.Select(bp => BlueprintTool.GetRef<BlueprintAreaReference>(bp)).ToArray();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveAreaFromSave"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Area"><see cref="BlueprintArea"/></param>
+    /// <param name="SpecificMechanic"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    [Implements(typeof(RemoveAreaFromSave))]
+    public static ActionsBuilder AddRemoveAreaFromSave(
+        this ActionsBuilder builder,
+        string m_Area,
+        string SpecificMechanic)
+    {
+      
+      var element = ElementTool.Create<RemoveAreaFromSave>();
+      element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
+      element.SpecificMechanic = BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(SpecificMechanic);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveCampingEncounter"/> (Auto Generated)
     /// </summary>
     ///
@@ -297,6 +355,66 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       
       var element = ElementTool.Create<RemoveCampingEncounter>();
       element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(m_Encounter);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ResetLocationPerceptionCheck"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(ResetLocationPerceptionCheck))]
+    public static ActionsBuilder AddResetLocationPerceptionCheck(
+        this ActionsBuilder builder,
+        string m_Location)
+    {
+      
+      var element = ElementTool.Create<ResetLocationPerceptionCheck>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlockLocation"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    [Implements(typeof(UnlockLocation))]
+    public static ActionsBuilder AddUnlockLocation(
+        this ActionsBuilder builder,
+        string m_Location,
+        Boolean FakeDescription,
+        Boolean HideInstead)
+    {
+      builder.Validate(FakeDescription);
+      builder.Validate(HideInstead);
+      
+      var element = ElementTool.Create<UnlockLocation>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.FakeDescription = FakeDescription;
+      element.HideInstead = HideInstead;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlockMapEdge"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Edge"><see cref="BlueprintGlobalMapEdge"/></param>
+    [Generated]
+    [Implements(typeof(UnlockMapEdge))]
+    public static ActionsBuilder AddUnlockMapEdge(
+        this ActionsBuilder builder,
+        string m_Edge,
+        Boolean OpenEdges)
+    {
+      builder.Validate(OpenEdges);
+      
+      var element = ElementTool.Create<UnlockMapEdge>();
+      element.m_Edge = BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(m_Edge);
+      element.OpenEdges = OpenEdges;
       return builder.Add(element);
     }
 

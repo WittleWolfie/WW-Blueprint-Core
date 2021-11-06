@@ -3,7 +3,6 @@ using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
@@ -204,43 +203,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       
       var element = ElementTool.Create<GameOver>();
       element.Reason = Reason;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveAllAreasFromSave"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Except"><see cref="BlueprintArea"/></param>
-    [Generated]
-    [Implements(typeof(RemoveAllAreasFromSave))]
-    public static ActionsBuilder AddRemoveAllAreasFromSave(
-        this ActionsBuilder builder,
-        string[] m_Except)
-    {
-      
-      var element = ElementTool.Create<RemoveAllAreasFromSave>();
-      element.m_Except = m_Except.Select(bp => BlueprintTool.GetRef<BlueprintAreaReference>(bp)).ToArray();
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveAreaFromSave"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Area"><see cref="BlueprintArea"/></param>
-    /// <param name="SpecificMechanic"><see cref="BlueprintAreaMechanics"/></param>
-    [Generated]
-    [Implements(typeof(RemoveAreaFromSave))]
-    public static ActionsBuilder AddRemoveAreaFromSave(
-        this ActionsBuilder builder,
-        string m_Area,
-        string SpecificMechanic)
-    {
-      
-      var element = ElementTool.Create<RemoveAreaFromSave>();
-      element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
-      element.SpecificMechanic = BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(SpecificMechanic);
       return builder.Add(element);
     }
   }

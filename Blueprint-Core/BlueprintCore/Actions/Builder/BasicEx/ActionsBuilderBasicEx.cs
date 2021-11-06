@@ -571,6 +571,30 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="FakePartyRest"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(FakePartyRest))]
+    public static ActionsBuilder AddFakePartyRest(
+        this ActionsBuilder builder,
+        Boolean m_Immediate,
+        Boolean m_IgnoreCorruption,
+        Boolean m_RestWithCraft,
+        ActionsBuilder m_ActionsOnRestEnd)
+    {
+      builder.Validate(m_Immediate);
+      builder.Validate(m_IgnoreCorruption);
+      builder.Validate(m_RestWithCraft);
+      
+      var element = ElementTool.Create<FakePartyRest>();
+      element.m_Immediate = m_Immediate;
+      element.m_IgnoreCorruption = m_IgnoreCorruption;
+      element.m_RestWithCraft = m_RestWithCraft;
+      element.m_ActionsOnRestEnd = m_ActionsOnRestEnd.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="GainExp"/> (Auto Generated)
     /// </summary>
     [Generated]

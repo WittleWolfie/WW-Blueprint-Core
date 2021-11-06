@@ -154,6 +154,104 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="GiveObjective"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(GiveObjective))]
+    public static ActionsBuilder AddGiveObjective(
+        this ActionsBuilder builder,
+        string m_Objective)
+    {
+      
+      var element = ElementTool.Create<GiveObjective>();
+      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HideUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HideUnit))]
+    public static ActionsBuilder AddHideUnit(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        Boolean Unhide,
+        Boolean Fade)
+    {
+      builder.Validate(Target);
+      builder.Validate(Unhide);
+      builder.Validate(Fade);
+      
+      var element = ElementTool.Create<HideUnit>();
+      element.Target = Target;
+      element.Unhide = Unhide;
+      element.Fade = Fade;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HideWeapons"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HideWeapons))]
+    public static ActionsBuilder AddHideWeapons(
+        this ActionsBuilder builder,
+        UnitEvaluator Target,
+        Boolean Hide)
+    {
+      builder.Validate(Target);
+      builder.Validate(Hide);
+      
+      var element = ElementTool.Create<HideWeapons>();
+      element.Target = Target;
+      element.Hide = Hide;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IncrementFlagValue"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Flag"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    [Implements(typeof(IncrementFlagValue))]
+    public static ActionsBuilder AddIncrementFlagValue(
+        this ActionsBuilder builder,
+        string m_Flag,
+        IntEvaluator Value,
+        Boolean UnlockIfNot)
+    {
+      builder.Validate(Value);
+      builder.Validate(UnlockIfNot);
+      
+      var element = ElementTool.Create<IncrementFlagValue>();
+      element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_Flag);
+      element.Value = Value;
+      element.UnlockIfNot = UnlockIfNot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LockFlag"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Flag"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    [Implements(typeof(LockFlag))]
+    public static ActionsBuilder AddLockFlag(
+        this ActionsBuilder builder,
+        string m_Flag)
+    {
+      
+      var element = ElementTool.Create<LockFlag>();
+      element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_Flag);
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="LockRomance"/> (Auto Generated)
     /// </summary>
     ///
@@ -204,6 +302,26 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlockFlag"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_flag"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    [Implements(typeof(UnlockFlag))]
+    public static ActionsBuilder AddUnlockFlag(
+        this ActionsBuilder builder,
+        string m_flag,
+        Int32 flagValue)
+    {
+      builder.Validate(flagValue);
+      
+      var element = ElementTool.Create<UnlockFlag>();
+      element.m_flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_flag);
+      element.flagValue = flagValue;
       return builder.Add(element);
     }
 
