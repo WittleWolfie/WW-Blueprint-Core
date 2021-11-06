@@ -7,10 +7,12 @@ using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
 using System;
+using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.AVEx
 {
@@ -278,6 +280,69 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.PutInQueue = PutInQueue;
       element.CheckExistence = CheckExistence;
       element.Parameters = Parameters;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetSoundState"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SetSoundState))]
+    public static ActionsBuilder AddSetSoundState(
+        this ActionsBuilder builder,
+        AkStateReference m_State)
+    {
+      builder.Validate(m_State);
+      
+      var element = ElementTool.Create<SetSoundState>();
+      element.m_State = m_State;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShowBark"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShowBark))]
+    public static ActionsBuilder AddShowBark(
+        this ActionsBuilder builder,
+        LocalizedString WhatToBark,
+        SharedStringAsset WhatToBarkShared,
+        Boolean BarkDurationByText,
+        UnitEvaluator TargetUnit,
+        MapObjectEvaluator TargetMapObject)
+    {
+      builder.Validate(WhatToBark);
+      builder.Validate(WhatToBarkShared);
+      builder.Validate(BarkDurationByText);
+      builder.Validate(TargetUnit);
+      builder.Validate(TargetMapObject);
+      
+      var element = ElementTool.Create<ShowBark>();
+      element.WhatToBark = WhatToBark;
+      element.WhatToBarkShared = WhatToBarkShared;
+      element.BarkDurationByText = BarkDurationByText;
+      element.TargetUnit = TargetUnit;
+      element.TargetMapObject = TargetMapObject;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpawnFx"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpawnFx))]
+    public static ActionsBuilder AddSpawnFx(
+        this ActionsBuilder builder,
+        TransformEvaluator Target,
+        GameObject FxPrefab)
+    {
+      builder.Validate(Target);
+      builder.Validate(FxPrefab);
+      
+      var element = ElementTool.Create<SpawnFx>();
+      element.Target = Target;
+      element.FxPrefab = FxPrefab;
       return builder.Add(element);
     }
 

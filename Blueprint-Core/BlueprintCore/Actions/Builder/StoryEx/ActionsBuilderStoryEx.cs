@@ -4,10 +4,12 @@ using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+using Kingmaker.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -307,6 +309,199 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="ResetQuest"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Quest"><see cref="BlueprintQuest"/></param>
+    /// <param name="m_ObjectiveToStart"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="m_ObjectivesToReset"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(ResetQuest))]
+    public static ActionsBuilder AddResetQuest(
+        this ActionsBuilder builder,
+        string m_Quest,
+        string m_ObjectiveToStart,
+        string[] m_ObjectivesToReset)
+    {
+      
+      var element = ElementTool.Create<ResetQuest>();
+      element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(m_Quest);
+      element.m_ObjectiveToStart = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_ObjectiveToStart);
+      element.m_ObjectivesToReset = m_ObjectivesToReset.Select(bp => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(bp)).ToArray();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ResetQuestObjective"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(ResetQuestObjective))]
+    public static ActionsBuilder AddResetQuestObjective(
+        this ActionsBuilder builder,
+        string m_Objective)
+    {
+      
+      var element = ElementTool.Create<ResetQuestObjective>();
+      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RomanceSetMaximum"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Romance"><see cref="BlueprintRomanceCounter"/></param>
+    [Generated]
+    [Implements(typeof(RomanceSetMaximum))]
+    public static ActionsBuilder AddRomanceSetMaximum(
+        this ActionsBuilder builder,
+        string m_Romance,
+        IntEvaluator ValueEvaluator)
+    {
+      builder.Validate(ValueEvaluator);
+      
+      var element = ElementTool.Create<RomanceSetMaximum>();
+      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
+      element.ValueEvaluator = ValueEvaluator;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RomanceSetMinimum"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Romance"><see cref="BlueprintRomanceCounter"/></param>
+    [Generated]
+    [Implements(typeof(RomanceSetMinimum))]
+    public static ActionsBuilder AddRomanceSetMinimum(
+        this ActionsBuilder builder,
+        string m_Romance,
+        IntEvaluator ValueEvaluator)
+    {
+      builder.Validate(ValueEvaluator);
+      
+      var element = ElementTool.Create<RomanceSetMinimum>();
+      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(m_Romance);
+      element.ValueEvaluator = ValueEvaluator;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScriptZoneActivate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScriptZoneActivate))]
+    public static ActionsBuilder AddScriptZoneActivate(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScriptZoneActivate>();
+      element.ScriptZone = ScriptZone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScriptZoneDeactivate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScriptZoneDeactivate))]
+    public static ActionsBuilder AddScriptZoneDeactivate(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScriptZoneDeactivate>();
+      element.ScriptZone = ScriptZone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ScripZoneUnits"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ScripZoneUnits))]
+    public static ActionsBuilder AddScripZoneUnits(
+        this ActionsBuilder builder,
+        EntityReference ScriptZone,
+        ActionsBuilder Actions)
+    {
+      builder.Validate(ScriptZone);
+      
+      var element = ElementTool.Create<ScripZoneUnits>();
+      element.ScriptZone = ScriptZone;
+      element.Actions = Actions.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShowDialogBox"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShowDialogBox))]
+    public static ActionsBuilder AddShowDialogBox(
+        this ActionsBuilder builder,
+        LocalizedString Text,
+        ParametrizedContextSetter Parameters,
+        ActionsBuilder OnAccept,
+        ActionsBuilder OnCancel)
+    {
+      builder.Validate(Text);
+      builder.Validate(Parameters);
+      
+      var element = ElementTool.Create<ShowDialogBox>();
+      element.Text = Text;
+      element.Parameters = Parameters;
+      element.OnAccept = OnAccept.Build();
+      element.OnCancel = OnCancel.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShowMessageBox"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShowMessageBox))]
+    public static ActionsBuilder AddShowMessageBox(
+        this ActionsBuilder builder,
+        LocalizedString Text,
+        ActionsBuilder OnClose,
+        Int32 WaitTime)
+    {
+      builder.Validate(Text);
+      builder.Validate(WaitTime);
+      
+      var element = ElementTool.Create<ShowMessageBox>();
+      element.Text = Text;
+      element.OnClose = OnClose.Build();
+      element.WaitTime = WaitTime;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShowUIWarning"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ShowUIWarning))]
+    public static ActionsBuilder AddShowUIWarning(
+        this ActionsBuilder builder,
+        WarningNotificationType Type,
+        LocalizedString String)
+    {
+      builder.Validate(Type);
+      builder.Validate(String);
+      
+      var element = ElementTool.Create<ShowUIWarning>();
+      element.Type = Type;
+      element.String = String;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="StartDialog"/> (Auto Generated)
     /// </summary>
     ///
@@ -356,6 +551,42 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="SwitchAzataIsland"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
+    [Generated]
+    [Implements(typeof(SwitchAzataIsland))]
+    public static ActionsBuilder AddSwitchAzataIsland(
+        this ActionsBuilder builder,
+        string m_GlobalMap,
+        Boolean IsOn)
+    {
+      builder.Validate(IsOn);
+      
+      var element = ElementTool.Create<SwitchAzataIsland>();
+      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      element.IsOn = IsOn;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwitchDualCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchDualCompanion))]
+    public static ActionsBuilder AddSwitchDualCompanion(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<SwitchDualCompanion>();
+      element.Unit = Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="TimeSkip"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -380,6 +611,25 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.TimeOfDay = TimeOfDay;
       element.NoFatigue = NoFatigue;
       element.MatchTimeOfDay = MatchTimeOfDay;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnlinkDualCompanions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(UnlinkDualCompanions))]
+    public static ActionsBuilder AddUnlinkDualCompanions(
+        this ActionsBuilder builder,
+        UnitEvaluator First,
+        UnitEvaluator Second)
+    {
+      builder.Validate(First);
+      builder.Validate(Second);
+      
+      var element = ElementTool.Create<UnlinkDualCompanions>();
+      element.First = First;
+      element.Second = Second;
       return builder.Add(element);
     }
 
