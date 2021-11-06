@@ -406,6 +406,9 @@ namespace BlueprintCore.Test
     public static readonly ClickedUnit TestUnit = ElementTool.Create<ClickedUnit>();
     public static readonly Distance TestDistance = ElementTool.Create<Distance>();
     public static readonly IntConstant TestInt = ElementTool.Create<IntConstant>();
+    public static readonly IntConstant ExtraTestInt = ElementTool.Create<IntConstant>();
+    public static readonly FloatConstant TestFloat = ElementTool.Create<FloatConstant>();
+    public static readonly FloatConstant ExtraTestFloat = ElementTool.Create<FloatConstant>();
     public static readonly NearestPosition TestPosition = ElementTool.Create<NearestPosition>();
     public static readonly Trap TestTrap = ElementTool.Create<Trap>();
     public static readonly DamageDescription TestDamage = new();

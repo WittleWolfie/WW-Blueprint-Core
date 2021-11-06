@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using System.Collections.Generic;
 
@@ -148,6 +149,197 @@ namespace BlueprintCore.Conditions.Builder
       Validate(condition);
       Conditions.Add(condition);
       return this;
+    }
+
+    /// <summary>
+    /// Adds <see cref="False"/>
+    /// </summary>
+    [Implements(typeof(False))]
+    public ConditionsBuilder AddFalse()
+    {
+      return Add(ElementTool.Create<False>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="False"/>, negated
+    /// </summary>
+    [Implements(typeof(False))]
+    public ConditionsBuilder AddTrue()
+    {
+      var element = ElementTool.Create<False>();
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GreaterThan"/>
+    /// </summary>
+    [Implements(typeof(GreaterThan))]
+    public ConditionsBuilder AddGreaterThan(IntEvaluator Value, IntEvaluator MinValue)
+    {
+      Validate(Value);
+      Validate(MinValue);
+
+      var element = ElementTool.Create<GreaterThan>();
+      element.Value = Value;
+      element.MinValue = MinValue;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GreaterThan"/>
+    /// </summary>
+    [Implements(typeof(GreaterThan))]
+    public ConditionsBuilder AddGreaterThan(FloatEvaluator Value, FloatEvaluator MinValue)
+    {
+      Validate(Value);
+      Validate(MinValue);
+
+      var element = ElementTool.Create<GreaterThan>();
+      element.FloatValues = true;
+      element.FloatValue = Value;
+      element.FloatMinValue = MinValue;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GreaterThan"/>, negated
+    /// </summary>
+    [Implements(typeof(GreaterThan))]
+    public ConditionsBuilder AddLessThanOrEqualTo(IntEvaluator Value, IntEvaluator MinValue)
+    {
+      Validate(Value);
+      Validate(MinValue);
+
+      var element = ElementTool.Create<GreaterThan>();
+      element.Value = Value;
+      element.MinValue = MinValue;
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GreaterThan"/>, negated
+    /// </summary>
+    [Implements(typeof(GreaterThan))]
+    public ConditionsBuilder AddLessThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MinValue)
+    {
+      Validate(Value);
+      Validate(MinValue);
+
+      var element = ElementTool.Create<GreaterThan>();
+      element.FloatValues = true;
+      element.FloatValue = Value;
+      element.FloatMinValue = MinValue;
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsEqual"/>
+    /// </summary>
+    [Implements(typeof(IsEqual))]
+    public ConditionsBuilder AddIsEqual(IntEvaluator FirstValue, IntEvaluator SecondValue)
+    {
+      Validate(FirstValue);
+      Validate(SecondValue);
+
+      var element = ElementTool.Create<IsEqual>();
+      element.FirstValue = FirstValue;
+      element.SecondValue = SecondValue;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsEqual"/>, negated
+    /// </summary>
+    [Implements(typeof(IsEqual))]
+    public ConditionsBuilder AddIsNotEqual(IntEvaluator FirstValue, IntEvaluator SecondValue)
+    {
+      Validate(FirstValue);
+      Validate(SecondValue);
+
+      var element = ElementTool.Create<IsEqual>();
+      element.FirstValue = FirstValue;
+      element.SecondValue = SecondValue;
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LessThan"/>
+    /// </summary>
+    [Implements(typeof(LessThan))]
+    public ConditionsBuilder AddLessThan(IntEvaluator Value, IntEvaluator MaxValue)
+    {
+      Validate(Value);
+      Validate(MaxValue);
+
+      var element = ElementTool.Create<LessThan>();
+      element.Value = Value;
+      element.MaxValue = MaxValue;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LessThan"/>
+    /// </summary>
+    [Implements(typeof(LessThan))]
+    public ConditionsBuilder AddLessThan(FloatEvaluator Value, FloatEvaluator MaxValue)
+    {
+      Validate(Value);
+      Validate(MaxValue);
+
+      var element = ElementTool.Create<LessThan>();
+      element.FloatValues = true;
+      element.FloatValue = Value;
+      element.FloatMaxValue = MaxValue;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LessThan"/>, negated
+    /// </summary>
+    [Implements(typeof(LessThan))]
+    public ConditionsBuilder AddGreaterThanOrEqualTo(IntEvaluator Value, IntEvaluator MaxValue)
+    {
+      Validate(Value);
+      Validate(MaxValue);
+
+      var element = ElementTool.Create<LessThan>();
+      element.Value = Value;
+      element.MaxValue = MaxValue;
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LessThan"/>, negated
+    /// </summary>
+    [Implements(typeof(LessThan))]
+    public ConditionsBuilder AddGreaterThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MaxValue)
+    {
+      Validate(Value);
+      Validate(MaxValue);
+
+      var element = ElementTool.Create<LessThan>();
+      element.FloatValues = true;
+      element.FloatValue = Value;
+      element.FloatMaxValue = MaxValue;
+      element.Not = true;
+      return Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OrAndLogic"/>
+    /// </summary>
+    [Implements(typeof(OrAndLogic))]
+    public ConditionsBuilder AddOrAndLogic(ConditionsBuilder conditions, bool negate = false)
+    {
+      var element = ElementTool.Create<OrAndLogic>();
+      element.ConditionsChecker = conditions.Build();
+      element.Not = negate;
+      return Add(element);
     }
 
     /// <summary>
