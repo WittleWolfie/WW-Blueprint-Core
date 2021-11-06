@@ -108,6 +108,7 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersDetach)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersDetachEvaluated)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersSwapAttachedAndDetached)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Recruit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RecruitInactive)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RelockInteraction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveMythicLevels)]

@@ -519,6 +519,35 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="Recruit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(Recruit))]
+    public static ActionsBuilder AddRecruit(
+        this ActionsBuilder builder,
+        Recruit.RecruitData[] Recruited,
+        Boolean AddToParty,
+        Boolean MatchPlayerXpExactly,
+        ActionsBuilder OnRecruit,
+        ActionsBuilder OnRecruitImmediate)
+    {
+      foreach (var item in Recruited)
+      {
+        builder.Validate(item);
+      }
+      builder.Validate(AddToParty);
+      builder.Validate(MatchPlayerXpExactly);
+      
+      var element = ElementTool.Create<Recruit>();
+      element.Recruited = Recruited;
+      element.AddToParty = AddToParty;
+      element.MatchPlayerXpExactly = MatchPlayerXpExactly;
+      element.OnRecruit = OnRecruit.Build();
+      element.OnRecruitImmediate = OnRecruitImmediate.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RecruitInactive"/> (Auto Generated)
     /// </summary>
     ///

@@ -131,6 +131,10 @@ namespace BlueprintCoreGen.CodeGen
     /// </summary>
     protected static string GetTypeName(Type type)
     {
+      if (type.HasElementType && type.BaseType == typeof(Array))
+      {
+        return $"{GetTypeName(type.GetElementType())}[]";
+      }
       if (!type.IsGenericType)
       {
         return type.DeclaringType is null ? type.Name : $"{type.DeclaringType.Name}.{type.Name}";
