@@ -1,4 +1,6 @@
-﻿using BlueprintCore.Blueprints;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints;
+using BlueprintCore.Conditions.Builder;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
@@ -114,10 +116,10 @@ namespace BlueprintCoreGen.CodeGen
       switch (Type)
       {
         case FieldType.Actions:
-          imports.Add(typeof(ActionList));
+          imports.Add(typeof(ActionsBuilder));
           break;
         case FieldType.Conditions:
-          imports.Add(typeof(ConditionsChecker));
+          imports.Add(typeof(ConditionsBuilder));
           break;
         default:
           GetTypes(Info.FieldType, imports);
