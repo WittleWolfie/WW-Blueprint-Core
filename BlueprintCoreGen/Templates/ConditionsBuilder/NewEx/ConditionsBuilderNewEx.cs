@@ -1,7 +1,7 @@
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 
-namespace BlueprintCore.Conditions.Builder.NewEx
+namespace BlueprintCoreGen.Conditions.Builder.NewEx
 {
   /// <summary>
   /// Extension to <see cref="ConditionsBuilder"/> for conditions defined in BlueprintCore and not available in
