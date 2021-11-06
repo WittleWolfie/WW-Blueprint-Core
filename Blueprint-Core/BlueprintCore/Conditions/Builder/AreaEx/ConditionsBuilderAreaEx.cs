@@ -4,6 +4,7 @@ using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
@@ -90,6 +91,24 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
       
       var element = ElementTool.Create<CurrentAreaIs>();
       element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsPartyInNaturalSetting"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsPartyInNaturalSetting))]
+    public static ConditionsBuilder AddIsPartyInNaturalSetting(
+        this ConditionsBuilder builder,
+        GlobalMapZone Setting,
+        bool negate = false)
+    {
+      builder.Validate(Setting);
+      
+      var element = ElementTool.Create<IsPartyInNaturalSetting>();
+      element.Setting = Setting;
       element.Not = negate;
       return builder.Add(element);
     }

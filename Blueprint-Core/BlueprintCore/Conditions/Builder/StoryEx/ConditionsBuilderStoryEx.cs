@@ -479,6 +479,28 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="ObjectiveStatus"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_QuestObjective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(ObjectiveStatus))]
+    public static ConditionsBuilder AddObjectiveStatus(
+        this ConditionsBuilder builder,
+        string m_QuestObjective,
+        QuestObjectiveState State,
+        bool negate = false)
+    {
+      builder.Validate(State);
+      
+      var element = ElementTool.Create<ObjectiveStatus>();
+      element.m_QuestObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_QuestObjective);
+      element.State = State;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="PlayerAlignmentIs"/> (Auto Generated)
     /// </summary>
     [Generated]

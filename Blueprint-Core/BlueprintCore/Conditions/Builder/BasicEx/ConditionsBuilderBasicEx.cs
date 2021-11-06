@@ -81,6 +81,128 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="CheckItemCondition"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_TargetItem"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(CheckItemCondition))]
+    public static ConditionsBuilder AddCheckItemCondition(
+        this ConditionsBuilder builder,
+        string m_TargetItem,
+        CheckItemCondition.RequiredState m_RequiredState,
+        UnitEvaluator m_UnitEvaluator,
+        bool negate = false)
+    {
+      builder.Validate(m_RequiredState);
+      builder.Validate(m_UnitEvaluator);
+      
+      var element = ElementTool.Create<CheckItemCondition>();
+      element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(m_TargetItem);
+      element.m_RequiredState = m_RequiredState;
+      element.m_UnitEvaluator = m_UnitEvaluator;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CompanionInParty"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(CompanionInParty))]
+    public static ConditionsBuilder AddCompanionInParty(
+        this ConditionsBuilder builder,
+        string m_companion,
+        Boolean MatchWhenActive,
+        Boolean MatchWhenDetached,
+        Boolean MatchWhenRemote,
+        Boolean MatchWhenDead,
+        Boolean MatchWhenEx,
+        bool negate = false)
+    {
+      builder.Validate(MatchWhenActive);
+      builder.Validate(MatchWhenDetached);
+      builder.Validate(MatchWhenRemote);
+      builder.Validate(MatchWhenDead);
+      builder.Validate(MatchWhenEx);
+      
+      var element = ElementTool.Create<CompanionInParty>();
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
+      element.MatchWhenActive = MatchWhenActive;
+      element.MatchWhenDetached = MatchWhenDetached;
+      element.MatchWhenRemote = MatchWhenRemote;
+      element.MatchWhenDead = MatchWhenDead;
+      element.MatchWhenEx = MatchWhenEx;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CompanionIsDead"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(CompanionIsDead))]
+    public static ConditionsBuilder AddCompanionIsDead(
+        this ConditionsBuilder builder,
+        string m_companion,
+        Boolean anyCompanion,
+        bool negate = false)
+    {
+      builder.Validate(anyCompanion);
+      
+      var element = ElementTool.Create<CompanionIsDead>();
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
+      element.anyCompanion = anyCompanion;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CompanionIsLost"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(CompanionIsLost))]
+    public static ConditionsBuilder AddCompanionIsLost(
+        this ConditionsBuilder builder,
+        string m_Companion,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<CompanionIsLost>();
+      element.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CompanionIsUnconscious"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(CompanionIsUnconscious))]
+    public static ConditionsBuilder AddCompanionIsUnconscious(
+        this ConditionsBuilder builder,
+        string companion,
+        Boolean anyCompanion,
+        bool negate = false)
+    {
+      builder.Validate(anyCompanion);
+      
+      var element = ElementTool.Create<CompanionIsUnconscious>();
+      element.companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      element.anyCompanion = anyCompanion;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CheckLos"/> (Auto Generated)
     /// </summary>
     [Generated]

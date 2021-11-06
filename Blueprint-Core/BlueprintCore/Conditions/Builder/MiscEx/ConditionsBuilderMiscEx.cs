@@ -115,6 +115,36 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="HasEnoughMoneyForCustomCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HasEnoughMoneyForCustomCompanion))]
+    public static ConditionsBuilder AddHasEnoughMoneyForCustomCompanion(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<HasEnoughMoneyForCustomCompanion>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HasEnoughMoneyForRespec"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HasEnoughMoneyForRespec))]
+    public static ConditionsBuilder AddHasEnoughMoneyForRespec(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<HasEnoughMoneyForRespec>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsDLCEnabled"/> (Auto Generated)
     /// </summary>
     ///
@@ -129,6 +159,21 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
       
       var element = ElementTool.Create<IsDLCEnabled>();
       element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_BlueprintDlcReward);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IsRespecAllowed"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(IsRespecAllowed))]
+    public static ConditionsBuilder AddIsRespecAllowed(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<IsRespecAllowed>();
       element.Not = negate;
       return builder.Add(element);
     }

@@ -14,7 +14,10 @@
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.EnlargedEncountersCapacity)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.GameModeActive)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForRespec)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsRespecAllowed)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree)]
     // [Generate(Kingmaker.ElementsSystem.IsleStateCondition)]
 
