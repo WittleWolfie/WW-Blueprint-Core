@@ -80,7 +80,7 @@ Once 1.0 is released all blueprint, action, and conditions types will have metho
 
 ### Using BlueprintCoreGen
 
-As of v0.5.0, the ActionsBuilder API is completed through auto-generated methods. If you want to make any changes to an ActionsBuilder class update the corresponding class in the BlueprintCoreGen project. Once your changes are done, run the project and copy the output files into Blueprint-Core.
+As of v0.6.0, the ActionsBuilder and ConditionsBuilder APIs are completed through auto-generated methods. If you want to make any changes to those classess, update the corresponding class in the BlueprintCoreGen project. Once your changes are done, run the project and copy the output files into Blueprint-Core.
 
 BlueprintCoreGen is configured to be run directly from Visual Studio and output files in `bin/<Release|Debug>/net5.0/`:
 
