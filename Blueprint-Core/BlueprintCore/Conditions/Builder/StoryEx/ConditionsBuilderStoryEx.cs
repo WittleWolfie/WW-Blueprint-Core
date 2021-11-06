@@ -2,9 +2,12 @@ using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.QuestSystem;
+using Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using System;
@@ -21,6 +24,27 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     //----- Auto Generated -----//
 
 
+
+    /// <summary>
+    /// Adds <see cref="CheckUnitSeeUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(CheckUnitSeeUnit))]
+    public static ConditionsBuilder AddCheckUnitSeeUnit(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        UnitEvaluator Target,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      builder.Validate(Target);
+      
+      var element = ElementTool.Create<CheckUnitSeeUnit>();
+      element.Unit = Unit;
+      element.Target = Target;
+      element.Not = negate;
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="BarkBanterPlayed"/> (Auto Generated)
@@ -137,6 +161,62 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
       var element = ElementTool.Create<AnswerSelected>();
       element.m_Answer = BlueprintTool.GetRef<BlueprintAnswerReference>(m_Answer);
       element.CurrentDialog = CurrentDialog;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeableDynamicIsLoaded"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ChangeableDynamicIsLoaded))]
+    public static ConditionsBuilder AddChangeableDynamicIsLoaded(
+        this ConditionsBuilder builder,
+        SceneReference Scene,
+        bool negate = false)
+    {
+      builder.Validate(Scene);
+      
+      var element = ElementTool.Create<ChangeableDynamicIsLoaded>();
+      element.Scene = Scene;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CheckFailed"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Check"><see cref="BlueprintCheck"/></param>
+    [Generated]
+    [Implements(typeof(CheckFailed))]
+    public static ConditionsBuilder AddCheckFailed(
+        this ConditionsBuilder builder,
+        string m_Check,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<CheckFailed>();
+      element.m_Check = BlueprintTool.GetRef<BlueprintCheckReference>(m_Check);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CheckPassed"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Check"><see cref="BlueprintCheck"/></param>
+    [Generated]
+    [Implements(typeof(CheckPassed))]
+    public static ConditionsBuilder AddCheckPassed(
+        this ConditionsBuilder builder,
+        string m_Check,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<CheckPassed>();
+      element.m_Check = BlueprintTool.GetRef<BlueprintCheckReference>(m_Check);
       element.Not = negate;
       return builder.Add(element);
     }

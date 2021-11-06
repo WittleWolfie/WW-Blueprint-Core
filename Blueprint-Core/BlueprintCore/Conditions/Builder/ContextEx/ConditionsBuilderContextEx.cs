@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
+using Kingmaker.View.Animation;
 using System;
 
 namespace BlueprintCore.Conditions.Builder.ContextEx
@@ -322,6 +323,24 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     {
       
       var element = ElementTool.Create<ContextConditionFavoredEnemy>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionGender"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextConditionGender))]
+    public static ConditionsBuilder AddContextConditionGender(
+        this ConditionsBuilder builder,
+        Gender Gender,
+        bool negate = false)
+    {
+      builder.Validate(Gender);
+      
+      var element = ElementTool.Create<ContextConditionGender>();
+      element.Gender = Gender;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -965,6 +984,42 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
       
       var element = ElementTool.Create<ContextConditionUnconsciousAllyFarThan>();
       element.Distance = Distance;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionWeaponAnimationStyle"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextConditionWeaponAnimationStyle))]
+    public static ConditionsBuilder AddContextConditionWeaponAnimationStyle(
+        this ConditionsBuilder builder,
+        WeaponAnimationStyle AnimationStyle,
+        Boolean CheckOnCaster,
+        bool negate = false)
+    {
+      builder.Validate(AnimationStyle);
+      builder.Validate(CheckOnCaster);
+      
+      var element = ElementTool.Create<ContextConditionWeaponAnimationStyle>();
+      element.AnimationStyle = AnimationStyle;
+      element.CheckOnCaster = CheckOnCaster;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextSwarmHasEnemiesInInnerCircle"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextSwarmHasEnemiesInInnerCircle))]
+    public static ConditionsBuilder AddContextSwarmHasEnemiesInInnerCircle(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      
+      var element = ElementTool.Create<ContextSwarmHasEnemiesInInnerCircle>();
       element.Not = negate;
       return builder.Add(element);
     }

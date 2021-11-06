@@ -82,6 +82,7 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCasterHP)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareTargetHP)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionFavoredEnemy)]
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionGender)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuff)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithDescriptor)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasItem)]
@@ -119,6 +120,8 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionUnconsciousAllyFarThan)]
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionWeaponAnimationStyle)]
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextSwarmHasEnemiesInInnerCircle)]
 
   }
 }

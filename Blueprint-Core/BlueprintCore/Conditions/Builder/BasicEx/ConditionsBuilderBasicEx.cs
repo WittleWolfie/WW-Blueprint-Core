@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
@@ -20,6 +21,24 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     //----- Auto Generated -----//
 
 
+
+    /// <summary>
+    /// Adds <see cref="DualCompanionInactive"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DualCompanionInactive))]
+    public static ConditionsBuilder AddDualCompanionInactive(
+        this ConditionsBuilder builder,
+        UnitEvaluator Unit,
+        bool negate = false)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<DualCompanionInactive>();
+      element.Unit = Unit;
+      element.Not = negate;
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="BuffConditionCheckRoundNumber"/> (Auto Generated)

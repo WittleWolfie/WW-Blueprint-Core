@@ -9,12 +9,16 @@
   {
     //----- Auto Generated -----//
 
+    // [Generate(Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions.CheckUnitSeeUnit)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.BarkBanterPlayed)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DialogSeen)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.AnotherEtudeOfGroupIsPlaying)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.AnswerListShown)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.AnswerSelected)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.ChangeableDynamicIsLoaded)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckFailed)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckPassed)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CueSeen)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CurrentChapter)]

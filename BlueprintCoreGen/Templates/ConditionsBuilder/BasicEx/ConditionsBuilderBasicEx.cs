@@ -9,6 +9,7 @@
   {
     //----- Auto Generated -----//
 
+    // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive)]
     // [Generate(Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckConditionsHolder)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos)]
