@@ -137,10 +137,14 @@ namespace BlueprintCoreGen.Actions.Builder.AreaEx
 
     //----- Auto Generated -----//
 
+    // [Generate(Kingmaker.AreaLogic.Capital.CapitalExit)]
+    // [Generate(Kingmaker.Corruption.DecreaseCorruptionLevelAction)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AskPlayerForLocationName)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GlobalMapTeleport)]
-    // [Generate(Kingmaker.Corruption.DecreaseCorruptionLevelAction)]
-    // [Generate(Kingmaker.AreaLogic.Capital.CapitalExit)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationClosed)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationExplored)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.MarkOnLocalMap)]
+    // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveCampingEncounter)]
     // [Generate(Kingmaker.ElementsSystem.GameActionSetIsleLock)]
     // [Generate(Kingmaker.ElementsSystem.GameActionSetIsleState)]
 

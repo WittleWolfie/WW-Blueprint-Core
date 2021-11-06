@@ -144,6 +144,36 @@ namespace BlueprintCore.Actions.Builder.AreaEx
 
 
     /// <summary>
+    /// Adds <see cref="CapitalExit"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Destination"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(CapitalExit))]
+    public static ActionsBuilder AddCapitalExit(
+        this ActionsBuilder builder,
+        string m_Destination,
+        AutoSaveMode AutoSaveMode)
+    {
+      builder.Validate(AutoSaveMode);
+      
+      var element = ElementTool.Create<CapitalExit>();
+      element.m_Destination = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_Destination);
+      element.AutoSaveMode = AutoSaveMode;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DecreaseCorruptionLevelAction))]
+    public static ActionsBuilder AddDecreaseCorruptionLevelAction(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DecreaseCorruptionLevelAction>());
+    }
+
+    /// <summary>
     /// Adds <see cref="AskPlayerForLocationName"/> (Auto Generated)
     /// </summary>
     ///
@@ -195,32 +225,78 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
-    /// Adds <see cref="DecreaseCorruptionLevelAction"/> (Auto Generated)
+    /// Adds <see cref="MarkLocationClosed"/> (Auto Generated)
     /// </summary>
+    ///
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
-    [Implements(typeof(DecreaseCorruptionLevelAction))]
-    public static ActionsBuilder AddDecreaseCorruptionLevelAction(this ActionsBuilder builder)
+    [Implements(typeof(MarkLocationClosed))]
+    public static ActionsBuilder AddMarkLocationClosed(
+        this ActionsBuilder builder,
+        string m_Location,
+        Boolean Closed)
     {
-      return builder.Add(ElementTool.Create<DecreaseCorruptionLevelAction>());
+      builder.Validate(Closed);
+      
+      var element = ElementTool.Create<MarkLocationClosed>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.Closed = Closed;
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CapitalExit"/> (Auto Generated)
+    /// Adds <see cref="MarkLocationExplored"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Destination"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
-    [Implements(typeof(CapitalExit))]
-    public static ActionsBuilder AddCapitalExit(
+    [Implements(typeof(MarkLocationExplored))]
+    public static ActionsBuilder AddMarkLocationExplored(
         this ActionsBuilder builder,
-        string m_Destination,
-        AutoSaveMode AutoSaveMode)
+        string m_Location,
+        Boolean Explored)
     {
-      builder.Validate(AutoSaveMode);
+      builder.Validate(Explored);
       
-      var element = ElementTool.Create<CapitalExit>();
-      element.m_Destination = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_Destination);
-      element.AutoSaveMode = AutoSaveMode;
+      var element = ElementTool.Create<MarkLocationExplored>();
+      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
+      element.Explored = Explored;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MarkOnLocalMap"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MarkOnLocalMap))]
+    public static ActionsBuilder AddMarkOnLocalMap(
+        this ActionsBuilder builder,
+        MapObjectEvaluator MapObject,
+        Boolean Hidden)
+    {
+      builder.Validate(MapObject);
+      builder.Validate(Hidden);
+      
+      var element = ElementTool.Create<MarkOnLocalMap>();
+      element.MapObject = MapObject;
+      element.Hidden = Hidden;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveCampingEncounter"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Encounter"><see cref="BlueprintCampingEncounter"/></param>
+    [Generated]
+    [Implements(typeof(RemoveCampingEncounter))]
+    public static ActionsBuilder AddRemoveCampingEncounter(
+        this ActionsBuilder builder,
+        string m_Encounter)
+    {
+      
+      var element = ElementTool.Create<RemoveCampingEncounter>();
+      element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(m_Encounter);
       return builder.Add(element);
     }
 
