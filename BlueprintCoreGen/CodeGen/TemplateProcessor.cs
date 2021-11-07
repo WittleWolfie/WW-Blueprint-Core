@@ -78,12 +78,13 @@ namespace BlueprintCoreGen.CodeGen
       ProcessBlueprintTemplates(templatesRoot, gameTypes);
     }
 
-    public static List<Type> GetMissingTypes(Type baseType, ICollection<Type> implementedTypes, Type[] gameTypes)
+    public static List<Type> GetMissingTypes(
+        Type baseType, ICollection<Type> implementedTypes, Type[] gameTypes, bool includeAbstractTypes = false)
     {
       List<Type> missingTypes = new();
       foreach (Type type in gameTypes.Where(t => t.IsSubclassOf(baseType)))
       {
-        if (!type.IsAbstract && !implementedTypes.Contains(type))
+        if (!implementedTypes.Contains(type) && (!type.IsAbstract || includeAbstractTypes))
         {
           missingTypes.Add(type);
         }
@@ -145,6 +146,82 @@ namespace BlueprintCoreGen.CodeGen
 
     private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
     {
+      Dictionary<Type, List<Method>> methodsByBlueprintType =
+          GetComponentMethodsByBlueprintType(templatesRoot, gameTypes);
+
+      var configuratorRoot = Path.Combine(templatesRoot, "BlueprintConfigurators");
+      List<Type> blueprintConfigurators = new();
+      foreach (string file in Directory.GetFiles(configuratorRoot, "*.cs", SearchOption.AllDirectories))
+      {
+        ConfiguratorTemplates.Add(
+            ProcessConfiguratorTemplate(file, Path.GetRelativePath(templatesRoot, file), methodsByBlueprintType));
+        // TODO: Add configurator type to list
+      }
+
+      var missingBlueprintTypes =
+          GetMissingTypes(
+              typeof(BlueprintScriptableObject), blueprintConfigurators, gameTypes, includeAbstractTypes: true);
+      foreach (var blueprintType in missingBlueprintTypes)
+      {
+        // TODO: Figure out how to generate file / namespace structure
+        ConfiguratorTemplates.Add(
+            CodeGenerator.CreateConfiguratorClass(
+                blueprintType,
+                methodsByBlueprintType.ContainsKey(blueprintType)
+                    ? methodsByBlueprintType[blueprintType]
+                    : new()));
+      }
+    }
+
+    private static Template ProcessConfiguratorTemplate(
+        string file, string relativePath, Dictionary<Type, List<Method>> methodsByBlueprintType)
+    {
+      var template = new Template(relativePath);
+
+      string currentLine;
+      (string Old, string New)? replacement = null;
+      foreach (var line in File.ReadAllLines(file))
+      {
+        currentLine = line;
+        if (Replace.IsMatch(currentLine))
+        {
+          Match match = Replace.Match(currentLine);
+          replacement = (match.Groups[1].Value, match.Groups[2].Value);
+          continue;
+        }
+
+        if (replacement != null)
+        {
+          currentLine = currentLine.Replace(replacement?.Old, replacement?.New);
+          replacement = null;
+        }
+
+        if (Import.IsMatch(currentLine))
+        {
+          template.AddImport(currentLine);
+          continue;
+        }
+
+        if (Namespace.IsMatch(currentLine))
+        {
+          // Convert the namespace for BlueprintCore
+          template.AddLine(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
+          continue;
+        }
+
+        // TODO: Add field method implementations here. Consider updating Template to work similar to Method so that
+        // everything can be processed once, then put together at the end in an arbitrary order .
+
+        // TODO: Add component methods implementations here
+
+        template.AddLine(currentLine);
+      }
+      return template;
+    }
+
+    private static Dictionary<Type, List<Method>> GetComponentMethodsByBlueprintType(
+        string templatesRoot, Type[] gameTypes)
+    {
       var componentsRoot = Path.Combine(templatesRoot, "BlueprintComponents");
 
       // Construct a dictionary from component type to implementing methods
@@ -198,7 +275,7 @@ namespace BlueprintCoreGen.CodeGen
                 filter.Add(allowed);
               }
             });
-        allowedOn = allowedOn.Except(filter).ToList();
+        allowedOn = allowedOn.Except(filter).Distinct().ToList();
 
         // Use allowedOn to add methods for this component to each supported blueprint type.
         foreach (var allowed in allowedOn)
@@ -210,8 +287,7 @@ namespace BlueprintCoreGen.CodeGen
           methodsByBlueprintType[allowed.Type].AddRange(methodsByComponentType[componentType]);
         }
       }
-
-      // TODO: Create configurator classes
+      return methodsByBlueprintType;
     }
 
     private static Dictionary<Type, List<Method>> ProcessBlueprintComponentTemplate(string file)

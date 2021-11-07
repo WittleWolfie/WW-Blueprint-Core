@@ -16,6 +16,11 @@ namespace BlueprintCoreGen.CodeGen
       ConditionsBuilder
     }
 
+    public static Template CreateConfiguratorClass(Type blueprintType, List<Method> componentMethods)
+    {
+      return new("");
+    }
+
     public static List<Method> CreateFieldMethod(FieldInfo field)
     {
       return new();
