@@ -7,12 +7,15 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.DLC;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
@@ -55,6 +58,18 @@ namespace BlueprintCore.Test.Blueprints
 
     /** Creates and returns a configurator of type TBuilder. */
     protected abstract TBuilder GetConfigurator(string guid);
+
+    [Fact]
+    public void AddComponent_WithInit()
+    {
+      GetConfigurator(Guid).AddComponent<DlcCondition>(c => c.m_HideInstead = true).Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var component = blueprint.GetComponent<DlcCondition>();
+      Assert.NotNull(component);
+
+      Assert.True(component.m_HideInstead);
+    }
 
     //----- Start: FactContextActions
 

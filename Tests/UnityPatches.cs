@@ -1,6 +1,7 @@
 using HarmonyLib;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.DLC;
 using UnityEngine;
 
 namespace BlueprintCore.Test
@@ -24,6 +25,13 @@ namespace BlueprintCore.Test
 
     [HarmonyPatch(typeof(AnimationCurve), "Linear")]
     static class AnimationCurve_Linear_Patch
+    {
+      [HarmonyPriority(Priority.First)]
+      static bool Prefix() { return false; }
+    }
+
+    [HarmonyPatch(typeof(DlcCondition), "ApplyValidation")]
+    static class DlcCondition_ApplyValidation_Patch
     {
       [HarmonyPriority(Priority.First)]
       static bool Prefix() { return false; }

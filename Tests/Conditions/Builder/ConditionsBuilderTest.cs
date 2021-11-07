@@ -1,7 +1,9 @@
+using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using Xunit;
@@ -18,6 +20,19 @@ namespace BlueprintCore.Test.Conditions.Builder
 
       Assert.Equal(Operation.Or, conditions.Operation);
       Assert.NotNull(conditions.Conditions);
+    }
+
+    [Fact]
+    public void Add_WithInit()
+    {
+      var conditions =
+        ConditionsBuilder.New().Add<HasBuff>(c => c.m_Buff = Buff.ToReference<BlueprintBuffReference>()).Build();
+
+      Assert.Single(conditions.Conditions);
+      var condition = (HasBuff)conditions.Conditions[0];
+      ElementAsserts.IsValid(condition);
+
+      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), condition.m_Buff);
     }
 
     [Fact]

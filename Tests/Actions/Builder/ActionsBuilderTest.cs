@@ -3,7 +3,9 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -22,6 +24,21 @@ namespace BlueprintCore.Test.Actions.Builder
 
       Assert.NotNull(actions.Actions);
       Assert.Empty(actions.Actions);
+    }
+
+    [Fact]
+    public void Add_WithInit()
+    {
+      var actions =
+        ActionsBuilder.New()
+            .Add<ContextActionApplyBuff>(a => a.m_Buff = Buff.ToReference<BlueprintBuffReference>())
+            .Build();
+
+      Assert.Single(actions.Actions);
+      var action = (ContextActionApplyBuff)actions.Actions[0];
+      ElementAsserts.IsValid(action);
+
+      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), action.m_Buff);
     }
 
     [Fact]

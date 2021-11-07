@@ -145,6 +145,18 @@ namespace BlueprintCore.Actions.Builder
       return this;
     }
 
+    /// <summary>Adds a <see cref="GameAction"/> of the specified type to the list.</summary>
+    /// 
+    /// <remarks>It is recommended to only call this when adding an action type not supported by the builder.</remarks>
+    /// 
+    /// <param name="init">Optional initialization <see cref="Action"/> run on the action.</param>
+    public ActionsBuilder Add<A>(Action<A> init) where A : GameAction, new()
+    {
+      var action = ElementTool.Create<A>();
+      init?.Invoke(action);
+      return Add(action);
+    }
+
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
     /// </summary>

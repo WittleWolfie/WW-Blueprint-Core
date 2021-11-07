@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
+using System;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Conditions.Builder
@@ -149,6 +150,18 @@ namespace BlueprintCore.Conditions.Builder
       Validate(condition);
       Conditions.Add(condition);
       return this;
+    }
+
+    /// <summary>Adds a <see cref="Condition"/> of the specified type to the checker.</summary>
+    /// 
+    /// <remarks>It is recommended to only call this when adding a condition type not supported by the builder.</remarks>
+    /// 
+    /// <param name="init">Optional initialization <see cref="Action"/> run on the condition.</param>
+    public ConditionsBuilder Add<C>(Action<C> init) where C : Condition, new()
+    {
+      var condition = ElementTool.Create<C>();
+      init?.Invoke(condition);
+      return Add(condition);
     }
 
     /// <summary>

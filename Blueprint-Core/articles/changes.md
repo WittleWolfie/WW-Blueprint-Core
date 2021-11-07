@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v0.7.0 Release
+
+* Added generic Add functions w/ init for BlueprintComponent, Action, and Condition
+* 
+
 ## v0.6.0 Release
 
 * Completed ConditionsBuilder API using auto-generated methods

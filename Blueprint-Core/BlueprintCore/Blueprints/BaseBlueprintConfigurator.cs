@@ -249,6 +249,23 @@ namespace BlueprintCore.Blueprints
       return Self;
     }
 
+    /// <summary>
+    /// Adds a <see cref="BlueprintComponent"/> of the specified type to the blueprint.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// It is recommended to only call this from within a configurator class or when adding a component type not
+    /// supported by the configurator.
+    /// </remarks>
+    /// 
+    /// <param name="init">Optional initialization <see cref="Action"/> run on the component.</param>
+    public TBuilder AddComponent<C>(Action<C> init) where C : BlueprintComponent, new()
+    {
+      var component = new C();
+      init?.Invoke(component);
+      return AddComponent(component);
+    }
+
     /// <summary>Executes the specified actions when <see cref="Configure"/> is called.</summary>
     /// 
     /// <remarks>
