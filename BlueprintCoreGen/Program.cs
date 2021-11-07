@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using BlueprintCoreGen.CodeGen;
+using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.TextTools;
 using System;
@@ -18,14 +20,15 @@ namespace BlueprintCoreGen
       var gameTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("Assembly-CSharp"));
       Assembly.Load("Blueprint-Core");
 
-      TemplateProcessor.Run();
-
-      List<Type> actionsToGenerate = ProcessActions(gameTypes);
-      List<Type> conditionsToGenerate = ProcessConditions(gameTypes);
+      TemplateProcessor.Run(gameTypes);
 
       StringBuilder missingTypes = new();
+
+      List<Type> actionsToGenerate = ProcessActions(gameTypes);
       missingTypes.AppendLine("Missing Action Types:");
       actionsToGenerate.ForEach(actionType => missingTypes.AppendLine($"// [Generate({actionType})]"));
+
+      List<Type> conditionsToGenerate = ProcessConditions(gameTypes);
       missingTypes.AppendLine();
       missingTypes.AppendLine("Missing Condition Types:");
       conditionsToGenerate.ForEach(conditionType => missingTypes.AppendLine($"// [Generate({conditionType})]"));

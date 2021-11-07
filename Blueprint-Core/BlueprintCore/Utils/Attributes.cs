@@ -3,13 +3,24 @@
 namespace BlueprintCore.Utils
 {
   /// <summary>
-  /// Identifies which game type is implemented by the method or class.
+  /// Identifies which game type is implemented by the method.
   /// </summary>
-  [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+  [AttributeUsage(AttributeTargets.Method)]
   public class ImplementsAttribute : Attribute
   {
 #pragma warning disable IDE0060 // Remove unused parameter
     public ImplementsAttribute(Type type) { }
+#pragma warning restore IDE0060 // Remove unused parameter
+  }
+
+  /// <summary>
+  /// Identifies which blueprint type is configured by the class.
+  /// </summary>
+  [AttributeUsage(AttributeTargets.Class)]
+  public class ConfiguresAttribute : Attribute
+  {
+#pragma warning disable IDE0060 // Remove unused parameter
+    public ConfiguresAttribute(Type type, bool baseType = false) { }
 #pragma warning restore IDE0060 // Remove unused parameter
   }
 

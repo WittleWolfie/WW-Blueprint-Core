@@ -1,5 +1,6 @@
 ﻿using BlueprintCoreGen.CodeGen;
 using HarmonyLib;
+using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace BlueprintCoreGen
+namespace BlueprintCoreGen.CodeGen
 {
   /// <summary>
   /// Processes *.cs files in the Templates folder and converts them into classes for use in BlueprintCore.
@@ -56,25 +57,28 @@ namespace BlueprintCoreGen
 
     public static readonly List<Template> ActionTemplates = new();
     public static readonly List<Template> ConditionTemplates = new();
+    public static readonly List<Template> ConfiguratorTemplates = new();
 
-    public static void Run()
+    public static void Run(Type[] gameTypes)
     {
       var templatesRoot = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
 
       var actionsBuilderRoot = Path.Combine(templatesRoot, "ActionsBuilder");
       foreach (string file in Directory.GetFiles(actionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
       {
-        ActionTemplates.Add(ProcessTemplateFile(file, Path.GetRelativePath(templatesRoot, file)));
+        ActionTemplates.Add(ProcessBuilderTemplate(file, Path.GetRelativePath(templatesRoot, file)));
       }
 
       var conditionsBuilderRoot = Path.Combine(templatesRoot, "ConditionsBuilder");
       foreach (string file in Directory.GetFiles(conditionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
       {
-        ConditionTemplates.Add(ProcessTemplateFile(file, Path.GetRelativePath(templatesRoot, file)));
+        ConditionTemplates.Add(ProcessBuilderTemplate(file, Path.GetRelativePath(templatesRoot, file)));
       }
+
+      ProcessBlueprintTemplates(templatesRoot, gameTypes);
     }
 
-    private static Template ProcessTemplateFile(string file, string relativePath)
+    private static Template ProcessBuilderTemplate(string file, string relativePath)
     {
       var template = new Template(relativePath);
 
@@ -125,65 +129,73 @@ namespace BlueprintCoreGen
       }
       return template;
     }
-  }
 
-  /// <summary>
-  /// A processed class template used to generate the output class file.
-  /// </summary>
-  public class Template
-  {
-    // Relative directory path for the output class
-    public readonly string RelativePath;
-    private readonly List<string> Imports = new() { "using BlueprintCore.Utils;" };
-    private readonly StringBuilder ClassText = new();
-    private readonly HashSet<Type> ImplementedTypes = new();
-
-    public Template(string filePath)
+    private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
     {
-      RelativePath = filePath;
+      // Plan:
+      // 1. Iterate over ComponentTemplates to create: Dictionary<BlueprintType, List<Method>>()
+      // 2. Iterate over game types and generate missing components then update the Dictionary.
+      // 3. Generate BlueprintConfigurator classes using Dictionary
+      
+      //var root = new TypeTreeNode(typeof(BlueprintScriptableObject));
+      //var curr = root;
+
+      //Queue<TypeTreeNode> queue = new();
+      //queue.Enqueue(root);
+      //while (queue.Count > 0)
+      //{
+      //  curr = queue.Dequeue();
+      //  GetDirectChildren(curr.Type, gameTypes).ForEach(
+      //    type =>
+      //    {
+      //      var child = new TypeTreeNode(type);
+      //      curr.Children.Add(child);
+      //      queue.Enqueue(child);
+      //    });
+      //}
+
+      //StringBuilder tree = new();
+      //curr = root;
+      //Stack<TypeTreeNode> stack = new();
+      //while (curr is not null)
+      //{
+      //  if (!curr.Visit)
+      //  {
+      //    tree.AppendLine($"{new string(' ', stack.Count)}{curr.Type.Name}");
+      //    curr.Visit = true;
+      //  }
+      //  var next = curr.Children.Where(node => !node.Visit).FirstOrDefault();
+
+      //  if (next == null)
+      //  {
+      //    if (stack.Count == 0)
+      //    {
+      //      break;
+      //    }
+      //    curr = stack.Pop();
+      //  }
+      //  else
+      //  {
+      //    stack.Push(curr);
+      //    curr = next;
+      //  }
+      //}
     }
 
-    /// <summary>
-    /// Adds an import to the output class.
-    /// </summary>
-    public void AddImport(string import) { Imports.Add(import); }
+    //private static List<Type> GetDirectChildren(Type type, Type[] gameTypes)
+    //{
+    //  return gameTypes.Where(gameType => gameType.BaseType == type).ToList();
+    //}
 
-    /// <summary>
-    /// Adds a line of text the output class.
-    /// </summary>
-    public void AddLine(string line) { ClassText.AppendLine(line); }
+    //private class TypeTreeNode
+    //{
+    //  public Type Type;
+    //  public List<TypeTreeNode> Children = new();
 
-    /// <summary>
-    /// Adds a generated method to the output class.
-    /// </summary>
-    public void AddMethod(Method method)
-    {
-      Imports.AddRange(method.GetImports());
-      ClassText.AppendLine();
-      ClassText.Append(method.GetText());
-    }
-
-    /// <summary>
-    /// Adds a type implemented in the output class.
-    /// </summary>
-    public void AddType(Type type)
-    {
-      if (!ImplementedTypes.Contains(type)) { ImplementedTypes.Add(type); }
-    }
-
-    /// <returns>
-    /// Text representation of the output class. Only call once.
-    /// </returns>
-    public string GetClassText()
-    {
-      Imports.Sort();
-      ClassText.Insert(0, string.Join('\n', Imports.Distinct()) + '\n');
-      return ClassText.ToString();
-    }
-
-    /// <returns>
-    /// List of types implemented in the output class.
-    /// </returns>
-    public List<Type> GetImplementedTypes() { return ImplementedTypes.ToList(); }
+    //  public TypeTreeNode(Type type)
+    //  {
+    //    Type = type;
+    //  }
+    //}
   }
 }

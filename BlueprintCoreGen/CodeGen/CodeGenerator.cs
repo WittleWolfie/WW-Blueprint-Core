@@ -1,4 +1,5 @@
-﻿using Kingmaker.ElementsSystem;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,12 @@ namespace BlueprintCoreGen.CodeGen
       ActionsBuilder,
       ConditionsBuilder
     }
+
+    public static List<Method> CreateFieldMethod(FieldInfo field)
+    {
+      return new();
+    }
+
     public static Method CreateMethod(Type type)
     {
       if (type.IsSubclassOf(typeof(GameAction)))
@@ -24,7 +31,11 @@ namespace BlueprintCoreGen.CodeGen
       {
         return CreateBuilderMethod(BuilderType.ConditionsBuilder, type);
       }
-      return new(2);
+      if (type.IsSubclassOf(typeof(BlueprintComponent)))
+      {
+        return CreateBlueprintComponentMethod(type);
+      }
+      throw new InvalidOperationException("Unsupported type: " + type.Name);
     }
 
     private static Method CreateBuilderMethod(BuilderType builderType, Type type)
@@ -95,6 +106,11 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return method;
+    }
+
+    private static Method CreateBlueprintComponentMethod(Type type)
+    {
+      return null;
     }
 
     private static void AddField(this Method method, IField field)

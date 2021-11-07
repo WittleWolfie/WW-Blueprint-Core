@@ -1466,6 +1466,19 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchActivatableAbility
   nameWithType: ActionsBuilderBasicEx.AddSwitchActivatableAbility
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
+  name: AddSwitchDualCompanion(ActionsBuilder, UnitEvaluator)
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddSwitchDualCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_
+  commentId: M:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator)
+  nameWithType: ActionsBuilderBasicEx.AddSwitchDualCompanion(ActionsBuilder, UnitEvaluator)
+- uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion*
+  name: AddSwitchDualCompanion
+  href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddSwitchDualCompanion_
+  commentId: Overload:BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion
+  isSpec: "True"
+  fullName: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddSwitchDualCompanion
+  nameWithType: ActionsBuilderBasicEx.AddSwitchDualCompanion
 - uid: BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.AddUnitsFromSpawnersInUnitGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference,BlueprintCore.Actions.Builder.ActionsBuilder)
   name: AddUnitsFromSpawnersInUnitGroup(ActionsBuilder, EntityReference, ActionsBuilder)
   href: api/BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_AddUnitsFromSpawnersInUnitGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_
@@ -5835,19 +5848,6 @@ references:
   isSpec: "True"
   fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDoor
   nameWithType: ActionsBuilderStoryEx.AddSwitchDoor
-- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
-  name: AddSwitchDualCompanion(ActionsBuilder, UnitEvaluator)
-  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddSwitchDualCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_
-  commentId: M:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)
-  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder, Kingmaker.ElementsSystem.UnitEvaluator)
-  nameWithType: ActionsBuilderStoryEx.AddSwitchDualCompanion(ActionsBuilder, UnitEvaluator)
-- uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion*
-  name: AddSwitchDualCompanion
-  href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddSwitchDualCompanion_
-  commentId: Overload:BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion
-  isSpec: "True"
-  fullName: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchDualCompanion
-  nameWithType: ActionsBuilderStoryEx.AddSwitchDualCompanion
 - uid: BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.AddSwitchFaction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String,System.Boolean,System.Boolean)
   name: AddSwitchFaction(ActionsBuilder, UnitEvaluator, String, Boolean, Boolean)
   href: api/BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_AddSwitchFaction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_System_Boolean_
@@ -12554,6 +12554,25 @@ references:
   fullName.vb: BlueprintCore.Utils.CommonTool.Append(Of T)(T(), T())
   nameWithType: CommonTool.Append<T>(T[], T[])
   nameWithType.vb: CommonTool.Append(Of T)(T(), T())
+- uid: BlueprintCore.Utils.ConfiguresAttribute
+  name: ConfiguresAttribute
+  href: api/BlueprintCore.Utils.ConfiguresAttribute.html
+  commentId: T:BlueprintCore.Utils.ConfiguresAttribute
+  fullName: BlueprintCore.Utils.ConfiguresAttribute
+  nameWithType: ConfiguresAttribute
+- uid: BlueprintCore.Utils.ConfiguresAttribute.#ctor(System.Type,System.Boolean)
+  name: ConfiguresAttribute(Type, Boolean)
+  href: api/BlueprintCore.Utils.ConfiguresAttribute.html#BlueprintCore_Utils_ConfiguresAttribute__ctor_System_Type_System_Boolean_
+  commentId: M:BlueprintCore.Utils.ConfiguresAttribute.#ctor(System.Type,System.Boolean)
+  fullName: BlueprintCore.Utils.ConfiguresAttribute.ConfiguresAttribute(System.Type, System.Boolean)
+  nameWithType: ConfiguresAttribute.ConfiguresAttribute(Type, Boolean)
+- uid: BlueprintCore.Utils.ConfiguresAttribute.#ctor*
+  name: ConfiguresAttribute
+  href: api/BlueprintCore.Utils.ConfiguresAttribute.html#BlueprintCore_Utils_ConfiguresAttribute__ctor_
+  commentId: Overload:BlueprintCore.Utils.ConfiguresAttribute.#ctor
+  isSpec: "True"
+  fullName: BlueprintCore.Utils.ConfiguresAttribute.ConfiguresAttribute
+  nameWithType: ConfiguresAttribute.ConfiguresAttribute
 - uid: BlueprintCore.Utils.Constants
   name: Constants
   href: api/BlueprintCore.Utils.Constants.html
