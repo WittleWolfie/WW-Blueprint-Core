@@ -78,6 +78,19 @@ namespace BlueprintCoreGen.CodeGen
       ProcessBlueprintTemplates(templatesRoot, gameTypes);
     }
 
+    public static List<Type> GetMissingTypes(Type baseType, ICollection<Type> implementedTypes, Type[] gameTypes)
+    {
+      List<Type> missingTypes = new();
+      foreach (Type type in gameTypes.Where(t => t.IsSubclassOf(baseType)))
+      {
+        if (!type.IsAbstract && !implementedTypes.Contains(type))
+        {
+          missingTypes.Add(type);
+        }
+      }
+      return missingTypes;
+    }
+
     private static Template ProcessBuilderTemplate(string file, string relativePath)
     {
       var template = new Template(relativePath);
@@ -132,70 +145,78 @@ namespace BlueprintCoreGen.CodeGen
 
     private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
     {
-      // Plan:
-      // 1. Iterate over ComponentTemplates to create: Dictionary<BlueprintType, List<Method>>()
-      // 2. Iterate over game types and generate missing components then update the Dictionary.
-      // 3. Generate BlueprintConfigurator classes using Dictionary
-      
-      //var root = new TypeTreeNode(typeof(BlueprintScriptableObject));
-      //var curr = root;
+      var componentsRoot = Path.Combine(templatesRoot, "BlueprintComponents");
 
-      //Queue<TypeTreeNode> queue = new();
-      //queue.Enqueue(root);
-      //while (queue.Count > 0)
-      //{
-      //  curr = queue.Dequeue();
-      //  GetDirectChildren(curr.Type, gameTypes).ForEach(
-      //    type =>
-      //    {
-      //      var child = new TypeTreeNode(type);
-      //      curr.Children.Add(child);
-      //      queue.Enqueue(child);
-      //    });
-      //}
+      // Construct a dictionary from component type to implementing methods
+      Dictionary<Type, List<Method>> methodsByComponentType = new();
+      foreach (string file in Directory.GetFiles(componentsRoot, "*.cs", SearchOption.AllDirectories))
+      {
+        var componentTemplate = ProcessBlueprintComponentTemplate(file);
+        componentTemplate.Keys.ToList().ForEach(
+            key =>
+            {
+              if (!methodsByComponentType.ContainsKey(key))
+              {
+                methodsByComponentType.Add(key, new());
+              }
+              methodsByComponentType[key].AddRange(componentTemplate[key]);
+            });
+      }
 
-      //StringBuilder tree = new();
-      //curr = root;
-      //Stack<TypeTreeNode> stack = new();
-      //while (curr is not null)
-      //{
-      //  if (!curr.Visit)
-      //  {
-      //    tree.AppendLine($"{new string(' ', stack.Count)}{curr.Type.Name}");
-      //    curr.Visit = true;
-      //  }
-      //  var next = curr.Children.Where(node => !node.Visit).FirstOrDefault();
+      // Generate methods for any component types not found in templates
+      GetMissingTypes(typeof(BlueprintComponent), methodsByComponentType.Keys, gameTypes).ForEach(
+         type =>
+         {
+           methodsByComponentType.Add(type, new() { CodeGenerator.CreateMethod(type) });
+         });
 
-      //  if (next == null)
-      //  {
-      //    if (stack.Count == 0)
-      //    {
-      //      break;
-      //    }
-      //    curr = stack.Pop();
-      //  }
-      //  else
-      //  {
-      //    stack.Push(curr);
-      //    curr = next;
-      //  }
-      //}
+      // Iterate through component types and construct a dictionary from blueprint type to supported component methods
+      List<Method> univeralMethods = new();
+      Dictionary<Type, List<Method>> methodsByBlueprintType = new();
+      foreach (var componentType in methodsByComponentType.Keys)
+      {
+        Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
+        List<AllowedOnAttribute> allowedOn =
+            attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => attr as AllowedOnAttribute).ToList();
+
+        if (allowedOn.Count == 0)
+        {
+          // This should work on all blueprint types
+          univeralMethods.AddRange(methodsByComponentType[componentType]);
+          continue;
+        }
+
+        // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
+        // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
+        // This ensures the API only exposes supported components although it may not expose all of them.
+        List<AllowedOnAttribute> filter = new();
+        allowedOn.ForEach(
+            allowed =>
+            {
+              if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type)))
+              {
+                filter.Add(allowed);
+              }
+            });
+        allowedOn = allowedOn.Except(filter).ToList();
+
+        // Use allowedOn to add methods for this component to each supported blueprint type.
+        foreach (var allowed in allowedOn)
+        {
+          if (!methodsByBlueprintType.ContainsKey(allowed.Type))
+          {
+            methodsByBlueprintType.Add(allowed.Type, new());
+          }
+          methodsByBlueprintType[allowed.Type].AddRange(methodsByComponentType[componentType]);
+        }
+      }
+
+      // TODO: Create configurator classes
     }
 
-    //private static List<Type> GetDirectChildren(Type type, Type[] gameTypes)
-    //{
-    //  return gameTypes.Where(gameType => gameType.BaseType == type).ToList();
-    //}
-
-    //private class TypeTreeNode
-    //{
-    //  public Type Type;
-    //  public List<TypeTreeNode> Children = new();
-
-    //  public TypeTreeNode(Type type)
-    //  {
-    //    Type = type;
-    //  }
-    //}
+    private static Dictionary<Type, List<Method>> ProcessBlueprintComponentTemplate(string file)
+    {
+      return new();
+    }
   }
 }

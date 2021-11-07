@@ -110,7 +110,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private static Method CreateBlueprintComponentMethod(Type type)
     {
-      return null;
+      return new(2);
     }
 
     private static void AddField(this Method method, IField field)

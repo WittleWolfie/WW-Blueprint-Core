@@ -44,7 +44,7 @@ namespace BlueprintCoreGen
         WriteTemplateToFile(template);
         implementedActionTypes.UnionWith(template.GetImplementedTypes());
       }
-      return GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
+      return TemplateProcessor.GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
     }
 
     private static List<Type> ProcessConditions(Type[] gameTypes)
@@ -55,20 +55,7 @@ namespace BlueprintCoreGen
         WriteTemplateToFile(template);
         implementedConditionTypes.UnionWith(template.GetImplementedTypes());
       }
-      return GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
-    }
-
-    private static List<Type> GetMissingTypes(Type baseType, HashSet<Type> implementedTypes, Type[] gameTypes)
-    {
-      List<Type> missingTypes = new();
-      foreach (Type type in gameTypes.Where(t => t.IsSubclassOf(baseType)))
-      {
-        if (!type.IsAbstract && !implementedTypes.Contains(type))
-        {
-          missingTypes.Add(type);
-        }
-      }
-      return missingTypes;
+      return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
     private static void WriteTemplateToFile(Template template)
