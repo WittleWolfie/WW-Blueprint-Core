@@ -55,9 +55,9 @@ namespace BlueprintCoreGen.CodeGen
     private static readonly Regex MethodAttribute =
         new(@"^\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
-    public static readonly List<Template> ActionTemplates = new();
-    public static readonly List<Template> ConditionTemplates = new();
-    public static readonly List<Template> ConfiguratorTemplates = new();
+    public static readonly List<ClassTemplate> ActionTemplates = new();
+    public static readonly List<ClassTemplate> ConditionTemplates = new();
+    public static readonly List<ClassTemplate> ConfiguratorTemplates = new();
 
     public static void Run(Type[] gameTypes)
     {
@@ -92,9 +92,9 @@ namespace BlueprintCoreGen.CodeGen
       return missingTypes;
     }
 
-    private static Template ProcessBuilderTemplate(string file, string relativePath)
+    private static ClassTemplate ProcessBuilderTemplate(string file, string relativePath)
     {
-      var template = new Template(relativePath);
+      var template = new ClassTemplate(relativePath);
 
       string currentLine;
       (string Old, string New)? replacement = null;
@@ -146,7 +146,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
     {
-      Dictionary<Type, List<Method>> methodsByBlueprintType =
+      Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType =
           GetComponentMethodsByBlueprintType(templatesRoot, gameTypes);
 
       var configuratorRoot = Path.Combine(templatesRoot, "BlueprintConfigurators");
@@ -173,10 +173,10 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static Template ProcessConfiguratorTemplate(
-        string file, string relativePath, Dictionary<Type, List<Method>> methodsByBlueprintType)
+    private static ClassTemplate ProcessConfiguratorTemplate(
+        string file, string relativePath, Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType)
     {
-      var template = new Template(relativePath);
+      var template = new ClassTemplate(relativePath);
 
       string currentLine;
       (string Old, string New)? replacement = null;
@@ -219,13 +219,13 @@ namespace BlueprintCoreGen.CodeGen
       return template;
     }
 
-    private static Dictionary<Type, List<Method>> GetComponentMethodsByBlueprintType(
+    private static Dictionary<Type, List<MethodTemplate>> GetComponentMethodsByBlueprintType(
         string templatesRoot, Type[] gameTypes)
     {
       var componentsRoot = Path.Combine(templatesRoot, "BlueprintComponents");
 
       // Construct a dictionary from component type to implementing methods
-      Dictionary<Type, List<Method>> methodsByComponentType = new();
+      Dictionary<Type, List<MethodTemplate>> methodsByComponentType = new();
       foreach (string file in Directory.GetFiles(componentsRoot, "*.cs", SearchOption.AllDirectories))
       {
         var componentTemplate = ProcessBlueprintComponentTemplate(file);
@@ -248,8 +248,8 @@ namespace BlueprintCoreGen.CodeGen
          });
 
       // Iterate through component types and construct a dictionary from blueprint type to supported component methods
-      List<Method> univeralMethods = new();
-      Dictionary<Type, List<Method>> methodsByBlueprintType = new();
+      List<MethodTemplate> univeralMethods = new();
+      Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType = new();
       foreach (var componentType in methodsByComponentType.Keys)
       {
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
@@ -290,7 +290,7 @@ namespace BlueprintCoreGen.CodeGen
       return methodsByBlueprintType;
     }
 
-    private static Dictionary<Type, List<Method>> ProcessBlueprintComponentTemplate(string file)
+    private static Dictionary<Type, List<MethodTemplate>> ProcessBlueprintComponentTemplate(string file)
     {
       return new();
     }

@@ -8,7 +8,7 @@ namespace BlueprintCoreGen.CodeGen
   /// <summary>
   /// A processed class template used to generate the output class file.
   /// </summary>
-  public class Template
+  public class ClassTemplate
   {
     // Relative directory path for the output class
     public readonly string RelativePath;
@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen
     private readonly StringBuilder ClassText = new();
     private readonly HashSet<Type> ImplementedTypes = new();
 
-    public Template(string filePath)
+    public ClassTemplate(string filePath)
     {
       RelativePath = filePath;
     }
@@ -34,7 +34,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Adds a generated method to the output class.
     /// </summary>
-    public void AddMethod(Method method)
+    public void AddMethod(MethodTemplate method)
     {
       Imports.AddRange(method.GetImports());
       ClassText.AppendLine();

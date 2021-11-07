@@ -16,17 +16,17 @@ namespace BlueprintCoreGen.CodeGen
       ConditionsBuilder
     }
 
-    public static Template CreateConfiguratorClass(Type blueprintType, List<Method> componentMethods)
+    public static ClassTemplate CreateConfiguratorClass(Type blueprintType, List<MethodTemplate> componentMethods)
     {
       return new("");
     }
 
-    public static List<Method> CreateFieldMethod(FieldInfo field)
+    public static List<MethodTemplate> CreateFieldMethod(FieldInfo field)
     {
       return new();
     }
 
-    public static Method CreateMethod(Type type)
+    public static MethodTemplate CreateMethod(Type type)
     {
       if (type.IsSubclassOf(typeof(GameAction)))
       {
@@ -43,7 +43,7 @@ namespace BlueprintCoreGen.CodeGen
       throw new InvalidOperationException("Unsupported type: " + type.Name);
     }
 
-    private static Method CreateBuilderMethod(BuilderType builderType, Type type)
+    private static MethodTemplate CreateBuilderMethod(BuilderType builderType, Type type)
     {
 
       // Filter fields which are usually not required for instantiation.
@@ -63,7 +63,7 @@ namespace BlueprintCoreGen.CodeGen
                   })
               .ToList();
 
-      Method method = new(2);
+      MethodTemplate method = new(2);
       method.AddImport(type);
       method.AddCommentSummary($"Adds <see cref=\"{type.Name}\"/> (Auto Generated)");
       method.AddAttribute($"[Generated]");
@@ -113,12 +113,12 @@ namespace BlueprintCoreGen.CodeGen
       return method;
     }
 
-    private static Method CreateBlueprintComponentMethod(Type type)
+    private static MethodTemplate CreateBlueprintComponentMethod(Type type)
     {
       return new(2);
     }
 
-    private static void AddField(this Method method, IField field)
+    private static void AddField(this MethodTemplate method, IField field)
     {
       field.GetImports().ForEach(import => method.AddImport(import));
 
@@ -132,7 +132,7 @@ namespace BlueprintCoreGen.CodeGen
   /// <summary>
   /// Represents a generated method. Stores a list of imports needed and the method text, including comments.
   /// </summary>
-  public class Method
+  public class MethodTemplate
   {
     private readonly List<string> Imports = new();
     private readonly StringBuilder Comment = new();
@@ -144,7 +144,7 @@ namespace BlueprintCoreGen.CodeGen
     private bool HasRemark = false;
     private bool HasParam = false;
 
-    public Method(int baseIndent)
+    public MethodTemplate(int baseIndent)
     {
       BaseIndent = Tab(baseIndent);
     }
