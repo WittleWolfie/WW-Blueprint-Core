@@ -1173,6 +1173,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="SwitchDualCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SwitchDualCompanion))]
+    public static ActionsBuilder AddSwitchDualCompanion(
+        this ActionsBuilder builder,
+        UnitEvaluator Unit)
+    {
+      builder.Validate(Unit);
+      
+      var element = ElementTool.Create<SwitchDualCompanion>();
+      element.Unit = Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnitsFromSpawnersInUnitGroup"/> (Auto Generated)
     /// </summary>
     [Generated]
