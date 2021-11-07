@@ -1,12 +1,9 @@
 ﻿using BlueprintCoreGen.CodeGen;
 using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
-using Kingmaker.TextTools;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 

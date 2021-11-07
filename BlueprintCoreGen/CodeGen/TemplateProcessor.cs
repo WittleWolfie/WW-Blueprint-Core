@@ -1,11 +1,9 @@
-﻿using BlueprintCoreGen.CodeGen;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace BlueprintCoreGen.CodeGen
@@ -209,10 +207,9 @@ namespace BlueprintCoreGen.CodeGen
           continue;
         }
 
-        // TODO: Add field method implementations here. Consider updating Template to work similar to Method so that
-        // everything can be processed once, then put together at the end in an arbitrary order .
+        // TODO: Add field method implementations 
 
-        // TODO: Add component methods implementations here
+        // TODO: Add component methods implementations
 
         template.AddLine(currentLine);
       }
