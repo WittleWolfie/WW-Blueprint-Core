@@ -6,6 +6,8 @@ Fluent API library for modifying Pathfinder: Wrath of the Righteous and validati
 
 If you're interested in contributing, see [How to Contribute](articles/contributing.md).
 
+For usage see [Getting Started](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
+
 ## Features
 
 ### Blueprint Configurators
