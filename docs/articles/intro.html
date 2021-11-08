@@ -77,6 +77,18 @@
 <li>The package contains a folder named <code>BlueprintCore</code> that contains the library source code which is included directly in your project.</li>
 </ul>
 </li>
+<li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
+<ul>
+<li>In your .csproj file you should have the following properties:</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+  &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
+  &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+<ol start="5">
 <li>You're ready to go!</li>
 </ol>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>

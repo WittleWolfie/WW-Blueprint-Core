@@ -4,7 +4,15 @@
 2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
 3. Install [WW-Blueprint-Core](https://www.nuget.org/packages/WW-Blueprint-Core/) using [NuGet](https://docs.microsoft.com/en-us/nuget/what-is-nuget).
     * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
-4. You're ready to go!
+4. Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
+    * In your .csproj file you should have the following properties:
+```xml
+<PropertyGroup>
+  <LangVersion>latest</LangVersion>
+  <TargetFramework>net472</TargetFramework>
+</PropertyGroup>
+```
+5. You're ready to go!
 
 If you're interested in contributing see [How to Contribute](contributing.md).
 
