@@ -64,4 +64,11 @@ namespace BlueprintCoreGen.CodeGen
     /// </returns>
     public List<Type> GetImplementedTypes() { return ImplementedTypes.ToList(); }
   }
+
+  public class ConfiguratorTemplate : ClassTemplate
+  {
+    public Type BlueprintType;
+
+    public ConfiguratorTemplate(string filePath) : base(filePath) { }
+  }
 }

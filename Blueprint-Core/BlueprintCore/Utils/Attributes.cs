@@ -20,7 +20,7 @@ namespace BlueprintCore.Utils
   public class ConfiguresAttribute : Attribute
   {
 #pragma warning disable IDE0060 // Remove unused parameter
-    public ConfiguresAttribute(Type type, bool baseType = false) { }
+    public ConfiguresAttribute(Type type) { }
 #pragma warning restore IDE0060 // Remove unused parameter
   }
 

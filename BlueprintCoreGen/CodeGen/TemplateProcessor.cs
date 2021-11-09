@@ -27,6 +27,14 @@ namespace BlueprintCoreGen.CodeGen
   ///   </description>
   /// </item>
   /// <item>
+  ///   <term><see cref="ConfiguresAttribute"/></term>
+  ///   <description>
+  ///   Use on configurators that implement a blueprint type such as
+  ///   <see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/>. This is used to determine which blueprint types
+  ///   need automatically generated configurators. e.g. <c>[Configures(typeof(BlueprintFeature))]</c>
+  ///   </description>
+  /// </item>
+  /// <item>
   ///   <term>Replace</term>
   ///   <description>
   ///   A simple tag instructing the processor to run <see cref="string.Replace(string, string?)"/> on the next line.
@@ -42,6 +50,13 @@ namespace BlueprintCoreGen.CodeGen
   ///   e.g. <c>// [Generate(typeof(Conditional))]</c> is automatically replaced a method for the Conditional action.
   ///   </description>
   /// </item>
+  /// <item>
+  ///   <term>GenerateComponents</term>
+  ///   <description>
+  ///   GenerateComponents tags indicate where in the template to insert generated blueprint component methods.
+  ///   e.g. <c>// [GenerateComponents]</c>
+  ///   </description>
+  /// </item>
   /// </list>
   /// </remarks>
   public static class TemplateProcessor
@@ -53,9 +68,13 @@ namespace BlueprintCoreGen.CodeGen
     private static readonly Regex MethodAttribute =
         new(@"^\s+\[Implements\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
 
+    // For configurators
+    private static readonly Regex Configures = new(@"^\s+\[Configures\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
+    private static readonly Regex GenerateComponents = new(@"^\s*// \[GenerateComponents\]", RegexOptions.Compiled);
+
     public static readonly List<ClassTemplate> ActionTemplates = new();
     public static readonly List<ClassTemplate> ConditionTemplates = new();
-    public static readonly List<ClassTemplate> ConfiguratorTemplates = new();
+    public static readonly List<ConfiguratorTemplate> ConfiguratorTemplates = new();
 
     public static void Run(Type[] gameTypes)
     {
@@ -151,9 +170,10 @@ namespace BlueprintCoreGen.CodeGen
       List<Type> blueprintConfigurators = new();
       foreach (string file in Directory.GetFiles(configuratorRoot, "*.cs", SearchOption.AllDirectories))
       {
-        ConfiguratorTemplates.Add(
-            ProcessConfiguratorTemplate(file, Path.GetRelativePath(templatesRoot, file), methodsByBlueprintType));
-        // TODO: Add configurator type to list
+        var template =
+            ProcessConfiguratorTemplate(file, Path.GetRelativePath(templatesRoot, file), methodsByBlueprintType);
+        ConfiguratorTemplates.Add(template);
+        blueprintConfigurators.Add(template.BlueprintType);
       }
 
       var missingBlueprintTypes =
@@ -171,10 +191,10 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static ClassTemplate ProcessConfiguratorTemplate(
+    private static ConfiguratorTemplate ProcessConfiguratorTemplate(
         string file, string relativePath, Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType)
     {
-      var template = new ClassTemplate(relativePath);
+      var template = new ConfiguratorTemplate(relativePath);
 
       string currentLine;
       (string Old, string New)? replacement = null;
@@ -207,9 +227,23 @@ namespace BlueprintCoreGen.CodeGen
           continue;
         }
 
-        // TODO: Add field method implementations 
+        if (Configures.IsMatch(currentLine))
+        {
+          template.BlueprintType = AccessTools.TypeByName(Configures.Match(currentLine).Groups[1].Value);
+        }
 
-        // TODO: Add component methods implementations
+        if (GenerateComponents.IsMatch(currentLine))
+        {
+          if (template.BlueprintType == null)
+          {
+            throw new InvalidOperationException("Cannot generate components before the Configures attribute.");
+          }
+          if (methodsByBlueprintType.ContainsKey(template.BlueprintType))
+          {
+            methodsByBlueprintType[template.BlueprintType].ForEach(method => template.AddMethod(method));
+          }
+          continue;
+        }
 
         template.AddLine(currentLine);
       }
@@ -245,8 +279,8 @@ namespace BlueprintCoreGen.CodeGen
          });
 
       // Iterate through component types and construct a dictionary from blueprint type to supported component methods
-      List<MethodTemplate> univeralMethods = new();
       Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType = new();
+      methodsByBlueprintType.Add(typeof(BlueprintScriptableObject), new());
       foreach (var componentType in methodsByComponentType.Keys)
       {
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
@@ -256,7 +290,7 @@ namespace BlueprintCoreGen.CodeGen
         if (allowedOn.Count == 0)
         {
           // This should work on all blueprint types
-          univeralMethods.AddRange(methodsByComponentType[componentType]);
+          methodsByBlueprintType[typeof(BlueprintScriptableObject)].AddRange(methodsByComponentType[componentType]);
           continue;
         }
 

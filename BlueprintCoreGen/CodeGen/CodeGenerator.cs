@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -16,7 +15,8 @@ namespace BlueprintCoreGen.CodeGen
       ConditionsBuilder
     }
 
-    public static ClassTemplate CreateConfiguratorClass(Type blueprintType, List<MethodTemplate> componentMethods)
+    public static ConfiguratorTemplate CreateConfiguratorClass(
+        Type blueprintType, List<MethodTemplate> componentMethods)
     {
       return new("");
     }
@@ -45,7 +45,6 @@ namespace BlueprintCoreGen.CodeGen
 
     private static MethodTemplate CreateBuilderMethod(BuilderType builderType, Type type)
     {
-
       // Filter fields which are usually not required for instantiation.
       var fields =
           type.GetFields()
@@ -115,7 +114,60 @@ namespace BlueprintCoreGen.CodeGen
 
     private static MethodTemplate CreateBlueprintComponentMethod(Type type)
     {
-      return new(2);
+      // Filter fields which are usually not required for instantiation.
+      var fields =
+          type.GetFields()
+              .Where(
+                  field => !field.Name.Contains("__BackingField")
+                  && field.Name != "name"
+                  && field.Name != "m_Flags"
+                  && field.Name != "m_PrototypeLink")
+              .Select(field => FieldProcessor.Process(field))
+              .ToList();
+
+      MethodTemplate method = new(2);
+      method.AddImport(type);
+      method.AddCommentSummary($"Adds <see cref=\"{type.Name}\"/> (Auto Generated)");
+      method.AddAttribute($"[Generated]");
+      method.AddAttribute($"[Implements(typeof({type.Name}))]");
+
+      // TODO: Handle unique components
+      // TODO: Handle concrete classes
+      if (fields.Any())
+      {
+        method.AddDeclaration($"public TBuilder Add{type.Name}(");
+
+        List<IField> optionalFields = new();
+        foreach (var field in fields)
+        {
+          if (field.IsOptional())
+          {
+            optionalFields.Add(field);
+          }
+          else
+          {
+            // TODO: Add Validation support to blueprint configurators
+            method.AddField(field);
+          }
+        }
+        optionalFields.ForEach(field => method.AddField(field));
+        method.CloseDeclaration();
+
+        method.AddBodyLine("");
+        method.AddBodyLine($"var component =  new {type.Name}();");
+        foreach (var field in fields)
+        {
+          method.AddBodyLine($"component.{field.GetAssignment()}");
+        }
+        method.AddBodyLine($"return AddComponent(component);");
+      }
+      else
+      {
+        method.AddDeclaration($"public TBuilder Add{type.Name}()");
+        method.AddBodyLine($"return AddComponent(new {type.Name}());");
+      }
+
+      return method;
     }
 
     private static void AddField(this MethodTemplate method, IField field)
@@ -126,98 +178,6 @@ namespace BlueprintCoreGen.CodeGen
       method.AddParamDeclaration(field.GetParamDeclaration());
 
       field.GetValidation().ForEach(line => method.AddBodyLine($"{line}"));
-    }
-  }
-
-  /// <summary>
-  /// Represents a generated method. Stores a list of imports needed and the method text, including comments.
-  /// </summary>
-  public class MethodTemplate
-  {
-    private readonly List<string> Imports = new();
-    private readonly StringBuilder Comment = new();
-    private readonly StringBuilder Attributes = new();
-    private readonly StringBuilder Declaration = new();
-    private readonly StringBuilder Body = new();
-
-    private readonly string BaseIndent;
-    private bool HasRemark = false;
-    private bool HasParam = false;
-
-    public MethodTemplate(int baseIndent)
-    {
-      BaseIndent = Tab(baseIndent);
-    }
-
-    public List<string> GetImports()
-    {
-      return Imports;
-    }
-
-    public string GetText()
-    {
-      return $"\n{Comment}{Attributes}{Declaration}{BaseIndent}{{\n{Body}{BaseIndent}}}";
-    }
-
-    public void AddCommentSummary(string summary)
-    {
-      Comment.AppendLine($"{BaseIndent}/// <summary>");
-      Comment.AppendLine($"{BaseIndent}/// {summary}");
-      Comment.AppendLine($"{BaseIndent}/// </summary>");
-    }
-
-    public void AddComment(string comment)
-    {
-      if (comment == null) return;
-      if (!HasRemark)
-      {
-        Comment.AppendLine($"{BaseIndent}///");
-        HasRemark = true;
-      }
-      Comment.AppendLine($"{BaseIndent}/// {comment}");
-    }
-
-    public void AddAttribute(string attribute)
-    {
-      Attributes.AppendLine($"{BaseIndent}{attribute}");
-    }
-
-    public void AddDeclaration(string declaration)
-    {
-      Declaration.AppendLine($"{BaseIndent}{declaration}");
-    }
-
-    public void AddParamDeclaration(string declaration)
-    {
-      if (!HasParam)
-      {
-        Declaration.Append($"{BaseIndent}    {declaration}");
-        HasParam = true;
-      }
-      else
-      {
-        Declaration.Append($",\n{BaseIndent}    {declaration}");
-      }
-    }
-
-    public void CloseDeclaration()
-    {
-      Declaration.AppendLine(")");
-    }
-
-    public void AddImport(Type type)
-    {
-      Imports.Add($"using {type.Namespace};");
-    }
-
-    public void AddBodyLine(string line)
-    {
-      Body.AppendLine($"{BaseIndent}  {line}");
-    }
-
-    private static string Tab(int indent)
-    {
-      return new string(' ', 2 * indent);
     }
   }
 }

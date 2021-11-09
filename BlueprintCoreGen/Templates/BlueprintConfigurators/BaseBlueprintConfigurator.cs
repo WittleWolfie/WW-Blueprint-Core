@@ -321,6 +321,8 @@ namespace BlueprintCoreGen.Blueprints
       return Self;
     }
 
+    // [GenerateComponents]
+
     //----- Start: Configure & Validate
 
     private void ConfigureBase()
