@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueprintCore.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace BlueprintCoreGen.CodeGen
   {
     // Relative directory path for the output class
     public readonly string RelativePath;
-    private readonly List<string> Imports = new() { "using BlueprintCore.Utils;" };
+    private readonly HashSet<string> Imports = new() { "using BlueprintCore.Utils;" };
     private readonly StringBuilder ClassText = new();
     private readonly HashSet<Type> ImplementedTypes = new();
 
@@ -21,10 +22,17 @@ namespace BlueprintCoreGen.CodeGen
       RelativePath = filePath;
     }
 
+    protected ClassTemplate() { }
+
     /// <summary>
     /// Adds an import to the output class.
     /// </summary>
     public void AddImport(string import) { Imports.Add(import); }
+
+    /// <summary>
+    /// Adds an import to the output class.
+    /// </summary>
+    public void AddImport(Type type) { Imports.Add($"using {type.Namespace};"); }
 
     /// <summary>
     /// Adds a line of text the output class.
@@ -36,7 +44,7 @@ namespace BlueprintCoreGen.CodeGen
     /// </summary>
     public void AddMethod(MethodTemplate method)
     {
-      Imports.AddRange(method.GetImports());
+      method.GetImports().ForEach(import => Imports.Add(import));
       ClassText.AppendLine();
       ClassText.Append(method.GetText());
     }
@@ -54,8 +62,9 @@ namespace BlueprintCoreGen.CodeGen
     /// </returns>
     public string GetClassText()
     {
-      Imports.Sort();
-      ClassText.Insert(0, string.Join('\n', Imports.Distinct()) + '\n');
+      var sortedImports = Imports.ToList();
+      sortedImports.Sort();
+      ClassText.Insert(0, string.Join('\n', sortedImports) + '\n');
       return ClassText.ToString();
     }
 
@@ -67,8 +76,93 @@ namespace BlueprintCoreGen.CodeGen
 
   public class ConfiguratorTemplate : ClassTemplate
   {
-    public Type BlueprintType;
+    private Type _blueprintType;
+    public Type BlueprintType
+    {
+      get => _blueprintType;
+      set
+      {
+        _blueprintType = value;
+        AddImport(_blueprintType);
+      }
+    }
 
-    public ConfiguratorTemplate(string filePath) : base(filePath) { }
+    public ConfiguratorTemplate(string relativePath) : base(relativePath) { }
+
+    public void AddDeclaration(bool isAbstract)
+    {
+      var className = GetClassName(BlueprintType, true);
+      if (isAbstract)
+      {
+        AddLine($"  /// <summary>");
+        AddLine($"  /// Implements common fields and components for blueprints inheriting from <see cref=\"{BlueprintType.Name}\"/>.");
+        AddLine($"  /// <inheritdoc/>");
+        AddLine($"  public abstract class {className}<T, TBuilder>");
+        AddLine($"      : Base{GetClassName(BlueprintType.BaseType, true)}<T, TBuilder>");
+        AddLine($"      where T : {BlueprintType.Name}");
+        AddLine($"      TBuilder : BaseBlueprintConfigurator<T, TBuilder>");
+        AddLine(@"  {");
+        AddLine($"     protected {className}(string name) : base(name) {{ }}");
+      }
+      else
+      {
+        AddLine($"  /// <summary>Configurator for <see cref=\"{BlueprintType.Name}\"/>.</summary>");
+        AddLine($"  /// <inheritdoc/>");
+        AddLine($"  public class {className} : {GetClassName(BlueprintType.BaseType, true)}<{BlueprintType.Name}, {className}>");
+        AddLine(@"  {");
+        AddLine($"     private {className}(string name) : base(name) {{ }}");
+        AddLine("");
+        AddStaticConstructor(className, ConstructorType.For);
+        AddLine("");
+        AddStaticConstructor(className, ConstructorType.New);
+        AddLine("");
+        AddStaticConstructor(className, ConstructorType.NewAssetId);
+      }
+    }
+
+    private enum ConstructorType
+    {
+      For,
+      New,
+      NewAssetId
+    }
+
+    private void AddStaticConstructor(string className, ConstructorType type)
+    {
+      switch (type)
+      {
+        case ConstructorType.For:
+          AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.For(string)\"/>");
+          AddLine($"    public static {GetClassName(BlueprintType)} For(string name)");
+          AddLine(@"    {");
+          AddLine($"      return new {className}(name);");
+          AddLine(@"    }");
+          break;
+        case ConstructorType.New:
+          AddImport(typeof(BlueprintTool));
+          AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string)\"/>");
+          AddLine($"    public static {GetClassName(BlueprintType)} New(string name)");
+          AddLine(@"    {");
+          AddLine($"      BlueprintTool.Create<{BlueprintType.Name}>(name);");
+          AddLine($"      return For(name);");
+          AddLine(@"    }");
+          break;
+        case ConstructorType.NewAssetId:
+          AddImport(typeof(BlueprintTool));
+          AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string, string)\"/>");
+          AddLine($"    public static {GetClassName(BlueprintType)} New(string name, string assetId)");
+          AddLine(@"    {");
+          AddLine($"      BlueprintTool.Create<{BlueprintType.Name}>(name, assetId);");
+          AddLine($"      return For(name);");
+          AddLine(@"    }");
+          break;
+      }
+    }
+
+    private static string GetClassName(Type type, bool isAbstract = false)
+    {
+      var prefix = isAbstract ? "Base" : "";
+      return $"{prefix}{type.Name.Replace("Blueprint", "")}Configurator";
+    }
   }
 }

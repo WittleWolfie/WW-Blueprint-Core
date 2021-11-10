@@ -181,13 +181,13 @@ namespace BlueprintCoreGen.CodeGen
               typeof(BlueprintScriptableObject), blueprintConfigurators, gameTypes, includeAbstractTypes: true);
       foreach (var blueprintType in missingBlueprintTypes)
       {
-        // TODO: Figure out how to generate file / namespace structure
         ConfiguratorTemplates.Add(
             CodeGenerator.CreateConfiguratorClass(
                 blueprintType,
                 methodsByBlueprintType.ContainsKey(blueprintType)
                     ? methodsByBlueprintType[blueprintType]
-                    : new()));
+                    : new(),
+                gameTypes));
       }
     }
 
