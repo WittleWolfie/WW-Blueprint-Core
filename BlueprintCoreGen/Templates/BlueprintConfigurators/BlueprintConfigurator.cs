@@ -319,16 +319,25 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     //----- Start: Configure & Validate
 
+    /// <summary>Type specific configuration implemented in child classes.</summary>
+    /// 
+    /// <remarks>Components are added to the blueprint after this step.</remarks>
+    protected virtual void ConfigureInternal() { }
+
+    /// <summary>Type specific validation implemented in child classes.</summary>
+    /// 
+    /// <remarks>Implementations should report errors using <see cref="AddValidationWarning(string)"/>.</remarks>
+    protected virtual void ValidateInternal() { }
+
+    protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
+
+    protected void ValidateParam(object obj) { ValidationWarnings.AppendJoin('\n', Validator.Check(obj)); }
+
     private void ConfigureBase()
     {
       ConfigurePrerequisiteAlignment();
       ConfigureSpellDescriptors();
     }
-
-    /// <summary>Type specific configuration implemented in child classes.</summary>
-    /// 
-    /// <remarks>Components are added to the blueprint after this step.</remarks>
-    protected virtual void ConfigureInternal() { }
 
     private void OnConfigure()
     {
@@ -375,13 +384,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
       ValidateComponents();
     }
-
-    /// <summary>Type specific validation implemented in child classes.</summary>
-    /// 
-    /// <remarks>Implementations should report errors using <see cref="AddValidationWarning(string)"/>.</remarks>
-    protected virtual void ValidateInternal() { }
-
-    protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
     private void ConfigurePrerequisiteAlignment()
     {

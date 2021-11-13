@@ -84,7 +84,63 @@ namespace BlueprintCoreGen.CodeGen
       {
         return CreateBlueprintComponentMethod(type);
       }
-      throw new InvalidOperationException("Unsupported type: " + type.Name);
+      throw new InvalidOperationException("Unsupported type: " + GetTypeName(type));
+    }
+    
+    /// <summary>
+    /// Recursive function which generates the correct type name for generic types.
+    /// </summary>
+    public static string GetTypeName(Type type)
+    {
+      if (type.HasElementType && type.BaseType == typeof(Array))
+      {
+        return $"{GetTypeName(type.GetElementType())}[]";
+      }
+      if (!type.IsGenericType)
+      {
+        var name = GetConvertedTypeName(type);
+        return type.DeclaringType is null ? name : $"{GetSimpleTypeName(type.DeclaringType)}.{name}";
+      }
+      string typeName = GetSimpleTypeName(type.GetGenericTypeDefinition());
+      typeName = typeName.Substring(0, typeName.IndexOf('`'));
+      string typeArguments =
+          string.Join(",", type.GetGenericArguments().Select(typeArg => GetTypeName(typeArg)).ToArray());
+      return typeName + "<" + typeArguments + ">";
+    }
+
+    private static string GetSimpleTypeName(Type type)
+    {
+      if (string.IsNullOrEmpty(type.Namespace))
+      {
+        return $"global::{type.Name}";
+      }
+      return type.Name;
+    }
+
+    private static readonly Dictionary<string, string> ClassToPrimitive =
+        new()
+        {
+          { "Boolean", "bool" },
+          { "Byte", "byte" },
+          { "SByte", "sbyte" },
+          { "Int16", "short" },
+          { "UInt16", "ushort" },
+          { "Int32", "int" },
+          { "UInt32", "uint" },
+          { "Int64", "long" },
+          { "UInt64", "ulong" },
+          { "Char", "char" },
+          { "Double", "double" },
+          { "Single", "float" },
+        };
+
+    private static string GetConvertedTypeName(Type type)
+    {
+      if (ClassToPrimitive.ContainsKey(type.Name))
+      {
+        return ClassToPrimitive[type.Name];
+      }
+      return GetSimpleTypeName(type);
     }
 
     private static MethodTemplate CreateBuilderMethod(BuilderType builderType, Type type)
@@ -110,7 +166,7 @@ namespace BlueprintCoreGen.CodeGen
       method.AddImport(type);
       method.AddCommentSummary($"Adds <see cref=\"{type.Name}\"/> (Auto Generated)");
       method.AddAttribute($"[Generated]");
-      method.AddAttribute($"[Implements(typeof({type.Name}))]");
+      method.AddAttribute($"[Implements(typeof({GetTypeName(type)}))]");
 
       if (fields.Any())
       {
@@ -126,14 +182,14 @@ namespace BlueprintCoreGen.CodeGen
           }
           else
           {
-            method.AddField(field);
+            method.AddField(field, GetBuilderValidation);
           }
         }
-        optionalFields.ForEach(field => method.AddField(field));
+        optionalFields.ForEach(field => method.AddField(field, GetBuilderValidation));
         method.CloseDeclaration();
 
         method.AddBodyLine("");
-        method.AddBodyLine($"var element = ElementTool.Create<{type.Name}>();");
+        method.AddBodyLine($"var element = ElementTool.Create<{GetTypeName(type)}>();");
         foreach (var field in fields)
         {
           method.AddBodyLine($"element.{field.GetAssignment()}");
@@ -145,15 +201,20 @@ namespace BlueprintCoreGen.CodeGen
         method.AddDeclaration(
             $"public static {builderType} Add{type.Name}(this {builderType} builder, bool negate = false)");
         method.AddBodyLine($"");
-        method.AddBodyLine($"return builder.Add(ElementTool.Create<{type.Name}>());");
+        method.AddBodyLine($"return builder.Add(ElementTool.Create<{GetTypeName(type)}>());");
       }
       else
       {
         method.AddDeclaration($"public static {builderType} Add{type.Name}(this {builderType} builder)");
-        method.AddBodyLine($"return builder.Add(ElementTool.Create<{type.Name}>());");
+        method.AddBodyLine($"return builder.Add(ElementTool.Create<{GetTypeName(type)}>);");
       }
 
       return method;
+    }
+
+    private static string GetBuilderValidation(string varName)
+    {
+      return $"builder.Validate({varName});";
     }
 
     private static MethodTemplate CreateBlueprintComponentMethod(Type type)
@@ -173,7 +234,7 @@ namespace BlueprintCoreGen.CodeGen
       method.AddImport(type);
       method.AddCommentSummary($"Adds <see cref=\"{type.Name}\"/> (Auto Generated)");
       method.AddAttribute($"[Generated]");
-      method.AddAttribute($"[Implements(typeof({type.Name}))]");
+      method.AddAttribute($"[Implements(typeof({GetTypeName(type)}))]");
 
       // TODO: Handle unique components
       if (fields.Any())
@@ -190,14 +251,14 @@ namespace BlueprintCoreGen.CodeGen
           else
           {
             // TODO: Add Validation support to blueprint configurators
-            method.AddField(field);
+            method.AddField(field, GetConfiguratorValidation);
           }
         }
-        optionalFields.ForEach(field => method.AddField(field));
+        optionalFields.ForEach(field => method.AddField(field, GetConfiguratorValidation));
         method.CloseDeclaration();
 
         method.AddBodyLine("");
-        method.AddBodyLine($"var component =  new {type.Name}();");
+        method.AddBodyLine($"var component =  new {GetTypeName(type)}();");
         foreach (var field in fields)
         {
           method.AddBodyLine($"component.{field.GetAssignment()}");
@@ -206,21 +267,27 @@ namespace BlueprintCoreGen.CodeGen
       }
       else
       {
-        method.AddDeclaration($"public TBuilder Add{type.Name}()");
-        method.AddBodyLine($"return AddComponent(new {type.Name}());");
+        method.AddDeclaration($"public TBuilder Add{GetTypeName(type)}()");
+        method.AddBodyLine($"return AddComponent(new {GetTypeName(type)}());");
       }
 
       return method;
     }
 
-    private static void AddField(this MethodTemplate method, IField field)
+    private static string GetConfiguratorValidation(string varName)
+    {
+      return $"ValidateParam({varName});";
+    }
+
+    private static void AddField(
+        this MethodTemplate method, IField field, IField.GetValidationCall validationMethodProcessor)
     {
       field.GetImports().ForEach(import => method.AddImport(import));
 
       method.AddComment(field.GetParamComment());
       method.AddParamDeclaration(field.GetParamDeclaration());
 
-      field.GetValidation().ForEach(line => method.AddBodyLine($"{line}"));
+      field.GetValidation(validationMethodProcessor).ForEach(line => method.AddBodyLine($"{line}"));
     }
   }
 }

@@ -28,7 +28,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Adds an import to the output class.
     /// </summary>
-    public void AddImport(string import) { Imports.Add(import); }
+    public void AddImport(string import) { Imports.Add(import);}
 
     /// <summary>
     /// Adds an import to the output class.
@@ -112,10 +112,10 @@ namespace BlueprintCoreGen.CodeGen
         AddLine($"  /// Implements common fields and components for blueprints inheriting from <see cref=\"{BlueprintType.Name}\"/>.");
         AddLine($"  /// </summary>");
         AddLine($"  /// <inheritdoc/>");
-        AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
+        AddLine($"  [Configures(typeof({CodeGenerator.GetTypeName(BlueprintType)}))]");
         AddLine($"  public abstract class Base{className}<T, TBuilder>");
         AddLine($"      : Base{GetClassName(BlueprintType.BaseType)}<T, TBuilder>");
-        AddLine($"      where T : {BlueprintType.Name}");
+        AddLine($"      where T : {CodeGenerator.GetTypeName(BlueprintType)}");
         AddLine($"      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>");
         AddLine(@"  {");
         AddLine($"     protected Base{className}(string name) : base(name) {{ }}");
@@ -124,8 +124,8 @@ namespace BlueprintCoreGen.CodeGen
       {
         AddLine($"  /// <summary>Configurator for <see cref=\"{BlueprintType.Name}\"/>.</summary>");
         AddLine($"  /// <inheritdoc/>");
-        AddLine($"  public class {className} : Base{GetClassName(BlueprintType.BaseType)}<{BlueprintType.Name}, {className}>");
-        AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
+        AddLine($"  public class {className} : Base{GetClassName(BlueprintType.BaseType)}<{CodeGenerator.GetTypeName(BlueprintType)}, {className}>");
+        AddLine($"  [Configures(typeof({CodeGenerator.GetTypeName(BlueprintType)}))]");
         AddLine(@"  {");
         AddLine($"     private {className}(string name) : base(name) {{ }}");
         AddLine("");
@@ -164,7 +164,7 @@ namespace BlueprintCoreGen.CodeGen
           AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string)\"/>");
           AddLine($"    public static {GetClassName(BlueprintType)} New(string name)");
           AddLine(@"    {");
-          AddLine($"      BlueprintTool.Create<{BlueprintType.Name}>(name);");
+          AddLine($"      BlueprintTool.Create<{CodeGenerator.GetTypeName(BlueprintType)}>(name);");
           AddLine($"      return For(name);");
           AddLine(@"    }");
           break;
@@ -172,7 +172,7 @@ namespace BlueprintCoreGen.CodeGen
           AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string, string)\"/>");
           AddLine($"    public static {GetClassName(BlueprintType)} New(string name, string assetId)");
           AddLine(@"    {");
-          AddLine($"      BlueprintTool.Create<{BlueprintType.Name}>(name, assetId);");
+          AddLine($"      BlueprintTool.Create<{CodeGenerator.GetTypeName(BlueprintType)}>(name, assetId);");
           AddLine($"      return For(name);");
           AddLine(@"    }");
           break;
@@ -201,7 +201,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         return "BlueprintConfigurator";
       }
-      return $"{type.Name.Replace("Blueprint", "")}Configurator";
+      return $"{CodeGenerator.GetTypeName(type).Replace("Blueprint", "")}Configurator";
     }
   }
 }

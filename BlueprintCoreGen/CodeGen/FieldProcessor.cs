@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using static BlueprintCoreGen.CodeGen.IField;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -50,8 +51,10 @@ namespace BlueprintCoreGen.CodeGen
     string GetParamComment();
     string GetParamDeclaration();
     string GetAssignment();
-    List<string> GetValidation();
+    List<string> GetValidation(GetValidationCall fieldValidationProcessor);
     List<Type> GetImports();
+
+    delegate string GetValidationCall(string varName);
   }
 
   public class Field : IField
@@ -97,7 +100,7 @@ namespace BlueprintCoreGen.CodeGen
           return $"ConditionsBuilder {Info.Name}";
         case FieldType.Default:
         default:
-          return $"{GetTypeName(Info.FieldType)} {Info.Name}";
+          return $"{CodeGenerator.GetTypeName(Info.FieldType)} {Info.Name}";
       }
     }
 
@@ -114,7 +117,7 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    public virtual List<string> GetValidation()
+    public virtual List<string> GetValidation(GetValidationCall fieldValidationProcessor)
     {
       switch (Type)
       {
@@ -123,7 +126,7 @@ namespace BlueprintCoreGen.CodeGen
           return new();
         default:
           if (Info.FieldType == typeof(string)) return new();
-          return new() { $"builder.Validate({Info.Name});" };
+          return new() { fieldValidationProcessor(Info.Name) };
       }
     }
 
@@ -143,53 +146,6 @@ namespace BlueprintCoreGen.CodeGen
           break;
       }
       return imports;
-    }
-
-    /// <summary>
-    /// Recursive function which generates the correct type name for generic types.
-    /// </summary>
-    protected static string GetTypeName(Type type)
-    {
-      if (type.HasElementType && type.BaseType == typeof(Array))
-      {
-        return $"{GetTypeName(type.GetElementType())}[]";
-      }
-      if (!type.IsGenericType)
-      {
-        var name = GetConvertedTypeName(type);
-        return type.DeclaringType is null ? name : $"{type.DeclaringType.Name}.{name}";
-      }
-      string typeName = type.GetGenericTypeDefinition().Name;
-      typeName = typeName.Substring(0, typeName.IndexOf('`'));
-      string typeArguments =
-          string.Join(",", type.GetGenericArguments().Select(typeArg => GetTypeName(typeArg)).ToArray());
-      return typeName + "<" + typeArguments + ">";
-    }
-
-    private static readonly Dictionary<string, string> ClassToPrimitive =
-        new()
-        {
-          { "Boolean", "bool" },
-          { "Byte", "byte" },
-          { "SByte", "sbyte" },
-          { "Int16", "short" },
-          { "UInt16", "ushort" },
-          { "Int32", "int" },
-          { "UInt32", "uint" },
-          { "Int64", "long" },
-          { "UInt64", "ulong" },
-          { "Char", "char" },
-          { "Double", "double" },
-          { "Single", "float" },
-        };
-
-    private static string GetConvertedTypeName(Type type)
-    {
-      if (ClassToPrimitive.ContainsKey(type.Name))
-      {
-        return ClassToPrimitive[type.Name];
-      }
-      return type.Name;
     }
 
     /// <summary>
@@ -242,7 +198,7 @@ namespace BlueprintCoreGen.CodeGen
       return new();
     }
 
-    public List<string> GetValidation()
+    public List<string> GetValidation(GetValidationCall fieldValidationProcessor)
     {
       return new();
     }
@@ -257,14 +213,14 @@ namespace BlueprintCoreGen.CodeGen
       EnumerableType = enumerableType;
     }
 
-    public override List<string> GetValidation()
+    public override List<string> GetValidation(GetValidationCall fieldValidationProcessor)
     {
       if (EnumerableType == typeof(string)) return new();
       return new List<string>
       {
         $"foreach (var item in {Info.Name})",
         $"{{",
-        $"  builder.Validate(item);",
+        $"  {fieldValidationProcessor("item")}",
         $"}}"
       };
     }
@@ -283,7 +239,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public override string GetParamComment()
     {
-      return $"<param name=\"{Info.Name}\"><see cref=\"{GetTypeName(BlueprintType)}\"/></param>";
+      return $"<param name=\"{Info.Name}\"><see cref=\"{BlueprintType.Name}\"/></param>";
     }
 
     public override string GetParamDeclaration()
@@ -293,10 +249,10 @@ namespace BlueprintCoreGen.CodeGen
 
     public override string GetAssignment()
     {
-      return $"{Info.Name} = BlueprintTool.GetRef<{GetTypeName(Info.FieldType)}>({Info.Name});";
+      return $"{Info.Name} = BlueprintTool.GetRef<{CodeGenerator.GetTypeName(Info.FieldType)}>({Info.Name});";
     }
 
-    public override List<string> GetValidation()
+    public override List<string> GetValidation(GetValidationCall fieldValidationProcessor)
     {
       return new();
     }
@@ -336,7 +292,7 @@ namespace BlueprintCoreGen.CodeGen
     public override string GetAssignment()
     {
       var toEnumerable = IsList(Info.FieldType) ? "ToList()" : "ToArray()";
-      return $"{Info.Name} = {Info.Name}.Select(bp => BlueprintTool.GetRef<{GetTypeName(ReferenceType)}>(bp)).{toEnumerable};";
+      return $"{Info.Name} = {Info.Name}.Select(bp => BlueprintTool.GetRef<{CodeGenerator.GetTypeName(ReferenceType)}>(bp)).{toEnumerable};";
     }
 
     public override List<Type> GetImports()
