@@ -107,7 +107,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(AlignmentSelector))]
     public static ActionsBuilder AddAlignmentSelector(
         this ActionsBuilder builder,
-        boolean SelectClosest,
+        bool SelectClosest,
         AlignmentSelector.ActionAndCondition LawfulGood,
         AlignmentSelector.ActionAndCondition NeutralGood,
         AlignmentSelector.ActionAndCondition ChaoticGood,
@@ -184,8 +184,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddHideUnit(
         this ActionsBuilder builder,
         UnitEvaluator Target,
-        boolean Unhide,
-        boolean Fade)
+        bool Unhide,
+        bool Fade)
     {
       builder.Validate(Target);
       builder.Validate(Unhide);
@@ -206,7 +206,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddHideWeapons(
         this ActionsBuilder builder,
         UnitEvaluator Target,
-        boolean Hide)
+        bool Hide)
     {
       builder.Validate(Target);
       builder.Validate(Hide);
@@ -228,7 +228,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         string m_Flag,
         IntEvaluator Value,
-        boolean UnlockIfNot)
+        bool UnlockIfNot)
     {
       builder.Validate(Value);
       builder.Validate(UnlockIfNot);
@@ -425,7 +425,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddPartyMembersDetach(
         this ActionsBuilder builder,
         string[] m_DetachAllExcept,
-        boolean m_RestrictPartySize,
+        bool m_RestrictPartySize,
         int m_PartySize,
         ActionsBuilder AfterDetach)
     {
@@ -449,7 +449,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         UnitEvaluator[] DetachThese,
         ActionsBuilder AfterDetach,
-        boolean m_RestrictPartySize,
+        bool m_RestrictPartySize,
         int m_PartySize)
     {
       foreach (var item in DetachThese)
@@ -485,8 +485,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddRecruit(
         this ActionsBuilder builder,
         Recruit.RecruitData[] Recruited,
-        boolean AddToParty,
-        boolean MatchPlayerXpExactly,
+        bool AddToParty,
+        bool MatchPlayerXpExactly,
         ActionsBuilder OnRecruit,
         ActionsBuilder OnRecruitImmediate)
     {
@@ -637,8 +637,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(RespecCompanion))]
     public static ActionsBuilder AddRespecCompanion(
         this ActionsBuilder builder,
-        boolean ForFree,
-        boolean MatchPlayerXpExactly)
+        bool ForFree,
+        bool MatchPlayerXpExactly)
     {
       builder.Validate(ForFree);
       builder.Validate(MatchPlayerXpExactly);
@@ -732,7 +732,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         SummonPoolCountTrigger.ObjectiveStatus Status,
         string m_Objective,
-        boolean StartObjectiveIfNone)
+        bool StartObjectiveIfNone)
     {
       builder.Validate(Status);
       builder.Validate(StartObjectiveIfNone);
@@ -938,7 +938,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         string Etude,
         BlueprintEvaluator EtudeEvaluator,
-        boolean Evaluate)
+        bool Evaluate)
     {
       builder.Validate(EtudeEvaluator);
       builder.Validate(Evaluate);
@@ -960,7 +960,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddSwitchAzataIsland(
         this ActionsBuilder builder,
         string m_GlobalMap,
-        boolean IsOn)
+        bool IsOn)
     {
       builder.Validate(IsOn);
       
@@ -994,9 +994,9 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddSwitchDoor(
         this ActionsBuilder builder,
         MapObjectEvaluator Door,
-        boolean UnlockIfLocked,
-        boolean CloseIfAlreadyOpen,
-        boolean OpenIfAlreadyClosed)
+        bool UnlockIfLocked,
+        bool CloseIfAlreadyOpen,
+        bool OpenIfAlreadyClosed)
     {
       builder.Validate(Door);
       builder.Validate(UnlockIfLocked);
@@ -1022,8 +1022,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         UnitEvaluator Target,
         string m_Faction,
-        boolean IncludeGroup,
-        boolean ResetAllRelations)
+        bool IncludeGroup,
+        bool ResetAllRelations)
     {
       builder.Validate(Target);
       builder.Validate(IncludeGroup);
@@ -1045,8 +1045,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddSwitchInteraction(
         this ActionsBuilder builder,
         MapObjectEvaluator MapObject,
-        boolean EnableIfAlreadyDisabled,
-        boolean DisableIfAlreadyEnabled)
+        bool EnableIfAlreadyDisabled,
+        bool DisableIfAlreadyEnabled)
     {
       builder.Validate(MapObject);
       builder.Validate(EnableIfAlreadyDisabled);
@@ -1067,7 +1067,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder AddSwitchRoaming(
         this ActionsBuilder builder,
         UnitEvaluator Unit,
-        boolean Disable)
+        bool Disable)
     {
       builder.Validate(Unit);
       builder.Validate(Disable);
@@ -1109,7 +1109,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         UnitEvaluator Target,
         string Faction,
-        boolean IncludeGroup)
+        bool IncludeGroup)
     {
       builder.Validate(Target);
       builder.Validate(IncludeGroup);
@@ -1131,8 +1131,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         TimeSkip.SkipType m_Type,
         IntEvaluator MinutesToSkip,
         TimeOfDay TimeOfDay,
-        boolean NoFatigue,
-        boolean MatchTimeOfDay)
+        bool NoFatigue,
+        bool MatchTimeOfDay)
     {
       builder.Validate(m_Type);
       builder.Validate(MinutesToSkip);

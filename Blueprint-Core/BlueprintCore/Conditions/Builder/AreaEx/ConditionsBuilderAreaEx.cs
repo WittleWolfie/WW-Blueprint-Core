@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         EntityReference LootObject,
         MapObjectEvaluator MapObject,
-        boolean EvaluateMapObject,
+        bool EvaluateMapObject,
         bool negate = false)
     {
       builder.Validate(LootObject);

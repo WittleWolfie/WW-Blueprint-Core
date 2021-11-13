@@ -159,8 +159,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddPlay2DSound(
         this ActionsBuilder builder,
         String SoundName,
-        boolean SetSex,
-        boolean SetRace)
+        bool SetSex,
+        bool SetRace)
     {
       foreach (var item in SoundName)
       {
@@ -185,9 +185,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
         this ActionsBuilder builder,
         String SoundName,
         EntityReference SoundSourceObject,
-        boolean SetSex,
-        boolean SetRace,
-        boolean SetCurrentSpeaker)
+        bool SetSex,
+        bool SetRace,
+        bool SetCurrentSpeaker)
     {
       foreach (var item in SoundName)
       {
@@ -267,8 +267,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddPlayCutscene(
         this ActionsBuilder builder,
         string m_Cutscene,
-        boolean PutInQueue,
-        boolean CheckExistence,
+        bool PutInQueue,
+        bool CheckExistence,
         ParametrizedContextSetter Parameters)
     {
       builder.Validate(PutInQueue);
@@ -291,7 +291,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddReloadMechanic(
         this ActionsBuilder builder,
         String Desc,
-        boolean ClearFx)
+        bool ClearFx)
     {
       foreach (var item in Desc)
       {
@@ -330,7 +330,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         this ActionsBuilder builder,
         LocalizedString WhatToBark,
         SharedStringAsset WhatToBarkShared,
-        boolean BarkDurationByText,
+        bool BarkDurationByText,
         UnitEvaluator TargetUnit,
         MapObjectEvaluator TargetMapObject)
     {
@@ -409,7 +409,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddToggleObjectFx(
         this ActionsBuilder builder,
         MapObjectEvaluator Target,
-        boolean ToggleOn)
+        bool ToggleOn)
     {
       builder.Validate(Target);
       builder.Validate(ToggleOn);
@@ -428,7 +428,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddToggleObjectMusic(
         this ActionsBuilder builder,
         MapObjectEvaluator Target,
-        boolean ToggleOn)
+        bool ToggleOn)
     {
       builder.Validate(Target);
       builder.Validate(ToggleOn);

@@ -178,7 +178,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddDebugLog(
         this ActionsBuilder builder,
         String Log,
-        boolean Break)
+        bool Break)
     {
       foreach (var item in Log)
       {
@@ -215,7 +215,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(MakeAutoSave))]
     public static ActionsBuilder AddMakeAutoSave(
         this ActionsBuilder builder,
-        boolean SaveForImport)
+        bool SaveForImport)
     {
       builder.Validate(SaveForImport);
       
@@ -234,7 +234,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddMakeItemNonRemovable(
         this ActionsBuilder builder,
         string m_Item,
-        boolean NonRemovable)
+        bool NonRemovable)
     {
       builder.Validate(NonRemovable);
       
@@ -274,7 +274,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddOpenSelectMythicUI(
         this ActionsBuilder builder,
         ActionsBuilder m_AfterCommitActions,
-        boolean m_LockStopChargen,
+        bool m_LockStopChargen,
         ActionsBuilder m_AfterStopActions)
     {
       builder.Validate(m_LockStopChargen);
@@ -295,10 +295,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(RemoveItemFromPlayer))]
     public static ActionsBuilder AddRemoveItemFromPlayer(
         this ActionsBuilder builder,
-        boolean Money,
-        boolean RemoveAll,
+        bool Money,
+        bool RemoveAll,
         string m_ItemToRemove,
-        boolean m_Silent,
+        bool m_Silent,
         int Quantity,
         float Percentage)
     {
@@ -393,7 +393,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddSellCollectibleItems(
         this ActionsBuilder builder,
         string m_ItemToSell,
-        boolean HalfPrice)
+        bool HalfPrice)
     {
       builder.Validate(HalfPrice);
       
@@ -486,7 +486,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         UnitEvaluator Target,
         ItemsCollectionEvaluator DestinationContainer,
-        boolean Silent)
+        bool Silent)
     {
       builder.Validate(Target);
       builder.Validate(DestinationContainer);
@@ -510,9 +510,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         UnitEvaluator Unit,
         ItemsCollectionEvaluator DestinationContainer,
-        boolean Silent,
+        bool Silent,
         string m_Item,
-        boolean All)
+        bool All)
     {
       builder.Validate(Unit);
       builder.Validate(DestinationContainer);

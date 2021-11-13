@@ -45,7 +45,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(TacticalCombatSquadHitPointsCondition))]
     public static ConditionsBuilder AddTacticalCombatSquadHitPointsCondition(
         this ConditionsBuilder builder,
-        boolean CheckInitiatorHP,
+        bool CheckInitiatorHP,
         CompareOperation.Type Operation,
         ContextValue ReferenceValue,
         bool negate = false)
@@ -70,7 +70,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddTargetHasArmyTag(
         this ConditionsBuilder builder,
         ArmyProperties m_Tags,
-        boolean m_NeedAllTags,
+        bool m_NeedAllTags,
         bool negate = false)
     {
       builder.Validate(m_Tags);
@@ -183,7 +183,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddBuildingHasNeighbours(
         this ConditionsBuilder builder,
         string[] m_SpecificBuildings,
-        boolean AnywhereInTown,
+        bool AnywhereInTown,
         bool negate = false)
     {
       builder.Validate(AnywhereInTown);
@@ -202,7 +202,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(DaysTillNextMonth))]
     public static ConditionsBuilder AddDaysTillNextMonth(
         this ConditionsBuilder builder,
-        boolean AtMost,
+        bool AtMost,
         int Days,
         bool negate = false)
     {
@@ -346,7 +346,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(KingdomDay))]
     public static ConditionsBuilder AddKingdomDay(
         this ConditionsBuilder builder,
-        boolean AtMost,
+        bool AtMost,
         int Day,
         bool negate = false)
     {
@@ -498,7 +498,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         this ConditionsBuilder builder,
         LeaderType Leader,
         string m_Unit,
-        boolean AllowCustomCompanions,
+        bool AllowCustomCompanions,
         bool negate = false)
     {
       builder.Validate(Leader);
@@ -522,9 +522,9 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomProjectIsAvailable(
         this ConditionsBuilder builder,
         string m_Project,
-        boolean CheckResources,
-        boolean CheckLeader,
-        boolean FinishableThisMonth,
+        bool CheckResources,
+        bool CheckLeader,
+        bool FinishableThisMonth,
         bool negate = false)
     {
       builder.Validate(CheckResources);
@@ -673,8 +673,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         this ConditionsBuilder builder,
         KingdomStats.Type StatType,
         int Value,
-        boolean AtMost,
-        boolean CheckRank,
+        bool AtMost,
+        bool CheckRank,
         bool negate = false)
     {
       builder.Validate(StatType);
@@ -738,7 +738,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomUnrestCheck(
         this ConditionsBuilder builder,
         KingdomStatusType Value,
-        boolean AtMost,
+        bool AtMost,
         bool negate = false)
     {
       builder.Validate(Value);

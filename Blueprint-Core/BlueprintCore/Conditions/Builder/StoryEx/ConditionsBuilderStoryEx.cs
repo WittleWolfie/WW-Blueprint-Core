@@ -12,7 +12,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Collections.Generic;
-namespace BlueprintCore.Conditions.Builder.MiscEx
+namespace BlueprintCore.Conditions.Builder.StoryEx
 {
   /// <summary>
   /// Extension to <see cref="ConditionsBuilder"/> for conditions related to the story such as companion stories, quests,
@@ -131,7 +131,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAnswerListShown(
         this ConditionsBuilder builder,
         string m_AnswersList,
-        boolean CurrentDialog,
+        bool CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -153,7 +153,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAnswerSelected(
         this ConditionsBuilder builder,
         string m_Answer,
-        boolean CurrentDialog,
+        bool CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -250,7 +250,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddCueSeen(
         this ConditionsBuilder builder,
         string m_Cue,
-        boolean CurrentDialog,
+        bool CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -287,8 +287,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(CutsceneQueueState))]
     public static ConditionsBuilder AddCutsceneQueueState(
         this ConditionsBuilder builder,
-        boolean First,
-        boolean Last,
+        bool First,
+        bool Last,
         bool negate = false)
     {
       builder.Validate(First);
@@ -365,11 +365,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddEtudeStatus(
         this ConditionsBuilder builder,
         string m_Etude,
-        boolean NotStarted,
-        boolean Started,
-        boolean Playing,
-        boolean CompletionInProgress,
-        boolean Completed,
+        bool NotStarted,
+        bool Started,
+        bool Playing,
+        bool CompletionInProgress,
+        bool Completed,
         bool negate = false)
     {
       builder.Validate(NotStarted);
@@ -424,7 +424,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddFlagUnlocked(
         this ConditionsBuilder builder,
         string m_ConditionFlag,
-        boolean ExceptSpecifiedValues,
+        bool ExceptSpecifiedValues,
         List<int> SpecifiedValues,
         bool negate = false)
     {
@@ -558,7 +558,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerSignificantClassIs))]
     public static ConditionsBuilder AddPlayerSignificantClassIs(
         this ConditionsBuilder builder,
-        boolean CheckGroup,
+        bool CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
         bool negate = false)
@@ -583,7 +583,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerTopClassIs))]
     public static ConditionsBuilder AddPlayerTopClassIs(
         this ConditionsBuilder builder,
-        boolean CheckGroup,
+        bool CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
         bool negate = false)

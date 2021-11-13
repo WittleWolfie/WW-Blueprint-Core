@@ -186,7 +186,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddAskPlayerForLocationName(
         this ActionsBuilder builder,
         string m_Location,
-        boolean Obligatory,
+        bool Obligatory,
         LocalizedString Title,
         LocalizedString Hint,
         LocalizedString Default)
@@ -214,7 +214,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         this ActionsBuilder builder,
         LocationEvaluator Destination,
         FloatEvaluator SkipHours,
-        boolean UpdateLocationVisitedTime)
+        bool UpdateLocationVisitedTime)
     {
       builder.Validate(Destination);
       builder.Validate(SkipHours);
@@ -235,7 +235,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddHideMapObject(
         this ActionsBuilder builder,
         MapObjectEvaluator MapObject,
-        boolean Unhide)
+        bool Unhide)
     {
       builder.Validate(MapObject);
       builder.Validate(Unhide);
@@ -282,7 +282,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddMarkLocationClosed(
         this ActionsBuilder builder,
         string m_Location,
-        boolean Closed)
+        bool Closed)
     {
       builder.Validate(Closed);
       
@@ -302,7 +302,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddMarkLocationExplored(
         this ActionsBuilder builder,
         string m_Location,
-        boolean Explored)
+        bool Explored)
     {
       builder.Validate(Explored);
       
@@ -320,7 +320,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddMarkOnLocalMap(
         this ActionsBuilder builder,
         MapObjectEvaluator MapObject,
-        boolean Hidden)
+        bool Hidden)
     {
       builder.Validate(MapObject);
       builder.Validate(Hidden);
@@ -372,7 +372,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddRemoveAmbush(
         this ActionsBuilder builder,
         UnitEvaluator m_Unit,
-        boolean m_ExitStealth)
+        bool m_ExitStealth)
     {
       builder.Validate(m_Unit);
       builder.Validate(m_ExitStealth);
@@ -447,7 +447,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddRevealGlobalMap(
         this ActionsBuilder builder,
         string[] Points,
-        boolean RevealEdges)
+        bool RevealEdges)
     {
       builder.Validate(RevealEdges);
       
@@ -633,7 +633,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         this ActionsBuilder builder,
         string m_exitPositon,
         AutoSaveMode AutoSaveMode,
-        boolean ForcePauseAfterTeleport,
+        bool ForcePauseAfterTeleport,
         ActionsBuilder AfterTeleport)
     {
       builder.Validate(AutoSaveMode);
@@ -655,8 +655,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddTranslocatePlayer(
         this ActionsBuilder builder,
         EntityReference transolcatePosition,
-        boolean ByFormationAndWithPets,
-        boolean ScrollCameraToPlayer)
+        bool ByFormationAndWithPets,
+        bool ScrollCameraToPlayer)
     {
       builder.Validate(transolcatePosition);
       builder.Validate(ByFormationAndWithPets);
@@ -679,7 +679,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator Unit,
         EntityReference translocatePosition,
         PositionEvaluator translocatePositionEvaluator,
-        boolean m_CopyRotation,
+        bool m_CopyRotation,
         FloatEvaluator translocateOrientationEvaluator)
     {
       builder.Validate(Unit);
@@ -711,10 +711,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator TriggeringUnit,
         PositionEvaluator TargetPoint,
         PositionEvaluator ActorPosition,
-        boolean DisableBattleLog,
-        boolean OverrideDC,
+        bool DisableBattleLog,
+        bool OverrideDC,
         int DC,
-        boolean OverrideSpellLevel,
+        bool OverrideSpellLevel,
         int SpellLevel)
     {
       builder.Validate(TrapObject);
@@ -768,8 +768,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddUnlockLocation(
         this ActionsBuilder builder,
         string m_Location,
-        boolean FakeDescription,
-        boolean HideInstead)
+        bool FakeDescription,
+        bool HideInstead)
     {
       builder.Validate(FakeDescription);
       builder.Validate(HideInstead);
@@ -791,7 +791,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddUnlockMapEdge(
         this ActionsBuilder builder,
         string m_Edge,
-        boolean OpenEdges)
+        bool OpenEdges)
     {
       builder.Validate(OpenEdges);
       
@@ -809,7 +809,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddGameActionSetIsleLock(
         this ActionsBuilder builder,
         IsleEvaluator m_Isle,
-        boolean m_IsLock)
+        bool m_IsLock)
     {
       builder.Validate(m_Isle);
       builder.Validate(m_IsLock);

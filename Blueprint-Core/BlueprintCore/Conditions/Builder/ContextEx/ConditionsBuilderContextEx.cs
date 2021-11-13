@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionAlignment))]
     public static ConditionsBuilder AddContextConditionAlignment(
         this ConditionsBuilder builder,
-        boolean CheckCaster,
+        bool CheckCaster,
         AlignmentComponent Alignment,
         bool negate = false)
     {
@@ -230,7 +230,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCharacterClass))]
     public static ConditionsBuilder AddContextConditionCharacterClass(
         this ConditionsBuilder builder,
-        boolean CheckCaster,
+        bool CheckCaster,
         string m_Class,
         int MinLevel,
         bool negate = false)
@@ -391,7 +391,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionHasItem))]
     public static ConditionsBuilder AddContextConditionHasItem(
         this ConditionsBuilder builder,
-        boolean Money,
+        bool Money,
         string m_ItemToCheck,
         int Quantity,
         bool negate = false)
@@ -449,7 +449,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionHitDice(
         this ConditionsBuilder builder,
         int HitDice,
-        boolean AddSharedValue,
+        bool AddSharedValue,
         AbilitySharedValue SharedValue,
         bool negate = false)
     {
@@ -682,7 +682,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsShieldEquipped))]
     public static ConditionsBuilder AddContextConditionIsShieldEquipped(
         this ConditionsBuilder builder,
-        boolean CheckCaster,
+        bool CheckCaster,
         bool negate = false)
     {
       builder.Validate(CheckCaster);
@@ -730,11 +730,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsWeaponEquipped))]
     public static ConditionsBuilder AddContextConditionIsWeaponEquipped(
         this ConditionsBuilder builder,
-        boolean CheckWeaponRangeType,
-        boolean CheckWeaponCategory,
+        bool CheckWeaponRangeType,
+        bool CheckWeaponCategory,
         WeaponRangeType RangeType,
         WeaponCategory Category,
-        boolean CheckOnCaster,
+        bool CheckOnCaster,
         bool negate = false)
     {
       builder.Validate(CheckWeaponRangeType);
@@ -792,7 +792,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         this ConditionsBuilder builder,
         AbilitySharedValue SharedValue,
         int HigherOrEqual,
-        boolean Inverted,
+        bool Inverted,
         bool negate = false)
     {
       builder.Validate(SharedValue);
@@ -815,7 +815,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionSharedValueHitDice(
         this ConditionsBuilder builder,
         AbilitySharedValue SharedValue,
-        boolean Inverted,
+        bool Inverted,
         bool negate = false)
     {
       builder.Validate(SharedValue);
@@ -836,8 +836,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionSize(
         this ConditionsBuilder builder,
         Size Size,
-        boolean Invert,
-        boolean CheckCaster,
+        bool Invert,
+        bool CheckCaster,
         bool negate = false)
     {
       builder.Validate(Size);
@@ -996,7 +996,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionWeaponAnimationStyle(
         this ConditionsBuilder builder,
         WeaponAnimationStyle AnimationStyle,
-        boolean CheckOnCaster,
+        bool CheckOnCaster,
         bool negate = false)
     {
       builder.Validate(AnimationStyle);
