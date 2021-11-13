@@ -133,7 +133,8 @@ namespace BlueprintCoreGen.CodeGen
 
         if (Import.IsMatch(currentLine))
         {
-          template.AddImport(currentLine);
+          // Convert the namespace for BlueprintCore
+          template.AddImport(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
           continue;
         }
 
@@ -216,7 +217,8 @@ namespace BlueprintCoreGen.CodeGen
 
         if (Import.IsMatch(currentLine))
         {
-          template.AddImport(currentLine);
+          // Convert the namespace for BlueprintCore
+          template.AddImport(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
           continue;
         }
 
@@ -283,6 +285,7 @@ namespace BlueprintCoreGen.CodeGen
       methodsByBlueprintType.Add(typeof(BlueprintScriptableObject), new());
       foreach (var componentType in methodsByComponentType.Keys)
       {
+        var namestr = componentType.Name;
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
         List<AllowedOnAttribute> allowedOn =
             attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => attr as AllowedOnAttribute).ToList();
@@ -301,7 +304,7 @@ namespace BlueprintCoreGen.CodeGen
         allowedOn.ForEach(
             allowed =>
             {
-              if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type)))
+              if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type) || attr.Type == allowed.Type))
               {
                 filter.Add(allowed);
               }

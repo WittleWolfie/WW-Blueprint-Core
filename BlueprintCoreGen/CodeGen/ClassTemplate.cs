@@ -124,8 +124,8 @@ namespace BlueprintCoreGen.CodeGen
       {
         AddLine($"  /// <summary>Configurator for <see cref=\"{BlueprintType.Name}\"/>.</summary>");
         AddLine($"  /// <inheritdoc/>");
-        AddLine($"  public class {className} : Base{GetClassName(BlueprintType.BaseType)}<{CodeGenerator.GetTypeName(BlueprintType)}, {className}>");
         AddLine($"  [Configures(typeof({CodeGenerator.GetTypeName(BlueprintType)}))]");
+        AddLine($"  public class {className} : Base{GetClassName(BlueprintType.BaseType)}<{CodeGenerator.GetTypeName(BlueprintType)}, {className}>");
         AddLine(@"  {");
         AddLine($"     private {className}(string name) : base(name) {{ }}");
         AddLine("");

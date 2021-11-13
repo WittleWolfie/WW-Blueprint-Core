@@ -331,7 +331,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
-    protected void ValidateParam(object obj) { ValidationWarnings.AppendJoin('\n', Validator.Check(obj)); }
+    protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
 
     private void ConfigureBase()
     {
@@ -430,7 +430,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
 
         if (componentTypes.Contains(componentType)
-            && attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Count() == 0)
+            && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any())
         {
           AddValidationWarning($"Multiple {componentType} present but only one is allowed.");
         }
