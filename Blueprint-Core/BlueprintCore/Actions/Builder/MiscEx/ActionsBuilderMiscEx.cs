@@ -178,7 +178,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddDebugLog(
         this ActionsBuilder builder,
         String Log,
-        Boolean Break)
+        boolean Break)
     {
       foreach (var item in Log)
       {
@@ -215,7 +215,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(MakeAutoSave))]
     public static ActionsBuilder AddMakeAutoSave(
         this ActionsBuilder builder,
-        Boolean SaveForImport)
+        boolean SaveForImport)
     {
       builder.Validate(SaveForImport);
       
@@ -234,7 +234,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddMakeItemNonRemovable(
         this ActionsBuilder builder,
         string m_Item,
-        Boolean NonRemovable)
+        boolean NonRemovable)
     {
       builder.Validate(NonRemovable);
       
@@ -274,7 +274,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddOpenSelectMythicUI(
         this ActionsBuilder builder,
         ActionsBuilder m_AfterCommitActions,
-        Boolean m_LockStopChargen,
+        boolean m_LockStopChargen,
         ActionsBuilder m_AfterStopActions)
     {
       builder.Validate(m_LockStopChargen);
@@ -295,12 +295,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(RemoveItemFromPlayer))]
     public static ActionsBuilder AddRemoveItemFromPlayer(
         this ActionsBuilder builder,
-        Boolean Money,
-        Boolean RemoveAll,
+        boolean Money,
+        boolean RemoveAll,
         string m_ItemToRemove,
-        Boolean m_Silent,
-        Int32 Quantity,
-        Single Percentage)
+        boolean m_Silent,
+        int Quantity,
+        float Percentage)
     {
       builder.Validate(Money);
       builder.Validate(RemoveAll);
@@ -393,7 +393,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder AddSellCollectibleItems(
         this ActionsBuilder builder,
         string m_ItemToSell,
-        Boolean HalfPrice)
+        boolean HalfPrice)
     {
       builder.Validate(HalfPrice);
       
@@ -486,7 +486,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         UnitEvaluator Target,
         ItemsCollectionEvaluator DestinationContainer,
-        Boolean Silent)
+        boolean Silent)
     {
       builder.Validate(Target);
       builder.Validate(DestinationContainer);
@@ -510,9 +510,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         UnitEvaluator Unit,
         ItemsCollectionEvaluator DestinationContainer,
-        Boolean Silent,
+        boolean Silent,
         string m_Item,
-        Boolean All)
+        boolean All)
     {
       builder.Validate(Unit);
       builder.Validate(DestinationContainer);

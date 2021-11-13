@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionAlignment))]
     public static ConditionsBuilder AddContextConditionAlignment(
         this ConditionsBuilder builder,
-        Boolean CheckCaster,
+        boolean CheckCaster,
         AlignmentComponent Alignment,
         bool negate = false)
     {
@@ -125,7 +125,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionAlignmentDifference))]
     public static ConditionsBuilder AddContextConditionAlignmentDifference(
         this ConditionsBuilder builder,
-        Int32 AlignmentStepDifference,
+        int AlignmentStepDifference,
         bool negate = false)
     {
       builder.Validate(AlignmentStepDifference);
@@ -230,9 +230,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCharacterClass))]
     public static ConditionsBuilder AddContextConditionCharacterClass(
         this ConditionsBuilder builder,
-        Boolean CheckCaster,
+        boolean CheckCaster,
         string m_Class,
-        Int32 MinLevel,
+        int MinLevel,
         bool negate = false)
     {
       builder.Validate(CheckCaster);
@@ -391,9 +391,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionHasItem))]
     public static ConditionsBuilder AddContextConditionHasItem(
         this ConditionsBuilder builder,
-        Boolean Money,
+        boolean Money,
         string m_ItemToCheck,
-        Int32 Quantity,
+        int Quantity,
         bool negate = false)
     {
       builder.Validate(Money);
@@ -448,8 +448,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionHitDice))]
     public static ConditionsBuilder AddContextConditionHitDice(
         this ConditionsBuilder builder,
-        Int32 HitDice,
-        Boolean AddSharedValue,
+        int HitDice,
+        boolean AddSharedValue,
         AbilitySharedValue SharedValue,
         bool negate = false)
     {
@@ -682,7 +682,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsShieldEquipped))]
     public static ConditionsBuilder AddContextConditionIsShieldEquipped(
         this ConditionsBuilder builder,
-        Boolean CheckCaster,
+        boolean CheckCaster,
         bool negate = false)
     {
       builder.Validate(CheckCaster);
@@ -730,11 +730,11 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionIsWeaponEquipped))]
     public static ConditionsBuilder AddContextConditionIsWeaponEquipped(
         this ConditionsBuilder builder,
-        Boolean CheckWeaponRangeType,
-        Boolean CheckWeaponCategory,
+        boolean CheckWeaponRangeType,
+        boolean CheckWeaponCategory,
         WeaponRangeType RangeType,
         WeaponCategory Category,
-        Boolean CheckOnCaster,
+        boolean CheckOnCaster,
         bool negate = false)
     {
       builder.Validate(CheckWeaponRangeType);
@@ -791,8 +791,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionSharedValueHigher(
         this ConditionsBuilder builder,
         AbilitySharedValue SharedValue,
-        Int32 HigherOrEqual,
-        Boolean Inverted,
+        int HigherOrEqual,
+        boolean Inverted,
         bool negate = false)
     {
       builder.Validate(SharedValue);
@@ -815,7 +815,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionSharedValueHitDice(
         this ConditionsBuilder builder,
         AbilitySharedValue SharedValue,
-        Boolean Inverted,
+        boolean Inverted,
         bool negate = false)
     {
       builder.Validate(SharedValue);
@@ -836,8 +836,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionSize(
         this ConditionsBuilder builder,
         Size Size,
-        Boolean Invert,
-        Boolean CheckCaster,
+        boolean Invert,
+        boolean CheckCaster,
         bool negate = false)
     {
       builder.Validate(Size);
@@ -859,7 +859,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionStatValue))]
     public static ConditionsBuilder AddContextConditionStatValue(
         this ConditionsBuilder builder,
-        Int32 N,
+        int N,
         StatType Stat,
         bool negate = false)
     {
@@ -996,7 +996,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder AddContextConditionWeaponAnimationStyle(
         this ConditionsBuilder builder,
         WeaponAnimationStyle AnimationStyle,
-        Boolean CheckOnCaster,
+        boolean CheckOnCaster,
         bool negate = false)
     {
       builder.Validate(AnimationStyle);

@@ -28,8 +28,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     [Implements(typeof(ContextConditionDungeonStage))]
     public static ConditionsBuilder AddContextConditionDungeonStage(
         this ConditionsBuilder builder,
-        Int32 MinLevel,
-        Int32 MaxLevel,
+        int MinLevel,
+        int MaxLevel,
         bool negate = false)
     {
       builder.Validate(MinLevel);
@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         this ConditionsBuilder builder,
         EntityReference LootObject,
         MapObjectEvaluator MapObject,
-        Boolean EvaluateMapObject,
+        boolean EvaluateMapObject,
         bool negate = false)
     {
       builder.Validate(LootObject);

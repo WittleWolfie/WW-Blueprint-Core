@@ -547,14 +547,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(DrainEnergy))]
     public static ActionsBuilder AddDrainEnergy(
         this ActionsBuilder builder,
-        Boolean NoSource,
+        boolean NoSource,
         UnitEvaluator Source,
         UnitEvaluator Target,
         EnergyDrainType Type,
         Rounds Duration,
         DiceFormula DamageDice,
-        Int32 DamageBonus,
-        Boolean DisableBattleLog)
+        int DamageBonus,
+        boolean DisableBattleLog)
     {
       builder.Validate(NoSource);
       builder.Validate(Source);
@@ -584,9 +584,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(FakePartyRest))]
     public static ActionsBuilder AddFakePartyRest(
         this ActionsBuilder builder,
-        Boolean m_Immediate,
-        Boolean m_IgnoreCorruption,
-        Boolean m_RestWithCraft,
+        boolean m_Immediate,
+        boolean m_IgnoreCorruption,
+        boolean m_RestWithCraft,
         ActionsBuilder m_ActionsOnRestEnd)
     {
       builder.Validate(m_Immediate);
@@ -609,10 +609,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder AddGainExp(
         this ActionsBuilder builder,
         EncounterType Encounter,
-        Int32 CR,
-        Single Modifier,
+        int CR,
+        float Modifier,
         IntEvaluator Count,
-        Boolean Dummy)
+        boolean Dummy)
     {
       builder.Validate(Encounter);
       builder.Validate(CR);
@@ -636,7 +636,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(GainMythicLevel))]
     public static ActionsBuilder AddGainMythicLevel(
         this ActionsBuilder builder,
-        Int32 Levels)
+        int Levels)
     {
       builder.Validate(Levels);
       
@@ -670,7 +670,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator Source,
         UnitEvaluator Target,
-        Boolean ToFullHP,
+        boolean ToFullHP,
         IntEvaluator HealAmount)
     {
       builder.Validate(Source);
@@ -718,9 +718,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator Target,
         UnitEvaluator Killer,
-        Boolean Critical,
-        Boolean DisableBattleLog,
-        Boolean RemoveExp)
+        boolean Critical,
+        boolean DisableBattleLog,
+        boolean RemoveExp)
     {
       builder.Validate(Target);
       builder.Validate(Killer);
@@ -765,8 +765,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator Caster,
         UnitEvaluator Target,
-        Boolean AutoHit,
-        Boolean IgnoreStatBonus)
+        boolean AutoHit,
+        boolean IgnoreStatBonus)
     {
       builder.Validate(Caster);
       builder.Validate(Target);
@@ -807,7 +807,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder AddPartyUseAbility(
         this ActionsBuilder builder,
         AbilitiesHelper.AbilityDescription Description,
-        Boolean AllowItems)
+        boolean AllowItems)
     {
       builder.Validate(Description);
       builder.Validate(AllowItems);
@@ -828,7 +828,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder AddRaiseDead(
         this ActionsBuilder builder,
         string m_companion,
-        Boolean riseAllCompanions)
+        boolean riseAllCompanions)
     {
       builder.Validate(riseAllCompanions);
       
@@ -901,9 +901,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder AddRollPartySkillCheck(
         this ActionsBuilder builder,
         StatType Stat,
-        Int32 DC,
-        Boolean LogSuccess,
-        Boolean LogFailure,
+        int DC,
+        boolean LogSuccess,
+        boolean LogFailure,
         ActionsBuilder OnSuccess,
         ActionsBuilder OnFailure)
     {
@@ -931,11 +931,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         StatType Stat,
         UnitEvaluator Unit,
-        Int32 DC,
-        Boolean LogSuccess,
-        Boolean LogFailure,
-        Boolean Voice,
-        Boolean ForbidPartyHelpInCamp,
+        int DC,
+        boolean LogSuccess,
+        boolean LogFailure,
+        boolean Voice,
+        boolean ForbidPartyHelpInCamp,
         ActionsBuilder OnSuccess,
         ActionsBuilder OnFailure)
     {
@@ -1053,7 +1053,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator Unit,
         UnitCondition Condition,
-        Boolean Remove)
+        boolean Remove)
     {
       builder.Validate(Unit);
       builder.Validate(Condition);
@@ -1078,7 +1078,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         string m_Unit,
         string m_SummonPool,
-        Boolean GroupBySummonPool,
+        boolean GroupBySummonPool,
         TransformEvaluator Transform,
         Vector3 Offset,
         ActionsBuilder OnSummmon)
@@ -1132,7 +1132,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         LocatorEvaluator Locator,
         string m_CopyBlueprint,
         string m_SummonPool,
-        Boolean DoNotCreateItems,
+        boolean DoNotCreateItems,
         ActionsBuilder OnSummon)
     {
       builder.Validate(CopyFrom);
@@ -1160,7 +1160,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator Unit,
         string m_Ability,
-        Boolean IsOn)
+        boolean IsOn)
     {
       builder.Validate(Unit);
       builder.Validate(IsOn);

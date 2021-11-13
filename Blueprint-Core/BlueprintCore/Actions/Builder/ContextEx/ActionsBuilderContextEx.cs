@@ -2169,7 +2169,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder AddContextActionRestoreAllSpellSlots(
         this ActionsBuilder builder,
         UnitEvaluator m_Target,
-        Int32 m_UpToSpellLevel,
+        int m_UpToSpellLevel,
         string[] m_ExcludeSpellbooks)
     {
       builder.Validate(m_Target);

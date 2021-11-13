@@ -131,7 +131,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAnswerListShown(
         this ConditionsBuilder builder,
         string m_AnswersList,
-        Boolean CurrentDialog,
+        boolean CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -153,7 +153,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddAnswerSelected(
         this ConditionsBuilder builder,
         string m_Answer,
-        Boolean CurrentDialog,
+        boolean CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -250,7 +250,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddCueSeen(
         this ConditionsBuilder builder,
         string m_Cue,
-        Boolean CurrentDialog,
+        boolean CurrentDialog,
         bool negate = false)
     {
       builder.Validate(CurrentDialog);
@@ -269,7 +269,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(CurrentChapter))]
     public static ConditionsBuilder AddCurrentChapter(
         this ConditionsBuilder builder,
-        Int32 Chapter,
+        int Chapter,
         bool negate = false)
     {
       builder.Validate(Chapter);
@@ -287,8 +287,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(CutsceneQueueState))]
     public static ConditionsBuilder AddCutsceneQueueState(
         this ConditionsBuilder builder,
-        Boolean First,
-        Boolean Last,
+        boolean First,
+        boolean Last,
         bool negate = false)
     {
       builder.Validate(First);
@@ -308,7 +308,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(DayOfTheMonth))]
     public static ConditionsBuilder AddDayOfTheMonth(
         this ConditionsBuilder builder,
-        Int32 Day,
+        int Day,
         bool negate = false)
     {
       builder.Validate(Day);
@@ -365,11 +365,11 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddEtudeStatus(
         this ConditionsBuilder builder,
         string m_Etude,
-        Boolean NotStarted,
-        Boolean Started,
-        Boolean Playing,
-        Boolean CompletionInProgress,
-        Boolean Completed,
+        boolean NotStarted,
+        boolean Started,
+        boolean Playing,
+        boolean CompletionInProgress,
+        boolean Completed,
         bool negate = false)
     {
       builder.Validate(NotStarted);
@@ -399,8 +399,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddFlagInRange(
         this ConditionsBuilder builder,
         string m_Flag,
-        Int32 MinValue,
-        Int32 MaxValue,
+        int MinValue,
+        int MaxValue,
         bool negate = false)
     {
       builder.Validate(MinValue);
@@ -424,8 +424,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddFlagUnlocked(
         this ConditionsBuilder builder,
         string m_ConditionFlag,
-        Boolean ExceptSpecifiedValues,
-        List<Int32> SpecifiedValues,
+        boolean ExceptSpecifiedValues,
+        List<int> SpecifiedValues,
         bool negate = false)
     {
       builder.Validate(ExceptSpecifiedValues);
@@ -464,7 +464,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(MonthFromList))]
     public static ConditionsBuilder AddMonthFromList(
         this ConditionsBuilder builder,
-        Int32[] Months,
+        int[] Months,
         bool negate = false)
     {
       foreach (var item in Months)
@@ -558,7 +558,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerSignificantClassIs))]
     public static ConditionsBuilder AddPlayerSignificantClassIs(
         this ConditionsBuilder builder,
-        Boolean CheckGroup,
+        boolean CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
         bool negate = false)
@@ -583,7 +583,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(PlayerTopClassIs))]
     public static ConditionsBuilder AddPlayerTopClassIs(
         this ConditionsBuilder builder,
-        Boolean CheckGroup,
+        boolean CheckGroup,
         string m_CharacterClass,
         string m_CharacterClassGroup,
         bool negate = false)

@@ -154,13 +154,40 @@ namespace BlueprintCoreGen.CodeGen
       }
       if (!type.IsGenericType)
       {
-        return type.DeclaringType is null ? type.Name : $"{type.DeclaringType.Name}.{type.Name}";
+        var name = GetConvertedTypeName(type);
+        return type.DeclaringType is null ? name : $"{type.DeclaringType.Name}.{name}";
       }
       string typeName = type.GetGenericTypeDefinition().Name;
       typeName = typeName.Substring(0, typeName.IndexOf('`'));
       string typeArguments =
           string.Join(",", type.GetGenericArguments().Select(typeArg => GetTypeName(typeArg)).ToArray());
       return typeName + "<" + typeArguments + ">";
+    }
+
+    private static Dictionary<string, string> ClassToPrimitive =
+        new()
+        {
+          { "Boolean", "boolean" },
+          { "Byte", "byte" },
+          { "SByte", "sbyte" },
+          { "Int16", "short" },
+          { "UInt16", "ushort" },
+          { "Int32", "int" },
+          { "UInt32", "uint" },
+          { "Int64", "long" },
+          { "UInt64", "ulong" },
+          { "Char", "char" },
+          { "Double", "double" },
+          { "Single", "float" },
+        };
+
+    private static string GetConvertedTypeName(Type type)
+    {
+      if (ClassToPrimitive.ContainsKey(type.Name))
+      {
+        return ClassToPrimitive[type.Name];
+      }
+      return type.Name;
     }
 
     /// <summary>

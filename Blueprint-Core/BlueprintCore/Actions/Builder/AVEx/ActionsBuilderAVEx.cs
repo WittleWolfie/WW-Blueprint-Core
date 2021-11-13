@@ -139,8 +139,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(OverrideRainIntesity))]
     public static ActionsBuilder AddOverrideRainIntesity(
         this ActionsBuilder builder,
-        Single RainIntensity,
-        Single Duration)
+        float RainIntensity,
+        float Duration)
     {
       builder.Validate(RainIntensity);
       builder.Validate(Duration);
@@ -159,8 +159,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddPlay2DSound(
         this ActionsBuilder builder,
         String SoundName,
-        Boolean SetSex,
-        Boolean SetRace)
+        boolean SetSex,
+        boolean SetRace)
     {
       foreach (var item in SoundName)
       {
@@ -185,9 +185,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
         this ActionsBuilder builder,
         String SoundName,
         EntityReference SoundSourceObject,
-        Boolean SetSex,
-        Boolean SetRace,
-        Boolean SetCurrentSpeaker)
+        boolean SetSex,
+        boolean SetRace,
+        boolean SetCurrentSpeaker)
     {
       foreach (var item in SoundName)
       {
@@ -216,8 +216,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         this ActionsBuilder builder,
         AnimationClipWrapper m_ClipWrapper,
         UnitEvaluator Unit,
-        Single TransitionIn,
-        Single TransitionOut)
+        float TransitionIn,
+        float TransitionOut)
     {
       builder.Validate(m_ClipWrapper);
       builder.Validate(Unit);
@@ -267,8 +267,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddPlayCutscene(
         this ActionsBuilder builder,
         string m_Cutscene,
-        Boolean PutInQueue,
-        Boolean CheckExistence,
+        boolean PutInQueue,
+        boolean CheckExistence,
         ParametrizedContextSetter Parameters)
     {
       builder.Validate(PutInQueue);
@@ -291,7 +291,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddReloadMechanic(
         this ActionsBuilder builder,
         String Desc,
-        Boolean ClearFx)
+        boolean ClearFx)
     {
       foreach (var item in Desc)
       {
@@ -330,7 +330,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         this ActionsBuilder builder,
         LocalizedString WhatToBark,
         SharedStringAsset WhatToBarkShared,
-        Boolean BarkDurationByText,
+        boolean BarkDurationByText,
         UnitEvaluator TargetUnit,
         MapObjectEvaluator TargetMapObject)
     {
@@ -409,7 +409,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddToggleObjectFx(
         this ActionsBuilder builder,
         MapObjectEvaluator Target,
-        Boolean ToggleOn)
+        boolean ToggleOn)
     {
       builder.Validate(Target);
       builder.Validate(ToggleOn);
@@ -428,7 +428,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder AddToggleObjectMusic(
         this ActionsBuilder builder,
         MapObjectEvaluator Target,
-        Boolean ToggleOn)
+        boolean ToggleOn)
     {
       builder.Validate(Target);
       builder.Validate(ToggleOn);

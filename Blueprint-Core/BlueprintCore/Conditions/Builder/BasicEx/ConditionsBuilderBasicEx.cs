@@ -47,7 +47,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     [Implements(typeof(BuffConditionCheckRoundNumber))]
     public static ConditionsBuilder AddBuffConditionCheckRoundNumber(
         this ConditionsBuilder builder,
-        Int32 RoundNumber,
+        int RoundNumber,
         bool negate = false)
     {
       builder.Validate(RoundNumber);
@@ -115,11 +115,11 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddCompanionInParty(
         this ConditionsBuilder builder,
         string m_companion,
-        Boolean MatchWhenActive,
-        Boolean MatchWhenDetached,
-        Boolean MatchWhenRemote,
-        Boolean MatchWhenDead,
-        Boolean MatchWhenEx,
+        boolean MatchWhenActive,
+        boolean MatchWhenDetached,
+        boolean MatchWhenRemote,
+        boolean MatchWhenDead,
+        boolean MatchWhenEx,
         bool negate = false)
     {
       builder.Validate(MatchWhenActive);
@@ -149,7 +149,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddCompanionIsDead(
         this ConditionsBuilder builder,
         string m_companion,
-        Boolean anyCompanion,
+        boolean anyCompanion,
         bool negate = false)
     {
       builder.Validate(anyCompanion);
@@ -190,7 +190,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddCompanionIsUnconscious(
         this ConditionsBuilder builder,
         string companion,
-        Boolean anyCompanion,
+        boolean anyCompanion,
         bool negate = false)
     {
       builder.Validate(anyCompanion);
@@ -296,7 +296,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddIsInCombat(
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
-        Boolean Player,
+        boolean Player,
         bool negate = false)
     {
       builder.Validate(Unit);
@@ -368,8 +368,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddIsUnitLevelLessThan(
         this ConditionsBuilder builder,
         UnitEvaluator Unit,
-        Int32 Level,
-        Boolean CheckExperience,
+        int Level,
+        boolean CheckExperience,
         bool negate = false)
     {
       builder.Validate(Unit);
@@ -414,7 +414,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddItemFromCollectionCondition(
         this ConditionsBuilder builder,
         ItemsCollectionEvaluator Items,
-        Boolean Any,
+        boolean Any,
         ConditionsBuilder Condition,
         bool negate = false)
     {
@@ -438,9 +438,9 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     [Implements(typeof(ItemsEnough))]
     public static ConditionsBuilder AddItemsEnough(
         this ConditionsBuilder builder,
-        Boolean Money,
+        boolean Money,
         string m_ItemToCheck,
-        Int32 Quantity,
+        int Quantity,
         bool negate = false)
     {
       builder.Validate(Money);
@@ -462,7 +462,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder AddPartyCanUseAbility(
         this ConditionsBuilder builder,
         AbilitiesHelper.AbilityDescription Description,
-        Boolean AllowItems,
+        boolean AllowItems,
         bool negate = false)
     {
       builder.Validate(Description);
@@ -482,7 +482,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     [Implements(typeof(PartyUnits))]
     public static ConditionsBuilder AddPartyUnits(
         this ConditionsBuilder builder,
-        Boolean Any,
+        boolean Any,
         ConditionsBuilder Conditions,
         bool negate = false)
     {

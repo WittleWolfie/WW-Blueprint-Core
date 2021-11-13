@@ -870,7 +870,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomIncreaseIncome))]
     public static ActionsBuilder AddKingdomIncreaseIncome(
         this ActionsBuilder builder,
-        Int32 Bonus,
+        int Bonus,
         KingdomResource ResourceType)
     {
       builder.Validate(Bonus);
@@ -889,7 +889,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(ChangeKingdomMoraleMaximum))]
     public static ActionsBuilder AddChangeKingdomMoraleMaximum(
         this ActionsBuilder builder,
-        Int32 m_MaxValueDelta)
+        int m_MaxValueDelta)
     {
       builder.Validate(m_MaxValueDelta);
       
@@ -925,7 +925,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomFlagIncrement(
         this ActionsBuilder builder,
         string m_TargetFlag,
-        Int32 m_Increment)
+        int m_Increment)
     {
       builder.Validate(m_Increment);
       
@@ -990,7 +990,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_TargetFlag,
         KingdomMoraleFlag.State m_State,
-        Int32 m_MaxDays)
+        int m_MaxDays)
     {
       builder.Validate(m_State);
       builder.Validate(m_MaxDays);
@@ -1009,7 +1009,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(ReduceNegativeMorale))]
     public static ActionsBuilder AddReduceNegativeMorale(
         this ActionsBuilder builder,
-        Int32 m_Value)
+        int m_Value)
     {
       builder.Validate(m_Value);
       
@@ -1025,7 +1025,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(AddGrowthBonus))]
     public static ActionsBuilder AddAddGrowthBonus(
         this ActionsBuilder builder,
-        Int32 Bonus)
+        int Bonus)
     {
       builder.Validate(Bonus);
       
@@ -1044,7 +1044,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddAddMercenaryToPool(
         this ActionsBuilder builder,
         string m_Unit,
-        Single m_Weight)
+        float m_Weight)
     {
       builder.Validate(m_Weight);
       
@@ -1065,9 +1065,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddAddTacticalArmyFeature(
         this ActionsBuilder builder,
         MercenariesIncludeOption m_MercenariesFilter,
-        Boolean m_ByTag,
+        boolean m_ByTag,
         ArmyProperties m_ArmyTag,
-        Boolean m_ByUnits,
+        boolean m_ByUnits,
         string[] m_ArmyUnits,
         string[] m_Features,
         ArmyFaction m_Faction)
@@ -1099,7 +1099,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddChangeMercenaryWeight(
         this ActionsBuilder builder,
         string m_Unit,
-        Single m_Weight)
+        float m_Weight)
     {
       builder.Validate(m_Weight);
       
@@ -1119,7 +1119,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddDecreaseRecruitsGrowth(
         this ActionsBuilder builder,
         string m_Unit,
-        Int32 Count)
+        int Count)
     {
       builder.Validate(Count);
       
@@ -1139,7 +1139,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddDecreaseRecruitsPool(
         this ActionsBuilder builder,
         string m_Unit,
-        Int32 Count)
+        int Count)
     {
       builder.Validate(Count);
       
@@ -1159,9 +1159,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(ExchangeRecruits))]
     public static ActionsBuilder AddExchangeRecruits(
         this ActionsBuilder builder,
-        Int32 NewGrowth,
-        Int32 OldGrowth,
-        Single ConvertCoefficient,
+        int NewGrowth,
+        int OldGrowth,
+        float ConvertCoefficient,
         string m_OldUnit,
         string m_NewUnit)
     {
@@ -1188,7 +1188,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddIncreaseRecruitsGrowth(
         this ActionsBuilder builder,
         string m_Unit,
-        Int32 Count)
+        int Count)
     {
       builder.Validate(Count);
       
@@ -1208,7 +1208,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddIncreaseRecruitsPool(
         this ActionsBuilder builder,
         string m_Unit,
-        Int32 Count)
+        int Count)
     {
       builder.Validate(Count);
       
@@ -1316,7 +1316,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionGetArtisanGiftWithCertainTier(
         this ActionsBuilder builder,
         string m_Artisan,
-        Int32 tier)
+        int tier)
     {
       builder.Validate(tier);
       
@@ -1333,8 +1333,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionGetPartyGoldByUnitsCount))]
     public static ActionsBuilder AddKingdomActionGetPartyGoldByUnitsCount(
         this ActionsBuilder builder,
-        Int32 m_GoldPerUnit,
-        Single m_Coefficient)
+        int m_GoldPerUnit,
+        float m_Coefficient)
     {
       builder.Validate(m_GoldPerUnit);
       builder.Validate(m_Coefficient);
@@ -1353,7 +1353,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionGetResourcesByUnitsCount(
         this ActionsBuilder builder,
         KingdomResourcesAmount m_ResourcePerUnit,
-        Single m_Coefficient)
+        float m_Coefficient)
     {
       builder.Validate(m_ResourcePerUnit);
       builder.Validate(m_Coefficient);
@@ -1371,9 +1371,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionGetResourcesPercent))]
     public static ActionsBuilder AddKingdomActionGetResourcesPercent(
         this ActionsBuilder builder,
-        Single m_Percent,
+        float m_Percent,
         KingdomResource m_ResourceType,
-        Int32 m_MaxResourceCountGained)
+        int m_MaxResourceCountGained)
     {
       builder.Validate(m_Percent);
       builder.Validate(m_ResourceType);
@@ -1449,7 +1449,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionMakeRoll(
         this ActionsBuilder builder,
         KingdomStats.Type Stat,
-        Int32 DC,
+        int DC,
         ActionsBuilder OnSuccess,
         ActionsBuilder OnFailure)
     {
@@ -1471,7 +1471,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyBuildTime))]
     public static ActionsBuilder AddKingdomActionModifyBuildTime(
         this ActionsBuilder builder,
-        Single ChangeTime)
+        float ChangeTime)
     {
       builder.Validate(ChangeTime);
       
@@ -1487,8 +1487,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyClaims))]
     public static ActionsBuilder AddKingdomActionModifyClaims(
         this ActionsBuilder builder,
-        Single ChangeTime,
-        Single ChangeCost)
+        float ChangeTime,
+        float ChangeCost)
     {
       builder.Validate(ChangeTime);
       builder.Validate(ChangeCost);
@@ -1506,7 +1506,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyEventDC))]
     public static ActionsBuilder AddKingdomActionModifyEventDC(
         this ActionsBuilder builder,
-        Int32 Modifier)
+        int Modifier)
     {
       builder.Validate(Modifier);
       
@@ -1522,9 +1522,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyRE))]
     public static ActionsBuilder AddKingdomActionModifyRE(
         this ActionsBuilder builder,
-        Single UnclaimedChange,
-        Single ClaimedChange,
-        Single UpgradedChange)
+        float UnclaimedChange,
+        float ClaimedChange,
+        float UpgradedChange)
     {
       builder.Validate(UnclaimedChange);
       builder.Validate(ClaimedChange);
@@ -1544,7 +1544,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyRankTime))]
     public static ActionsBuilder AddKingdomActionModifyRankTime(
         this ActionsBuilder builder,
-        Single ChangeTime)
+        float ChangeTime)
     {
       builder.Validate(ChangeTime);
       
@@ -1560,7 +1560,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyStatRandom))]
     public static ActionsBuilder AddKingdomActionModifyStatRandom(
         this ActionsBuilder builder,
-        Boolean IncludeInEventStats,
+        boolean IncludeInEventStats,
         DiceFormula Change)
     {
       builder.Validate(IncludeInEventStats);
@@ -1579,7 +1579,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyStats))]
     public static ActionsBuilder AddKingdomActionModifyStats(
         this ActionsBuilder builder,
-        Boolean IncludeInEventStats,
+        boolean IncludeInEventStats,
         KingdomStats.Changes Changes)
     {
       builder.Validate(IncludeInEventStats);
@@ -1598,8 +1598,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionModifyUnrest))]
     public static ActionsBuilder AddKingdomActionModifyUnrest(
         this ActionsBuilder builder,
-        Boolean MakeBetter,
-        Boolean Bounded,
+        boolean MakeBetter,
+        boolean Bounded,
         KingdomStatusChangeReason Reason,
         SharedStringAsset ReasonString,
         KingdomStatusType UpTo)
@@ -1626,7 +1626,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionNextChapter))]
     public static ActionsBuilder AddKingdomActionNextChapter(
         this ActionsBuilder builder,
-        Int32 ChapterNumber)
+        int ChapterNumber)
     {
       builder.Validate(ChapterNumber);
       
@@ -1666,9 +1666,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionRemoveBuff(
         this ActionsBuilder builder,
         string m_Blueprint,
-        Boolean ApplyToRegion,
+        boolean ApplyToRegion,
         string m_Region,
-        Boolean m_AllBuffs)
+        boolean m_AllBuffs)
     {
       builder.Validate(ApplyToRegion);
       builder.Validate(m_AllBuffs);
@@ -1691,8 +1691,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionRemoveEvent(
         this ActionsBuilder builder,
         string m_EventBlueprint,
-        Boolean CancelIfInProgress,
-        Boolean AllIfMultiple)
+        boolean CancelIfInProgress,
+        boolean AllIfMultiple)
     {
       builder.Validate(CancelIfInProgress);
       builder.Validate(AllIfMultiple);
@@ -1761,7 +1761,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionResolveCrusadeEvent(
         this ActionsBuilder builder,
         string m_EventBlueprint,
-        Int32 m_SolutionIndex)
+        int m_SolutionIndex)
     {
       builder.Validate(m_SolutionIndex);
       
@@ -1783,7 +1783,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string m_EventBlueprint,
         EventResult.MarginType Result,
         Alignment Alignment,
-        Boolean FinalResolve)
+        boolean FinalResolve)
     {
       builder.Validate(Result);
       builder.Validate(Alignment);
@@ -1832,12 +1832,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddKingdomActionRollbackRecurrence(
         this ActionsBuilder builder,
         KingdomActionRollbackRecurrence.RollbackType m_Type,
-        Int32 m_LastNDays,
-        Int32 m_LastNTimes,
-        Single m_ResourcesRatio,
-        Boolean m_IncludeResources,
-        Boolean m_IncludeResourcesPerTurn,
-        Boolean m_IncludeStats)
+        int m_LastNDays,
+        int m_LastNTimes,
+        float m_ResourcesRatio,
+        boolean m_IncludeResources,
+        boolean m_IncludeResourcesPerTurn,
+        boolean m_IncludeStats)
     {
       builder.Validate(m_Type);
       builder.Validate(m_LastNDays);
@@ -1887,7 +1887,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         KingdomResourcesAmount IncomePerClaimed,
         KingdomResourcesAmount IncomePerUpgraded,
-        Boolean Add)
+        boolean Add)
     {
       builder.Validate(IncomePerClaimed);
       builder.Validate(IncomePerUpgraded);
@@ -1945,11 +1945,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string m_Event,
         string m_Region,
-        Boolean RandomRegion,
-        Int32 DelayDays,
-        Boolean StartNextMonth,
-        Boolean CheckTriggerImmediately,
-        Boolean CheckTriggerOnStart)
+        boolean RandomRegion,
+        int DelayDays,
+        boolean StartNextMonth,
+        boolean CheckTriggerImmediately,
+        boolean CheckTriggerOnStart)
     {
       builder.Validate(RandomRegion);
       builder.Validate(DelayDays);
@@ -2042,10 +2042,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(CreateArmyFromLosses))]
     public static ActionsBuilder AddCreateArmyFromLosses(
         this ActionsBuilder builder,
-        Int32 m_SumExperience,
-        Int32 m_SquadsMaxCount,
+        int m_SumExperience,
+        int m_SquadsMaxCount,
         string m_Location,
-        Boolean m_ApplyRecruitIncrease)
+        boolean m_ApplyRecruitIncrease)
     {
       builder.Validate(m_SumExperience);
       builder.Validate(m_SquadsMaxCount);
@@ -2125,7 +2125,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder AddRemoveGarrison(
         this ActionsBuilder builder,
         string m_Location,
-        Boolean HandleAsGarrisonDefeated)
+        boolean HandleAsGarrisonDefeated)
     {
       builder.Validate(HandleAsGarrisonDefeated);
       
@@ -2146,17 +2146,17 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         ArmiesEvaluator m_Armies,
         RemoveUnitFromArmy.RemoveUnitFromArmyMode m_Mode,
-        Boolean m_RemoveCheapestUnit,
-        Boolean m_RemoveSpecificUnit,
+        boolean m_RemoveCheapestUnit,
+        boolean m_RemoveSpecificUnit,
         string m_UnitToRemove,
-        Boolean m_LimitUnitExperienceMinimum,
-        Int32 m_UnitExperienceMinimum,
-        Boolean m_LimitUnitExperienceMaximum,
-        Int32 m_UnitExperienceMaximum,
+        boolean m_LimitUnitExperienceMinimum,
+        int m_UnitExperienceMinimum,
+        boolean m_LimitUnitExperienceMaximum,
+        int m_UnitExperienceMaximum,
         UnitTag[] m_UnitTagWhitelist,
         UnitTag[] m_UnitTagBlacklist,
-        Int32 m_Experience,
-        Single m_Percentage)
+        int m_Experience,
+        float m_Percentage)
     {
       builder.Validate(m_Armies);
       builder.Validate(m_Mode);

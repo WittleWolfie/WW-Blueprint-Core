@@ -29,9 +29,9 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     [Implements(typeof(ContextConditionDifficultyHigherThan))]
     public static ConditionsBuilder AddContextConditionDifficultyHigherThan(
         this ConditionsBuilder builder,
-        Boolean Less,
-        Boolean Reverse,
-        Boolean CheckOnlyForMonster,
+        boolean Less,
+        boolean Reverse,
+        boolean CheckOnlyForMonster,
         DifficultyPresetAsset m_Difficulty,
         bool negate = false)
     {

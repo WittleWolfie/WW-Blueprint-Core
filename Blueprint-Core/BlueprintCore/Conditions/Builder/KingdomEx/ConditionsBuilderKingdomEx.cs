@@ -45,7 +45,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(TacticalCombatSquadHitPointsCondition))]
     public static ConditionsBuilder AddTacticalCombatSquadHitPointsCondition(
         this ConditionsBuilder builder,
-        Boolean CheckInitiatorHP,
+        boolean CheckInitiatorHP,
         CompareOperation.Type Operation,
         ContextValue ReferenceValue,
         bool negate = false)
@@ -70,7 +70,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddTargetHasArmyTag(
         this ConditionsBuilder builder,
         ArmyProperties m_Tags,
-        Boolean m_NeedAllTags,
+        boolean m_NeedAllTags,
         bool negate = false)
     {
       builder.Validate(m_Tags);
@@ -183,7 +183,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddBuildingHasNeighbours(
         this ConditionsBuilder builder,
         string[] m_SpecificBuildings,
-        Boolean AnywhereInTown,
+        boolean AnywhereInTown,
         bool negate = false)
     {
       builder.Validate(AnywhereInTown);
@@ -202,8 +202,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(DaysTillNextMonth))]
     public static ConditionsBuilder AddDaysTillNextMonth(
         this ConditionsBuilder builder,
-        Boolean AtMost,
-        Int32 Days,
+        boolean AtMost,
+        int Days,
         bool negate = false)
     {
       builder.Validate(AtMost);
@@ -223,8 +223,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(EventLifetime))]
     public static ConditionsBuilder AddEventLifetime(
         this ConditionsBuilder builder,
-        Int32 LessThan,
-        Int32 MoreThan,
+        int LessThan,
+        int MoreThan,
         bool negate = false)
     {
       builder.Validate(LessThan);
@@ -285,7 +285,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         this ConditionsBuilder builder,
         string m_Artisan,
         KingdomArtisanState.CheckType _Check,
-        Int32 Tier,
+        int Tier,
         bool negate = false)
     {
       builder.Validate(_Check);
@@ -328,7 +328,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(KingdomChapterWeek))]
     public static ConditionsBuilder AddKingdomChapterWeek(
         this ConditionsBuilder builder,
-        Int32 Week,
+        int Week,
         bool negate = false)
     {
       builder.Validate(Week);
@@ -346,8 +346,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(KingdomDay))]
     public static ConditionsBuilder AddKingdomDay(
         this ConditionsBuilder builder,
-        Boolean AtMost,
-        Int32 Day,
+        boolean AtMost,
+        int Day,
         bool negate = false)
     {
       builder.Validate(AtMost);
@@ -498,7 +498,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         this ConditionsBuilder builder,
         LeaderType Leader,
         string m_Unit,
-        Boolean AllowCustomCompanions,
+        boolean AllowCustomCompanions,
         bool negate = false)
     {
       builder.Validate(Leader);
@@ -522,9 +522,9 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomProjectIsAvailable(
         this ConditionsBuilder builder,
         string m_Project,
-        Boolean CheckResources,
-        Boolean CheckLeader,
-        Boolean FinishableThisMonth,
+        boolean CheckResources,
+        boolean CheckLeader,
+        boolean FinishableThisMonth,
         bool negate = false)
     {
       builder.Validate(CheckResources);
@@ -567,7 +567,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomRankUpConditions(
         this ConditionsBuilder builder,
         KingdomStats.Type Stat,
-        Int32 NextRank,
+        int NextRank,
         bool negate = false)
     {
       builder.Validate(Stat);
@@ -629,7 +629,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomSettlementCount(
         this ConditionsBuilder builder,
         SettlementState.LevelType MinLevel,
-        Int32 Count,
+        int Count,
         bool negate = false)
     {
       builder.Validate(MinLevel);
@@ -672,9 +672,9 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomStatCheck(
         this ConditionsBuilder builder,
         KingdomStats.Type StatType,
-        Int32 Value,
-        Boolean AtMost,
-        Boolean CheckRank,
+        int Value,
+        boolean AtMost,
+        boolean CheckRank,
         bool negate = false)
     {
       builder.Validate(StatType);
@@ -738,7 +738,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     public static ConditionsBuilder AddKingdomUnrestCheck(
         this ConditionsBuilder builder,
         KingdomStatusType Value,
-        Boolean AtMost,
+        boolean AtMost,
         bool negate = false)
     {
       builder.Validate(Value);
