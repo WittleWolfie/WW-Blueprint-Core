@@ -20,6 +20,8 @@ namespace BlueprintCoreGen.CodeGen
     public static ConfiguratorTemplate CreateConfiguratorClass(
         Type blueprintType, List<MethodTemplate> componentMethods, Type[] gameTypes)
     {
+      // TODO: Clean up existing configurators to mimic this namespace convention + put Feature & Base Feature into a
+      // single class.
       var splitNamespace =
           blueprintType.Namespace.Split('.').Where(str => !IgnoredConfiguratorNamespaces.Contains(str));
 
@@ -29,13 +31,39 @@ namespace BlueprintCoreGen.CodeGen
       template.AddLine($"namespace BlueprintCore.Blueprints.{string.Join('.', splitNamespace)}");
       template.AddLine(@"{");
 
-      var hasSubclass = gameTypes.ToList().Exists(t => t.IsSubclassOf(blueprintType));
-      template.AddDeclaration(blueprintType.IsAbstract || hasSubclass);
+      if (blueprintType.IsAbstract)
+      {
+        AddConfiguratorClass(template, componentMethods, isAbstract: true);
+      }
+      else if (gameTypes.ToList().Exists(t => t.IsSubclassOf(blueprintType)))
+      {
+        AddConfiguratorClass(template, componentMethods, isAbstract: true);
+        template.AddLine("");
+        AddConfiguratorClass(template, componentMethods);
+      }
+      else
+      {
+        AddConfiguratorClass(template, new List<MethodTemplate>());
+      }
 
+      template.AddLine(@"}");
+      return template;
+    }
 
+    private static void AddConfiguratorClass(
+      ConfiguratorTemplate template, List<MethodTemplate> componentMethods, bool isAbstract = false)
+    {
+      template.AddDeclaration(isAbstract);
+      template.AddLine("");
 
+      // TODO: Field methods
 
-      return new("");
+      foreach (var method in componentMethods)
+      {
+        template.AddConfiguratorMethod(method, isAbstract);
+      }
+
+      template.EndClass();
     }
 
     public static List<MethodTemplate> CreateFieldMethod(FieldInfo field)
@@ -149,7 +177,6 @@ namespace BlueprintCoreGen.CodeGen
       method.AddAttribute($"[Implements(typeof({type.Name}))]");
 
       // TODO: Handle unique components
-      // TODO: Handle concrete classes
       if (fields.Any())
       {
         method.AddDeclaration($"public TBuilder Add{type.Name}(");

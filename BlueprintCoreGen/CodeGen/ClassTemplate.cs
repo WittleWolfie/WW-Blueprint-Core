@@ -49,6 +49,8 @@ namespace BlueprintCoreGen.CodeGen
       ClassText.Append(method.GetText());
     }
 
+    protected void Append(string text) { ClassText.Append(text);  }
+
     /// <summary>
     /// Adds a type implemented in the output class.
     /// </summary>
@@ -89,6 +91,13 @@ namespace BlueprintCoreGen.CodeGen
 
     public ConfiguratorTemplate(string relativePath) : base(relativePath) { }
 
+    public void AddConfiguratorMethod(MethodTemplate method, bool isAbstract)
+    {
+      method.GetImports().ForEach(import => AddImport(import));
+      AddLine("");
+      Append(isAbstract ? method.GetText() : method.GetText().Replace("TBuilder", GetClassName(BlueprintType)));
+    }
+
     public void AddDeclaration(bool isAbstract)
     {
       var className = GetClassName(BlueprintType, true);
@@ -97,6 +106,7 @@ namespace BlueprintCoreGen.CodeGen
         AddLine($"  /// <summary>");
         AddLine($"  /// Implements common fields and components for blueprints inheriting from <see cref=\"{BlueprintType.Name}\"/>.");
         AddLine($"  /// <inheritdoc/>");
+        AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
         AddLine($"  public abstract class {className}<T, TBuilder>");
         AddLine($"      : Base{GetClassName(BlueprintType.BaseType, true)}<T, TBuilder>");
         AddLine($"      where T : {BlueprintType.Name}");
@@ -109,6 +119,7 @@ namespace BlueprintCoreGen.CodeGen
         AddLine($"  /// <summary>Configurator for <see cref=\"{BlueprintType.Name}\"/>.</summary>");
         AddLine($"  /// <inheritdoc/>");
         AddLine($"  public class {className} : {GetClassName(BlueprintType.BaseType, true)}<{BlueprintType.Name}, {className}>");
+        AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
         AddLine(@"  {");
         AddLine($"     private {className}(string name) : base(name) {{ }}");
         AddLine("");
@@ -118,6 +129,11 @@ namespace BlueprintCoreGen.CodeGen
         AddLine("");
         AddStaticConstructor(className, ConstructorType.NewAssetId);
       }
+    }
+
+    public void EndClass()
+    {
+      AddLine(@"  {");
     }
 
     private enum ConstructorType
