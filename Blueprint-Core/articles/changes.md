@@ -6,6 +6,13 @@
 * Updated generated code field declarations to use primitive type names
 * Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
 
+### Code Moves
+
+Some code was moved around for consistency.
+
+* BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils
+* All BlueprintConfigurators were moved from BlueprintCore.Blueprints to BlueprintCore.Configurators
+
 ## v0.6.0 Release
 
 * Completed ConditionsBuilder API using auto-generated methods

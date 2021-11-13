@@ -1,10 +1,9 @@
+using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
 
-namespace BlueprintCore.Blueprints
+namespace BlueprintCore.Utils
 {
   /// <summary>
   /// Tool for operations on blueprints.

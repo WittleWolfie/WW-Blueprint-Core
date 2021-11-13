@@ -25,13 +25,22 @@ namespace BlueprintCoreGen.CodeGen
       var splitNamespace =
           blueprintType.Namespace.Split('.').Where(str => !IgnoredConfiguratorNamespaces.Contains(str));
 
-      var template = new ConfiguratorTemplate(string.Join('/', splitNamespace))
+      var template = new ConfiguratorTemplate(
+          $"BlueprintConfigurators/{string.Join('/', splitNamespace)}/{ConfiguratorTemplate.GetClassName(blueprintType)}.cs")
       {
         BlueprintType = blueprintType
       };
 
-      template.AddLine($"namespace BlueprintCore.Blueprints.{string.Join('.', splitNamespace)}");
-      template.AddLine(@"{");
+      if (splitNamespace.Any())
+      {
+        template.AddLine($"namespace BlueprintCore.Blueprints.Configurators.{string.Join('.', splitNamespace)}");
+        template.AddLine(@"{");
+      }
+      else
+      {
+        template.AddLine($"namespace BlueprintCore.Blueprints.Configurators");
+        template.AddLine(@"{");
+      }
 
       if (blueprintType.IsAbstract)
       {

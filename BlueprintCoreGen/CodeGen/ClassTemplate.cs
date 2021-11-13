@@ -155,7 +155,6 @@ namespace BlueprintCoreGen.CodeGen
           AddLine(@"    }");
           break;
         case ConstructorType.New:
-          AddImport(typeof(BlueprintTool));
           AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string)\"/>");
           AddLine($"    public static {GetClassName(BlueprintType)} New(string name)");
           AddLine(@"    {");
@@ -164,7 +163,6 @@ namespace BlueprintCoreGen.CodeGen
           AddLine(@"    }");
           break;
         case ConstructorType.NewAssetId:
-          AddImport(typeof(BlueprintTool));
           AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string, string)\"/>");
           AddLine($"    public static {GetClassName(BlueprintType)} New(string name, string assetId)");
           AddLine(@"    {");
@@ -175,7 +173,7 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static string GetClassName(Type type, bool isAbstract = false)
+    public static string GetClassName(Type type, bool isAbstract = false)
     {
       var prefix = isAbstract ? "Base" : "";
       return $"{prefix}{type.Name.Replace("Blueprint", "")}Configurator";
