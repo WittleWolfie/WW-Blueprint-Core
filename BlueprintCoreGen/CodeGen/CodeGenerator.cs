@@ -25,8 +25,10 @@ namespace BlueprintCoreGen.CodeGen
       var splitNamespace =
           blueprintType.Namespace.Split('.').Where(str => !IgnoredConfiguratorNamespaces.Contains(str));
 
-      var template = new ConfiguratorTemplate(string.Join('/', splitNamespace));
-      template.BlueprintType = blueprintType;
+      var template = new ConfiguratorTemplate(string.Join('/', splitNamespace))
+      {
+        BlueprintType = blueprintType
+      };
 
       template.AddLine($"namespace BlueprintCore.Blueprints.{string.Join('.', splitNamespace)}");
       template.AddLine(@"{");

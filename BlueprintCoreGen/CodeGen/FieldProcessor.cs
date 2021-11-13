@@ -95,6 +95,7 @@ namespace BlueprintCoreGen.CodeGen
           return $"ActionsBuilder {Info.Name}";
         case FieldType.Conditions:
           return $"ConditionsBuilder {Info.Name}";
+        case FieldType.Default:
         default:
           return $"{GetTypeName(Info.FieldType)} {Info.Name}";
       }
@@ -107,6 +108,7 @@ namespace BlueprintCoreGen.CodeGen
         case FieldType.Actions:
         case FieldType.Conditions:
           return $"{Info.Name} = {Info.Name}.Build();";
+        case FieldType.Default:
         default:
           return $"{Info.Name} = {Info.Name};";
       }
@@ -167,7 +169,7 @@ namespace BlueprintCoreGen.CodeGen
     private static readonly Dictionary<string, string> ClassToPrimitive =
         new()
         {
-          { "Boolean", "boolean" },
+          { "Boolean", "bool" },
           { "Byte", "byte" },
           { "SByte", "sbyte" },
           { "Int16", "short" },
