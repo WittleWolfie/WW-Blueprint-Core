@@ -3,7 +3,8 @@
 ## v0.7.0 Release
 
 * Added generic Add functions w/ init for BlueprintComponent, Action, and Condition
-* 
+* Updated generated code field declarations to use primitive type names
+* Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
 
 ## v0.6.0 Release
 
