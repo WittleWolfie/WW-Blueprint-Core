@@ -164,7 +164,7 @@ namespace BlueprintCoreGen.CodeGen
       return typeName + "<" + typeArguments + ">";
     }
 
-    private static Dictionary<string, string> ClassToPrimitive =
+    private static readonly Dictionary<string, string> ClassToPrimitive =
         new()
         {
           { "Boolean", "boolean" },

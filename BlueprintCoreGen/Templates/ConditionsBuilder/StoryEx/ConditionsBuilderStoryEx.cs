@@ -1,4 +1,4 @@
-﻿namespace BlueprintCoreGen.Conditions.Builder.MiscEx
+﻿namespace BlueprintCoreGen.Conditions.Builder.StoryEx
 {
   /// <summary>
   /// Extension to <see cref="ConditionsBuilder"/> for conditions related to the story such as companion stories, quests,
