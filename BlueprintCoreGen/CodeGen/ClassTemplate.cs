@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Blueprints;
+using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,10 @@ namespace BlueprintCoreGen.CodeGen
       {
         _blueprintType = value;
         AddImport(_blueprintType);
+        if (_blueprintType != typeof(BlueprintScriptableObject))
+        {
+          AddImport($"using {GetNamespace(GetRelativeNamespace(_blueprintType.BaseType))};");
+        }
       }
     }
 
@@ -100,25 +105,26 @@ namespace BlueprintCoreGen.CodeGen
 
     public void AddDeclaration(bool isAbstract)
     {
-      var className = GetClassName(BlueprintType, true);
+      var className = GetClassName(BlueprintType);
       if (isAbstract)
       {
         AddLine($"  /// <summary>");
         AddLine($"  /// Implements common fields and components for blueprints inheriting from <see cref=\"{BlueprintType.Name}\"/>.");
+        AddLine($"  /// </summary>");
         AddLine($"  /// <inheritdoc/>");
         AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
-        AddLine($"  public abstract class {className}<T, TBuilder>");
-        AddLine($"      : Base{GetClassName(BlueprintType.BaseType, true)}<T, TBuilder>");
+        AddLine($"  public abstract class Base{className}<T, TBuilder>");
+        AddLine($"      : Base{GetClassName(BlueprintType.BaseType)}<T, TBuilder>");
         AddLine($"      where T : {BlueprintType.Name}");
-        AddLine($"      TBuilder : BaseBlueprintConfigurator<T, TBuilder>");
+        AddLine($"      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>");
         AddLine(@"  {");
-        AddLine($"     protected {className}(string name) : base(name) {{ }}");
+        AddLine($"     protected Base{className}(string name) : base(name) {{ }}");
       }
       else
       {
         AddLine($"  /// <summary>Configurator for <see cref=\"{BlueprintType.Name}\"/>.</summary>");
         AddLine($"  /// <inheritdoc/>");
-        AddLine($"  public class {className} : {GetClassName(BlueprintType.BaseType, true)}<{BlueprintType.Name}, {className}>");
+        AddLine($"  public class {className} : Base{GetClassName(BlueprintType.BaseType)}<{BlueprintType.Name}, {className}>");
         AddLine($"  [Configures(typeof({BlueprintType.Name}))]");
         AddLine(@"  {");
         AddLine($"     private {className}(string name) : base(name) {{ }}");
@@ -133,7 +139,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public void EndClass()
     {
-      AddLine(@"  {");
+      AddLine(@"  }");
     }
 
     private enum ConstructorType
@@ -173,10 +179,29 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    public static string GetClassName(Type type, bool isAbstract = false)
+    private static readonly List<string> IgnoredNamespacePackages = new() { "Kingmaker", "Blueprints" };
+
+    public static string GetRelativeNamespace(Type type)
     {
-      var prefix = isAbstract ? "Base" : "";
-      return $"{prefix}{type.Name.Replace("Blueprint", "")}Configurator";
+      return string.Join('.', type.Namespace.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
+    }
+
+    public static string GetNamespace(string relativeNamespace)
+    {
+      if (string.IsNullOrEmpty(relativeNamespace))
+      {
+        return "BlueprintCore.Blueprints.Configurators";
+      }
+      return $"BlueprintCore.Blueprints.Configurators.{relativeNamespace}";
+    }
+
+    public static string GetClassName(Type type)
+    {
+      if (type == typeof(BlueprintScriptableObject))
+      {
+        return "BlueprintConfigurator";
+      }
+      return $"{type.Name.Replace("Blueprint", "")}Configurator";
     }
   }
 }

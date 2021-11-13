@@ -15,32 +15,20 @@ namespace BlueprintCoreGen.CodeGen
       ConditionsBuilder
     }
 
-    private static readonly List<string> IgnoredConfiguratorNamespaces = new() { "Kingmaker", "Blueprints" };
 
     public static ConfiguratorTemplate CreateConfiguratorClass(
         Type blueprintType, List<MethodTemplate> componentMethods, Type[] gameTypes)
     {
-      // TODO: Clean up existing configurators to mimic this namespace convention + put Feature & Base Feature into a
-      // single class.
-      var splitNamespace =
-          blueprintType.Namespace.Split('.').Where(str => !IgnoredConfiguratorNamespaces.Contains(str));
+      var relativeNamespace = ConfiguratorTemplate.GetRelativeNamespace(blueprintType);
 
       var template = new ConfiguratorTemplate(
-          $"BlueprintConfigurators/{string.Join('/', splitNamespace)}/{ConfiguratorTemplate.GetClassName(blueprintType)}.cs")
+          $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{ConfiguratorTemplate.GetClassName(blueprintType)}.cs")
       {
         BlueprintType = blueprintType
       };
 
-      if (splitNamespace.Any())
-      {
-        template.AddLine($"namespace BlueprintCore.Blueprints.Configurators.{string.Join('.', splitNamespace)}");
-        template.AddLine(@"{");
-      }
-      else
-      {
-        template.AddLine($"namespace BlueprintCore.Blueprints.Configurators");
-        template.AddLine(@"{");
-      }
+      template.AddLine($"namespace {ConfiguratorTemplate.GetNamespace(relativeNamespace)}");
+      template.AddLine(@"{");
 
       if (blueprintType.IsAbstract)
       {
