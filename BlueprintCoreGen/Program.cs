@@ -31,6 +31,8 @@ namespace BlueprintCoreGen
       conditionsToGenerate.ForEach(conditionType => missingTypes.AppendLine($"// [Generate({conditionType})]"));
 
       File.WriteAllText("missing_types.txt", missingTypes.ToString());
+
+      TemplateProcessor.ConfiguratorTemplates.ForEach(template => WriteTemplateToFile(template));
     }
 
     private static List<Type> ProcessActions(Type[] gameTypes)
