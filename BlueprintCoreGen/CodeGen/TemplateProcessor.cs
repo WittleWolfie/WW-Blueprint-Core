@@ -411,7 +411,7 @@ namespace BlueprintCoreGen.CodeGen
       // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
       // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
       // This ensures the API only exposes supported components although it may not expose all of them.
-      allowedOn.RemoveAll(type => allowedOn.Exists(t => type.IsSubclassOf(t)));
+      allowedOn.RemoveAll(parentType => allowedOn.Exists(childType => childType.IsSubclassOf(parentType)));
       return allowedOn.Distinct().ToList();
     }
 
