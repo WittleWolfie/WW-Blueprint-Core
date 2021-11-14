@@ -2537,6 +2537,26 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="TacticalCombatDefenseAbility"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalCombatDefenseAbility))]
+    public AbilityConfigurator AddTacticalCombatDefenseAbility()
+    {
+      return AddComponent(new TacticalCombatDefenseAbility());
+    }
+
+    /// <summary>
+    /// Adds <see cref="TacticalCombatResurrection"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalCombatResurrection))]
+    public AbilityConfigurator AddTacticalCombatResurrection()
+    {
+      return AddComponent(new TacticalCombatResurrection());
+    }
+
+    /// <summary>
     /// Adds <see cref="PureRecommendation"/> (Auto Generated)
     /// </summary>
     [Generated]

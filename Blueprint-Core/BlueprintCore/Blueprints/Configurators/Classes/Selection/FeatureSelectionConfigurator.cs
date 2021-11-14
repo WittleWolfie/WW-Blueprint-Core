@@ -144,5 +144,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
       return AddComponent(component);
     }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteSelectionPossible"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ThisFeature"><see cref="BlueprintFeatureSelection"/></param>
+    [Generated]
+    [Implements(typeof(PrerequisiteSelectionPossible))]
+    public FeatureSelectionConfigurator AddPrerequisiteSelectionPossible(
+        string m_ThisFeature,
+        Prerequisite.GroupType Group,
+        bool CheckInProgression,
+        bool HideInUI)
+    {
+      ValidateParam(Group);
+      
+      var component =  new PrerequisiteSelectionPossible();
+      component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_ThisFeature);
+      component.Group = Group;
+      component.CheckInProgression = CheckInProgression;
+      component.HideInUI = HideInUI;
+      return AddComponent(component);
+    }
   }
 }

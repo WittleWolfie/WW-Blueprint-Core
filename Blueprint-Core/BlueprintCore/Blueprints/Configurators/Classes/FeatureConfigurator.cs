@@ -3,15 +3,19 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
+using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Crusade.GlobalMagic;
+using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -21,6 +25,7 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -657,6 +662,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="AddGlobalMapSpellFeature"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    [Generated]
+    [Implements(typeof(AddGlobalMapSpellFeature))]
+    public TBuilder AddAddGlobalMapSpellFeature(
+        string m_Spell)
+    {
+      
+      var component =  new AddGlobalMapSpellFeature();
+      component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(m_Spell);
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="FeatureSurvivesRespec"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -710,25 +731,72 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Adds <see cref="PrerequisiteSelectionPossible"/> (Auto Generated)
+    /// Adds <see cref="AddBuffInBadWeather"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ThisFeature"><see cref="BlueprintFeatureSelection"/></param>
+    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
     [Generated]
-    [Implements(typeof(PrerequisiteSelectionPossible))]
-    public TBuilder AddPrerequisiteSelectionPossible(
-        string m_ThisFeature,
-        Prerequisite.GroupType Group,
-        bool CheckInProgression,
-        bool HideInUI)
+    [Implements(typeof(AddBuffInBadWeather))]
+    public TBuilder AddAddBuffInBadWeather(
+        string m_Buff,
+        InclemencyType Weather,
+        bool WhenCalmer)
     {
-      ValidateParam(Group);
+      ValidateParam(Weather);
       
-      var component =  new PrerequisiteSelectionPossible();
-      component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_ThisFeature);
-      component.Group = Group;
-      component.CheckInProgression = CheckInProgression;
-      component.HideInUI = HideInUI;
+      var component =  new AddBuffInBadWeather();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      component.Weather = Weather;
+      component.WhenCalmer = WhenCalmer;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddBuffOnApplyingSpell"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddBuffOnApplyingSpell))]
+    public TBuilder AddAddBuffOnApplyingSpell(
+        bool OnEffectApplied,
+        bool OnResistSpell,
+        AddBuffOnApplyingSpell.SpellConditionAndBuff[] Buffs)
+    {
+      foreach (var item in Buffs)
+      {
+        ValidateParam(item);
+      }
+      
+      var component =  new AddBuffOnApplyingSpell();
+      component.OnEffectApplied = OnEffectApplied;
+      component.OnResistSpell = OnResistSpell;
+      component.Buffs = Buffs;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddContextStatBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddContextStatBonus))]
+    public TBuilder AddAddContextStatBonus(
+        ModifierDescriptor Descriptor,
+        StatType Stat,
+        int Multiplier,
+        ContextValue Value,
+        bool HasMinimal,
+        int Minimal)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(Stat);
+      ValidateParam(Value);
+      
+      var component =  new AddContextStatBonus();
+      component.Descriptor = Descriptor;
+      component.Stat = Stat;
+      component.Multiplier = Multiplier;
+      component.Value = Value;
+      component.HasMinimal = HasMinimal;
+      component.Minimal = Minimal;
       return AddComponent(component);
     }
 
@@ -754,6 +822,94 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="AddGoldenDragonSkillBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddGoldenDragonSkillBonus))]
+    public TBuilder AddAddGoldenDragonSkillBonus(
+        ModifierDescriptor Descriptor,
+        StatType Stat)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(Stat);
+      
+      var component =  new AddGoldenDragonSkillBonus();
+      component.Descriptor = Descriptor;
+      component.Stat = Stat;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddLocustSwarmMechanicPart"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddLocustSwarmMechanicPart))]
+    public TBuilder AddAddLocustSwarmMechanicPart(
+        int m_SwarmStartStrength)
+    {
+      
+      var component =  new AddLocustSwarmMechanicPart();
+      component.m_SwarmStartStrength = m_SwarmStartStrength;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddMagusMechanicPart"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddMagusMechanicPart))]
+    public TBuilder AddAddMagusMechanicPart(
+        AddMagusMechanicPart.Feature m_Feature)
+    {
+      ValidateParam(m_Feature);
+      
+      var component =  new AddMagusMechanicPart();
+      component.m_Feature = m_Feature;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddNocticulaBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddNocticulaBonus))]
+    public TBuilder AddAddNocticulaBonus(
+        ModifierDescriptor Descriptor,
+        ContextValue HighestStatBonus,
+        StatType m_HighestStat,
+        ContextValue SecondHighestStatBonus,
+        StatType m_SecondHighestStat)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(HighestStatBonus);
+      ValidateParam(m_HighestStat);
+      ValidateParam(SecondHighestStatBonus);
+      ValidateParam(m_SecondHighestStat);
+      
+      var component =  new AddNocticulaBonus();
+      component.Descriptor = Descriptor;
+      component.HighestStatBonus = HighestStatBonus;
+      component.m_HighestStat = m_HighestStat;
+      component.SecondHighestStatBonus = SecondHighestStatBonus;
+      component.m_SecondHighestStat = m_SecondHighestStat;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddRestTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddRestTrigger))]
+    public TBuilder AddAddRestTrigger(
+        ActionsBuilder Action)
+    {
+      
+      var component =  new AddRestTrigger();
+      component.Action = Action.Build();
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddSpellsToDescription"/> (Auto Generated)
     /// </summary>
     ///
@@ -772,6 +928,120 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Introduction = Introduction;
       component.m_SpellLists = m_SpellLists.Select(bp => BlueprintTool.GetRef<BlueprintSpellListReference>(bp)).ToArray();
       component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddTricksterAthleticBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddTricksterAthleticBonus))]
+    public TBuilder AddAddTricksterAthleticBonus(
+        ModifierDescriptor Descriptor)
+    {
+      ValidateParam(Descriptor);
+      
+      var component =  new AddTricksterAthleticBonus();
+      component.Descriptor = Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddWeaponEnhancementBonusToStat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddWeaponEnhancementBonusToStat))]
+    public TBuilder AddAddWeaponEnhancementBonusToStat(
+        ModifierDescriptor Descriptor,
+        StatType Stat,
+        int Multiplier)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(Stat);
+      
+      var component =  new AddWeaponEnhancementBonusToStat();
+      component.Descriptor = Descriptor;
+      component.Stat = Stat;
+      component.Multiplier = Multiplier;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MountedShield"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MountedShield))]
+    public TBuilder AddMountedShield(
+        ModifierDescriptor Descriptor,
+        StatType Stat)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(Stat);
+      
+      var component =  new MountedShield();
+      component.Descriptor = Descriptor;
+      component.Stat = Stat;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShroudOfWater"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_UpgradeFeature"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(ShroudOfWater))]
+    public TBuilder AddShroudOfWater(
+        ModifierDescriptor Descriptor,
+        StatType Stat,
+        ContextValue BaseValue,
+        string m_UpgradeFeature)
+    {
+      ValidateParam(Descriptor);
+      ValidateParam(Stat);
+      ValidateParam(BaseValue);
+      
+      var component =  new ShroudOfWater();
+      component.Descriptor = Descriptor;
+      component.Stat = Stat;
+      component.BaseValue = BaseValue;
+      component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_UpgradeFeature);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpellResistanceAgainstAlignment"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpellResistanceAgainstAlignment))]
+    public TBuilder AddSpellResistanceAgainstAlignment(
+        ContextValue Value,
+        AlignmentComponent Alignment)
+    {
+      ValidateParam(Value);
+      ValidateParam(Alignment);
+      
+      var component =  new SpellResistanceAgainstAlignment();
+      component.Value = Value;
+      component.Alignment = Alignment;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpellResistanceAgainstSpellDescriptor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpellResistanceAgainstSpellDescriptor))]
+    public TBuilder AddSpellResistanceAgainstSpellDescriptor(
+        ContextValue Value,
+        SpellDescriptorWrapper SpellDescriptor)
+    {
+      ValidateParam(Value);
+      ValidateParam(SpellDescriptor);
+      
+      var component =  new SpellResistanceAgainstSpellDescriptor();
+      component.Value = Value;
+      component.SpellDescriptor = SpellDescriptor;
       return AddComponent(component);
     }
 
@@ -883,6 +1153,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddAbilityDifficultyLimitDC()
     {
       return AddComponent(new AbilityDifficultyLimitDC());
+    }
+
+    /// <summary>
+    /// Adds <see cref="TacticalMoraleChanceModifier"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalMoraleChanceModifier))]
+    public TBuilder AddTacticalMoraleChanceModifier(
+        bool m_ChangePositiveMorale,
+        ContextValue m_PositiveMoraleChancePercentDelta,
+        bool m_ChangeNegativeMorale,
+        ContextValue m_NegativeMoraleChancePercentDelta)
+    {
+      ValidateParam(m_PositiveMoraleChancePercentDelta);
+      ValidateParam(m_NegativeMoraleChancePercentDelta);
+      
+      var component =  new TacticalMoraleChanceModifier();
+      component.m_ChangePositiveMorale = m_ChangePositiveMorale;
+      component.m_PositiveMoraleChancePercentDelta = m_PositiveMoraleChancePercentDelta;
+      component.m_ChangeNegativeMorale = m_ChangeNegativeMorale;
+      component.m_NegativeMoraleChancePercentDelta = m_NegativeMoraleChancePercentDelta;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1119,6 +1411,112 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = Group;
       component.CheckInProgression = CheckInProgression;
       component.HideInUI = HideInUI;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddSpellbookFeature"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    [Implements(typeof(AddSpellbookFeature))]
+    public TBuilder AddAddSpellbookFeature(
+        string m_Spellbook,
+        int CasterLevel)
+    {
+      
+      var component =  new AddSpellbookFeature();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
+      component.CasterLevel = CasterLevel;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddSpellbookLevel"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    [Implements(typeof(AddSpellbookLevel))]
+    public TBuilder AddAddSpellbookLevel(
+        string m_Spellbook)
+    {
+      
+      var component =  new AddSpellbookLevel();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddSpellsPerDay"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddSpellsPerDay))]
+    public TBuilder AddAddSpellsPerDay(
+        int Amount,
+        int[] Levels)
+    {
+      
+      var component =  new AddSpellsPerDay();
+      component.Amount = Amount;
+      component.Levels = Levels;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ArmorSpeedPenaltyRemoval"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ArmorSpeedPenaltyRemoval))]
+    public TBuilder AddArmorSpeedPenaltyRemoval()
+    {
+      return AddComponent(new ArmorSpeedPenaltyRemoval());
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffExtraEffects"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_CheckedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="m_ExtraEffectBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="m_ExceptionFact"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    [Implements(typeof(BuffExtraEffects))]
+    public TBuilder AddBuffExtraEffects(
+        string m_CheckedBuff,
+        string m_ExtraEffectBuff,
+        string m_ExceptionFact)
+    {
+      
+      var component =  new BuffExtraEffects();
+      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_CheckedBuff);
+      component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_ExtraEffectBuff);
+      component.m_ExceptionFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_ExceptionFact);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HarmoniousMage"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HarmoniousMage))]
+    public TBuilder AddHarmoniousMage()
+    {
+      return AddComponent(new HarmoniousMage());
+    }
+
+    /// <summary>
+    /// Adds <see cref="SavesFixerRecalculate"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SavesFixerRecalculate))]
+    public TBuilder AddSavesFixerRecalculate(
+        int Version)
+    {
+      
+      var component =  new SavesFixerRecalculate();
+      component.Version = Version;
       return AddComponent(component);
     }
 

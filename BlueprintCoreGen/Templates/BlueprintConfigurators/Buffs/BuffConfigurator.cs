@@ -146,41 +146,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
       return OnConfigureInternal(blueprint => blueprint.FxOnRemove = prefab);
     }
 
-    /// <summary>
-    /// Adds <see cref="AddEffectFastHealing"/>
-    /// </summary>
-    public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
-    {
-      var fastHealing = new AddEffectFastHealing
-      {
-        Heal = baseValue,
-        Bonus = bonusValue ?? 0
-      };
-      return AddComponent(fastHealing);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveWhenCombatEnded"/>
-    /// </summary>
-    public BuffConfigurator RemoveWhenCombatEnds()
-    {
-      AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
-      return this;
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
-    /// </summary>
-    public BuffConfigurator BuffSleeping(
-        int? wakeupPerceptionDC = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var sleeping = new BuffSleeping();
-      if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }
-      return AddUniqueComponent(sleeping, mergeBehavior, merge);
-    }
-
     // [GenerateComponents]
 
     protected override void ConfigureInternal()
