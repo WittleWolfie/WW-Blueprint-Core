@@ -498,13 +498,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
       source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
     }
 
-    // TODO: Replace w/ child classes
-    [SelectTargetAttr]
-    public AbilityConfigurator SelectTarget(AbilitySelectTarget target)
-    {
-      return AddComponent(target);
-    }
-
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
