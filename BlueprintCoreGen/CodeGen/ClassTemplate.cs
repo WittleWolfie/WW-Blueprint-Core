@@ -139,6 +139,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public void EndClass()
     {
+      AddLine("");
       AddLine(@"  }");
     }
 

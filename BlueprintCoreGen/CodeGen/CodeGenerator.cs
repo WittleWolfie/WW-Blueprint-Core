@@ -1,7 +1,5 @@
-﻿using Kingmaker.AI.Blueprints;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
-using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +42,7 @@ namespace BlueprintCoreGen.CodeGen
       }
       else
       {
-        AddConfiguratorClass(template, new List<IMethod>());
+        AddConfiguratorClass(template, componentMethods);
       }
 
       template.AddLine(@"}");
@@ -55,7 +53,6 @@ namespace BlueprintCoreGen.CodeGen
       ConfiguratorTemplate template, List<IMethod> componentMethods, bool isAbstract = false)
     {
       template.AddDeclaration(isAbstract);
-      template.AddLine("");
 
       // TODO: Field methods
 
@@ -255,7 +252,6 @@ namespace BlueprintCoreGen.CodeGen
           }
           else
           {
-            // TODO: Add Validation support to blueprint configurators
             method.AddField(field, GetConfiguratorValidation);
           }
         }

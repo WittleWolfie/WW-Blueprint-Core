@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.RandomEncounters.Settings;
 using System;
 using System.Collections.Generic;
@@ -260,6 +261,7 @@ namespace BlueprintCoreGen.CodeGen
           {
             methodsByBlueprintType[template.BlueprintType].ForEach(
                 method => template.AddConfiguratorMethod(method, isAbstract));
+            template.AddLine("");
           }
           continue;
         }
@@ -268,6 +270,13 @@ namespace BlueprintCoreGen.CodeGen
       }
       return template;
     }
+
+    private static readonly List<Type> IgnoredComponentTypes =
+        new()
+        {
+          typeof(QuestComponentDelegate<>),
+          typeof(QuestComponentDelegate)
+        };
 
     private static Dictionary<Type, List<IMethod>> GetComponentMethodsByBlueprintType(
         string templatesRoot, Type[] gameTypes)
@@ -291,11 +300,14 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Generate methods for any component types not found in templates
-      GetMissingTypes(typeof(BlueprintComponent), methodsByComponentType.Keys, gameTypes).ForEach(
-         type =>
-         {
-           methodsByComponentType.Add(type, new() { CodeGenerator.CreateMethod(type) });
-         });
+      GetMissingTypes(typeof(BlueprintComponent), methodsByComponentType.Keys, gameTypes)
+        .Where(type => !IgnoredComponentTypes.Contains(type))
+        .ToList()
+        .ForEach(
+            type =>
+            {
+              methodsByComponentType.Add(type, new() { CodeGenerator.CreateMethod(type) });
+            });
 
       // Iterate through component types and construct a dictionary from blueprint type to supported component methods
       Dictionary<Type, List<IMethod>> methodsByBlueprintType = new();
