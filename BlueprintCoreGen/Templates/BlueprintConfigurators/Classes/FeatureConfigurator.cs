@@ -1,5 +1,4 @@
 using BlueprintCore.Utils;
-using BlueprintCoreGen.Blueprints.Configurators.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -15,7 +14,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
   /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFeature))]
-  public abstract class BaseFeatureConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
+  public abstract class BaseFeatureConfigurator<T, TBuilder> : FeatureBaseConfigurator<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {

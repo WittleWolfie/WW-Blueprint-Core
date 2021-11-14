@@ -11,12 +11,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFeatureBase))]
-  public abstract class BaseFeatureBaseConfigurator<T, TBuilder>
-      : BaseUnitFactConfigurator<T, TBuilder>
+  public abstract class FeatureBaseConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeatureBase
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseFeatureBaseConfigurator(string name) : base(name) { }
+    protected FeatureBaseConfigurator(string name) : base(name) { }
+
 
     /// <summary>
     /// Adds <see cref="FeatureTagsComponent"/> (Auto Generated)

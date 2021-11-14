@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
@@ -34,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFeature))]
-  public abstract class BaseFeatureConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
+  public abstract class BaseFeatureConfigurator<T, TBuilder> : FeatureBaseConfigurator<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
