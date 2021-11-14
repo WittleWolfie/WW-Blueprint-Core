@@ -308,12 +308,6 @@ namespace BlueprintCoreGen.CodeGen
       return new();
     }
 
-    private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
-        new()
-        {
-          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } }
-        };
-
     private static List<Type> GetAllowedBlueprintTypes(Type componentType)
     {
       if (AllowedBlueprintTypesOverride.ContainsKey(componentType))
@@ -348,6 +342,12 @@ namespace BlueprintCoreGen.CodeGen
 
       return allowedBlueprintTypes;
     }
+
+    private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
+        new()
+        {
+          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } }
+        };
 
     private static readonly AllowedOnAttributeEqualityComparer AttrComparer = new();
 
