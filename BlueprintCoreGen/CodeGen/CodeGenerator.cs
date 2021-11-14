@@ -141,6 +141,7 @@ namespace BlueprintCoreGen.CodeGen
           { "Char", "char" },
           { "Double", "double" },
           { "Single", "float" },
+          { "String", "string" }
         };
 
     private static string GetConvertedTypeName(Type type)
@@ -280,6 +281,7 @@ namespace BlueprintCoreGen.CodeGen
     {
       return field.Name.Contains("__BackingField")
           || field.Name == "name"
+          || field.Name == "m_HasIsAllyEffectRunConditions" // Self-configuring field for AbilityDeliverProjectile
           // Skip constant, static, and read-only
           || field.IsLiteral
           || field.IsStatic
