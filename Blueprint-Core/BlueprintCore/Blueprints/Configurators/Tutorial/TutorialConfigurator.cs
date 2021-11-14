@@ -463,7 +463,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasVulnerability))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasVulnerability(
-        String m_Descriptor)
+        string m_Descriptor)
     {
       
       var component =  new TutorialTriggerEnemyHasVulnerability();

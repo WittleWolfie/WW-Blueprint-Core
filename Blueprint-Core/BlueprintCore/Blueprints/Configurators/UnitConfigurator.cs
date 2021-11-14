@@ -486,8 +486,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(FixUnitOnPostLoad_AddNewFact))]
     public UnitConfigurator AddFixUnitOnPostLoad_AddNewFact(
         string m_NewFact,
-        String TaskId,
-        String Comment)
+        string TaskId,
+        string Comment)
     {
       
       var component =  new FixUnitOnPostLoad_AddNewFact();
@@ -506,8 +506,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ReturnVendorTable))]
     public UnitConfigurator AddReturnVendorTable(
         string m_Table,
-        String TaskId,
-        String Comment)
+        string TaskId,
+        string Comment)
     {
       
       var component =  new ReturnVendorTable();

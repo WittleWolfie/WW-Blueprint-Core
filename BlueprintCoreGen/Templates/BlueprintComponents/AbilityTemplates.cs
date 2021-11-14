@@ -278,11 +278,10 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     [Implements(typeof(AbilityVariants))]
     public TBuilder AddVariants(params string[] abilities)
     {
-      OnConfigureInternal(
+      return OnConfigureInternal(
           blueprint =>
               AddVariants(
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
-      return Self;
     }
 
     [Implements(typeof(AbilityVariants))]
@@ -307,11 +306,10 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     [Implements(typeof(AbilityVariants))]
     public TBuilder RemoveVariants(params string[] abilities)
     {
-      OnConfigureInternal(
+      return OnConfigureInternal(
           blueprint =>
               RemoveVariants(
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
-      return Self;
     }
 
     [Implements(typeof(AbilityVariants))]

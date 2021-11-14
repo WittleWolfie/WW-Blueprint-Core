@@ -941,7 +941,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(RunActionHolder))]
     public static ActionsBuilder AddRunActionHolder(
         this ActionsBuilder builder,
-        String Comment,
+        string Comment,
         string Holder,
         ParametrizedContextSetter Parameters)
     {

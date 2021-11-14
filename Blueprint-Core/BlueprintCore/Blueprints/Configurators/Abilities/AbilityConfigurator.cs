@@ -11,7 +11,6 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Craft;
@@ -51,9 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
   {
     private Metamagic EnableMetamagics;
     private Metamagic DisableMetamagics;
-
-    private readonly List<BlueprintAbility> EnableVariants = new();
-    private readonly List<BlueprintAbility> DisableVariants = new();
 
     private AbilityConfigurator(string name) : base(name) { }
 
@@ -331,11 +327,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return this;
     }
 
+
     /// <summary>
     /// Adds <see cref="AbilityCasterAlignment"/>
     /// </summary>
     /// 
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterAlignment))]
     public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
@@ -351,6 +349,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasFacts))]
     public AbilityConfigurator RequireCasterFacts(params string[] facts)
     {
       var hasFacts = new AbilityCasterHasFacts
@@ -365,6 +364,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasNoFacts))]
     public AbilityConfigurator RequireCasterHasNoFacts(params string[] facts)
     {
       var hasNoFacts = new AbilityCasterHasNoFacts
@@ -385,6 +385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasChosenWeapon))]
     public AbilityConfigurator RequireCasterHasChosenWeapon(
         string parameterizedWeaponFeature, string ignoreFact = null)
     {
@@ -402,6 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
     /// </summary>
+    [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
     public AbilityConfigurator RequireCasterWeaponRange(WeaponRangeType range)
     {
       var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
@@ -411,6 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterInCombat"/>
     /// </summary>
+    [Implements(typeof(AbilityCasterInCombat))]
     public AbilityConfigurator RequireCasterInCombat(bool requireInCombat = true)
     {
       var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
@@ -422,6 +425,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
     public AbilityConfigurator RequireCasterOnFavoredTerrain(string ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
@@ -437,6 +441,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
+    [Implements(typeof(TargetHasBuffsFromCaster))]
     public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
     {
       var hasBuffs = new TargetHasBuffsFromCaster
@@ -450,6 +455,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCanTargetDead"/>
     /// </summary>
+    [Implements(typeof(AbilityCanTargetDead))]
     public AbilityConfigurator CanTargetDead()
     {
       return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
@@ -459,6 +465,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliveredByWeapon"/>
     /// </summary>
     [DeliverEffectAttr]
+    [Implements(typeof(AbilityDeliveredByWeapon))]
     public AbilityConfigurator DeliveredByWeapon()
     {
       return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
@@ -470,6 +477,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     [ApplyEffectAttr]
+    [Implements(typeof(AbilityEffectRunAction))]
     public AbilityConfigurator RunActions(
         ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
@@ -484,6 +492,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
     }
 
+    [Implements(typeof(AbilityEffectRunAction))]
     private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectRunAction;
@@ -496,6 +505,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
+    [Implements(typeof(AbilityEffectMiss))]
     public AbilityConfigurator OnMiss(
         ActionsBuilder actions,
         bool useTargetSelector = true,
@@ -510,6 +520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
     }
 
+    [Implements(typeof(AbilityEffectMiss))]
     private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectMiss;
@@ -520,6 +531,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
+    [Implements(typeof(AbilityExecuteActionOnCast))]
     public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
@@ -533,6 +545,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="SpellComponent"/>
     /// </summary>
+    [Implements(typeof(SpellComponent))]
     public AbilityConfigurator SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -545,6 +558,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="CantripComponent"/>
     /// </summary>
+    [Implements(typeof(CantripComponent))]
     public AbilityConfigurator MakeCantrip()
     {
       return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
@@ -553,6 +567,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Removes <see cref="CantripComponent"/>
     /// </summary>
+    [Implements(typeof(CantripComponent))]
     public AbilityConfigurator MakeNotCantrip()
     {
       return RemoveComponents(c => c is CantripComponent);
@@ -563,10 +578,27 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
+    [Implements(typeof(AbilityVariants))]
     public AbilityConfigurator AddVariants(params string[] abilities)
     {
-      EnableVariants.AddRange(abilities.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
-      return this;
+      return OnConfigureInternal(
+          blueprint =>
+              AddVariants(
+                  blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
+    }
+
+    [Implements(typeof(AbilityVariants))]
+    private void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+    {
+      var component = bp.GetComponent<AbilityVariants>();
+      if (component is null)
+      {
+        component = new AbilityVariants();
+        AddComponent(component);
+      }
+      var bpRef = bp.ToReference<BlueprintAbilityReference>();
+      variants.ForEach(reference => reference.Get().m_Parent = bpRef);
+      component.m_Variants = CommonTool.Append(component.m_Variants, variants.ToArray());
     }
 
     /// <summary>
@@ -574,12 +606,34 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
+    [Implements(typeof(AbilityVariants))]
     public AbilityConfigurator RemoveVariants(params string[] abilities)
     {
-      DisableVariants.AddRange(abilities.Select(name => BlueprintTool.Get<BlueprintAbility>(name)));
-      return this;
+      return OnConfigureInternal(
+          blueprint =>
+              RemoveVariants(
+                  blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
     }
 
+    [Implements(typeof(AbilityVariants))]
+    private static void RemoveVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+    {
+      var component = bp.GetComponent<AbilityVariants>();
+      if (component is null) { return; }
+
+      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      variants.ForEach(
+          reference =>
+          {
+            var ability = reference.Get();
+            if (ability.m_Parent?.deserializedGuid == bp.AssetGuid) { ability.m_Parent = nullRef; }
+          });
+      component.m_Variants =
+          component.m_Variants
+              .Where(
+                  reference => !variants.Exists(removeRef => reference.deserializedGuid == removeRef.deserializedGuid))
+              .ToArray();
+    }
 
     /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
@@ -710,16 +764,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="CantripComponent"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(CantripComponent))]
-    public AbilityConfigurator AddCantripComponent()
-    {
-      return AddComponent(new CantripComponent());
-    }
-
-    /// <summary>
     /// Adds <see cref="ChirurgeonSpell"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -740,21 +784,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       
       var component =  new PretendSpellLevel();
       component.SpellLevel = SpellLevel;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellComponent"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SpellComponent))]
-    public AbilityConfigurator AddSpellComponent(
-        SpellSchool School)
-    {
-      ValidateParam(School);
-      
-      var component =  new SpellComponent();
-      component.School = School;
       return AddComponent(component);
     }
 
@@ -958,7 +987,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         GameObject PortalFromPrefab,
         GameObject PortalToPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject CasterDisappearFx,
         GameObject CasterAppearFx,
         GameObject SideDisappearFx,
@@ -966,8 +995,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_CasterDisappearProjectile,
         string m_CasterAppearProjectile,
         string m_SideDisappearProjectile,
-        string m_SideAppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_SideAppearProjectile)
     {
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
@@ -976,7 +1004,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
       ValidateParam(SideAppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new ArmyAbilityTeleportation();
       component.Radius = Radius;
@@ -991,7 +1018,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_CasterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideAppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1001,15 +1027,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityOnInBattleUnits))]
     public AbilityConfigurator AddAbilityOnInBattleUnits(
-        AbilityOnInBattleUnits.AllyState m_FactionType,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        AbilityOnInBattleUnits.AllyState m_FactionType)
     {
       ValidateParam(m_FactionType);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityOnInBattleUnits();
       component.m_FactionType = m_FactionType;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1101,14 +1124,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityCustomAttack))]
-    public AbilityConfigurator AddAbilityCustomAttack(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+    public AbilityConfigurator AddAbilityCustomAttack()
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityCustomAttack();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
+      return AddComponent(new AbilityCustomAttack());
     }
 
     /// <summary>
@@ -1116,14 +1134,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityCustomCharge))]
-    public AbilityConfigurator AddAbilityCustomCharge(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+    public AbilityConfigurator AddAbilityCustomCharge()
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityCustomCharge();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
+      return AddComponent(new AbilityCustomCharge());
     }
 
     /// <summary>
@@ -1134,14 +1147,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomCleave))]
     public AbilityConfigurator AddAbilityCustomCleave(
-        string m_GreaterFeature,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_GreaterFeature)
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomCleave();
       component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_GreaterFeature);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1159,7 +1169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         GameObject PortalFromPrefab,
         GameObject PortalToPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject CasterDisappearFx,
         GameObject CasterAppearFx,
         GameObject SideDisappearFx,
@@ -1167,8 +1177,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_CasterDisappearProjectile,
         string m_CasterAppearProjectile,
         string m_SideDisappearProjectile,
-        string m_SideAppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_SideAppearProjectile)
     {
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
@@ -1177,7 +1186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
       ValidateParam(SideAppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomDimensionDoor();
       component.Radius = Radius;
@@ -1192,7 +1200,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_CasterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideAppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1206,17 +1213,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomDimensionDoorSwap))]
     public AbilityConfigurator AddAbilityCustomDimensionDoorSwap(
         GameObject PortalFromPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject DisappearFx,
         GameObject AppearFx,
         string m_DisappearProjectile,
-        string m_AppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_AppearProjectile)
     {
       ValidateParam(PortalFromPrefab);
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomDimensionDoorSwap();
       component.PortalFromPrefab = PortalFromPrefab;
@@ -1225,7 +1230,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.AppearFx = AppearFx;
       component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_DisappearProjectile);
       component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_AppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1244,7 +1248,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         GameObject PortalFromPrefab,
         GameObject PortalToPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject CasterDisappearFx,
         GameObject CasterAppearFx,
         GameObject SideDisappearFx,
@@ -1252,8 +1256,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_CasterDisappearProjectile,
         string m_CasterAppearProjectile,
         string m_SideDisappearProjectile,
-        string m_SideAppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_SideAppearProjectile)
     {
       foreach (var item in Targets)
       {
@@ -1266,7 +1269,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
       ValidateParam(SideAppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomDimensionDoorTargets();
       component.Targets = Targets;
@@ -1282,7 +1284,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_CasterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideAppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1300,7 +1301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         GameObject PortalFromPrefab,
         GameObject PortalToPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject CasterDisappearFx,
         GameObject CasterAppearFx,
         GameObject SideDisappearFx,
@@ -1308,8 +1309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_CasterDisappearProjectile,
         string m_CasterAppearProjectile,
         string m_SideDisappearProjectile,
-        string m_SideAppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_SideAppearProjectile)
     {
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
@@ -1318,7 +1318,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
       ValidateParam(SideAppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomDweomerLeap();
       component.Radius = Radius;
@@ -1333,7 +1332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_CasterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideAppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1353,7 +1351,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         GameObject PortalFromPrefab,
         GameObject PortalToPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject CasterDisappearFx,
         GameObject CasterAppearFx,
         GameObject SideDisappearFx,
@@ -1361,8 +1359,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_CasterDisappearProjectile,
         string m_CasterAppearProjectile,
         string m_SideDisappearProjectile,
-        string m_SideAppearProjectile,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_SideAppearProjectile)
     {
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
@@ -1371,7 +1368,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
       ValidateParam(SideAppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomFlashStep();
       component.m_FlashShot = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_FlashShot);
@@ -1387,7 +1383,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_CasterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_SideAppearProjectile);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1403,13 +1398,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float TakeoffTime,
         float LandTime,
         AnimationCurve TakeOff,
-        AnimationCurve Landing,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        AnimationCurve Landing)
     {
       ValidateParam(Animation);
       ValidateParam(TakeOff);
       ValidateParam(Landing);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomFly();
       component.Animation = Animation;
@@ -1419,7 +1412,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.LandTime = LandTime;
       component.TakeOff = TakeOff;
       component.Landing = Landing;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1435,18 +1427,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AbilityCustomMeleeAttack.AttackType m_Type,
         int VitalStrikeMod,
         string m_MythicBlueprint,
-        string m_RowdyFeature,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_RowdyFeature)
     {
       ValidateParam(m_Type);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomMeleeAttack();
       component.m_Type = m_Type;
       component.VitalStrikeMod = VitalStrikeMod;
       component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(m_MythicBlueprint);
       component.m_RowdyFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_RowdyFeature);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1455,14 +1444,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityCustomMove))]
-    public AbilityConfigurator AddAbilityCustomMove(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+    public AbilityConfigurator AddAbilityCustomMove()
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityCustomMove();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
+      return AddComponent(new AbilityCustomMove());
     }
 
     /// <summary>
@@ -1479,10 +1463,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool FirstTargetOnly,
         bool AutoSuccess,
         bool StopOnCorpulence,
-        ActionsBuilder Actions,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        ActionsBuilder Actions)
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomOverrun();
       component.m_AddBuffWhileRunning = BlueprintTool.GetRef<BlueprintBuffReference>(m_AddBuffWhileRunning);
@@ -1492,7 +1474,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.AutoSuccess = AutoSuccess;
       component.StopOnCorpulence = StopOnCorpulence;
       component.Actions = Actions.Build();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1508,12 +1489,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject DisappearFx,
         float DisappearDuration,
         GameObject AppearFx,
-        float AppearDuration,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        float AppearDuration)
     {
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomTeleportation();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_Projectile);
@@ -1521,7 +1500,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.DisappearDuration = DisappearDuration;
       component.AppearFx = AppearFx;
       component.AppearDuration = AppearDuration;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1537,14 +1515,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AnimationCurve StickCurve,
         AnimationCurve ReturnCurve,
         Feet PullDistance,
-        bool m_ReturnTargetAbility,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        bool m_ReturnTargetAbility)
     {
       ValidateParam(AnimationAction);
       ValidateParam(StickCurve);
       ValidateParam(ReturnCurve);
       ValidateParam(PullDistance);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomTongueGrab();
       component.AnimationAction = AnimationAction;
@@ -1554,7 +1530,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.ReturnCurve = ReturnCurve;
       component.PullDistance = PullDistance;
       component.m_ReturnTargetAbility = m_ReturnTargetAbility;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1569,16 +1544,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityCustomVitalStrike(
         int VitalStrikeMod,
         string m_MythicBlueprint,
-        string m_RowdyFeature,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_RowdyFeature)
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomVitalStrike();
       component.VitalStrikeMod = VitalStrikeMod;
       component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(m_MythicBlueprint);
       component.m_RowdyFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_RowdyFeature);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1587,14 +1559,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityDeliverAttackWithWeapon))]
-    public AbilityConfigurator AddAbilityDeliverAttackWithWeapon(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+    public AbilityConfigurator AddAbilityDeliverAttackWithWeapon()
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityDeliverAttackWithWeapon();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
+      return AddComponent(new AbilityDeliverAttackWithWeapon());
     }
 
     /// <summary>
@@ -1612,13 +1579,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet Radius,
         bool TargetDead,
         Kingmaker.UnitLogic.Abilities.Components.TargetType m_TargetType,
-        ConditionsBuilder m_Condition,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        ConditionsBuilder m_Condition)
     {
       ValidateParam(TargetsCount);
       ValidateParam(Radius);
       ValidateParam(m_TargetType);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverChain();
       component.m_ProjectileFirst = BlueprintTool.GetRef<BlueprintProjectileReference>(m_ProjectileFirst);
@@ -1628,7 +1593,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.TargetDead = TargetDead;
       component.m_TargetType = m_TargetType;
       component.m_Condition = m_Condition.Build();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1646,12 +1610,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet DistanceToTarget,
         bool IgnoreConcealment,
         bool NeedAttackRoll,
-        string m_Weapon,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_Weapon)
     {
       ValidateParam(Width);
       ValidateParam(DistanceToTarget);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverClashingRocks();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_Projectile);
@@ -1660,7 +1622,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.IgnoreConcealment = IgnoreConcealment;
       component.NeedAttackRoll = NeedAttackRoll;
       component.m_Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(m_Weapon);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1670,14 +1631,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDeliverDelay))]
     public AbilityConfigurator AddAbilityDeliverDelay(
-        float DelaySeconds,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        float DelaySeconds)
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverDelay();
       component.DelaySeconds = DelaySeconds;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1703,15 +1661,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool UseMaxProjectilesCount,
         AbilityRankType MaxProjectilesCountRank,
         float DelayBetweenProjectiles,
-        string m_ControlledProjectileHolderBuff,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_ControlledProjectileHolderBuff)
     {
       ValidateParam(Type);
       ValidateParam(m_Length);
       ValidateParam(m_LineWidth);
       ValidateParam(AttackRollBonusStat);
       ValidateParam(MaxProjectilesCountRank);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverProjectile();
       component.m_Projectiles = m_Projectiles.Select(bp => BlueprintTool.GetRef<BlueprintProjectileReference>(bp)).ToArray();
@@ -1727,7 +1683,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.MaxProjectilesCountRank = MaxProjectilesCountRank;
       component.DelayBetweenProjectiles = DelayBetweenProjectiles;
       component.m_ControlledProjectileHolderBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_ControlledProjectileHolderBuff);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1755,15 +1710,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool UseMaxProjectilesCount,
         AbilityRankType MaxProjectilesCountRank,
         float DelayBetweenProjectiles,
-        string m_ControlledProjectileHolderBuff,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_ControlledProjectileHolderBuff)
     {
       ValidateParam(Type);
       ValidateParam(m_Length);
       ValidateParam(m_LineWidth);
       ValidateParam(AttackRollBonusStat);
       ValidateParam(MaxProjectilesCountRank);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverProjectileOnGrid();
       component.LaunchProjectileOnGridLine = LaunchProjectileOnGridLine;
@@ -1781,7 +1734,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.MaxProjectilesCountRank = MaxProjectilesCountRank;
       component.DelayBetweenProjectiles = DelayBetweenProjectiles;
       component.m_ControlledProjectileHolderBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_ControlledProjectileHolderBuff);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1793,29 +1745,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDeliverTouch))]
     public AbilityConfigurator AddAbilityDeliverTouch(
-        string m_TouchWeapon,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string m_TouchWeapon)
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverTouch();
       component.m_TouchWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(m_TouchWeapon);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityDeliveredByWeapon"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDeliveredByWeapon))]
-    public AbilityConfigurator AddAbilityDeliveredByWeapon(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
-    {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityDeliveredByWeapon();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -1824,14 +1758,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityDemonCharge))]
-    public AbilityConfigurator AddAbilityDemonCharge(
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+    public AbilityConfigurator AddAbilityDemonCharge()
     {
-      ValidateParam(m_HasIsAllyEffectRunConditions);
-      
-      var component =  new AbilityDemonCharge();
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
-      return AddComponent(component);
+      return AddComponent(new AbilityDemonCharge());
     }
 
     /// <summary>
@@ -1842,39 +1771,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityDifficultyLimitDC()
     {
       return AddComponent(new AbilityDifficultyLimitDC());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityEffectMiss"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityEffectMiss))]
-    public AbilityConfigurator AddAbilityEffectMiss(
-        bool UseTargetSelector,
-        ActionsBuilder MissAction)
-    {
-      
-      var component =  new AbilityEffectMiss();
-      component.UseTargetSelector = UseTargetSelector;
-      component.MissAction = MissAction.Build();
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityEffectRunAction"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityEffectRunAction))]
-    public AbilityConfigurator AddAbilityEffectRunAction(
-        SavingThrowType SavingThrowType,
-        ActionsBuilder Actions)
-    {
-      ValidateParam(SavingThrowType);
-      
-      var component =  new AbilityEffectRunAction();
-      component.SavingThrowType = SavingThrowType;
-      component.Actions = Actions.Build();
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -1932,22 +1828,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       
       var component =  new AbilityEffectStickyTouch();
       component.m_TouchDeliveryAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(m_TouchDeliveryAbility);
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityExecuteActionOnCast"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityExecuteActionOnCast))]
-    public AbilityConfigurator AddAbilityExecuteActionOnCast(
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
-    {
-      
-      var component =  new AbilityExecuteActionOnCast();
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
       return AddComponent(component);
     }
 
@@ -2094,18 +1974,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         SpellSchool School,
         string m_Factor,
         int MaxSpellLevel,
-        string SpellList,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        string SpellList)
     {
       ValidateParam(School);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityShadowSpell();
       component.School = School;
       component.m_Factor = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(m_Factor);
       component.MaxSpellLevel = MaxSpellLevel;
       component.SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(SpellList);
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -2133,15 +2010,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilitySillyFeed))]
     public AbilityConfigurator AddAbilitySillyFeed(
-        UnitAnimationActionClip m_Animation,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        UnitAnimationActionClip m_Animation)
     {
       ValidateParam(m_Animation);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilitySillyFeed();
       component.m_Animation = m_Animation;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -2155,18 +2029,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilitySwitchDualCompanion))]
     public AbilityConfigurator AddAbilitySwitchDualCompanion(
         GameObject PortalPrefab,
-        String PortalBone,
+        string PortalBone,
         GameObject DisappearFx,
         GameObject AppearFx,
         string m_DisappearProjectile,
         string m_AppearProjectile,
-        float AppearDelay,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        float AppearDelay)
     {
       ValidateParam(PortalPrefab);
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilitySwitchDualCompanion();
       component.PortalPrefab = PortalPrefab;
@@ -2176,7 +2048,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_DisappearProjectile);
       component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(m_AppearProjectile);
       component.AppearDelay = AppearDelay;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -2227,32 +2098,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_Condition = m_Condition.Build();
       component.m_SpreadSpeed = m_SpreadSpeed;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityVariants"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Variants"><see cref="BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(AbilityVariants))]
-    public AbilityConfigurator AddAbilityVariants(
-        string[] m_Variants)
-    {
-      
-      var component =  new AbilityVariants();
-      component.m_Variants = m_Variants.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCanTargetDead"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCanTargetDead))]
-    public AbilityConfigurator AddAbilityCanTargetDead()
-    {
-      return AddComponent(new AbilityCanTargetDead());
     }
 
     /// <summary>
@@ -2556,135 +2401,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="AbilityCasterAlignment"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_IgnoreFact"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCasterAlignment))]
-    public AbilityConfigurator AddAbilityCasterAlignment(
-        AlignmentMaskType Alignment,
-        string m_IgnoreFact)
-    {
-      ValidateParam(Alignment);
-      
-      var component =  new AbilityCasterAlignment();
-      component.Alignment = Alignment;
-      component.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_IgnoreFact);
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterHasChosenWeapon"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_ChosenWeaponFeature"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_IgnoreWeaponFact"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCasterHasChosenWeapon))]
-    public AbilityConfigurator AddAbilityCasterHasChosenWeapon(
-        string m_ChosenWeaponFeature,
-        string m_IgnoreWeaponFact)
-    {
-      
-      var component =  new AbilityCasterHasChosenWeapon();
-      component.m_ChosenWeaponFeature = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_ChosenWeaponFeature);
-      component.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_IgnoreWeaponFact);
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterHasFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCasterHasFacts))]
-    public AbilityConfigurator AddAbilityCasterHasFacts(
-        string[] m_Facts,
-        bool NeedsAll,
-        List<BlueprintUnitFact> m_FactsMissingCache)
-    {
-      foreach (var item in m_FactsMissingCache)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AbilityCasterHasFacts();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.NeedsAll = NeedsAll;
-      component.m_FactsMissingCache = m_FactsMissingCache;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterHasNoFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCasterHasNoFacts))]
-    public AbilityConfigurator AddAbilityCasterHasNoFacts(
-        string[] m_Facts,
-        List<BlueprintUnitFact> m_FactsPresentedCache)
-    {
-      foreach (var item in m_FactsPresentedCache)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AbilityCasterHasNoFacts();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_FactsPresentedCache = m_FactsPresentedCache;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
-    public AbilityConfigurator AddAbilityCasterHasWeaponWithRangeType(
-        WeaponRangeType RangeType)
-    {
-      ValidateParam(RangeType);
-      
-      var component =  new AbilityCasterHasWeaponWithRangeType();
-      component.RangeType = RangeType;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterInCombat"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterInCombat))]
-    public AbilityConfigurator AddAbilityCasterInCombat(
-        bool Not)
-    {
-      
-      var component =  new AbilityCasterInCombat();
-      component.Not = Not;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterIsOnFavoredTerrain"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_IgnoreFeature"><see cref="BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
-    public AbilityConfigurator AddAbilityCasterIsOnFavoredTerrain(
-        string m_IgnoreFeature)
-    {
-      
-      var component =  new AbilityCasterIsOnFavoredTerrain();
-      component.m_IgnoreFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_IgnoreFeature);
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityCasterMainWeaponCheck"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2787,17 +2503,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddArmyAbilityHook(
         float PullSpeed,
         AnimationCurve PullCurve,
-        int PullDistanceInCells,
-        Nullable<bool> m_HasIsAllyEffectRunConditions)
+        int PullDistanceInCells)
     {
       ValidateParam(PullCurve);
-      ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new ArmyAbilityHook();
       component.PullSpeed = PullSpeed;
       component.PullCurve = PullCurve;
       component.PullDistanceInCells = PullDistanceInCells;
-      component.m_HasIsAllyEffectRunConditions = m_HasIsAllyEffectRunConditions;
       return AddComponent(component);
     }
 
@@ -3042,8 +2755,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
 
       if (EnableMetamagics > 0) { Blueprint.AvailableMetamagic |= EnableMetamagics; }
       if (DisableMetamagics > 0) { Blueprint.AvailableMetamagic &= ~DisableMetamagics; }
-
-      if (EnableVariants.Count > 0 || DisableVariants.Count > 0) { ConfigureVariants(); }
     }
 
     protected override void ValidateInternal()
@@ -3111,7 +2822,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       }
     }
 
-    private bool SupportsEffectMiss(AbilityDeliverEffect effect)
+    private static bool SupportsEffectMiss(AbilityDeliverEffect effect)
     {
       return
           effect is AbilityDeliveredByWeapon
@@ -3153,41 +2864,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
               .ToArray();
     }
 
-    private void ConfigureVariants()
-    {
-      var component = Blueprint.GetComponent<AbilityVariants>();
-      if (component == null)
-      {
-        // Don't create a component to remove variants
-        if (EnableVariants.Count == 0) { return; }
-
-        component = new AbilityVariants();
-        AddComponent(component);
-      }
-      EnableVariants.AddRange(
-          component.m_Variants?.Select(reference => reference.Get()) ?? Array.Empty<BlueprintAbility>());
-      var variants = EnableVariants.Except(DisableVariants);
-
-      // Each variant must have this as its parent
-      variants.ForEach(ability => ability.m_Parent = Blueprint.ToReference<BlueprintAbilityReference>());
-      component.m_Variants = variants.Select(ability => ability.ToReference<BlueprintAbilityReference>()).ToArray();
-
-      // Remove this as parent of any variants removed
-      DisableVariants.ForEach(
-          ability =>
-            {
-              if (ability.m_Parent?.deserializedGuid == Blueprint.AssetGuid)
-              {
-                ability.m_Parent = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
-              }
-            });
-    }
-
     // Attribute for methods which add AbilityApplyEffect components.
-    private class ApplyEffectAttr : Attribute { }
+    [AttributeUsage(AttributeTargets.Method)]
+    public class ApplyEffectAttr : Attribute { }
+
     // Attribute for methods which add AbilityDeliverEffect components.
-    private class DeliverEffectAttr : Attribute { }
+    [AttributeUsage(AttributeTargets.Method)]
+    public class DeliverEffectAttr : Attribute { }
+
     // Attribute for methods which add AbilitySelectTarget components.
-    private class SelectTargetAttr : Attribute { }
+    [AttributeUsage(AttributeTargets.Method)]
+    public class SelectTargetAttr : Attribute { }
   }
 }

@@ -4426,7 +4426,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(AddEffectProtectionFromElement))]
     public TBuilder AddAddEffectProtectionFromElement(
-        String Element,
+        string Element,
         int ShieldCapacity)
     {
       
@@ -10488,7 +10488,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(ReplaceSourceBone))]
     public TBuilder AddReplaceSourceBone(
-        String SourceBone)
+        string SourceBone)
     {
       
       var component =  new ReplaceSourceBone();

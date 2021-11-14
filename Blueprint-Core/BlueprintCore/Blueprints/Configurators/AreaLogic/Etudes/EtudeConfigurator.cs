@@ -270,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketAudioObjects))]
     public EtudeConfigurator AddEtudeBracketAudioObjects(
-        String ConnectedObjectName)
+        string ConnectedObjectName)
     {
       
       var component =  new EtudeBracketAudioObjects();

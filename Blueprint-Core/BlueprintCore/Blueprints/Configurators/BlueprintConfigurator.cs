@@ -449,7 +449,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DlcStoreEpic))]
     public TBuilder AddDlcStoreEpic(
-        String m_EpicId)
+        string m_EpicId)
     {
       
       var component =  new DlcStoreEpic();
@@ -649,11 +649,11 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(UnitPropertyComponent))]
     public TBuilder AddUnitPropertyComponent(
-        String Name,
+        string Name,
         PropertySettings m_Settings,
         int m_BaseValue,
         UnitPropertyComponent.ExternalProperty[] m_AddExternalProperties,
-        String[] m_AddLocalProperties)
+        string[] m_AddLocalProperties)
     {
       ValidateParam(m_Settings);
       foreach (var item in m_AddExternalProperties)
@@ -1402,7 +1402,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(OnIsleStateEnterTrigger))]
     public TBuilder AddOnIsleStateEnterTrigger(
         IsleEvaluator m_IsleEvaluator,
-        String m_TargetState,
+        string m_TargetState,
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
@@ -1421,7 +1421,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(OnIsleStateExitTrigger))]
     public TBuilder AddOnIsleStateExitTrigger(
         IsleEvaluator m_IsleEvaluator,
-        String m_TargetState,
+        string m_TargetState,
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
@@ -1513,7 +1513,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(CustomEventTrigger))]
     public TBuilder AddCustomEventTrigger(
-        String Id,
+        string Id,
         ActionsBuilder Actions)
     {
       
@@ -1814,7 +1814,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ScriptZoneTrigger))]
     public TBuilder AddScriptZoneTrigger(
         EntityReference ScriptZone,
-        String UnitRef,
+        string UnitRef,
         ConditionsBuilder OnEnterConditions,
         ActionsBuilder OnEnterActions,
         ConditionsBuilder OnExitConditions,

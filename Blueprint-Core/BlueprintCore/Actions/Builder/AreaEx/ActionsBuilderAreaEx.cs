@@ -524,7 +524,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddSetDeviceTrigger(
         this ActionsBuilder builder,
         MapObjectEvaluator Device,
-        String Trigger)
+        string Trigger)
     {
       builder.Validate(Device);
       
@@ -800,7 +800,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder AddGameActionSetIsleState(
         this ActionsBuilder builder,
         IsleEvaluator m_Isle,
-        String m_StateName)
+        string m_StateName)
     {
       builder.Validate(m_Isle);
       

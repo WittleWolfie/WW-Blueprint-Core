@@ -236,7 +236,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     public static ConditionsBuilder AddIsleStateCondition(
         this ConditionsBuilder builder,
         IsleEvaluator m_Isle,
-        String m_State,
+        string m_State,
         bool negate = false)
     {
       builder.Validate(m_Isle);

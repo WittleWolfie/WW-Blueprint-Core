@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketAudioObjects))]
     public ComponentListConfigurator AddEtudeBracketAudioObjects(
-        String ConnectedObjectName)
+        string ConnectedObjectName)
     {
       
       var component =  new EtudeBracketAudioObjects();

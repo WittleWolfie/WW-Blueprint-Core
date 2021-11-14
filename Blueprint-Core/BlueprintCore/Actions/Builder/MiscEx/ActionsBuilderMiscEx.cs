@@ -175,7 +175,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(DebugLog))]
     public static ActionsBuilder AddDebugLog(
         this ActionsBuilder builder,
-        String Log,
+        string Log,
         bool Break)
     {
       
@@ -394,7 +394,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(SetStartDate))]
     public static ActionsBuilder AddSetStartDate(
         this ActionsBuilder builder,
-        String Date)
+        string Date)
     {
       
       var element = ElementTool.Create<SetStartDate>();

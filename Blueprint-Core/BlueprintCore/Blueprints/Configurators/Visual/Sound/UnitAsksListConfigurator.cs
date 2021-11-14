@@ -39,8 +39,8 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
     [Generated]
     [Implements(typeof(UnitAsksComponent))]
     public UnitAsksListConfigurator AddUnitAsksComponent(
-        String[] SoundBanks,
-        String PreviewSound,
+        string[] SoundBanks,
+        string PreviewSound,
         UnitAsksComponent.Bark Aggro,
         UnitAsksComponent.Bark Pain,
         UnitAsksComponent.Bark Fatigue,

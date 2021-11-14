@@ -153,7 +153,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(Play2DSound))]
     public static ActionsBuilder AddPlay2DSound(
         this ActionsBuilder builder,
-        String SoundName,
+        string SoundName,
         bool SetSex,
         bool SetRace)
     {
@@ -172,7 +172,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(Play3DSound))]
     public static ActionsBuilder AddPlay3DSound(
         this ActionsBuilder builder,
-        String SoundName,
+        string SoundName,
         EntityReference SoundSourceObject,
         bool SetSex,
         bool SetRace,
@@ -219,8 +219,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(PlayCustomMusic))]
     public static ActionsBuilder AddPlayCustomMusic(
         this ActionsBuilder builder,
-        String MusicEventStart,
-        String MusicEventStop)
+        string MusicEventStart,
+        string MusicEventStop)
     {
       
       var element = ElementTool.Create<PlayCustomMusic>();
@@ -260,7 +260,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(ReloadMechanic))]
     public static ActionsBuilder AddReloadMechanic(
         this ActionsBuilder builder,
-        String Desc,
+        string Desc,
         bool ClearFx)
     {
       
