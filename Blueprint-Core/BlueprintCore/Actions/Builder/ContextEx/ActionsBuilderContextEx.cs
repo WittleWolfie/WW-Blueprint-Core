@@ -2173,7 +2173,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         string[] m_ExcludeSpellbooks)
     {
       builder.Validate(m_Target);
-      builder.Validate(m_UpToSpellLevel);
       
       var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
       element.m_Target = m_Target;

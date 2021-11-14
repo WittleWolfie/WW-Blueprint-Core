@@ -191,7 +191,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         LocalizedString Hint,
         LocalizedString Default)
     {
-      builder.Validate(Obligatory);
       builder.Validate(Title);
       builder.Validate(Hint);
       builder.Validate(Default);
@@ -218,7 +217,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       builder.Validate(Destination);
       builder.Validate(SkipHours);
-      builder.Validate(UpdateLocationVisitedTime);
       
       var element = ElementTool.Create<GlobalMapTeleport>();
       element.Destination = Destination;
@@ -238,7 +236,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool Unhide)
     {
       builder.Validate(MapObject);
-      builder.Validate(Unhide);
       
       var element = ElementTool.Create<HideMapObject>();
       element.MapObject = MapObject;
@@ -284,7 +281,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string m_Location,
         bool Closed)
     {
-      builder.Validate(Closed);
       
       var element = ElementTool.Create<MarkLocationClosed>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
@@ -304,7 +300,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string m_Location,
         bool Explored)
     {
-      builder.Validate(Explored);
       
       var element = ElementTool.Create<MarkLocationExplored>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
@@ -323,7 +318,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool Hidden)
     {
       builder.Validate(MapObject);
-      builder.Validate(Hidden);
       
       var element = ElementTool.Create<MarkOnLocalMap>();
       element.MapObject = MapObject;
@@ -375,7 +369,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool m_ExitStealth)
     {
       builder.Validate(m_Unit);
-      builder.Validate(m_ExitStealth);
       
       var element = ElementTool.Create<RemoveAmbush>();
       element.m_Unit = m_Unit;
@@ -449,7 +442,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string[] Points,
         bool RevealEdges)
     {
-      builder.Validate(RevealEdges);
       
       var element = ElementTool.Create<RevealGlobalMap>();
       element.Points = Points.Select(bp => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(bp)).ToArray();
@@ -537,10 +529,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         String Trigger)
     {
       builder.Validate(Device);
-      foreach (var item in Trigger)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<SetDeviceTrigger>();
       element.Device = Device;
@@ -559,7 +547,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         int OverrideDC)
     {
       builder.Validate(MapObject);
-      builder.Validate(OverrideDC);
       
       var element = ElementTool.Create<SetDisableDevice>();
       element.MapObject = MapObject;
@@ -637,7 +624,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         ActionsBuilder AfterTeleport)
     {
       builder.Validate(AutoSaveMode);
-      builder.Validate(ForcePauseAfterTeleport);
       
       var element = ElementTool.Create<TeleportParty>();
       element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_exitPositon);
@@ -659,8 +645,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool ScrollCameraToPlayer)
     {
       builder.Validate(transolcatePosition);
-      builder.Validate(ByFormationAndWithPets);
-      builder.Validate(ScrollCameraToPlayer);
       
       var element = ElementTool.Create<TranslocatePlayer>();
       element.transolcatePosition = transolcatePosition;
@@ -685,7 +669,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       builder.Validate(Unit);
       builder.Validate(translocatePosition);
       builder.Validate(translocatePositionEvaluator);
-      builder.Validate(m_CopyRotation);
       builder.Validate(translocateOrientationEvaluator);
       
       var element = ElementTool.Create<TranslocateUnit>();
@@ -721,11 +704,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       builder.Validate(TriggeringUnit);
       builder.Validate(TargetPoint);
       builder.Validate(ActorPosition);
-      builder.Validate(DisableBattleLog);
-      builder.Validate(OverrideDC);
-      builder.Validate(DC);
-      builder.Validate(OverrideSpellLevel);
-      builder.Validate(SpellLevel);
       
       var element = ElementTool.Create<TrapCastSpell>();
       element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
@@ -771,8 +749,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool FakeDescription,
         bool HideInstead)
     {
-      builder.Validate(FakeDescription);
-      builder.Validate(HideInstead);
       
       var element = ElementTool.Create<UnlockLocation>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
@@ -793,7 +769,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string m_Edge,
         bool OpenEdges)
     {
-      builder.Validate(OpenEdges);
       
       var element = ElementTool.Create<UnlockMapEdge>();
       element.m_Edge = BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(m_Edge);
@@ -812,7 +787,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool m_IsLock)
     {
       builder.Validate(m_Isle);
-      builder.Validate(m_IsLock);
       
       var element = ElementTool.Create<GameActionSetIsleLock>();
       element.m_Isle = m_Isle;
@@ -831,10 +805,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         String m_StateName)
     {
       builder.Validate(m_Isle);
-      foreach (var item in m_StateName)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<GameActionSetIsleState>();
       element.m_Isle = m_Isle;

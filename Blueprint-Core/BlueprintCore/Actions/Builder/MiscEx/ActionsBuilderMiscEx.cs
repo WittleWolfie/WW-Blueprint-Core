@@ -180,11 +180,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         String Log,
         bool Break)
     {
-      foreach (var item in Log)
-      {
-        builder.Validate(item);
-      }
-      builder.Validate(Break);
       
       var element = ElementTool.Create<DebugLog>();
       element.Log = Log;
@@ -217,7 +212,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool SaveForImport)
     {
-      builder.Validate(SaveForImport);
       
       var element = ElementTool.Create<MakeAutoSave>();
       element.SaveForImport = SaveForImport;
@@ -236,7 +230,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string m_Item,
         bool NonRemovable)
     {
-      builder.Validate(NonRemovable);
       
       var element = ElementTool.Create<MakeItemNonRemovable>();
       element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
@@ -277,7 +270,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool m_LockStopChargen,
         ActionsBuilder m_AfterStopActions)
     {
-      builder.Validate(m_LockStopChargen);
       
       var element = ElementTool.Create<OpenSelectMythicUI>();
       element.m_AfterCommitActions = m_AfterCommitActions.Build();
@@ -302,11 +294,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         int Quantity,
         float Percentage)
     {
-      builder.Validate(Money);
-      builder.Validate(RemoveAll);
-      builder.Validate(m_Silent);
-      builder.Validate(Quantity);
-      builder.Validate(Percentage);
       
       var element = ElementTool.Create<RemoveItemFromPlayer>();
       element.Money = Money;
@@ -395,7 +382,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string m_ItemToSell,
         bool HalfPrice)
     {
-      builder.Validate(HalfPrice);
       
       var element = ElementTool.Create<SellCollectibleItems>();
       element.m_ItemToSell = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToSell);
@@ -412,10 +398,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         String Date)
     {
-      foreach (var item in Date)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<SetStartDate>();
       element.Date = Date;
@@ -490,7 +472,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     {
       builder.Validate(Target);
       builder.Validate(DestinationContainer);
-      builder.Validate(Silent);
       
       var element = ElementTool.Create<UnequipAllItems>();
       element.Target = Target;
@@ -516,8 +497,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     {
       builder.Validate(Unit);
       builder.Validate(DestinationContainer);
-      builder.Validate(Silent);
-      builder.Validate(All);
       
       var element = ElementTool.Create<UnequipItem>();
       element.Unit = Unit;

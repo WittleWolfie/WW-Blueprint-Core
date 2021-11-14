@@ -141,8 +141,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         float RainIntensity,
         float Duration)
     {
-      builder.Validate(RainIntensity);
-      builder.Validate(Duration);
       
       var element = ElementTool.Create<OverrideRainIntesity>();
       element.RainIntensity = RainIntensity;
@@ -161,12 +159,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool SetSex,
         bool SetRace)
     {
-      foreach (var item in SoundName)
-      {
-        builder.Validate(item);
-      }
-      builder.Validate(SetSex);
-      builder.Validate(SetRace);
       
       var element = ElementTool.Create<Play2DSound>();
       element.SoundName = SoundName;
@@ -188,14 +180,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool SetRace,
         bool SetCurrentSpeaker)
     {
-      foreach (var item in SoundName)
-      {
-        builder.Validate(item);
-      }
       builder.Validate(SoundSourceObject);
-      builder.Validate(SetSex);
-      builder.Validate(SetRace);
-      builder.Validate(SetCurrentSpeaker);
       
       var element = ElementTool.Create<Play3DSound>();
       element.SoundName = SoundName;
@@ -220,8 +205,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       builder.Validate(m_ClipWrapper);
       builder.Validate(Unit);
-      builder.Validate(TransitionIn);
-      builder.Validate(TransitionOut);
       
       var element = ElementTool.Create<PlayAnimationOneShot>();
       element.m_ClipWrapper = m_ClipWrapper;
@@ -241,14 +224,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         String MusicEventStart,
         String MusicEventStop)
     {
-      foreach (var item in MusicEventStart)
-      {
-        builder.Validate(item);
-      }
-      foreach (var item in MusicEventStop)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<PlayCustomMusic>();
       element.MusicEventStart = MusicEventStart;
@@ -270,8 +245,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool CheckExistence,
         ParametrizedContextSetter Parameters)
     {
-      builder.Validate(PutInQueue);
-      builder.Validate(CheckExistence);
       builder.Validate(Parameters);
       
       var element = ElementTool.Create<PlayCutscene>();
@@ -292,11 +265,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         String Desc,
         bool ClearFx)
     {
-      foreach (var item in Desc)
-      {
-        builder.Validate(item);
-      }
-      builder.Validate(ClearFx);
       
       var element = ElementTool.Create<ReloadMechanic>();
       element.Desc = Desc;
@@ -335,7 +303,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       builder.Validate(WhatToBark);
       builder.Validate(WhatToBarkShared);
-      builder.Validate(BarkDurationByText);
       builder.Validate(TargetUnit);
       builder.Validate(TargetMapObject);
       
@@ -411,7 +378,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool ToggleOn)
     {
       builder.Validate(Target);
-      builder.Validate(ToggleOn);
       
       var element = ElementTool.Create<ToggleObjectFx>();
       element.Target = Target;
@@ -430,7 +396,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool ToggleOn)
     {
       builder.Validate(Target);
-      builder.Validate(ToggleOn);
       
       var element = ElementTool.Create<ToggleObjectMusic>();
       element.Target = Target;

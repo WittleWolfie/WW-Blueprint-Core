@@ -34,9 +34,6 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         DifficultyPresetAsset m_Difficulty,
         bool negate = false)
     {
-      builder.Validate(Less);
-      builder.Validate(Reverse);
-      builder.Validate(CheckOnlyForMonster);
       builder.Validate(m_Difficulty);
       
       var element = ElementTool.Create<ContextConditionDifficultyHigherThan>();
@@ -245,10 +242,6 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(m_Isle);
-      foreach (var item in m_State)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<IsleStateCondition>();
       element.m_Isle = m_Isle;

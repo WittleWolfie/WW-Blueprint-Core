@@ -133,7 +133,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool CurrentDialog,
         bool negate = false)
     {
-      builder.Validate(CurrentDialog);
       
       var element = ElementTool.Create<AnswerListShown>();
       element.m_AnswersList = BlueprintTool.GetRef<BlueprintAnswersListReference>(m_AnswersList);
@@ -155,7 +154,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool CurrentDialog,
         bool negate = false)
     {
-      builder.Validate(CurrentDialog);
       
       var element = ElementTool.Create<AnswerSelected>();
       element.m_Answer = BlueprintTool.GetRef<BlueprintAnswerReference>(m_Answer);
@@ -252,7 +250,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool CurrentDialog,
         bool negate = false)
     {
-      builder.Validate(CurrentDialog);
       
       var element = ElementTool.Create<CueSeen>();
       element.m_Cue = BlueprintTool.GetRef<BlueprintCueBaseReference>(m_Cue);
@@ -271,7 +268,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         int Chapter,
         bool negate = false)
     {
-      builder.Validate(Chapter);
       
       var element = ElementTool.Create<CurrentChapter>();
       element.Chapter = Chapter;
@@ -290,8 +286,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool Last,
         bool negate = false)
     {
-      builder.Validate(First);
-      builder.Validate(Last);
       
       var element = ElementTool.Create<CutsceneQueueState>();
       element.First = First;
@@ -310,7 +304,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         int Day,
         bool negate = false)
     {
-      builder.Validate(Day);
       
       var element = ElementTool.Create<DayOfTheMonth>();
       element.Day = Day;
@@ -371,11 +364,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool Completed,
         bool negate = false)
     {
-      builder.Validate(NotStarted);
-      builder.Validate(Started);
-      builder.Validate(Playing);
-      builder.Validate(CompletionInProgress);
-      builder.Validate(Completed);
       
       var element = ElementTool.Create<EtudeStatus>();
       element.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(m_Etude);
@@ -402,8 +390,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         int MaxValue,
         bool negate = false)
     {
-      builder.Validate(MinValue);
-      builder.Validate(MaxValue);
       
       var element = ElementTool.Create<FlagInRange>();
       element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_Flag);
@@ -427,11 +413,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         List<int> SpecifiedValues,
         bool negate = false)
     {
-      builder.Validate(ExceptSpecifiedValues);
-      foreach (var item in SpecifiedValues)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<FlagUnlocked>();
       element.m_ConditionFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_ConditionFlag);
@@ -466,10 +447,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         int[] Months,
         bool negate = false)
     {
-      foreach (var item in Months)
-      {
-        builder.Validate(item);
-      }
       
       var element = ElementTool.Create<MonthFromList>();
       element.Months = Months;
@@ -562,7 +539,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         string m_CharacterClassGroup,
         bool negate = false)
     {
-      builder.Validate(CheckGroup);
       
       var element = ElementTool.Create<PlayerSignificantClassIs>();
       element.CheckGroup = CheckGroup;
@@ -587,7 +563,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         string m_CharacterClassGroup,
         bool negate = false)
     {
-      builder.Validate(CheckGroup);
       
       var element = ElementTool.Create<PlayerTopClassIs>();
       element.CheckGroup = CheckGroup;

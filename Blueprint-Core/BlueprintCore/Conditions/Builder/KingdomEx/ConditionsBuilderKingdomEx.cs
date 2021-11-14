@@ -49,7 +49,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         ContextValue ReferenceValue,
         bool negate = false)
     {
-      builder.Validate(CheckInitiatorHP);
       builder.Validate(Operation);
       builder.Validate(ReferenceValue);
       
@@ -73,7 +72,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(m_Tags);
-      builder.Validate(m_NeedAllTags);
       
       var element = ElementTool.Create<TargetHasArmyTag>();
       element.m_Tags = m_Tags;
@@ -185,7 +183,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool AnywhereInTown,
         bool negate = false)
     {
-      builder.Validate(AnywhereInTown);
       
       var element = ElementTool.Create<BuildingHasNeighbours>();
       element.m_SpecificBuildings = m_SpecificBuildings.Select(bp => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(bp)).ToArray();
@@ -205,8 +202,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         int Days,
         bool negate = false)
     {
-      builder.Validate(AtMost);
-      builder.Validate(Days);
       
       var element = ElementTool.Create<DaysTillNextMonth>();
       element.AtMost = AtMost;
@@ -226,8 +221,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         int MoreThan,
         bool negate = false)
     {
-      builder.Validate(LessThan);
-      builder.Validate(MoreThan);
       
       var element = ElementTool.Create<EventLifetime>();
       element.LessThan = LessThan;
@@ -288,7 +281,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(_Check);
-      builder.Validate(Tier);
       
       var element = ElementTool.Create<KingdomArtisanState>();
       element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(m_Artisan);
@@ -330,7 +322,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         int Week,
         bool negate = false)
     {
-      builder.Validate(Week);
       
       var element = ElementTool.Create<KingdomChapterWeek>();
       element.Week = Week;
@@ -349,8 +340,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         int Day,
         bool negate = false)
     {
-      builder.Validate(AtMost);
-      builder.Validate(Day);
       
       var element = ElementTool.Create<KingdomDay>();
       element.AtMost = AtMost;
@@ -501,7 +490,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(Leader);
-      builder.Validate(AllowCustomCompanions);
       
       var element = ElementTool.Create<KingdomLeaderIs>();
       element.Leader = Leader;
@@ -526,9 +514,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool FinishableThisMonth,
         bool negate = false)
     {
-      builder.Validate(CheckResources);
-      builder.Validate(CheckLeader);
-      builder.Validate(FinishableThisMonth);
       
       var element = ElementTool.Create<KingdomProjectIsAvailable>();
       element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(m_Project);
@@ -570,7 +555,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(Stat);
-      builder.Validate(NextRank);
       
       var element = ElementTool.Create<KingdomRankUpConditions>();
       element.Stat = Stat;
@@ -632,7 +616,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(MinLevel);
-      builder.Validate(Count);
       
       var element = ElementTool.Create<KingdomSettlementCount>();
       element.MinLevel = MinLevel;
@@ -677,9 +660,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(StatType);
-      builder.Validate(Value);
-      builder.Validate(AtMost);
-      builder.Validate(CheckRank);
       
       var element = ElementTool.Create<KingdomStatCheck>();
       element.StatType = StatType;
@@ -741,7 +721,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(Value);
-      builder.Validate(AtMost);
       
       var element = ElementTool.Create<KingdomUnrestCheck>();
       element.Value = Value;

@@ -31,8 +31,6 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         int MaxLevel,
         bool negate = false)
     {
-      builder.Validate(MinLevel);
-      builder.Validate(MaxLevel);
       
       var element = ElementTool.Create<ContextConditionDungeonStage>();
       element.MinLevel = MinLevel;
@@ -108,7 +106,6 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     {
       builder.Validate(LootObject);
       builder.Validate(MapObject);
-      builder.Validate(EvaluateMapObject);
       
       var element = ElementTool.Create<IsLootEmpty>();
       element.LootObject = LootObject;

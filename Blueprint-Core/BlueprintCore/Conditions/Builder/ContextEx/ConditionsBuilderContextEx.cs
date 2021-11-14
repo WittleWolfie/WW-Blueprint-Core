@@ -108,7 +108,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         AlignmentComponent Alignment,
         bool negate = false)
     {
-      builder.Validate(CheckCaster);
       builder.Validate(Alignment);
       
       var element = ElementTool.Create<ContextConditionAlignment>();
@@ -128,7 +127,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         int AlignmentStepDifference,
         bool negate = false)
     {
-      builder.Validate(AlignmentStepDifference);
       
       var element = ElementTool.Create<ContextConditionAlignmentDifference>();
       element.AlignmentStepDifference = AlignmentStepDifference;
@@ -235,8 +233,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         int MinLevel,
         bool negate = false)
     {
-      builder.Validate(CheckCaster);
-      builder.Validate(MinLevel);
       
       var element = ElementTool.Create<ContextConditionCharacterClass>();
       element.CheckCaster = CheckCaster;
@@ -396,8 +392,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         int Quantity,
         bool negate = false)
     {
-      builder.Validate(Money);
-      builder.Validate(Quantity);
       
       var element = ElementTool.Create<ContextConditionHasItem>();
       element.Money = Money;
@@ -453,8 +447,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         AbilitySharedValue SharedValue,
         bool negate = false)
     {
-      builder.Validate(HitDice);
-      builder.Validate(AddSharedValue);
       builder.Validate(SharedValue);
       
       var element = ElementTool.Create<ContextConditionHitDice>();
@@ -685,7 +677,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool CheckCaster,
         bool negate = false)
     {
-      builder.Validate(CheckCaster);
       
       var element = ElementTool.Create<ContextConditionIsShieldEquipped>();
       element.CheckCaster = CheckCaster;
@@ -737,11 +728,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool CheckOnCaster,
         bool negate = false)
     {
-      builder.Validate(CheckWeaponRangeType);
-      builder.Validate(CheckWeaponCategory);
       builder.Validate(RangeType);
       builder.Validate(Category);
-      builder.Validate(CheckOnCaster);
       
       var element = ElementTool.Create<ContextConditionIsWeaponEquipped>();
       element.CheckWeaponRangeType = CheckWeaponRangeType;
@@ -796,8 +784,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(SharedValue);
-      builder.Validate(HigherOrEqual);
-      builder.Validate(Inverted);
       
       var element = ElementTool.Create<ContextConditionSharedValueHigher>();
       element.SharedValue = SharedValue;
@@ -819,7 +805,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(SharedValue);
-      builder.Validate(Inverted);
       
       var element = ElementTool.Create<ContextConditionSharedValueHitDice>();
       element.SharedValue = SharedValue;
@@ -841,8 +826,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(Size);
-      builder.Validate(Invert);
-      builder.Validate(CheckCaster);
       
       var element = ElementTool.Create<ContextConditionSize>();
       element.Size = Size;
@@ -863,7 +846,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         StatType Stat,
         bool negate = false)
     {
-      builder.Validate(N);
       builder.Validate(Stat);
       
       var element = ElementTool.Create<ContextConditionStatValue>();
@@ -1000,7 +982,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(AnimationStyle);
-      builder.Validate(CheckOnCaster);
       
       var element = ElementTool.Create<ContextConditionWeaponAnimationStyle>();
       element.AnimationStyle = AnimationStyle;

@@ -119,7 +119,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         AlignmentSelector.ActionAndCondition ChaoticEvil,
         Dictionary<Alignment,AlignmentSelector.ActionAndCondition> m_ActionsByAlignment)
     {
-      builder.Validate(SelectClosest);
       builder.Validate(LawfulGood);
       builder.Validate(NeutralGood);
       builder.Validate(ChaoticGood);
@@ -188,8 +187,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool Fade)
     {
       builder.Validate(Target);
-      builder.Validate(Unhide);
-      builder.Validate(Fade);
       
       var element = ElementTool.Create<HideUnit>();
       element.Target = Target;
@@ -209,7 +206,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool Hide)
     {
       builder.Validate(Target);
-      builder.Validate(Hide);
       
       var element = ElementTool.Create<HideWeapons>();
       element.Target = Target;
@@ -231,7 +227,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool UnlockIfNot)
     {
       builder.Validate(Value);
-      builder.Validate(UnlockIfNot);
       
       var element = ElementTool.Create<IncrementFlagValue>();
       element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_Flag);
@@ -429,8 +424,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         int m_PartySize,
         ActionsBuilder AfterDetach)
     {
-      builder.Validate(m_RestrictPartySize);
-      builder.Validate(m_PartySize);
       
       var element = ElementTool.Create<PartyMembersDetach>();
       element.m_DetachAllExcept = m_DetachAllExcept.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
@@ -456,8 +449,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         builder.Validate(item);
       }
-      builder.Validate(m_RestrictPartySize);
-      builder.Validate(m_PartySize);
       
       var element = ElementTool.Create<PartyMembersDetachEvaluated>();
       element.DetachThese = DetachThese;
@@ -494,8 +485,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         builder.Validate(item);
       }
-      builder.Validate(AddToParty);
-      builder.Validate(MatchPlayerXpExactly);
       
       var element = ElementTool.Create<Recruit>();
       element.Recruited = Recruited;
@@ -550,7 +539,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         int Levels)
     {
-      builder.Validate(Levels);
       
       var element = ElementTool.Create<RemoveMythicLevels>();
       element.Levels = Levels;
@@ -640,8 +628,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool ForFree,
         bool MatchPlayerXpExactly)
     {
-      builder.Validate(ForFree);
-      builder.Validate(MatchPlayerXpExactly);
       
       var element = ElementTool.Create<RespecCompanion>();
       element.ForFree = ForFree;
@@ -714,7 +700,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         int DesireLevel)
     {
-      builder.Validate(DesireLevel);
       
       var element = ElementTool.Create<SetMythicLevelForMainCharacter>();
       element.DesireLevel = DesireLevel;
@@ -735,7 +720,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool StartObjectiveIfNone)
     {
       builder.Validate(Status);
-      builder.Validate(StartObjectiveIfNone);
       
       var element = ElementTool.Create<SetObjectiveStatus>();
       element.Status = Status;
@@ -821,7 +805,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         int WaitTime)
     {
       builder.Validate(Text);
-      builder.Validate(WaitTime);
       
       var element = ElementTool.Create<ShowMessageBox>();
       element.Text = Text;
@@ -941,7 +924,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool Evaluate)
     {
       builder.Validate(EtudeEvaluator);
-      builder.Validate(Evaluate);
       
       var element = ElementTool.Create<StartEtude>();
       element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(Etude);
@@ -962,7 +944,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         string m_GlobalMap,
         bool IsOn)
     {
-      builder.Validate(IsOn);
       
       var element = ElementTool.Create<SwitchAzataIsland>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
@@ -979,7 +960,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         this ActionsBuilder builder,
         int Chapter)
     {
-      builder.Validate(Chapter);
       
       var element = ElementTool.Create<SwitchChapter>();
       element.Chapter = Chapter;
@@ -999,9 +979,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool OpenIfAlreadyClosed)
     {
       builder.Validate(Door);
-      builder.Validate(UnlockIfLocked);
-      builder.Validate(CloseIfAlreadyOpen);
-      builder.Validate(OpenIfAlreadyClosed);
       
       var element = ElementTool.Create<SwitchDoor>();
       element.Door = Door;
@@ -1026,8 +1003,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool ResetAllRelations)
     {
       builder.Validate(Target);
-      builder.Validate(IncludeGroup);
-      builder.Validate(ResetAllRelations);
       
       var element = ElementTool.Create<SwitchFaction>();
       element.Target = Target;
@@ -1049,8 +1024,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool DisableIfAlreadyEnabled)
     {
       builder.Validate(MapObject);
-      builder.Validate(EnableIfAlreadyDisabled);
-      builder.Validate(DisableIfAlreadyEnabled);
       
       var element = ElementTool.Create<SwitchInteraction>();
       element.MapObject = MapObject;
@@ -1070,7 +1043,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool Disable)
     {
       builder.Validate(Unit);
-      builder.Validate(Disable);
       
       var element = ElementTool.Create<SwitchRoaming>();
       element.Unit = Unit;
@@ -1112,7 +1084,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool IncludeGroup)
     {
       builder.Validate(Target);
-      builder.Validate(IncludeGroup);
       
       var element = ElementTool.Create<SwitchToNeutral>();
       element.Target = Target;
@@ -1137,8 +1108,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       builder.Validate(m_Type);
       builder.Validate(MinutesToSkip);
       builder.Validate(TimeOfDay);
-      builder.Validate(NoFatigue);
-      builder.Validate(MatchTimeOfDay);
       
       var element = ElementTool.Create<TimeSkip>();
       element.m_Type = m_Type;
@@ -1216,7 +1185,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         string m_flag,
         int flagValue)
     {
-      builder.Validate(flagValue);
       
       var element = ElementTool.Create<UnlockFlag>();
       element.m_flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_flag);

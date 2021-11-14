@@ -556,14 +556,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         int DamageBonus,
         bool DisableBattleLog)
     {
-      builder.Validate(NoSource);
       builder.Validate(Source);
       builder.Validate(Target);
       builder.Validate(Type);
       builder.Validate(Duration);
       builder.Validate(DamageDice);
-      builder.Validate(DamageBonus);
-      builder.Validate(DisableBattleLog);
       
       var element = ElementTool.Create<DrainEnergy>();
       element.NoSource = NoSource;
@@ -589,9 +586,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool m_RestWithCraft,
         ActionsBuilder m_ActionsOnRestEnd)
     {
-      builder.Validate(m_Immediate);
-      builder.Validate(m_IgnoreCorruption);
-      builder.Validate(m_RestWithCraft);
       
       var element = ElementTool.Create<FakePartyRest>();
       element.m_Immediate = m_Immediate;
@@ -615,10 +609,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool Dummy)
     {
       builder.Validate(Encounter);
-      builder.Validate(CR);
-      builder.Validate(Modifier);
       builder.Validate(Count);
-      builder.Validate(Dummy);
       
       var element = ElementTool.Create<GainExp>();
       element.Encounter = Encounter;
@@ -638,7 +629,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         int Levels)
     {
-      builder.Validate(Levels);
       
       var element = ElementTool.Create<GainMythicLevel>();
       element.Levels = Levels;
@@ -675,7 +665,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Source);
       builder.Validate(Target);
-      builder.Validate(ToFullHP);
       builder.Validate(HealAmount);
       
       var element = ElementTool.Create<HealUnit>();
@@ -724,9 +713,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Target);
       builder.Validate(Killer);
-      builder.Validate(Critical);
-      builder.Validate(DisableBattleLog);
-      builder.Validate(RemoveExp);
       
       var element = ElementTool.Create<Kill>();
       element.Target = Target;
@@ -770,8 +756,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Caster);
       builder.Validate(Target);
-      builder.Validate(AutoHit);
-      builder.Validate(IgnoreStatBonus);
       
       var element = ElementTool.Create<MeleeAttack>();
       element.Caster = Caster;
@@ -810,7 +794,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool AllowItems)
     {
       builder.Validate(Description);
-      builder.Validate(AllowItems);
       
       var element = ElementTool.Create<PartyUseAbility>();
       element.Description = Description;
@@ -830,7 +813,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         string m_companion,
         bool riseAllCompanions)
     {
-      builder.Validate(riseAllCompanions);
       
       var element = ElementTool.Create<RaiseDead>();
       element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
@@ -908,9 +890,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         ActionsBuilder OnFailure)
     {
       builder.Validate(Stat);
-      builder.Validate(DC);
-      builder.Validate(LogSuccess);
-      builder.Validate(LogFailure);
       
       var element = ElementTool.Create<RollPartySkillCheck>();
       element.Stat = Stat;
@@ -941,11 +920,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Stat);
       builder.Validate(Unit);
-      builder.Validate(DC);
-      builder.Validate(LogSuccess);
-      builder.Validate(LogFailure);
-      builder.Validate(Voice);
-      builder.Validate(ForbidPartyHelpInCamp);
       
       var element = ElementTool.Create<RollSkillCheck>();
       element.Stat = Stat;
@@ -973,10 +947,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         string Holder,
         ParametrizedContextSetter Parameters)
     {
-      foreach (var item in Comment)
-      {
-        builder.Validate(item);
-      }
       builder.Validate(Parameters);
       
       var element = ElementTool.Create<RunActionHolder>();
@@ -1057,7 +1027,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(Unit);
       builder.Validate(Condition);
-      builder.Validate(Remove);
       
       var element = ElementTool.Create<StatusEffect>();
       element.Unit = Unit;
@@ -1083,7 +1052,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Vector3 Offset,
         ActionsBuilder OnSummmon)
     {
-      builder.Validate(GroupBySummonPool);
       builder.Validate(Transform);
       builder.Validate(Offset);
       
@@ -1137,7 +1105,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       builder.Validate(CopyFrom);
       builder.Validate(Locator);
-      builder.Validate(DoNotCreateItems);
       
       var element = ElementTool.Create<SummonUnitCopy>();
       element.CopyFrom = CopyFrom;
@@ -1163,7 +1130,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool IsOn)
     {
       builder.Validate(Unit);
-      builder.Validate(IsOn);
       
       var element = ElementTool.Create<SwitchActivatableAbility>();
       element.Unit = Unit;
