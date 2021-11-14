@@ -38,7 +38,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public string GetText()
     {
-      return $"\n{Comment}{Attributes}{Declaration}{BaseIndent}{{\n{Body}{BaseIndent}}}";
+      return $"{Comment}{Attributes}{Declaration}{BaseIndent}{{\n{Body}{BaseIndent}}}\n";
     }
 
     public void AddCommentSummary(string summary)

@@ -261,7 +261,6 @@ namespace BlueprintCoreGen.CodeGen
           {
             methodsByBlueprintType[template.BlueprintType].ForEach(
                 method => template.AddConfiguratorMethod(method, isAbstract));
-            template.AddLine("");
           }
           continue;
         }

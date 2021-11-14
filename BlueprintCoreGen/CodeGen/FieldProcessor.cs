@@ -45,7 +45,6 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  // TODO: Skip validation for primitive types
   public interface IField
   {
     bool IsOptional();

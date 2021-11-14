@@ -27,6 +27,7 @@ namespace BlueprintCoreGen.CodeGen
         BlueprintType = blueprintType
       };
 
+      template.AddLine(""); // Line between import & namespace
       template.AddLine($"namespace {ConfiguratorTemplate.GetNamespace(relativeNamespace)}");
       template.AddLine(@"{");
 
