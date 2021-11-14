@@ -74,6 +74,8 @@ namespace BlueprintCoreGen.CodeGen
     // For configurators
     private static readonly Regex Configures = new(@"^\s+\[Configures\(typeof\((\w+)\)\)\]", RegexOptions.Compiled);
     private static readonly Regex GenerateComponents = new(@"^\s*// \[GenerateComponents\]", RegexOptions.Compiled);
+    private static readonly Regex ClassDecl = new(@"^\s+public class", RegexOptions.Compiled);
+    private static readonly Regex AbstractClassDecl = new(@"^\s+public abstract class", RegexOptions.Compiled);
 
     public static readonly List<ClassTemplate> ActionTemplates = new();
     public static readonly List<ClassTemplate> ConditionTemplates = new();
@@ -200,6 +202,7 @@ namespace BlueprintCoreGen.CodeGen
     {
       var template = new ConfiguratorTemplate(relativePath);
 
+      bool isAbstract = false;
       string currentLine;
       (string Old, string New)? replacement = null;
       foreach (var line in File.ReadAllLines(file))
@@ -237,6 +240,16 @@ namespace BlueprintCoreGen.CodeGen
           template.BlueprintType = AccessTools.TypeByName(Configures.Match(currentLine).Groups[1].Value);
         }
 
+        if (ClassDecl.IsMatch(currentLine))
+        {
+          isAbstract = false;
+        }
+
+        if (AbstractClassDecl.IsMatch(currentLine))
+        {
+          isAbstract = true;
+        }
+
         if (GenerateComponents.IsMatch(currentLine))
         {
           if (template.BlueprintType == null)
@@ -245,7 +258,8 @@ namespace BlueprintCoreGen.CodeGen
           }
           if (methodsByBlueprintType.ContainsKey(template.BlueprintType))
           {
-            methodsByBlueprintType[template.BlueprintType].ForEach(method => template.AddMethod(method));
+            methodsByBlueprintType[template.BlueprintType].ForEach(
+                method => template.AddConfiguratorMethod(method, isAbstract));
           }
           continue;
         }
@@ -369,31 +383,25 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
-      List<AllowedOnAttribute> allowedOn =
-          attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => attr as AllowedOnAttribute).ToList();
+      List<Type> allowedOn =
+          attrs
+              .Where(attr => attr is AllowedOnAttribute)
+              .Select(attr => attr as AllowedOnAttribute)
+              .Select(attr => attr.Type)
+              .ToList();
 
-      List<Type> allowedBlueprintTypes = new();
       if (!allowedOn.Any())
       {
         // This should work on all blueprint types
-        allowedBlueprintTypes.Add(typeof(BlueprintScriptableObject));
+        allowedOn.Add(typeof(BlueprintScriptableObject));
+        return allowedOn;
       }
 
       // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
       // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
       // This ensures the API only exposes supported components although it may not expose all of them.
-      List<Type> filter = new();
-      allowedOn.ForEach(
-          allowed =>
-          {
-            if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type)))
-            {
-              filter.Add(allowed.Type);
-            }
-          });
-      allowedOn = allowedOn.Where(attr => !filter.Contains(attr.Type)).Distinct(AttrComparer).ToList();
-
-      return allowedBlueprintTypes;
+      allowedOn.RemoveAll(type => allowedOn.Exists(t => type.IsSubclassOf(t)));
+      return allowedOn.Distinct().ToList();
     }
 
     private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =

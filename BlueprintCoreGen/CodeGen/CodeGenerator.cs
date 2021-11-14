@@ -1,5 +1,7 @@
-﻿using Kingmaker.Blueprints;
+﻿using Kingmaker.AI.Blueprints;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,12 +87,21 @@ namespace BlueprintCoreGen.CodeGen
       }
       throw new InvalidOperationException("Unsupported type: " + GetTypeName(type));
     }
+
+    private static readonly Dictionary<Type, string> TypeNameOverrides =
+        new()
+        {
+          { typeof(Kingmaker.UnitLogic.Mechanics.ValueType), "Kingmaker.UnitLogic.Mechanics.ValueType" },
+          { typeof(Kingmaker.UnitLogic.Abilities.Components.TargetType), "Kingmaker.UnitLogic.Abilities.Components.TargetType" },
+          { typeof(Kingmaker.AI.Blueprints.TargetType), "Kingmaker.AI.Blueprints.TargetType" },
+        };
     
     /// <summary>
     /// Recursive function which generates the correct type name for generic types.
     /// </summary>
     public static string GetTypeName(Type type)
     {
+      if (TypeNameOverrides.ContainsKey(type)) { return TypeNameOverrides[type]; }
       if (type.HasElementType && type.BaseType == typeof(Array))
       {
         return $"{GetTypeName(type.GetElementType())}[]";
@@ -147,9 +158,7 @@ namespace BlueprintCoreGen.CodeGen
       // Filter fields which are usually not required for instantiation.
       var fields =
           type.GetFields()
-              .Where(
-                  field => !field.Name.Contains("__BackingField")
-                  && field.Name != "name")
+              .Where(field => !ShouldSkipField(field))
               .Select(
                   field =>
                   {
@@ -221,11 +230,7 @@ namespace BlueprintCoreGen.CodeGen
       // Filter fields which are usually not required for instantiation.
       var fields =
           type.GetFields()
-              .Where(
-                  field => !field.Name.Contains("__BackingField")
-                  && field.Name != "name"
-                  && field.Name != "m_Flags"
-                  && field.Name != "m_PrototypeLink")
+              .Where(field => !ShouldSkipField(field) && field.Name != "m_Flags" && field.Name != "m_PrototypeLink")
               .Select(field => FieldProcessor.Process(field))
               .ToList();
 
@@ -271,6 +276,16 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return method;
+    }
+
+    private static bool ShouldSkipField(FieldInfo field)
+    {
+      return field.Name.Contains("__BackingField")
+          || field.Name == "name"
+          // Skip constant, static, and read-only
+          || field.IsLiteral
+          || field.IsStatic
+          || field.IsInitOnly;
     }
 
     private static string GetConfiguratorValidation(string varName)
