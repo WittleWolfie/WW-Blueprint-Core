@@ -4,6 +4,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -124,5 +126,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       return AddComponent(selectionPossible);
     }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Features"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(NoSelectionIfAlreadyHasFeature))]
+    public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
+        bool AnyFeatureFromSelection,
+        string[] m_Features)
+    {
+      ValidateParam(AnyFeatureFromSelection);
+      
+      var component =  new NoSelectionIfAlreadyHasFeature();
+      component.AnyFeatureFromSelection = AnyFeatureFromSelection;
+      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
+      return AddComponent(component);
+    }  }
 }

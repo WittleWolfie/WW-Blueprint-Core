@@ -1,6 +1,9 @@
 using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
+using System;
+using System.Linq;
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -15,7 +18,68 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
      protected BaseKingdomProjectConfigurator(string name) : base(name) { }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="EventItemCost"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Items"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(EventItemCost))]
+    public TBuilder AddEventItemCost(
+        string[] m_Items,
+        int Amount)
+    {
+      ValidateParam(Amount);
+      
+      var component =  new EventItemCost();
+      component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
+      component.Amount = Amount;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Projects"><see cref="BlueprintKingdomProject"/></param>
+    [Generated]
+    [Implements(typeof(ExclusiveProjects))]
+    public TBuilder AddExclusiveProjects(
+        string[] m_Projects)
+    {
+      
+      var component =  new ExclusiveProjects();
+      component.m_Projects = m_Projects.Select(bp => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(bp)).ToArray();
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(FinishObjectiveOnTrigger))]
+    public TBuilder AddFinishObjectiveOnTrigger(
+        string m_Objective)
+    {
+      
+      var component =  new FinishObjectiveOnTrigger();
+      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MarkAsCrusadeProject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MarkAsCrusadeProject))]
+    public TBuilder AddMarkAsCrusadeProject()
+    {
+      return AddComponent(new MarkAsCrusadeProject());
+    }  }
 
   /// <summary>Configurator for <see cref="BlueprintKingdomProject"/>.</summary>
   /// <inheritdoc/>
@@ -44,5 +108,66 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return For(name);
     }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="EventItemCost"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Items"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(EventItemCost))]
+    public KingdomProjectConfigurator AddEventItemCost(
+        string[] m_Items,
+        int Amount)
+    {
+      ValidateParam(Amount);
+      
+      var component =  new EventItemCost();
+      component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
+      component.Amount = Amount;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Projects"><see cref="BlueprintKingdomProject"/></param>
+    [Generated]
+    [Implements(typeof(ExclusiveProjects))]
+    public KingdomProjectConfigurator AddExclusiveProjects(
+        string[] m_Projects)
+    {
+      
+      var component =  new ExclusiveProjects();
+      component.m_Projects = m_Projects.Select(bp => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(bp)).ToArray();
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    [Implements(typeof(FinishObjectiveOnTrigger))]
+    public KingdomProjectConfigurator AddFinishObjectiveOnTrigger(
+        string m_Objective)
+    {
+      
+      var component =  new FinishObjectiveOnTrigger();
+      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MarkAsCrusadeProject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MarkAsCrusadeProject))]
+    public KingdomProjectConfigurator AddMarkAsCrusadeProject()
+    {
+      return AddComponent(new MarkAsCrusadeProject());
+    }  }
 }

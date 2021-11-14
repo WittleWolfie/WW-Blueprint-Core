@@ -1,6 +1,11 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Designers.EventConditionActionSystem.Events;
+using Kingmaker.ElementsSystem;
+using Kingmaker.Enums.Damage;
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -15,7 +20,33 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
      protected BaseLogicConnectorConfigurator(string name) : base(name) { }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DamageToMapObjectTrigger))]
+    public TBuilder AddDamageToMapObjectTrigger(
+        ActionsBuilder Actions,
+        bool CheckEnergyType,
+        DamageEnergyType EnergyType,
+        bool CheckPhysicalDamageForm,
+        PhysicalDamageForm PhysicalDamageForm)
+    {
+      ValidateParam(CheckEnergyType);
+      ValidateParam(EnergyType);
+      ValidateParam(CheckPhysicalDamageForm);
+      ValidateParam(PhysicalDamageForm);
+      
+      var component =  new DamageToMapObjectTrigger();
+      component.Actions = Actions.Build();
+      component.CheckEnergyType = CheckEnergyType;
+      component.EnergyType = EnergyType;
+      component.CheckPhysicalDamageForm = CheckPhysicalDamageForm;
+      component.PhysicalDamageForm = PhysicalDamageForm;
+      return AddComponent(component);
+    }  }
 
   /// <summary>Configurator for <see cref="BlueprintLogicConnector"/>.</summary>
   /// <inheritdoc/>
@@ -44,5 +75,31 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return For(name);
     }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DamageToMapObjectTrigger))]
+    public LogicConnectorConfigurator AddDamageToMapObjectTrigger(
+        ActionsBuilder Actions,
+        bool CheckEnergyType,
+        DamageEnergyType EnergyType,
+        bool CheckPhysicalDamageForm,
+        PhysicalDamageForm PhysicalDamageForm)
+    {
+      ValidateParam(CheckEnergyType);
+      ValidateParam(EnergyType);
+      ValidateParam(CheckPhysicalDamageForm);
+      ValidateParam(PhysicalDamageForm);
+      
+      var component =  new DamageToMapObjectTrigger();
+      component.Actions = Actions.Build();
+      component.CheckEnergyType = CheckEnergyType;
+      component.EnergyType = EnergyType;
+      component.CheckPhysicalDamageForm = CheckPhysicalDamageForm;
+      component.PhysicalDamageForm = PhysicalDamageForm;
+      return AddComponent(component);
+    }  }
 }

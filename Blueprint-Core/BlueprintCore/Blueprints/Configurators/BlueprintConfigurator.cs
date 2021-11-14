@@ -1078,7 +1078,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AbilityAoERadius))]
     public TBuilder AddAbilityAoERadius(
         Feet m_Radius,
-        TargetType m_TargetType,
+        Kingmaker.UnitLogic.Abilities.Components.TargetType m_TargetType,
         bool m_CanBeUsedInTacticalCombat,
         int m_DiameterInCells)
     {

@@ -1,6 +1,8 @@
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Visual.LightSelector;
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -15,7 +17,26 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
      protected BaseAreaPartConfigurator(string name) : base(name) { }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Settings"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="m_Override"><see cref="BlueprintTimeOfDaySettings"/></param>
+    [Generated]
+    [Implements(typeof(TimeOfDaySettingsOverride))]
+    public TBuilder AddTimeOfDaySettingsOverride(
+        string m_Settings,
+        string m_Override)
+    {
+      
+      var component =  new TimeOfDaySettingsOverride();
+      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
+      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
+      return AddComponent(component);
+    }  }
 
   /// <summary>Configurator for <see cref="BlueprintAreaPart"/>.</summary>
   /// <inheritdoc/>
@@ -44,5 +65,24 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return For(name);
     }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Settings"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="m_Override"><see cref="BlueprintTimeOfDaySettings"/></param>
+    [Generated]
+    [Implements(typeof(TimeOfDaySettingsOverride))]
+    public AreaPartConfigurator AddTimeOfDaySettingsOverride(
+        string m_Settings,
+        string m_Override)
+    {
+      
+      var component =  new TimeOfDaySettingsOverride();
+      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
+      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
+      return AddComponent(component);
+    }  }
 }
