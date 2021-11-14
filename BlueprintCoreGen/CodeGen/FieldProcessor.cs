@@ -126,7 +126,7 @@ namespace BlueprintCoreGen.CodeGen
         case FieldType.Conditions:
           return new();
         default:
-          if (Info.FieldType == typeof(string)) return new();
+          if (Info.FieldType.IsPrimitive) return new();
           return new() { fieldValidationProcessor(Info.Name) };
       }
     }
@@ -216,7 +216,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public override List<string> GetValidation(GetValidationCall fieldValidationProcessor)
     {
-      if (EnumerableType == typeof(string)) return new();
+      if (EnumerableType.IsPrimitive) return new();
       return new List<string>
       {
         $"foreach (var item in {Info.Name})",
