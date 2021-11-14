@@ -167,7 +167,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
     {
-      Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType =
+      Dictionary<Type, List<IMethod>> methodsByBlueprintType =
           GetComponentMethodsByBlueprintType(templatesRoot, gameTypes);
 
       var configuratorRoot = Path.Combine(templatesRoot, "BlueprintConfigurators");
@@ -196,7 +196,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static ConfiguratorTemplate ProcessConfiguratorTemplate(
-        string file, string relativePath, Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType)
+        string file, string relativePath, Dictionary<Type, List<IMethod>> methodsByBlueprintType)
     {
       var template = new ConfiguratorTemplate(relativePath);
 
@@ -255,13 +255,13 @@ namespace BlueprintCoreGen.CodeGen
       return template;
     }
 
-    private static Dictionary<Type, List<MethodTemplate>> GetComponentMethodsByBlueprintType(
+    private static Dictionary<Type, List<IMethod>> GetComponentMethodsByBlueprintType(
         string templatesRoot, Type[] gameTypes)
     {
       var componentsRoot = Path.Combine(templatesRoot, "BlueprintComponents");
 
       // Construct a dictionary from component type to implementing methods
-      Dictionary<Type, List<MethodTemplate>> methodsByComponentType = new();
+      Dictionary<Type, List<IMethod>> methodsByComponentType = new();
       foreach (string file in Directory.GetFiles(componentsRoot, "*.cs", SearchOption.AllDirectories))
       {
         var componentTemplate = ProcessBlueprintComponentTemplate(file);
@@ -284,7 +284,7 @@ namespace BlueprintCoreGen.CodeGen
          });
 
       // Iterate through component types and construct a dictionary from blueprint type to supported component methods
-      Dictionary<Type, List<MethodTemplate>> methodsByBlueprintType = new();
+      Dictionary<Type, List<IMethod>> methodsByBlueprintType = new();
       methodsByBlueprintType.Add(typeof(BlueprintScriptableObject), new());
       foreach (var componentType in methodsByComponentType.Keys)
       {
@@ -303,9 +303,62 @@ namespace BlueprintCoreGen.CodeGen
       return methodsByBlueprintType;
     }
 
-    private static Dictionary<Type, List<MethodTemplate>> ProcessBlueprintComponentTemplate(string file)
+    private static readonly Regex DocComment = new(@"^\s+///", RegexOptions.Compiled);
+
+    private static Dictionary<Type, List<IMethod>> ProcessBlueprintComponentTemplate(string file)
     {
-      return new();
+      Dictionary<Type, List<IMethod>> templates = new();
+      string[] lines = File.ReadAllLines(file);
+
+      int i = 0;
+      List<string> imports = new();
+      for (; i < lines.Length; i++)
+      {
+        if (Import.IsMatch(lines[i])) { imports.Add(lines[i].Replace("BlueprintCoreGen", "BlueprintCore")); }
+        else if (Namespace.IsMatch(lines[i])) { break; }
+      }
+
+      for (; i < lines.Length; i++)
+      {
+        if (DocComment.IsMatch(lines[i]) || MethodAttribute.IsMatch(lines[i]))
+        {
+          // Start of a method
+          RawMethodTemplate method = new(imports);
+          for (; i < lines.Length; i++)
+          {
+            if (MethodAttribute.IsMatch(lines[i]))
+            {
+              var type = AccessTools.TypeByName(MethodAttribute.Match(lines[i]).Groups[1].Value);
+              if (!templates.ContainsKey(type)) { templates.Add(type, new()); }
+              templates[type].Add(method);
+              break;
+            }
+            method.AddLine(lines[i]);
+          }
+
+          // Look for the opening brace
+          for (; i < lines.Length; i++)
+          {
+            if (lines[i].Equals("    {")) { break; }
+            method.AddLine(lines[i]);
+          }
+
+          // Look for the closing brace
+          int blockDepth = 0;
+          for (; i < lines.Length; i++)
+          {
+            method.AddLine(lines[i]);
+
+            blockDepth += lines[i].Count(c => c == '{');
+            blockDepth -= lines[i].Count(c => c == '}');
+
+            // Method is done!
+            if (blockDepth == 0) { break; }
+          }
+        }
+      }
+
+      return templates;
     }
 
     private static List<Type> GetAllowedBlueprintTypes(Type componentType)

@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     public static ConfiguratorTemplate CreateConfiguratorClass(
-        Type blueprintType, List<MethodTemplate> componentMethods, Type[] gameTypes)
+        Type blueprintType, List<IMethod> componentMethods, Type[] gameTypes)
     {
       var relativeNamespace = ConfiguratorTemplate.GetRelativeNamespace(blueprintType);
 
@@ -41,7 +41,7 @@ namespace BlueprintCoreGen.CodeGen
       }
       else
       {
-        AddConfiguratorClass(template, new List<MethodTemplate>());
+        AddConfiguratorClass(template, new List<IMethod>());
       }
 
       template.AddLine(@"}");
@@ -49,7 +49,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static void AddConfiguratorClass(
-      ConfiguratorTemplate template, List<MethodTemplate> componentMethods, bool isAbstract = false)
+      ConfiguratorTemplate template, List<IMethod> componentMethods, bool isAbstract = false)
     {
       template.AddDeclaration(isAbstract);
       template.AddLine("");

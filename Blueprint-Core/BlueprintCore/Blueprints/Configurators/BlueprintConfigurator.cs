@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
@@ -7,8 +8,10 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.Controllers.Rest;
@@ -19,6 +22,7 @@ using Kingmaker.Designers.Mechanics.Enums;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Globalmap.Blueprints;
@@ -350,6 +354,43 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
 
+    /// <summary>
+    /// Adds <see cref="AddFactContextActions"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
+    [Implements(typeof(AddFactContextActions))]
+    public TBuilder FactContextActions(
+        ActionsBuilder onActivated = null,
+        ActionsBuilder onDeactivated = null,
+        ActionsBuilder onNewRound = null,
+        ComponentMerge behavior = ComponentMerge.Merge,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      if (onActivated == null && onDeactivated == null && onNewRound == null)
+      {
+        throw new InvalidOperationException("No actions provided.");
+      }
+      var contextActions = new AddFactContextActions
+      {
+        Activated = onActivated?.Build() ?? Constants.Empty.Actions,
+        Deactivated = onDeactivated?.Build() ?? Constants.Empty.Actions,
+        NewRound = onNewRound?.Build() ?? Constants.Empty.Actions
+      };
+      return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
+    }
+
+    [Implements(typeof(AddFactContextActions))]
+    private static void MergeFactContextActions(
+        BlueprintComponent current, BlueprintComponent other)
+    {
+      var source = current as AddFactContextActions;
+      var target = other as AddFactContextActions;
+      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
+      source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
+      source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
+    }
+
 
     /// <summary>
     /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
@@ -643,24 +684,6 @@ namespace BlueprintCore.Blueprints.Configurators
       component.m_BaseValue = m_BaseValue;
       component.m_AddExternalProperties = m_AddExternalProperties;
       component.m_AddLocalProperties = m_AddLocalProperties;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFactContextActions"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddFactContextActions))]
-    public TBuilder AddAddFactContextActions(
-        ActionsBuilder Activated,
-        ActionsBuilder Deactivated,
-        ActionsBuilder NewRound)
-    {
-      
-      var component =  new AddFactContextActions();
-      component.Activated = Activated.Build();
-      component.Deactivated = Deactivated.Build();
-      component.NewRound = NewRound.Build();
       return AddComponent(component);
     }
 

@@ -43,7 +43,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Adds a generated method to the output class.
     /// </summary>
-    public void AddMethod(MethodTemplate method)
+    public void AddMethod(IMethod method)
     {
       method.GetImports().ForEach(import => Imports.Add(import));
       ClassText.AppendLine();
@@ -96,7 +96,7 @@ namespace BlueprintCoreGen.CodeGen
 
     public ConfiguratorTemplate(string relativePath) : base(relativePath) { }
 
-    public void AddConfiguratorMethod(MethodTemplate method, bool isAbstract)
+    public void AddConfiguratorMethod(IMethod method, bool isAbstract)
     {
       method.GetImports().ForEach(import => AddImport(import));
       AddLine("");
