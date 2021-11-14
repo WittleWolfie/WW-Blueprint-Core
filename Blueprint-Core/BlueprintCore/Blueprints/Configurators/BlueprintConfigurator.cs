@@ -370,37 +370,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="m_DefaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    /// <param name="m_GoodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    [Generated]
-    [Implements(typeof(CombatRandomEncounterAreaSettings))]
-    public TBuilder AddCombatRandomEncounterAreaSettings(
-        string m_DefaultEnterPoint,
-        string m_GoodAvoidanceEnterPoint,
-        GlobalMapZone[] AllowedNaturalSettings,
-        CombatRandomEncounterAreaSettings.Formation[] Formations)
-    {
-      foreach (var item in AllowedNaturalSettings)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in Formations)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new CombatRandomEncounterAreaSettings();
-      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_DefaultEnterPoint);
-      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_GoodAvoidanceEnterPoint);
-      component.AllowedNaturalSettings = AllowedNaturalSettings;
-      component.Formations = Formations;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="DlcCondition"/> (Auto Generated)
     /// </summary>
     ///

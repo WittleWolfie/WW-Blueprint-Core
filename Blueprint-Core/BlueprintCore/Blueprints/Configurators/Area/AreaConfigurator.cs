@@ -1,6 +1,9 @@
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Enums;
+using Kingmaker.RandomEncounters.Settings;
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -15,7 +18,38 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
      protected BaseAreaConfigurator(string name) : base(name) { }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_DefaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="m_GoodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(CombatRandomEncounterAreaSettings))]
+    public TBuilder AddCombatRandomEncounterAreaSettings(
+        string m_DefaultEnterPoint,
+        string m_GoodAvoidanceEnterPoint,
+        GlobalMapZone[] AllowedNaturalSettings,
+        CombatRandomEncounterAreaSettings.Formation[] Formations)
+    {
+      foreach (var item in AllowedNaturalSettings)
+      {
+        ValidateParam(item);
+      }
+      foreach (var item in Formations)
+      {
+        ValidateParam(item);
+      }
+      
+      var component =  new CombatRandomEncounterAreaSettings();
+      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_DefaultEnterPoint);
+      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_GoodAvoidanceEnterPoint);
+      component.AllowedNaturalSettings = AllowedNaturalSettings;
+      component.Formations = Formations;
+      return AddComponent(component);
+    }  }
 
   /// <summary>Configurator for <see cref="BlueprintArea"/>.</summary>
   /// <inheritdoc/>
@@ -44,5 +78,36 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return For(name);
     }
 
-  }
+
+
+    /// <summary>
+    /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_DefaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="m_GoodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    [Implements(typeof(CombatRandomEncounterAreaSettings))]
+    public AreaConfigurator AddCombatRandomEncounterAreaSettings(
+        string m_DefaultEnterPoint,
+        string m_GoodAvoidanceEnterPoint,
+        GlobalMapZone[] AllowedNaturalSettings,
+        CombatRandomEncounterAreaSettings.Formation[] Formations)
+    {
+      foreach (var item in AllowedNaturalSettings)
+      {
+        ValidateParam(item);
+      }
+      foreach (var item in Formations)
+      {
+        ValidateParam(item);
+      }
+      
+      var component =  new CombatRandomEncounterAreaSettings();
+      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_DefaultEnterPoint);
+      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_GoodAvoidanceEnterPoint);
+      component.AllowedNaturalSettings = AllowedNaturalSettings;
+      component.Formations = Formations;
+      return AddComponent(component);
+    }  }
 }

@@ -1,7 +1,10 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.RandomEncounters.Settings;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -285,40 +288,16 @@ namespace BlueprintCoreGen.CodeGen
       methodsByBlueprintType.Add(typeof(BlueprintScriptableObject), new());
       foreach (var componentType in methodsByComponentType.Keys)
       {
-        var namestr = componentType.Name;
-        Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
-        List<AllowedOnAttribute> allowedOn =
-            attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => attr as AllowedOnAttribute).ToList();
-
-        if (allowedOn.Count == 0)
-        {
-          // This should work on all blueprint types
-          methodsByBlueprintType[typeof(BlueprintScriptableObject)].AddRange(methodsByComponentType[componentType]);
-          continue;
-        }
-
-        // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
-        // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
-        // This ensures the API only exposes supported components although it may not expose all of them.
-        List<AllowedOnAttribute> filter = new();
-        allowedOn.ForEach(
-            allowed =>
-            {
-              if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type) || attr.Type == allowed.Type))
-              {
-                filter.Add(allowed);
-              }
-            });
-        allowedOn = allowedOn.Except(filter).Distinct().ToList();
+        List<Type> allowedOn = GetAllowedBlueprintTypes(componentType);
 
         // Use allowedOn to add methods for this component to each supported blueprint type.
-        foreach (var allowed in allowedOn)
+        foreach (var type in allowedOn)
         {
-          if (!methodsByBlueprintType.ContainsKey(allowed.Type))
+          if (!methodsByBlueprintType.ContainsKey(type))
           {
-            methodsByBlueprintType.Add(allowed.Type, new());
+            methodsByBlueprintType.Add(type, new());
           }
-          methodsByBlueprintType[allowed.Type].AddRange(methodsByComponentType[componentType]);
+          methodsByBlueprintType[type].AddRange(methodsByComponentType[componentType]);
         }
       }
       return methodsByBlueprintType;
@@ -327,6 +306,62 @@ namespace BlueprintCoreGen.CodeGen
     private static Dictionary<Type, List<MethodTemplate>> ProcessBlueprintComponentTemplate(string file)
     {
       return new();
+    }
+
+    private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
+        new()
+        {
+          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } }
+        };
+
+    private static List<Type> GetAllowedBlueprintTypes(Type componentType)
+    {
+      if (AllowedBlueprintTypesOverride.ContainsKey(componentType))
+      {
+        return AllowedBlueprintTypesOverride[componentType];
+      }
+
+      Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
+      List<AllowedOnAttribute> allowedOn =
+          attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => attr as AllowedOnAttribute).ToList();
+
+      List<Type> allowedBlueprintTypes = new();
+      if (!allowedOn.Any())
+      {
+        // This should work on all blueprint types
+        allowedBlueprintTypes.Add(typeof(BlueprintScriptableObject));
+      }
+
+      // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
+      // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
+      // This ensures the API only exposes supported components although it may not expose all of them.
+      List<AllowedOnAttribute> filter = new();
+      allowedOn.ForEach(
+          allowed =>
+          {
+            if (allowedOn.Exists(attr => attr.Type.IsSubclassOf(allowed.Type)))
+            {
+              filter.Add(allowed);
+            }
+          });
+      allowedOn = allowedOn.Except(filter).Distinct(AttrComparer).ToList();
+
+      return allowedBlueprintTypes;
+    }
+
+    private static readonly AllowedOnAttributeEqualityComparer AttrComparer = new();
+
+    private class AllowedOnAttributeEqualityComparer : IEqualityComparer<AllowedOnAttribute>
+    {
+      public bool Equals(AllowedOnAttribute x, AllowedOnAttribute y)
+      {
+        return x.Type == y.Type;
+      }
+
+      public int GetHashCode([DisallowNull] AllowedOnAttribute obj)
+      {
+        return obj.Type.GetHashCode();
+      }
     }
   }
 }
