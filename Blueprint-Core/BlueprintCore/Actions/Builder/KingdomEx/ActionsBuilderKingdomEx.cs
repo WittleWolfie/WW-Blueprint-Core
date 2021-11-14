@@ -1,5 +1,3 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -30,8 +28,6 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.KingdomEx

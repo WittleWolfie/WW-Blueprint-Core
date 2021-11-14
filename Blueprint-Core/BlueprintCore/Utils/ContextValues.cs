@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities;

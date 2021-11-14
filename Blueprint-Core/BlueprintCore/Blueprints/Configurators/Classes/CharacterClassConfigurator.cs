@@ -1,5 +1,3 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -13,7 +11,6 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
 
@@ -47,25 +44,29 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public CharacterClassConfigurator AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    /// 
+    /// <remarks>
+    /// <para>
+    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+    /// This is useful when a character has access to different feature selections based on some criteria.
+    /// </para>
+    /// 
+    /// <para>
+    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
+    /// </para>
+    /// </remarks>
+    public CharacterClassConfigurator PrerequisiteSelectionPossible(
+        Prerequisite.GroupType group = Prerequisite.GroupType.All,
+        bool checkInProgression = false,
+        bool hideInUI = false)
     {
-      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
-      return Self;
+      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
+      return AddComponent(selectionPossible);
     }
-
-    /// <summary>
-    /// Modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public CharacterClassConfigurator RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
-
+    
     /// <summary>
     /// Adds <see cref="PrerequisiteArchetypeLevel"/>
     /// </summary>
@@ -528,6 +529,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       prereq.Stat = type;
       prereq.Value = minValue;
       return AddComponent(prereq);
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public CharacterClassConfigurator AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
+      return Self;
+    }
+
+    /// <summary>
+    /// Modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public CharacterClassConfigurator RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
+      return Self;
     }
 
     /// <summary>

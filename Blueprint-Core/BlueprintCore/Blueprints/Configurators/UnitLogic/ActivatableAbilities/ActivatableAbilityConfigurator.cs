@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic;
@@ -12,7 +11,6 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {

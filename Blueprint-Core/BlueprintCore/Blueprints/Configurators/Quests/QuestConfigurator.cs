@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Quests;
 using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {

@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints;
@@ -6,7 +5,6 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties

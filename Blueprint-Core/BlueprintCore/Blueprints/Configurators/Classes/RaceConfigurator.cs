@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 

@@ -1,6 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
-using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -15,7 +13,6 @@ using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -141,52 +138,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
 
 
     /// <summary>
-    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        EnableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
-
-    /// <summary>
-    /// Modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        DisableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
-
-    /// <summary>
-    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
-
-    /// <summary>
-    /// Modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
-
-    /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
     /// </summary>
     /// 
@@ -197,6 +148,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return AddComponent(rankConfig);
     }
 
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+    /// This is useful when a character has access to different feature selections based on some criteria.
+    /// </para>
+    /// 
+    /// <para>
+    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
+    /// </para>
+    /// </remarks>
+    public TBuilder PrerequisiteSelectionPossible(
+        Prerequisite.GroupType group = Prerequisite.GroupType.All,
+        bool checkInProgression = false,
+        bool hideInUI = false)
+    {
+      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
+      return AddComponent(selectionPossible);
+    }
+    
     /// <summary>
     /// Adds <see cref="PrerequisiteArchetypeLevel"/>
     /// </summary>
@@ -659,6 +634,52 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       prereq.Stat = type;
       prereq.Value = minValue;
       return AddComponent(prereq);
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      foreach (SpellDescriptor descriptor in descriptors)
+      {
+        EnableSpellDescriptors |= (long)descriptor;
+      }
+      return Self;
+    }
+
+    /// <summary>
+    /// Modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      foreach (SpellDescriptor descriptor in descriptors)
+      {
+        DisableSpellDescriptors |= (long)descriptor;
+      }
+      return Self;
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
+      return Self;
+    }
+
+    /// <summary>
+    /// Modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
+      return Self;
     }
 
     /// <summary>

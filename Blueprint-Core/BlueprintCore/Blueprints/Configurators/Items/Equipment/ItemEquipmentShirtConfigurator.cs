@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
 

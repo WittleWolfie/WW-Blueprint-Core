@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Cutscenes.Components;

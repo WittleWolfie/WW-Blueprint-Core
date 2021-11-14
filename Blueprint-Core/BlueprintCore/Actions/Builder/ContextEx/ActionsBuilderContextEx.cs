@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
@@ -23,7 +22,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.ContextEx

@@ -1,14 +1,9 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.ResourceLinks;
@@ -16,13 +11,11 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
-using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -152,6 +145,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
 
 
     /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public AbilityAreaEffectConfigurator ContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
+
+    /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
     [Implements(typeof(SpellDescriptorComponent))]
@@ -175,17 +179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         DisableSpellDescriptors |= (long)descriptor;
       }
       return Self;
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-    /// </summary>
-    /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public AbilityAreaEffectConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
     }
 
     /// <summary>

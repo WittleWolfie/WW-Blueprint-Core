@@ -1,6 +1,5 @@
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -8,10 +7,7 @@ using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Craft;
 using Kingmaker.Designers.Mechanics.Recommendations;
@@ -636,6 +632,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public AbilityConfigurator ContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
+
+    /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
     [Implements(typeof(SpellDescriptorComponent))]
@@ -659,17 +666,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         DisableSpellDescriptors |= (long)descriptor;
       }
       return Self;
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-    /// </summary>
-    /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public AbilityConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
     }
 
     /// <summary>

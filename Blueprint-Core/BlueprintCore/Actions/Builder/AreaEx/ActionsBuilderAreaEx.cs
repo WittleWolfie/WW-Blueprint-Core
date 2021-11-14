@@ -1,5 +1,3 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
@@ -11,7 +9,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.AreaEx

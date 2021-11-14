@@ -1,5 +1,3 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
@@ -13,7 +11,6 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

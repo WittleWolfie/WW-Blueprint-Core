@@ -1,5 +1,3 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;

@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Visual.Sound;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {

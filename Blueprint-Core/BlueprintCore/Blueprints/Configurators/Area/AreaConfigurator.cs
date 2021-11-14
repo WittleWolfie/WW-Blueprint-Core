@@ -1,16 +1,13 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.RandomEncounters.Settings;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {

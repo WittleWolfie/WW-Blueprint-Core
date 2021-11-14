@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {

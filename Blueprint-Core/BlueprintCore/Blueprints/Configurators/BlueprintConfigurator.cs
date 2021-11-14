@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
@@ -8,10 +7,8 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.Controllers.Rest;
@@ -33,6 +30,7 @@ using Kingmaker.Kingdom.Flags;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.Settings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
@@ -353,6 +351,45 @@ namespace BlueprintCore.Blueprints.Configurators
       return Self;
     }
 
+
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.FactLogic.AddFacts">AddFacts</see>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    public TBuilder AddFacts(
+        string[] facts,
+        int casterLevel = 0,
+        bool hasDifficultyRequirements = false,
+        bool invertDifficultyRequirements = false,
+        GameDifficultyOption minDifficulty = GameDifficultyOption.Story)
+    {
+      var addFacts = new AddFacts
+      {
+        m_Facts =
+            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray(),
+        CasterLevel = casterLevel,
+        HasDifficultyRequirements = hasDifficultyRequirements,
+        InvertDifficultyRequirements = invertDifficultyRequirements,
+        MinDifficulty = minDifficulty
+      };
+      return AddComponent(addFacts);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
+    /// </summary>
+    public TBuilder OnSkillCheck(
+        StatType skill, ActionsBuilder actions, bool onlySuccess = true)
+    {
+      var trigger = new AddInitiatorSkillRollTrigger
+      {
+        OnlySuccess = onlySuccess,
+        Skill = skill,
+        Action = actions.Build()
+      };
+      return AddComponent(trigger);
+    }
 
     /// <summary>
     /// Adds <see cref="AddFactContextActions"/>

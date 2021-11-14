@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
@@ -7,16 +6,12 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills.UnitBuffComponents;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Facts.Behavior;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -26,7 +21,6 @@ using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
@@ -40,7 +34,6 @@ using Kingmaker.Visual;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -220,6 +213,17 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public BuffConfigurator ContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
+
+    /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
     [Implements(typeof(SpellDescriptorComponent))]
@@ -243,17 +247,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         DisableSpellDescriptors |= (long)descriptor;
       }
       return Self;
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-    /// </summary>
-    /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public BuffConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
     }
 
     /// <summary>

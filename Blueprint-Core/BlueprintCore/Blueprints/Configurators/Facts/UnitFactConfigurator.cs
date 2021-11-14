@@ -1,5 +1,3 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -7,20 +5,16 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Formations.Facts;
 using Kingmaker.Kingdom;
 using Kingmaker.Localization;
-using Kingmaker.Settings;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.LocalMap.Utils;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Parts;
-using System;
 using System.Linq;
 using UnityEngine;
 

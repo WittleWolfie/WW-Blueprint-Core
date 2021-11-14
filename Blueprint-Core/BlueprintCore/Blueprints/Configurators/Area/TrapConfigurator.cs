@@ -1,9 +1,7 @@
-using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {

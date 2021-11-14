@@ -1,5 +1,3 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -10,7 +8,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using Kingmaker.View.Animation;
-using System;
 
 namespace BlueprintCore.Conditions.Builder.ContextEx
 {

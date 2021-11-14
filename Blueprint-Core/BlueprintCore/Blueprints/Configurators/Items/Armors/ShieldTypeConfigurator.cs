@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Items.Armors;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Armors;
 

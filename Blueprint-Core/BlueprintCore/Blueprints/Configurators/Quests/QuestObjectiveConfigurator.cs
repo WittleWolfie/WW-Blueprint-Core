@@ -10,7 +10,6 @@ using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Designers.EventConditionActionSystem.ObjectiveEvents;
 using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {

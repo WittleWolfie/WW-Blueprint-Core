@@ -1,5 +1,4 @@
-﻿using BlueprintCore.Actions.Builder;
-using BlueprintCore.Utils;
+﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.Blueprints.Configurators;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
@@ -8,119 +7,41 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
 
-namespace BlueprintCoreGen.Blueprints
+namespace BlueprintCoreGen.Templates.BlueprintComponents
 {
-  abstract class ComponentTemplates<T, TBuilder> : BaseBlueprintConfigurator<T, TBuilder>
+  abstract class PrerequisiteTemplates<T, TBuilder> : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintScriptableObject
-      where TBuilder : ComponentTemplates<T, TBuilder>
+      where TBuilder : PrerequisiteTemplates<T, TBuilder>
   {
-    private ComponentTemplates(string name) : base(name) { }
-
-    //----- Special Handling -----//
+    private PrerequisiteTemplates(string name) : base(name) { }
 
     /// <summary>
-    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        EnableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
-
-    /// <summary>
-    /// Modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        DisableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
-
-    /// <summary>
-    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
-
-    /// <summary>
-    /// Modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
-
-    //----- Misc. -----//
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
     /// </summary>
     /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFactContextActions"/>
-    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+    /// This is useful when a character has access to different feature selections based on some criteria.
+    /// </para>
     /// 
-    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
-    [Implements(typeof(AddFactContextActions))]
-    public TBuilder FactContextActions(
-        ActionsBuilder onActivated = null,
-        ActionsBuilder onDeactivated = null,
-        ActionsBuilder onNewRound = null,
-        ComponentMerge behavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    /// <para>
+    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
+    /// </para>
+    /// </remarks>
+    public TBuilder PrerequisiteSelectionPossible(
+        Prerequisite.GroupType group = Prerequisite.GroupType.All,
+        bool checkInProgression = false,
+        bool hideInUI = false)
     {
-      if (onActivated == null && onDeactivated == null && onNewRound == null)
-      {
-        throw new InvalidOperationException("No actions provided.");
-      }
-      var contextActions = new AddFactContextActions
-      {
-        Activated = onActivated?.Build() ?? Constants.Empty.Actions,
-        Deactivated = onDeactivated?.Build() ?? Constants.Empty.Actions,
-        NewRound = onNewRound?.Build() ?? Constants.Empty.Actions
-      };
-      return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
+      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
+      return AddComponent(selectionPossible);
     }
-
-    [Implements(typeof(AddFactContextActions))]
-    private static void MergeFactContextActions(
-        BlueprintComponent current, BlueprintComponent other)
-    {
-      var source = current as AddFactContextActions;
-      var target = other as AddFactContextActions;
-      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
-      source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
-      source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
-    }
-
-    //----- Start: Prerequisites
-
+    
     /// <summary>
     /// Adds <see cref="PrerequisiteArchetypeLevel"/>
     /// </summary>

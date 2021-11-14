@@ -1,11 +1,8 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap

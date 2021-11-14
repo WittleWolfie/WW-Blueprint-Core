@@ -6,6 +6,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Settings;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
 using System.Linq;
 
 namespace BlueprintCoreGen.Templates.BlueprintComponents
@@ -53,6 +54,54 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         Action = actions.Build()
       };
       return AddComponent(trigger);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddFactContextActions"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
+    [Implements(typeof(AddFactContextActions))]
+    public TBuilder FactContextActions(
+        ActionsBuilder onActivated = null,
+        ActionsBuilder onDeactivated = null,
+        ActionsBuilder onNewRound = null,
+        ComponentMerge behavior = ComponentMerge.Merge,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      if (onActivated == null && onDeactivated == null && onNewRound == null)
+      {
+        throw new InvalidOperationException("No actions provided.");
+      }
+      var contextActions = new AddFactContextActions
+      {
+        Activated = onActivated?.Build() ?? Constants.Empty.Actions,
+        Deactivated = onDeactivated?.Build() ?? Constants.Empty.Actions,
+        NewRound = onNewRound?.Build() ?? Constants.Empty.Actions
+      };
+      return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
+    }
+
+    [Implements(typeof(AddFactContextActions))]
+    private static void MergeFactContextActions(
+        BlueprintComponent current, BlueprintComponent other)
+    {
+      var source = current as AddFactContextActions;
+      var target = other as AddFactContextActions;
+      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
+      source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
+      source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
     }
   }
 }

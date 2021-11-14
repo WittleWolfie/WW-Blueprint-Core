@@ -2,10 +2,6 @@
 using BlueprintCoreGen.Blueprints.Configurators;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Designers.Mechanics.Buffs;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.Mechanics;
-using System;
 
 namespace BlueprintCoreGen.Templates.BlueprintComponents
 {

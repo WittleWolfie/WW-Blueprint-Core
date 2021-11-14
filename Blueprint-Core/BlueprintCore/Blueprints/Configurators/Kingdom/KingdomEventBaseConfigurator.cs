@@ -1,9 +1,7 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;

@@ -1,13 +1,6 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
-using Kingmaker.Settings;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCoreGen.Blueprints.Configurators.Facts

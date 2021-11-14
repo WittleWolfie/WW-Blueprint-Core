@@ -1,5 +1,4 @@
-﻿using BlueprintCore.Blueprints;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;

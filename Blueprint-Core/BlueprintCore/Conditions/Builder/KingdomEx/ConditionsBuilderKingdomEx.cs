@@ -8,7 +8,6 @@ using Kingmaker.Kingdom.Settlements;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using System;
 using System.Linq;
 namespace BlueprintCore.Conditions.Builder.KingdomEx
 {
