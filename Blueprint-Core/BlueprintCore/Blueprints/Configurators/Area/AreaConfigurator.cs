@@ -26,7 +26,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
      protected BaseAreaConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
     /// </summary>
@@ -83,7 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder OnRestActions,
         bool SkipRest)
     {
-      ValidateParam(SkipRest);
       
       var component =  new OverrideCampingAction();
       component.OnRestActions = OnRestActions.Build();
@@ -117,7 +115,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder Actions,
         int SkipDays)
     {
-      ValidateParam(SkipDays);
       
       var component =  new EveryDayTrigger();
       component.Condition = Condition.Build();
@@ -136,7 +133,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder Actions,
         int SkipWeeks)
     {
-      ValidateParam(SkipWeeks);
       
       var component =  new EveryWeekTrigger();
       component.Condition = Condition.Build();
@@ -165,7 +161,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListTown);
       component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListCity);
       return AddComponent(component);
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintArea"/>.</summary>
   /// <inheritdoc/>
@@ -193,7 +190,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintArea>(name, assetId);
       return For(name);
     }
-
 
 
     /// <summary>
@@ -252,7 +248,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder OnRestActions,
         bool SkipRest)
     {
-      ValidateParam(SkipRest);
       
       var component =  new OverrideCampingAction();
       component.OnRestActions = OnRestActions.Build();
@@ -286,7 +281,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder Actions,
         int SkipDays)
     {
-      ValidateParam(SkipDays);
       
       var component =  new EveryDayTrigger();
       component.Condition = Condition.Build();
@@ -305,7 +299,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder Actions,
         int SkipWeeks)
     {
-      ValidateParam(SkipWeeks);
       
       var component =  new EveryWeekTrigger();
       component.Condition = Condition.Build();
@@ -334,5 +327,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListTown);
       component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListCity);
       return AddComponent(component);
-    }  }
+    }
+  }
 }

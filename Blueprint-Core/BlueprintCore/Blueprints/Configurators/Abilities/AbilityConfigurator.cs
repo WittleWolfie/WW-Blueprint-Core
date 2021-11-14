@@ -517,13 +517,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
     }
 
-    // TODO: Replace w/ child classes
-    [SelectTargetAttr]
-    public AbilityConfigurator SelectTarget(AbilitySelectTarget target)
-    {
-      return AddComponent(target);
-    }
-
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
@@ -656,7 +649,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ConditionsBuilder AutoFillConditions,
         ConditionsBuilder AutoCastConditions)
     {
-      ValidateParam(Priority);
       
       var component =  new ActionPanelLogic();
       component.Priority = Priority;
@@ -694,7 +686,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityIsFullRoundInTurnBased(
         bool FullRoundIfTurnBased)
     {
-      ValidateParam(FullRoundIfTurnBased);
       
       var component =  new AbilityIsFullRoundInTurnBased();
       component.FullRoundIfTurnBased = FullRoundIfTurnBased;
@@ -747,7 +738,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddPretendSpellLevel(
         int SpellLevel)
     {
-      ValidateParam(SpellLevel);
       
       var component =  new PretendSpellLevel();
       component.SpellLevel = SpellLevel;
@@ -780,7 +770,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_SpellList,
         int SpellLevel)
     {
-      ValidateParam(SpellLevel);
       
       var component =  new SpellListComponent();
       component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(m_SpellList);
@@ -836,16 +825,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string[] ResourceCostIncreasingFacts,
         string[] ResourceCostDecreasingFacts)
     {
-      ValidateParam(BlastBurnCost);
-      ValidateParam(InfusionBurnCost);
-      ValidateParam(WildTalentBurnCost);
       foreach (var item in CachedDamageInfo)
       {
         ValidateParam(item);
       }
-      ValidateParam(m_IsSpendResource);
-      ValidateParam(CostIsCustom);
-      ValidateParam(Amount);
       
       var component =  new AbilityKineticist();
       component.BlastBurnCost = BlastBurnCost;
@@ -879,12 +862,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool ReplaceSpellLevel,
         ContextValue SpellLevel)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
-      ValidateParam(StatTypeFromCustomProperty);
-      ValidateParam(ReplaceCasterLevel);
       ValidateParam(CasterLevel);
-      ValidateParam(ReplaceSpellLevel);
       ValidateParam(SpellLevel);
       
       var component =  new ContextCalculateAbilityParams();
@@ -911,7 +890,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         StatType StatType,
         string m_CharacterClass)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
       
       var component =  new ContextCalculateAbilityParamsBasedOnClass();
@@ -933,7 +911,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(ValueType);
       ValidateParam(Value);
-      ValidateParam(Modifier);
       
       var component =  new ContextCalculateSharedValue();
       component.ValueType = ValueType;
@@ -954,7 +931,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue Concentration,
         ContextValue SpellLevel)
     {
-      ValidateParam(Add10ToDC);
       ValidateParam(DC);
       ValidateParam(CasterLevel);
       ValidateParam(Concentration);
@@ -997,10 +973,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1053,7 +1025,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ConditionsBuilder m_Condition,
         Feet m_SpreadSpeed)
     {
-      ValidateParam(m_Vertical);
       ValidateParam(m_TargetType);
       ValidateParam(m_SpreadSpeed);
       
@@ -1079,7 +1050,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextDurationValue m_Duration)
     {
       ValidateParam(m_Restriction);
-      ValidateParam(m_HasDuration);
       ValidateParam(m_Duration);
       
       var component =  new AbilityApplyFact();
@@ -1204,10 +1174,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1249,10 +1215,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(PortalFromPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
       ValidateParam(m_HasIsAllyEffectRunConditions);
@@ -1301,10 +1263,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1357,10 +1315,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1414,10 +1368,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1458,10 +1408,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(Animation);
-      ValidateParam(MaxHeight);
-      ValidateParam(FlyUpTime);
-      ValidateParam(TakeoffTime);
-      ValidateParam(LandTime);
       ValidateParam(TakeOff);
       ValidateParam(Landing);
       ValidateParam(m_HasIsAllyEffectRunConditions);
@@ -1494,7 +1440,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(m_Type);
-      ValidateParam(VitalStrikeMod);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomMeleeAttack();
@@ -1538,11 +1483,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ActionsBuilder Actions,
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
-      ValidateParam(DelayBeforeStart);
-      ValidateParam(DelayAfterFinish);
-      ValidateParam(FirstTargetOnly);
-      ValidateParam(AutoSuccess);
-      ValidateParam(StopOnCorpulence);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomOverrun();
@@ -1573,9 +1513,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(DisappearFx);
-      ValidateParam(DisappearDuration);
       ValidateParam(AppearFx);
-      ValidateParam(AppearDuration);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomTeleportation();
@@ -1604,12 +1542,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(AnimationAction);
-      ValidateParam(TongueStickSpeed);
-      ValidateParam(TongueReturnSpeed);
       ValidateParam(StickCurve);
       ValidateParam(ReturnCurve);
       ValidateParam(PullDistance);
-      ValidateParam(m_ReturnTargetAbility);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomTongueGrab();
@@ -1638,7 +1573,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_RowdyFeature,
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
-      ValidateParam(VitalStrikeMod);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityCustomVitalStrike();
@@ -1684,7 +1618,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(TargetsCount);
       ValidateParam(Radius);
-      ValidateParam(TargetDead);
       ValidateParam(m_TargetType);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
@@ -1719,8 +1652,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(Width);
       ValidateParam(DistanceToTarget);
-      ValidateParam(IgnoreConcealment);
-      ValidateParam(NeedAttackRoll);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverClashingRocks();
@@ -1743,7 +1674,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float DelaySeconds,
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
-      ValidateParam(DelaySeconds);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverDelay();
@@ -1778,15 +1708,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(Type);
-      ValidateParam(IsHandOfTheApprentice);
       ValidateParam(m_Length);
       ValidateParam(m_LineWidth);
-      ValidateParam(NeedAttackRoll);
-      ValidateParam(ReplaceAttackRollBonusStat);
       ValidateParam(AttackRollBonusStat);
-      ValidateParam(UseMaxProjectilesCount);
       ValidateParam(MaxProjectilesCountRank);
-      ValidateParam(DelayBetweenProjectiles);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverProjectile();
@@ -1834,18 +1759,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_ControlledProjectileHolderBuff,
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
-      ValidateParam(LaunchProjectileOnGridLine);
-      ValidateParam(LengthInCells);
       ValidateParam(Type);
-      ValidateParam(IsHandOfTheApprentice);
       ValidateParam(m_Length);
       ValidateParam(m_LineWidth);
-      ValidateParam(NeedAttackRoll);
-      ValidateParam(ReplaceAttackRollBonusStat);
       ValidateParam(AttackRollBonusStat);
-      ValidateParam(UseMaxProjectilesCount);
       ValidateParam(MaxProjectilesCountRank);
-      ValidateParam(DelayBetweenProjectiles);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityDeliverProjectileOnGrid();
@@ -1936,7 +1854,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool UseTargetSelector,
         ActionsBuilder MissAction)
     {
-      ValidateParam(UseTargetSelector);
       
       var component =  new AbilityEffectMiss();
       component.UseTargetSelector = UseTargetSelector;
@@ -2075,7 +1992,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         UnitCondition[] Conditions,
         List<UnitCondition> m_ConditionsCache)
     {
-      ValidateParam(Not);
       foreach (var item in Conditions)
       {
         ValidateParam(item);
@@ -2124,9 +2040,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string[] ResourceCostIncreasingFacts,
         string[] ResourceCostDecreasingFacts)
     {
-      ValidateParam(m_IsSpendResource);
-      ValidateParam(CostIsCustom);
-      ValidateParam(Amount);
       
       var component =  new AbilityResourceLogic();
       component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(m_RequiredResource);
@@ -2147,8 +2060,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool AnySpellLevel,
         int SpellLevel)
     {
-      ValidateParam(AnySpellLevel);
-      ValidateParam(SpellLevel);
       
       var component =  new AbilityRestoreSpellSlot();
       component.AnySpellLevel = AnySpellLevel;
@@ -2165,8 +2076,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool AnySpellLevel,
         int SpellLevel)
     {
-      ValidateParam(AnySpellLevel);
-      ValidateParam(SpellLevel);
       
       var component =  new AbilityRestoreSpontaneousSpell();
       component.AnySpellLevel = AnySpellLevel;
@@ -2190,7 +2099,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(School);
-      ValidateParam(MaxSpellLevel);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilityShadowSpell();
@@ -2213,7 +2121,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_UnitFact,
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityShowIfCasterHasFact();
       component.m_UnitFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_UnitFact);
@@ -2258,13 +2165,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
       ValidateParam(PortalPrefab);
-      foreach (var item in PortalBone)
-      {
-        ValidateParam(item);
-      }
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
-      ValidateParam(AppearDelay);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new AbilitySwitchDualCompanion();
@@ -2293,7 +2195,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(m_Radius);
       ValidateParam(m_TargetType);
-      ValidateParam(m_IncludeDead);
       ValidateParam(m_SpreadSpeed);
       
       var component =  new AbilityTargetsAround();
@@ -2317,9 +2218,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ConditionsBuilder m_Condition,
         Feet m_SpreadSpeed)
     {
-      ValidateParam(m_DiameterInCells);
       ValidateParam(m_TargetType);
-      ValidateParam(m_IncludeDead);
       ValidateParam(m_SpreadSpeed);
       
       var component =  new AbilityTargetsAroundOnGrid();
@@ -2409,7 +2308,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetCanSeeCaster(
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityTargetCanSeeCaster();
       component.Not = Not;
@@ -2446,10 +2344,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_FactToCheck,
         int OverrideCurrentHPLessThan)
     {
-      ValidateParam(CurrentHPLessThan);
-      ValidateParam(Inverted);
-      ValidateParam(CheckFact);
-      ValidateParam(OverrideCurrentHPLessThan);
       
       var component =  new AbilityTargetHPCondition();
       component.CurrentHPLessThan = CurrentHPLessThan;
@@ -2471,7 +2365,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string[] m_CheckedFacts,
         bool Inverted)
     {
-      ValidateParam(Inverted);
       
       var component =  new AbilityTargetHasFact();
       component.m_CheckedFacts = m_CheckedFacts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
@@ -2516,7 +2409,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetIsAlly(
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityTargetIsAlly();
       component.Not = Not;
@@ -2581,7 +2473,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetIsPartyMember(
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityTargetIsPartyMember();
       component.Not = Not;
@@ -2596,7 +2487,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetMaximumHitDice(
         int HitDice)
     {
-      ValidateParam(HitDice);
       
       var component =  new AbilityTargetMaximumHitDice();
       component.HitDice = HitDice;
@@ -2624,8 +2514,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool Inverted)
     {
       ValidateParam(Stat);
-      ValidateParam(GreaterThan);
-      ValidateParam(Inverted);
       
       var component =  new AbilityTargetStatCondition();
       component.Stat = Stat;
@@ -2642,7 +2530,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetStoneToFlesh(
         bool CanBeNotPetrified)
     {
-      ValidateParam(CanBeNotPetrified);
       
       var component =  new AbilityTargetStoneToFlesh();
       component.CanBeNotPetrified = CanBeNotPetrified;
@@ -2719,7 +2606,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool NeedsAll,
         List<BlueprintUnitFact> m_FactsMissingCache)
     {
-      ValidateParam(NeedsAll);
       foreach (var item in m_FactsMissingCache)
       {
         ValidateParam(item);
@@ -2777,7 +2663,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityCasterInCombat(
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityCasterInCombat();
       component.Not = Not;
@@ -2878,8 +2763,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Time);
       ValidateParam(Anchor);
       ValidateParam(WeaponTarget);
-      ValidateParam(DestroyOnCast);
-      ValidateParam(Delay);
       ValidateParam(PositionAnchor);
       ValidateParam(OrientationAnchor);
       ValidateParam(OrientationMode);
@@ -2908,9 +2791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int PullDistanceInCells,
         Nullable<bool> m_HasIsAllyEffectRunConditions)
     {
-      ValidateParam(PullSpeed);
       ValidateParam(PullCurve);
-      ValidateParam(PullDistanceInCells);
       ValidateParam(m_HasIsAllyEffectRunConditions);
       
       var component =  new ArmyAbilityHook();
@@ -2935,8 +2816,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       {
         ValidateParam(item);
       }
-      ValidateParam(IgnoreObstaclesAndUnits);
-      ValidateParam(SpawnFxInEveryCell);
       
       var component =  new CustomAreaOnGrid();
       component.AffectedCells = AffectedCells;
@@ -2979,8 +2858,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float MinPart,
         bool NotRecommendIfHigher)
     {
-      ValidateParam(MinPart);
-      ValidateParam(NotRecommendIfHigher);
       
       var component =  new RecommendationBaseAttackPart();
       component.MinPart = MinPart;
@@ -3015,7 +2892,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_Feature,
         bool Mandatory)
     {
-      ValidateParam(Mandatory);
       
       var component =  new RecommendationHasFeature();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Feature);
@@ -3034,7 +2910,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string[] m_Features,
         bool GoodIfNoFeature)
     {
-      ValidateParam(GoodIfNoFeature);
       
       var component =  new RecommendationNoFeatFromGroup();
       component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
@@ -3062,9 +2937,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool Divine,
         bool Alchemist)
     {
-      ValidateParam(Arcane);
-      ValidateParam(Divine);
-      ValidateParam(Alchemist);
       
       var component =  new RecommendationRequiresSpellbookSource();
       component.Arcane = Arcane;
@@ -3085,7 +2957,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(HigherStat);
       ValidateParam(LowerStat);
-      ValidateParam(Diff);
       
       var component =  new RecommendationStatComparison();
       component.HigherStat = HigherStat;
@@ -3105,8 +2976,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool GoodIfHigher)
     {
       ValidateParam(Stat);
-      ValidateParam(MinimalValue);
-      ValidateParam(GoodIfHigher);
       
       var component =  new RecommendationStatMiminum();
       component.Stat = Stat;
@@ -3126,8 +2995,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool BadIfNoFocus)
     {
       ValidateParam(Subcategory);
-      ValidateParam(HasFocus);
-      ValidateParam(BadIfNoFocus);
       
       var component =  new RecommendationWeaponSubcategoryFocus();
       component.Subcategory = Subcategory;
@@ -3146,7 +3013,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool HasFocus)
     {
       ValidateParam(WeaponRangeType);
-      ValidateParam(HasFocus);
       
       var component =  new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = WeaponRangeType;
@@ -3164,13 +3030,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool Recommended)
     {
       ValidateParam(Stat);
-      ValidateParam(Recommended);
       
       var component =  new StatRecommendationChange();
       component.Stat = Stat;
       component.Recommended = Recommended;
       return AddComponent(component);
     }
+
     protected override void ConfigureInternal()
     {
       base.ConfigureInternal();

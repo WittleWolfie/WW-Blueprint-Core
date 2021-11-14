@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
+using Kingmaker.AreaLogic.Cutscenes.Components;
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
   /// <summary>Configurator for <see cref="Cutscene"/>.</summary>
@@ -30,5 +31,25 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       return For(name);
     }
 
+
+    /// <summary>
+    /// Adds <see cref="StopCutsceneWhenExitingArea"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StopCutsceneWhenExitingArea))]
+    public CutsceneConfigurator AddStopCutsceneWhenExitingArea()
+    {
+      return AddComponent(new StopCutsceneWhenExitingArea());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DestroyCutsceneOnLoad"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DestroyCutsceneOnLoad))]
+    public CutsceneConfigurator AddDestroyCutsceneOnLoad()
+    {
+      return AddComponent(new DestroyCutsceneOnLoad());
+    }
   }
 }

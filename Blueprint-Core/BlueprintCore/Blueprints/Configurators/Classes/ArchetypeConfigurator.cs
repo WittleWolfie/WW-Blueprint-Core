@@ -555,7 +555,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ArchetypeConfigurator AddDeityDependencyClass(
         bool IsDeityDependencyClass)
     {
-      ValidateParam(IsDeityDependencyClass);
       
       var component =  new DeityDependencyClass();
       component.IsDeityDependencyClass = IsDeityDependencyClass;
@@ -576,10 +575,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool CheckInProgression,
         bool HideInUI)
     {
-      ValidateParam(Rating);
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteLoreMaster();
       component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_LoreMaster);
@@ -604,8 +600,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool HideInUI)
     {
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteSelectionPossible();
       component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_ThisFeature);
@@ -628,10 +622,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool HideInUI)
     {
       ValidateParam(Stat);
-      ValidateParam(Value);
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteFullStatValue();
       component.Stat = Stat;
@@ -640,5 +631,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = CheckInProgression;
       component.HideInUI = HideInUI;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

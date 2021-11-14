@@ -30,5 +30,34 @@ namespace BlueprintCore.Blueprints.Configurators
       return For(name);
     }
 
+
+    /// <summary>
+    /// Adds <see cref="PortraitDollSettings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Race"><see cref="BlueprintRace"/></param>
+    [Generated]
+    [Implements(typeof(PortraitDollSettings))]
+    public PortraitConfigurator AddPortraitDollSettings(
+        Gender Gender,
+        string m_Race)
+    {
+      ValidateParam(Gender);
+      
+      var component =  new PortraitDollSettings();
+      component.Gender = Gender;
+      component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(m_Race);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PortraitPremiumSetting"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PortraitPremiumSetting))]
+    public PortraitConfigurator AddPortraitPremiumSetting()
+    {
+      return AddComponent(new PortraitPremiumSetting());
+    }
   }
 }

@@ -1,6 +1,12 @@
 using BlueprintCore.Blueprints.Configurators;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Localization;
+using System.Collections.Generic;
+using System.Linq;
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>Configurator for <see cref="BlueprintGlobalMapPointVariation"/>.</summary>
@@ -30,5 +36,28 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       return For(name);
     }
 
+
+    /// <summary>
+    /// Adds <see cref="LocationRestriction"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="RequiredCompanions"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(LocationRestriction))]
+    public GlobalMapPointVariationConfigurator AddLocationRestriction(
+        ConditionsBuilder IgnoreCondition,
+        ConditionsBuilder AllowedCondition,
+        string[] RequiredCompanions,
+        LocalizedString Description)
+    {
+      ValidateParam(Description);
+      
+      var component =  new LocationRestriction();
+      component.IgnoreCondition = IgnoreCondition.Build();
+      component.AllowedCondition = AllowedCondition.Build();
+      component.RequiredCompanions = RequiredCompanions.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToList();
+      component.Description = Description;
+      return AddComponent(component);
+    }
   }
 }

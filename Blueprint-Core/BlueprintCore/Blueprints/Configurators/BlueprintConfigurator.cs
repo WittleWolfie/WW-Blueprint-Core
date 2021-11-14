@@ -421,7 +421,6 @@ namespace BlueprintCore.Blueprints.Configurators
         string m_DlcReward,
         bool m_HideInstead)
     {
-      ValidateParam(m_HideInstead);
       
       var component =  new DlcCondition();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
@@ -438,8 +437,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bool m_IsAvailableInEditor,
         bool m_IsAvailableInDevBuild)
     {
-      ValidateParam(m_IsAvailableInEditor);
-      ValidateParam(m_IsAvailableInDevBuild);
       
       var component =  new DlcStoreCheat();
       component.m_IsAvailableInEditor = m_IsAvailableInEditor;
@@ -455,10 +452,6 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreEpic(
         String m_EpicId)
     {
-      foreach (var item in m_EpicId)
-      {
-        ValidateParam(item);
-      }
       
       var component =  new DlcStoreEpic();
       component.m_EpicId = m_EpicId;
@@ -473,7 +466,6 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreGog(
         ulong m_GogId)
     {
-      ValidateParam(m_GogId);
       
       var component =  new DlcStoreGog();
       component.m_GogId = m_GogId;
@@ -488,7 +480,6 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreSteam(
         uint m_SteamId)
     {
-      ValidateParam(m_SteamId);
       
       var component =  new DlcStoreSteam();
       component.m_SteamId = m_SteamId;
@@ -506,7 +497,6 @@ namespace BlueprintCore.Blueprints.Configurators
         string m_Buff,
         int m_TargetBuffRank)
     {
-      ValidateParam(m_TargetBuffRank);
       
       var component =  new AddBuffOnCorruptionClear();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
@@ -630,7 +620,6 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddAbilityAcceptBurnOnCast(
         int BurnValue)
     {
-      ValidateParam(BurnValue);
       
       var component =  new AbilityAcceptBurnOnCast();
       component.BurnValue = BurnValue;
@@ -667,13 +656,12 @@ namespace BlueprintCore.Blueprints.Configurators
         UnitPropertyComponent.ExternalProperty[] m_AddExternalProperties,
         String[] m_AddLocalProperties)
     {
-      foreach (var item in Name)
+      ValidateParam(m_Settings);
+      foreach (var item in m_AddExternalProperties)
       {
         ValidateParam(item);
       }
-      ValidateParam(m_Settings);
-      ValidateParam(m_BaseValue);
-      foreach (var item in m_AddExternalProperties)
+      foreach (var item in m_AddLocalProperties)
       {
         ValidateParam(item);
       }
@@ -702,13 +690,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool AffectFriendlyTouchSpells,
         ActionsBuilder Action)
     {
-      ValidateParam(OnlyHit);
-      ValidateParam(CriticalHit);
-      ValidateParam(SneakAttack);
-      ValidateParam(OnOwner);
-      ValidateParam(CheckWeapon);
       ValidateParam(WeaponCategory);
-      ValidateParam(AffectFriendlyTouchSpells);
       
       var component =  new AddInitiatorAttackRollTrigger();
       component.OnlyHit = OnlyHit;
@@ -760,33 +742,10 @@ namespace BlueprintCore.Blueprints.Configurators
         bool IgnoreAutoHit,
         ActionsBuilder Action)
     {
-      ValidateParam(WaitForAttackResolve);
-      ValidateParam(OnlyHit);
-      ValidateParam(OnMiss);
-      ValidateParam(OnlyOnFullAttack);
-      ValidateParam(OnlyOnFirstAttack);
-      ValidateParam(OnlyOnFirstHit);
-      ValidateParam(CriticalHit);
-      ValidateParam(OnAttackOfOpportunity);
-      ValidateParam(NotCriticalHit);
-      ValidateParam(OnlySneakAttack);
-      ValidateParam(NotSneakAttack);
-      ValidateParam(CheckWeaponCategory);
       ValidateParam(Category);
-      ValidateParam(CheckWeaponGroup);
       ValidateParam(Group);
-      ValidateParam(CheckWeaponRangeType);
       ValidateParam(RangeType);
-      ValidateParam(ActionsOnInitiator);
-      ValidateParam(ReduceHPToZero);
-      ValidateParam(DamageMoreTargetMaxHP);
-      ValidateParam(CheckDistance);
       ValidateParam(DistanceLessEqual);
-      ValidateParam(AllNaturalAndUnarmed);
-      ValidateParam(DuelistWeapon);
-      ValidateParam(NotExtraAttack);
-      ValidateParam(OnCharge);
-      ValidateParam(IgnoreAutoHit);
       
       var component =  new AddInitiatorAttackWithWeaponTrigger();
       component.WaitForAttackResolve = WaitForAttackResolve;
@@ -838,17 +797,10 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder ActionsOnAttacker,
         ActionsBuilder ActionOnSelf)
     {
-      ValidateParam(OnlyHit);
-      ValidateParam(CriticalHit);
-      ValidateParam(OnlyMelee);
-      ValidateParam(NotReach);
-      ValidateParam(CheckCategory);
-      ValidateParam(Not);
       foreach (var item in Categories)
       {
         ValidateParam(item);
       }
-      ValidateParam(AffectFriendlyTouchSpells);
       
       var component =  new AddTargetAttackRollTrigger();
       component.OnlyHit = OnlyHit;
@@ -877,9 +829,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder ActionsOnAttacker,
         ActionsBuilder ActionOnSelf)
     {
-      ValidateParam(OnlyMelee);
-      ValidateParam(NotReach);
-      ValidateParam(CheckDescriptor);
       ValidateParam(SpellDescriptors);
       
       var component =  new AddTargetBeforeAttackRollTrigger();
@@ -930,29 +879,10 @@ namespace BlueprintCore.Blueprints.Configurators
         DamageTypeDescription DamageType,
         List<AdditionalDiceOnAttack.DamageEntry> m_DamageEntries)
     {
-      ValidateParam(OnlyOnFullAttack);
-      ValidateParam(OnlyOnFirstAttack);
-      ValidateParam(OnHit);
-      ValidateParam(OnlyOnFirstHit);
-      ValidateParam(CriticalHit);
-      ValidateParam(OnAttackOfOpportunity);
-      ValidateParam(NotCriticalHit);
-      ValidateParam(OnlySneakAttack);
-      ValidateParam(NotSneakAttack);
-      ValidateParam(CheckWeaponCategory);
       ValidateParam(Category);
-      ValidateParam(CheckWeaponGroup);
       ValidateParam(Group);
-      ValidateParam(CheckWeaponRangeType);
       ValidateParam(RangeType);
-      ValidateParam(ReduceHPToZero);
-      ValidateParam(CheckDistance);
       ValidateParam(DistanceLessEqual);
-      ValidateParam(AllNaturalAndUnarmed);
-      ValidateParam(DuelistWeapon);
-      ValidateParam(NotExtraAttack);
-      ValidateParam(OnCharge);
-      ValidateParam(m_RandomizeDamage);
       ValidateParam(Value);
       ValidateParam(DamageType);
       foreach (var item in m_DamageEntries)
@@ -1008,10 +938,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(FullAttack);
       ValidateParam(FirstAttack);
-      ValidateParam(CheckCategory);
       ValidateParam(Category);
-      ValidateParam(CheckTwoHanded);
-      ValidateParam(Bonus);
       
       var component =  new AdditionalStatBonusOnAttackDamage();
       component.FullAttack = FullAttack;
@@ -1032,7 +959,6 @@ namespace BlueprintCore.Blueprints.Configurators
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new AllAttacksEnhancement();
@@ -1084,8 +1010,6 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(m_Radius);
       ValidateParam(m_TargetType);
-      ValidateParam(m_CanBeUsedInTacticalCombat);
-      ValidateParam(m_DiameterInCells);
       
       var component =  new AbilityAoERadius();
       component.m_Radius = m_Radius;
@@ -1124,10 +1048,6 @@ namespace BlueprintCore.Blueprints.Configurators
         int MaxCasterLevel)
     {
       ValidateParam(Type);
-      ValidateParam(BaseValue);
-      ValidateParam(AddCasterLevel);
-      ValidateParam(MultiplyByCasterLevel);
-      ValidateParam(MaxCasterLevel);
       
       var component =  new AbilityUseOnRest();
       component.Type = Type;
@@ -1149,13 +1069,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bool m_OnlyEmptyCells,
         int m_Diameter)
     {
-      foreach (var item in m_AllowedColumns)
-      {
-        ValidateParam(item);
-      }
-      ValidateParam(m_FactionDependent);
-      ValidateParam(m_OnlyEmptyCells);
-      ValidateParam(m_Diameter);
       
       var component =  new AbilityTargetCellsRestriction();
       component.m_AllowedColumns = m_AllowedColumns;
@@ -1175,7 +1088,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bool Not)
     {
       ValidateParam(Condition);
-      ValidateParam(Not);
       
       var component =  new AbilityTargetHasCondition();
       component.Condition = Condition;
@@ -1195,7 +1107,6 @@ namespace BlueprintCore.Blueprints.Configurators
         UnitCondition Condition,
         string[] m_Buffs)
     {
-      ValidateParam(Not);
       ValidateParam(Condition);
       
       var component =  new AbilityTargetHasConditionOrBuff();
@@ -1220,9 +1131,6 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         ValidateParam(item);
       }
-      ValidateParam(NeedHPCondition);
-      ValidateParam(CurrentHPLessThan);
-      ValidateParam(InvertedHP);
       
       var component =  new AbilityTargetHasOneOfConditionsOrHP();
       component.Condition = Condition;
@@ -1240,7 +1148,6 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddAbilityTargetIsAnimalCompanion(
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new AbilityTargetIsAnimalCompanion();
       component.Not = Not;
@@ -1304,9 +1211,7 @@ namespace BlueprintCore.Blueprints.Configurators
         string m_CrusadeLeader)
     {
       ValidateParam(m_AssignedRegion);
-      ValidateParam(m_DemonsFromList);
       ValidateParam(m_DemonsArmyType);
-      ValidateParam(m_SpecificCrusadeLeader);
       
       var component =  new ArmyBattleResultsTrigger();
       component.OnCrusadersVictory = OnCrusadersVictory.Build();
@@ -1352,7 +1257,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_OnSiegeEnd,
         ActionsBuilder m_OnSettlementDestroyed)
     {
-      ValidateParam(m_SpecificLocation);
       
       var component =  new SettlementSiegeTrigger();
       component.m_SpecificLocation = m_SpecificLocation;
@@ -1380,10 +1284,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_Action)
     {
       ValidateParam(m_MercenariesFilter);
-      ValidateParam(m_ByTag);
       ValidateParam(m_ArmyTag);
-      ValidateParam(m_ByUnits);
-      ValidateParam(m_MinCount);
       
       var component =  new ArmyUnitRecruitedTrigger();
       component.m_MercenariesFilter = m_MercenariesFilter;
@@ -1506,10 +1407,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
-      foreach (var item in m_TargetState)
-      {
-        ValidateParam(item);
-      }
       
       var component =  new OnIsleStateEnterTrigger();
       component.m_IsleEvaluator = m_IsleEvaluator;
@@ -1529,10 +1426,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
-      foreach (var item in m_TargetState)
-      {
-        ValidateParam(item);
-      }
       
       var component =  new OnIsleStateExitTrigger();
       component.m_IsleEvaluator = m_IsleEvaluator;
@@ -1552,8 +1445,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder Conditions,
         ActionsBuilder Actions)
     {
-      ValidateParam(m_Once);
-      ValidateParam(m_AlsoOnAreaLoad);
       
       var component =  new ActivateTrigger();
       component.m_Once = m_Once;
@@ -1609,7 +1500,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bool TriggerOnDeath,
         ActionsBuilder Actions)
     {
-      ValidateParam(TriggerOnDeath);
       
       var component =  new CompanionUnrecruitTrigger();
       component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CompanionBlueprint);
@@ -1627,10 +1517,6 @@ namespace BlueprintCore.Blueprints.Configurators
         String Id,
         ActionsBuilder Actions)
     {
-      foreach (var item in Id)
-      {
-        ValidateParam(item);
-      }
       
       var component =  new CustomEventTrigger();
       component.Id = Id;
@@ -1650,7 +1536,6 @@ namespace BlueprintCore.Blueprints.Configurators
         DamageEnergyType DamageEType)
     {
       ValidateParam(Unit);
-      ValidateParam(AnyDamageType);
       ValidateParam(DamageEType);
       
       var component =  new DamageTypeTrigger();
@@ -1704,7 +1589,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bool TriggerOnExit)
     {
       ValidateParam(Unit);
-      ValidateParam(TriggerOnExit);
       
       var component =  new EvaluatedUnitCombatTrigger();
       component.Unit = Unit;
@@ -1723,7 +1607,6 @@ namespace BlueprintCore.Blueprints.Configurators
         UnitEvaluator Unit,
         ActionsBuilder Actions)
     {
-      ValidateParam(AnyUnit);
       ValidateParam(Unit);
       
       var component =  new EvaluatedUnitDeathTrigger();
@@ -1746,9 +1629,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder Actions)
     {
       ValidateParam(Unit);
-      ValidateParam(Once);
-      ValidateParam(Percentage);
-      ValidateParam(TriggerOnAlreadyLowerHeath);
       
       var component =  new EvaluatedUnitHealthTrigger();
       component.Unit = Unit;
@@ -1769,7 +1649,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder Conditions,
         ActionsBuilder Actions)
     {
-      ValidateParam(Experience);
       
       var component =  new ExperienceTrigger();
       component.Experience = Experience;
@@ -1919,7 +1798,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder Conditions,
         ActionsBuilder Actions)
     {
-      ValidateParam(Once);
       ValidateParam(RestResults);
       
       var component =  new RestTrigger();
@@ -1944,10 +1822,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder OnExitActions)
     {
       ValidateParam(ScriptZone);
-      foreach (var item in UnitRef)
-      {
-        ValidateParam(item);
-      }
       
       var component =  new ScriptZoneTrigger();
       component.ScriptZone = ScriptZone;
@@ -2028,7 +1902,6 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder Conditions,
         ActionsBuilder Actions)
     {
-      ValidateParam(Count);
       ValidateParam(ChangeType);
       
       var component =  new SummonPoolTrigger();
@@ -2085,7 +1958,6 @@ namespace BlueprintCore.Blueprints.Configurators
         int Percentage,
         ActionsBuilder Actions)
     {
-      ValidateParam(Percentage);
       
       var component =  new UnitHealthTrigger();
       component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
@@ -2112,6 +1984,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.OnDisarm = OnDisarm.Build();
       return AddComponent(component);
     }
+
     //----- Start: Configure & Validate
 
     /// <summary>Type specific configuration implemented in child classes.</summary>

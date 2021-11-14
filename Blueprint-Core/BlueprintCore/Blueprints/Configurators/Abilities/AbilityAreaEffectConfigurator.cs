@@ -232,12 +232,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool ReplaceSpellLevel,
         ContextValue SpellLevel)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
-      ValidateParam(StatTypeFromCustomProperty);
-      ValidateParam(ReplaceCasterLevel);
       ValidateParam(CasterLevel);
-      ValidateParam(ReplaceSpellLevel);
       ValidateParam(SpellLevel);
       
       var component =  new ContextCalculateAbilityParams();
@@ -264,7 +260,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         StatType StatType,
         string m_CharacterClass)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
       
       var component =  new ContextCalculateAbilityParamsBasedOnClass();
@@ -286,7 +281,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(ValueType);
       ValidateParam(Value);
-      ValidateParam(Modifier);
       
       var component =  new ContextCalculateSharedValue();
       component.ValueType = ValueType;
@@ -307,7 +301,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue Concentration,
         ContextValue SpellLevel)
     {
-      ValidateParam(Add10ToDC);
       ValidateParam(DC);
       ValidateParam(CasterLevel);
       ValidateParam(Concentration);
@@ -344,7 +337,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool CheckConditionEveryRound,
         string m_Buff)
     {
-      ValidateParam(CheckConditionEveryRound);
       
       var component =  new AbilityAreaEffectBuff();
       component.Condition = Condition.Build();
@@ -403,7 +395,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(Behaviour);
       ValidateParam(m_BuffFact);
-      ValidateParam(m_Count);
       
       var component =  new AbilityAreaEffectSpecialBehaviour();
       component.Behaviour = Behaviour;
@@ -452,7 +443,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(ClimbDC);
       ValidateParam(MaxUnitSize);
-      ValidateParam(DisableClimb);
       
       var component =  new AreaEffectPit();
       component.m_VisualSettings = BlueprintTool.GetRef<BlueprintAreaEffectPitVisualSettingsReference>(m_VisualSettings);
@@ -482,13 +472,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       {
         ValidateParam(item);
       }
-      ValidateParam(IgnoreObstaclesAndUnits);
-      ValidateParam(SpawnFxInEveryCell);
       
       var component =  new CustomAreaOnGrid();
       component.AffectedCells = AffectedCells;
       component.IgnoreObstaclesAndUnits = IgnoreObstaclesAndUnits;
       component.SpawnFxInEveryCell = SpawnFxInEveryCell;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

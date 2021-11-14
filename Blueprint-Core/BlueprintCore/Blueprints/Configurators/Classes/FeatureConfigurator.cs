@@ -699,10 +699,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool CheckInProgression,
         bool HideInUI)
     {
-      ValidateParam(Rating);
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteLoreMaster();
       component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_LoreMaster);
@@ -727,8 +724,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool HideInUI)
     {
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteSelectionPossible();
       component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_ThisFeature);
@@ -751,7 +746,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool OnlyIfRequiresThisFeature)
     {
       ValidateParam(Introduction);
-      ValidateParam(OnlyIfRequiresThisFeature);
       
       var component =  new AddFeaturesFromSelectionToDescription();
       component.Introduction = Introduction;
@@ -799,12 +793,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool ReplaceSpellLevel,
         ContextValue SpellLevel)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
-      ValidateParam(StatTypeFromCustomProperty);
-      ValidateParam(ReplaceCasterLevel);
       ValidateParam(CasterLevel);
-      ValidateParam(ReplaceSpellLevel);
       ValidateParam(SpellLevel);
       
       var component =  new ContextCalculateAbilityParams();
@@ -831,7 +821,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         StatType StatType,
         string m_CharacterClass)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
       
       var component =  new ContextCalculateAbilityParamsBasedOnClass();
@@ -853,7 +842,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(ValueType);
       ValidateParam(Value);
-      ValidateParam(Modifier);
       
       var component =  new ContextCalculateSharedValue();
       component.ValueType = ValueType;
@@ -874,7 +862,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue Concentration,
         ContextValue SpellLevel)
     {
-      ValidateParam(Add10ToDC);
       ValidateParam(DC);
       ValidateParam(CasterLevel);
       ValidateParam(Concentration);
@@ -933,8 +920,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         float MinPart,
         bool NotRecommendIfHigher)
     {
-      ValidateParam(MinPart);
-      ValidateParam(NotRecommendIfHigher);
       
       var component =  new RecommendationBaseAttackPart();
       component.MinPart = MinPart;
@@ -969,7 +954,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         string m_Feature,
         bool Mandatory)
     {
-      ValidateParam(Mandatory);
       
       var component =  new RecommendationHasFeature();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Feature);
@@ -988,7 +972,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         string[] m_Features,
         bool GoodIfNoFeature)
     {
-      ValidateParam(GoodIfNoFeature);
       
       var component =  new RecommendationNoFeatFromGroup();
       component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
@@ -1016,9 +999,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool Divine,
         bool Alchemist)
     {
-      ValidateParam(Arcane);
-      ValidateParam(Divine);
-      ValidateParam(Alchemist);
       
       var component =  new RecommendationRequiresSpellbookSource();
       component.Arcane = Arcane;
@@ -1039,7 +1019,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(HigherStat);
       ValidateParam(LowerStat);
-      ValidateParam(Diff);
       
       var component =  new RecommendationStatComparison();
       component.HigherStat = HigherStat;
@@ -1059,8 +1038,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool GoodIfHigher)
     {
       ValidateParam(Stat);
-      ValidateParam(MinimalValue);
-      ValidateParam(GoodIfHigher);
       
       var component =  new RecommendationStatMiminum();
       component.Stat = Stat;
@@ -1080,8 +1057,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool BadIfNoFocus)
     {
       ValidateParam(Subcategory);
-      ValidateParam(HasFocus);
-      ValidateParam(BadIfNoFocus);
       
       var component =  new RecommendationWeaponSubcategoryFocus();
       component.Subcategory = Subcategory;
@@ -1100,7 +1075,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool HasFocus)
     {
       ValidateParam(WeaponRangeType);
-      ValidateParam(HasFocus);
       
       var component =  new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = WeaponRangeType;
@@ -1118,7 +1092,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool Recommended)
     {
       ValidateParam(Stat);
-      ValidateParam(Recommended);
       
       var component =  new StatRecommendationChange();
       component.Stat = Stat;
@@ -1139,10 +1112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool HideInUI)
     {
       ValidateParam(Stat);
-      ValidateParam(Value);
       ValidateParam(Group);
-      ValidateParam(CheckInProgression);
-      ValidateParam(HideInUI);
       
       var component =  new PrerequisiteFullStatValue();
       component.Stat = Stat;
@@ -1152,6 +1122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.HideInUI = HideInUI;
       return AddComponent(component);
     }
+
     protected override void ConfigureInternal()
     {
       base.ConfigureInternal();

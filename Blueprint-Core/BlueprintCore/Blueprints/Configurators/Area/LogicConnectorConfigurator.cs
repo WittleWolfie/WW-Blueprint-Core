@@ -21,7 +21,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
      protected BaseLogicConnectorConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
     /// </summary>
@@ -34,9 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bool CheckPhysicalDamageForm,
         PhysicalDamageForm PhysicalDamageForm)
     {
-      ValidateParam(CheckEnergyType);
       ValidateParam(EnergyType);
-      ValidateParam(CheckPhysicalDamageForm);
       ValidateParam(PhysicalDamageForm);
       
       var component =  new DamageToMapObjectTrigger();
@@ -46,7 +43,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.CheckPhysicalDamageForm = CheckPhysicalDamageForm;
       component.PhysicalDamageForm = PhysicalDamageForm;
       return AddComponent(component);
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintLogicConnector"/>.</summary>
   /// <inheritdoc/>
@@ -76,7 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
 
-
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
     /// </summary>
@@ -89,9 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bool CheckPhysicalDamageForm,
         PhysicalDamageForm PhysicalDamageForm)
     {
-      ValidateParam(CheckEnergyType);
       ValidateParam(EnergyType);
-      ValidateParam(CheckPhysicalDamageForm);
       ValidateParam(PhysicalDamageForm);
       
       var component =  new DamageToMapObjectTrigger();
@@ -101,5 +96,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.CheckPhysicalDamageForm = CheckPhysicalDamageForm;
       component.PhysicalDamageForm = PhysicalDamageForm;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

@@ -19,7 +19,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
      protected BaseKingdomProjectConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
@@ -31,7 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         string[] m_Items,
         int Amount)
     {
-      ValidateParam(Amount);
       
       var component =  new EventItemCost();
       component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
@@ -79,7 +77,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder AddMarkAsCrusadeProject()
     {
       return AddComponent(new MarkAsCrusadeProject());
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintKingdomProject"/>.</summary>
   /// <inheritdoc/>
@@ -109,7 +108,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
 
-
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
@@ -121,7 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         string[] m_Items,
         int Amount)
     {
-      ValidateParam(Amount);
       
       var component =  new EventItemCost();
       component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
@@ -169,5 +166,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomProjectConfigurator AddMarkAsCrusadeProject()
     {
       return AddComponent(new MarkAsCrusadeProject());
-    }  }
+    }
+  }
 }

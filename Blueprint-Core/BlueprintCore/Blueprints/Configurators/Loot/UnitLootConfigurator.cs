@@ -18,7 +18,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
      protected BaseUnitLootConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
     /// </summary>
@@ -29,9 +28,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int MinCR,
         int Count)
     {
-      ValidateParam(BigTable);
-      ValidateParam(MinCR);
-      ValidateParam(Count);
       
       var component =  new DungeonVendorItemsComponent();
       component.BigTable = BigTable;
@@ -50,7 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int m_Count)
     {
       ValidateParam(m_Item);
-      ValidateParam(m_Count);
       
       var component =  new LootItemsPackFixed();
       component.m_Item = m_Item;
@@ -69,8 +64,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int m_CountTo)
     {
       ValidateParam(m_Item);
-      ValidateParam(m_CountFrom);
-      ValidateParam(m_CountTo);
       
       var component =  new LootItemsPackVariable();
       component.m_Item = m_Item;
@@ -95,7 +88,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       var component =  new LootRandomItem();
       component.m_Items = m_Items;
       return AddComponent(component);
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintUnitLoot"/>.</summary>
   /// <inheritdoc/>
@@ -125,7 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
 
-
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
     /// </summary>
@@ -136,9 +129,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int MinCR,
         int Count)
     {
-      ValidateParam(BigTable);
-      ValidateParam(MinCR);
-      ValidateParam(Count);
       
       var component =  new DungeonVendorItemsComponent();
       component.BigTable = BigTable;
@@ -157,7 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int m_Count)
     {
       ValidateParam(m_Item);
-      ValidateParam(m_Count);
       
       var component =  new LootItemsPackFixed();
       component.m_Item = m_Item;
@@ -176,8 +165,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int m_CountTo)
     {
       ValidateParam(m_Item);
-      ValidateParam(m_CountFrom);
-      ValidateParam(m_CountTo);
       
       var component =  new LootItemsPackVariable();
       component.m_Item = m_Item;
@@ -202,5 +189,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       var component =  new LootRandomItem();
       component.m_Items = m_Items;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

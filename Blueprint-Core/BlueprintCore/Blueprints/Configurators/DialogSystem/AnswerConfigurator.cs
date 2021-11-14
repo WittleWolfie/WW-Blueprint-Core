@@ -1,5 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -30,5 +32,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return For(name);
     }
 
+
+    /// <summary>
+    /// Adds <see cref="ActingCompanion"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(ActingCompanion))]
+    public AnswerConfigurator AddActingCompanion(
+        string m_Companion)
+    {
+      
+      var component =  new ActingCompanion();
+      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
+      return AddComponent(component);
+    }
   }
 }

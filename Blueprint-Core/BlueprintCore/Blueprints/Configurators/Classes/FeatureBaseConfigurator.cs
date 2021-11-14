@@ -18,7 +18,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
      protected BaseFeatureBaseConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="FeatureTagsComponent"/> (Auto Generated)
     /// </summary>
@@ -42,5 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddHideFeatureInInspect()
     {
       return AddComponent(new HideFeatureInInspect());
-    }  }
+    }
+  }
 }

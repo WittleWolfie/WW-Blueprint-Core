@@ -302,12 +302,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         bool ReplaceSpellLevel,
         ContextValue SpellLevel)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
-      ValidateParam(StatTypeFromCustomProperty);
-      ValidateParam(ReplaceCasterLevel);
       ValidateParam(CasterLevel);
-      ValidateParam(ReplaceSpellLevel);
       ValidateParam(SpellLevel);
       
       var component =  new ContextCalculateAbilityParams();
@@ -334,7 +330,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         StatType StatType,
         string m_CharacterClass)
     {
-      ValidateParam(UseKineticistMainStat);
       ValidateParam(StatType);
       
       var component =  new ContextCalculateAbilityParamsBasedOnClass();
@@ -356,7 +351,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(ValueType);
       ValidateParam(Value);
-      ValidateParam(Modifier);
       
       var component =  new ContextCalculateSharedValue();
       component.ValueType = ValueType;
@@ -377,7 +371,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         ContextValue Concentration,
         ContextValue SpellLevel)
     {
-      ValidateParam(Add10ToDC);
       ValidateParam(DC);
       ValidateParam(CasterLevel);
       ValidateParam(Concentration);
@@ -411,6 +404,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       return AddComponent(new ControlledProjectileHolder());
     }
+
     protected override void ConfigureInternal()
     {
       base.ConfigureInternal();

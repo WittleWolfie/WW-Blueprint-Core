@@ -41,7 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
      protected BaseItemConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)
     /// </summary>
@@ -50,7 +49,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddArmorEnhancementBonus(
         int EnhancementValue)
     {
-      ValidateParam(EnhancementValue);
       
       var component =  new ArmorEnhancementBonus();
       component.EnhancementValue = EnhancementValue;
@@ -92,7 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool Once,
         ActionsBuilder Action)
     {
-      ValidateParam(Once);
       
       var component =  new AddItemShowInfoCallback();
       component.Once = Once;
@@ -108,7 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddBuildPointsReplacement(
         int Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new BuildPointsReplacement();
       component.Cost = Cost;
@@ -123,7 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddConsumableEventBonusReplacement(
         int Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new ConsumableEventBonusReplacement();
       component.Cost = Cost;
@@ -211,7 +206,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_ChangeTo,
         bool HideInVendors)
     {
-      ValidateParam(HideInVendors);
       
       var component =  new ItemDlcRestriction();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
@@ -247,7 +241,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddMoneyReplacement(
         long Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new MoneyReplacement();
       component.Cost = Cost;
@@ -284,7 +277,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AdditionalBonus)
     {
       ValidateParam(Value);
-      ValidateParam(AdditionalBonus);
       
       var component =  new WeaponCriticalConfirmationBonus();
       component.Value = Value;
@@ -310,7 +302,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddWeaponCriticalEdgeStackable(
         int Bonus)
     {
-      ValidateParam(Bonus);
       
       var component =  new WeaponCriticalEdgeStackable();
       component.Bonus = Bonus;
@@ -325,7 +316,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddWeaponCriticalMultiplierIncrease(
         int AdditionalMultiplier)
     {
-      ValidateParam(AdditionalMultiplier);
       
       var component =  new WeaponCriticalMultiplierIncrease();
       component.AdditionalMultiplier = AdditionalMultiplier;
@@ -342,7 +332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         float Multiplier)
     {
       ValidateParam(Stat);
-      ValidateParam(Multiplier);
       
       var component =  new WeaponDamageMultiplierStatReplacement();
       component.Stat = Stat;
@@ -360,7 +349,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool RequiresFinesse)
     {
       ValidateParam(Stat);
-      ValidateParam(RequiresFinesse);
       
       var component =  new WeaponDamageStatReplacement();
       component.Stat = Stat;
@@ -390,7 +378,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new ACBonusAgainstFactOwnerEquipment();
@@ -412,7 +399,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new AddCasterLevelEquipment();
@@ -464,7 +450,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_Spellbook,
         int CasterLevel)
     {
-      ValidateParam(CasterLevel);
       
       var component =  new AddSpellbookEquipment();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
@@ -484,7 +469,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new AddStatBonusEquipment();
       component.Descriptor = Descriptor;
@@ -508,7 +492,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new AddStatBonusEquipmentUnlessEnchant();
       component.Descriptor = Descriptor;
@@ -560,7 +543,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Value)
     {
       ValidateParam(Descriptor);
-      ValidateParam(Value);
       
       var component =  new AllSavesBonusEquipment();
       component.Descriptor = Descriptor;
@@ -580,7 +562,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AttackBonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new AttackBonusAgainstFactOwnerEquipment();
@@ -601,7 +582,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_CheckedFact,
         int DamageBonus)
     {
-      ValidateParam(DamageBonus);
       
       var component =  new DamageBonusAgainstFactOwnerEquipment();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
@@ -639,9 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool RequiresFinesse)
     {
       ValidateParam(Stat);
-      ValidateParam(AllNaturalAndUnarmed);
       ValidateParam(Category);
-      ValidateParam(RequiresFinesse);
       
       var component =  new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = Stat;
@@ -661,8 +639,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool AllNaturalAndUnarmed,
         WeaponCategory Category)
     {
-      ValidateParam(Enhancement);
-      ValidateParam(AllNaturalAndUnarmed);
       ValidateParam(Category);
       
       var component =  new EquipmentWeaponTypeEnhancement();
@@ -683,7 +659,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string[] m_Facts,
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new IgnoreConcealmentAgainstFactOwner();
       component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
@@ -740,7 +715,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddIncreaseMaxStatEnchantment(
         int Value)
     {
-      ValidateParam(Value);
       
       var component =  new IncreaseMaxStatEnchantment();
       component.Value = Value;
@@ -759,7 +733,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new IncreaseStatEquipment();
       component.Descriptor = Descriptor;
@@ -831,7 +804,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ModifierDescriptor Descriptor)
     {
       ValidateParam(WeaponGroup);
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponGroupAttackBonusEquipment();
@@ -851,7 +823,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AttackBonus)
     {
       ValidateParam(WeaponGroup);
-      ValidateParam(AttackBonus);
       
       var component =  new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = WeaponGroup;
@@ -870,7 +841,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ModifierDescriptor Descriptor)
     {
       ValidateParam(RangeType);
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponRangeTypeAttackBonusEquipment();
@@ -906,9 +876,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int ArmorCheckPenaltyShift,
         int ArcaneSpellFailureShift)
     {
-      ValidateParam(MaxDexBonusShift);
-      ValidateParam(ArmorCheckPenaltyShift);
-      ValidateParam(ArcaneSpellFailureShift);
       
       var component =  new AdvanceArmorStats();
       component.MaxDexBonusShift = MaxDexBonusShift;
@@ -938,7 +905,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int BonusPerStack,
         string m_CheckedBuff)
     {
-      ValidateParam(BonusPerStack);
       
       var component =  new IncreaseWeaponDamageByBuffStack();
       component.BonusPerStack = BonusPerStack;
@@ -959,7 +925,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(BonusIncrementValue);
       ValidateParam(MaximumTotalEnhancementBonus);
-      ValidateParam(m_CurrentEnhancementBonus);
       ValidateParam(m_FocusingTarget);
       
       var component =  new IncreaseWeaponEnhancementBonusOnTargetFocus();
@@ -1060,7 +1025,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Duration);
       ValidateParam(Fx);
-      ValidateParam(OnlyNatural20);
       
       var component =  new WeaponBuffOnConfirmedCrit();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
@@ -1082,8 +1046,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ConditionsBuilder Conditions)
     {
       ValidateParam(Damage);
-      ValidateParam(CheckWielder);
-      ValidateParam(IsBane);
       
       var component =  new WeaponConditionalDamageDice();
       component.Damage = Damage;
@@ -1104,9 +1066,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool IsBane,
         ConditionsBuilder Conditions)
     {
-      ValidateParam(EnhancementBonus);
-      ValidateParam(CheckWielder);
-      ValidateParam(IsBane);
       
       var component =  new WeaponConditionalEnhancementBonus();
       component.EnhancementBonus = EnhancementBonus;
@@ -1186,7 +1145,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Duration);
       ValidateParam(SaveType);
-      ValidateParam(DC);
       ValidateParam(Fx);
       
       var component =  new WeaponDebuffOnAttack();
@@ -1243,8 +1201,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int EnhancementBonus,
         bool Stack)
     {
-      ValidateParam(EnhancementBonus);
-      ValidateParam(Stack);
       
       var component =  new WeaponEnhancementBonus();
       component.EnhancementBonus = EnhancementBonus;
@@ -1261,8 +1217,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Number,
         bool Haste)
     {
-      ValidateParam(Number);
-      ValidateParam(Haste);
       
       var component =  new WeaponExtraAttack();
       component.Number = Number;
@@ -1342,7 +1296,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponTypeAttackEnchant();
@@ -1350,7 +1303,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.Bonus = Bonus;
       component.Descriptor = Descriptor;
       return AddComponent(component);
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintItem"/>.</summary>
   /// <inheritdoc/>
@@ -1380,7 +1334,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
 
-
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)
     /// </summary>
@@ -1389,7 +1342,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddArmorEnhancementBonus(
         int EnhancementValue)
     {
-      ValidateParam(EnhancementValue);
       
       var component =  new ArmorEnhancementBonus();
       component.EnhancementValue = EnhancementValue;
@@ -1431,7 +1383,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool Once,
         ActionsBuilder Action)
     {
-      ValidateParam(Once);
       
       var component =  new AddItemShowInfoCallback();
       component.Once = Once;
@@ -1447,7 +1398,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddBuildPointsReplacement(
         int Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new BuildPointsReplacement();
       component.Cost = Cost;
@@ -1462,7 +1412,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddConsumableEventBonusReplacement(
         int Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new ConsumableEventBonusReplacement();
       component.Cost = Cost;
@@ -1550,7 +1499,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_ChangeTo,
         bool HideInVendors)
     {
-      ValidateParam(HideInVendors);
       
       var component =  new ItemDlcRestriction();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
@@ -1586,7 +1534,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddMoneyReplacement(
         long Cost)
     {
-      ValidateParam(Cost);
       
       var component =  new MoneyReplacement();
       component.Cost = Cost;
@@ -1623,7 +1570,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AdditionalBonus)
     {
       ValidateParam(Value);
-      ValidateParam(AdditionalBonus);
       
       var component =  new WeaponCriticalConfirmationBonus();
       component.Value = Value;
@@ -1649,7 +1595,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddWeaponCriticalEdgeStackable(
         int Bonus)
     {
-      ValidateParam(Bonus);
       
       var component =  new WeaponCriticalEdgeStackable();
       component.Bonus = Bonus;
@@ -1664,7 +1609,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddWeaponCriticalMultiplierIncrease(
         int AdditionalMultiplier)
     {
-      ValidateParam(AdditionalMultiplier);
       
       var component =  new WeaponCriticalMultiplierIncrease();
       component.AdditionalMultiplier = AdditionalMultiplier;
@@ -1681,7 +1625,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         float Multiplier)
     {
       ValidateParam(Stat);
-      ValidateParam(Multiplier);
       
       var component =  new WeaponDamageMultiplierStatReplacement();
       component.Stat = Stat;
@@ -1699,7 +1642,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool RequiresFinesse)
     {
       ValidateParam(Stat);
-      ValidateParam(RequiresFinesse);
       
       var component =  new WeaponDamageStatReplacement();
       component.Stat = Stat;
@@ -1729,7 +1671,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new ACBonusAgainstFactOwnerEquipment();
@@ -1751,7 +1692,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new AddCasterLevelEquipment();
@@ -1803,7 +1743,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_Spellbook,
         int CasterLevel)
     {
-      ValidateParam(CasterLevel);
       
       var component =  new AddSpellbookEquipment();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
@@ -1823,7 +1762,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new AddStatBonusEquipment();
       component.Descriptor = Descriptor;
@@ -1847,7 +1785,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new AddStatBonusEquipmentUnlessEnchant();
       component.Descriptor = Descriptor;
@@ -1899,7 +1836,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Value)
     {
       ValidateParam(Descriptor);
-      ValidateParam(Value);
       
       var component =  new AllSavesBonusEquipment();
       component.Descriptor = Descriptor;
@@ -1919,7 +1855,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AttackBonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new AttackBonusAgainstFactOwnerEquipment();
@@ -1940,7 +1875,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string m_CheckedFact,
         int DamageBonus)
     {
-      ValidateParam(DamageBonus);
       
       var component =  new DamageBonusAgainstFactOwnerEquipment();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
@@ -1978,9 +1912,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool RequiresFinesse)
     {
       ValidateParam(Stat);
-      ValidateParam(AllNaturalAndUnarmed);
       ValidateParam(Category);
-      ValidateParam(RequiresFinesse);
       
       var component =  new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = Stat;
@@ -2000,8 +1932,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool AllNaturalAndUnarmed,
         WeaponCategory Category)
     {
-      ValidateParam(Enhancement);
-      ValidateParam(AllNaturalAndUnarmed);
       ValidateParam(Category);
       
       var component =  new EquipmentWeaponTypeEnhancement();
@@ -2022,7 +1952,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string[] m_Facts,
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new IgnoreConcealmentAgainstFactOwner();
       component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
@@ -2079,7 +2008,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddIncreaseMaxStatEnchantment(
         int Value)
     {
-      ValidateParam(Value);
       
       var component =  new IncreaseMaxStatEnchantment();
       component.Value = Value;
@@ -2098,7 +2026,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Descriptor);
       ValidateParam(Stat);
-      ValidateParam(Value);
       
       var component =  new IncreaseStatEquipment();
       component.Descriptor = Descriptor;
@@ -2170,7 +2097,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ModifierDescriptor Descriptor)
     {
       ValidateParam(WeaponGroup);
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponGroupAttackBonusEquipment();
@@ -2190,7 +2116,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int AttackBonus)
     {
       ValidateParam(WeaponGroup);
-      ValidateParam(AttackBonus);
       
       var component =  new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = WeaponGroup;
@@ -2209,7 +2134,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ModifierDescriptor Descriptor)
     {
       ValidateParam(RangeType);
-      ValidateParam(AttackBonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponRangeTypeAttackBonusEquipment();
@@ -2245,9 +2169,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int ArmorCheckPenaltyShift,
         int ArcaneSpellFailureShift)
     {
-      ValidateParam(MaxDexBonusShift);
-      ValidateParam(ArmorCheckPenaltyShift);
-      ValidateParam(ArcaneSpellFailureShift);
       
       var component =  new AdvanceArmorStats();
       component.MaxDexBonusShift = MaxDexBonusShift;
@@ -2277,7 +2198,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int BonusPerStack,
         string m_CheckedBuff)
     {
-      ValidateParam(BonusPerStack);
       
       var component =  new IncreaseWeaponDamageByBuffStack();
       component.BonusPerStack = BonusPerStack;
@@ -2298,7 +2218,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(BonusIncrementValue);
       ValidateParam(MaximumTotalEnhancementBonus);
-      ValidateParam(m_CurrentEnhancementBonus);
       ValidateParam(m_FocusingTarget);
       
       var component =  new IncreaseWeaponEnhancementBonusOnTargetFocus();
@@ -2399,7 +2318,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Duration);
       ValidateParam(Fx);
-      ValidateParam(OnlyNatural20);
       
       var component =  new WeaponBuffOnConfirmedCrit();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
@@ -2421,8 +2339,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ConditionsBuilder Conditions)
     {
       ValidateParam(Damage);
-      ValidateParam(CheckWielder);
-      ValidateParam(IsBane);
       
       var component =  new WeaponConditionalDamageDice();
       component.Damage = Damage;
@@ -2443,9 +2359,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bool IsBane,
         ConditionsBuilder Conditions)
     {
-      ValidateParam(EnhancementBonus);
-      ValidateParam(CheckWielder);
-      ValidateParam(IsBane);
       
       var component =  new WeaponConditionalEnhancementBonus();
       component.EnhancementBonus = EnhancementBonus;
@@ -2525,7 +2438,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       ValidateParam(Duration);
       ValidateParam(SaveType);
-      ValidateParam(DC);
       ValidateParam(Fx);
       
       var component =  new WeaponDebuffOnAttack();
@@ -2582,8 +2494,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int EnhancementBonus,
         bool Stack)
     {
-      ValidateParam(EnhancementBonus);
-      ValidateParam(Stack);
       
       var component =  new WeaponEnhancementBonus();
       component.EnhancementBonus = EnhancementBonus;
@@ -2600,8 +2510,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Number,
         bool Haste)
     {
-      ValidateParam(Number);
-      ValidateParam(Haste);
       
       var component =  new WeaponExtraAttack();
       component.Number = Number;
@@ -2681,7 +2589,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int Bonus,
         ModifierDescriptor Descriptor)
     {
-      ValidateParam(Bonus);
       ValidateParam(Descriptor);
       
       var component =  new WeaponTypeAttackEnchant();
@@ -2689,5 +2596,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.Bonus = Bonus;
       component.Descriptor = Descriptor;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

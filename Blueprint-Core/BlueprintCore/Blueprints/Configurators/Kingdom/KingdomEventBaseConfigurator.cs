@@ -22,7 +22,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
      protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="EventDynamicCostFeast"/> (Auto Generated)
     /// </summary>
@@ -81,5 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       var component =  new EventFinalResults();
       component.Results = Results;
       return AddComponent(component);
-    }  }
+    }
+  }
 }

@@ -139,11 +139,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bool AnyFeatureFromSelection,
         string[] m_Features)
     {
-      ValidateParam(AnyFeatureFromSelection);
       
       var component =  new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = AnyFeatureFromSelection;
       component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
       return AddComponent(component);
-    }  }
+    }
+  }
 }

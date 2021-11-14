@@ -1,6 +1,8 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.UnitLogic.Class.Kineticist;
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>Configurator for <see cref="BlueprintItemWeapon"/>.</summary>
@@ -30,5 +32,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       return For(name);
     }
 
+
+    /// <summary>
+    /// Adds <see cref="WeaponKineticBlade"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="m_ActivationAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="m_Blast"><see cref="BlueprintAbility"/></param>
+    [Generated]
+    [Implements(typeof(WeaponKineticBlade))]
+    public ItemWeaponConfigurator AddWeaponKineticBlade(
+        string m_ActivationAbility,
+        string m_Blast)
+    {
+      
+      var component =  new WeaponKineticBlade();
+      component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(m_ActivationAbility);
+      component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Blast);
+      return AddComponent(component);
+    }
   }
 }

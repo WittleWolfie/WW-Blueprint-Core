@@ -18,7 +18,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
      protected BaseAreaPartConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
@@ -36,7 +35,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
       component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
       return AddComponent(component);
-    }  }
+    }
+  }
 
   /// <summary>Configurator for <see cref="BlueprintAreaPart"/>.</summary>
   /// <inheritdoc/>
@@ -66,7 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
 
-
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
@@ -84,5 +83,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
       component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
       return AddComponent(component);
-    }  }
+    }
+  }
 }

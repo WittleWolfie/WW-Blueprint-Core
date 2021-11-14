@@ -22,7 +22,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
      protected BaseItemEquipmentConfigurator(string name) : base(name) { }
 
 
-
     /// <summary>
     /// Adds <see cref="AddFactToEquipmentWielder"/> (Auto Generated)
     /// </summary>
@@ -75,7 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         string m_Class,
         bool Not)
     {
-      ValidateParam(Not);
       
       var component =  new EquipmentRestrictionClass();
       component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
@@ -94,7 +92,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bool Not,
         string[] m_Classes)
     {
-      ValidateParam(Not);
       
       var component =  new EquipmentRestrictionHasAnyClassFromList();
       component.Not = Not;
@@ -138,11 +135,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         int MinValue)
     {
       ValidateParam(Stat);
-      ValidateParam(MinValue);
       
       var component =  new EquipmentRestrictionStat();
       component.Stat = Stat;
       component.MinValue = MinValue;
       return AddComponent(component);
-    }  }
+    }
+  }
 }
