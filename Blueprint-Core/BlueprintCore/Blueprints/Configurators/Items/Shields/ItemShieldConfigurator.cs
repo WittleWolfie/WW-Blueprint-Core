@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Shields;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields
 {
   /// <summary>Configurator for <see cref="BlueprintItemShield"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
       BlueprintTool.Create<BlueprintItemShield>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -11,6 +11,7 @@ using Kingmaker.Designers.EventConditionActionSystem.ObjectiveEvents;
 using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
   /// <summary>Configurator for <see cref="BlueprintQuestObjective"/>.</summary>
@@ -39,7 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       BlueprintTool.Create<BlueprintQuestObjective>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="QuestObjectiveCallback"/> (Auto Generated)

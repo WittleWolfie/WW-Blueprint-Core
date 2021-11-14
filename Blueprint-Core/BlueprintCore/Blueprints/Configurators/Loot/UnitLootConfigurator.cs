@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>
@@ -16,7 +17,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseUnitLootConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
@@ -117,7 +117,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       BlueprintTool.Create<BlueprintUnitLoot>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)

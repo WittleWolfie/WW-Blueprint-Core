@@ -502,8 +502,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="DetachBuff"/> (Auto Generated)
     /// </summary>

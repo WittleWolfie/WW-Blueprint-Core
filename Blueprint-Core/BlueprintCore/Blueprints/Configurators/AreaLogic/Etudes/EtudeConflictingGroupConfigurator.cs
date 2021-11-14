@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
+
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
   /// <summary>Configurator for <see cref="BlueprintEtudeConflictingGroup"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       BlueprintTool.Create<BlueprintEtudeConflictingGroup>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Visual.LightSelector;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
 {
   /// <summary>Configurator for <see cref="BlueprintTimeOfDaySettings"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
       BlueprintTool.Create<BlueprintTimeOfDaySettings>(name, assetId);
       return For(name);
     }
-
   }
 }

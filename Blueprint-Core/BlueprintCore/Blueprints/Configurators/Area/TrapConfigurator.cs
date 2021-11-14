@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>Configurator for <see cref="BlueprintTrap"/>.</summary>
@@ -32,7 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintTrap>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="Experience"/> (Auto Generated)

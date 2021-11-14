@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Encyclopedia;
+
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseEncyclopediaPageConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintEncyclopediaPage"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       BlueprintTool.Create<BlueprintEncyclopediaPage>(name, assetId);
       return For(name);
     }
-
   }
 }

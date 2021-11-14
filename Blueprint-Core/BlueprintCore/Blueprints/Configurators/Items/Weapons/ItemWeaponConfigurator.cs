@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.UnitLogic.Class.Kineticist;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>Configurator for <see cref="BlueprintItemWeapon"/>.</summary>
@@ -31,7 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       BlueprintTool.Create<BlueprintItemWeapon>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="WeaponKineticBlade"/> (Auto Generated)

@@ -16,6 +16,7 @@ using Kingmaker.RuleSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>Configurator for <see cref="BlueprintKingdomBuff"/>.</summary>
@@ -44,7 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintKingdomBuff>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="ChangeGlobalMagicPower"/> (Auto Generated)

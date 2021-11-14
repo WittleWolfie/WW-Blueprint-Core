@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintRace"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       BlueprintTool.Create<BlueprintRace>(name, assetId);
       return For(name);
     }
-
   }
 }

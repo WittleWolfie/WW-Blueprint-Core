@@ -17,9 +17,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
   /// <inheritdoc cref="ConditionsBuilder"/>
   public static class ConditionsBuilderMiscEx
   {
-    //----- Auto Generated -----//
-
-
+    //----- Auto Generated -----/
 
     /// <summary>
     /// Adds <see cref="ContextConditionDifficultyHigherThan"/> (Auto Generated)

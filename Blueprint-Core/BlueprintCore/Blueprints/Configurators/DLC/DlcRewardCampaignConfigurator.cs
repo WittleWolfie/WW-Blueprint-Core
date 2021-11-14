@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.DLC;
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
+
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>Configurator for <see cref="BlueprintDlcRewardCampaign"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       BlueprintTool.Create<BlueprintDlcRewardCampaign>(name, assetId);
       return For(name);
     }
-
   }
 }

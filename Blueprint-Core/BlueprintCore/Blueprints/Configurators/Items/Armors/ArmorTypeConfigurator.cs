@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Armors;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseArmorTypeConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintArmorType"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
       BlueprintTool.Create<BlueprintArmorType>(name, assetId);
       return For(name);
     }
-
   }
 }

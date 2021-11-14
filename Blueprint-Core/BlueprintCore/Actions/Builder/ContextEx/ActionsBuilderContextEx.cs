@@ -2041,8 +2041,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="ContextActionAcceptBurn"/> (Auto Generated)
     /// </summary>
@@ -2179,5 +2177,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.m_UpToSpellLevel = m_UpToSpellLevel;
       element.m_ExcludeSpellbooks = m_ExcludeSpellbooks.Select(bp => BlueprintTool.GetRef<BlueprintSpellbookReference>(bp)).ToList();
       return builder.Add(element);
-    }  }
+    }
+  }
 }

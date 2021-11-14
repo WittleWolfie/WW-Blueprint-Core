@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Credits;
+
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
   /// <summary>Configurator for <see cref="BlueprintCreditsGroup"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
       BlueprintTool.Create<BlueprintCreditsGroup>(name, assetId);
       return For(name);
     }
-
   }
 }

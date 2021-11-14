@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="UnitsAroundConsideration"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<UnitsAroundConsideration>(name, assetId);
       return For(name);
     }
-
   }
 }

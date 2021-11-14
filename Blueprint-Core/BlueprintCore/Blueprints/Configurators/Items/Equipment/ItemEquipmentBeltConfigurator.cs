@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>Configurator for <see cref="BlueprintItemEquipmentBelt"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       BlueprintTool.Create<BlueprintItemEquipmentBelt>(name, assetId);
       return For(name);
     }
-
   }
 }

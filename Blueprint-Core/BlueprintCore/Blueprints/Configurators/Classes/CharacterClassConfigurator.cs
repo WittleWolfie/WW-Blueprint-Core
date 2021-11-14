@@ -16,6 +16,7 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintCharacterClass"/>.</summary>
@@ -528,7 +529,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       prereq.Value = minValue;
       return AddComponent(prereq);
     }
-
 
     /// <summary>
     /// Adds <see cref="DeityDependencyClass"/> (Auto Generated)

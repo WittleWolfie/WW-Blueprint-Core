@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Armors;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Armors;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>Configurator for <see cref="BlueprintShieldType"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
       BlueprintTool.Create<BlueprintShieldType>(name, assetId);
       return For(name);
     }
-
   }
 }

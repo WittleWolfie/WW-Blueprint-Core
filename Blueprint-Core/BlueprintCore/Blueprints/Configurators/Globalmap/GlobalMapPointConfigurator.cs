@@ -9,6 +9,7 @@ using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>Configurator for <see cref="BlueprintGlobalMapPoint"/>.</summary>
@@ -37,7 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       BlueprintTool.Create<BlueprintGlobalMapPoint>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="LocationRadiusBuff"/> (Auto Generated)

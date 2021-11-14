@@ -18,8 +18,6 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
   {
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="ContextConditionDungeonStage"/> (Auto Generated)
     /// </summary>

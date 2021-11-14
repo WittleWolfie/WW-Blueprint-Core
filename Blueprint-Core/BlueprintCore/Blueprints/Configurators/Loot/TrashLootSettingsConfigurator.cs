@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Loot;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>Configurator for <see cref="TrashLootSettings"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       BlueprintTool.Create<TrashLootSettings>(name, assetId);
       return For(name);
     }
-
   }
 }

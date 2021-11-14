@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
 {
   /// <summary>Configurator for <see cref="BlueprintTacticalCombatAiPostponeTurn"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
       BlueprintTool.Create<BlueprintTacticalCombatAiPostponeTurn>(name, assetId);
       return For(name);
     }
-
   }
 }

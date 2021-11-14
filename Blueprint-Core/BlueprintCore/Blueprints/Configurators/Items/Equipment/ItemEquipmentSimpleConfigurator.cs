@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -14,6 +15,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemEquipmentSimpleConfigurator(string name) : base(name) { }
-
   }
 }

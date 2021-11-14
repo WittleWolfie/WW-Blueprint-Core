@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Visual.LightSelector;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -16,7 +17,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseAreaPartConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
@@ -64,7 +64,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintAreaPart>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)

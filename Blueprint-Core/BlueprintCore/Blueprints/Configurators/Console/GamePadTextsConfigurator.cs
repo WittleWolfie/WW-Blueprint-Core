@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Console;
+
 namespace BlueprintCore.Blueprints.Configurators.Console
 {
   /// <summary>Configurator for <see cref="GamePadTexts"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Console
       BlueprintTool.Create<GamePadTexts>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Quests;
+
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
   /// <summary>Configurator for <see cref="BlueprintQuestGroups"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       BlueprintTool.Create<BlueprintQuestGroups>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>Configurator for <see cref="BlueprintProjectile"/>.</summary>
@@ -30,7 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintProjectile>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="CannotSneakAttack"/> (Auto Generated)

@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Corruption;
+
 namespace BlueprintCore.Blueprints.Configurators.Corruption
 {
   /// <summary>Configurator for <see cref="BlueprintCorruptionRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
       BlueprintTool.Create<BlueprintCorruptionRoot>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Root.Fx;
+
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
   /// <summary>Configurator for <see cref="FxRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       BlueprintTool.Create<FxRoot>(name, assetId);
       return For(name);
     }
-
   }
 }

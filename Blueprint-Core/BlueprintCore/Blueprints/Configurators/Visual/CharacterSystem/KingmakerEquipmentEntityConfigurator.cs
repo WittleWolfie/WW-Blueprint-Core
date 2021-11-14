@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Visual.CharacterSystem;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
 {
   /// <summary>Configurator for <see cref="KingmakerEquipmentEntity"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
       BlueprintTool.Create<KingmakerEquipmentEntity>(name, assetId);
       return For(name);
     }
-
   }
 }

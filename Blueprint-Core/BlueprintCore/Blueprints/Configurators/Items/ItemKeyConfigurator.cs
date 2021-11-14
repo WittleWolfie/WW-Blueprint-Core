@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items;
+
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>Configurator for <see cref="BlueprintItemKey"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       BlueprintTool.Create<BlueprintItemKey>(name, assetId);
       return For(name);
     }
-
   }
 }

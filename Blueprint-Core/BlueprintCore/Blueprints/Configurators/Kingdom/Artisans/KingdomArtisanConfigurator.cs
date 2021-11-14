@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Artisans;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
   /// <summary>Configurator for <see cref="BlueprintKingdomArtisan"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
       BlueprintTool.Create<BlueprintKingdomArtisan>(name, assetId);
       return For(name);
     }
-
   }
 }

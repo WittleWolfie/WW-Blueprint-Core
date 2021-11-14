@@ -17,6 +17,7 @@ using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
 {
   /// <summary>Configurator for <see cref="BlueprintSettlementBuilding"/>.</summary>
@@ -45,7 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       BlueprintTool.Create<BlueprintSettlementBuilding>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="LocationRadiusBuff"/> (Auto Generated)

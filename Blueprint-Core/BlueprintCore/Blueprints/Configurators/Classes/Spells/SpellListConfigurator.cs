@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes.Spells;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
   /// <summary>Configurator for <see cref="BlueprintSpellList"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       BlueprintTool.Create<BlueprintSpellList>(name, assetId);
       return For(name);
     }
-
   }
 }

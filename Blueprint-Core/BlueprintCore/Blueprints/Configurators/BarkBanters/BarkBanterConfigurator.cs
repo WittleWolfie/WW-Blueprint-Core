@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
+
 namespace BlueprintCore.Blueprints.Configurators.BarkBanters
 {
   /// <summary>Configurator for <see cref="BlueprintBarkBanter"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
       BlueprintTool.Create<BlueprintBarkBanter>(name, assetId);
       return For(name);
     }
-
   }
 }

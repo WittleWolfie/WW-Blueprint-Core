@@ -72,7 +72,6 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Tutorial.Actions.ShowNewTutorial)]
     // [Generate(Kingmaker.UnitLogic.FactLogic.AddVendorItemsAction)]
     // [Generate(Kingmaker.UnitLogic.FactLogic.ClearVendorTable)]
@@ -94,6 +93,5 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipAllItems)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipItem)]
-
   }
 }

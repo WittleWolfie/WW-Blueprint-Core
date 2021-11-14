@@ -847,7 +847,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Kingdom.Actions.KingdomIncreaseIncome)]
     // [Generate(Kingmaker.Kingdom.Flags.ChangeKingdomMoraleMaximum)]
     // [Generate(Kingmaker.Kingdom.Flags.KingdomAddMoraleFlags)]
@@ -917,6 +916,5 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveGarrison)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitFromArmy)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SetWarCampLocation)]
-
   }
 }

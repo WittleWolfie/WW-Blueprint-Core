@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Flags;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {
   /// <summary>Configurator for <see cref="BlueprintKingdomMoraleFlag"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
       BlueprintTool.Create<BlueprintKingdomMoraleFlag>(name, assetId);
       return For(name);
     }
-
   }
 }

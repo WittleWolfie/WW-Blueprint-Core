@@ -144,8 +144,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="CapitalExit"/> (Auto Generated)
     /// </summary>

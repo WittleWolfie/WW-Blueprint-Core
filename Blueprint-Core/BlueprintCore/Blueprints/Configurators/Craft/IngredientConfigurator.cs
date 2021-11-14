@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Craft;
+
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>Configurator for <see cref="BlueprintIngredient"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
       BlueprintTool.Create<BlueprintIngredient>(name, assetId);
       return For(name);
     }
-
   }
 }

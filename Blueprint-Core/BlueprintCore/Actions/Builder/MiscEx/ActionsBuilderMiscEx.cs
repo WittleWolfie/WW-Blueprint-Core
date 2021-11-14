@@ -83,8 +83,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="ShowNewTutorial"/> (Auto Generated)
     /// </summary>

@@ -391,7 +391,6 @@ namespace BlueprintCore.Blueprints.Configurators
       source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
     }
 
-
     /// <summary>
     /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
     /// </summary>

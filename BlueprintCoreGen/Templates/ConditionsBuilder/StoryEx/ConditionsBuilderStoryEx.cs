@@ -8,7 +8,6 @@
   public static class ConditionsBuilderStoryEx
   {
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions.CheckUnitSeeUnit)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.BarkBanterPlayed)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DialogSeen)]
@@ -39,6 +38,5 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerTopClassIs)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.QuestStatus)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked)]
-
   }
 }

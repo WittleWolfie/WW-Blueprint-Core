@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>Configurator for <see cref="BlueprintArmyPreset"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       BlueprintTool.Create<BlueprintArmyPreset>(name, assetId);
       return For(name);
     }
-
   }
 }

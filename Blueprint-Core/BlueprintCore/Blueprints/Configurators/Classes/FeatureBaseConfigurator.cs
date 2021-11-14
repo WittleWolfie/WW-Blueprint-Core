@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
@@ -16,7 +17,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseFeatureBaseConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="FeatureTagsComponent"/> (Auto Generated)

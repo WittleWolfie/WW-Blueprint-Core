@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>Configurator for <see cref="BlueprintCrusadeEvent"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintCrusadeEvent>(name, assetId);
       return For(name);
     }
-
   }
 }

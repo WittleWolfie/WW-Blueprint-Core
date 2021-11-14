@@ -6,6 +6,7 @@ using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>Configurator for <see cref="BlueprintKingdomEvent"/>.</summary>
@@ -34,7 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintKingdomEvent>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="EventRecurrence"/> (Auto Generated)

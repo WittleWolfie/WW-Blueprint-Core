@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAreaEffectPitVisualSettings"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       BlueprintTool.Create<BlueprintAreaEffectPitVisualSettings>(name, assetId);
       return For(name);
     }
-
   }
 }

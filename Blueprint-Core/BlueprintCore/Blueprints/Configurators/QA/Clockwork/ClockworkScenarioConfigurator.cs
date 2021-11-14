@@ -6,6 +6,7 @@ using Kingmaker.QA.Clockwork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
 {
   /// <summary>Configurator for <see cref="BlueprintClockworkScenario"/>.</summary>
@@ -34,7 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
       BlueprintTool.Create<BlueprintClockworkScenario>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="AreaTest"/> (Auto Generated)

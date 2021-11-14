@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Formations;
+
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
   /// <summary>Configurator for <see cref="BlueprintPartyFormation"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
       BlueprintTool.Create<BlueprintPartyFormation>(name, assetId);
       return For(name);
     }
-
   }
 }

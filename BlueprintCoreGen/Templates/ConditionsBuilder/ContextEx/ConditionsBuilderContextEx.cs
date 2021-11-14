@@ -68,7 +68,6 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDistanceToTarget)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignment)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignmentDifference)]
@@ -122,6 +121,5 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionUnconsciousAllyFarThan)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionWeaponAnimationStyle)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextSwarmHasEnemiesInInnerCircle)]
-
   }
 }

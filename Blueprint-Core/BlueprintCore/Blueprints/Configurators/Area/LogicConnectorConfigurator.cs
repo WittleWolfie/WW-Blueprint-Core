@@ -6,6 +6,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -19,7 +20,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseLogicConnectorConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
@@ -72,7 +72,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintLogicConnector>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)

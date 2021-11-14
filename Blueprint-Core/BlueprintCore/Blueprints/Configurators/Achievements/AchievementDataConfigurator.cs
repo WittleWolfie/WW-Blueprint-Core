@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Achievements
 {
   /// <summary>Configurator for <see cref="AchievementData"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
       BlueprintTool.Create<AchievementData>(name, assetId);
       return For(name);
     }
-
   }
 }

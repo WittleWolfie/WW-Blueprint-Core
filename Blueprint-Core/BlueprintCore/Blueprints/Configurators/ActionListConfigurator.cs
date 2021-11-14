@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>Configurator for <see cref="BlueprintActionList"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintActionList>(name, assetId);
       return For(name);
     }
-
   }
 }

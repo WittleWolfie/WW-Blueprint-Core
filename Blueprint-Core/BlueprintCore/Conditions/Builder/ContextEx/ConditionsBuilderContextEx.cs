@@ -77,8 +77,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="ContextConditionDistanceToTarget"/> (Auto Generated)
     /// </summary>

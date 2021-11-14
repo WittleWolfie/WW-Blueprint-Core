@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>Configurator for <see cref="BlueprintGenericPackLoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       BlueprintTool.Create<BlueprintGenericPackLoot>(name, assetId);
       return For(name);
     }
-
   }
 }

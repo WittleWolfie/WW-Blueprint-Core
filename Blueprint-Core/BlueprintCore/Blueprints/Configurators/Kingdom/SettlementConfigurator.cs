@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>Configurator for <see cref="BlueprintSettlement"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintSettlement>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Designers.Mechanics.Collections;
+
 namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
 {
   /// <summary>Configurator for <see cref="BuffCollection"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
       BlueprintTool.Create<BuffCollection>(name, assetId);
       return For(name);
     }
-
   }
 }

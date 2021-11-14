@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>Configurator for <see cref="BlueprintWeaponEnchantment"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       BlueprintTool.Create<BlueprintWeaponEnchantment>(name, assetId);
       return For(name);
     }
-
   }
 }

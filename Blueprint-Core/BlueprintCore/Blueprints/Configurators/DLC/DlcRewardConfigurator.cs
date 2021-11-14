@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
+
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseDlcRewardConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintDlcReward"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       BlueprintTool.Create<BlueprintDlcReward>(name, assetId);
       return For(name);
     }
-
   }
 }

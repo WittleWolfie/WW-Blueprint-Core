@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.AI;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
   /// <summary>Configurator for <see cref="SettlementBuildList"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
       BlueprintTool.Create<SettlementBuildList>(name, assetId);
       return For(name);
     }
-
   }
 }

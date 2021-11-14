@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
+
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseGateConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="Gate"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       BlueprintTool.Create<Gate>(name, assetId);
       return For(name);
     }
-
   }
 }

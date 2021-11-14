@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
 {
   /// <summary>Configurator for <see cref="TacticalCombatCanAttackThisTurnConsideration"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
       BlueprintTool.Create<TacticalCombatCanAttackThisTurnConsideration>(name, assetId);
       return For(name);
     }
-
   }
 }

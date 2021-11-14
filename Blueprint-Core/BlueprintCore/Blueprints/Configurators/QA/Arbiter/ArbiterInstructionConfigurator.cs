@@ -4,6 +4,7 @@ using Kingmaker.AreaLogic;
 using Kingmaker.Blueprints;
 using Kingmaker.QA.Arbiter;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
 {
   /// <summary>Configurator for <see cref="BlueprintArbiterInstruction"/>.</summary>
@@ -32,7 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
       BlueprintTool.Create<BlueprintArbiterInstruction>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="ArbiterAreaTest"/> (Auto Generated)

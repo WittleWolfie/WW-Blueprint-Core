@@ -127,7 +127,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
 
-
     /// <summary>
     /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
     /// </summary>

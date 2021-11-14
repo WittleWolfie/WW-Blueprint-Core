@@ -7,6 +7,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>Configurator for <see cref="BlueprintGlobalMapPointVariation"/>.</summary>
@@ -35,7 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       BlueprintTool.Create<BlueprintGlobalMapPointVariation>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="LocationRestriction"/> (Auto Generated)

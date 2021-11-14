@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
   /// <summary>Configurator for <see cref="BlueprintSpellbook"/>.</summary>
@@ -31,7 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       BlueprintTool.Create<BlueprintSpellbook>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="AddCustomSpells"/> (Auto Generated)

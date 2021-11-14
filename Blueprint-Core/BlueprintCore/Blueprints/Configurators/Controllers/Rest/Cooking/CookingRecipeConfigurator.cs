@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Controllers.Rest.Cooking;
+
 namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
 {
   /// <summary>Configurator for <see cref="BlueprintCookingRecipe"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
       BlueprintTool.Create<BlueprintCookingRecipe>(name, assetId);
       return For(name);
     }
-
   }
 }

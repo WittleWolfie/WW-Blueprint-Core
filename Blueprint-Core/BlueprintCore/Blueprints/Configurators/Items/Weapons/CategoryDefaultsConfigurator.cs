@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Weapons;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>Configurator for <see cref="BlueprintCategoryDefaults"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       BlueprintTool.Create<BlueprintCategoryDefaults>(name, assetId);
       return For(name);
     }
-
   }
 }

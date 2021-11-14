@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Visual.HitSystem;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.HitSystem
 {
   /// <summary>Configurator for <see cref="HitSystemRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.HitSystem
       BlueprintTool.Create<HitSystemRoot>(name, assetId);
       return For(name);
     }
-
   }
 }

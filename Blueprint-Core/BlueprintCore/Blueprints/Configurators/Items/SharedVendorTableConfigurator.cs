@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Loot;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items;
+
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>Configurator for <see cref="BlueprintSharedVendorTable"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       BlueprintTool.Create<BlueprintSharedVendorTable>(name, assetId);
       return For(name);
     }
-
   }
 }

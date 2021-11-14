@@ -31,6 +31,7 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>
@@ -55,7 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     {
       return AddComponent(rankConfig);
     }
-
 
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)

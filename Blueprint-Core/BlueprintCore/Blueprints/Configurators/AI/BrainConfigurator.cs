@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseBrainConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintBrain"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       BlueprintTool.Create<BlueprintBrain>(name, assetId);
       return For(name);
     }
-
   }
 }

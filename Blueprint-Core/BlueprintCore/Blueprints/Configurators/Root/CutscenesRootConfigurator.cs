@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Root;
+
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>Configurator for <see cref="CutscenesRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       BlueprintTool.Create<CutscenesRoot>(name, assetId);
       return For(name);
     }
-
   }
 }

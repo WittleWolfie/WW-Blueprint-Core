@@ -491,7 +491,6 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DetachBuff)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DisableExperienceFromUnit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DrainEnergy)]
@@ -523,6 +522,5 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchActivatableAbility)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UnitsFromSpawnersInUnitGroup)]
-
   }
 }

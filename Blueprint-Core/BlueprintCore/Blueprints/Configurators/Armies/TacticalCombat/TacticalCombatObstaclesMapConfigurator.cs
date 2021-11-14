@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
   /// <summary>Configurator for <see cref="BlueprintTacticalCombatObstaclesMap"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
       BlueprintTool.Create<BlueprintTacticalCombatObstaclesMap>(name, assetId);
       return For(name);
     }
-
   }
 }

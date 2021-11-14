@@ -11,6 +11,7 @@ using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.RandomEncounters.Settings;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -24,7 +25,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseAreaConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
@@ -190,7 +190,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintArea>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)

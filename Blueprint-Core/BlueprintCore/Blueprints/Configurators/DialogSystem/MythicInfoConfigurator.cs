@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>Configurator for <see cref="BlueprintMythicInfo"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       BlueprintTool.Create<BlueprintMythicInfo>(name, assetId);
       return For(name);
     }
-
   }
 }

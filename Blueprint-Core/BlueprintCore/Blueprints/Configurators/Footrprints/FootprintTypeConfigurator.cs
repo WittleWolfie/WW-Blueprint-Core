@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
   /// <summary>Configurator for <see cref="BlueprintFootprintType"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
       BlueprintTool.Create<BlueprintFootprintType>(name, assetId);
       return For(name);
     }
-
   }
 }

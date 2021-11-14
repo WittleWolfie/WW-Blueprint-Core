@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade.GlobalMagic;
+
 namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
 {
   /// <summary>Configurator for <see cref="BlueprintGlobalMagicSpell"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
       BlueprintTool.Create<BlueprintGlobalMagicSpell>(name, assetId);
       return For(name);
     }
-
   }
 }

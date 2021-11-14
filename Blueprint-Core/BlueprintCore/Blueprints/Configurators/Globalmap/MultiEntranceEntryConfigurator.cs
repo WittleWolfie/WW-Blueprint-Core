@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Globalmap.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>Configurator for <see cref="BlueprintMultiEntranceEntry"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       BlueprintTool.Create<BlueprintMultiEntranceEntry>(name, assetId);
       return For(name);
     }
-
   }
 }

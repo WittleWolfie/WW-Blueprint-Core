@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
@@ -14,6 +15,5 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseCueBaseConfigurator(string name) : base(name) { }
-
   }
 }

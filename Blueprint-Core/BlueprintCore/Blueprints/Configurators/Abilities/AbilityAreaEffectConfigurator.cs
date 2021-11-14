@@ -188,7 +188,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return AddComponent(rankConfig);
     }
 
-
     /// <summary>
     /// Adds <see cref="AreaEffectSpawnLogic"/> (Auto Generated)
     /// </summary>

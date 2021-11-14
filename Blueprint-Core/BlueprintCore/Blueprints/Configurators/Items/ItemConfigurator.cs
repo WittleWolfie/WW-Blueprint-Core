@@ -26,6 +26,7 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
@@ -39,7 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)
@@ -1332,7 +1332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       BlueprintTool.Create<BlueprintItem>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)

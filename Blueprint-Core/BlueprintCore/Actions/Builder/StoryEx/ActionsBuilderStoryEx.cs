@@ -98,8 +98,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="AlignmentSelector"/> (Auto Generated)
     /// </summary>

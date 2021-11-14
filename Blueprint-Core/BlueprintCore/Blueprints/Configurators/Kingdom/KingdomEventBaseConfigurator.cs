@@ -7,6 +7,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -20,7 +21,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="EventDynamicCostFeast"/> (Auto Generated)

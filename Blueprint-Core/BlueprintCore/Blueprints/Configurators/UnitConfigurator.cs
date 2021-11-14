@@ -25,6 +25,7 @@ using Kingmaker.View.MapObjects;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>Configurator for <see cref="BlueprintUnit"/>.</summary>
@@ -53,7 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintUnit>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="UnitUpgraderComponent"/> (Auto Generated)

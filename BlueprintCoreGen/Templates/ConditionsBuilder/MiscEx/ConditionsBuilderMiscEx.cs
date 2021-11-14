@@ -7,8 +7,7 @@
   /// <inheritdoc cref="ConditionsBuilder"/>
   public static class ConditionsBuilderMiscEx
   {
-    //----- Auto Generated -----//
-
+    //----- Auto Generated -----/
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDifficultyHigherThan)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.DifficultyHigherThan)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.EnlargedEncountersCapacity)]
@@ -22,6 +21,5 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree)]
     // [Generate(Kingmaker.ElementsSystem.IsleStateCondition)]
-
   }
 }

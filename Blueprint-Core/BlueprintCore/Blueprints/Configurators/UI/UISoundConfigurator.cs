@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UI;
+
 namespace BlueprintCore.Blueprints.Configurators.UI
 {
   /// <summary>Configurator for <see cref="BlueprintUISound"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       BlueprintTool.Create<BlueprintUISound>(name, assetId);
       return For(name);
     }
-
   }
 }

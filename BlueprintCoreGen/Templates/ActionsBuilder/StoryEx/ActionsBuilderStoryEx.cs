@@ -86,7 +86,6 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.DismissAllCompanions)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.GiveObjective)]
@@ -147,6 +146,5 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Unrecruit)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudeProgressBar)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudes)]
-
   }
 }

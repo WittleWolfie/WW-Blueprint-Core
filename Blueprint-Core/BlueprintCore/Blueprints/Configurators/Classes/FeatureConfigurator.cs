@@ -656,7 +656,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return AddComponent(prereq);
     }
 
-
     /// <summary>
     /// Adds <see cref="FeatureSurvivesRespec"/> (Auto Generated)
     /// </summary>

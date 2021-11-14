@@ -5,6 +5,7 @@ using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Dungeon.Blueprints.Boons;
 using Kingmaker.Dungeon.Enums;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>Configurator for <see cref="BlueprintDungeonBoon"/>.</summary>
@@ -33,7 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       BlueprintTool.Create<BlueprintDungeonBoon>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="BoonLogicExperience"/> (Auto Generated)

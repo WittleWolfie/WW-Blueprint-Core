@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Facts;
+
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
   /// <summary>
@@ -14,6 +15,5 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseFactConfigurator(string name) : base(name) { }
-
   }
 }

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Visual.Sound;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {
   /// <summary>Configurator for <see cref="BlueprintUnitAsksList"/>.</summary>
@@ -31,7 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
       BlueprintTool.Create<BlueprintUnitAsksList>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="UnitAsksComponent"/> (Auto Generated)

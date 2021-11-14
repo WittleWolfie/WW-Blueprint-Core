@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Encyclopedia;
+
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>Configurator for <see cref="BlueprintEncyclopediaSkillPage"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       BlueprintTool.Create<BlueprintEncyclopediaSkillPage>(name, assetId);
       return For(name);
     }
-
   }
 }

@@ -20,8 +20,6 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
   {
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="HasTacticalMorale"/> (Auto Generated)
     /// </summary>

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>Configurator for <see cref="BlueprintAnswer"/>.</summary>
@@ -31,7 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       BlueprintTool.Create<BlueprintAnswer>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="ActingCompanion"/> (Auto Generated)

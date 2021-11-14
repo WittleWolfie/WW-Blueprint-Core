@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Cutscenes.Components;
+
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
   /// <summary>Configurator for <see cref="Cutscene"/>.</summary>
@@ -30,7 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       BlueprintTool.Create<Cutscene>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="StopCutsceneWhenExitingArea"/> (Auto Generated)

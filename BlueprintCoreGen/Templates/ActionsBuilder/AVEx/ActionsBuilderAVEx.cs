@@ -123,7 +123,6 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.OverrideRainIntesity)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play2DSound)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.Play3DSound)]
@@ -138,6 +137,5 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectFx)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectMusic)]
-
   }
 }

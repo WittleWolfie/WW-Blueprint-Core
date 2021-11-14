@@ -156,7 +156,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
 
-
     /// <summary>
     /// Adds <see cref="FormationACBonus"/> (Auto Generated)
     /// </summary>

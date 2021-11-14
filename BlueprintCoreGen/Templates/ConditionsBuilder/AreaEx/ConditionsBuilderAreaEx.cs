@@ -8,7 +8,6 @@
   public static class ConditionsBuilderAreaEx
   {
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDungeonStage)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.InCapital)]
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.AreaVisited)]
@@ -22,6 +21,5 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitInScriptZone)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsInAreaPart)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsInFogOfWar)]
-
   }
 }

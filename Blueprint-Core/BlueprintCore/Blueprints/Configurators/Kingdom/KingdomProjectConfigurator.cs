@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -17,7 +18,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseKingdomProjectConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
@@ -106,7 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintKingdomProject>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)

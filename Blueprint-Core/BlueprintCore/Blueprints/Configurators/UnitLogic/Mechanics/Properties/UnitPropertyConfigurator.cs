@@ -8,6 +8,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
 {
   /// <summary>Configurator for <see cref="BlueprintUnitProperty"/>.</summary>
@@ -36,7 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
       BlueprintTool.Create<BlueprintUnitProperty>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/> (Auto Generated)

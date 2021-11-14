@@ -12,6 +12,7 @@ using Kingmaker.Kingdom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>Configurator for <see cref="BlueprintLeaderSkill"/>.</summary>
@@ -40,7 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       BlueprintTool.Create<BlueprintLeaderSkill>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="AddFactOnLeaderUnit"/> (Auto Generated)

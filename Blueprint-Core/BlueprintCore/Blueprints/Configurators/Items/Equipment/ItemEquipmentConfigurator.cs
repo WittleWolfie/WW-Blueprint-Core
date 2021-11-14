@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -20,7 +21,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemEquipmentConfigurator(string name) : base(name) { }
-
 
     /// <summary>
     /// Adds <see cref="AddFactToEquipmentWielder"/> (Auto Generated)

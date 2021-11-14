@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
@@ -14,6 +15,5 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseAiActionConfigurator(string name) : base(name) { }
-
   }
 }

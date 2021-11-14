@@ -19,6 +19,7 @@ using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>Configurator for <see cref="BlueprintComponentList"/>.</summary>
@@ -47,7 +48,6 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintComponentList>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/> (Auto Generated)

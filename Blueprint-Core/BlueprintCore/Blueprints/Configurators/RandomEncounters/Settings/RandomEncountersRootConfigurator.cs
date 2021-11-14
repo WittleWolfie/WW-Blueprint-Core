@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>Configurator for <see cref="RandomEncountersRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
       BlueprintTool.Create<RandomEncountersRoot>(name, assetId);
       return For(name);
     }
-
   }
 }

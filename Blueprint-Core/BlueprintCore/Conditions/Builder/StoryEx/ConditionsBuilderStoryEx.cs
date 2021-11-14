@@ -22,8 +22,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
   {
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="CheckUnitSeeUnit"/> (Auto Generated)
     /// </summary>

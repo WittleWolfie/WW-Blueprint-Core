@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintSpawnableObject"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
       BlueprintTool.Create<BlueprintSpawnableObject>(name, assetId);
       return For(name);
     }
-
   }
 }

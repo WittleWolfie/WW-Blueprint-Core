@@ -2034,7 +2034,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.UnitLogic.Class.Kineticist.Actions.ContextActionAcceptBurn)]
     // [Generate(Kingmaker.UnitLogic.Class.Kineticist.Actions.ContextActionHealBurn)]
     // [Generate(Kingmaker.UnitLogic.Buffs.Actions.BuffActionAddStatBonus)]

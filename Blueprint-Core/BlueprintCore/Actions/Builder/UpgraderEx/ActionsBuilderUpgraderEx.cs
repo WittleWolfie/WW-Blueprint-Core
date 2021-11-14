@@ -331,8 +331,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
 
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="SetRaceFromBlueprint"/> (Auto Generated)
     /// </summary>
@@ -378,5 +376,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       var element = ElementTool.Create<RestoreClassFeature>();
       element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
       return builder.Add(element);
-    }  }
+    }
+  }
 }

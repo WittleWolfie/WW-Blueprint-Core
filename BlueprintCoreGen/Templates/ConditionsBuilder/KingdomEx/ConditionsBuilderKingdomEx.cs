@@ -7,7 +7,6 @@
   public static class ConditionsBuilderKingdomEx
   {
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.HasTacticalMorale)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.TacticalCombatSquadHitPointsCondition)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.TargetHasArmyTag)]
@@ -44,6 +43,5 @@
     // [Generate(Kingmaker.Kingdom.Conditions.KingdomStatIsMaximum)]
     // [Generate(Kingmaker.Kingdom.Conditions.KingdomTaskResolvedBy)]
     // [Generate(Kingmaker.Kingdom.Conditions.KingdomUnrestCheck)]
-
   }
 }

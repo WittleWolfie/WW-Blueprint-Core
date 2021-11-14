@@ -19,8 +19,6 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
   {
     //----- Auto Generated -----//
 
-
-
     /// <summary>
     /// Adds <see cref="DualCompanionInactive"/> (Auto Generated)
     /// </summary>

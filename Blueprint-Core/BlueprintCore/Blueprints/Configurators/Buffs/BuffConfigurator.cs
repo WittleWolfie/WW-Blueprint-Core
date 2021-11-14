@@ -233,7 +233,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       return AddComponent(rankConfig);
     }
 
-
     /// <summary>
     /// Adds <see cref="AddDispelMagicFailedTrigger"/> (Auto Generated)
     /// </summary>

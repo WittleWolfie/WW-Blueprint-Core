@@ -8,6 +8,7 @@ using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Commands.Base;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
   /// <summary>Configurator for <see cref="BlueprintActivatableAbility"/>.</summary>
@@ -36,7 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       BlueprintTool.Create<BlueprintActivatableAbility>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="ActionPanelLogic"/> (Auto Generated)

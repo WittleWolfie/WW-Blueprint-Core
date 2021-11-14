@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes.Selection;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
   /// <summary>Configurator for <see cref="BlueprintParametrizedFeature"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       BlueprintTool.Create<BlueprintParametrizedFeature>(name, assetId);
       return For(name);
     }
-
   }
 }

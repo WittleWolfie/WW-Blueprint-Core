@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>Configurator for <see cref="BlueprintAreaTransition"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       BlueprintTool.Create<BlueprintAreaTransition>(name, assetId);
       return For(name);
     }
-
   }
 }

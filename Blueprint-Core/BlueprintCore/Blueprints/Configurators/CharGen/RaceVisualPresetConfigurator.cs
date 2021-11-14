@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.CharGen;
+
 namespace BlueprintCore.Blueprints.Configurators.CharGen
 {
   /// <summary>Configurator for <see cref="BlueprintRaceVisualPreset"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
       BlueprintTool.Create<BlueprintRaceVisualPreset>(name, assetId);
       return For(name);
     }
-
   }
 }

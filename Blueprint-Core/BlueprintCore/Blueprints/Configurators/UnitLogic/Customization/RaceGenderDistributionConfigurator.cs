@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
   /// <summary>Configurator for <see cref="RaceGenderDistribution"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       BlueprintTool.Create<RaceGenderDistribution>(name, assetId);
       return For(name);
     }
-
   }
 }

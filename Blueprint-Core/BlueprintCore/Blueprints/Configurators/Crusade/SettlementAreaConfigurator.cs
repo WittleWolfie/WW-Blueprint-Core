@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade;
+
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
   /// <summary>Configurator for <see cref="SettlementBlueprintArea"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
       BlueprintTool.Create<SettlementBlueprintArea>(name, assetId);
       return For(name);
     }
-
   }
 }

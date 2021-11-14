@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
   /// <summary>Configurator for <see cref="BlueprintQuest"/>.</summary>
@@ -35,7 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       BlueprintTool.Create<BlueprintQuest>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="QuestRelatesToCompanionStory"/> (Auto Generated)

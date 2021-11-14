@@ -8,7 +8,6 @@
   public static class ConditionsBuilderBasicEx
   {
     //----- Auto Generated -----//
-
     // [Generate(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive)]
     // [Generate(Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckConditionsHolder)]
@@ -44,6 +43,5 @@
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitFromSummonPool)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitGender)]
     // [Generate(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsNull)]
-
   }
 }

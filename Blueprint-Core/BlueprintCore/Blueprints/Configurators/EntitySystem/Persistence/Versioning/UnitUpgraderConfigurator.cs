@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Persistence.Versioning;
+
 namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versioning
 {
   /// <summary>Configurator for <see cref="BlueprintUnitUpgrader"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
       BlueprintTool.Create<BlueprintUnitUpgrader>(name, assetId);
       return For(name);
     }
-
   }
 }

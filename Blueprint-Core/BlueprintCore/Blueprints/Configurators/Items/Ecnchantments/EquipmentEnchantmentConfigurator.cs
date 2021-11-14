@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>
@@ -14,7 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseEquipmentEnchantmentConfigurator(string name) : base(name) { }
-
   }
 
   /// <summary>Configurator for <see cref="BlueprintEquipmentEnchantment"/>.</summary>
@@ -43,6 +43,5 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       BlueprintTool.Create<BlueprintEquipmentEnchantment>(name, assetId);
       return For(name);
     }
-
   }
 }

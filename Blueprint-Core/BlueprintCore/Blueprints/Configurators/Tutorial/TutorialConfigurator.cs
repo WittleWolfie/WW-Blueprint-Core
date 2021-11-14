@@ -21,6 +21,7 @@ using Kingmaker.UnitLogic.Buffs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
 {
   /// <summary>Configurator for <see cref="BlueprintTutorial"/>.</summary>
@@ -49,7 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       BlueprintTool.Create<BlueprintTutorial>(name, assetId);
       return For(name);
     }
-
 
     /// <summary>
     /// Adds <see cref="TutorialPage"/> (Auto Generated)

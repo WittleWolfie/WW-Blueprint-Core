@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>Configurator for <see cref="CustomAiConsiderationsRoot"/>.</summary>
@@ -29,6 +30,5 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       BlueprintTool.Create<CustomAiConsiderationsRoot>(name, assetId);
       return For(name);
     }
-
   }
 }
