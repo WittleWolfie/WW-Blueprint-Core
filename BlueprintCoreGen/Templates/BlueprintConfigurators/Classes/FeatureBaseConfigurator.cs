@@ -15,6 +15,30 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
   {
     protected FeatureBaseConfigurator(string name) : base(name) { }
 
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureBase.HideInUi"/>
+    /// </summary>
+    public TBuilder SetHideInUi(bool hide = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.HideInUI = hide);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/>
+    /// </summary>
+    public TBuilder SetHideInCharacterSheetAndLevelUp(bool hide = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.HideInCharacterSheetAndLevelUp = hide);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/>
+    /// </summary>
+    public TBuilder SetHideNotAvailableInUI(bool hide = true)
+    {
+      return OnConfigureInternal(blueprint => blueprint.HideNotAvailibleInUI = hide);
+    }
+
     // [GenerateComponents]
   }
 }
