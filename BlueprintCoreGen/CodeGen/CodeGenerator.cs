@@ -214,7 +214,7 @@ namespace BlueprintCoreGen.CodeGen
       else
       {
         method.AddDeclaration($"public static {builderType} Add{type.Name}(this {builderType} builder)");
-        method.AddBodyLine($"return builder.Add(ElementTool.Create<{GetTypeName(type)}>);");
+        method.AddBodyLine($"return builder.Add(ElementTool.Create<{GetTypeName(type)}>());");
       }
 
       return method;
