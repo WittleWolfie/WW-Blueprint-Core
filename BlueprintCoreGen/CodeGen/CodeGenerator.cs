@@ -17,6 +17,7 @@ namespace BlueprintCoreGen.CodeGen
       ConditionsBuilder
     }
 
+    // TODO: Fix FeatureBaseConfigurator/FeatureConfigurator
     public static ConfiguratorTemplate CreateConfiguratorClass(
         Type blueprintType, List<IMethod> componentMethods, Type[] gameTypes)
     {

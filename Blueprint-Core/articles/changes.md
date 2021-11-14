@@ -2,16 +2,20 @@
 
 ## v0.7.0 Release
 
+* Added auto-generated blueprint configurators
+    * There is now a configurator for every blueprint type
+    * There are configurator functions for all component types
 * Added generic Add functions w/ init for BlueprintComponent, Action, and Condition
 * Updated generated code field declarations to use primitive type names
 * Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
 
-### Code Moves
+### Breaking Changes
 
-Some code was moved around for consistency.
+Some code was moved around for consistency and a new DLL reference is required.
 
 * BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils
 * All BlueprintConfigurators were moved from BlueprintCore.Blueprints to BlueprintCore.Configurators
+* Owlcat.Runtime.Visual DLL is now required as a reference
 
 ## v0.6.0 Release
 
