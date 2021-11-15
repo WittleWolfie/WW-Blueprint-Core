@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes.Spells;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     {
       BlueprintTool.Create<BlueprintSpellsTable>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpellsTableConfigurator AddToLevels(params SpellsLevelEntry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Levels = CommonTool.Append(bp.Levels, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpellsTableConfigurator RemoveFromLevels(params SpellsLevelEntry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Levels = bp.Levels.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

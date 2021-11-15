@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Localization;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
@@ -28,6 +31,57 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     {
       BlueprintTool.Create<BlueprintMultiEntrance>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMultiEntrance.Map"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MultiEntranceConfigurator SetMap(BlueprintMultiEntrance.BlueprintMultiEntranceMap value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Map = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMultiEntrance.Name"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MultiEntranceConfigurator SetName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Name = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintMultiEntranceEntry"/></param>
+    [Generated]
+    public MultiEntranceConfigurator AddToEntries(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Entries = CommonTool.Append(bp.m_Entries, values.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntryReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintMultiEntranceEntry"/></param>
+    [Generated]
+    public MultiEntranceConfigurator RemoveFromEntries(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntryReference>(name));
+            bp.m_Entries =
+                bp.m_Entries
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.Localization;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -28,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     {
       BlueprintTool.Create<BlueprintMythicInfo>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMythicInfo._mythic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MythicInfoConfigurator Set_mythic(Mythic value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp._mythic = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMythicInfo._etudeReference"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public MythicInfoConfigurator Set_etudeReference(string value)
+    {
+      return OnConfigureInternal(bp => bp._etudeReference = BlueprintTool.GetRef<BlueprintEtudeReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMythicInfo._mythicName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MythicInfoConfigurator Set_mythicName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp._mythicName = value);
     }
   }
 }

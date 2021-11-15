@@ -31,6 +31,27 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintPortrait.Data"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public PortraitConfigurator SetData(PortraitData value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Data = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintPortrait.m_BackupPortrait"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintPortrait"/></param>
+    [Generated]
+    public PortraitConfigurator SetBackupPortrait(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_BackupPortrait = BlueprintTool.GetRef<BlueprintPortraitReference>(value));
+    }
+
+    /// <summary>
     /// Adds <see cref="PortraitDollSettings"/> (Auto Generated)
     /// </summary>
     ///

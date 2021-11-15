@@ -37,6 +37,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnitProperty.BaseValue"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitPropertyConfigurator SetBaseValue(int value)
+    {
+      return OnConfigureInternal(bp => bp.BaseValue = value);
+    }
+
+    /// <summary>
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///

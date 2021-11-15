@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
+using Kingmaker.ElementsSystem;
+using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
@@ -14,6 +17,81 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseGateConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="Gate.Color"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetColor(Color value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Color = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="Gate.m_Tracks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder AddToTracks(params Track[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Tracks.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="Gate.m_Tracks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromTracks(params Track[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Tracks = bp.m_Tracks.Where(item => !values.Contains(item)).ToList());
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.m_Op"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetOp(Operation value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Op = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.m_ActivationMode"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetActivationMode(Gate.ActivationModeType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ActivationMode = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.WhenTrackIsSkipped"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetWhenTrackIsSkipped(Gate.SkipTracksModeType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.WhenTrackIsSkipped = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.PauseForOneFrame"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetPauseForOneFrame(bool value)
+    {
+      return OnConfigureInternal(bp => bp.PauseForOneFrame = value);
+    }
   }
 
   /// <summary>Configurator for <see cref="Gate"/>.</summary>
@@ -41,6 +119,81 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     {
       BlueprintTool.Create<Gate>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.Color"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator SetColor(Color value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Color = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="Gate.m_Tracks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator AddToTracks(params Track[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Tracks.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="Gate.m_Tracks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator RemoveFromTracks(params Track[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Tracks = bp.m_Tracks.Where(item => !values.Contains(item)).ToList());
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.m_Op"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator SetOp(Operation value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Op = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.m_ActivationMode"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator SetActivationMode(Gate.ActivationModeType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ActivationMode = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.WhenTrackIsSkipped"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator SetWhenTrackIsSkipped(Gate.SkipTracksModeType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.WhenTrackIsSkipped = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="Gate.PauseForOneFrame"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GateConfigurator SetPauseForOneFrame(bool value)
+    {
+      return OnConfigureInternal(bp => bp.PauseForOneFrame = value);
     }
   }
 }

@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<HitThisRoundConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="HitThisRoundConsideration.HitScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HitThisRoundConsiderationConfigurator SetHitScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HitScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HitThisRoundConsideration.NoHitScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HitThisRoundConsiderationConfigurator SetNoHitScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoHitScore = value);
+    }
   }
 }

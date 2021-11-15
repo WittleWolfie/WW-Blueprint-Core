@@ -29,5 +29,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
       BlueprintTool.Create<BlueprintTacticalCombatAiAttack>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatAiAttackConfigurator SetCanAttackAllies(bool value)
+    {
+      return OnConfigureInternal(bp => bp.CanAttackAllies = value);
+    }
   }
 }

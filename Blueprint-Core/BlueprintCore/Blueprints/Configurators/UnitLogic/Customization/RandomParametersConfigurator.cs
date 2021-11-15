@@ -29,5 +29,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       BlueprintTool.Create<RandomParameters>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="RandomParameters.randomParametersInfo"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RandomParametersConfigurator SetrandomParametersInfo(RandomParametersInfo value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.randomParametersInfo = value);
+    }
   }
 }

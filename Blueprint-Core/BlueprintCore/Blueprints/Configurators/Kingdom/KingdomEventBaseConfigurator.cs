@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Localization;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -19,6 +20,148 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.InfoType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetInfoType(KingomEventInfoType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.InfoType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.LocalizedName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetLocalizedName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.LocalizedDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetLocalizedDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.TriggerCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetTriggerCondition(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.TriggerCondition = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.ResolutionTime"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetResolutionTime(int value)
+    {
+      return OnConfigureInternal(bp => bp.ResolutionTime = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.ResolveAutomatically"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetResolveAutomatically(bool value)
+    {
+      return OnConfigureInternal(bp => bp.ResolveAutomatically = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.NeedToVisitTheThroneRoom"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetNeedToVisitTheThroneRoom(bool value)
+    {
+      return OnConfigureInternal(bp => bp.NeedToVisitTheThroneRoom = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.AICanCheat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAICanCheat(bool value)
+    {
+      return OnConfigureInternal(bp => bp.AICanCheat = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.SkipRoll"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSkipRoll(bool value)
+    {
+      return OnConfigureInternal(bp => bp.SkipRoll = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.ResolutionDC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetResolutionDC(int value)
+    {
+      return OnConfigureInternal(bp => bp.ResolutionDC = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.AutoResolveResult"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAutoResolveResult(EventResult.MarginType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.AutoResolveResult = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.Solutions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSolutions(PossibleEventSolutions value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Solutions = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDefaultResolutionType(LeaderType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DefaultResolutionType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDefaultResolutionDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DefaultResolutionDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventBase.AIStopping"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAIStopping(bool value)
+    {
+      return OnConfigureInternal(bp => bp.AIStopping = value);
+    }
 
     /// <summary>
     /// Adds <see cref="EventDynamicCostFeast"/> (Auto Generated)

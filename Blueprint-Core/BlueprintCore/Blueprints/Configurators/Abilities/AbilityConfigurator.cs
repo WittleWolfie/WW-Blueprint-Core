@@ -996,6 +996,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1178,6 +1179,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1216,6 +1218,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string m_AppearProjectile)
     {
       ValidateParam(PortalFromPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
       
@@ -1261,6 +1264,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1310,6 +1314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -1360,6 +1365,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(Radius);
       ValidateParam(PortalFromPrefab);
       ValidateParam(PortalToPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(CasterDisappearFx);
       ValidateParam(CasterAppearFx);
       ValidateParam(SideDisappearFx);
@@ -2033,6 +2039,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float AppearDelay)
     {
       ValidateParam(PortalPrefab);
+      ValidateParam(PortalBone);
       ValidateParam(DisappearFx);
       ValidateParam(AppearFx);
       

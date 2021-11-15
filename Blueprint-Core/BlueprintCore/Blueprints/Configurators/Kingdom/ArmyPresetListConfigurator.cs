@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -28,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintArmyPresetList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArmyPreset"/></param>
+    [Generated]
+    public ArmyPresetListConfigurator AddToPresets(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Presets = CommonTool.Append(bp.m_Presets, values.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArmyPreset"/></param>
+    [Generated]
+    public ArmyPresetListConfigurator RemoveFromPresets(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name));
+            bp.m_Presets =
+                bp.m_Presets
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

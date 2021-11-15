@@ -29,5 +29,59 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<UnitsThreateningConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.MinCount"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetMinCount(int value)
+    {
+      return OnConfigureInternal(bp => bp.MinCount = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.MaxCount"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetMaxCount(int value)
+    {
+      return OnConfigureInternal(bp => bp.MaxCount = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.BelowMinScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetBelowMinScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.BelowMinScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.MinScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetMinScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.MinScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.MaxScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetMaxScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.MaxScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsThreateningConsideration.ExtraTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsThreateningConsiderationConfigurator SetExtraTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.ExtraTargetScore = value);
+    }
   }
 }

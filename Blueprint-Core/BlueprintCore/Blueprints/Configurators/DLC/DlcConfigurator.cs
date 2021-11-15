@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.DLC;
+using Kingmaker.Localization;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
@@ -28,6 +31,47 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     {
       BlueprintTool.Create<BlueprintDlc>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDlc.Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DlcConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Description = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintDlcReward"/></param>
+    [Generated]
+    public DlcConfigurator AddToRewardReferences(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.RewardReferences = CommonTool.Append(bp.RewardReferences, values.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintDlcReward"/></param>
+    [Generated]
+    public DlcConfigurator RemoveFromRewardReferences(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name));
+            bp.RewardReferences =
+                bp.RewardReferences
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

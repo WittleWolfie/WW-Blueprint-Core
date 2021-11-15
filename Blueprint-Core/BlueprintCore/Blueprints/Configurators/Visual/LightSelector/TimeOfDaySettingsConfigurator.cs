@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Visual.LightSelector;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
 {
@@ -28,6 +29,46 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
     {
       BlueprintTool.Create<BlueprintTimeOfDaySettings>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTimeOfDaySettings.Morning"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TimeOfDaySettingsConfigurator SetMorning(GameObject value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Morning = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTimeOfDaySettings.Day"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TimeOfDaySettingsConfigurator SetDay(GameObject value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Day = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTimeOfDaySettings.Evening"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TimeOfDaySettingsConfigurator SetEvening(GameObject value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Evening = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTimeOfDaySettings.Night"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TimeOfDaySettingsConfigurator SetNight(GameObject value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Night = value);
     }
   }
 }

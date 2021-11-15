@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintClassAdditionalVisualSettingsProgression>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsProgressionConfigurator AddToEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsProgressionConfigurator RemoveFromEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

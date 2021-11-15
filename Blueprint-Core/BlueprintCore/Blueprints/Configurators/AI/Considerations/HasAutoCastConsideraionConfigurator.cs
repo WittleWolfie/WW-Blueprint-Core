@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<HasAutoCastConsideraion>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="HasAutoCastConsideraion.NoAutoCastScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HasAutoCastConsideraionConfigurator SetNoAutoCastScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoAutoCastScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HasAutoCastConsideraion.HasAutoCastScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HasAutoCastConsideraionConfigurator SetHasAutoCastScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasAutoCastScore = value);
+    }
   }
 }

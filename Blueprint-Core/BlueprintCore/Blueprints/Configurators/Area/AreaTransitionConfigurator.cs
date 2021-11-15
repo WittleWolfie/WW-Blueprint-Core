@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     {
       BlueprintTool.Create<BlueprintAreaTransition>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaTransitionConfigurator AddToActions(params ConditionAction[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Actions = CommonTool.Append(bp.m_Actions, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaTransitionConfigurator RemoveFromActions(params ConditionAction[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Actions = bp.m_Actions.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

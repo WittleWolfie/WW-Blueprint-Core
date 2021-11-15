@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintLevelUpPlanFeaturesList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LevelUpPlanFeaturesListConfigurator AddToFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Features = CommonTool.Append(bp.Features, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LevelUpPlanFeaturesListConfigurator RemoveFromFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Features = bp.Features.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

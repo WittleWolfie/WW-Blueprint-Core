@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
+using Kingmaker.Visual.CharacterSystem;
 
 namespace BlueprintCore.Blueprints.Configurators.CharGen
 {
@@ -28,6 +30,47 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     {
       BlueprintTool.Create<BlueprintRaceVisualPreset>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRaceVisualPreset.RaceId"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RaceVisualPresetConfigurator SetRaceId(Race value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.RaceId = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRaceVisualPreset.MaleSkeleton"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RaceVisualPresetConfigurator SetMaleSkeleton(Skeleton value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.MaleSkeleton = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRaceVisualPreset.FemaleSkeleton"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RaceVisualPresetConfigurator SetFemaleSkeleton(Skeleton value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FemaleSkeleton = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRaceVisualPreset.m_Skin"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public RaceVisualPresetConfigurator SetSkin(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Skin = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(value));
     }
   }
 }

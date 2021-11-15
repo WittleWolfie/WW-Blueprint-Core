@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintCrusadeEventTimeline>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CrusadeEventTimelineConfigurator AddToChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Chapters = CommonTool.Append(bp.Chapters, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CrusadeEventTimelineConfigurator RemoveFromChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Chapters = bp.Chapters.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

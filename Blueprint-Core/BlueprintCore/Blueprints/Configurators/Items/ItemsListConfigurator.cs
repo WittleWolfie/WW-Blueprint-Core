@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -28,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       BlueprintTool.Create<BlueprintItemsList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public ItemsListConfigurator AddToItems(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Items = CommonTool.Append(bp.m_Items, values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public ItemsListConfigurator RemoveFromItems(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name));
+            bp.m_Items =
+                bp.m_Items
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

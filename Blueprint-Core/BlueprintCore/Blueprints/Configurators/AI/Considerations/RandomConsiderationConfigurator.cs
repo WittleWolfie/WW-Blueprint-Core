@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<RandomConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="RandomConsideration.MinScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RandomConsiderationConfigurator SetMinScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.MinScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="RandomConsideration.MaxScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RandomConsiderationConfigurator SetMaxScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.MaxScore = value);
+    }
   }
 }

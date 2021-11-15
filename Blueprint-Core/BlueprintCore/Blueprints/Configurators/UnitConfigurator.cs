@@ -102,6 +102,426 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_Type"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnitType"/></param>
+    [Generated]
+    public UnitConfigurator SetType(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Type = BlueprintTool.GetRef<BlueprintUnitTypeReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.LocalizedName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetLocalizedName(SharedStringAsset value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Gender"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetGender(Gender value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Gender = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Size"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetSize(Size value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Size = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.IsLeftHanded"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetIsLeftHanded(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsLeftHanded = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Color"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetColor(Color value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Color = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_Race"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintRace"/></param>
+    [Generated]
+    public UnitConfigurator SetRace(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Alignment"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetAlignment(Alignment value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Alignment = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_Portrait"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintPortrait"/></param>
+    [Generated]
+    public UnitConfigurator SetPortrait(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Prefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetPrefab(UnitViewLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Prefab = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_CustomizationPreset"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="UnitCustomizationPreset"/></param>
+    [Generated]
+    public UnitConfigurator SetCustomizationPreset(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_CustomizationPreset = BlueprintTool.GetRef<UnitCustomizationPresetReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_RandomParameters"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="RandomParameters"/></param>
+    [Generated]
+    public UnitConfigurator SetRandomParameters(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_RandomParameters = BlueprintTool.GetRef<RandomParametersReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Visual"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetVisual(UnitVisualParams value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Visual = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_Faction"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintFaction"/></param>
+    [Generated]
+    public UnitConfigurator SetFaction(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.FactionOverrides"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetFactionOverrides(FactionOverrides value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FactionOverrides = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_StartingInventory"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public UnitConfigurator AddToStartingInventory(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_StartingInventory = CommonTool.Append(bp.m_StartingInventory, values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_StartingInventory"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public UnitConfigurator RemoveFromStartingInventory(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name));
+            bp.m_StartingInventory =
+                bp.m_StartingInventory
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_Brain"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintBrain"/></param>
+    [Generated]
+    public UnitConfigurator SetBrain(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Brain = BlueprintTool.GetRef<BlueprintBrainReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.AlternativeBrains"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintBrain"/></param>
+    [Generated]
+    public UnitConfigurator AddToAlternativeBrains(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.AlternativeBrains = CommonTool.Append(bp.AlternativeBrains, values.Select(name => BlueprintTool.GetRef<BlueprintBrainReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.AlternativeBrains"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintBrain"/></param>
+    [Generated]
+    public UnitConfigurator RemoveFromAlternativeBrains(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBrainReference>(name));
+            bp.AlternativeBrains =
+                bp.AlternativeBrains
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Body"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetBody(BlueprintUnit.UnitBody value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Body = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Strength"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetStrength(int value)
+    {
+      return OnConfigureInternal(bp => bp.Strength = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Dexterity"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetDexterity(int value)
+    {
+      return OnConfigureInternal(bp => bp.Dexterity = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Constitution"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetConstitution(int value)
+    {
+      return OnConfigureInternal(bp => bp.Constitution = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Intelligence"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetIntelligence(int value)
+    {
+      return OnConfigureInternal(bp => bp.Intelligence = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Wisdom"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetWisdom(int value)
+    {
+      return OnConfigureInternal(bp => bp.Wisdom = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Charisma"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetCharisma(int value)
+    {
+      return OnConfigureInternal(bp => bp.Charisma = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Speed"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetSpeed(Feet value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Speed = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.BaseAttackBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetBaseAttackBonus(int value)
+    {
+      return OnConfigureInternal(bp => bp.BaseAttackBonus = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.Skills"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetSkills(BlueprintUnit.UnitSkills value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Skills = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.MaxHP"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetMaxHP(int value)
+    {
+      return OnConfigureInternal(bp => bp.MaxHP = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_AdditionalTemplates"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnitTemplate"/></param>
+    [Generated]
+    public UnitConfigurator AddToAdditionalTemplates(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_AdditionalTemplates = CommonTool.Append(bp.m_AdditionalTemplates, values.Select(name => BlueprintTool.GetRef<BlueprintUnitTemplateReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_AdditionalTemplates"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnitTemplate"/></param>
+    [Generated]
+    public UnitConfigurator RemoveFromAdditionalTemplates(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitTemplateReference>(name));
+            bp.m_AdditionalTemplates =
+                bp.m_AdditionalTemplates
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_AddFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitConfigurator AddToAddFacts(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_AddFacts = CommonTool.Append(bp.m_AddFacts, values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnit.m_AddFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitConfigurator RemoveFromAddFacts(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_AddFacts =
+                bp.m_AddFacts
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.IsCheater"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetIsCheater(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsCheater = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.IsFake"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetIsFake(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsFake = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_CachedTags"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetCachedTags(AddTags value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_CachedTags = value);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddEffectFastHealing"/>
     /// </summary>
     [Implements(typeof(AddEffectFastHealing))]
@@ -4631,6 +5051,7 @@ namespace BlueprintCore.Blueprints.Configurators
         string Element,
         int ShieldCapacity)
     {
+      ValidateParam(Element);
       
       var component =  new AddEffectProtectionFromElement();
       component.Element = Element;
@@ -5541,6 +5962,8 @@ namespace BlueprintCore.Blueprints.Configurators
         string TaskId,
         string Comment)
     {
+      ValidateParam(TaskId);
+      ValidateParam(Comment);
       
       var component =  new FixUnitOnPostLoad_AddNewFact();
       component.m_NewFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_NewFact);
@@ -5561,6 +5984,8 @@ namespace BlueprintCore.Blueprints.Configurators
         string TaskId,
         string Comment)
     {
+      ValidateParam(TaskId);
+      ValidateParam(Comment);
       
       var component =  new ReturnVendorTable();
       component.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
@@ -10660,6 +11085,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddReplaceSourceBone(
         string SourceBone)
     {
+      ValidateParam(SourceBone);
       
       var component =  new ReplaceSourceBone();
       component.SourceBone = SourceBone;

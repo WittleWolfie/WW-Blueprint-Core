@@ -49,6 +49,160 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_Picture"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetPicture(SpriteLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Picture = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_Video"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetVideo(VideoLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Video = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_TitleText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetTitleText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_TitleText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_TriggerText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetTriggerText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_TriggerText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_DescriptionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetDescriptionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_SolutionFoundText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetSolutionFoundText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_SolutionFoundText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.m_SolutionNotFoundText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetSolutionNotFoundText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_SolutionNotFoundText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.Tag"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetTag(TutorialTag value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Tag = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.Priority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.Priority = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.Limit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetLimit(int value)
+    {
+      return OnConfigureInternal(bp => bp.Limit = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.Frequency"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetFrequency(int value)
+    {
+      return OnConfigureInternal(bp => bp.Frequency = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.SetCooldown"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetSetCooldown(bool value)
+    {
+      return OnConfigureInternal(bp => bp.SetCooldown = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.IgnoreCooldown"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetIgnoreCooldown(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IgnoreCooldown = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.Windowed"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetWindowed(bool value)
+    {
+      return OnConfigureInternal(bp => bp.Windowed = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.DisableAnalyticsTracking"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TutorialConfigurator SetDisableAnalyticsTracking(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DisableAnalyticsTracking = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTutorial.EncyclopediaReference"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintEncyclopediaPage"/></param>
+    [Generated]
+    public TutorialConfigurator SetEncyclopediaReference(string value)
+    {
+      return OnConfigureInternal(bp => bp.EncyclopediaReference = BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(value));
+    }
+
+    /// <summary>
     /// Adds <see cref="TutorialPage"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -462,6 +616,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerEnemyHasVulnerability(
         string m_Descriptor)
     {
+      ValidateParam(m_Descriptor);
       
       var component =  new TutorialTriggerEnemyHasVulnerability();
       component.m_Descriptor = m_Descriptor;

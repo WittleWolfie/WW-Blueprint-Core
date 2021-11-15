@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<HealthAroundConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="HealthAroundConsideration.RequiredMissingHealth"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthAroundConsiderationConfigurator SetRequiredMissingHealth(int value)
+    {
+      return OnConfigureInternal(bp => bp.RequiredMissingHealth = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthAroundConsideration.RequiredHealthLeft"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthAroundConsiderationConfigurator SetRequiredHealthLeft(int value)
+    {
+      return OnConfigureInternal(bp => bp.RequiredHealthLeft = value);
+    }
   }
 }

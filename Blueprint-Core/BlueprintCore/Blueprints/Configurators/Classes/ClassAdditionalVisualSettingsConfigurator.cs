@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Enums;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -28,6 +31,92 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintClassAdditionalVisualSettings>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetPrerequisite(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Prerequisite = BlueprintTool.GetRef<BlueprintEtudeReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator AddToColorRamps(params BlueprintClassAdditionalVisualSettings.ColorRamp[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ColorRamps = CommonTool.Append(bp.ColorRamps, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator RemoveFromColorRamps(params BlueprintClassAdditionalVisualSettings.ColorRamp[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ColorRamps = bp.ColorRamps.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.OverrideFootprintType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetOverrideFootprintType(bool value)
+    {
+      return OnConfigureInternal(bp => bp.OverrideFootprintType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.FootprintType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetFootprintType(FootprintType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FootprintType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.CommonSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetCommonSettings(BlueprintClassAdditionalVisualSettings.SettingsData value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.CommonSettings = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.InGameSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetInGameSettings(BlueprintClassAdditionalVisualSettings.SettingsData value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.InGameSettings = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettings.DollRoomSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsConfigurator SetDollRoomSettings(BlueprintClassAdditionalVisualSettings.SettingsData value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DollRoomSettings = value);
     }
   }
 }

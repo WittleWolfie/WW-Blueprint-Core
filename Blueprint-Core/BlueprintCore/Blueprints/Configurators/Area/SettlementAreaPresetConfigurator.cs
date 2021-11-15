@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Settlements;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -28,6 +31,38 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     {
       BlueprintTool.Create<BlueprintSettlementAreaPreset>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSettlement"/></param>
+    [Generated]
+    public SettlementAreaPresetConfigurator SetStartSettlement(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_StartSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementPoint"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    public SettlementAreaPresetConfigurator SetStartSettlementPoint(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_StartSettlementPoint = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementAreaPresetConfigurator SetStartSettlementLevel(SettlementState.LevelType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_StartSettlementLevel = value);
     }
   }
 }

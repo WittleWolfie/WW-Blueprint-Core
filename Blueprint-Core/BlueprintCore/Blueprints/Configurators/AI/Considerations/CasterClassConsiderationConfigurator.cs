@@ -29,5 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<CasterClassConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="CasterClassConsideration.NotCasterScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CasterClassConsiderationConfigurator SetNotCasterScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NotCasterScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CasterClassConsideration.ArcaneCasterScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CasterClassConsiderationConfigurator SetArcaneCasterScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.ArcaneCasterScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CasterClassConsideration.DivineCasterScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CasterClassConsiderationConfigurator SetDivineCasterScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.DivineCasterScore = value);
+    }
   }
 }

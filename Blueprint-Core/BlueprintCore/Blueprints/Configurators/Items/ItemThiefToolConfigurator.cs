@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       BlueprintTool.Create<BlueprintItemThiefTool>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemThiefTool.m_Consumable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemThiefToolConfigurator SetConsumable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_Consumable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemThiefTool.m_SkillCheckBonus"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemThiefToolConfigurator SetSkillCheckBonus(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_SkillCheckBonus = value);
+    }
   }
 }

@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Shields;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields
@@ -29,6 +30,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     {
       BlueprintTool.Create<BlueprintItemShield>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemShield.m_WeaponComponent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintItemWeapon"/></param>
+    [Generated]
+    public ItemShieldConfigurator SetWeaponComponent(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_WeaponComponent = BlueprintTool.GetRef<BlueprintItemWeaponReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemShield.m_ArmorComponent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintItemArmor"/></param>
+    [Generated]
+    public ItemShieldConfigurator SetArmorComponent(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_ArmorComponent = BlueprintTool.GetRef<BlueprintItemArmorReference>(value));
     }
   }
 }

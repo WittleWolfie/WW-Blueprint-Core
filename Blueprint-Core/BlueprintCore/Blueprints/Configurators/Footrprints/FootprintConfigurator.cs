@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
+using Kingmaker.ResourceLinks;
 
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
@@ -28,6 +29,26 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     {
       BlueprintTool.Create<BlueprintFootprint>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFootprint.LeftFootPrint"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FootprintConfigurator SetLeftFootPrint(PrefabLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LeftFootPrint = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFootprint.RightFootPrint"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FootprintConfigurator SetRightFootPrint(PrefabLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.RightFootPrint = value);
     }
   }
 }

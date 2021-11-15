@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<LineOfSightConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="LineOfSightConsideration.HasNoLosScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LineOfSightConsiderationConfigurator SetHasNoLosScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasNoLosScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="LineOfSightConsideration.HasLosScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LineOfSightConsiderationConfigurator SetHasLosScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasLosScore = value);
+    }
   }
 }

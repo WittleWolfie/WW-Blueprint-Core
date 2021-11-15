@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       BlueprintTool.Create<CutscenesRoot>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="CutscenesRoot.m_FadeScreenOnSkip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CutscenesRootConfigurator SetFadeScreenOnSkip(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_FadeScreenOnSkip = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CutscenesRoot.m_TimeScaleOnSkip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CutscenesRootConfigurator SetTimeScaleOnSkip(float value)
+    {
+      return OnConfigureInternal(bp => bp.m_TimeScaleOnSkip = value);
+    }
   }
 }

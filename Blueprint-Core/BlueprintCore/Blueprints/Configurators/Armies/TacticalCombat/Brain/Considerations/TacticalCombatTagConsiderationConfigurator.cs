@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
+using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
@@ -29,6 +30,43 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
     {
       BlueprintTool.Create<TacticalCombatTagConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatTagConsideration.HasTagScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatTagConsiderationConfigurator SetHasTagScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasTagScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatTagConsideration.DoesNotHaveTagScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatTagConsiderationConfigurator SetDoesNotHaveTagScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.DoesNotHaveTagScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatTagConsideration.Tag"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatTagConsiderationConfigurator SetTag(ArmyProperties value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Tag = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatTagConsideration.ShouldHaveAllTags"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatTagConsiderationConfigurator SetShouldHaveAllTags(bool value)
+    {
+      return OnConfigureInternal(bp => bp.ShouldHaveAllTags = value);
     }
   }
 }

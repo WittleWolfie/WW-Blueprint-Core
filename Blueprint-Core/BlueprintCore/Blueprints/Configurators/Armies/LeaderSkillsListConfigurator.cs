@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
+using Kingmaker.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
@@ -28,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     {
       BlueprintTool.Create<BlueprintLeaderSkillsList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkillsList.m_Skills"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillsListConfigurator AddToSkills(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Skills = CommonTool.Append(bp.m_Skills, values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkillsList.m_Skills"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillsListConfigurator RemoveFromSkills(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name));
+            bp.m_Skills =
+                bp.m_Skills
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

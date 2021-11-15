@@ -1,6 +1,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Localization;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -16,6 +18,91 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseKingdomProjectConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetProjectType(KingdomProjectType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ProjectType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetProjectStartCost(KingdomResourcesAmount value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ProjectStartCost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetMechanicalDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_MechanicalDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSpendRulerTimeDays(int value)
+    {
+      return OnConfigureInternal(bp => bp.SpendRulerTimeDays = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetRepeatable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.Repeatable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCooldown(int value)
+    {
+      return OnConfigureInternal(bp => bp.Cooldown = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIsRankUpProject(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsRankUpProject = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetRankupProjectFor(KingdomStats.Type value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.RankupProjectFor = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAIPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.AIPriority = value);
+    }
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
@@ -103,6 +190,91 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintKingdomProject>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetProjectType(KingdomProjectType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ProjectType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetProjectStartCost(KingdomResourcesAmount value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ProjectStartCost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_MechanicalDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetSpendRulerTimeDays(int value)
+    {
+      return OnConfigureInternal(bp => bp.SpendRulerTimeDays = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetRepeatable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.Repeatable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetCooldown(int value)
+    {
+      return OnConfigureInternal(bp => bp.Cooldown = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetIsRankUpProject(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsRankUpProject = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetRankupProjectFor(KingdomStats.Type value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.RankupProjectFor = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomProjectConfigurator SetAIPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.AIPriority = value);
     }
 
     /// <summary>

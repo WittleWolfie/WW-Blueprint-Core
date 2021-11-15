@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 
@@ -28,6 +29,15 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       BlueprintTool.Create<BlueprintActionList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActionList.m_Actions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActionListConfigurator SetActions(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.m_Actions = value.Build());
     }
   }
 }

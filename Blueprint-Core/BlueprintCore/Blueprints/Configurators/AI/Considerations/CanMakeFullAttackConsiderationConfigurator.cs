@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<CanMakeFullAttackConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="CanMakeFullAttackConsideration.SuccessScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CanMakeFullAttackConsiderationConfigurator SetSuccessScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.SuccessScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CanMakeFullAttackConsideration.FailScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CanMakeFullAttackConsiderationConfigurator SetFailScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.FailScore = value);
+    }
   }
 }

@@ -29,5 +29,55 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintTrapSettings>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettings.ActorLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TrapSettingsConfigurator SetActorLevel(int value)
+    {
+      return OnConfigureInternal(bp => bp.ActorLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettings.ActorStatMod"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TrapSettingsConfigurator SetActorStatMod(BlueprintTrapSettings.IntRange value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ActorStatMod = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettings.TrapActor"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public TrapSettingsConfigurator SetTrapActor(string value)
+    {
+      return OnConfigureInternal(bp => bp.TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettings.DisableDC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TrapSettingsConfigurator SetDisableDC(BlueprintTrapSettings.IntRange value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DisableDC = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettings.PerceptionDC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TrapSettingsConfigurator SetPerceptionDC(BlueprintTrapSettings.IntRange value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.PerceptionDC = value);
+    }
   }
 }

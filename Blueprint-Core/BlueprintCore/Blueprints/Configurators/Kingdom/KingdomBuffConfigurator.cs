@@ -11,8 +11,10 @@ using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -41,6 +43,73 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintKingdomBuff>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.DisplayName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetDisplayName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DisplayName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.DurationDays"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetDurationDays(int value)
+    {
+      return OnConfigureInternal(bp => bp.DurationDays = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.StatChanges"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetStatChanges(KingdomStats.Changes value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.StatChanges = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.OnApply"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetOnApply(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.OnApply = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomBuff.OnRemove"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomBuffConfigurator SetOnRemove(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.OnRemove = value.Build());
     }
 
     /// <summary>
@@ -194,10 +263,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ActionsBuilder Action)
     {
       ValidateParam(OnMargin);
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       ValidateParam(OnlyLeader);
       
       var component =  new EventResolutonTrigger();
@@ -225,10 +291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ConditionsBuilder Condition,
         ActionsBuilder Action)
     {
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       
       var component =  new EventStartTrigger();
       component.ApplyToProblems = ApplyToProblems;
@@ -378,10 +441,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool AddReroll,
         bool AddDisadvantage)
     {
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       ValidateParam(OnlyLeader);
       ValidateParam(Dice);
       

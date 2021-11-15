@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<IsEngagedConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="IsEngagedConsideration.EngagedScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public IsEngagedConsiderationConfigurator SetEngagedScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.EngagedScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="IsEngagedConsideration.NotEngagedScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public IsEngagedConsiderationConfigurator SetNotEngagedScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NotEngagedScore = value);
+    }
   }
 }

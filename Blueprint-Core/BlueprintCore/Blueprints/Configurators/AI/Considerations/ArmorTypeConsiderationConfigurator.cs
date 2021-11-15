@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<ArmorTypeConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="ArmorTypeConsideration.LightArmorScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmorTypeConsiderationConfigurator SetLightArmorScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.LightArmorScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ArmorTypeConsideration.HeavyArmorScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmorTypeConsiderationConfigurator SetHeavyArmorScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HeavyArmorScore = value);
+    }
   }
 }

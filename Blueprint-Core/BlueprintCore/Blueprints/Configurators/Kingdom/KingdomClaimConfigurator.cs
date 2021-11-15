@@ -1,5 +1,7 @@
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Localization;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -28,6 +30,64 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintKingdomClaim>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.KnownCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetKnownCondition(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.KnownCondition = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.FailCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetFailCondition(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.FailCondition = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.UnknownDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetUnknownDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.UnknownDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.KnownDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetKnownDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.KnownDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.FailedDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetFailedDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FailedDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomClaim.FulfilledDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomClaimConfigurator SetFulfilledDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FulfilledDescription = value);
     }
   }
 }

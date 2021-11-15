@@ -1,3 +1,5 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 
@@ -28,6 +30,33 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     {
       BlueprintTool.Create<BlueprintScriptZone>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintScriptZone.TriggerConditions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ScriptZoneConfigurator SetTriggerConditions(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.TriggerConditions = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintScriptZone.EnterActions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ScriptZoneConfigurator SetEnterActions(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.EnterActions = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintScriptZone.ExitActions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ScriptZoneConfigurator SetExitActions(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.ExitActions = value.Build());
     }
   }
 }

@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<HasManualTargetConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="HasManualTargetConsideration.HasManualTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HasManualTargetConsiderationConfigurator SetHasManualTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasManualTargetScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HasManualTargetConsideration.NoManualTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HasManualTargetConsiderationConfigurator SetNoManualTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoManualTargetScore = value);
+    }
   }
 }

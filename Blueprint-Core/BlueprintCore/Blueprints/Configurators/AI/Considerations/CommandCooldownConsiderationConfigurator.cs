@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.UnitLogic.Commands.Base;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +29,34 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<CommandCooldownConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CommandCooldownConsideration.CommandType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CommandCooldownConsiderationConfigurator SetCommandType(UnitCommand.CommandType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.CommandType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CommandCooldownConsideration.OnCooldownScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CommandCooldownConsiderationConfigurator SetOnCooldownScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OnCooldownScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CommandCooldownConsideration.OffCooldownScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CommandCooldownConsiderationConfigurator SetOffCooldownScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OffCooldownScore = value);
     }
   }
 }

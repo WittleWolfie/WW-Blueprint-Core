@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.ElementsSystem;
 
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
@@ -29,6 +30,39 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     {
       BlueprintTool.Create<BlueprintDungeonShrine>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonShrine.UseCondition"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="ConditionsHolder"/></param>
+    [Generated]
+    public DungeonShrineConfigurator SetUseCondition(string value)
+    {
+      return OnConfigureInternal(bp => bp.UseCondition = BlueprintTool.GetRef<ConditionsReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonShrine.CheckPassedActions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="ActionsHolder"/></param>
+    [Generated]
+    public DungeonShrineConfigurator SetCheckPassedActions(string value)
+    {
+      return OnConfigureInternal(bp => bp.CheckPassedActions = BlueprintTool.GetRef<ActionsReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonShrine.CheckFailedActions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="ActionsHolder"/></param>
+    [Generated]
+    public DungeonShrineConfigurator SetCheckFailedActions(string value)
+    {
+      return OnConfigureInternal(bp => bp.CheckFailedActions = BlueprintTool.GetRef<ActionsReference>(value));
     }
   }
 }

@@ -29,5 +29,25 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       BlueprintTool.Create<CastsGroup>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="CastsGroup.m_ArcaneCasts"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CastsGroupConfigurator SetArcaneCasts(CastGroupForSpellSource value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ArcaneCasts = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="CastsGroup.m_DivineCasts"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CastsGroupConfigurator SetDivineCasts(CastGroupForSpellSource value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DivineCasts = value);
+    }
   }
 }

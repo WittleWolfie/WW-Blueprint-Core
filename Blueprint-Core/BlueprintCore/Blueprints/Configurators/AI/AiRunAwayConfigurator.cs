@@ -29,5 +29,14 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       BlueprintTool.Create<BlueprintAiRunAway>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiRunAway.BecameStalker"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AiRunAwayConfigurator SetBecameStalker(bool value)
+    {
+      return OnConfigureInternal(bp => bp.BecameStalker = value);
+    }
   }
 }

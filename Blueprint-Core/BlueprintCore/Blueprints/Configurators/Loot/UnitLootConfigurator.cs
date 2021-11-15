@@ -17,6 +17,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
      protected BaseUnitLootConfigurator(string name) : base(name) { }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDummy(BlueprintUnitLoot.Dummy value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Dummy = value);
+    }
+
+    /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -114,6 +124,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     {
       BlueprintTool.Create<BlueprintUnitLoot>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Dummy = value);
     }
 
     /// <summary>

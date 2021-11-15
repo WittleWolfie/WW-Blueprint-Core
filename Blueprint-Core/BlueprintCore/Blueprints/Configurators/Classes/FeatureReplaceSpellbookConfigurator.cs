@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -28,6 +29,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintFeatureReplaceSpellbook>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    public FeatureReplaceSpellbookConfigurator SetSpellbook(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(value));
     }
   }
 }

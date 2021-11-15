@@ -30,5 +30,23 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
       BlueprintTool.Create<TacticalCombatCanAttackThisTurnConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatCanAttackThisTurnConsiderationConfigurator SetCanAttackScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.CanAttackScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TacticalCombatCanAttackThisTurnConsideration.CanNotAttackScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatCanAttackThisTurnConsiderationConfigurator SetCanNotAttackScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.CanNotAttackScore = value);
+    }
   }
 }

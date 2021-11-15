@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
@@ -39,6 +40,184 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     {
       BlueprintTool.Create<BlueprintActivatableAbility>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.m_Buff"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public ActivatableAbilityConfigurator SetBuff(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.Group"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetGroup(ActivatableAbilityGroup value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Group = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.WeightInGroup"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetWeightInGroup(int value)
+    {
+      return OnConfigureInternal(bp => bp.WeightInGroup = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.IsOnByDefault"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetIsOnByDefault(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsOnByDefault = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDeactivateIfCombatEnded(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DeactivateIfCombatEnded = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DeactivateAfterFirstRound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDeactivateAfterFirstRound(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DeactivateAfterFirstRound = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DeactivateImmediately"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDeactivateImmediately(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DeactivateImmediately = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.IsTargeted"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetIsTargeted(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsTargeted = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDeactivateIfOwnerDisabled(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DeactivateIfOwnerDisabled = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfOwnerUnconscious"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDeactivateIfOwnerUnconscious(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DeactivateIfOwnerUnconscious = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.OnlyInCombat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetOnlyInCombat(bool value)
+    {
+      return OnConfigureInternal(bp => bp.OnlyInCombat = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.DoNotTurnOffOnRest"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetDoNotTurnOffOnRest(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DoNotTurnOffOnRest = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.ActivationType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetActivationType(AbilityActivationType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ActivationType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.m_ActivateWithUnitCommand"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetActivateWithUnitCommand(UnitCommand.CommandType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ActivateWithUnitCommand = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator SetActivateOnUnitAction(AbilityActivateOnUnitActionType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ActivateOnUnitAction = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintAbility"/></param>
+    [Generated]
+    public ActivatableAbilityConfigurator SetSelectTargetAbility(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_SelectTargetAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator AddToResourceAssetIds(params string[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator RemoveFromResourceAssetIds(params string[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ResourceAssetIds = bp.ResourceAssetIds.Where(item => !values.Contains(item)).ToArray());
     }
 
     /// <summary>

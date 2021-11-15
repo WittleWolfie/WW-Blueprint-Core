@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +29,35 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<SpecificUnitBlueprintConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SpecificUnitBlueprintConsideration.m_Unit"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public SpecificUnitConsiderationConfigurator SetUnit(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="SpecificUnitBlueprintConsideration.CorrectUnitScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpecificUnitConsiderationConfigurator SetCorrectUnitScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.CorrectUnitScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SpecificUnitBlueprintConsideration.IncorrectUnitScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpecificUnitConsiderationConfigurator SetIncorrectUnitScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.IncorrectUnitScore = value);
     }
   }
 }

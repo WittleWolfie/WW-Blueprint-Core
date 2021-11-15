@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Credits;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     {
       BlueprintTool.Create<BlueprintCreditsTeams>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CreditsTeamsConfigurator AddToTeams(params CreditTeam[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Teams.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CreditsTeamsConfigurator RemoveFromTeams(params CreditTeam[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Teams = bp.Teams.Where(item => !values.Contains(item)).ToList());
     }
   }
 }

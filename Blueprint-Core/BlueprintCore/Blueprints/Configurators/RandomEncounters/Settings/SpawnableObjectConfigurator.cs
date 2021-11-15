@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
+using Kingmaker.ResourceLinks;
 
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
@@ -14,6 +15,16 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetPrefab(PrefabLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Prefab = value);
+    }
   }
 
   /// <summary>Configurator for <see cref="BlueprintSpawnableObject"/>.</summary>
@@ -41,6 +52,16 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     {
       BlueprintTool.Create<BlueprintSpawnableObject>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpawnableObjectConfigurator SetPrefab(PrefabLink value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Prefab = value);
     }
   }
 }

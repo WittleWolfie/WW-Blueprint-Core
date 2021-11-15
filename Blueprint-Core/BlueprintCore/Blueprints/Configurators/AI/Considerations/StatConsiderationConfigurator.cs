@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.EntitySystem.Stats;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +29,43 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<StatConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="StatConsideration.Stat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatConsiderationConfigurator SetStat(StatType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Stat = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="StatConsideration.Value"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatConsiderationConfigurator SetValue(int value)
+    {
+      return OnConfigureInternal(bp => bp.Value = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="StatConsideration.GreaterThanValue"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatConsiderationConfigurator SetGreaterThanValue(float value)
+    {
+      return OnConfigureInternal(bp => bp.GreaterThanValue = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="StatConsideration.LesserThanValue"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatConsiderationConfigurator SetLesserThanValue(float value)
+    {
+      return OnConfigureInternal(bp => bp.LesserThanValue = value);
     }
   }
 }

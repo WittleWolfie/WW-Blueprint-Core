@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<TargetMainCharacter>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="TargetMainCharacter.IsMainCharacterScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TargetMainCharacterConfigurator SetIsMainCharacterScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.IsMainCharacterScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TargetMainCharacter.OthersScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TargetMainCharacterConfigurator SetOthersScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OthersScore = value);
+    }
   }
 }

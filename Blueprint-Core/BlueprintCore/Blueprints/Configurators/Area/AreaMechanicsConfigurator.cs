@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Sound;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -28,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     {
       BlueprintTool.Create<BlueprintAreaMechanics>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAreaMechanics.Area"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public AreaMechanicsConfigurator SetArea(string value)
+    {
+      return OnConfigureInternal(bp => bp.Area = BlueprintTool.GetRef<BlueprintAreaReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAreaMechanics.Scene"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaMechanicsConfigurator SetScene(SceneReference value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Scene = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAreaMechanics.AdditionalDataBank"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaMechanicsConfigurator SetAdditionalDataBank(AkBankReference value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.AdditionalDataBank = value);
     }
   }
 }

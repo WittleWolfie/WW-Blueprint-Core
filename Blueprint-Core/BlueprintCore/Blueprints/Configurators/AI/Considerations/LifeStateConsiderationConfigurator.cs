@@ -29,5 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<LifeStateConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="LifeStateConsideration.AliveScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LifeStateConsiderationConfigurator SetAliveScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.AliveScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="LifeStateConsideration.DeadScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LifeStateConsiderationConfigurator SetDeadScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.DeadScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="LifeStateConsideration.UnconsciousScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LifeStateConsiderationConfigurator SetUnconsciousScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.UnconsciousScore = value);
+    }
   }
 }

@@ -2,6 +2,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Kingdom;
 using Kingmaker.Localization;
 using System.Linq;
 
@@ -32,6 +33,99 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     {
       BlueprintTool.Create<BlueprintGlobalMapPointVariation>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.Conditions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetConditions(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.Conditions = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.Name"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Name = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.NameFromSettlement"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSettlement"/></param>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetNameFromSettlement(string value)
+    {
+      return OnConfigureInternal(bp => bp.NameFromSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.FakeName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetFakeName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FakeName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.FakeDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetFakeDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FakeDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.m_AreaEntrance"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetAreaEntrance(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.m_Entrances"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintMultiEntrance"/></param>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetEntrances(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Entrances = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPointVariation.m_BookEvent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintDialog"/></param>
+    [Generated]
+    public GlobalMapPointVariationConfigurator SetBookEvent(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(value));
     }
 
     /// <summary>

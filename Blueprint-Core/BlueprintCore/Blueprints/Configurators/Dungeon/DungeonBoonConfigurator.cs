@@ -3,6 +3,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Dungeon.Blueprints.Boons;
 using Kingmaker.Dungeon.Enums;
+using Kingmaker.Localization;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
@@ -31,6 +33,55 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     {
       BlueprintTool.Create<BlueprintDungeonBoon>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonBoon.Name"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonBoonConfigurator SetName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Name = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonBoon.Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonBoonConfigurator SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonBoon.m_Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonBoonConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonBoon.MinStage"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonBoonConfigurator SetMinStage(int value)
+    {
+      return OnConfigureInternal(bp => bp.MinStage = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonBoon.m_CachedLogic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonBoonConfigurator SetCachedLogic(DungeonBoonLogic value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_CachedLogic = value);
     }
 
     /// <summary>

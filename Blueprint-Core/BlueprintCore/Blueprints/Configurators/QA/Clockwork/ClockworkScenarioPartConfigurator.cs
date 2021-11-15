@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
 {
@@ -30,6 +31,213 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     {
       BlueprintTool.Create<BlueprintClockworkScenarioPart>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.RetrySkillChecks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToRetrySkillChecks(params EntityReference[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.RetrySkillChecks.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.RetrySkillChecks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromRetrySkillChecks(params EntityReference[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.RetrySkillChecks = bp.RetrySkillChecks.Where(item => !values.Contains(item)).ToList());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToHighPriorityAnswers(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.HighPriorityAnswers.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromHighPriorityAnswers(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name));
+            bp.HighPriorityAnswers =
+                bp.HighPriorityAnswers
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToDoNotSellItems(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.DoNotSellItems.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromDoNotSellItems(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name));
+            bp.DoNotSellItems =
+                bp.DoNotSellItems
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotInterract"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToDoNotInterract(params ClockworkEntityReference[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.DoNotInterract.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotInterract"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromDoNotInterract(params ClockworkEntityReference[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.DoNotInterract = bp.DoNotInterract.Where(item => !values.Contains(item)).ToList());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToDoNotInterractUnits(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.DoNotInterractUnits.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromDoNotInterractUnits(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name));
+            bp.DoNotInterractUnits =
+                bp.DoNotInterractUnits
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToDoNotUseAnswer(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.DoNotUseAnswer.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAnswer"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromDoNotUseAnswer(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name));
+            bp.DoNotUseAnswer =
+                bp.DoNotUseAnswer
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator AddToDoNotEnterAreas(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.DoNotEnterAreas.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public ClockworkScenarioPartConfigurator RemoveFromDoNotEnterAreas(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
+            bp.DoNotEnterAreas =
+                bp.DoNotEnterAreas
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
     }
 
     /// <summary>

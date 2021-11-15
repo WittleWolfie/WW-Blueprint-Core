@@ -29,5 +29,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       BlueprintTool.Create<BlueprintKingdomEventTimeline>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomEventTimeline.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomEventTimelineConfigurator SetEntries(BlueprintKingdomEventTimeline.EntryList value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Entries = value);
+    }
   }
 }

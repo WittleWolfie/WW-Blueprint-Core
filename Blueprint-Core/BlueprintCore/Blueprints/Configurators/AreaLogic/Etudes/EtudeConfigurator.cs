@@ -5,6 +5,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Crusade.GlobalMagic;
@@ -47,6 +48,246 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       BlueprintTool.Create<BlueprintEtude>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_Parent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator SetParent(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Parent = BlueprintTool.GetRef<BlueprintEtudeReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.ActivationCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetActivationCondition(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.ActivationCondition = value.Build());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.CompletionCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetCompletionCondition(ConditionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.CompletionCondition = value.Build());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToSynchronized(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Synchronized.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromSynchronized(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.m_Synchronized =
+                bp.m_Synchronized
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_AllowActionStart"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetAllowActionStart(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_AllowActionStart = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_LinkedAreaPart"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintAreaPart"/></param>
+    [Generated]
+    public EtudeConfigurator SetLinkedAreaPart(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_LinkedAreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_IncludeAreaParts"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetIncludeAreaParts(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_IncludeAreaParts = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    public EtudeConfigurator AddToAddedAreaMechanics(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_AddedAreaMechanics.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromAddedAreaMechanics(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name));
+            bp.m_AddedAreaMechanics =
+                bp.m_AddedAreaMechanics
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToStartsWith(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_StartsWith.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromStartsWith(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.m_StartsWith =
+                bp.m_StartsWith
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToStartsOnComplete(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_StartsOnComplete.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromStartsOnComplete(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.m_StartsOnComplete =
+                bp.m_StartsOnComplete
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_StartsParent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetStartsParent(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_StartsParent = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_CompletesParent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetCompletesParent(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_CompletesParent = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    [Generated]
+    public EtudeConfigurator AddToConflictingGroups(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_ConflictingGroups.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromConflictingGroups(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name));
+            bp.m_ConflictingGroups =
+                bp.m_ConflictingGroups
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.Priority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EtudeConfigurator SetPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.Priority = value);
     }
 
     /// <summary>
@@ -271,6 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     public EtudeConfigurator AddEtudeBracketAudioObjects(
         string ConnectedObjectName)
     {
+      ValidateParam(ConnectedObjectName);
       
       var component =  new EtudeBracketAudioObjects();
       component.ConnectedObjectName = ConnectedObjectName;

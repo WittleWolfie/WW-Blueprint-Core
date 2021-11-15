@@ -30,5 +30,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       BlueprintTool.Create<BlueprintSharedVendorTable>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SharedVendorTableConfigurator SetAutoIdentifyAllItems(bool value)
+    {
+      return OnConfigureInternal(bp => bp.AutoIdentifyAllItems = value);
+    }
   }
 }

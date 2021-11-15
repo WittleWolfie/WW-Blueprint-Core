@@ -1172,6 +1172,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         string Element,
         int ShieldCapacity)
     {
+      ValidateParam(Element);
       
       var component =  new AddEffectProtectionFromElement();
       component.Element = Element;

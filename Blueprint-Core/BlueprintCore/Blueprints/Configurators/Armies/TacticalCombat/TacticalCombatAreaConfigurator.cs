@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
@@ -29,6 +30,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     {
       BlueprintTool.Create<BlueprintTacticalCombatArea>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTacticalCombatArea.m_GridCenter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatAreaConfigurator SetGridCenter(Vector3 value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_GridCenter = value);
     }
   }
 }

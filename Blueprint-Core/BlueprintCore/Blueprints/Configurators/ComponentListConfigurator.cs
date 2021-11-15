@@ -191,6 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ComponentListConfigurator AddEtudeBracketAudioObjects(
         string ConnectedObjectName)
     {
+      ValidateParam(ConnectedObjectName);
       
       var component =  new EtudeBracketAudioObjects();
       component.ConnectedObjectName = ConnectedObjectName;

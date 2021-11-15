@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
 
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
@@ -28,6 +29,17 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     {
       BlueprintTool.Create<BlueprintEncyclopediaSkillPage>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEncyclopediaSkillPage.m_Class"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public EncyclopediaSkillPageConfigurator SetClass(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
     }
   }
 }

@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -28,6 +29,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintStatProgression>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatProgressionConfigurator AddToBonuses(params int[] values)
+    {
+      return OnConfigureInternal(bp => bp.Bonuses = CommonTool.Append(bp.Bonuses, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatProgressionConfigurator RemoveFromBonuses(params int[] values)
+    {
+      return OnConfigureInternal(bp => bp.Bonuses = bp.Bonuses.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

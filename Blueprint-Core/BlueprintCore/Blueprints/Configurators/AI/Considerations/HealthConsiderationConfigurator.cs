@@ -29,5 +29,59 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<HealthConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.FullBorder"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetFullBorder(int value)
+    {
+      return OnConfigureInternal(bp => bp.FullBorder = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.DeadBorder"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetDeadBorder(int value)
+    {
+      return OnConfigureInternal(bp => bp.DeadBorder = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.AboveFullScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetAboveFullScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.AboveFullScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.BelowDeadScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetBelowDeadScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.BelowDeadScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.FullScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetFullScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.FullScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="HealthConsideration.DeadScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public HealthConsiderationConfigurator SetDeadScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.DeadScore = value);
+    }
   }
 }

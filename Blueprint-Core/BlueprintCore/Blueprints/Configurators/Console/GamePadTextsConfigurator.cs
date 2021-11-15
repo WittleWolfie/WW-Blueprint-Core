@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Console;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Console
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     {
       BlueprintTool.Create<GamePadTexts>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GamePadTextsConfigurator AddToLayers(params GamePadTexts.GamePadTextsLayer[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Layers.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GamePadTextsConfigurator RemoveFromLayers(params GamePadTexts.GamePadTextsLayer[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Layers = bp.m_Layers.Where(item => !values.Contains(item)).ToList());
     }
   }
 }

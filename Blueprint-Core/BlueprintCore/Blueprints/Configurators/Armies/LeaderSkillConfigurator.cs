@@ -7,8 +7,10 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Localization;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
@@ -37,6 +39,106 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     {
       BlueprintTool.Create<BlueprintLeaderSkill>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.LocalizedName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetLocalizedName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.LocalizedDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.BonusAttributes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetBonusAttributes(LeaderAttributes value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.BonusAttributes = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.Type"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetType(ArmyLeaderSkillType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Type = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.StackTag"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetStackTag(StackTag value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.StackTag = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderSkillConfigurator SetPrerequisiteLevel(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_PrerequisiteLevel = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillConfigurator AddToPrerequisites(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Prerequisites = CommonTool.Append(bp.m_Prerequisites, values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillConfigurator RemoveFromPrerequisites(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name));
+            bp.m_Prerequisites =
+                bp.m_Prerequisites
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
 
     /// <summary>

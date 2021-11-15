@@ -6,6 +6,9 @@ using Kingmaker.Blueprints.Quests;
 using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
+using Kingmaker.Localization;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
@@ -34,6 +37,105 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     {
       BlueprintTool.Create<BlueprintQuest>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.Title"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetTitle(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Title = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.CompletionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetCompletionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.CompletionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.m_Group"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetGroup(QuestGroupId value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Group = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.m_DescriptionPriority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetDescriptionPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_DescriptionPriority = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.m_Type"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetType(QuestType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Type = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.m_LastChapter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public QuestConfigurator SetLastChapter(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_LastChapter = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestConfigurator AddToObjectives(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Objectives.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestConfigurator RemoveFromObjectives(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
+            bp.m_Objectives =
+                bp.m_Objectives
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
     }
 
     /// <summary>

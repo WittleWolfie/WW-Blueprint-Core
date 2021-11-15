@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
 {
@@ -29,6 +30,37 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
     {
       BlueprintTool.Create<BlueprintTacticalCombatBrain>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintTacticalCombatAiAction"/></param>
+    [Generated]
+    public TacticalCombatBrainConfigurator AddToTacticalActions(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_TacticalActions = CommonTool.Append(bp.m_TacticalActions, values.Select(name => BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintTacticalCombatAiAction"/></param>
+    [Generated]
+    public TacticalCombatBrainConfigurator RemoveFromTacticalActions(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(name));
+            bp.m_TacticalActions =
+                bp.m_TacticalActions
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

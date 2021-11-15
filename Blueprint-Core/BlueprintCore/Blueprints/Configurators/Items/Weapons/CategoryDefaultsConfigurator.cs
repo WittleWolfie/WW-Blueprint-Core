@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Weapons;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     {
       BlueprintTool.Create<BlueprintCategoryDefaults>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CategoryDefaultsConfigurator AddToEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CategoryDefaultsConfigurator RemoveFromEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

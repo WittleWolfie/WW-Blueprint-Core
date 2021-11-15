@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
@@ -28,6 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     {
       BlueprintTool.Create<BlueprintGenericPackLoot>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GenericPackLootConfigurator AddToEntries(params BlueprintGenericPackLoot.EntryType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GenericPackLootConfigurator RemoveFromEntries(params BlueprintGenericPackLoot.EntryType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

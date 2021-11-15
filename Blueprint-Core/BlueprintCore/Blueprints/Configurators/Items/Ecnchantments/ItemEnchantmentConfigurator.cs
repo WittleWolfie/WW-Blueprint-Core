@@ -6,6 +6,7 @@ using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -26,6 +27,73 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemEnchantmentConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAllowNonContextActions(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_AllowNonContextActions = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_EnchantName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetEnchantName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_EnchantName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_Prefix"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetPrefix(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Prefix = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_Suffix"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSuffix(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Suffix = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_EnchantmentCost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetEnchantmentCost(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_EnchantmentCost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_IdentifyDC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIdentifyDC(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_IdentifyDC = value);
+    }
 
     /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>

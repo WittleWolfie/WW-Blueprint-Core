@@ -29,5 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       BlueprintTool.Create<BlueprintDialogExperienceModifierTable>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DialogExperienceModifierTableConfigurator SetMultiplierLow(float value)
+    {
+      return OnConfigureInternal(bp => bp.MultiplierLow = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierNormal"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DialogExperienceModifierTableConfigurator SetMultiplierNormal(float value)
+    {
+      return OnConfigureInternal(bp => bp.MultiplierNormal = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierHigh"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DialogExperienceModifierTableConfigurator SetMultiplierHigh(float value)
+    {
+      return OnConfigureInternal(bp => bp.MultiplierHigh = value);
+    }
   }
 }

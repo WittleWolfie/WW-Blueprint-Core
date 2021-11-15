@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<SwarmTargetsConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="SwarmTargetsConsideration.HasEnemiesScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SwarmTargetsConsiderationConfigurator SetHasEnemiesScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasEnemiesScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SwarmTargetsConsideration.NoEnemiesScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SwarmTargetsConsiderationConfigurator SetNoEnemiesScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoEnemiesScore = value);
+    }
   }
 }

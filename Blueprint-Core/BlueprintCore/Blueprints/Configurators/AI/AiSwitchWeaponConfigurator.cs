@@ -29,5 +29,15 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       BlueprintTool.Create<BlueprintAiSwitchWeapon>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiSwitchWeapon.SwitchTo"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AiSwitchWeaponConfigurator SetSwitchTo(SwitchMode value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.SwitchTo = value);
+    }
   }
 }

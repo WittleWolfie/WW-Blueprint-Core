@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.UnitLogic.Commands.Base;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +29,34 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<ActiveCommandConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ActiveCommandConsideration.CommandType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActiveCommandConsiderationConfigurator SetCommandType(UnitCommand.CommandType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.CommandType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ActiveCommandConsideration.HasCommandScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActiveCommandConsiderationConfigurator SetHasCommandScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasCommandScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ActiveCommandConsideration.NoCommandScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActiveCommandConsiderationConfigurator SetNoCommandScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoCommandScore = value);
     }
   }
 }

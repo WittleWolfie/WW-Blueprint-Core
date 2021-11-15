@@ -29,5 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<InRangeConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="InRangeConsideration.InRangeScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public InRangeConsiderationConfigurator SetInRangeScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.InRangeScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="InRangeConsideration.OutOfRangeScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public InRangeConsiderationConfigurator SetOutOfRangeScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OutOfRangeScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="InRangeConsideration.OnlyIfThreated"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public InRangeConsiderationConfigurator SetOnlyIfThreated(bool value)
+    {
+      return OnConfigureInternal(bp => bp.OnlyIfThreated = value);
+    }
   }
 }

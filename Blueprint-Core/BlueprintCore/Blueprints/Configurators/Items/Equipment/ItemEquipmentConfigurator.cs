@@ -21,6 +21,151 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
      protected BaseItemEquipmentConfigurator(string name) : base(name) { }
 
     /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.CR"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCR(int value)
+    {
+      return OnConfigureInternal(bp => bp.CR = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.m_Ability"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintAbility"/></param>
+    [Generated]
+    public TBuilder SetAbility(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.m_ActivatableAbility"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintActivatableAbility"/></param>
+    [Generated]
+    public TBuilder SetActivatableAbility(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_ActivatableAbility = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.SpendCharges"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSpendCharges(bool value)
+    {
+      return OnConfigureInternal(bp => bp.SpendCharges = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.Charges"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCharges(int value)
+    {
+      return OnConfigureInternal(bp => bp.Charges = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetRestoreChargesOnRest(bool value)
+    {
+      return OnConfigureInternal(bp => bp.RestoreChargesOnRest = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.CasterLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCasterLevel(int value)
+    {
+      return OnConfigureInternal(bp => bp.CasterLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.SpellLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSpellLevel(int value)
+    {
+      return OnConfigureInternal(bp => bp.SpellLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.DC"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDC(int value)
+    {
+      return OnConfigureInternal(bp => bp.DC = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.IsNonRemovable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIsNonRemovable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsNonRemovable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.m_EquipmentEntity"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder SetEquipmentEntity(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder AddToEquipmentEntityAlternatives(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
+            bp.m_EquipmentEntityAlternatives =
+                bp.m_EquipmentEntityAlternatives
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetForcedRampColorPresetIndex(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_ForcedRampColorPresetIndex = value);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddFactToEquipmentWielder"/> (Auto Generated)
     /// </summary>
     ///

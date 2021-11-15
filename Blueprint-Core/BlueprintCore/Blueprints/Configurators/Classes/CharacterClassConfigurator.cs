@@ -9,10 +9,13 @@ using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -41,6 +44,506 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       BlueprintTool.Create<BlueprintCharacterClass>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.LocalizedName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetLocalizedName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedName = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.LocalizedDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetLocalizedDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.LocalizedDescriptionShort"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetLocalizedDescriptionShort(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.LocalizedDescriptionShort = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.SkillPoints"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetSkillPoints(int value)
+    {
+      return OnConfigureInternal(bp => bp.SkillPoints = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.HitDie"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetHitDie(DiceType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.HitDie = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.HideIfRestricted"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetHideIfRestricted(bool value)
+    {
+      return OnConfigureInternal(bp => bp.HideIfRestricted = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.PrestigeClass"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetPrestigeClass(bool value)
+    {
+      return OnConfigureInternal(bp => bp.PrestigeClass = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.IsMythic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetIsMythic(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsMythic = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_IsHigherMythic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetIsHigherMythic(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_IsHigherMythic = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_BaseAttackBonus"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintStatProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetBaseAttackBonus(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_BaseAttackBonus = BlueprintTool.GetRef<BlueprintStatProgressionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_FortitudeSave"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintStatProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetFortitudeSave(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_FortitudeSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_ReflexSave"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintStatProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetReflexSave(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_ReflexSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_WillSave"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintStatProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetWillSave(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_WillSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_Progression"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetProgression(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_Spellbook"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetSpellbook(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.ClassSkills"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator AddToClassSkills(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ClassSkills = CommonTool.Append(bp.ClassSkills, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.ClassSkills"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromClassSkills(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.ClassSkills = bp.ClassSkills.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.IsDivineCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetIsDivineCaster(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsDivineCaster = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.IsArcaneCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetIsArcaneCaster(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsArcaneCaster = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Archetypes"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArchetype"/></param>
+    [Generated]
+    public CharacterClassConfigurator AddToArchetypes(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Archetypes = CommonTool.Append(bp.m_Archetypes, values.Select(name => BlueprintTool.GetRef<BlueprintArchetypeReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Archetypes"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintArchetype"/></param>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromArchetypes(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintArchetypeReference>(name));
+            bp.m_Archetypes =
+                bp.m_Archetypes
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.StartingGold"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetStartingGold(int value)
+    {
+      return OnConfigureInternal(bp => bp.StartingGold = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_StartingItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public CharacterClassConfigurator AddToStartingItems(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_StartingItems = CommonTool.Append(bp.m_StartingItems, values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_StartingItems"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromStartingItems(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name));
+            bp.m_StartingItems =
+                bp.m_StartingItems
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.PrimaryColor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetPrimaryColor(int value)
+    {
+      return OnConfigureInternal(bp => bp.PrimaryColor = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.SecondaryColor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetSecondaryColor(int value)
+    {
+      return OnConfigureInternal(bp => bp.SecondaryColor = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_EquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public CharacterClassConfigurator AddToEquipmentEntities(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_EquipmentEntities = CommonTool.Append(bp.m_EquipmentEntities, values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_EquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromEquipmentEntities(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
+            bp.m_EquipmentEntities =
+                bp.m_EquipmentEntities
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator AddToMaleEquipmentEntities(params EquipmentEntityLink[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromMaleEquipmentEntities(params EquipmentEntityLink[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator AddToFemaleEquipmentEntities(params EquipmentEntityLink[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromFemaleEquipmentEntities(params EquipmentEntityLink[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_Difficulty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetDifficulty(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_Difficulty = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.RecommendedAttributes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator AddToRecommendedAttributes(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.RecommendedAttributes = CommonTool.Append(bp.RecommendedAttributes, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.RecommendedAttributes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromRecommendedAttributes(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.RecommendedAttributes = bp.RecommendedAttributes.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator AddToNotRecommendedAttributes(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.NotRecommendedAttributes = CommonTool.Append(bp.NotRecommendedAttributes, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromNotRecommendedAttributes(params StatType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_SignatureAbilities"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    public CharacterClassConfigurator AddToSignatureAbilities(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_SignatureAbilities = CommonTool.Append(bp.m_SignatureAbilities, values.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_SignatureAbilities"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    public CharacterClassConfigurator RemoveFromSignatureAbilities(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name));
+            bp.m_SignatureAbilities =
+                bp.m_SignatureAbilities
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_DefaultBuild"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetDefaultBuild(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_DefaultBuild = BlueprintTool.GetRef<BlueprintUnitFactReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.m_AdditionalVisualSettings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintClassAdditionalVisualSettingsProgression"/></param>
+    [Generated]
+    public CharacterClassConfigurator SetAdditionalVisualSettings(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_AdditionalVisualSettings = BlueprintTool.GetRef<BlueprintClassAdditionalVisualSettingsProgression.Reference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCharacterClass.VisualSettingsPriority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CharacterClassConfigurator SetVisualSettingsPriority(int value)
+    {
+      return OnConfigureInternal(bp => bp.VisualSettingsPriority = value);
     }
 
     /// <summary>

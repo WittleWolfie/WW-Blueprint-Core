@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.EntitySystem.Stats;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +29,34 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<SavingThrowConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SavingThrowConsideration.SaveType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SavingThrowConsiderationConfigurator SetSaveType(SavingThrowType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.SaveType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SavingThrowConsideration.LowScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SavingThrowConsiderationConfigurator SetLowScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.LowScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SavingThrowConsideration.HighScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SavingThrowConsiderationConfigurator SetHighScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.HighScore = value);
     }
   }
 }

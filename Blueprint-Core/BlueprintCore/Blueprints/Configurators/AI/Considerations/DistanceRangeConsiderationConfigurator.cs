@@ -29,5 +29,41 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<DistanceRangeConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="DistanceRangeConsideration.MinDistance"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DistanceRangeConsiderationConfigurator SetMinDistance(float value)
+    {
+      return OnConfigureInternal(bp => bp.MinDistance = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="DistanceRangeConsideration.MaxDistance"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DistanceRangeConsiderationConfigurator SetMaxDistance(float value)
+    {
+      return OnConfigureInternal(bp => bp.MaxDistance = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="DistanceRangeConsideration.InsideDistanceRangeScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DistanceRangeConsiderationConfigurator SetInsideDistanceRangeScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.InsideDistanceRangeScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="DistanceRangeConsideration.OutsideDistanceRangeScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DistanceRangeConsiderationConfigurator SetOutsideDistanceRangeScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OutsideDistanceRangeScore = value);
+    }
   }
 }

@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -28,6 +30,46 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       BlueprintTool.Create<BlueprintKingdomDeck>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomDeck.Events"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintKingdomEvent"/></param>
+    [Generated]
+    public KingdomDeckConfigurator AddToEvents(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.Events.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintKingdomEventReference>(name))));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomDeck.Events"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintKingdomEvent"/></param>
+    [Generated]
+    public KingdomDeckConfigurator RemoveFromEvents(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintKingdomEventReference>(name));
+            bp.Events =
+                bp.Events
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomDeck.IsPriority"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomDeckConfigurator SetIsPriority(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IsPriority = value);
     }
   }
 }

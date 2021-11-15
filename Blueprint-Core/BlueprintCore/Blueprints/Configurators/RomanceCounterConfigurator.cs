@@ -29,5 +29,38 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintRomanceCounter>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRomanceCounter.m_CounterFlag"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    public RomanceCounterConfigurator SetCounterFlag(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_CounterFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRomanceCounter.m_MinValueFlag"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    public RomanceCounterConfigurator SetMinValueFlag(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_MinValueFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRomanceCounter.m_MaxValueFlag"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintUnlockableFlag"/></param>
+    [Generated]
+    public RomanceCounterConfigurator SetMaxValueFlag(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_MaxValueFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(value));
+    }
   }
 }

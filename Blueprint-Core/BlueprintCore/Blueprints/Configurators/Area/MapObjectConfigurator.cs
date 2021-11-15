@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -14,5 +15,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseMapObjectConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintMapObject.Prefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetPrefab(GameObject value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Prefab = value);
+    }
   }
 }

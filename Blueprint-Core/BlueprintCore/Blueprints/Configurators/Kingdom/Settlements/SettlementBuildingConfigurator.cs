@@ -11,6 +11,7 @@ using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
 using System.Linq;
@@ -42,6 +43,134 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     {
       BlueprintTool.Create<BlueprintSettlementBuilding>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.Name"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Name = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.Description"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Description = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.MechanicalDescription"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetMechanicalDescription(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.MechanicalDescription = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.CompletedPrefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetCompletedPrefab(SettlementBuildingItem value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.CompletedPrefab = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetUnfinishedPrefab(SettlementBuildingItem value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.UnfinishedPrefab = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.BuildCost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetBuildCost(KingdomResourcesAmount value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.BuildCost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.StatChanges"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetStatChanges(KingdomStats.Changes value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.StatChanges = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.MinLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetMinLevel(SettlementState.LevelType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.MinLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.SlotSizeX"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetSlotSizeX(int value)
+    {
+      return OnConfigureInternal(bp => bp.SlotSizeX = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.SlotSizeY"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetSlotSizeY(int value)
+    {
+      return OnConfigureInternal(bp => bp.SlotSizeY = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.BuildTime"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetBuildTime(int value)
+    {
+      return OnConfigureInternal(bp => bp.BuildTime = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.SpecialSlot"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildingConfigurator SetSpecialSlot(SettlementState.SpecialSlotType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.SpecialSlot = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSettlementBuilding.m_UpgradesTo"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSettlementBuilding"/></param>
+    [Generated]
+    public SettlementBuildingConfigurator SetUpgradesTo(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_UpgradesTo = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(value));
     }
 
     /// <summary>
@@ -605,10 +734,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ActionsBuilder Action)
     {
       ValidateParam(OnMargin);
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       ValidateParam(OnlyLeader);
       
       var component =  new EventResolutonTrigger();
@@ -636,10 +762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ConditionsBuilder Condition,
         ActionsBuilder Action)
     {
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       
       var component =  new EventStartTrigger();
       component.ApplyToProblems = ApplyToProblems;
@@ -772,10 +895,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool AddReroll,
         bool AddDisadvantage)
     {
-      foreach (var item in RequiredTags)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(RequiredTags);
       ValidateParam(OnlyLeader);
       ValidateParam(Dice);
       

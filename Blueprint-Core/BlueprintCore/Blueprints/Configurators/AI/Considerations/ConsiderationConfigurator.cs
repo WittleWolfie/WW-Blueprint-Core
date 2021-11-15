@@ -14,5 +14,14 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseConsiderationConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="Consideration.BaseScoreModifier"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetBaseScoreModifier(float value)
+    {
+      return OnConfigureInternal(bp => bp.BaseScoreModifier = value);
+    }
   }
 }

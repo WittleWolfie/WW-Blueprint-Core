@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
+using Kingmaker.Utility;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -28,6 +29,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     {
       BlueprintTool.Create<BlueprintAiFollow>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiFollow.TargetType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AiFollowConfigurator SetTargetType(Kingmaker.AI.Blueprints.TargetType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.TargetType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiFollow.ApproachRange"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AiFollowConfigurator SetApproachRange(Feet value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ApproachRange = value);
     }
   }
 }

@@ -23,6 +23,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -37,6 +38,213 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDisplayNameText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DisplayNameText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDescriptionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetFlavorText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_FlavorText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetNonIdentifiedNameText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_NonIdentifiedNameText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_NonIdentifiedDescriptionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCost(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_Cost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetWeight(float value)
+    {
+      return OnConfigureInternal(bp => bp.m_Weight = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIsNotable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_IsNotable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetForceStackable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_ForceStackable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetDestructible(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_Destructible = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public TBuilder SetShardItem(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetMiscellaneousType(BlueprintItem.MiscellaneousItemType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_MiscellaneousType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetInventoryPutSound(string value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_InventoryPutSound = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetInventoryTakeSound(string value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_InventoryTakeSound = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetNeedSkinningForCollect(bool value)
+    {
+      return OnConfigureInternal(bp => bp.NeedSkinningForCollect = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder AddToTrashLootTypes(params TrashLootType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromTrashLootTypes(params TrashLootType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedEnchantments.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !values.Contains(item)).ToList());
+    }
 
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)
@@ -1328,6 +1536,213 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     {
       BlueprintTool.Create<BlueprintItem>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetDisplayNameText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DisplayNameText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetDescriptionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetFlavorText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_FlavorText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetNonIdentifiedNameText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_NonIdentifiedNameText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_NonIdentifiedDescriptionText = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetIcon(Sprite value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_Icon = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetCost(int value)
+    {
+      return OnConfigureInternal(bp => bp.m_Cost = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetWeight(float value)
+    {
+      return OnConfigureInternal(bp => bp.m_Weight = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetIsNotable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_IsNotable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetForceStackable(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_ForceStackable = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetDestructible(bool value)
+    {
+      return OnConfigureInternal(bp => bp.m_Destructible = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintItem"/></param>
+    [Generated]
+    public ItemConfigurator SetShardItem(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetMiscellaneousType(BlueprintItem.MiscellaneousItemType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_MiscellaneousType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetInventoryPutSound(string value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_InventoryPutSound = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetInventoryTakeSound(string value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_InventoryTakeSound = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetNeedSkinningForCollect(bool value)
+    {
+      return OnConfigureInternal(bp => bp.NeedSkinningForCollect = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator AddToTrashLootTypes(params TrashLootType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator RemoveFromTrashLootTypes(params TrashLootType[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator AddToCachedEnchantments(params BlueprintItemEnchantment[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedEnchantments.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !values.Contains(item)).ToList());
     }
 
     /// <summary>

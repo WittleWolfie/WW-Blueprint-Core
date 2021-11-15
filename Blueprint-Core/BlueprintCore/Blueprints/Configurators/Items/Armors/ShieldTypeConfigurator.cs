@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Blueprints.Items.Weapons;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
@@ -28,6 +29,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     {
       BlueprintTool.Create<BlueprintShieldType>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintShieldType.m_HandVisualParameters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ShieldTypeConfigurator SetHandVisualParameters(WeaponVisualParameters value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_HandVisualParameters = value);
     }
   }
 }

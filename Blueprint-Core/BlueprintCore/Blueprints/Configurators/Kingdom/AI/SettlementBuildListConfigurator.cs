@@ -1,5 +1,8 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.AI;
+using Kingmaker.UI.Settlement;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
@@ -28,6 +31,53 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     {
       BlueprintTool.Create<SettlementBuildList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="SettlementBuildList.m_BuildArea"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    public SettlementBuildListConfigurator SetBuildArea(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_BuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="SettlementBuildList.SlotSetupPrefab"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.SlotSetupPrefab = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="SettlementBuildList.List"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildListConfigurator AddToList(params SettlementBuildList.Entry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.List.AddRange(values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="SettlementBuildList.List"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildListConfigurator RemoveFromList(params SettlementBuildList.Entry[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.List = bp.List.Where(item => !values.Contains(item)).ToList());
     }
   }
 }

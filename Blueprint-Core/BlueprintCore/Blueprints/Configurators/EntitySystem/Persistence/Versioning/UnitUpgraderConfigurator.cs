@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Persistence.Versioning;
 
@@ -28,6 +29,15 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
     {
       BlueprintTool.Create<BlueprintUnitUpgrader>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitUpgraderConfigurator SetActions(ActionsBuilder value)
+    {
+      return OnConfigureInternal(bp => bp.Actions = value.Build());
     }
   }
 }

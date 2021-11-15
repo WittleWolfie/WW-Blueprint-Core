@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
+using Kingmaker.Localization;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
@@ -28,6 +30,52 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     {
       BlueprintTool.Create<BlueprintLeaderProgression>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderProgressionConfigurator SetProgressionType(LeaderProgressionType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ProgressionType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderProgressionConfigurator SetProgressionName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_ProgressionName = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderProgressionConfigurator AddToLevels(params LeaderLevel[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Levels = CommonTool.Append(bp.m_Levels, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderProgressionConfigurator RemoveFromLevels(params LeaderLevel[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_Levels = bp.m_Levels.Where(item => !values.Contains(item)).ToArray());
     }
   }
 }

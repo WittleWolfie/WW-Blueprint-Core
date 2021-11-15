@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
+using Kingmaker.Blueprints;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -14,6 +16,37 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseBrainConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAiAction"/></param>
+    [Generated]
+    public TBuilder AddToActions(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Actions = CommonTool.Append(bp.m_Actions, values.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAiAction"/></param>
+    [Generated]
+    public TBuilder RemoveFromActions(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name));
+            bp.m_Actions =
+                bp.m_Actions
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
   }
 
   /// <summary>Configurator for <see cref="BlueprintBrain"/>.</summary>
@@ -41,6 +74,37 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     {
       BlueprintTool.Create<BlueprintBrain>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAiAction"/></param>
+    [Generated]
+    public BrainConfigurator AddToActions(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_Actions = CommonTool.Append(bp.m_Actions, values.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintAiAction"/></param>
+    [Generated]
+    public BrainConfigurator RemoveFromActions(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name));
+            bp.m_Actions =
+                bp.m_Actions
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

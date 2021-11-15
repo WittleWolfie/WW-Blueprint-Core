@@ -488,6 +488,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreEpic(
         string m_EpicId)
     {
+      ValidateParam(m_EpicId);
       
       var component =  new DlcStoreEpic();
       component.m_EpicId = m_EpicId;
@@ -615,10 +616,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         ValidateParam(item);
       }
-      foreach (var item in m_ItemsToCosts)
-      {
-        ValidateParam(item);
-      }
+      ValidateParam(m_ItemsToCosts);
       
       var component =  new ChangeVendorPrices();
       component.m_PriceOverrides = m_PriceOverrides;
@@ -692,6 +690,7 @@ namespace BlueprintCore.Blueprints.Configurators
         UnitPropertyComponent.ExternalProperty[] m_AddExternalProperties,
         string[] m_AddLocalProperties)
     {
+      ValidateParam(Name);
       ValidateParam(m_Settings);
       foreach (var item in m_AddExternalProperties)
       {
@@ -1443,6 +1442,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
+      ValidateParam(m_TargetState);
       
       var component =  new OnIsleStateEnterTrigger();
       component.m_IsleEvaluator = m_IsleEvaluator;
@@ -1462,6 +1462,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder m_Actions)
     {
       ValidateParam(m_IsleEvaluator);
+      ValidateParam(m_TargetState);
       
       var component =  new OnIsleStateExitTrigger();
       component.m_IsleEvaluator = m_IsleEvaluator;
@@ -1553,6 +1554,7 @@ namespace BlueprintCore.Blueprints.Configurators
         string Id,
         ActionsBuilder Actions)
     {
+      ValidateParam(Id);
       
       var component =  new CustomEventTrigger();
       component.Id = Id;
@@ -1858,6 +1860,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder OnExitActions)
     {
       ValidateParam(ScriptZone);
+      ValidateParam(UnitRef);
       
       var component =  new ScriptZoneTrigger();
       component.ScriptZone = ScriptZone;

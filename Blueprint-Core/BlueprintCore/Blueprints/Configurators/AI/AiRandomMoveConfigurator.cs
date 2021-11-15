@@ -29,5 +29,14 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       BlueprintTool.Create<BlueprintAiRandomMove>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiRandomMove.RoamingRadiusInFeet"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AiRandomMoveConfigurator SetRoamingRadiusInFeet(int value)
+    {
+      return OnConfigureInternal(bp => bp.RoamingRadiusInFeet = value);
+    }
   }
 }

@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Collections;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
 {
@@ -28,6 +30,46 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     {
       BlueprintTool.Create<BuffCollection>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BuffCollection.CheckHidden"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public BuffCollectionConfigurator SetCheckHidden(bool value)
+    {
+      return OnConfigureInternal(bp => bp.CheckHidden = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffCollectionConfigurator AddToBuffList(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.m_BuffList = CommonTool.Append(bp.m_BuffList, values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffCollectionConfigurator RemoveFromBuffList(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
+            bp.m_BuffList =
+                bp.m_BuffList
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
     }
   }
 }

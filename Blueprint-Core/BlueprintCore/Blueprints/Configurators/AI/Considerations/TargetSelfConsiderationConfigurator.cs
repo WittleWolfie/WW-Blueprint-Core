@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<TargetSelfConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="TargetSelfConsideration.SelfScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TargetSelfConsiderationConfigurator SetSelfScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.SelfScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="TargetSelfConsideration.OthersScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TargetSelfConsiderationConfigurator SetOthersScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OthersScore = value);
+    }
   }
 }

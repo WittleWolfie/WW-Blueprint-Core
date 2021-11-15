@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.UnitLogic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
@@ -28,6 +30,50 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     {
       BlueprintTool.Create<ConditionConsideration>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ConditionConsiderationConfigurator AddToConditions(params UnitCondition[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Conditions = CommonTool.Append(bp.Conditions, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ConditionConsiderationConfigurator RemoveFromConditions(params UnitCondition[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.Conditions = bp.Conditions.Where(item => !values.Contains(item)).ToArray());
+    }
+
+    /// <summary>
+    /// Sets <see cref="ConditionConsideration.HasCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ConditionConsiderationConfigurator SetHasCondition(float value)
+    {
+      return OnConfigureInternal(bp => bp.HasCondition = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ConditionConsideration.NoCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ConditionConsiderationConfigurator SetNoCondition(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoCondition = value);
     }
   }
 }

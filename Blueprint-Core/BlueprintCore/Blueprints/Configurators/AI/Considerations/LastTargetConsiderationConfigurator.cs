@@ -29,5 +29,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       BlueprintTool.Create<LastTargetConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="LastTargetConsideration.SameLastTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LastTargetConsiderationConfigurator SetSameLastTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.SameLastTargetScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="LastTargetConsideration.OtherLastTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LastTargetConsiderationConfigurator SetOtherLastTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.OtherLastTargetScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="LastTargetConsideration.NoLastTargetScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LastTargetConsiderationConfigurator SetNoLastTargetScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.NoLastTargetScore = value);
+    }
   }
 }

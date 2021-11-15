@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
@@ -29,6 +30,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
     {
       BlueprintTool.Create<BlueprintUnitAsksList>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnitAsksList.DisplayName"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitAsksListConfigurator SetDisplayName(LocalizedString value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.DisplayName = value);
     }
 
     /// <summary>
@@ -66,6 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
       {
         ValidateParam(item);
       }
+      ValidateParam(PreviewSound);
       ValidateParam(Aggro);
       ValidateParam(Pain);
       ValidateParam(Fatigue);

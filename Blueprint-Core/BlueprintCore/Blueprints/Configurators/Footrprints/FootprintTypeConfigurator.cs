@@ -1,5 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
+using Kingmaker.Enums;
+using Kingmaker.Utility.EnumArrays;
 
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
@@ -28,6 +30,26 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     {
       BlueprintTool.Create<BlueprintFootprintType>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFootprintType.FootprintType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FootprintTypeConfigurator SetFootprintType(FootprintType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.FootprintType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFootprintType.Footprints"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FootprintTypeConfigurator SetFootprints(FootprintsEnumArray value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.Footprints = value);
     }
   }
 }

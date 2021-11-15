@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
+using Kingmaker.Blueprints.Items.Weapons;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
@@ -14,5 +15,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseItemEquipmentHandConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipmentHand.m_VisualParameters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetVisualParameters(WeaponVisualParameters value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.m_VisualParameters = value);
+    }
   }
 }

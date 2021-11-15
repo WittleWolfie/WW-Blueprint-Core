@@ -30,5 +30,41 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
       BlueprintTool.Create<ArmyHealthConsideration>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="ArmyHealthConsideration.FullBorder"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmyHealthConsiderationConfigurator SetFullBorder(float value)
+    {
+      return OnConfigureInternal(bp => bp.FullBorder = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ArmyHealthConsideration.DeadBorder"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmyHealthConsiderationConfigurator SetDeadBorder(float value)
+    {
+      return OnConfigureInternal(bp => bp.DeadBorder = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ArmyHealthConsideration.FullScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmyHealthConsiderationConfigurator SetFullScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.FullScore = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="ArmyHealthConsideration.DeadScore"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArmyHealthConsiderationConfigurator SetDeadScore(float value)
+    {
+      return OnConfigureInternal(bp => bp.DeadScore = value);
+    }
   }
 }

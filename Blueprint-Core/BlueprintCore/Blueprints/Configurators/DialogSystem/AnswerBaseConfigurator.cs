@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.Enums;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -14,5 +15,25 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
      protected BaseAnswerBaseConfigurator(string name) : base(name) { }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAnswerBase.MythicRequirement"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetMythicRequirement(Mythic value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.MythicRequirement = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAnswerBase.AlignmentRequirement"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetAlignmentRequirement(AlignmentComponent value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.AlignmentRequirement = value);
+    }
   }
 }

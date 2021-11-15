@@ -1,10 +1,12 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
@@ -33,6 +35,220 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     {
       BlueprintTool.Create<BlueprintParametrizedFeature>(name, assetId);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.ParameterType"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetParameterType(FeatureParameterType value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.ParameterType = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetWeaponSubCategory(WeaponSubCategory value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.WeaponSubCategory = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.SelectionFeatureGroup"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSelectionFeatureGroup(FeatureGroup value)
+    {
+      ValidateParam(value);
+      return OnConfigureInternal(bp => bp.SelectionFeatureGroup = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.RequireProficiency"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetRequireProficiency(bool value)
+    {
+      return OnConfigureInternal(bp => bp.RequireProficiency = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.m_SpellList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSpellList(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSpellcasterClass(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.SpecificSpellLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSpecificSpellLevel(bool value)
+    {
+      return OnConfigureInternal(bp => bp.SpecificSpellLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSpellLevelPenalty(int value)
+    {
+      return OnConfigureInternal(bp => bp.SpellLevelPenalty = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.SpellLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetSpellLevel(int value)
+    {
+      return OnConfigureInternal(bp => bp.SpellLevel = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetDisallowSpellsInSpellList(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DisallowSpellsInSpellList = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.m_Prerequisite"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="value"><see cref="BlueprintParametrizedFeature"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetPrerequisite(string value)
+    {
+      return OnConfigureInternal(bp => bp.m_Prerequisite = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(value));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator AddToCustomParameterVariants(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.CustomParameterVariants = CommonTool.Append(bp.CustomParameterVariants, values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromCustomParameterVariants(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
+            bp.CustomParameterVariants =
+                bp.CustomParameterVariants
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.HasNoSuchFeature"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetHasNoSuchFeature(bool value)
+    {
+      return OnConfigureInternal(bp => bp.HasNoSuchFeature = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetIgnoreParameterFeaturePrerequisites(bool value)
+    {
+      return OnConfigureInternal(bp => bp.IgnoreParameterFeaturePrerequisites = value);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator AddToBlueprintParameterVariants(params string[] values)
+    {
+      return OnConfigureInternal(bp => bp.BlueprintParameterVariants = CommonTool.Append(bp.BlueprintParameterVariants, values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray()));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromBlueprintParameterVariants(params string[] values)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
+            bp.BlueprintParameterVariants =
+                bp.BlueprintParameterVariants
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator AddToCachedItems(params FeatureUIData[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedItems = CommonTool.Append(bp.m_CachedItems, values));
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromCachedItems(params FeatureUIData[] values)
+    {
+      foreach (var item in values)
+      {
+        ValidateParam(item);
+      }
+      return OnConfigureInternal(bp => bp.m_CachedItems = bp.m_CachedItems.Where(item => !values.Contains(item)).ToArray());
     }
 
     /// <summary>

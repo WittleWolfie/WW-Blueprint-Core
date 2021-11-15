@@ -29,5 +29,23 @@ namespace BlueprintCore.Blueprints.Configurators
       BlueprintTool.Create<BlueprintSummonPool>(name, assetId);
       return For(name);
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSummonPool.Limit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SummonPoolConfigurator SetLimit(int value)
+    {
+      return OnConfigureInternal(bp => bp.Limit = value);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintSummonPool.DoNotRemoveDeadUnits"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SummonPoolConfigurator SetDoNotRemoveDeadUnits(bool value)
+    {
+      return OnConfigureInternal(bp => bp.DoNotRemoveDeadUnits = value);
+    }
   }
 }
