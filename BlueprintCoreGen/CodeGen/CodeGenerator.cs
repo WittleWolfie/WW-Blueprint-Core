@@ -10,6 +10,12 @@ using static Kingmaker.Visual.Sound.SoundEventsEmitter;
 
 namespace BlueprintCoreGen.CodeGen
 {
+  // TODO: Refactor and cleanup code generation
+  // TODO: Harden handling of simple types like nullable values
+  // TODO: Explore handling complex nested types / types that implement IEnumerable like the Kingdom TagList and Dictionary
+  // TODO: Implement optional parameters for primitives and nullable types
+  // TODO: Fix param names to remove m_ and caps
+  // TODO: Unify name scheme across templates & auto-generated code (including fixing AddAdd in code-gen)
   public static class CodeGenerator
   {
     private enum BuilderType
