@@ -15,7 +15,9 @@ Some code was moved around for consistency and a new DLL reference is required.
 
 * BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils
 * All BlueprintConfigurators were moved from BlueprintCore.Blueprints to BlueprintCore.Configurators
-* Owlcat.Runtime.Visual DLL is now required as a reference
+* New assembly references are required:
+    * Owlcat.Runtime.Visual.dll
+    * Owlcat.Runtime.UI.dll
 
 ## v0.6.0 Release
 

@@ -12,8 +12,9 @@
   <TargetFramework>net472</TargetFramework>
 </PropertyGroup>
 ```
-5. Add an assembly reference to the `Owlcat.Runtime.Visual.dll` assembly.
-    * This is in the Wrath installation directory: `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll`
+5. Add the necessary assembly references from the game install directory:
+    * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll`
+    * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.UI.dll`
 6. You're ready to go!
 
 If you're interested in contributing see [How to Contribute](contributing.md).

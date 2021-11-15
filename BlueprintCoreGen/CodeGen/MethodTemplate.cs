@@ -92,10 +92,15 @@ namespace BlueprintCoreGen.CodeGen
       // Skip type defined in the global namespace
       if (!string.IsNullOrEmpty(type.Namespace))
       {
-        Imports.Add($"using {type.Namespace};");
+        AddImport(type.Namespace);
       }
     }
 
+    public void AddImport(string nameSpace)
+    {
+      Imports.Add($"using {nameSpace};");
+    }
+    
     public void AddBodyLine(string line)
     {
       Body.AppendLine($"{BaseIndent}  {line}");

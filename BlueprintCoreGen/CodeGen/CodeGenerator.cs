@@ -1,9 +1,12 @@
-﻿using Kingmaker.Blueprints;
+﻿using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using static Kingmaker.Visual.Sound.SoundEventsEmitter;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -54,7 +57,16 @@ namespace BlueprintCoreGen.CodeGen
     {
       template.AddDeclaration(isAbstract);
 
-      // TODO: Field methods
+      foreach (
+          var field in
+              template.BlueprintType.GetFields()
+                  .Where(field => !ShouldSkipField(field) && field.DeclaringType == template.BlueprintType))
+      {
+        foreach (var method in CreateFieldMethods(field, template.BlueprintType))
+        {
+          template.AddConfiguratorMethod(method, isAbstract);
+        }
+      }
 
       foreach (var method in componentMethods)
       {
@@ -64,12 +76,80 @@ namespace BlueprintCoreGen.CodeGen
       template.EndClass();
     }
 
-    public static List<MethodTemplate> CreateFieldMethod(FieldInfo field)
+    public static List<IMethod> CreateFieldMethods(FieldInfo field, Type blueprintType)
     {
-      return new();
+      IField processedField = FieldProcessor.Process(field);
+      if (processedField is IEnumerableField)
+      {
+        return
+            new()
+            {
+              CreateEnumerableFieldMethod(field, processedField as IEnumerableField, blueprintType, true),
+              CreateEnumerableFieldMethod(field, processedField as IEnumerableField, blueprintType, false)
+            };
+      }
+
+      var paramName = "value";
+      processedField.SetParamName(paramName);
+
+      var fakeName = blueprintType.Name;
+
+      var method = new MethodTemplate(2);
+      processedField.GetImports().ForEach(import => method.AddImport(import));
+
+      method.AddCommentSummary($"Sets <see cref=\"{GetTypeName(blueprintType)}.{field.Name}\"/> (Auto Generated)");
+      var paramComment = processedField.GetParamComment();
+      if (paramComment is not null) { method.AddComment(paramComment); }
+
+      method.AddAttribute($"[Generated]");
+      method.AddDeclaration($"public TBuilder Set{field.Name.Replace("m_", "")}({processedField.GetParamDeclaration()})");
+
+      processedField.GetValidation(GetConfiguratorValidation).ForEach(line => method.AddBodyLine(line));
+
+      method.AddBodyLine($"return OnConfigureInternal(bp => bp.{processedField.GetAssignment().Replace(";", "")});");
+
+      return new() { method };
     }
 
-    public static MethodTemplate CreateMethod(Type type)
+    private static IMethod CreateEnumerableFieldMethod(
+        FieldInfo info, IEnumerableField field, Type blueprintType, bool add)
+    {
+      var paramName = "values";
+      field.SetParamName(paramName);
+
+      var method = new MethodTemplate(2);
+      field.GetImports().ForEach(import => method.AddImport(import));
+      method.AddImport(typeof(CommonTool));
+      method.AddImport("System.Linq");
+
+      method.AddCommentSummary($"Modifies <see cref=\"{GetTypeName(blueprintType)}.{info.Name}\"/> (Auto Generated)");
+      var paramComment = field.GetParamComment();
+      if (paramComment is not null) { method.AddComment(paramComment); }
+
+      method.AddAttribute($"[Generated]");
+      var prefix = add ? "AddTo" : "RemoveFrom";
+      method.AddDeclaration($"public TBuilder {prefix}{info.Name.Replace("m_", "")}(params {GetTypeName(field.GetEnumerableType())}[] {paramName})");
+
+      field.GetValidation(GetConfiguratorValidation).ForEach(line => method.AddBodyLine(line));
+
+      var configureStatement = add ? field.GetAdd("bp") : field.GetRemove("bp");
+      if (configureStatement.Count == 1)
+      {
+        method.AddBodyLine($"return OnConfigureInternal(bp => {configureStatement[0]});");
+      }
+      else
+      {
+        method.AddBodyLine($"return OnConfigureInternal(");
+        method.AddBodyLine($"    bp =>");
+        method.AddBodyLine(@"    {");
+        configureStatement.ForEach(line => method.AddBodyLine($"      {line}"));
+        method.AddBodyLine(@"    });");
+      }
+
+      return method;
+    }
+
+    public static IMethod CreateMethod(Type type)
     {
       if (type.IsSubclassOf(typeof(GameAction)))
       {
@@ -276,6 +356,12 @@ namespace BlueprintCoreGen.CodeGen
       return method;
     }
 
+    private static readonly Dictionary<Type, List<string>> IgnoredFieldNamesByBlueprintType =
+        new()
+        {
+          { typeof(BlueprintQuestObjective), new() { "m_NextObjectivesProxy", "m_AddendumsProxy", "m_AreasProxy" } }
+        };
+
     private static bool ShouldSkipField(FieldInfo field)
     {
       return field.Name.Contains("__BackingField")
@@ -284,7 +370,9 @@ namespace BlueprintCoreGen.CodeGen
           // Skip constant, static, and read-only
           || field.IsLiteral
           || field.IsStatic
-          || field.IsInitOnly;
+          || field.IsInitOnly
+          || (IgnoredFieldNamesByBlueprintType.ContainsKey(field.DeclaringType)
+              && IgnoredFieldNamesByBlueprintType[field.DeclaringType].Contains(field.Name));
     }
 
     private static string GetConfiguratorValidation(string varName)
