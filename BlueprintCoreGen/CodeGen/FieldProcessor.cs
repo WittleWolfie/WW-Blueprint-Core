@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using static BlueprintCoreGen.CodeGen.IField;
+using static BlueprintCoreGen.CodeGen.OldIField;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -25,7 +25,7 @@ namespace BlueprintCoreGen.CodeGen
           || fieldType.IsSubclassOf(typeof(TagListBase));
     }
 
-    public static IField Process(FieldInfo field)
+    public static OldIField Process(FieldInfo field)
     {
       var enumerableType = GetEnumerableType(field.FieldType);
       if (enumerableType != null && !IsIgnoredEnumerableType(field.FieldType))
@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen
         }
         else
         {
-          return new EnumerableField(field, enumerableType);
+          return new OldEnumerableField(field, enumerableType);
         }
       }
       else if(field.FieldType.IsSubclassOf(typeof(BlueprintReferenceBase)))
@@ -45,7 +45,7 @@ namespace BlueprintCoreGen.CodeGen
       }
       else
       {
-        return new Field(field);
+        return new OldField(field);
       }
     }
 
@@ -57,7 +57,7 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public interface IField
+  public interface OldIField
   {
     bool IsOptional();
     string GetParamComment();
@@ -70,7 +70,7 @@ namespace BlueprintCoreGen.CodeGen
     delegate string GetValidationCall(string varName);
   }
 
-  public interface IEnumerableField : IField
+  public interface IOldEnumerable : OldIField
   {
     Type GetEnumerableType();
 
@@ -79,14 +79,14 @@ namespace BlueprintCoreGen.CodeGen
     List<string> GetRemove(string bpVarName);
   }
 
-  public class Field : IField
+  public class OldField : OldIField
   {
     protected FieldInfo Info { get; private set; }
     protected string ParamName { get; private set; }
 
     private readonly FieldType Type;
 
-    public Field(FieldInfo fieldInfo)
+    public OldField(FieldInfo fieldInfo)
     {
       Info = fieldInfo;
       if (Info.FieldType == typeof(ActionList))
@@ -198,7 +198,7 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class NegateConditionField : IField
+  public class NegateConditionField : OldIField
   {
     public NegateConditionField()
     {
@@ -237,11 +237,11 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class EnumerableField : Field, IEnumerableField
+  public class OldEnumerableField : OldField, IOldEnumerable
   {
     private readonly Type EnumerableType;
 
-    public EnumerableField(FieldInfo fieldInfo, Type enumerableType) : base(fieldInfo)
+    public OldEnumerableField(FieldInfo fieldInfo, Type enumerableType) : base(fieldInfo)
     {
       EnumerableType = enumerableType;
     }
@@ -285,7 +285,7 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class BlueprintField : Field
+  public class BlueprintField : OldField
   {
     protected readonly Type BlueprintType;
 
@@ -334,7 +334,7 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class EnumerableBlueprintField : BlueprintField, IEnumerableField
+  public class EnumerableBlueprintField : BlueprintField, IOldEnumerable
   {
     private readonly Type ReferenceType;
 

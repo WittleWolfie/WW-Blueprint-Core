@@ -84,14 +84,14 @@ namespace BlueprintCoreGen.CodeGen
 
     public static List<IMethod> CreateFieldMethods(FieldInfo field, Type blueprintType)
     {
-      IField processedField = FieldProcessor.Process(field);
-      if (processedField is IEnumerableField)
+      OldIField processedField = FieldProcessor.Process(field);
+      if (processedField is IOldEnumerable)
       {
         return
             new()
             {
-              CreateEnumerableFieldMethod(field, processedField as IEnumerableField, blueprintType, true),
-              CreateEnumerableFieldMethod(field, processedField as IEnumerableField, blueprintType, false)
+              CreateEnumerableFieldMethod(field, processedField as IOldEnumerable, blueprintType, true),
+              CreateEnumerableFieldMethod(field, processedField as IOldEnumerable, blueprintType, false)
             };
       }
 
@@ -118,7 +118,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static IMethod CreateEnumerableFieldMethod(
-        FieldInfo info, IEnumerableField field, Type blueprintType, bool add)
+        FieldInfo info, IOldEnumerable field, Type blueprintType, bool add)
     {
       var paramName = "values";
       field.SetParamName(paramName);
@@ -266,7 +266,7 @@ namespace BlueprintCoreGen.CodeGen
         method.AddDeclaration($"public static {builderType} Add{type.Name}(");
         method.AddParamDeclaration($"this {builderType} builder");
 
-        List<IField> optionalFields = new();
+        List<OldIField> optionalFields = new();
         foreach (var field in fields)
         {
           if (field.IsOptional())
@@ -330,7 +330,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         method.AddDeclaration($"public TBuilder Add{type.Name}(");
 
-        List<IField> optionalFields = new();
+        List<OldIField> optionalFields = new();
         foreach (var field in fields)
         {
           if (field.IsOptional())
@@ -387,7 +387,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static void AddField(
-        this MethodTemplate method, IField field, IField.GetValidationCall validationMethodProcessor)
+        this MethodTemplate method, OldIField field, OldIField.GetValidationCall validationMethodProcessor)
     {
       field.GetImports().ForEach(import => method.AddImport(import));
 
