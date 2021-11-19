@@ -191,5 +191,11 @@ namespace BlueprintCoreGen.Actions.Builder
     {
       Validator.Check(obj).ForEach(str => ValidationWarnings.AppendLine(str));
     }
+
+    internal void Validate<T>(IEnumerable<T> objects)
+    {
+      if (objects is null) { return; }
+      foreach (var obj in objects) { Validate(obj); }
+    }
   }
 }

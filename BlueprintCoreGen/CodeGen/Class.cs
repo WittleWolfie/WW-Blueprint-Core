@@ -290,7 +290,7 @@ namespace BlueprintCoreGen.CodeGen
       AddClassSummary(configurator, $"Configurator for <see cref=\"{blueprintTypeName}\"/>.");
       AddAttributes(configurator);
       configurator.AddLine(
-          $"  public class {className} : Base{GetConfiguratorClassName(configurator.BlueprintType.BaseType)}<{blueprintTypeName}, {className}");
+          $"  public class {className} : Base{GetConfiguratorClassName(configurator.BlueprintType.BaseType)}<{blueprintTypeName}, {className}>");
       configurator.AddLine($"  {{");
       configurator.AddLine($"    private {className}(string name) : base(name) {{ }}");
 
@@ -416,7 +416,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         var sortedImports = Imports.ToList();
         sortedImports.Sort();
-        Text.Insert(0, string.Join('\n', sortedImports) + "\n\n");
+        Text.Insert(0, string.Join('\n', sortedImports) + "\n");
 
         return Text.ToString();
       }

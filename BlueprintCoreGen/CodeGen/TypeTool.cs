@@ -18,7 +18,7 @@ namespace BlueprintCoreGen.CodeGen
             { typeof(bool), "bool" },
             { typeof(bool?), "bool?" },
             { typeof(byte), "byte" },
-            { typeof(byte), "byte?" },
+            { typeof(byte?), "byte?" },
             { typeof(sbyte), "sbyte" },
             { typeof(sbyte?), "sbyte?" },
             { typeof(ushort), "ushort" },
@@ -70,10 +70,10 @@ namespace BlueprintCoreGen.CodeGen
 
     private static string GetSimpleTypeName(Type type)
     {
-      if (string.IsNullOrEmpty(type.Namespace))
-      {
-        return $"global::{type.Name}";
-      }
+      //if (string.IsNullOrEmpty(type.Namespace))
+      //{
+      //  return $"global::{type.Name}";
+      //}
       return type.Name;
     }
   }

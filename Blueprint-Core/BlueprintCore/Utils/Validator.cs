@@ -45,8 +45,8 @@ namespace BlueprintCore.Utils
     /// </remarks>
     public static List<string> Check(object obj)
     {
-      if (obj == null) { }
       List<string> errors = new();
+      if (obj == null) { return errors; }
 
       var name = obj is Element ? (obj as Element).name : obj.GetType().ToString();
       Check(obj, name);

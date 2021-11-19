@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Quests;
@@ -128,22 +129,24 @@ namespace BlueprintCoreGen.CodeGen
       return new Field(info);
     }
 
-    private static readonly Dictionary<Type, List<string>> IgnoredFieldNameByType =
+    private static readonly List<string> IgnoredFieldNames =
         new()
         {
-          { typeof(AbilityDeliverProjectile), new() { "m_HasIsAllyEffectRunConditions" } },
-          { typeof(BlueprintQuestObjective), new() { "m_NextObjectivesProxy", "m_AddendumsProxy", "m_AreasProxy" } }
+          "m_PrototypeLink",
+          "m_HasIsAllyEffectRunConditions",
+          "m_NextObjectivesProxy",
+          "m_AddendumsProxy",
+          "m_AreasProxy",
+          "name"
         };
     private static bool IsIgnoredField(FieldInfo field)
     {
       return field.Name.Contains("__BackingField") // Compiler generated field
-          || field.Name == "name" // Common field that shouldn't be modified
+          || IgnoredFieldNames.Contains(field.Name)
           // Skip constant, static, and read-only
           || field.IsLiteral
           || field.IsStatic
-          || field.IsInitOnly
-          || (IgnoredFieldNameByType.ContainsKey(field.DeclaringType)
-              && IgnoredFieldNameByType[field.DeclaringType].Contains(field.Name));
+          || field.IsInitOnly;
     }
 
     private static bool IsIgnoredEnumerableType(Type fieldType)
@@ -182,7 +185,7 @@ namespace BlueprintCoreGen.CodeGen
         ParamName = GetFriendlyName(Name, lowercase: true);
         MethodName = GetFriendlyName(Name, lowercase: false);
 
-        ShouldValidate = !info.FieldType.IsPrimitive && info.FieldType != typeof(string);
+        ShouldValidate = GetShouldValidate(info.FieldType);
         DefaultValue = GetDefaultValue(info.FieldType);
 
         Imports = new();
@@ -209,6 +212,10 @@ namespace BlueprintCoreGen.CodeGen
         {
           return false;
         }
+        if (type.IsValueType)
+        {
+          return false;
+        }
         return true;
       }
 
@@ -224,20 +231,35 @@ namespace BlueprintCoreGen.CodeGen
 
       private static string GetDefaultValue(Type type)
       {
-        if (type.IsPrimitive) { return "default"; }
+        if (type.IsPrimitive || type.IsEnum) { return "default"; }
         if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)) { return "null"; }
         return null;
       }
 
+      private static readonly Dictionary<string, string> FriendlyNameOverrides =
+          new()
+          {
+            { "default", "defaultValue" },
+            { "event", "eventValue" },
+            { "break", "breakValue"},
+            { "string", "stringValue" },
+            { "class", "clazz"},
+            { "override", "overrideValue" },
+            { "continue", "continueValue" },
+            { "double", "doubleValue" }
+          };
       private static string GetFriendlyName(string fieldName, bool lowercase)
       {
-        StringBuilder paramName = new(fieldName);
-        if (paramName[0] == 'm' && paramName[1] == '_')
+        StringBuilder friendlyName = new(fieldName);
+        if (friendlyName[0] == 'm' && friendlyName[1] == '_')
         {
-          paramName.Remove(0, 2);
+          friendlyName.Remove(0, 2);
         }
-        paramName[0] = lowercase ? char.ToLower(paramName[0]) : char.ToUpper(paramName[0]);
-        return paramName.ToString();
+        friendlyName[0] = lowercase ? char.ToLower(friendlyName[0]) : char.ToUpper(friendlyName[0]);
+        
+        var result = friendlyName.ToString();
+        if (FriendlyNameOverrides.ContainsKey(result)) { return FriendlyNameOverrides[result]; }
+        return result;
       }
     }
 
@@ -249,8 +271,7 @@ namespace BlueprintCoreGen.CodeGen
           new()
           {
             { typeof(PrefabLink), "Constants.Empty.PrefabLink" },
-            { typeof(LocalizedString), "Constants.Empty.String" },
-            { typeof(ContextDiceValue), "Constants.Empty.DiceValue" }
+            { typeof(LocalizedString), "Constants.Empty.String" }
           };
       public DefaultEmptyField(FieldInfo info) : base(info)
       {
@@ -270,7 +291,7 @@ namespace BlueprintCoreGen.CodeGen
       public string TypeName => "bool";
       public string ParamName => "negate";
       public string MethodName => throw new NotImplementedException();
-      public string Comment => throw new NotImplementedException();
+      public string Comment => null;
       public string DefaultValue => "false";
       public bool ShouldValidate => false;
       public HashSet<Type> Imports => new();
@@ -307,7 +328,7 @@ namespace BlueprintCoreGen.CodeGen
             break;
           case BuilderType.Conditions:
             TypeName = "ConditionsBuilder";
-            Imports.Add(typeof(ConditionsChecker));
+            Imports.Add(typeof(ConditionsBuilder));
             break;
           default:
             throw new InvalidOperationException("Unsupported builder type: " + info.FieldType.Name);
@@ -360,8 +381,8 @@ namespace BlueprintCoreGen.CodeGen
             new()
             {
               IsArray
-                  ? $"{objectName}.{Name} = CommonTool.Append({objectName}.{Name}, {ParamName} ?? new {EnumerableTypeName}());"
-                  : $"{objectName}.{Name}.AddRange({ParamName} ?? new {EnumerableTypeName}());"
+                  ? $"{objectName}.{Name} = CommonTool.Append({objectName}.{Name}, {ParamName} ?? new {EnumerableTypeName}[0]);"
+                  : $"{objectName}.{Name}.AddRange({ParamName}.ToList() ?? new {TypeName}());"
             };
       }
 
@@ -370,7 +391,7 @@ namespace BlueprintCoreGen.CodeGen
         return
             new()
             {
-              $"{objectName}.{Name} = {objectName}.{Name}.Where(item => !{ParamName}.Contains(item)).{ToEnumerable}"
+              $"{objectName}.{Name} = {objectName}.{Name}.Where(item => !{ParamName}.Contains(item)).{ToEnumerable};"
             };
       }
     }

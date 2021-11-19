@@ -335,6 +335,12 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
 
+    protected void ValidateParam<T>(IEnumerable<T> objects)
+    {
+      if (objects is null) { return; }
+      foreach (var obj in objects) { ValidateParam(obj); }
+    }
+
     private void ConfigureBase()
     {
       ConfigurePrerequisiteAlignment();
@@ -473,7 +479,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       if (duplicateRankTypes.Any())
       {
         AddValidationWarning(
-            $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(',', duplicateRankTypes)}");
+            $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(",", duplicateRankTypes)}");
       }
 
       Context.Errors.ToList().ForEach(str => AddValidationWarning(str));

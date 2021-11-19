@@ -78,7 +78,7 @@ namespace BlueprintCoreGen.CodeGen
               .ToList();
 
       var method = new Method();
-      method.AddImport(typeof(ActionsBuilder));
+      method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
       fields.ForEach(field => method.AddImports(field.Imports.ToList()));
 
@@ -91,14 +91,14 @@ namespace BlueprintCoreGen.CodeGen
 
       if (!fields.Any())
       {
-        method.AddLine($"public static {builderType} {GetMethodName("Add", elementTypeName)}(this {builderType} builder)");
+        method.AddLine($"public static {builderType} {elementTypeName}(this {builderType} builder)");
         method.AddLine($"{{");
         method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
         method.AddLine($"}}");
         return method;
       }
 
-      method.AddLine($"public static {builderType} {GetMethodName("Add", elementTypeName)}(");
+      method.AddLine($"public static {builderType} {elementTypeName}(");
       method.AddLine($"    this {builderType} builder,");
 
       AddParamDeclarations(method, fields);
@@ -143,6 +143,7 @@ namespace BlueprintCoreGen.CodeGen
               .ToList();
 
       var method = new Method();
+      method.AddImport(componentType);
       fields.ForEach(field => method.AddImports(field.Imports.ToList()));
 
       AddComments(
@@ -204,13 +205,11 @@ namespace BlueprintCoreGen.CodeGen
 
       if (field.ShouldValidate)
       {
-        AddValidation(method, field, ConfiguratorValidationMethod, isEnumerable);
+        AddValidation(method, field, ConfiguratorValidationMethod);
         method.AddLine("");
       }
 
       AddOnConfigure(method, field.GetAssignment("bp"));
-
-      method.AddLine($"  return Self;");
       method.AddLine($"}}");
       return method;
     }
@@ -230,14 +229,11 @@ namespace BlueprintCoreGen.CodeGen
 
       if (field.ShouldValidate)
       {
-        AddValidation(method, field, ConfiguratorValidationMethod, isEnumerable: true);
+        AddValidation(method, field, ConfiguratorValidationMethod);
       }
 
       AddOnConfigure(method, addTo ? field.GetAddTo("bp") : field.GetRemoveFrom("bp"));
-
-      method.AddLine($"  return Self;");
       method.AddLine($"}}");
-
       return method;
     }
 
@@ -270,13 +266,13 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static string GetMethodName(string prefix, string methodName)
+    private static string GetMethodName(string prefix, string typeName)
     {
-      if (methodName.StartsWith(prefix))
+      if (typeName.StartsWith(prefix))
       {
-        return methodName.Remove(0, prefix.Length);
+        return typeName;
       }
-      return methodName;
+      return $"{prefix}{typeName}";
     }
 
     private static void AddValidation(Method method, List<IField> fields, string validationMethod)
@@ -288,25 +284,15 @@ namespace BlueprintCoreGen.CodeGen
             if (field.ShouldValidate)
             {
               hasValidation = true;
-              AddValidation(method, field, validationMethod, field is IEnumerableField);
+              AddValidation(method, field, validationMethod);
             }
           });
       if (hasValidation) { method.AddLine(""); }
     }
 
-    private static void AddValidation(Method method, IField field, string validateFunction, bool isEnumerable)
+    private static void AddValidation(Method method, IField field, string validateFunction)
     {
-      method.AddLine($"  if ({field.ParamName} is not null)");
-      method.AddLine($"  {{");
-      if (isEnumerable)
-      {
-        method.AddLine($"    foreach (var item in {field.ParamName}) {{ {validateFunction}(item); }}");
-      }
-      else
-      {
-        method.AddLine($"    {validateFunction}({field.ParamName});");
-      }
-      method.AddLine($"  }}");
+      method.AddLine($"  {validateFunction}({field.ParamName});");
     }
 
     private static void AddOnConfigure(Method method, List<string> onConfigureBody)
