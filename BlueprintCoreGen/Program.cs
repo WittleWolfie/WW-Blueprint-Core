@@ -32,16 +32,16 @@ namespace BlueprintCoreGen
 
       File.WriteAllText("missing_types.txt", missingTypes.ToString());
 
-      TemplateProcessor.ConfiguratorTemplates.ForEach(template => WriteTemplateToFile(template));
+      TemplateProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClasstoFile(configuratorClass));
     }
 
     private static List<Type> ProcessActions(Type[] gameTypes)
     {
       HashSet<Type> implementedActionTypes = new();
-      foreach (ClassTemplate template in TemplateProcessor.ActionTemplates)
+      foreach (IClass actionClass in TemplateProcessor.ActionClasses)
       {
-        WriteTemplateToFile(template);
-        implementedActionTypes.UnionWith(template.GetImplementedTypes());
+        WriteClasstoFile(actionClass);
+        implementedActionTypes.UnionWith(actionClass.GetImplementedTypes());
       }
       return TemplateProcessor.GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
     }
@@ -49,21 +49,21 @@ namespace BlueprintCoreGen
     private static List<Type> ProcessConditions(Type[] gameTypes)
     {
       HashSet<Type> implementedConditionTypes = new();
-      foreach (ClassTemplate template in TemplateProcessor.ConditionTemplates)
+      foreach (IClass conditionClass in TemplateProcessor.ConditionClasses)
       {
-        WriteTemplateToFile(template);
-        implementedConditionTypes.UnionWith(template.GetImplementedTypes());
+        WriteClasstoFile(conditionClass);
+        implementedConditionTypes.UnionWith(conditionClass.GetImplementedTypes());
       }
       return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
-    private static void WriteTemplateToFile(ClassTemplate template)
+    private static void WriteClasstoFile(IClass classtoWrite)
     {
       // Create the directories if necessary
-      FileInfo result = new FileInfo(template.RelativePath);
+      FileInfo result = new FileInfo(classtoWrite.RelativePath);
       result.Directory.Create();
 
-      File.WriteAllText(template.RelativePath, template.GetClassText());
+      File.WriteAllText(classtoWrite.RelativePath, classtoWrite.GetText());
     }
   }
 }

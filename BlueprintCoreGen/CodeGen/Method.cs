@@ -1,13 +1,9 @@
 ﻿using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.ElementsSystem;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using static BlueprintCoreGen.CodeGen.MethodFactory;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -19,7 +15,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// A list of types that need to be imported for the method.
     /// </summary>
-    List<Type> GetImports();
+    List<string> GetImports();
 
     /// <summary>
     /// Returns the method implementation as text.
@@ -27,9 +23,38 @@ namespace BlueprintCoreGen.CodeGen
     List<string> GetText();
   }
 
+  /// <summary>
+  /// Represents a method constructed from text in a template file.
+  /// </summary>
+  public class RawMethod : IMethod
+  {
+    private readonly List<string> Imports;
+    private readonly List<string> Text = new();
+
+    public RawMethod(List<string> imports)
+    {
+      Imports = imports;
+    }
+
+    public void AddLine(string line)
+    {
+      Text.Add(line);
+    }
+
+    public List<string> GetImports()
+    {
+      return Imports;
+    }
+
+    public List<string> GetText()
+    {
+      return Text;
+    }
+  }
+
   public class MethodFactory
   {
-    public enum BuilderType
+    private enum BuilderType
     {
       ActionsBuilder,
       ConditionsBuilder
@@ -41,8 +66,10 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Creates a method for adding an Element to a Builder
     /// </summary>
-    public static IMethod CreateForBuilder(Type elementType, BuilderType builderType)
+    public static IMethod CreateForBuilder(Type elementType)
     {
+      var builderType =
+          elementType.IsSubclassOf(typeof(GameAction)) ? BuilderType.ActionsBuilder : BuilderType.ConditionsBuilder; 
       var elementTypeName = TypeTool.GetName(elementType);
       var fields =
           elementType.GetFields()
@@ -106,7 +133,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Creates a method for adding a blueprint component.
     /// </summary>
-    public static IMethod CreateForBlueprintComponent(Type componentType, string returnType)
+    public static IMethod CreateForBlueprintComponent(Type componentType)
     {
       var componentTypeName = TypeTool.GetName(componentType);
       var fields =
@@ -127,14 +154,14 @@ namespace BlueprintCoreGen.CodeGen
 
       if (!fields.Any())
       {
-        method.AddLine($"public {returnType} {GetMethodName("Add", componentTypeName)}()");
+        method.AddLine($"public TBuilder {GetMethodName("Add", componentTypeName)}()");
         method.AddLine($"{{");
         method.AddLine($"  return AddComponent(new {componentTypeName}());");
         method.AddLine($"}}");
         return method;
       }
 
-      method.AddLine($"public {returnType} {GetMethodName("Add", componentTypeName)}(");
+      method.AddLine($"public TBuilder {GetMethodName("Add", componentTypeName)}(");
       AddParamDeclarations(method, fields);
       method.AddLine($"{{");
 
@@ -293,10 +320,10 @@ namespace BlueprintCoreGen.CodeGen
 
     private class Method : IMethod
     {
-      private readonly HashSet<Type> Imports = new();
+      private readonly HashSet<string> Imports = new();
       private readonly List<string> Text = new();
 
-      public List<Type> GetImports()
+      public List<string> GetImports()
       {
         return Imports.ToList();
       }
@@ -308,12 +335,21 @@ namespace BlueprintCoreGen.CodeGen
 
       public void AddImports(List<Type> imports)
       {
-        imports.ForEach(import => Imports.Add(import));
+        imports.ForEach(import => AddImport(import.Namespace));
       }
 
       public void AddImport(Type import)
       {
-        Imports.Add(import);
+        AddImport(import.Namespace);
+      }
+
+      private void AddImport(string typeNamespace)
+      {
+        // Skip type defined in the global namespace
+        if (!string.IsNullOrEmpty(typeNamespace))
+        {
+          Imports.Add($"using {typeNamespace};");
+        }
       }
 
       public void AddLine(string line)

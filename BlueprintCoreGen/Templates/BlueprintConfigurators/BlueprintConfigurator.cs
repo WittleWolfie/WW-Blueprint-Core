@@ -4,7 +4,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Validation;
-using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;

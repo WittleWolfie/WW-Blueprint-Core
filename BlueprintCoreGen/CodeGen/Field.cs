@@ -3,7 +3,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities.Components;
