@@ -1,7 +1,9 @@
 ﻿using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -88,6 +90,8 @@ namespace BlueprintCoreGen.CodeGen
   {
     public static IField Create(FieldInfo info)
     {
+      if (IsIgnoredField(info)) { return null; }
+
       var enumerableType = GetEnumerableType(info.FieldType);
       if (enumerableType is not null && !IsIgnoredEnumerableType(info.FieldType))
       {
@@ -110,6 +114,24 @@ namespace BlueprintCoreGen.CodeGen
         return new BuilderField(info, BuilderField.BuilderType.Conditions);
       }
       return new Field(info);
+    }
+
+    private static readonly Dictionary<Type, List<string>> IgnoredFieldNameByType =
+        new()
+        {
+          { typeof(AbilityDeliverProjectile), new() { "m_HasIsAllyEffectRunConditions" } },
+          { typeof(BlueprintQuestObjective), new() { "m_NextObjectivesProxy", "m_AddendumsProxy", "m_AreasProxy" } }
+        };
+    private static bool IsIgnoredField(FieldInfo field)
+    {
+      return field.Name.Contains("__BackingField") // Compiler generated field
+          || field.Name == "name" // Common field that shouldn't be modified
+          // Skip constant, static, and read-only
+          || field.IsLiteral
+          || field.IsStatic
+          || field.IsInitOnly
+          || (IgnoredFieldNameByType.ContainsKey(field.DeclaringType)
+              && IgnoredFieldNameByType[field.DeclaringType].Contains(field.Name));
     }
 
     private static bool IsIgnoredEnumerableType(Type fieldType)
@@ -144,7 +166,7 @@ namespace BlueprintCoreGen.CodeGen
       public Field(FieldInfo info)
       {
         Name = info.Name;
-        TypeName = GetTypeName(info.FieldType);
+        TypeName = TypeTool.GetName(info.FieldType);
         ParamName = GetFriendlyName(Name, lowercase: true);
         MethodName = GetFriendlyName(Name, lowercase: false);
 
@@ -204,74 +226,6 @@ namespace BlueprintCoreGen.CodeGen
         }
         paramName[0] = lowercase ? char.ToLower(paramName[0]) : char.ToUpper(paramName[0]);
         return paramName.ToString();
-      }
-
-      private static readonly Dictionary<Type, string> TypeNameOverrides =
-          new()
-          {
-            { typeof(Kingmaker.UnitLogic.Mechanics.ValueType), "Kingmaker.UnitLogic.Mechanics.ValueType" },
-            { typeof(Kingmaker.UnitLogic.Abilities.Components.TargetType), "Kingmaker.UnitLogic.Abilities.Components.TargetType" },
-            { typeof(Kingmaker.AI.Blueprints.TargetType), "Kingmaker.AI.Blueprints.TargetType" },
-            { typeof(bool), "bool" },
-            { typeof(bool?), "bool?" },
-            { typeof(byte), "byte" },
-            { typeof(byte), "byte?" },
-            { typeof(sbyte), "sbyte" },
-            { typeof(sbyte?), "sbyte?" },
-            { typeof(ushort), "ushort" },
-            { typeof(ushort?), "ushort?" },
-            { typeof(int), "int" },
-            { typeof(int?), "int?" },
-            { typeof(uint), "uint" },
-            { typeof(uint?), "uint?" },
-            { typeof(long), "long" },
-            { typeof(long?), "long?" },
-            { typeof(ulong), "ulong" },
-            { typeof(ulong?), "ulong?" },
-            { typeof(char), "char" },
-            { typeof(char?), "char?" },
-            { typeof(double), "double" },
-            { typeof(double?), "double?" },
-            { typeof(float), "float" },
-            { typeof(float?), "float?" },
-            { typeof(string), "string" },
-          };
-
-      /// <summary>
-      /// Recursive function which generates the correct type name for generic types.
-      /// </summary>
-      protected static string GetTypeName(Type type)
-      {
-        if (TypeNameOverrides.ContainsKey(type))
-        {
-          return TypeNameOverrides[type];
-        }
-
-        if (type.HasElementType && type.BaseType == typeof(Array))
-        {
-          return $"{GetTypeName(type.GetElementType())}[]";
-        }
-
-        if (!type.IsGenericType)
-        {
-          var name = GetSimpleTypeName(type);
-          return type.DeclaringType is null ? name : $"{GetSimpleTypeName(type.DeclaringType)}.{name}";
-        }
-
-        string typeName = GetSimpleTypeName(type.GetGenericTypeDefinition());
-        typeName = typeName.Substring(0, typeName.IndexOf('`'));
-        string typeArguments =
-            string.Join(",", type.GetGenericArguments().Select(typeArg => GetTypeName(typeArg)).ToArray());
-        return typeName + "<" + typeArguments + ">";
-      }
-
-      private static string GetSimpleTypeName(Type type)
-      {
-        if (string.IsNullOrEmpty(type.Namespace))
-        {
-          return $"global::{type.Name}";
-        }
-        return type.Name;
       }
     }
 
@@ -335,7 +289,7 @@ namespace BlueprintCoreGen.CodeGen
 
       public EnumerableField(FieldInfo info, Type enumerableType) : base(info)
       {
-        EnumerableTypeName = GetTypeName(enumerableType);
+        EnumerableTypeName = TypeTool.GetName(enumerableType);
         IsArray = info.FieldType.IsArray;
         ToEnumerable = IsArray ? "ToArray()" : "ToList()";
 
@@ -373,9 +327,9 @@ namespace BlueprintCoreGen.CodeGen
       public BlueprintField(FieldInfo info, Type referenceType) : base(info)
       {
         TypeName = "string";
-        ReferenceTypeName = GetTypeName(referenceType);
+        ReferenceTypeName = TypeTool.GetName(referenceType);
 
-        var blueprintTypeName = GetTypeName(GetBlueprintTypeFromReferenceType(referenceType));
+        var blueprintTypeName = TypeTool.GetName(GetBlueprintTypeFromReferenceType(referenceType));
         Comment = $"<param name=\"{ParamName}\"><see cref=\"{blueprintTypeName}\"/></param>";
 
         DefaultValue = "null";
