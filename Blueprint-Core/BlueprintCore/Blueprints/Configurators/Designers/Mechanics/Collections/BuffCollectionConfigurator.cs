@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Collections;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
 {
-  /// <summary>Configurator for <see cref="BuffCollection"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BuffCollection"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BuffCollection))]
   public class BuffCollectionConfigurator : BaseBlueprintConfigurator<BuffCollection, BuffCollectionConfigurator>
   {
-     private BuffCollectionConfigurator(string name) : base(name) { }
+    private BuffCollectionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static BuffCollectionConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BuffCollectionConfigurator New(string name, string assetId)
+    public static BuffCollectionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BuffCollection>(name, assetId);
       return For(name);
@@ -36,34 +39,57 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     /// Sets <see cref="BuffCollection.CheckHidden"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BuffCollectionConfigurator SetCheckHidden(bool value)
-    {
-      return OnConfigureInternal(bp => bp.CheckHidden = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public BuffCollectionConfigurator AddToBuffList(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_BuffList = CommonTool.Append(bp.m_BuffList, values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public BuffCollectionConfigurator RemoveFromBuffList(params string[] values)
+    public BuffCollectionConfigurator SetCheckHidden(bool checkHidden)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
+            bp.CheckHidden = checkHidden;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffCollectionConfigurator SetBuffList(string[] buffList)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BuffList = buffList.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffCollectionConfigurator AddToBuffList(params string[] buffList)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BuffList = CommonTool.Append(bp.m_BuffList, buffList.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffCollectionConfigurator RemoveFromBuffList(params string[] buffList)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = buffList.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
             bp.m_BuffList =
                 bp.m_BuffList
                     .Where(

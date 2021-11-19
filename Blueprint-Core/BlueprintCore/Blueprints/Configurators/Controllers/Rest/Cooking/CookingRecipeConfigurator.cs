@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
 {
-  /// <summary>Configurator for <see cref="BlueprintCookingRecipe"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCookingRecipe"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCookingRecipe))]
   public class CookingRecipeConfigurator : BaseBlueprintConfigurator<BlueprintCookingRecipe, CookingRecipeConfigurator>
   {
-     private CookingRecipeConfigurator(string name) : base(name) { }
+    private CookingRecipeConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CookingRecipeConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CookingRecipeConfigurator New(string name, string assetId)
+    public static CookingRecipeConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCookingRecipe>(name, assetId);
       return For(name);
@@ -37,79 +40,128 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Sets <see cref="BlueprintCookingRecipe.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetName(LocalizedString value)
+    public CookingRecipeConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator AddToIngredients(params BlueprintCookingRecipe.ItemEntry[] values)
+    public CookingRecipeConfigurator SetIngredients(BlueprintCookingRecipe.ItemEntry[] ingredients)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Ingredients = CommonTool.Append(bp.Ingredients, values));
+      ValidateParam(ingredients);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = ingredients;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator RemoveFromIngredients(params BlueprintCookingRecipe.ItemEntry[] values)
+    public CookingRecipeConfigurator AddToIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Ingredients = bp.Ingredients.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(ingredients);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = CommonTool.Append(bp.Ingredients, ingredients ?? new BlueprintCookingRecipe.ItemEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CookingRecipeConfigurator RemoveFromIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
+    {
+      ValidateParam(ingredients);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = bp.Ingredients.Where(item => !ingredients.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCookingRecipe.CookingDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetCookingDC(int value)
+    public CookingRecipeConfigurator SetCookingDC(int cookingDC)
     {
-      return OnConfigureInternal(bp => bp.CookingDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CookingDC = cookingDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCookingRecipe.BuffDurationHours"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetBuffDurationHours(int value)
-    {
-      return OnConfigureInternal(bp => bp.BuffDurationHours = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public CookingRecipeConfigurator AddToPartyBuffs(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_PartyBuffs = CommonTool.Append(bp.m_PartyBuffs, values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public CookingRecipeConfigurator RemoveFromPartyBuffs(params string[] values)
+    public CookingRecipeConfigurator SetBuffDurationHours(int buffDurationHours)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
+            bp.BuffDurationHours = buffDurationHours;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public CookingRecipeConfigurator SetPartyBuffs(string[] partyBuffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PartyBuffs = partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public CookingRecipeConfigurator AddToPartyBuffs(params string[] partyBuffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PartyBuffs = CommonTool.Append(bp.m_PartyBuffs, partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public CookingRecipeConfigurator RemoveFromPartyBuffs(params string[] partyBuffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
             bp.m_PartyBuffs =
                 bp.m_PartyBuffs
                     .Where(
@@ -119,29 +171,46 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator AddToUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] values)
+    public CookingRecipeConfigurator SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitBuffs = CommonTool.Append(bp.UnitBuffs, values));
+      ValidateParam(unitBuffs);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitBuffs = unitBuffs;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator RemoveFromUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] values)
+    public CookingRecipeConfigurator AddToUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitBuffs = bp.UnitBuffs.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(unitBuffs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitBuffs = CommonTool.Append(bp.UnitBuffs, unitBuffs ?? new BlueprintCookingRecipe.UnitBuffEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CookingRecipeConfigurator RemoveFromUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    {
+      ValidateParam(unitBuffs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitBuffs = bp.UnitBuffs.Where(item => !unitBuffs.Contains(item)).ToArray();
+          });
     }
   }
 }

@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
-  /// <summary>Configurator for <see cref="BlueprintItemEquipmentGloves"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemEquipmentGloves"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemEquipmentGloves))]
   public class ItemEquipmentGlovesConfigurator : BaseItemEquipmentSimpleConfigurator<BlueprintItemEquipmentGloves, ItemEquipmentGlovesConfigurator>
   {
-     private ItemEquipmentGlovesConfigurator(string name) : base(name) { }
+    private ItemEquipmentGlovesConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemEquipmentGlovesConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemEquipmentGlovesConfigurator New(string name, string assetId)
+    public static ItemEquipmentGlovesConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemEquipmentGloves>(name, assetId);
       return For(name);

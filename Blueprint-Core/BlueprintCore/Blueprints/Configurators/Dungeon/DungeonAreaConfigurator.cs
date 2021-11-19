@@ -2,15 +2,16 @@ using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
-  /// <summary>Configurator for <see cref="BlueprintDungeonArea"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDungeonArea"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDungeonArea))]
   public class DungeonAreaConfigurator : BaseAreaConfigurator<BlueprintDungeonArea, DungeonAreaConfigurator>
   {
-     private DungeonAreaConfigurator(string name) : base(name) { }
+    private DungeonAreaConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DungeonAreaConfigurator For(string name)
@@ -26,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DungeonAreaConfigurator New(string name, string assetId)
+    public static DungeonAreaConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDungeonArea>(name, assetId);
       return For(name);
@@ -36,114 +37,185 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonArea.DungeonSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator SetDungeonSetting(DungeonStageSetting value)
+    public DungeonAreaConfigurator SetDungeonSetting(DungeonStageSetting dungeonSetting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DungeonSetting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DungeonSetting = dungeonSetting;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator AddToRooms(params DungeonRoomSettings[] values)
+    public DungeonAreaConfigurator SetRooms(DungeonRoomSettings[] rooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Rooms = CommonTool.Append(bp.Rooms, values));
+      ValidateParam(rooms);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Rooms = rooms;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator RemoveFromRooms(params DungeonRoomSettings[] values)
+    public DungeonAreaConfigurator AddToRooms(params DungeonRoomSettings[] rooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Rooms = bp.Rooms.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(rooms);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Rooms = CommonTool.Append(bp.Rooms, rooms ?? new DungeonRoomSettings[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator AddToSecretRooms(params DungeonRoomSettings[] values)
+    public DungeonAreaConfigurator RemoveFromRooms(params DungeonRoomSettings[] rooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SecretRooms = CommonTool.Append(bp.SecretRooms, values));
+      ValidateParam(rooms);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Rooms = bp.Rooms.Where(item => !rooms.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator RemoveFromSecretRooms(params DungeonRoomSettings[] values)
+    public DungeonAreaConfigurator SetSecretRooms(DungeonRoomSettings[] secretRooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SecretRooms = bp.SecretRooms.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(secretRooms);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SecretRooms = secretRooms;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator AddToTraps(params DungeonTrapLocator[] values)
+    public DungeonAreaConfigurator AddToSecretRooms(params DungeonRoomSettings[] secretRooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Traps = CommonTool.Append(bp.Traps, values));
+      ValidateParam(secretRooms);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SecretRooms = CommonTool.Append(bp.SecretRooms, secretRooms ?? new DungeonRoomSettings[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator RemoveFromTraps(params DungeonTrapLocator[] values)
+    public DungeonAreaConfigurator RemoveFromSecretRooms(params DungeonRoomSettings[] secretRooms)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Traps = bp.Traps.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(secretRooms);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SecretRooms = bp.SecretRooms.Where(item => !secretRooms.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator AddToThemeLightScenes(params BlueprintDungeonArea.ThemeScene[] values)
+    public DungeonAreaConfigurator SetTraps(DungeonTrapLocator[] traps)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeLightScenes = CommonTool.Append(bp.ThemeLightScenes, values));
+      ValidateParam(traps);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = traps;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator RemoveFromThemeLightScenes(params BlueprintDungeonArea.ThemeScene[] values)
+    public DungeonAreaConfigurator AddToTraps(params DungeonTrapLocator[] traps)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeLightScenes = bp.ThemeLightScenes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(traps);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = CommonTool.Append(bp.Traps, traps ?? new DungeonTrapLocator[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonAreaConfigurator RemoveFromTraps(params DungeonTrapLocator[] traps)
+    {
+      ValidateParam(traps);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = bp.Traps.Where(item => !traps.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonAreaConfigurator SetThemeLightScenes(BlueprintDungeonArea.ThemeScene[] themeLightScenes)
+    {
+      ValidateParam(themeLightScenes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeLightScenes = themeLightScenes;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonAreaConfigurator AddToThemeLightScenes(params BlueprintDungeonArea.ThemeScene[] themeLightScenes)
+    {
+      ValidateParam(themeLightScenes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeLightScenes = CommonTool.Append(bp.ThemeLightScenes, themeLightScenes ?? new BlueprintDungeonArea.ThemeScene[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonAreaConfigurator RemoveFromThemeLightScenes(params BlueprintDungeonArea.ThemeScene[] themeLightScenes)
+    {
+      ValidateParam(themeLightScenes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeLightScenes = bp.ThemeLightScenes.Where(item => !themeLightScenes.Contains(item)).ToArray();
+          });
     }
   }
 }

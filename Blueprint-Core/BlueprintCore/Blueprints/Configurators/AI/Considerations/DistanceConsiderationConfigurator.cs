@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="DistanceConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="DistanceConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(DistanceConsideration))]
   public class DistanceConsiderationConfigurator : BaseConsiderationConfigurator<DistanceConsideration, DistanceConsiderationConfigurator>
   {
-     private DistanceConsiderationConfigurator(string name) : base(name) { }
+    private DistanceConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DistanceConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DistanceConsiderationConfigurator New(string name, string assetId)
+    public static DistanceConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<DistanceConsideration>(name, assetId);
       return For(name);
@@ -34,36 +37,52 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="DistanceConsideration.MinDistance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DistanceConsiderationConfigurator SetMinDistance(float value)
+    public DistanceConsiderationConfigurator SetMinDistance(float minDistance)
     {
-      return OnConfigureInternal(bp => bp.MinDistance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinDistance = minDistance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MaxDistance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DistanceConsiderationConfigurator SetMaxDistance(float value)
+    public DistanceConsiderationConfigurator SetMaxDistance(float maxDistance)
     {
-      return OnConfigureInternal(bp => bp.MaxDistance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxDistance = maxDistance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MaxDistanceScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DistanceConsiderationConfigurator SetMaxDistanceScore(float value)
+    public DistanceConsiderationConfigurator SetMaxDistanceScore(float maxDistanceScore)
     {
-      return OnConfigureInternal(bp => bp.MaxDistanceScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxDistanceScore = maxDistanceScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MinDistanceScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DistanceConsiderationConfigurator SetMinDistanceScore(float value)
+    public DistanceConsiderationConfigurator SetMinDistanceScore(float minDistanceScore)
     {
-      return OnConfigureInternal(bp => bp.MinDistanceScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinDistanceScore = minDistanceScore;
+          });
     }
   }
 }

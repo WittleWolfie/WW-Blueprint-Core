@@ -1,18 +1,20 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintDialog"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDialog"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDialog))]
   public class DialogConfigurator : BaseBlueprintConfigurator<BlueprintDialog, DialogConfigurator>
   {
-     private DialogConfigurator(string name) : base(name) { }
+    private DialogConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DialogConfigurator For(string name)
@@ -28,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DialogConfigurator New(string name, string assetId)
+    public static DialogConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDialog>(name, assetId);
       return For(name);
@@ -38,103 +40,155 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.FirstCue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetFirstCue(CueSelection value)
+    public DialogConfigurator SetFirstCue(CueSelection firstCue)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FirstCue = value);
+      ValidateParam(firstCue);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstCue = firstCue;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.StartPosition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetStartPosition(PositionEvaluator value)
+    public DialogConfigurator SetStartPosition(PositionEvaluator startPosition)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StartPosition = value);
+      ValidateParam(startPosition);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StartPosition = startPosition;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetConditions(ConditionsBuilder value)
+    public DialogConfigurator SetConditions(ConditionsBuilder conditions)
     {
-      return OnConfigureInternal(bp => bp.Conditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.StartActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetStartActions(ActionsBuilder value)
+    public DialogConfigurator SetStartActions(ActionList startActions)
     {
-      return OnConfigureInternal(bp => bp.StartActions = value.Build());
+      ValidateParam(startActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StartActions = startActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.FinishActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetFinishActions(ActionsBuilder value)
+    public DialogConfigurator SetFinishActions(ActionList finishActions)
     {
-      return OnConfigureInternal(bp => bp.FinishActions = value.Build());
+      ValidateParam(finishActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FinishActions = finishActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.ReplaceActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetReplaceActions(ActionsBuilder value)
+    public DialogConfigurator SetReplaceActions(ActionList replaceActions)
     {
-      return OnConfigureInternal(bp => bp.ReplaceActions = value.Build());
+      ValidateParam(replaceActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ReplaceActions = replaceActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.TurnPlayer"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetTurnPlayer(bool value)
+    public DialogConfigurator SetTurnPlayer(bool turnPlayer)
     {
-      return OnConfigureInternal(bp => bp.TurnPlayer = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TurnPlayer = turnPlayer;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.TurnFirstSpeaker"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetTurnFirstSpeaker(bool value)
+    public DialogConfigurator SetTurnFirstSpeaker(bool turnFirstSpeaker)
     {
-      return OnConfigureInternal(bp => bp.TurnFirstSpeaker = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TurnFirstSpeaker = turnFirstSpeaker;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.IsLockCameraRotationButtons"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetIsLockCameraRotationButtons(bool value)
+    public DialogConfigurator SetIsLockCameraRotationButtons(bool isLockCameraRotationButtons)
     {
-      return OnConfigureInternal(bp => bp.IsLockCameraRotationButtons = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsLockCameraRotationButtons = isLockCameraRotationButtons;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetType(DialogType value)
+    public DialogConfigurator SetType(DialogType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDialog.m_OverrideAreaCR"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetOverrideAreaCR(IntEvaluator value)
+    public DialogConfigurator SetOverrideAreaCR(IntEvaluator overrideAreaCR)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_OverrideAreaCR = value);
+      ValidateParam(overrideAreaCR);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideAreaCR = overrideAreaCR;
+          });
     }
   }
 }

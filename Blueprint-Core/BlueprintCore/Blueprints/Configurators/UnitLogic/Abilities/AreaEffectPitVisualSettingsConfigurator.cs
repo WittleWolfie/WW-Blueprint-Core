@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using System;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
-  /// <summary>Configurator for <see cref="BlueprintAreaEffectPitVisualSettings"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAreaEffectPitVisualSettings"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAreaEffectPitVisualSettings))]
   public class AreaEffectPitVisualSettingsConfigurator : BaseBlueprintConfigurator<BlueprintAreaEffectPitVisualSettings, AreaEffectPitVisualSettingsConfigurator>
   {
-     private AreaEffectPitVisualSettingsConfigurator(string name) : base(name) { }
+    private AreaEffectPitVisualSettingsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AreaEffectPitVisualSettingsConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AreaEffectPitVisualSettingsConfigurator New(string name, string assetId)
+    public static AreaEffectPitVisualSettingsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAreaEffectPitVisualSettings>(name, assetId);
       return For(name);
@@ -35,78 +38,116 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetDepthMeters(float value)
+    public AreaEffectPitVisualSettingsConfigurator SetDepthMeters(float depthMeters)
     {
-      return OnConfigureInternal(bp => bp.DepthMeters = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DepthMeters = depthMeters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.HoleEdgeMeters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetHoleEdgeMeters(float value)
+    public AreaEffectPitVisualSettingsConfigurator SetHoleEdgeMeters(float holeEdgeMeters)
     {
-      return OnConfigureInternal(bp => bp.HoleEdgeMeters = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HoleEdgeMeters = holeEdgeMeters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(GameObject value)
+    public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(GameObject unitDisappearFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.UnitDisappearFx = value);
+      ValidateParam(unitDisappearFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitDisappearFx = unitDisappearFx;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(GameObject value)
+    public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(GameObject unitAppearFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.UnitAppearFx = value);
+      ValidateParam(unitAppearFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitAppearFx = unitAppearFx;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallXZCurve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetFallXZCurve(AnimationCurve value)
+    public AreaEffectPitVisualSettingsConfigurator SetFallXZCurve(AnimationCurve fallXZCurve)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FallXZCurve = value);
+      ValidateParam(fallXZCurve);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FallXZCurve = fallXZCurve;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallYCurve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetFallYCurve(AnimationCurve value)
+    public AreaEffectPitVisualSettingsConfigurator SetFallYCurve(AnimationCurve fallYCurve)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FallYCurve = value);
+      ValidateParam(fallYCurve);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FallYCurve = fallYCurve;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbXZCurve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetClimbXZCurve(AnimationCurve value)
+    public AreaEffectPitVisualSettingsConfigurator SetClimbXZCurve(AnimationCurve climbXZCurve)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ClimbXZCurve = value);
+      ValidateParam(climbXZCurve);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClimbXZCurve = climbXZCurve;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbYCurve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetClimbYCurve(AnimationCurve value)
+    public AreaEffectPitVisualSettingsConfigurator SetClimbYCurve(AnimationCurve climbYCurve)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ClimbYCurve = value);
+      ValidateParam(climbYCurve);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClimbYCurve = climbYCurve;
+          });
     }
   }
 }

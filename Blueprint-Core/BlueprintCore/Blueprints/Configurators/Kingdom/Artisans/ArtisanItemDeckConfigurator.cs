@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Localization;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
-  /// <summary>Configurator for <see cref="ArtisanItemDeck"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ArtisanItemDeck"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ArtisanItemDeck))]
   public class ArtisanItemDeckConfigurator : BaseBlueprintConfigurator<ArtisanItemDeck, ArtisanItemDeckConfigurator>
   {
-     private ArtisanItemDeckConfigurator(string name) : base(name) { }
+    private ArtisanItemDeckConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArtisanItemDeckConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArtisanItemDeckConfigurator New(string name, string assetId)
+    public static ArtisanItemDeckConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ArtisanItemDeck>(name, assetId);
       return For(name);
@@ -36,36 +38,58 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="ArtisanItemDeck.TypeName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArtisanItemDeckConfigurator SetTypeName(LocalizedString value)
+    public ArtisanItemDeckConfigurator SetTypeName(LocalizedString typeName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TypeName = value);
+      ValidateParam(typeName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TypeName = typeName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
+    /// Sets <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArtisanItemDeckConfigurator AddToTiers(params ArtisanItemDeck.TierData[] values)
+    public ArtisanItemDeckConfigurator SetTiers(ArtisanItemDeck.TierData[] tiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tiers = CommonTool.Append(bp.Tiers, values));
+      ValidateParam(tiers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = tiers;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
+    /// Adds to <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArtisanItemDeckConfigurator RemoveFromTiers(params ArtisanItemDeck.TierData[] values)
+    public ArtisanItemDeckConfigurator AddToTiers(params ArtisanItemDeck.TierData[] tiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tiers = bp.Tiers.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(tiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = CommonTool.Append(bp.Tiers, tiers ?? new ArtisanItemDeck.TierData[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArtisanItemDeckConfigurator RemoveFromTiers(params ArtisanItemDeck.TierData[] tiers)
+    {
+      ValidateParam(tiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = bp.Tiers.Where(item => !tiers.Contains(item)).ToArray();
+          });
     }
   }
 }

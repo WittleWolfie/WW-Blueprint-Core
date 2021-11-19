@@ -7,6 +7,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
 namespace BlueprintCore.Conditions.Builder.MiscEx
 {
   /// <summary>
@@ -23,21 +24,21 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(ContextConditionDifficultyHigherThan))]
-    public static ConditionsBuilder AddContextConditionDifficultyHigherThan(
+    public static ConditionsBuilder ContextConditionDifficultyHigherThan(
         this ConditionsBuilder builder,
-        bool Less,
-        bool Reverse,
-        bool CheckOnlyForMonster,
-        DifficultyPresetAsset m_Difficulty,
+        DifficultyPresetAsset difficulty,
+        bool less = default,
+        bool reverse = default,
+        bool checkOnlyForMonster = default,
         bool negate = false)
     {
-      builder.Validate(m_Difficulty);
-      
+      builder.Validate(difficulty);
+    
       var element = ElementTool.Create<ContextConditionDifficultyHigherThan>();
-      element.Less = Less;
-      element.Reverse = Reverse;
-      element.CheckOnlyForMonster = CheckOnlyForMonster;
-      element.m_Difficulty = m_Difficulty;
+      element.Less = less;
+      element.Reverse = reverse;
+      element.CheckOnlyForMonster = checkOnlyForMonster;
+      element.m_Difficulty = difficulty;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -47,15 +48,15 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(DifficultyHigherThan))]
-    public static ConditionsBuilder AddDifficultyHigherThan(
+    public static ConditionsBuilder DifficultyHigherThan(
         this ConditionsBuilder builder,
-        DifficultyPresetAsset m_Difficulty,
+        DifficultyPresetAsset difficulty,
         bool negate = false)
     {
-      builder.Validate(m_Difficulty);
-      
+      builder.Validate(difficulty);
+    
       var element = ElementTool.Create<DifficultyHigherThan>();
-      element.m_Difficulty = m_Difficulty;
+      element.m_Difficulty = difficulty;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -65,11 +66,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(EnlargedEncountersCapacity))]
-    public static ConditionsBuilder AddEnlargedEncountersCapacity(
+    public static ConditionsBuilder EnlargedEncountersCapacity(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<EnlargedEncountersCapacity>();
       element.Not = negate;
       return builder.Add(element);
@@ -80,11 +80,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(Paused))]
-    public static ConditionsBuilder AddPaused(
+    public static ConditionsBuilder Paused(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<Paused>();
       element.Not = negate;
       return builder.Add(element);
@@ -95,15 +94,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(GameModeActive))]
-    public static ConditionsBuilder AddGameModeActive(
+    public static ConditionsBuilder GameModeActive(
         this ConditionsBuilder builder,
-        GameModeType.Enum m_GameMode,
+        GameModeType.Enum gameMode = default,
         bool negate = false)
     {
-      builder.Validate(m_GameMode);
-      
       var element = ElementTool.Create<GameModeActive>();
-      element.m_GameMode = m_GameMode;
+      element.m_GameMode = gameMode;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -113,11 +110,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(HasEnoughMoneyForCustomCompanion))]
-    public static ConditionsBuilder AddHasEnoughMoneyForCustomCompanion(
+    public static ConditionsBuilder HasEnoughMoneyForCustomCompanion(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<HasEnoughMoneyForCustomCompanion>();
       element.Not = negate;
       return builder.Add(element);
@@ -128,11 +124,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(HasEnoughMoneyForRespec))]
-    public static ConditionsBuilder AddHasEnoughMoneyForRespec(
+    public static ConditionsBuilder HasEnoughMoneyForRespec(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<HasEnoughMoneyForRespec>();
       element.Not = negate;
       return builder.Add(element);
@@ -142,17 +137,16 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// Adds <see cref="IsDLCEnabled"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_BlueprintDlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="blueprintDlcReward"><see cref="BlueprintDlcReward"/></param>
     [Generated]
     [Implements(typeof(IsDLCEnabled))]
-    public static ConditionsBuilder AddIsDLCEnabled(
+    public static ConditionsBuilder IsDLCEnabled(
         this ConditionsBuilder builder,
-        string m_BlueprintDlcReward,
+        string blueprintDlcReward = null,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<IsDLCEnabled>();
-      element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_BlueprintDlcReward);
+      element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(blueprintDlcReward);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -161,20 +155,20 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// Adds <see cref="IsListContainsItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="List"><see cref="BlueprintItemsList"/></param>
+    /// <param name="list"><see cref="BlueprintItemsList"/></param>
     [Generated]
     [Implements(typeof(IsListContainsItem))]
-    public static ConditionsBuilder AddIsListContainsItem(
+    public static ConditionsBuilder IsListContainsItem(
         this ConditionsBuilder builder,
-        ItemEvaluator Item,
-        string List,
+        ItemEvaluator item,
+        string list = null,
         bool negate = false)
     {
-      builder.Validate(Item);
-      
+      builder.Validate(item);
+    
       var element = ElementTool.Create<IsListContainsItem>();
-      element.Item = Item;
-      element.List = BlueprintTool.GetRef<BlueprintItemsList.Reference>(List);
+      element.Item = item;
+      element.List = BlueprintTool.GetRef<BlueprintItemsList.Reference>(list);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -184,11 +178,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsRespecAllowed))]
-    public static ConditionsBuilder AddIsRespecAllowed(
+    public static ConditionsBuilder IsRespecAllowed(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<IsRespecAllowed>();
       element.Not = negate;
       return builder.Add(element);
@@ -199,15 +192,15 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsUnitCustomCompanion))]
-    public static ConditionsBuilder AddIsUnitCustomCompanion(
+    public static ConditionsBuilder IsUnitCustomCompanion(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
+        UnitEvaluator unit,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<IsUnitCustomCompanion>();
-      element.Unit = Unit;
+      element.Unit = unit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -217,11 +210,10 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(RespecIsFree))]
-    public static ConditionsBuilder AddRespecIsFree(
+    public static ConditionsBuilder RespecIsFree(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<RespecIsFree>();
       element.Not = negate;
       return builder.Add(element);
@@ -232,17 +224,17 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsleStateCondition))]
-    public static ConditionsBuilder AddIsleStateCondition(
+    public static ConditionsBuilder IsleStateCondition(
         this ConditionsBuilder builder,
-        IsleEvaluator m_Isle,
-        string m_State,
+        IsleEvaluator isle,
+        string state,
         bool negate = false)
     {
-      builder.Validate(m_Isle);
-      
+      builder.Validate(isle);
+    
       var element = ElementTool.Create<IsleStateCondition>();
-      element.m_Isle = m_Isle;
-      element.m_State = m_State;
+      element.m_Isle = isle;
+      element.m_State = state;
       element.Not = negate;
       return builder.Add(element);
     }

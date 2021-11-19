@@ -1,19 +1,22 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Enums;
 using Kingmaker.View.Animation;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintRace"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintRace"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintRace))]
   public class RaceConfigurator : BaseFeatureConfigurator<BlueprintRace, RaceConfigurator>
   {
-     private RaceConfigurator(string name) : base(name) { }
+    private RaceConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RaceConfigurator For(string name)
@@ -29,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RaceConfigurator New(string name, string assetId)
+    public static RaceConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintRace>(name, assetId);
       return For(name);
@@ -39,64 +42,96 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintRace.SoundKey"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetSoundKey(string value)
+    public RaceConfigurator SetSoundKey(string soundKey)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SoundKey = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SoundKey = soundKey;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.RaceId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetRaceId(Race value)
+    public RaceConfigurator SetRaceId(Race raceId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RaceId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RaceId = raceId;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.SelectableRaceStat"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetSelectableRaceStat(bool value)
+    public RaceConfigurator SetSelectableRaceStat(bool selectableRaceStat)
     {
-      return OnConfigureInternal(bp => bp.SelectableRaceStat = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SelectableRaceStat = selectableRaceStat;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.Size"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetSize(Size value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Size = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRace.m_Features"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintFeatureBase"/></param>
-    [Generated]
-    public RaceConfigurator AddToFeatures(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Features = CommonTool.Append(bp.m_Features, values.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRace.m_Features"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintFeatureBase"/></param>
-    [Generated]
-    public RaceConfigurator RemoveFromFeatures(params string[] values)
+    public RaceConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name));
+            bp.Size = size;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRace.m_Features"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public RaceConfigurator SetFeatures(string[] features)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintRace.m_Features"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public RaceConfigurator AddToFeatures(params string[] features)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Features = CommonTool.Append(bp.m_Features, features.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintRace.m_Features"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public RaceConfigurator RemoveFromFeatures(params string[] features)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name));
             bp.m_Features =
                 bp.m_Features
                     .Where(
@@ -106,28 +141,47 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
+    /// Sets <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintRaceVisualPreset"/></param>
+    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
     [Generated]
-    public RaceConfigurator AddToPresets(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Presets = CommonTool.Append(bp.m_Presets, values.Select(name => BlueprintTool.GetRef<BlueprintRaceVisualPresetReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintRaceVisualPreset"/></param>
-    [Generated]
-    public RaceConfigurator RemoveFromPresets(params string[] values)
+    public RaceConfigurator SetPresets(string[] presets)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintRaceVisualPresetReference>(name));
+            bp.m_Presets = presets.Select(name => BlueprintTool.GetRef<BlueprintRaceVisualPresetReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
+    [Generated]
+    public RaceConfigurator AddToPresets(params string[] presets)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Presets = CommonTool.Append(bp.m_Presets, presets.Select(name => BlueprintTool.GetRef<BlueprintRaceVisualPresetReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
+    [Generated]
+    public RaceConfigurator RemoveFromPresets(params string[] presets)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = presets.Select(name => BlueprintTool.GetRef<BlueprintRaceVisualPresetReference>(name));
             bp.m_Presets =
                 bp.m_Presets
                     .Where(
@@ -140,75 +194,116 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintRace.LinkHairAndSkinColors"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetLinkHairAndSkinColors(bool value)
+    public RaceConfigurator SetLinkHairAndSkinColors(bool linkHairAndSkinColors)
     {
-      return OnConfigureInternal(bp => bp.LinkHairAndSkinColors = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LinkHairAndSkinColors = linkHairAndSkinColors;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.MaleOptions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetMaleOptions(CustomizationOptions value)
+    public RaceConfigurator SetMaleOptions(CustomizationOptions maleOptions)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MaleOptions = value);
+      ValidateParam(maleOptions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaleOptions = maleOptions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.FemaleOptions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetFemaleOptions(CustomizationOptions value)
+    public RaceConfigurator SetFemaleOptions(CustomizationOptions femaleOptions)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FemaleOptions = value);
+      ValidateParam(femaleOptions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FemaleOptions = femaleOptions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.MaleSpeedSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetMaleSpeedSettings(UnitAnimationSettings value)
+    public RaceConfigurator SetMaleSpeedSettings(UnitAnimationSettings maleSpeedSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MaleSpeedSettings = value);
+      ValidateParam(maleSpeedSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaleSpeedSettings = maleSpeedSettings;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRace.FemaleSpeedSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetFemaleSpeedSettings(UnitAnimationSettings value)
+    public RaceConfigurator SetFemaleSpeedSettings(UnitAnimationSettings femaleSpeedSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FemaleSpeedSettings = value);
+      ValidateParam(femaleSpeedSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FemaleSpeedSettings = femaleSpeedSettings;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator AddToSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] values)
+    public RaceConfigurator SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpecialDollTypes = CommonTool.Append(bp.SpecialDollTypes, values));
+      ValidateParam(specialDollTypes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialDollTypes = specialDollTypes;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator RemoveFromSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] values)
+    public RaceConfigurator AddToSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpecialDollTypes = bp.SpecialDollTypes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(specialDollTypes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialDollTypes = CommonTool.Append(bp.SpecialDollTypes, specialDollTypes ?? new BlueprintRace.SpecialDollTypeEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RaceConfigurator RemoveFromSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
+    {
+      ValidateParam(specialDollTypes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialDollTypes = bp.SpecialDollTypes.Where(item => !specialDollTypes.Contains(item)).ToArray();
+          });
     }
   }
 }

@@ -3,6 +3,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
@@ -17,16 +18,19 @@ using Kingmaker.UI.Kingdom;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
 {
-  /// <summary>Configurator for <see cref="BlueprintTutorial"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTutorial"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTutorial))]
   public class TutorialConfigurator : BaseFactConfigurator<BlueprintTutorial, TutorialConfigurator>
   {
-     private TutorialConfigurator(string name) : base(name) { }
+    private TutorialConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TutorialConfigurator For(string name)
@@ -42,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TutorialConfigurator New(string name, string assetId)
+    public static TutorialConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTutorial>(name, assetId);
       return For(name);
@@ -52,154 +56,224 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Sets <see cref="BlueprintTutorial.m_Picture"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetPicture(SpriteLink value)
+    public TutorialConfigurator SetPicture(SpriteLink picture)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Picture = value);
+      ValidateParam(picture);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Picture = picture;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_Video"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetVideo(VideoLink value)
+    public TutorialConfigurator SetVideo(VideoLink video)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Video = value);
+      ValidateParam(video);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Video = video;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_TitleText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetTitleText(LocalizedString value)
+    public TutorialConfigurator SetTitleText(LocalizedString titleText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_TitleText = value);
+      ValidateParam(titleText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TitleText = titleText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_TriggerText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetTriggerText(LocalizedString value)
+    public TutorialConfigurator SetTriggerText(LocalizedString triggerText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_TriggerText = value);
+      ValidateParam(triggerText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TriggerText = triggerText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetDescriptionText(LocalizedString value)
+    public TutorialConfigurator SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_SolutionFoundText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetSolutionFoundText(LocalizedString value)
+    public TutorialConfigurator SetSolutionFoundText(LocalizedString solutionFoundText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_SolutionFoundText = value);
+      ValidateParam(solutionFoundText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SolutionFoundText = solutionFoundText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.m_SolutionNotFoundText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetSolutionNotFoundText(LocalizedString value)
+    public TutorialConfigurator SetSolutionNotFoundText(LocalizedString solutionNotFoundText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_SolutionNotFoundText = value);
+      ValidateParam(solutionNotFoundText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SolutionNotFoundText = solutionNotFoundText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.Tag"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetTag(TutorialTag value)
+    public TutorialConfigurator SetTag(TutorialTag tag)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Tag = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tag = tag;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.Priority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetPriority(int value)
+    public TutorialConfigurator SetPriority(int priority)
     {
-      return OnConfigureInternal(bp => bp.Priority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Priority = priority;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.Limit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetLimit(int value)
+    public TutorialConfigurator SetLimit(int limit)
     {
-      return OnConfigureInternal(bp => bp.Limit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Limit = limit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.Frequency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetFrequency(int value)
+    public TutorialConfigurator SetFrequency(int frequency)
     {
-      return OnConfigureInternal(bp => bp.Frequency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Frequency = frequency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.SetCooldown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetSetCooldown(bool value)
+    public TutorialConfigurator SetCooldown(bool setCooldown)
     {
-      return OnConfigureInternal(bp => bp.SetCooldown = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SetCooldown = setCooldown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.IgnoreCooldown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetIgnoreCooldown(bool value)
+    public TutorialConfigurator SetIgnoreCooldown(bool ignoreCooldown)
     {
-      return OnConfigureInternal(bp => bp.IgnoreCooldown = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IgnoreCooldown = ignoreCooldown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.Windowed"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetWindowed(bool value)
+    public TutorialConfigurator SetWindowed(bool windowed)
     {
-      return OnConfigureInternal(bp => bp.Windowed = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Windowed = windowed;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.DisableAnalyticsTracking"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TutorialConfigurator SetDisableAnalyticsTracking(bool value)
+    public TutorialConfigurator SetDisableAnalyticsTracking(bool disableAnalyticsTracking)
     {
-      return OnConfigureInternal(bp => bp.DisableAnalyticsTracking = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableAnalyticsTracking = disableAnalyticsTracking;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTutorial.EncyclopediaReference"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintEncyclopediaPage"/></param>
+    /// <param name="encyclopediaReference"><see cref="BlueprintEncyclopediaPage"/></param>
     [Generated]
-    public TutorialConfigurator SetEncyclopediaReference(string value)
+    public TutorialConfigurator SetEncyclopediaReference(string encyclopediaReference)
     {
-      return OnConfigureInternal(bp => bp.EncyclopediaReference = BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EncyclopediaReference = BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(encyclopediaReference);
+          });
     }
 
     /// <summary>
@@ -208,30 +282,32 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialPage))]
     public TutorialConfigurator AddTutorialPage(
-        SpriteLink m_Picture,
-        VideoLink m_Video,
-        LocalizedString m_TitleText,
-        LocalizedString m_TriggerText,
-        LocalizedString m_DescriptionText,
-        LocalizedString m_SolutionFoundText,
-        LocalizedString m_SolutionNotFoundText)
+        SpriteLink picture,
+        VideoLink video,
+        LocalizedString titleText = null,
+        LocalizedString triggerText = null,
+        LocalizedString descriptionText = null,
+        LocalizedString solutionFoundText = null,
+        LocalizedString solutionNotFoundText = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Picture);
-      ValidateParam(m_Video);
-      ValidateParam(m_TitleText);
-      ValidateParam(m_TriggerText);
-      ValidateParam(m_DescriptionText);
-      ValidateParam(m_SolutionFoundText);
-      ValidateParam(m_SolutionNotFoundText);
-      
-      var component =  new TutorialPage();
-      component.m_Picture = m_Picture;
-      component.m_Video = m_Video;
-      component.m_TitleText = m_TitleText;
-      component.m_TriggerText = m_TriggerText;
-      component.m_DescriptionText = m_DescriptionText;
-      component.m_SolutionFoundText = m_SolutionFoundText;
-      component.m_SolutionNotFoundText = m_SolutionNotFoundText;
+      ValidateParam(picture);
+      ValidateParam(video);
+      ValidateParam(titleText);
+      ValidateParam(triggerText);
+      ValidateParam(descriptionText);
+      ValidateParam(solutionFoundText);
+      ValidateParam(solutionNotFoundText);
+    
+      var component = new TutorialPage();
+      component.m_Picture = picture;
+      component.m_Video = video;
+      component.m_TitleText = titleText ?? Constants.Empty.String;
+      component.m_TriggerText = triggerText ?? Constants.Empty.String;
+      component.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+      component.m_SolutionFoundText = solutionFoundText ?? Constants.Empty.String;
+      component.m_SolutionNotFoundText = solutionNotFoundText ?? Constants.Empty.String;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -241,14 +317,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerAbilityDamage))]
     public TutorialConfigurator AddTutorialTriggerAbilityDamage(
-        bool Drain,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        bool drain = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerAbilityDamage();
-      component.Drain = Drain;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerAbilityDamage();
+      component.Drain = drain;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -258,14 +334,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerAffectedByAreaEffect))]
     public TutorialConfigurator AddTutorialTriggerAffectedByAreaEffect(
-        SpellDescriptorWrapper SpellDescriptors,
-        bool NeedAllDescriptors)
+        SpellDescriptorWrapper spellDescriptors,
+        bool needAllDescriptors = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(SpellDescriptors);
-      
-      var component =  new TutorialTriggerAffectedByAreaEffect();
-      component.SpellDescriptors = SpellDescriptors;
-      component.NeedAllDescriptors = NeedAllDescriptors;
+      var component = new TutorialTriggerAffectedByAreaEffect();
+      component.SpellDescriptors = spellDescriptors;
+      component.NeedAllDescriptors = needAllDescriptors;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -275,12 +351,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerArcaneSpellFailure))]
     public TutorialConfigurator AddTutorialTriggerArcaneSpellFailure(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerArcaneSpellFailure();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerArcaneSpellFailure();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -288,17 +364,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerAreaLoaded"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="BlueprintArea"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerAreaLoaded))]
     public TutorialConfigurator AddTutorialTriggerAreaLoaded(
-        string m_Area,
-        ConditionsBuilder m_Condition)
+        string area = null,
+        ConditionsBuilder condition = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerAreaLoaded();
-      component.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(m_Area);
-      component.m_Condition = m_Condition.Build();
+      var component = new TutorialTriggerAreaLoaded();
+      component.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
+      component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -308,14 +385,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerArmorCheckPenalty))]
     public TutorialConfigurator AddTutorialTriggerArmorCheckPenalty(
-        float PenaltyTriggerPercent,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        float penaltyTriggerPercent = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerArmorCheckPenalty();
-      component.PenaltyTriggerPercent = PenaltyTriggerPercent;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerArmorCheckPenalty();
+      component.PenaltyTriggerPercent = penaltyTriggerPercent;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -324,9 +401,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerArmorDexBonusLimiter))]
-    public TutorialConfigurator AddTutorialTriggerArmorDexBonusLimiter()
+    public TutorialConfigurator AddTutorialTriggerArmorDexBonusLimiter(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerArmorDexBonusLimiter());
+      var component = new TutorialTriggerArmorDexBonusLimiter();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -335,12 +415,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerAttackFlatFootedTarget))]
     public TutorialConfigurator AddTutorialTriggerAttackFlatFootedTarget(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerAttackFlatFootedTarget();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerAttackFlatFootedTarget();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -350,12 +430,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerAttackOfOpportunity))]
     public TutorialConfigurator AddTutorialTriggerAttackOfOpportunity(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerAttackOfOpportunity();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerAttackOfOpportunity();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -363,22 +443,22 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerBuffAttached"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerBuffAttached))]
     public TutorialConfigurator AddTutorialTriggerBuffAttached(
-        SpellDescriptorWrapper TriggerDescriptors,
-        bool NeedAllDescriptors,
-        bool FromList,
-        string[] Buffs)
+        SpellDescriptorWrapper triggerDescriptors,
+        bool needAllDescriptors = default,
+        bool fromList = default,
+        string[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TriggerDescriptors);
-      
-      var component =  new TutorialTriggerBuffAttached();
-      component.TriggerDescriptors = TriggerDescriptors;
-      component.NeedAllDescriptors = NeedAllDescriptors;
-      component.FromList = FromList;
-      component.Buffs = Buffs.Select(bp => BlueprintTool.GetRef<BlueprintBuffReference>(bp)).ToArray();
+      var component = new TutorialTriggerBuffAttached();
+      component.TriggerDescriptors = triggerDescriptors;
+      component.NeedAllDescriptors = needAllDescriptors;
+      component.FromList = fromList;
+      component.Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -386,22 +466,23 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerCanBuffAlly"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_TriggerAreas"><see cref="BlueprintArea"/></param>
-    /// <param name="m_Ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="triggerAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="ability"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerCanBuffAlly))]
     public TutorialConfigurator AddTutorialTriggerCanBuffAlly(
-        string[] m_TriggerAreas,
-        string m_Ability,
-        bool m_CheckTankStat,
-        bool m_AllowItemsWithSpell)
+        string[] triggerAreas = null,
+        string ability = null,
+        bool checkTankStat = default,
+        bool allowItemsWithSpell = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerCanBuffAlly();
-      component.m_TriggerAreas = m_TriggerAreas.Select(bp => BlueprintTool.GetRef<BlueprintAreaReference>(bp)).ToArray();
-      component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Ability);
-      component.m_CheckTankStat = m_CheckTankStat;
-      component.m_AllowItemsWithSpell = m_AllowItemsWithSpell;
+      var component = new TutorialTriggerCanBuffAlly();
+      component.m_TriggerAreas = triggerAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray();
+      component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
+      component.m_CheckTankStat = checkTankStat;
+      component.m_AllowItemsWithSpell = allowItemsWithSpell;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -409,15 +490,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerCanReadScrollByNPC"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Scrolls"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="scrolls"><see cref="BlueprintItemEquipmentUsable"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerCanReadScrollByNPC))]
     public TutorialConfigurator AddTutorialTriggerCanReadScrollByNPC(
-        string[] m_Scrolls)
+        string[] scrolls = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerCanReadScrollByNPC();
-      component.m_Scrolls = m_Scrolls.Select(bp => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(bp)).ToArray();
+      var component = new TutorialTriggerCanReadScrollByNPC();
+      component.m_Scrolls = scrolls.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -426,9 +508,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerConditionImmunity))]
-    public TutorialConfigurator AddTutorialTriggerConditionImmunity()
+    public TutorialConfigurator AddTutorialTriggerConditionImmunity(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerConditionImmunity());
+      var component = new TutorialTriggerConditionImmunity();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -437,12 +522,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerCriticalHit))]
     public TutorialConfigurator AddTutorialTriggerCriticalHit(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerCriticalHit();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerCriticalHit();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -450,18 +535,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerDamageAllyWithSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerDamageAllyWithSpell))]
     public TutorialConfigurator AddTutorialTriggerDamageAllyWithSpell(
-        string[] m_Spells,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        string[] spells = null,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerDamageAllyWithSpell();
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerDamageAllyWithSpell();
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -471,21 +556,22 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerDamageFromWeapon))]
     public TutorialConfigurator AddTutorialTriggerDamageFromWeapon(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement,
-        bool m_AllowFlatfootedTarget,
-        bool m_AllowACTouchAttack,
-        bool m_ShowAfterCombat,
-        TutorialContext m_SavedContext)
+        TutorialContext savedContext,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        bool allowFlatfootedTarget = default,
+        bool allowACTouchAttack = default,
+        bool showAfterCombat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      ValidateParam(m_SavedContext);
-      
-      var component =  new TutorialTriggerDamageFromWeapon();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
-      component.m_AllowFlatfootedTarget = m_AllowFlatfootedTarget;
-      component.m_AllowACTouchAttack = m_AllowACTouchAttack;
-      component.m_ShowAfterCombat = m_ShowAfterCombat;
-      component.m_SavedContext = m_SavedContext;
+      ValidateParam(savedContext);
+    
+      var component = new TutorialTriggerDamageFromWeapon();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_AllowFlatfootedTarget = allowFlatfootedTarget;
+      component.m_AllowACTouchAttack = allowACTouchAttack;
+      component.m_ShowAfterCombat = showAfterCombat;
+      component.m_SavedContext = savedContext;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -495,14 +581,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerDamageReduction))]
     public TutorialConfigurator AddTutorialTriggerDamageReduction(
-        bool AbsoluteDR,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        bool absoluteDR = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerDamageReduction();
-      component.AbsoluteDR = AbsoluteDR;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerDamageReduction();
+      component.AbsoluteDR = absoluteDR;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -511,9 +597,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerDeathDoor))]
-    public TutorialConfigurator AddTutorialTriggerDeathDoor()
+    public TutorialConfigurator AddTutorialTriggerDeathDoor(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerDeathDoor());
+      var component = new TutorialTriggerDeathDoor();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -521,9 +610,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerDialogMythicAnswer))]
-    public TutorialConfigurator AddTutorialTriggerDialogMythicAnswer()
+    public TutorialConfigurator AddTutorialTriggerDialogMythicAnswer(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerDialogMythicAnswer());
+      var component = new TutorialTriggerDialogMythicAnswer();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -531,24 +623,28 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerEmptySkillSlotOnRest))]
-    public TutorialConfigurator AddTutorialTriggerEmptySkillSlotOnRest()
+    public TutorialConfigurator AddTutorialTriggerEmptySkillSlotOnRest(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerEmptySkillSlotOnRest());
+      var component = new TutorialTriggerEmptySkillSlotOnRest();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="TutorialTriggerEnemyHasAnyFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_EnemyFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="enemyFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasAnyFact))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasAnyFact(
-        string[] m_EnemyFacts)
+        string[] enemyFacts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerEnemyHasAnyFact();
-      component.m_EnemyFacts = m_EnemyFacts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new TutorialTriggerEnemyHasAnyFact();
+      component.m_EnemyFacts = enemyFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -556,21 +652,23 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerEnemyHasBlindsight"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasBlindsight))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasBlindsight(
-        UnitEntityData m_Unit,
-        Buff m_PartyBuff,
-        string[] m_Buffs)
+        UnitEntityData unit,
+        Buff partyBuff,
+        string[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Unit);
-      ValidateParam(m_PartyBuff);
-      
-      var component =  new TutorialTriggerEnemyHasBlindsight();
-      component.m_Unit = m_Unit;
-      component.m_PartyBuff = m_PartyBuff;
-      component.m_Buffs = m_Buffs.Select(bp => BlueprintTool.GetRef<BlueprintBuffReference>(bp)).ToArray();
+      ValidateParam(unit);
+      ValidateParam(partyBuff);
+    
+      var component = new TutorialTriggerEnemyHasBlindsight();
+      component.m_Unit = unit;
+      component.m_PartyBuff = partyBuff;
+      component.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -578,23 +676,25 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerEnemyHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_EnemyFact"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="enemyFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasFact))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasFact(
-        UnitEntityData m_Unit,
-        string m_EnemyFact,
-        string[] m_Spells,
-        bool m_AllowItemsWithSpell)
+        UnitEntityData unit,
+        string enemyFact = null,
+        string[] spells = null,
+        bool allowItemsWithSpell = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Unit);
-      
-      var component =  new TutorialTriggerEnemyHasFact();
-      component.m_Unit = m_Unit;
-      component.m_EnemyFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_EnemyFact);
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.m_AllowItemsWithSpell = m_AllowItemsWithSpell;
+      ValidateParam(unit);
+    
+      var component = new TutorialTriggerEnemyHasFact();
+      component.m_Unit = unit;
+      component.m_EnemyFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(enemyFact);
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_AllowItemsWithSpell = allowItemsWithSpell;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -603,9 +703,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasRegeneration))]
-    public TutorialConfigurator AddTutorialTriggerEnemyHasRegeneration()
+    public TutorialConfigurator AddTutorialTriggerEnemyHasRegeneration(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerEnemyHasRegeneration());
+      var component = new TutorialTriggerEnemyHasRegeneration();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -614,12 +717,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasVulnerability))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasVulnerability(
-        string m_Descriptor)
+        string descriptor,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Descriptor);
-      
-      var component =  new TutorialTriggerEnemyHasVulnerability();
-      component.m_Descriptor = m_Descriptor;
+      var component = new TutorialTriggerEnemyHasVulnerability();
+      component.m_Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -629,12 +732,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnergyDrain))]
     public TutorialConfigurator AddTutorialTriggerEnergyDrain(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerEnergyDrain();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerEnergyDrain();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -644,14 +747,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnergyImmunity))]
     public TutorialConfigurator AddTutorialTriggerEnergyImmunity(
-        bool FromSpell,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        bool fromSpell = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerEnergyImmunity();
-      component.FromSpell = FromSpell;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerEnergyImmunity();
+      component.FromSpell = fromSpell;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -661,14 +764,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnergyResistance))]
     public TutorialConfigurator AddTutorialTriggerEnergyResistance(
-        bool FromSpell,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        bool fromSpell = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerEnergyResistance();
-      component.FromSpell = FromSpell;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerEnergyResistance();
+      component.FromSpell = fromSpell;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -678,16 +781,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerExtraAttackAfterLevelUp))]
     public TutorialConfigurator AddTutorialTriggerExtraAttackAfterLevelUp(
-        UnitEntityData m_TriggerUnit,
-        int m_StartPrimaryAttackCount,
-        int m_StartSecondaryAttackCount)
+        UnitEntityData triggerUnit,
+        int startPrimaryAttackCount = default,
+        int startSecondaryAttackCount = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_TriggerUnit);
-      
-      var component =  new TutorialTriggerExtraAttackAfterLevelUp();
-      component.m_TriggerUnit = m_TriggerUnit;
-      component.m_StartPrimaryAttackCount = m_StartPrimaryAttackCount;
-      component.m_StartSecondaryAttackCount = m_StartSecondaryAttackCount;
+      ValidateParam(triggerUnit);
+    
+      var component = new TutorialTriggerExtraAttackAfterLevelUp();
+      component.m_TriggerUnit = triggerUnit;
+      component.m_StartPrimaryAttackCount = startPrimaryAttackCount;
+      component.m_StartSecondaryAttackCount = startSecondaryAttackCount;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -697,18 +802,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerFormationChangedBadly))]
     public TutorialConfigurator AddTutorialTriggerFormationChangedBadly(
-        bool m_PartyWasChanged,
-        int TanksCount,
-        float MinTankDistance,
-        GameDifficultyOption MaxGameDifficulty)
+        bool partyWasChanged = default,
+        int tanksCount = default,
+        float minTankDistance = default,
+        GameDifficultyOption maxGameDifficulty = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(MaxGameDifficulty);
-      
-      var component =  new TutorialTriggerFormationChangedBadly();
-      component.m_PartyWasChanged = m_PartyWasChanged;
-      component.TanksCount = TanksCount;
-      component.MinTankDistance = MinTankDistance;
-      component.MaxGameDifficulty = MaxGameDifficulty;
+      var component = new TutorialTriggerFormationChangedBadly();
+      component.m_PartyWasChanged = partyWasChanged;
+      component.TanksCount = tanksCount;
+      component.MinTankDistance = minTankDistance;
+      component.MaxGameDifficulty = maxGameDifficulty;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -718,11 +823,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerHaveBetterEquipment))]
     public TutorialConfigurator AddTutorialTriggerHaveBetterEquipment(
-        int MinGradeDiff)
+        int minGradeDiff = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerHaveBetterEquipment();
-      component.MinGradeDiff = MinGradeDiff;
+      var component = new TutorialTriggerHaveBetterEquipment();
+      component.MinGradeDiff = minGradeDiff;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -730,18 +836,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerHealEnemyWithSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerHealEnemyWithSpell))]
     public TutorialConfigurator AddTutorialTriggerHealEnemyWithSpell(
-        string[] m_Spells,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        string[] spells = null,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerHealEnemyWithSpell();
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerHealEnemyWithSpell();
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -751,11 +857,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerHealingScroll))]
     public TutorialConfigurator AddTutorialTriggerHealingScroll(
-        float UnitLeftHealthPercent)
+        float unitLeftHealthPercent = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerHealingScroll();
-      component.UnitLeftHealthPercent = UnitLeftHealthPercent;
+      var component = new TutorialTriggerHealingScroll();
+      component.UnitLeftHealthPercent = unitLeftHealthPercent;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -764,9 +871,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerItemIdentificationFailed))]
-    public TutorialConfigurator AddTutorialTriggerItemIdentificationFailed()
+    public TutorialConfigurator AddTutorialTriggerItemIdentificationFailed(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerItemIdentificationFailed());
+      var component = new TutorialTriggerItemIdentificationFailed();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -774,9 +884,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerKingdomManagementOpened))]
-    public TutorialConfigurator AddTutorialTriggerKingdomManagementOpened()
+    public TutorialConfigurator AddTutorialTriggerKingdomManagementOpened(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerKingdomManagementOpened());
+      var component = new TutorialTriggerKingdomManagementOpened();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -785,12 +898,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerKingdomTabSelected))]
     public TutorialConfigurator AddTutorialTriggerKingdomTabSelected(
-        KingdomNavigationType m_Type)
+        KingdomNavigationType type = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      
-      var component =  new TutorialTriggerKingdomTabSelected();
-      component.m_Type = m_Type;
+      var component = new TutorialTriggerKingdomTabSelected();
+      component.m_Type = type;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -800,13 +913,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerLowGroupHealth))]
     public TutorialConfigurator AddTutorialTriggerLowGroupHealth(
-        float HealSkillsLeftPercent,
-        float AverageGroupHealthPercent)
+        float healSkillsLeftPercent = default,
+        float averageGroupHealthPercent = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerLowGroupHealth();
-      component.HealSkillsLeftPercent = HealSkillsLeftPercent;
-      component.AverageGroupHealthPercent = AverageGroupHealthPercent;
+      var component = new TutorialTriggerLowGroupHealth();
+      component.HealSkillsLeftPercent = healSkillsLeftPercent;
+      component.AverageGroupHealthPercent = averageGroupHealthPercent;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -816,11 +930,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerLowHitPoints))]
     public TutorialConfigurator AddTutorialTriggerLowHitPoints(
-        float Threshold)
+        float threshold = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerLowHitPoints();
-      component.Threshold = Threshold;
+      var component = new TutorialTriggerLowHitPoints();
+      component.Threshold = threshold;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -828,15 +943,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerMemorizeSpontaneousSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CharacterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerMemorizeSpontaneousSpell))]
     public TutorialConfigurator AddTutorialTriggerMemorizeSpontaneousSpell(
-        string m_CharacterClass)
+        string characterClass = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerMemorizeSpontaneousSpell();
-      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
+      var component = new TutorialTriggerMemorizeSpontaneousSpell();
+      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -846,12 +962,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerMissingPreciseShot))]
     public TutorialConfigurator AddTutorialTriggerMissingPreciseShot(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerMissingPreciseShot();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerMissingPreciseShot();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -860,9 +976,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerMissingTwoWeaponFighting))]
-    public TutorialConfigurator AddTutorialTriggerMissingTwoWeaponFighting()
+    public TutorialConfigurator AddTutorialTriggerMissingTwoWeaponFighting(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerMissingTwoWeaponFighting());
+      var component = new TutorialTriggerMissingTwoWeaponFighting();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -870,9 +989,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerMountAnimal))]
-    public TutorialConfigurator AddTutorialTriggerMountAnimal()
+    public TutorialConfigurator AddTutorialTriggerMountAnimal(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerMountAnimal());
+      var component = new TutorialTriggerMountAnimal();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -881,16 +1003,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerMultipleUnitsCondition))]
     public TutorialConfigurator AddTutorialTriggerMultipleUnitsCondition(
-        UnitCondition TriggerCondition,
-        int MinimumUnitsCount,
-        bool AllowOnGlobalMap)
+        UnitCondition triggerCondition = default,
+        int minimumUnitsCount = default,
+        bool allowOnGlobalMap = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TriggerCondition);
-      
-      var component =  new TutorialTriggerMultipleUnitsCondition();
-      component.TriggerCondition = TriggerCondition;
-      component.MinimumUnitsCount = MinimumUnitsCount;
-      component.AllowOnGlobalMap = AllowOnGlobalMap;
+      var component = new TutorialTriggerMultipleUnitsCondition();
+      component.TriggerCondition = triggerCondition;
+      component.MinimumUnitsCount = minimumUnitsCount;
+      component.AllowOnGlobalMap = allowOnGlobalMap;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -900,11 +1022,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNewCrusaderArmy))]
     public TutorialConfigurator AddTutorialTriggerNewCrusaderArmy(
-        int m_MinimumNumberOfArmies)
+        int minimumNumberOfArmies = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerNewCrusaderArmy();
-      component.m_MinimumNumberOfArmies = m_MinimumNumberOfArmies;
+      var component = new TutorialTriggerNewCrusaderArmy();
+      component.m_MinimumNumberOfArmies = minimumNumberOfArmies;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -912,15 +1035,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerNewItemWithEnchantment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Enchantment"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantment"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerNewItemWithEnchantment))]
     public TutorialConfigurator AddTutorialTriggerNewItemWithEnchantment(
-        string m_Enchantment)
+        string enchantment = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerNewItemWithEnchantment();
-      component.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(m_Enchantment);
+      var component = new TutorialTriggerNewItemWithEnchantment();
+      component.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchantment);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -929,9 +1053,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerNewNotLearnedScroll))]
-    public TutorialConfigurator AddTutorialTriggerNewNotLearnedScroll()
+    public TutorialConfigurator AddTutorialTriggerNewNotLearnedScroll(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerNewNotLearnedScroll());
+      var component = new TutorialTriggerNewNotLearnedScroll();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -939,9 +1066,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerNewRecipe))]
-    public TutorialConfigurator AddTutorialTriggerNewRecipe()
+    public TutorialConfigurator AddTutorialTriggerNewRecipe(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerNewRecipe());
+      var component = new TutorialTriggerNewRecipe();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -950,12 +1080,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNewRodItem))]
     public TutorialConfigurator AddTutorialTriggerNewRodItem(
-        Metamagic TriggerMetamagic)
+        Metamagic triggerMetamagic = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TriggerMetamagic);
-      
-      var component =  new TutorialTriggerNewRodItem();
-      component.TriggerMetamagic = TriggerMetamagic;
+      var component = new TutorialTriggerNewRodItem();
+      component.TriggerMetamagic = triggerMetamagic;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -964,24 +1094,28 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerNewSpellWithoutRequiredMaterial))]
-    public TutorialConfigurator AddTutorialTriggerNewSpellWithoutRequiredMaterial()
+    public TutorialConfigurator AddTutorialTriggerNewSpellWithoutRequiredMaterial(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerNewSpellWithoutRequiredMaterial());
+      var component = new TutorialTriggerNewSpellWithoutRequiredMaterial();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="TutorialTriggerNewWand"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerNewWand))]
     public TutorialConfigurator AddTutorialTriggerNewWand(
-        string[] m_Spells)
+        string[] spells = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerNewWand();
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
+      var component = new TutorialTriggerNewWand();
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -989,18 +1123,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerNoAutocastSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_RecommendedAbilities"><see cref="BlueprintAbility"/></param>
-    /// <param name="m_Companions"><see cref="BlueprintUnit"/></param>
+    /// <param name="recommendedAbilities"><see cref="BlueprintAbility"/></param>
+    /// <param name="companions"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerNoAutocastSpell))]
     public TutorialConfigurator AddTutorialTriggerNoAutocastSpell(
-        string[] m_RecommendedAbilities,
-        string[] m_Companions)
+        string[] recommendedAbilities = null,
+        string[] companions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerNoAutocastSpell();
-      component.m_RecommendedAbilities = m_RecommendedAbilities.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.m_Companions = m_Companions.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
+      var component = new TutorialTriggerNoAutocastSpell();
+      component.m_RecommendedAbilities = recommendedAbilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_Companions = companions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1009,9 +1144,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerNonStackBonus))]
-    public TutorialConfigurator AddTutorialTriggerNonStackBonus()
+    public TutorialConfigurator AddTutorialTriggerNonStackBonus(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerNonStackBonus());
+      var component = new TutorialTriggerNonStackBonus();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1019,9 +1157,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerOpenArmyRecruit))]
-    public TutorialConfigurator AddTutorialTriggerOpenArmyRecruit()
+    public TutorialConfigurator AddTutorialTriggerOpenArmyRecruit(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerOpenArmyRecruit());
+      var component = new TutorialTriggerOpenArmyRecruit();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1029,9 +1170,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerOpenRestUI))]
-    public TutorialConfigurator AddTutorialTriggerOpenRestUI()
+    public TutorialConfigurator AddTutorialTriggerOpenRestUI(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerOpenRestUI());
+      var component = new TutorialTriggerOpenRestUI();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1040,12 +1184,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerPartyEncumbrance))]
     public TutorialConfigurator AddTutorialTriggerPartyEncumbrance(
-        Encumbrance MinTriggerEncumbrance)
+        Encumbrance minTriggerEncumbrance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(MinTriggerEncumbrance);
-      
-      var component =  new TutorialTriggerPartyEncumbrance();
-      component.MinTriggerEncumbrance = MinTriggerEncumbrance;
+      var component = new TutorialTriggerPartyEncumbrance();
+      component.MinTriggerEncumbrance = minTriggerEncumbrance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1054,9 +1198,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerSavingThrow))]
-    public TutorialConfigurator AddTutorialTriggerSavingThrow()
+    public TutorialConfigurator AddTutorialTriggerSavingThrow(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerSavingThrow());
+      var component = new TutorialTriggerSavingThrow();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1065,20 +1212,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerSkillCheck))]
     public TutorialConfigurator AddTutorialTriggerSkillCheck(
-        TutorialTriggerSkillCheck.ResultType m_TriggerOnResult,
-        bool SkillRestriction,
-        StatType Skill,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        TutorialTriggerSkillCheck.ResultType triggerOnResult = default,
+        bool skillRestriction = default,
+        StatType skill = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_TriggerOnResult);
-      ValidateParam(Skill);
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerSkillCheck();
-      component.m_TriggerOnResult = m_TriggerOnResult;
-      component.SkillRestriction = SkillRestriction;
-      component.Skill = Skill;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerSkillCheck();
+      component.m_TriggerOnResult = triggerOnResult;
+      component.SkillRestriction = skillRestriction;
+      component.Skill = skill;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1088,12 +1233,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerSneakAttack))]
     public TutorialConfigurator AddTutorialTriggerSneakAttack(
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerSneakAttack();
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerSneakAttack();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1103,20 +1248,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerSpellResistance))]
     public TutorialConfigurator AddTutorialTriggerSpellResistance(
-        TutorialTriggerSpellResistance.Target TriggerTarget,
-        SpellDescriptorWrapper Descriptor,
-        bool NeedAllDescriptors,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        SpellDescriptorWrapper descriptor,
+        TutorialTriggerSpellResistance.Target triggerTarget = default,
+        bool needAllDescriptors = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TriggerTarget);
-      ValidateParam(Descriptor);
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerSpellResistance();
-      component.TriggerTarget = TriggerTarget;
-      component.Descriptor = Descriptor;
-      component.NeedAllDescriptors = NeedAllDescriptors;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerSpellResistance();
+      component.TriggerTarget = triggerTarget;
+      component.Descriptor = descriptor;
+      component.NeedAllDescriptors = needAllDescriptors;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1126,13 +1269,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerTacticalCombatEnd))]
     public TutorialConfigurator AddTutorialTriggerTacticalCombatEnd(
-        bool m_DemonsWon,
-        bool m_OnlyGarrison)
+        bool demonsWon = default,
+        bool onlyGarrison = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerTacticalCombatEnd();
-      component.m_DemonsWon = m_DemonsWon;
-      component.m_OnlyGarrison = m_OnlyGarrison;
+      var component = new TutorialTriggerTacticalCombatEnd();
+      component.m_DemonsWon = demonsWon;
+      component.m_OnlyGarrison = onlyGarrison;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1140,21 +1284,22 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerTacticalCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_EnemyUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="enemyUnits"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerTacticalCombatStart))]
     public TutorialConfigurator AddTutorialTriggerTacticalCombatStart(
-        bool m_EnemyShouldHaveLeader,
-        bool m_SpecifyEnemyUnits,
-        bool m_PlayerShouldHaveLeader,
-        string[] m_EnemyUnits)
+        bool enemyShouldHaveLeader = default,
+        bool specifyEnemyUnits = default,
+        bool playerShouldHaveLeader = default,
+        string[] enemyUnits = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerTacticalCombatStart();
-      component.m_EnemyShouldHaveLeader = m_EnemyShouldHaveLeader;
-      component.m_SpecifyEnemyUnits = m_SpecifyEnemyUnits;
-      component.m_PlayerShouldHaveLeader = m_PlayerShouldHaveLeader;
-      component.m_EnemyUnits = m_EnemyUnits.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
+      var component = new TutorialTriggerTacticalCombatStart();
+      component.m_EnemyShouldHaveLeader = enemyShouldHaveLeader;
+      component.m_SpecifyEnemyUnits = specifyEnemyUnits;
+      component.m_PlayerShouldHaveLeader = playerShouldHaveLeader;
+      component.m_EnemyUnits = enemyUnits.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1163,9 +1308,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerTargetRestriction))]
-    public TutorialConfigurator AddTutorialTriggerTargetRestriction()
+    public TutorialConfigurator AddTutorialTriggerTargetRestriction(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerTargetRestriction());
+      var component = new TutorialTriggerTargetRestriction();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1174,16 +1322,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerTouchAC))]
     public TutorialConfigurator AddTutorialTriggerTouchAC(
-        int TouchACDifference,
-        int MissesInRow,
-        DirectlyControllableUnitRequirement m_DirectlyControllableRequirement)
+        int touchACDifference = default,
+        int missesInRow = default,
+        DirectlyControllableUnitRequirement directlyControllableRequirement = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_DirectlyControllableRequirement);
-      
-      var component =  new TutorialTriggerTouchAC();
-      component.TouchACDifference = TouchACDifference;
-      component.MissesInRow = MissesInRow;
-      component.m_DirectlyControllableRequirement = m_DirectlyControllableRequirement;
+      var component = new TutorialTriggerTouchAC();
+      component.TouchACDifference = touchACDifference;
+      component.MissesInRow = missesInRow;
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1192,9 +1340,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerTurnBaseModeActivated))]
-    public TutorialConfigurator AddTutorialTriggerTurnBaseModeActivated()
+    public TutorialConfigurator AddTutorialTriggerTurnBaseModeActivated(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerTurnBaseModeActivated());
+      var component = new TutorialTriggerTurnBaseModeActivated();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1203,12 +1354,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUIEvent))]
     public TutorialConfigurator AddTutorialTriggerUIEvent(
-        UIEventType UIEvent)
+        UIEventType uIEvent = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(UIEvent);
-      
-      var component =  new TutorialTriggerUIEvent();
-      component.UIEvent = UIEvent;
+      var component = new TutorialTriggerUIEvent();
+      component.UIEvent = uIEvent;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1218,12 +1369,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUnitCondition))]
     public TutorialConfigurator AddTutorialTriggerUnitCondition(
-        UnitCondition TriggerCondition)
+        UnitCondition triggerCondition = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TriggerCondition);
-      
-      var component =  new TutorialTriggerUnitCondition();
-      component.TriggerCondition = TriggerCondition;
+      var component = new TutorialTriggerUnitCondition();
+      component.TriggerCondition = triggerCondition;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1233,11 +1384,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUnitDeath))]
     public TutorialConfigurator AddTutorialTriggerUnitDeath(
-        bool IsPet)
+        bool isPet = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerUnitDeath();
-      component.IsPet = IsPet;
+      var component = new TutorialTriggerUnitDeath();
+      component.IsPet = isPet;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1245,15 +1397,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialTriggerUnitDiedWithoutBardPerformance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Performances"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="performances"><see cref="BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialTriggerUnitDiedWithoutBardPerformance))]
     public TutorialConfigurator AddTutorialTriggerUnitDiedWithoutBardPerformance(
-        string[] m_Performances)
+        string[] performances = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialTriggerUnitDiedWithoutBardPerformance();
-      component.m_Performances = m_Performances.Select(bp => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(bp)).ToArray();
+      var component = new TutorialTriggerUnitDiedWithoutBardPerformance();
+      component.m_Performances = performances.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1263,12 +1416,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUnitEncumbrance))]
     public TutorialConfigurator AddTutorialTriggerUnitEncumbrance(
-        Encumbrance MinTriggerEncumbrance)
+        Encumbrance minTriggerEncumbrance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(MinTriggerEncumbrance);
-      
-      var component =  new TutorialTriggerUnitEncumbrance();
-      component.MinTriggerEncumbrance = MinTriggerEncumbrance;
+      var component = new TutorialTriggerUnitEncumbrance();
+      component.MinTriggerEncumbrance = minTriggerEncumbrance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1277,9 +1430,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerUnitLostAlignmentFeature))]
-    public TutorialConfigurator AddTutorialTriggerUnitLostAlignmentFeature()
+    public TutorialConfigurator AddTutorialTriggerUnitLostAlignmentFeature(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerUnitLostAlignmentFeature());
+      var component = new TutorialTriggerUnitLostAlignmentFeature();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1287,9 +1443,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialTriggerUnitWithSneakAttackJoinParty))]
-    public TutorialConfigurator AddTutorialTriggerUnitWithSneakAttackJoinParty()
+    public TutorialConfigurator AddTutorialTriggerUnitWithSneakAttackJoinParty(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialTriggerUnitWithSneakAttackJoinParty());
+      var component = new TutorialTriggerUnitWithSneakAttackJoinParty();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1297,28 +1456,32 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialSolverAllFromTrigger))]
-    public TutorialConfigurator AddTutorialSolverAllFromTrigger()
+    public TutorialConfigurator AddTutorialSolverAllFromTrigger(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialSolverAllFromTrigger());
+      var component = new TutorialSolverAllFromTrigger();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="TutorialSolverBestWeaponAgainstTarget"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
     [Generated]
     [Implements(typeof(TutorialSolverBestWeaponAgainstTarget))]
     public TutorialConfigurator AddTutorialSolverBestWeaponAgainstTarget(
-        bool CheckRegeneration,
-        bool CheckEnchantment,
-        string[] m_Enchantments)
+        bool checkRegeneration = default,
+        bool checkEnchantment = default,
+        string[] enchantments = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialSolverBestWeaponAgainstTarget();
-      component.CheckRegeneration = CheckRegeneration;
-      component.CheckEnchantment = CheckEnchantment;
-      component.m_Enchantments = m_Enchantments.Select(bp => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(bp)).ToArray();
+      var component = new TutorialSolverBestWeaponAgainstTarget();
+      component.CheckRegeneration = checkRegeneration;
+      component.CheckEnchantment = checkEnchantment;
+      component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1327,26 +1490,30 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </summary>
     [Generated]
     [Implements(typeof(TutorialSolverItemFromTrigger))]
-    public TutorialConfigurator AddTutorialSolverItemFromTrigger()
+    public TutorialConfigurator AddTutorialSolverItemFromTrigger(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TutorialSolverItemFromTrigger());
+      var component = new TutorialSolverItemFromTrigger();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="TutorialSolverSpellFromList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialSolverSpellFromList))]
     public TutorialConfigurator AddTutorialSolverSpellFromList(
-        string[] m_Spells,
-        bool AllowItems)
+        string[] spells = null,
+        bool allowItems = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TutorialSolverSpellFromList();
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.AllowItems = AllowItems;
+      var component = new TutorialSolverSpellFromList();
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.AllowItems = allowItems;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1354,33 +1521,32 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// Adds <see cref="TutorialSolverSpellWithDamage"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="IgnoredSpells"><see cref="BlueprintAbility"/></param>
+    /// <param name="ignoredSpells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TutorialSolverSpellWithDamage))]
     public TutorialConfigurator AddTutorialSolverSpellWithDamage(
-        bool CheckRegeneration,
-        bool CheckVulnerability,
-        AttackTypeFlag AttackType,
-        bool OnlyAoE,
-        bool UseDescriptor,
-        SpellDescriptorWrapper SpellDescriptor,
-        bool NeedAllDescriptors,
-        string[] IgnoredSpells,
-        bool AllowItems)
+        SpellDescriptorWrapper spellDescriptor,
+        bool checkRegeneration = default,
+        bool checkVulnerability = default,
+        AttackTypeFlag attackType = default,
+        bool onlyAoE = default,
+        bool useDescriptor = default,
+        bool needAllDescriptors = default,
+        string[] ignoredSpells = null,
+        bool allowItems = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(AttackType);
-      ValidateParam(SpellDescriptor);
-      
-      var component =  new TutorialSolverSpellWithDamage();
-      component.CheckRegeneration = CheckRegeneration;
-      component.CheckVulnerability = CheckVulnerability;
-      component.AttackType = AttackType;
-      component.OnlyAoE = OnlyAoE;
-      component.UseDescriptor = UseDescriptor;
-      component.SpellDescriptor = SpellDescriptor;
-      component.NeedAllDescriptors = NeedAllDescriptors;
-      component.IgnoredSpells = IgnoredSpells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToList();
-      component.AllowItems = AllowItems;
+      var component = new TutorialSolverSpellWithDamage();
+      component.CheckRegeneration = checkRegeneration;
+      component.CheckVulnerability = checkVulnerability;
+      component.AttackType = attackType;
+      component.OnlyAoE = onlyAoE;
+      component.UseDescriptor = useDescriptor;
+      component.SpellDescriptor = spellDescriptor;
+      component.NeedAllDescriptors = needAllDescriptors;
+      component.IgnoredSpells = ignoredSpells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList();
+      component.AllowItems = allowItems;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1390,18 +1556,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialSolverSpellWithDescriptor))]
     public TutorialConfigurator AddTutorialSolverSpellWithDescriptor(
-        SpellDescriptorWrapper SpellDescriptors,
-        bool NeedAllDescriptors,
-        bool ExcludeOnlySelfTarget,
-        bool AllowItems)
+        SpellDescriptorWrapper spellDescriptors,
+        bool needAllDescriptors = default,
+        bool excludeOnlySelfTarget = default,
+        bool allowItems = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(SpellDescriptors);
-      
-      var component =  new TutorialSolverSpellWithDescriptor();
-      component.SpellDescriptors = SpellDescriptors;
-      component.NeedAllDescriptors = NeedAllDescriptors;
-      component.ExcludeOnlySelfTarget = ExcludeOnlySelfTarget;
-      component.AllowItems = AllowItems;
+      var component = new TutorialSolverSpellWithDescriptor();
+      component.SpellDescriptors = spellDescriptors;
+      component.NeedAllDescriptors = needAllDescriptors;
+      component.ExcludeOnlySelfTarget = excludeOnlySelfTarget;
+      component.AllowItems = allowItems;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

@@ -1,16 +1,19 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.ElementsSystem;
 using Kingmaker.RandomEncounters.Settings;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
-  /// <summary>Configurator for <see cref="BlueprintCampingEncounter"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCampingEncounter"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCampingEncounter))]
   public class CampingEncounterConfigurator : BaseBlueprintConfigurator<BlueprintCampingEncounter, CampingEncounterConfigurator>
   {
-     private CampingEncounterConfigurator(string name) : base(name) { }
+    private CampingEncounterConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CampingEncounterConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CampingEncounterConfigurator New(string name, string assetId)
+    public static CampingEncounterConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCampingEncounter>(name, assetId);
       return For(name);
@@ -36,63 +39,93 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintCampingEncounter.Chance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetChance(int value)
+    public CampingEncounterConfigurator SetChance(int chance)
     {
-      return OnConfigureInternal(bp => bp.Chance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Chance = chance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetConditions(ConditionsBuilder value)
+    public CampingEncounterConfigurator SetConditions(ConditionsBuilder conditions)
     {
-      return OnConfigureInternal(bp => bp.Conditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.EncounterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder value)
+    public CampingEncounterConfigurator SetEncounterActions(ActionList encounterActions)
     {
-      return OnConfigureInternal(bp => bp.EncounterActions = value.Build());
+      ValidateParam(encounterActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EncounterActions = encounterActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.InterruptsRest"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetInterruptsRest(bool value)
+    public CampingEncounterConfigurator SetInterruptsRest(bool interruptsRest)
     {
-      return OnConfigureInternal(bp => bp.InterruptsRest = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.InterruptsRest = interruptsRest;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.PartyTired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetPartyTired(bool value)
+    public CampingEncounterConfigurator SetPartyTired(bool partyTired)
     {
-      return OnConfigureInternal(bp => bp.PartyTired = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PartyTired = partyTired;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.MainCharacterTired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetMainCharacterTired(bool value)
+    public CampingEncounterConfigurator SetMainCharacterTired(bool mainCharacterTired)
     {
-      return OnConfigureInternal(bp => bp.MainCharacterTired = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MainCharacterTired = mainCharacterTired;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.NotOnGlobalMap"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetNotOnGlobalMap(bool value)
+    public CampingEncounterConfigurator SetNotOnGlobalMap(bool notOnGlobalMap)
     {
-      return OnConfigureInternal(bp => bp.NotOnGlobalMap = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NotOnGlobalMap = notOnGlobalMap;
+          });
     }
   }
 }

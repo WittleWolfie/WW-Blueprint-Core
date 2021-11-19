@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -12,16 +11,19 @@ using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
-  /// <summary>Configurator for <see cref="BlueprintQuestObjective"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintQuestObjective"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintQuestObjective))]
   public class QuestObjectiveConfigurator : BaseFactConfigurator<BlueprintQuestObjective, QuestObjectiveConfigurator>
   {
-     private QuestObjectiveConfigurator(string name) : base(name) { }
+    private QuestObjectiveConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static QuestObjectiveConfigurator For(string name)
@@ -37,35 +39,54 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static QuestObjectiveConfigurator New(string name, string assetId)
+    public static QuestObjectiveConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintQuestObjective>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Addendums"/> (Auto Generated)
+    /// Sets <see cref="BlueprintQuestObjective.m_Addendums"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="addendums"><see cref="BlueprintQuestObjective"/></param>
     [Generated]
-    public QuestObjectiveConfigurator AddToAddendums(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Addendums.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Addendums"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator RemoveFromAddendums(params string[] values)
+    public QuestObjectiveConfigurator SetAddendums(string[] addendums)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
+            bp.m_Addendums = addendums.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuestObjective.m_Addendums"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addendums"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator AddToAddendums(params string[] addendums)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Addendums.AddRange(addendums.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuestObjective.m_Addendums"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addendums"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator RemoveFromAddendums(params string[] addendums)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = addendums.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
             bp.m_Addendums =
                 bp.m_Addendums
                     .Where(
@@ -75,28 +96,47 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Areas"/> (Auto Generated)
+    /// Sets <see cref="BlueprintQuestObjective.m_Areas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
+    /// <param name="areas"><see cref="BlueprintArea"/></param>
     [Generated]
-    public QuestObjectiveConfigurator AddToAreas(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Areas.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Areas"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator RemoveFromAreas(params string[] values)
+    public QuestObjectiveConfigurator SetAreas(string[] areas)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
+            bp.m_Areas = areas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuestObjective.m_Areas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="areas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator AddToAreas(params string[] areas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Areas.AddRange(areas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuestObjective.m_Areas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="areas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator RemoveFromAreas(params string[] areas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = areas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
             bp.m_Areas =
                 bp.m_Areas
                     .Where(
@@ -109,35 +149,59 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuestObjective.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetTitle(LocalizedString value)
+    public QuestObjectiveConfigurator SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.Locations"/> (Auto Generated)
+    /// Sets <see cref="BlueprintQuestObjective.Locations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public QuestObjectiveConfigurator AddToLocations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Locations.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.Locations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator RemoveFromLocations(params string[] values)
+    public QuestObjectiveConfigurator SetLocations(string[] locations)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name));
+            bp.Locations = locations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuestObjective.Locations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator AddToLocations(params string[] locations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Locations.AddRange(locations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuestObjective.Locations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator RemoveFromLocations(params string[] locations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = locations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name));
             bp.Locations =
                 bp.Locations
                     .Where(
@@ -147,28 +211,47 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.MultiEntranceEntries"/> (Auto Generated)
+    /// Sets <see cref="BlueprintQuestObjective.MultiEntranceEntries"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintMultiEntranceEntry"/></param>
+    /// <param name="multiEntranceEntries"><see cref="BlueprintMultiEntranceEntry"/></param>
     [Generated]
-    public QuestObjectiveConfigurator AddToMultiEntranceEntries(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.MultiEntranceEntries.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntry.Reference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.MultiEntranceEntries"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintMultiEntranceEntry"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator RemoveFromMultiEntranceEntries(params string[] values)
+    public QuestObjectiveConfigurator SetMultiEntranceEntries(string[] multiEntranceEntries)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntry.Reference>(name));
+            bp.MultiEntranceEntries = multiEntranceEntries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntry.Reference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuestObjective.MultiEntranceEntries"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="multiEntranceEntries"><see cref="BlueprintMultiEntranceEntry"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator AddToMultiEntranceEntries(params string[] multiEntranceEntries)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MultiEntranceEntries.AddRange(multiEntranceEntries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntry.Reference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuestObjective.MultiEntranceEntries"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="multiEntranceEntries"><see cref="BlueprintMultiEntranceEntry"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator RemoveFromMultiEntranceEntries(params string[] multiEntranceEntries)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = multiEntranceEntries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntry.Reference>(name));
             bp.MultiEntranceEntries =
                 bp.MultiEntranceEntries
                     .Where(
@@ -181,80 +264,124 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuestObjective.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetDescription(LocalizedString value)
+    public QuestObjectiveConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.AutoFailDays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetAutoFailDays(int value)
+    public QuestObjectiveConfigurator SetAutoFailDays(int autoFailDays)
     {
-      return OnConfigureInternal(bp => bp.AutoFailDays = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AutoFailDays = autoFailDays;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.IsFakeFail"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetIsFakeFail(bool value)
+    public QuestObjectiveConfigurator SetIsFakeFail(bool isFakeFail)
     {
-      return OnConfigureInternal(bp => bp.IsFakeFail = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsFakeFail = isFakeFail;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.StartOnKingdomTime"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetStartOnKingdomTime(bool value)
+    public QuestObjectiveConfigurator SetStartOnKingdomTime(bool startOnKingdomTime)
     {
-      return OnConfigureInternal(bp => bp.StartOnKingdomTime = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StartOnKingdomTime = startOnKingdomTime;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_FinishParent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetFinishParent(bool value)
+    public QuestObjectiveConfigurator SetFinishParent(bool finishParent)
     {
-      return OnConfigureInternal(bp => bp.m_FinishParent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FinishParent = finishParent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_Hidden"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetHidden(bool value)
-    {
-      return OnConfigureInternal(bp => bp.m_Hidden = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_NextObjectives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator AddToNextObjectives(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_NextObjectives.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_NextObjectives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
-    [Generated]
-    public QuestObjectiveConfigurator RemoveFromNextObjectives(params string[] values)
+    public QuestObjectiveConfigurator SetHidden(bool hidden)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
+            bp.m_Hidden = hidden;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuestObjective.m_NextObjectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="nextObjectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator SetNextObjectives(string[] nextObjectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NextObjectives = nextObjectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuestObjective.m_NextObjectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="nextObjectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator AddToNextObjectives(params string[] nextObjectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NextObjectives.AddRange(nextObjectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuestObjective.m_NextObjectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="nextObjectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestObjectiveConfigurator RemoveFromNextObjectives(params string[] nextObjectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = nextObjectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
             bp.m_NextObjectives =
                 bp.m_NextObjectives
                     .Where(
@@ -267,21 +394,28 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuestObjective.m_Quest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintQuest"/></param>
+    /// <param name="quest"><see cref="BlueprintQuest"/></param>
     [Generated]
-    public QuestObjectiveConfigurator SetQuest(string value)
+    public QuestObjectiveConfigurator SetQuest(string quest)
     {
-      return OnConfigureInternal(bp => bp.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(quest);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestObjectiveConfigurator SetType(BlueprintQuestObjective.Type value)
+    public QuestObjectiveConfigurator SetType(BlueprintQuestObjective.Type type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Type = type;
+          });
     }
 
     /// <summary>
@@ -290,13 +424,17 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(QuestObjectiveCallback))]
     public QuestObjectiveConfigurator AddQuestObjectiveCallback(
-        ActionsBuilder m_OnComplete,
-        ActionsBuilder m_OnFail)
+        ActionList onComplete,
+        ActionList onFail,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new QuestObjectiveCallback();
-      component.m_OnComplete = m_OnComplete.Build();
-      component.m_OnFail = m_OnFail.Build();
+      ValidateParam(onComplete);
+      ValidateParam(onFail);
+    
+      var component = new QuestObjectiveCallback();
+      component.m_OnComplete = onComplete;
+      component.m_OnFail = onFail;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -306,13 +444,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(TimedObjectiveTrigger))]
     public QuestObjectiveConfigurator AddTimedObjectiveTrigger(
-        int DaysTillTrigger,
-        ActionsBuilder Action)
+        ActionList action,
+        int daysTillTrigger = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TimedObjectiveTrigger();
-      component.DaysTillTrigger = DaysTillTrigger;
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new TimedObjectiveTrigger();
+      component.DaysTillTrigger = daysTillTrigger;
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -322,21 +463,22 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(Experience))]
     public QuestObjectiveConfigurator AddExperience(
-        EncounterType Encounter,
-        int CR,
-        float Modifier,
-        IntEvaluator Count,
-        bool Dummy)
+        IntEvaluator count,
+        EncounterType encounter = default,
+        int cR = default,
+        float modifier = default,
+        bool dummy = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Encounter);
-      ValidateParam(Count);
-      
-      var component =  new Experience();
-      component.Encounter = Encounter;
-      component.CR = CR;
-      component.Modifier = Modifier;
-      component.Count = Count;
-      component.Dummy = Dummy;
+      ValidateParam(count);
+    
+      var component = new Experience();
+      component.Encounter = encounter;
+      component.CR = cR;
+      component.Modifier = modifier;
+      component.Count = count;
+      component.Dummy = dummy;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -344,26 +486,25 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds <see cref="ChangeObjectiveOnUnlockTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_targetObjective"><see cref="BlueprintQuestObjective"/></param>
-    /// <param name="m_unlock"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="targetObjective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="unlock"><see cref="BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(ChangeObjectiveOnUnlockTrigger))]
     public QuestObjectiveConfigurator AddChangeObjectiveOnUnlockTrigger(
-        bool checkUnlockStatusOnStart,
-        ChangeObjectiveOnUnlockTrigger.ObjectiveStatus setStatus,
-        string m_targetObjective,
-        string m_unlock,
-        ChangeObjectiveOnUnlockTrigger.UnlockStatus unlockStatus)
+        bool checkUnlockStatusOnStart = default,
+        ChangeObjectiveOnUnlockTrigger.ObjectiveStatus setStatus = default,
+        string targetObjective = null,
+        string unlock = null,
+        ChangeObjectiveOnUnlockTrigger.UnlockStatus unlockStatus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(setStatus);
-      ValidateParam(unlockStatus);
-      
-      var component =  new ChangeObjectiveOnUnlockTrigger();
+      var component = new ChangeObjectiveOnUnlockTrigger();
       component.checkUnlockStatusOnStart = checkUnlockStatusOnStart;
       component.setStatus = setStatus;
-      component.m_targetObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_targetObjective);
-      component.m_unlock = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_unlock);
+      component.m_targetObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(targetObjective);
+      component.m_unlock = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(unlock);
       component.unlockStatus = unlockStatus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -371,18 +512,18 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds <see cref="GiveUnlockOnObjectiveTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_unlock"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="unlock"><see cref="BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(GiveUnlockOnObjectiveTrigger))]
     public QuestObjectiveConfigurator AddGiveUnlockOnObjectiveTrigger(
-        QuestObjectiveState objectiveState,
-        string m_unlock)
+        QuestObjectiveState objectiveState = default,
+        string unlock = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(objectiveState);
-      
-      var component =  new GiveUnlockOnObjectiveTrigger();
+      var component = new GiveUnlockOnObjectiveTrigger();
       component.objectiveState = objectiveState;
-      component.m_unlock = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_unlock);
+      component.m_unlock = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(unlock);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -390,20 +531,20 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds <see cref="SummonPoolCountTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolCountTrigger))]
     public QuestObjectiveConfigurator AddSummonPoolCountTrigger(
-        int count,
-        SummonPoolCountTrigger.ObjectiveStatus setStatus,
-        string m_summonPool)
+        int count = default,
+        SummonPoolCountTrigger.ObjectiveStatus setStatus = default,
+        string summonPool = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(setStatus);
-      
-      var component =  new SummonPoolCountTrigger();
+      var component = new SummonPoolCountTrigger();
       component.count = count;
       component.setStatus = setStatus;
-      component.m_summonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_summonPool);
+      component.m_summonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -413,16 +554,18 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(ObjectiveStatusTrigger))]
     public QuestObjectiveConfigurator AddObjectiveStatusTrigger(
-        QuestObjectiveState objectiveState,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        QuestObjectiveState objectiveState = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(objectiveState);
-      
-      var component =  new ObjectiveStatusTrigger();
+      ValidateParam(actions);
+    
+      var component = new ObjectiveStatusTrigger();
       component.objectiveState = objectiveState;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

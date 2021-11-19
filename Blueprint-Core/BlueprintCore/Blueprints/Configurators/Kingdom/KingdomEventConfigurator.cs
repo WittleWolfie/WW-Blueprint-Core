@@ -1,18 +1,21 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
-  /// <summary>Configurator for <see cref="BlueprintKingdomEvent"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintKingdomEvent"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintKingdomEvent))]
   public class KingdomEventConfigurator : BaseKingdomEventBaseConfigurator<BlueprintKingdomEvent, KingdomEventConfigurator>
   {
-     private KingdomEventConfigurator(string name) : base(name) { }
+    private KingdomEventConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingdomEventConfigurator For(string name)
@@ -28,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingdomEventConfigurator New(string name, string assetId)
+    public static KingdomEventConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintKingdomEvent>(name, assetId);
       return For(name);
@@ -38,77 +41,114 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEvent.IsOpportunity"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetIsOpportunity(bool value)
+    public KingdomEventConfigurator SetIsOpportunity(bool isOpportunity)
     {
-      return OnConfigureInternal(bp => bp.IsOpportunity = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsOpportunity = isOpportunity;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.ForceOneTimeOnly"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetForceOneTimeOnly(bool value)
+    public KingdomEventConfigurator SetForceOneTimeOnly(bool forceOneTimeOnly)
     {
-      return OnConfigureInternal(bp => bp.ForceOneTimeOnly = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForceOneTimeOnly = forceOneTimeOnly;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.m_DependsOnQuest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintQuest"/></param>
+    /// <param name="dependsOnQuest"><see cref="BlueprintQuest"/></param>
     [Generated]
-    public KingdomEventConfigurator SetDependsOnQuest(string value)
+    public KingdomEventConfigurator SetDependsOnQuest(string dependsOnQuest)
     {
-      return OnConfigureInternal(bp => bp.m_DependsOnQuest = BlueprintTool.GetRef<BlueprintQuestReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DependsOnQuest = BlueprintTool.GetRef<BlueprintQuestReference>(dependsOnQuest);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.m_Tags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetTags(BlueprintKingdomEvent.TagList value)
+    public KingdomEventConfigurator SetTags(BlueprintKingdomEvent.TagList tags)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Tags = value);
+      ValidateParam(tags);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Tags = tags;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.RequiredTags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetRequiredTags(EventLocationTagList value)
+    public KingdomEventConfigurator SetRequiredTags(EventLocationTagList requiredTags)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RequiredTags = value);
+      ValidateParam(requiredTags);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RequiredTags = requiredTags;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.OnTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetOnTrigger(ActionsBuilder value)
+    public KingdomEventConfigurator SetOnTrigger(ActionList onTrigger)
     {
-      return OnConfigureInternal(bp => bp.OnTrigger = value.Build());
+      ValidateParam(onTrigger);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnTrigger = onTrigger;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.StatsOnTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetStatsOnTrigger(KingdomStats.Changes value)
+    public KingdomEventConfigurator SetStatsOnTrigger(KingdomStats.Changes statsOnTrigger)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StatsOnTrigger = value);
+      ValidateParam(statsOnTrigger);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StatsOnTrigger = statsOnTrigger;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.UnapplyTriggerOnResolve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetUnapplyTriggerOnResolve(bool value)
+    public KingdomEventConfigurator SetUnapplyTriggerOnResolve(bool unapplyTriggerOnResolve)
     {
-      return OnConfigureInternal(bp => bp.UnapplyTriggerOnResolve = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnapplyTriggerOnResolve = unapplyTriggerOnResolve;
+          });
     }
 
     /// <summary>
@@ -117,21 +157,24 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(EventRecurrence))]
     public KingdomEventConfigurator AddEventRecurrence(
-        int RecurrencePeriod,
-        bool TickOnStart,
-        ActionsBuilder OnRecurrence,
-        KingdomStats.Changes StatsOnRecurrence,
-        LocalizedString Description)
+        ActionList onRecurrence,
+        KingdomStats.Changes statsOnRecurrence,
+        int recurrencePeriod = default,
+        bool tickOnStart = default,
+        LocalizedString description = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StatsOnRecurrence);
-      ValidateParam(Description);
-      
-      var component =  new EventRecurrence();
-      component.RecurrencePeriod = RecurrencePeriod;
-      component.TickOnStart = TickOnStart;
-      component.OnRecurrence = OnRecurrence.Build();
-      component.StatsOnRecurrence = StatsOnRecurrence;
-      component.Description = Description;
+      ValidateParam(onRecurrence);
+      ValidateParam(statsOnRecurrence);
+      ValidateParam(description);
+    
+      var component = new EventRecurrence();
+      component.RecurrencePeriod = recurrencePeriod;
+      component.TickOnStart = tickOnStart;
+      component.OnRecurrence = onRecurrence;
+      component.StatsOnRecurrence = statsOnRecurrence;
+      component.Description = description ?? Constants.Empty.String;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

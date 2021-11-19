@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -105,17 +106,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(NoSelectionIfAlreadyHasFeature))]
     public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
-        bool AnyFeatureFromSelection,
-        string[] m_Features)
+        bool anyFeatureFromSelection = default,
+        string[] features = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new NoSelectionIfAlreadyHasFeature();
-      component.AnyFeatureFromSelection = AnyFeatureFromSelection;
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
+      var component = new NoSelectionIfAlreadyHasFeature();
+      component.AnyFeatureFromSelection = anyFeatureFromSelection;
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -123,22 +125,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="PrerequisiteSelectionPossible"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ThisFeature"><see cref="BlueprintFeatureSelection"/></param>
+    /// <param name="thisFeature"><see cref="BlueprintFeatureSelection"/></param>
     [Generated]
     [Implements(typeof(PrerequisiteSelectionPossible))]
     public FeatureSelectionConfigurator AddPrerequisiteSelectionPossible(
-        string m_ThisFeature,
-        Prerequisite.GroupType Group,
-        bool CheckInProgression,
-        bool HideInUI)
+        string thisFeature = null,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Group);
-      
-      var component =  new PrerequisiteSelectionPossible();
-      component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_ThisFeature);
-      component.Group = Group;
-      component.CheckInProgression = CheckInProgression;
-      component.HideInUI = HideInUI;
+      var component = new PrerequisiteSelectionPossible();
+      component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(thisFeature);
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

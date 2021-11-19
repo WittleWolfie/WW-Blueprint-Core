@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Utility;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiFollow"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiFollow"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiFollow))]
   public class AiFollowConfigurator : BaseAiActionConfigurator<BlueprintAiFollow, AiFollowConfigurator>
   {
-     private AiFollowConfigurator(string name) : base(name) { }
+    private AiFollowConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiFollowConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiFollowConfigurator New(string name, string assetId)
+    public static AiFollowConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiFollow>(name, assetId);
       return For(name);
@@ -35,20 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiFollow.TargetType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiFollowConfigurator SetTargetType(Kingmaker.AI.Blueprints.TargetType value)
+    public AiFollowConfigurator SetTargetType(Kingmaker.AI.Blueprints.TargetType targetType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TargetType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TargetType = targetType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiFollow.ApproachRange"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiFollowConfigurator SetApproachRange(Feet value)
+    public AiFollowConfigurator SetApproachRange(Feet approachRange)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ApproachRange = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ApproachRange = approachRange;
+          });
     }
   }
 }

@@ -1,21 +1,27 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.ResourceLinks;
+using Kingmaker.Settings;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -144,66 +150,70 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-    /// </summary>
-    /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public AbilityAreaEffectConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+        /// </summary>
+        /// 
+        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+        [Implements(typeof(ContextRankConfig))]
+        public AbilityAreaEffectConfigurator ContextRankConfig(ContextRankConfig rankConfig)
+        {
+          return AddComponent(rankConfig);
+        }
 
-    /// <summary>
-    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public AbilityAreaEffectConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        EnableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
+        /// <summary>
+        /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+        /// </summary>
+        [Implements(typeof(SpellDescriptorComponent))]
+        public AbilityAreaEffectConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
+        {
+          foreach (SpellDescriptor descriptor in descriptors)
+          {
+            EnableSpellDescriptors |= (long)descriptor;
+          }
+          return Self;
+        }
 
-    /// <summary>
-    /// Modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public AbilityAreaEffectConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        DisableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
+        /// <summary>
+        /// Modifies <see cref="SpellDescriptorComponent"/>
+        /// </summary>
+        [Implements(typeof(SpellDescriptorComponent))]
+        public AbilityAreaEffectConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+        {
+          foreach (SpellDescriptor descriptor in descriptors)
+          {
+            DisableSpellDescriptors |= (long)descriptor;
+          }
+          return Self;
+        }
 
     /// <summary>
     /// Adds <see cref="AreaEffectSpawnLogic"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(AreaEffectSpawnLogic))]
-    public AbilityAreaEffectConfigurator AddAreaEffectSpawnLogic()
+    public AbilityAreaEffectConfigurator AddAreaEffectSpawnLogic(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AreaEffectSpawnLogic());
+      var component = new AreaEffectSpawnLogic();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="UniqueAreaEffect"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(UniqueAreaEffect))]
     public AbilityAreaEffectConfigurator AddUniqueAreaEffect(
-        string m_Feature)
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new UniqueAreaEffect();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Feature);
+      var component = new UniqueAreaEffect();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -211,32 +221,33 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CustomProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public AbilityAreaEffectConfigurator AddContextCalculateAbilityParams(
-        bool UseKineticistMainStat,
-        StatType StatType,
-        bool StatTypeFromCustomProperty,
-        string m_CustomProperty,
-        bool ReplaceCasterLevel,
-        ContextValue CasterLevel,
-        bool ReplaceSpellLevel,
-        ContextValue SpellLevel)
+        ContextValue casterLevel,
+        ContextValue spellLevel,
+        bool useKineticistMainStat = default,
+        StatType statType = default,
+        bool statTypeFromCustomProperty = default,
+        string customProperty = null,
+        bool replaceCasterLevel = default,
+        bool replaceSpellLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StatType);
-      ValidateParam(CasterLevel);
-      ValidateParam(SpellLevel);
-      
-      var component =  new ContextCalculateAbilityParams();
-      component.UseKineticistMainStat = UseKineticistMainStat;
-      component.StatType = StatType;
-      component.StatTypeFromCustomProperty = StatTypeFromCustomProperty;
-      component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(m_CustomProperty);
-      component.ReplaceCasterLevel = ReplaceCasterLevel;
-      component.CasterLevel = CasterLevel;
-      component.ReplaceSpellLevel = ReplaceSpellLevel;
-      component.SpellLevel = SpellLevel;
+      ValidateParam(casterLevel);
+      ValidateParam(spellLevel);
+    
+      var component = new ContextCalculateAbilityParams();
+      component.UseKineticistMainStat = useKineticistMainStat;
+      component.StatType = statType;
+      component.StatTypeFromCustomProperty = statTypeFromCustomProperty;
+      component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(customProperty);
+      component.ReplaceCasterLevel = replaceCasterLevel;
+      component.CasterLevel = casterLevel;
+      component.ReplaceSpellLevel = replaceSpellLevel;
+      component.SpellLevel = spellLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -244,20 +255,20 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CharacterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public AbilityAreaEffectConfigurator AddContextCalculateAbilityParamsBasedOnClass(
-        bool UseKineticistMainStat,
-        StatType StatType,
-        string m_CharacterClass)
+        bool useKineticistMainStat = default,
+        StatType statType = default,
+        string characterClass = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StatType);
-      
-      var component =  new ContextCalculateAbilityParamsBasedOnClass();
-      component.UseKineticistMainStat = UseKineticistMainStat;
-      component.StatType = StatType;
-      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
+      var component = new ContextCalculateAbilityParamsBasedOnClass();
+      component.UseKineticistMainStat = useKineticistMainStat;
+      component.StatType = statType;
+      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -267,17 +278,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(ContextCalculateSharedValue))]
     public AbilityAreaEffectConfigurator AddContextCalculateSharedValue(
-        AbilitySharedValue ValueType,
-        ContextDiceValue Value,
-        double Modifier)
+        ContextDiceValue value,
+        AbilitySharedValue valueType = default,
+        double modifier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ValueType);
-      ValidateParam(Value);
-      
-      var component =  new ContextCalculateSharedValue();
-      component.ValueType = ValueType;
-      component.Value = Value;
-      component.Modifier = Modifier;
+      ValidateParam(value);
+    
+      var component = new ContextCalculateSharedValue();
+      component.ValueType = valueType;
+      component.Value = value;
+      component.Modifier = modifier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -287,23 +299,25 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(ContextSetAbilityParams))]
     public AbilityAreaEffectConfigurator AddContextSetAbilityParams(
-        bool Add10ToDC,
-        ContextValue DC,
-        ContextValue CasterLevel,
-        ContextValue Concentration,
-        ContextValue SpellLevel)
+        ContextValue dC,
+        ContextValue casterLevel,
+        ContextValue concentration,
+        ContextValue spellLevel,
+        bool add10ToDC = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(DC);
-      ValidateParam(CasterLevel);
-      ValidateParam(Concentration);
-      ValidateParam(SpellLevel);
-      
-      var component =  new ContextSetAbilityParams();
-      component.Add10ToDC = Add10ToDC;
-      component.DC = DC;
-      component.CasterLevel = CasterLevel;
-      component.Concentration = Concentration;
-      component.SpellLevel = SpellLevel;
+      ValidateParam(dC);
+      ValidateParam(casterLevel);
+      ValidateParam(concentration);
+      ValidateParam(spellLevel);
+    
+      var component = new ContextSetAbilityParams();
+      component.Add10ToDC = add10ToDC;
+      component.DC = dC;
+      component.CasterLevel = casterLevel;
+      component.Concentration = concentration;
+      component.SpellLevel = spellLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -312,28 +326,32 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
-    public AbilityAreaEffectConfigurator AddAbilityDifficultyLimitDC()
+    public AbilityAreaEffectConfigurator AddAbilityDifficultyLimitDC(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AbilityDifficultyLimitDC());
+      var component = new AbilityDifficultyLimitDC();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="AbilityAreaEffectBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityAreaEffectBuff))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectBuff(
-        ConditionsBuilder Condition,
-        bool CheckConditionEveryRound,
-        string m_Buff)
+        ConditionsBuilder condition = null,
+        bool checkConditionEveryRound = default,
+        string buff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityAreaEffectBuff();
-      component.Condition = Condition.Build();
-      component.CheckConditionEveryRound = CheckConditionEveryRound;
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      var component = new AbilityAreaEffectBuff();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.CheckConditionEveryRound = checkConditionEveryRound;
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -343,12 +361,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityAreaEffectMovement))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectMovement(
-        Feet DistancePerRound)
+        Feet distancePerRound,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(DistancePerRound);
-      
-      var component =  new AbilityAreaEffectMovement();
-      component.DistancePerRound = DistancePerRound;
+      var component = new AbilityAreaEffectMovement();
+      component.DistancePerRound = distancePerRound;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -358,17 +376,23 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityAreaEffectRunAction))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectRunAction(
-        ActionsBuilder UnitEnter,
-        ActionsBuilder UnitExit,
-        ActionsBuilder UnitMove,
-        ActionsBuilder Round)
+        ActionList unitEnter,
+        ActionList unitExit,
+        ActionList unitMove,
+        ActionList round,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityAreaEffectRunAction();
-      component.UnitEnter = UnitEnter.Build();
-      component.UnitExit = UnitExit.Build();
-      component.UnitMove = UnitMove.Build();
-      component.Round = Round.Build();
+      ValidateParam(unitEnter);
+      ValidateParam(unitExit);
+      ValidateParam(unitMove);
+      ValidateParam(round);
+    
+      var component = new AbilityAreaEffectRunAction();
+      component.UnitEnter = unitEnter;
+      component.UnitExit = unitExit;
+      component.UnitMove = unitMove;
+      component.Round = round;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -376,23 +400,24 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityAreaEffectSpecialBehaviour"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityAreaEffectSpecialBehaviour))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectSpecialBehaviour(
-        SpecialBehaviour Behaviour,
-        string m_Buff,
-        Buff m_BuffFact,
-        int m_Count)
+        Buff buffFact,
+        SpecialBehaviour behaviour = default,
+        string buff = null,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Behaviour);
-      ValidateParam(m_BuffFact);
-      
-      var component =  new AbilityAreaEffectSpecialBehaviour();
-      component.Behaviour = Behaviour;
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.m_BuffFact = m_BuffFact;
-      component.m_Count = m_Count;
+      ValidateParam(buffFact);
+    
+      var component = new AbilityAreaEffectSpecialBehaviour();
+      component.Behaviour = behaviour;
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.m_BuffFact = buffFact;
+      component.m_Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -402,12 +427,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbillityAreaEffectRoundFX))]
     public AbilityAreaEffectConfigurator AddAbillityAreaEffectRoundFX(
-        PrefabLink PrefabLink)
+        PrefabLink prefabLink = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(PrefabLink);
-      
-      var component =  new AbillityAreaEffectRoundFX();
-      component.PrefabLink = PrefabLink;
+      ValidateParam(prefabLink);
+    
+      var component = new AbillityAreaEffectRoundFX();
+      component.PrefabLink = prefabLink ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -415,38 +442,42 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AreaEffectPit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_VisualSettings"><see cref="BlueprintAreaEffectPitVisualSettings"/></param>
-    /// <param name="UnitOnEdgeBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="m_EffectsImmunityFacts"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="m_EvadingImmunityFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="visualSettings"><see cref="BlueprintAreaEffectPitVisualSettings"/></param>
+    /// <param name="unitOnEdgeBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="effectsImmunityFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="evadingImmunityFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AreaEffectPit))]
     public AbilityAreaEffectConfigurator AddAreaEffectPit(
-        string m_VisualSettings,
-        ContextValue ClimbDC,
-        ActionsBuilder OnFallAction,
-        ActionsBuilder EveryRoundAction,
-        ActionsBuilder OnEndedActionForUnitsInside,
-        string UnitOnEdgeBuff,
-        Size MaxUnitSize,
-        bool DisableClimb,
-        string[] m_EffectsImmunityFacts,
-        string[] m_EvadingImmunityFacts)
+        ContextValue climbDC,
+        ActionList onFallAction,
+        ActionList everyRoundAction,
+        ActionList onEndedActionForUnitsInside,
+        string visualSettings = null,
+        string unitOnEdgeBuff = null,
+        Size maxUnitSize = default,
+        bool disableClimb = default,
+        string[] effectsImmunityFacts = null,
+        string[] evadingImmunityFacts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ClimbDC);
-      ValidateParam(MaxUnitSize);
-      
-      var component =  new AreaEffectPit();
-      component.m_VisualSettings = BlueprintTool.GetRef<BlueprintAreaEffectPitVisualSettingsReference>(m_VisualSettings);
-      component.ClimbDC = ClimbDC;
-      component.OnFallAction = OnFallAction.Build();
-      component.EveryRoundAction = EveryRoundAction.Build();
-      component.OnEndedActionForUnitsInside = OnEndedActionForUnitsInside.Build();
-      component.UnitOnEdgeBuff = BlueprintTool.GetRef<BlueprintBuffReference>(UnitOnEdgeBuff);
-      component.MaxUnitSize = MaxUnitSize;
-      component.DisableClimb = DisableClimb;
-      component.m_EffectsImmunityFacts = m_EffectsImmunityFacts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_EvadingImmunityFacts = m_EvadingImmunityFacts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      ValidateParam(climbDC);
+      ValidateParam(onFallAction);
+      ValidateParam(everyRoundAction);
+      ValidateParam(onEndedActionForUnitsInside);
+    
+      var component = new AreaEffectPit();
+      component.m_VisualSettings = BlueprintTool.GetRef<BlueprintAreaEffectPitVisualSettingsReference>(visualSettings);
+      component.ClimbDC = climbDC;
+      component.OnFallAction = onFallAction;
+      component.EveryRoundAction = everyRoundAction;
+      component.OnEndedActionForUnitsInside = onEndedActionForUnitsInside;
+      component.UnitOnEdgeBuff = BlueprintTool.GetRef<BlueprintBuffReference>(unitOnEdgeBuff);
+      component.MaxUnitSize = maxUnitSize;
+      component.DisableClimb = disableClimb;
+      component.m_EffectsImmunityFacts = effectsImmunityFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_EvadingImmunityFacts = evadingImmunityFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -456,19 +487,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(CustomAreaOnGrid))]
     public AbilityAreaEffectConfigurator AddCustomAreaOnGrid(
-        List<Vector2Int> AffectedCells,
-        bool IgnoreObstaclesAndUnits,
-        bool SpawnFxInEveryCell)
+        List<Vector2Int> affectedCells = null,
+        bool ignoreObstaclesAndUnits = default,
+        bool spawnFxInEveryCell = default,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in AffectedCells)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new CustomAreaOnGrid();
-      component.AffectedCells = AffectedCells;
-      component.IgnoreObstaclesAndUnits = IgnoreObstaclesAndUnits;
-      component.SpawnFxInEveryCell = SpawnFxInEveryCell;
+      var component = new CustomAreaOnGrid();
+      component.AffectedCells = affectedCells;
+      component.IgnoreObstaclesAndUnits = ignoreObstaclesAndUnits;
+      component.SpawnFxInEveryCell = spawnFxInEveryCell;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

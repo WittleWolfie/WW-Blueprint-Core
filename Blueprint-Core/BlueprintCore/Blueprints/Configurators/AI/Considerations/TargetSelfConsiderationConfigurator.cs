@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="TargetSelfConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="TargetSelfConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(TargetSelfConsideration))]
   public class TargetSelfConsiderationConfigurator : BaseConsiderationConfigurator<TargetSelfConsideration, TargetSelfConsiderationConfigurator>
   {
-     private TargetSelfConsiderationConfigurator(string name) : base(name) { }
+    private TargetSelfConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TargetSelfConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TargetSelfConsiderationConfigurator New(string name, string assetId)
+    public static TargetSelfConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<TargetSelfConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="TargetSelfConsideration.SelfScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TargetSelfConsiderationConfigurator SetSelfScore(float value)
+    public TargetSelfConsiderationConfigurator SetSelfScore(float selfScore)
     {
-      return OnConfigureInternal(bp => bp.SelfScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SelfScore = selfScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="TargetSelfConsideration.OthersScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TargetSelfConsiderationConfigurator SetOthersScore(float value)
+    public TargetSelfConsiderationConfigurator SetOthersScore(float othersScore)
     {
-      return OnConfigureInternal(bp => bp.OthersScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OthersScore = othersScore;
+          });
     }
   }
 }

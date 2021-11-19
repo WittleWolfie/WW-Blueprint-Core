@@ -1,7 +1,7 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Enums;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
@@ -14,26 +14,32 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       where T : BlueprintAnswerBase
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseAnswerBaseConfigurator(string name) : base(name) { }
+    protected BaseAnswerBaseConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswerBase.MythicRequirement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMythicRequirement(Mythic value)
+    public TBuilder SetMythicRequirement(Mythic mythicRequirement)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MythicRequirement = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MythicRequirement = mythicRequirement;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswerBase.AlignmentRequirement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAlignmentRequirement(AlignmentComponent value)
+    public TBuilder SetAlignmentRequirement(AlignmentComponent alignmentRequirement)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AlignmentRequirement = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AlignmentRequirement = alignmentRequirement;
+          });
     }
   }
 }

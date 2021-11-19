@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
 {
-  /// <summary>Configurator for <see cref="KingmakerEquipmentEntity"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="KingmakerEquipmentEntity"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(KingmakerEquipmentEntity))]
   public class KingmakerEquipmentEntityConfigurator : BaseBlueprintConfigurator<KingmakerEquipmentEntity, KingmakerEquipmentEntityConfigurator>
   {
-     private KingmakerEquipmentEntityConfigurator(string name) : base(name) { }
+    private KingmakerEquipmentEntityConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingmakerEquipmentEntityConfigurator For(string name)
@@ -26,97 +29,152 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingmakerEquipmentEntityConfigurator New(string name, string assetId)
+    public static KingmakerEquipmentEntityConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<KingmakerEquipmentEntity>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
+    /// Sets <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator AddToMaleArray(params EquipmentEntityLink[] values)
+    public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[] maleArray)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_MaleArray = CommonTool.Append(bp.m_MaleArray, values));
+      ValidateParam(maleArray);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaleArray = maleArray;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
+    /// Adds to <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator RemoveFromMaleArray(params EquipmentEntityLink[] values)
+    public KingmakerEquipmentEntityConfigurator AddToMaleArray(params EquipmentEntityLink[] maleArray)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_MaleArray = bp.m_MaleArray.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(maleArray);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaleArray = CommonTool.Append(bp.m_MaleArray, maleArray ?? new EquipmentEntityLink[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
+    /// Removes from <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator AddToFemaleArray(params EquipmentEntityLink[] values)
+    public KingmakerEquipmentEntityConfigurator RemoveFromMaleArray(params EquipmentEntityLink[] maleArray)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_FemaleArray = CommonTool.Append(bp.m_FemaleArray, values));
+      ValidateParam(maleArray);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaleArray = bp.m_MaleArray.Where(item => !maleArray.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
+    /// Sets <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator RemoveFromFemaleArray(params EquipmentEntityLink[] values)
+    public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[] femaleArray)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_FemaleArray = bp.m_FemaleArray.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(femaleArray);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FemaleArray = femaleArray;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingmakerEquipmentEntityConfigurator AddToFemaleArray(params EquipmentEntityLink[] femaleArray)
+    {
+      ValidateParam(femaleArray);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FemaleArray = CommonTool.Append(bp.m_FemaleArray, femaleArray ?? new EquipmentEntityLink[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingmakerEquipmentEntityConfigurator RemoveFromFemaleArray(params EquipmentEntityLink[] femaleArray)
+    {
+      ValidateParam(femaleArray);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FemaleArray = bp.m_FemaleArray.Where(item => !femaleArray.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator SetRaceDependent(bool value)
+    public KingmakerEquipmentEntityConfigurator SetRaceDependent(bool raceDependent)
     {
-      return OnConfigureInternal(bp => bp.m_RaceDependent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RaceDependent = raceDependent;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
+    /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator AddToRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] values)
+    public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_RaceDependentArrays = CommonTool.Append(bp.m_RaceDependentArrays, values));
+      ValidateParam(raceDependentArrays);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RaceDependentArrays = raceDependentArrays;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
+    /// Adds to <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator RemoveFromRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] values)
+    public KingmakerEquipmentEntityConfigurator AddToRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_RaceDependentArrays = bp.m_RaceDependentArrays.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(raceDependentArrays);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RaceDependentArrays = CommonTool.Append(bp.m_RaceDependentArrays, raceDependentArrays ?? new KingmakerEquipmentEntity.TwoLists[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingmakerEquipmentEntityConfigurator RemoveFromRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
+    {
+      ValidateParam(raceDependentArrays);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RaceDependentArrays = bp.m_RaceDependentArrays.Where(item => !raceDependentArrays.Contains(item)).ToArray();
+          });
     }
   }
 }

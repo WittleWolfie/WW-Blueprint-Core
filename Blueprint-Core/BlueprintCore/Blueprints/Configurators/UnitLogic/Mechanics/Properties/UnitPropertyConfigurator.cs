@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints;
@@ -5,16 +6,18 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
 {
-  /// <summary>Configurator for <see cref="BlueprintUnitProperty"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintUnitProperty"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUnitProperty))]
   public class UnitPropertyConfigurator : BaseBlueprintConfigurator<BlueprintUnitProperty, UnitPropertyConfigurator>
   {
-     private UnitPropertyConfigurator(string name) : base(name) { }
+    private UnitPropertyConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitPropertyConfigurator For(string name)
@@ -30,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitPropertyConfigurator New(string name, string assetId)
+    public static UnitPropertyConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintUnitProperty>(name, assetId);
       return For(name);
@@ -40,30 +43,35 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Sets <see cref="BlueprintUnitProperty.BaseValue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitPropertyConfigurator SetBaseValue(int value)
+    public UnitPropertyConfigurator SetBaseValue(int baseValue)
     {
-      return OnConfigureInternal(bp => bp.BaseValue = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BaseValue = baseValue;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_OnlyOfType"><see cref="BlueprintUnitType"/></param>
+    /// <param name="onlyOfType"><see cref="BlueprintUnitType"/></param>
     [Generated]
     [Implements(typeof(CountCorpsesAroundPropertyGetter))]
     public UnitPropertyConfigurator AddCountCorpsesAroundPropertyGetter(
-        string m_OnlyOfType,
-        Feet m_Radius,
-        PropertySettings Settings)
+        Feet radius,
+        PropertySettings settings,
+        string onlyOfType = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Radius);
-      ValidateParam(Settings);
-      
-      var component =  new CountCorpsesAroundPropertyGetter();
-      component.m_OnlyOfType = BlueprintTool.GetRef<BlueprintUnitTypeReference>(m_OnlyOfType);
-      component.m_Radius = m_Radius;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CountCorpsesAroundPropertyGetter();
+      component.m_OnlyOfType = BlueprintTool.GetRef<BlueprintUnitTypeReference>(onlyOfType);
+      component.m_Radius = radius;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -71,26 +79,28 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="BaseAttackPropertyWithFeatureList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(BaseAttackPropertyWithFeatureList))]
     public UnitPropertyConfigurator AddBaseAttackPropertyWithFeatureList(
-        int BaseValue,
-        int BaseAttackDiv,
-        int BaseAttackZero,
-        string[] m_Features,
-        int FeatureBonus,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int baseValue = default,
+        int baseAttackDiv = default,
+        int baseAttackZero = default,
+        string[] features = null,
+        int featureBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new BaseAttackPropertyWithFeatureList();
-      component.BaseValue = BaseValue;
-      component.BaseAttackDiv = BaseAttackDiv;
-      component.BaseAttackZero = BaseAttackZero;
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
-      component.FeatureBonus = FeatureBonus;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new BaseAttackPropertyWithFeatureList();
+      component.BaseValue = baseValue;
+      component.BaseAttackDiv = baseAttackDiv;
+      component.BaseAttackZero = baseAttackZero;
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
+      component.FeatureBonus = featureBonus;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -100,12 +110,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(CurrentMeleeWeaponDamageStatGetter))]
     public UnitPropertyConfigurator AddCurrentMeleeWeaponDamageStatGetter(
-        PropertySettings Settings)
+        PropertySettings settings,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new CurrentMeleeWeaponDamageStatGetter();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CurrentMeleeWeaponDamageStatGetter();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -115,12 +127,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(CurrentWeaponCriticalMultiplierGetter))]
     public UnitPropertyConfigurator AddCurrentWeaponCriticalMultiplierGetter(
-        PropertySettings Settings)
+        PropertySettings settings,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new CurrentWeaponCriticalMultiplierGetter();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CurrentWeaponCriticalMultiplierGetter();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -128,21 +142,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FightingDefensivelyACBonusProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="m_DuelingFeatures"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="duelingFeatures"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FightingDefensivelyACBonusProperty))]
     public UnitPropertyConfigurator AddFightingDefensivelyACBonusProperty(
-        string[] m_Features,
-        string[] m_DuelingFeatures,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string[] features = null,
+        string[] duelingFeatures = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new FightingDefensivelyACBonusProperty();
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_DuelingFeatures = m_DuelingFeatures.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new FightingDefensivelyACBonusProperty();
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_DuelingFeatures = duelingFeatures.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -150,24 +166,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FightingDefensivelyAttackPenaltyProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="m_DuelingFeatures"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="m_HalfBuff"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="duelingFeatures"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="halfBuff"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FightingDefensivelyAttackPenaltyProperty))]
     public UnitPropertyConfigurator AddFightingDefensivelyAttackPenaltyProperty(
-        string[] m_Features,
-        string[] m_DuelingFeatures,
-        string m_HalfBuff,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string[] features = null,
+        string[] duelingFeatures = null,
+        string halfBuff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new FightingDefensivelyAttackPenaltyProperty();
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_DuelingFeatures = m_DuelingFeatures.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_HalfBuff = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_HalfBuff);
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new FightingDefensivelyAttackPenaltyProperty();
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_DuelingFeatures = duelingFeatures.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_HalfBuff = BlueprintTool.GetRef<BlueprintUnitFactReference>(halfBuff);
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -177,16 +195,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(KineticistBurnPropertyGetter))]
     public UnitPropertyConfigurator AddKineticistBurnPropertyGetter(
-        bool MultiplyOnClassLevel,
-        bool MultyplyOnCharacterLevel,
-        PropertySettings Settings)
+        PropertySettings settings,
+        bool multiplyOnClassLevel = default,
+        bool multyplyOnCharacterLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new KineticistBurnPropertyGetter();
-      component.MultiplyOnClassLevel = MultiplyOnClassLevel;
-      component.MultyplyOnCharacterLevel = MultyplyOnCharacterLevel;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new KineticistBurnPropertyGetter();
+      component.MultiplyOnClassLevel = multiplyOnClassLevel;
+      component.MultyplyOnCharacterLevel = multyplyOnCharacterLevel;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -196,12 +216,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(KineticistMainStatBonusPropertyGetter))]
     public UnitPropertyConfigurator AddKineticistMainStatBonusPropertyGetter(
-        PropertySettings Settings)
+        PropertySettings settings,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new KineticistMainStatBonusPropertyGetter();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new KineticistMainStatBonusPropertyGetter();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -209,26 +231,28 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="LevelBasedPropertyWithFeatureList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(LevelBasedPropertyWithFeatureList))]
     public UnitPropertyConfigurator AddLevelBasedPropertyWithFeatureList(
-        int BaseValue,
-        int LevelDiv,
-        int LevelZero,
-        string[] m_Features,
-        int FeatureBonus,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int baseValue = default,
+        int levelDiv = default,
+        int levelZero = default,
+        string[] features = null,
+        int featureBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new LevelBasedPropertyWithFeatureList();
-      component.BaseValue = BaseValue;
-      component.LevelDiv = LevelDiv;
-      component.LevelZero = LevelZero;
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintFeatureReference>(bp)).ToArray();
-      component.FeatureBonus = FeatureBonus;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new LevelBasedPropertyWithFeatureList();
+      component.BaseValue = baseValue;
+      component.LevelDiv = levelDiv;
+      component.LevelZero = levelZero;
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
+      component.FeatureBonus = featureBonus;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -236,23 +260,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="StatBonusIfHasFactProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_RequiredFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="requiredFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(StatBonusIfHasFactProperty))]
     public UnitPropertyConfigurator AddStatBonusIfHasFactProperty(
-        int Multiplier,
-        StatType Stat,
-        string m_RequiredFact,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int multiplier = default,
+        StatType stat = default,
+        string requiredFact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Settings);
-      
-      var component =  new StatBonusIfHasFactProperty();
-      component.Multiplier = Multiplier;
-      component.Stat = Stat;
-      component.m_RequiredFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_RequiredFact);
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new StatBonusIfHasFactProperty();
+      component.Multiplier = multiplier;
+      component.Stat = stat;
+      component.m_RequiredFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(requiredFact);
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -262,15 +287,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(AnimalPetOwnerRankGetter))]
     public UnitPropertyConfigurator AddAnimalPetOwnerRankGetter(
-        UnitProperty Property,
-        PropertySettings Settings)
+        PropertySettings settings,
+        UnitProperty property = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Property);
-      ValidateParam(Settings);
-      
-      var component =  new AnimalPetOwnerRankGetter();
-      component.Property = Property;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new AnimalPetOwnerRankGetter();
+      component.Property = property;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -280,18 +306,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(AreaCrComplexGetter))]
     public UnitPropertyConfigurator AddAreaCrComplexGetter(
-        int Bonus,
-        int Multiplier,
-        int Denominator,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int bonus = default,
+        int multiplier = default,
+        int denominator = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new AreaCrComplexGetter();
-      component.Bonus = Bonus;
-      component.Multiplier = Multiplier;
-      component.Denominator = Denominator;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new AreaCrComplexGetter();
+      component.Bonus = bonus;
+      component.Multiplier = multiplier;
+      component.Denominator = denominator;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -299,18 +327,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="ClassLevelGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ClassLevelGetter))]
     public UnitPropertyConfigurator AddClassLevelGetter(
-        string m_Class,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string clazz = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new ClassLevelGetter();
-      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new ClassLevelGetter();
+      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -318,18 +348,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="CustomPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Property"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="property"><see cref="BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(CustomPropertyGetter))]
     public UnitPropertyConfigurator AddCustomPropertyGetter(
-        string m_Property,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string property = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new CustomPropertyGetter();
-      component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(m_Property);
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CustomPropertyGetter();
+      component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property);
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -337,18 +369,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FactRankGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FactRankGetter))]
     public UnitPropertyConfigurator AddFactRankGetter(
-        string m_Fact,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string fact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new FactRankGetter();
-      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new FactRankGetter();
+      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -358,12 +392,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(ShieldBonusGetter))]
     public UnitPropertyConfigurator AddShieldBonusGetter(
-        PropertySettings Settings)
+        PropertySettings settings,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new ShieldBonusGetter();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new ShieldBonusGetter();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -373,15 +409,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(SimplePropertyGetter))]
     public UnitPropertyConfigurator AddSimplePropertyGetter(
-        UnitProperty Property,
-        PropertySettings Settings)
+        PropertySettings settings,
+        UnitProperty property = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Property);
-      ValidateParam(Settings);
-      
-      var component =  new SimplePropertyGetter();
-      component.Property = Property;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new SimplePropertyGetter();
+      component.Property = property;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -391,15 +428,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(SkillRankGetter))]
     public UnitPropertyConfigurator AddSkillRankGetter(
-        StatType Skill,
-        PropertySettings Settings)
+        PropertySettings settings,
+        StatType skill = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Skill);
-      ValidateParam(Settings);
-      
-      var component =  new SkillRankGetter();
-      component.Skill = Skill;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new SkillRankGetter();
+      component.Skill = skill;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -409,15 +447,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(SkillValueGetter))]
     public UnitPropertyConfigurator AddSkillValueGetter(
-        StatType Skill,
-        PropertySettings Settings)
+        PropertySettings settings,
+        StatType skill = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Skill);
-      ValidateParam(Settings);
-      
-      var component =  new SkillValueGetter();
-      component.Skill = Skill;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new SkillValueGetter();
+      component.Skill = skill;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -425,24 +464,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="SummClassLevelGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="Archetype"><see cref="BlueprintArchetype"/></param>
-    /// <param name="m_Archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="archetype"><see cref="BlueprintArchetype"/></param>
+    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
     [Generated]
     [Implements(typeof(SummClassLevelGetter))]
     public UnitPropertyConfigurator AddSummClassLevelGetter(
-        string[] m_Class,
-        string Archetype,
-        string[] m_Archetypes,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string[] clazz = null,
+        string archetype = null,
+        string[] archetypes = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new SummClassLevelGetter();
-      component.m_Class = m_Class.Select(bp => BlueprintTool.GetRef<BlueprintCharacterClassReference>(bp)).ToArray();
-      component.Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(Archetype);
-      component.m_Archetypes = m_Archetypes.Select(bp => BlueprintTool.GetRef<BlueprintArchetypeReference>(bp)).ToArray();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new SummClassLevelGetter();
+      component.m_Class = clazz.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
+      component.Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
+      component.m_Archetypes = archetypes.Select(name => BlueprintTool.GetRef<BlueprintArchetypeReference>(name)).ToArray();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -452,12 +493,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(UnitWeaponEnhancementGetter))]
     public UnitPropertyConfigurator AddUnitWeaponEnhancementGetter(
-        PropertySettings Settings)
+        PropertySettings settings,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new UnitWeaponEnhancementGetter();
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new UnitWeaponEnhancementGetter();
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -465,20 +508,22 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="CastingAttributeGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(CastingAttributeGetter))]
     public UnitPropertyConfigurator AddCastingAttributeGetter(
-        string m_Class,
-        bool AttributeBonus,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string clazz = null,
+        bool attributeBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Settings);
-      
-      var component =  new CastingAttributeGetter();
-      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
-      component.AttributeBonus = AttributeBonus;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CastingAttributeGetter();
+      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      component.AttributeBonus = attributeBonus;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -488,21 +533,22 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(ComplexPropertyGetter))]
     public UnitPropertyConfigurator AddComplexPropertyGetter(
-        int Bonus,
-        int Multiplier,
-        int Denominator,
-        UnitProperty Property,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int bonus = default,
+        int multiplier = default,
+        int denominator = default,
+        UnitProperty property = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Property);
-      ValidateParam(Settings);
-      
-      var component =  new ComplexPropertyGetter();
-      component.Bonus = Bonus;
-      component.Multiplier = Multiplier;
-      component.Denominator = Denominator;
-      component.Property = Property;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new ComplexPropertyGetter();
+      component.Bonus = bonus;
+      component.Multiplier = multiplier;
+      component.Denominator = denominator;
+      component.Property = property;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -512,19 +558,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     [Generated]
     [Implements(typeof(CustomProgressionPropertyGetter))]
     public UnitPropertyConfigurator AddCustomProgressionPropertyGetter(
-        int Start,
-        int Step,
-        UnitProperty Property,
-        PropertySettings Settings)
+        PropertySettings settings,
+        int start = default,
+        int step = default,
+        UnitProperty property = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Property);
-      ValidateParam(Settings);
-      
-      var component =  new CustomProgressionPropertyGetter();
-      component.Start = Start;
-      component.Step = Step;
-      component.Property = Property;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new CustomProgressionPropertyGetter();
+      component.Start = start;
+      component.Step = step;
+      component.Property = property;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -532,23 +579,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="MaxCastingAttributeGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(MaxCastingAttributeGetter))]
     public UnitPropertyConfigurator AddMaxCastingAttributeGetter(
-        string[] m_Classes,
-        bool AttributeBonus,
-        StatType DefaultStat,
-        PropertySettings Settings)
+        PropertySettings settings,
+        string[] classes = null,
+        bool attributeBonus = default,
+        StatType defaultStat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(DefaultStat);
-      ValidateParam(Settings);
-      
-      var component =  new MaxCastingAttributeGetter();
-      component.m_Classes = m_Classes.Select(bp => BlueprintTool.GetRef<BlueprintCharacterClassReference>(bp)).ToArray();
-      component.AttributeBonus = AttributeBonus;
-      component.DefaultStat = DefaultStat;
-      component.Settings = Settings;
+      ValidateParam(settings);
+    
+      var component = new MaxCastingAttributeGetter();
+      component.m_Classes = classes.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
+      component.AttributeBonus = attributeBonus;
+      component.DefaultStat = defaultStat;
+      component.Settings = settings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

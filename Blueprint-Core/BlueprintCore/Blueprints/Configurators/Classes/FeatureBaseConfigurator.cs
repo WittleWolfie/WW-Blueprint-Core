@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -48,12 +49,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(FeatureTagsComponent))]
     public TBuilder AddFeatureTagsComponent(
-        FeatureTag FeatureTags)
+        FeatureTag featureTags = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(FeatureTags);
-      
-      var component =  new FeatureTagsComponent();
-      component.FeatureTags = FeatureTags;
+      var component = new FeatureTagsComponent();
+      component.FeatureTags = featureTags;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -62,9 +63,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(HideFeatureInInspect))]
-    public TBuilder AddHideFeatureInInspect()
+    public TBuilder AddHideFeatureInInspect(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new HideFeatureInInspect());
+      var component = new HideFeatureInInspect();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

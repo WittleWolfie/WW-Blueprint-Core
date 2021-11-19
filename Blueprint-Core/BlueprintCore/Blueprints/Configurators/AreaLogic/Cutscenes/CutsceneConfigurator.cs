@@ -1,19 +1,22 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Cutscenes.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
+using Kingmaker.ElementsSystem;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
-  /// <summary>Configurator for <see cref="Cutscene"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="Cutscene"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(Cutscene))]
   public class CutsceneConfigurator : BaseGateConfigurator<Cutscene, CutsceneConfigurator>
   {
-     private CutsceneConfigurator(string name) : base(name) { }
+    private CutsceneConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CutsceneConfigurator For(string name)
@@ -29,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CutsceneConfigurator New(string name, string assetId)
+    public static CutsceneConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<Cutscene>(name, assetId);
       return For(name);
@@ -39,128 +42,190 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Cutscene.Priority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetPriority(CutscenePriority value)
+    public CutsceneConfigurator SetPriority(CutscenePriority priority)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Priority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Priority = priority;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.NonSkippable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetNonSkippable(bool value)
+    public CutsceneConfigurator SetNonSkippable(bool nonSkippable)
     {
-      return OnConfigureInternal(bp => bp.NonSkippable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NonSkippable = nonSkippable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.ForbidDialogs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetForbidDialogs(bool value)
+    public CutsceneConfigurator SetForbidDialogs(bool forbidDialogs)
     {
-      return OnConfigureInternal(bp => bp.ForbidDialogs = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForbidDialogs = forbidDialogs;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.ForbidRandomIdles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetForbidRandomIdles(bool value)
+    public CutsceneConfigurator SetForbidRandomIdles(bool forbidRandomIdles)
     {
-      return OnConfigureInternal(bp => bp.ForbidRandomIdles = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForbidRandomIdles = forbidRandomIdles;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.IsBackground"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetIsBackground(bool value)
+    public CutsceneConfigurator SetIsBackground(bool isBackground)
     {
-      return OnConfigureInternal(bp => bp.IsBackground = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsBackground = isBackground;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.Sleepless"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetSleepless(bool value)
+    public CutsceneConfigurator SetSleepless(bool sleepless)
     {
-      return OnConfigureInternal(bp => bp.Sleepless = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Sleepless = sleepless;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.AllowCopies"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetAllowCopies(bool value)
+    public CutsceneConfigurator SetAllowCopies(bool allowCopies)
     {
-      return OnConfigureInternal(bp => bp.AllowCopies = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AllowCopies = allowCopies;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.AwakeRange"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetAwakeRange(float value)
+    public CutsceneConfigurator SetAwakeRange(float awakeRange)
     {
-      return OnConfigureInternal(bp => bp.AwakeRange = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AwakeRange = awakeRange;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.Anchors"/> (Auto Generated)
+    /// Sets <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator AddToAnchors(params EntityReference[] values)
+    public CutsceneConfigurator SetAnchors(EntityReference[] anchors)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Anchors = CommonTool.Append(bp.Anchors, values));
+      ValidateParam(anchors);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Anchors = anchors;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.Anchors"/> (Auto Generated)
+    /// Adds to <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator RemoveFromAnchors(params EntityReference[] values)
+    public CutsceneConfigurator AddToAnchors(params EntityReference[] anchors)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Anchors = bp.Anchors.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(anchors);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Anchors = CommonTool.Append(bp.Anchors, anchors ?? new EntityReference[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="Cutscene.Anchors"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CutsceneConfigurator RemoveFromAnchors(params EntityReference[] anchors)
+    {
+      ValidateParam(anchors);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Anchors = bp.Anchors.Where(item => !anchors.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.MarkedUnitHandling"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetMarkedUnitHandling(Cutscene.MarkedUnitHandlingType value)
+    public CutsceneConfigurator SetMarkedUnitHandling(Cutscene.MarkedUnitHandlingType markedUnitHandling)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MarkedUnitHandling = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MarkedUnitHandling = markedUnitHandling;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.DefaultParameters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetDefaultParameters(ParametrizedContextSetter value)
+    public CutsceneConfigurator SetDefaultParameters(ParametrizedContextSetter defaultParameters)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DefaultParameters = value);
+      ValidateParam(defaultParameters);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DefaultParameters = defaultParameters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="Cutscene.OnStopped"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetOnStopped(ActionsBuilder value)
+    public CutsceneConfigurator SetOnStopped(ActionList onStopped)
     {
-      return OnConfigureInternal(bp => bp.OnStopped = value.Build());
+      ValidateParam(onStopped);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnStopped = onStopped;
+          });
     }
 
     /// <summary>
@@ -168,9 +233,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// </summary>
     [Generated]
     [Implements(typeof(StopCutsceneWhenExitingArea))]
-    public CutsceneConfigurator AddStopCutsceneWhenExitingArea()
+    public CutsceneConfigurator AddStopCutsceneWhenExitingArea(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new StopCutsceneWhenExitingArea());
+      var component = new StopCutsceneWhenExitingArea();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -178,9 +246,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// </summary>
     [Generated]
     [Implements(typeof(DestroyCutsceneOnLoad))]
-    public CutsceneConfigurator AddDestroyCutsceneOnLoad()
+    public CutsceneConfigurator AddDestroyCutsceneOnLoad(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new DestroyCutsceneOnLoad());
+      var component = new DestroyCutsceneOnLoad();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

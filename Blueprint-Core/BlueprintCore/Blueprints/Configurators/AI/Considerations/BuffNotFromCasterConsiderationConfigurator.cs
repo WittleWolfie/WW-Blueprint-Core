@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="BuffNotFromCasterConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BuffNotFromCasterConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BuffNotFromCasterConsideration))]
   public class BuffNotFromCasterConsiderationConfigurator : BaseConsiderationConfigurator<BuffNotFromCasterConsideration, BuffNotFromCasterConsiderationConfigurator>
   {
-     private BuffNotFromCasterConsiderationConfigurator(string name) : base(name) { }
+    private BuffNotFromCasterConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static BuffNotFromCasterConsiderationConfigurator For(string name)
@@ -26,35 +29,54 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BuffNotFromCasterConsiderationConfigurator New(string name, string assetId)
+    public static BuffNotFromCasterConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BuffNotFromCasterConsideration>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffNotFromCasterConsideration.m_Buffs"/> (Auto Generated)
+    /// Sets <see cref="BuffNotFromCasterConsideration.m_Buffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
     [Generated]
-    public BuffNotFromCasterConsiderationConfigurator AddToBuffs(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Buffs = CommonTool.Append(bp.m_Buffs, values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffNotFromCasterConsideration.m_Buffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public BuffNotFromCasterConsiderationConfigurator RemoveFromBuffs(params string[] values)
+    public BuffNotFromCasterConsiderationConfigurator SetBuffs(string[] buffs)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
+            bp.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BuffNotFromCasterConsideration.m_Buffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffNotFromCasterConsiderationConfigurator AddToBuffs(params string[] buffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Buffs = CommonTool.Append(bp.m_Buffs, buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BuffNotFromCasterConsideration.m_Buffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffNotFromCasterConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
             bp.m_Buffs =
                 bp.m_Buffs
                     .Where(
@@ -67,18 +89,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="BuffNotFromCasterConsideration.HasBuffNotFromCasterScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BuffNotFromCasterConsiderationConfigurator SetHasBuffNotFromCasterScore(float value)
+    public BuffNotFromCasterConsiderationConfigurator SetHasBuffNotFromCasterScore(float hasBuffNotFromCasterScore)
     {
-      return OnConfigureInternal(bp => bp.HasBuffNotFromCasterScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasBuffNotFromCasterScore = hasBuffNotFromCasterScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BuffNotFromCasterConsideration.ElseScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BuffNotFromCasterConsiderationConfigurator SetElseScore(float value)
+    public BuffNotFromCasterConsiderationConfigurator SetElseScore(float elseScore)
     {
-      return OnConfigureInternal(bp => bp.ElseScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ElseScore = elseScore;
+          });
     }
   }
 }

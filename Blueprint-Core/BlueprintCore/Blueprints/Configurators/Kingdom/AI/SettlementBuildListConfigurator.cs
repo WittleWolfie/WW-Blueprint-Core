@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.UI.Settlement;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
-  /// <summary>Configurator for <see cref="SettlementBuildList"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="SettlementBuildList"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(SettlementBuildList))]
   public class SettlementBuildListConfigurator : BaseBlueprintConfigurator<SettlementBuildList, SettlementBuildListConfigurator>
   {
-     private SettlementBuildListConfigurator(string name) : base(name) { }
+    private SettlementBuildListConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SettlementBuildListConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SettlementBuildListConfigurator New(string name, string assetId)
+    public static SettlementBuildListConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<SettlementBuildList>(name, assetId);
       return For(name);
@@ -37,47 +40,73 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// Sets <see cref="SettlementBuildList.m_BuildArea"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="buildArea"><see cref="BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public SettlementBuildListConfigurator SetBuildArea(string value)
+    public SettlementBuildListConfigurator SetBuildArea(string buildArea)
     {
-      return OnConfigureInternal(bp => bp.m_BuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(buildArea);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="SettlementBuildList.SlotSetupPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots value)
+    public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots slotSetupPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SlotSetupPrefab = value);
+      ValidateParam(slotSetupPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SlotSetupPrefab = slotSetupPrefab;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="SettlementBuildList.List"/> (Auto Generated)
+    /// Sets <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildListConfigurator AddToList(params SettlementBuildList.Entry[] values)
+    public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry> list)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.List.AddRange(values));
+      ValidateParam(list);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.List = list;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="SettlementBuildList.List"/> (Auto Generated)
+    /// Adds to <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildListConfigurator RemoveFromList(params SettlementBuildList.Entry[] values)
+    public SettlementBuildListConfigurator AddToList(params SettlementBuildList.Entry[] list)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.List = bp.List.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(list);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.List.AddRange(list.ToList() ?? new List<SettlementBuildList.Entry>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="SettlementBuildList.List"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SettlementBuildListConfigurator RemoveFromList(params SettlementBuildList.Entry[] list)
+    {
+      ValidateParam(list);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.List = bp.List.Where(item => !list.Contains(item)).ToList();
+          });
     }
   }
 }

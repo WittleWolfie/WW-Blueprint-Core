@@ -1,19 +1,22 @@
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintCheck"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCheck"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCheck))]
   public class CheckConfigurator : BaseCueBaseConfigurator<BlueprintCheck, CheckConfigurator>
   {
-     private CheckConfigurator(string name) : base(name) { }
+    private CheckConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CheckConfigurator For(string name)
@@ -29,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CheckConfigurator New(string name, string assetId)
+    public static CheckConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCheck>(name, assetId);
       return For(name);
@@ -39,96 +42,140 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCheck.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetType(StatType value)
+    public CheckConfigurator SetType(StatType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.DC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetDC(int value)
+    public CheckConfigurator SetDC(int dC)
     {
-      return OnConfigureInternal(bp => bp.DC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DC = dC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.Hidden"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetHidden(bool value)
+    public CheckConfigurator SetHidden(bool hidden)
     {
-      return OnConfigureInternal(bp => bp.Hidden = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Hidden = hidden;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator AddToDCModifiers(params DCModifier[] values)
+    public CheckConfigurator SetDCModifiers(DCModifier[] dCModifiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.DCModifiers = CommonTool.Append(bp.DCModifiers, values));
+      ValidateParam(dCModifiers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = dCModifiers;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator RemoveFromDCModifiers(params DCModifier[] values)
+    public CheckConfigurator AddToDCModifiers(params DCModifier[] dCModifiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.DCModifiers = bp.DCModifiers.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(dCModifiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = CommonTool.Append(bp.DCModifiers, dCModifiers ?? new DCModifier[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CheckConfigurator RemoveFromDCModifiers(params DCModifier[] dCModifiers)
+    {
+      ValidateParam(dCModifiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = bp.DCModifiers.Where(item => !dCModifiers.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.m_Success"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCueBase"/></param>
+    /// <param name="success"><see cref="BlueprintCueBase"/></param>
     [Generated]
-    public CheckConfigurator SetSuccess(string value)
+    public CheckConfigurator SetSuccess(string success)
     {
-      return OnConfigureInternal(bp => bp.m_Success = BlueprintTool.GetRef<BlueprintCueBaseReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Success = BlueprintTool.GetRef<BlueprintCueBaseReference>(success);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.m_Fail"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCueBase"/></param>
+    /// <param name="fail"><see cref="BlueprintCueBase"/></param>
     [Generated]
-    public CheckConfigurator SetFail(string value)
+    public CheckConfigurator SetFail(string fail)
     {
-      return OnConfigureInternal(bp => bp.m_Fail = BlueprintTool.GetRef<BlueprintCueBaseReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Fail = BlueprintTool.GetRef<BlueprintCueBaseReference>(fail);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.m_UnitEvaluator"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetUnitEvaluator(UnitEvaluator value)
+    public CheckConfigurator SetUnitEvaluator(UnitEvaluator unitEvaluator)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_UnitEvaluator = value);
+      ValidateParam(unitEvaluator);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UnitEvaluator = unitEvaluator;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCheck.Experience"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetExperience(DialogExperience value)
+    public CheckConfigurator SetExperience(DialogExperience experience)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Experience = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Experience = experience;
+          });
     }
   }
 }

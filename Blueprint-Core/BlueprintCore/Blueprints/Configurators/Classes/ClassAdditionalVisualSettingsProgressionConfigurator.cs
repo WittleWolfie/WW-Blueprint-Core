@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintClassAdditionalVisualSettingsProgression"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintClassAdditionalVisualSettingsProgression"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintClassAdditionalVisualSettingsProgression))]
   public class ClassAdditionalVisualSettingsProgressionConfigurator : BaseBlueprintConfigurator<BlueprintClassAdditionalVisualSettingsProgression, ClassAdditionalVisualSettingsProgressionConfigurator>
   {
-     private ClassAdditionalVisualSettingsProgressionConfigurator(string name) : base(name) { }
+    private ClassAdditionalVisualSettingsProgressionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ClassAdditionalVisualSettingsProgressionConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ClassAdditionalVisualSettingsProgressionConfigurator New(string name, string assetId)
+    public static ClassAdditionalVisualSettingsProgressionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintClassAdditionalVisualSettingsProgression>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
+    /// Sets <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClassAdditionalVisualSettingsProgressionConfigurator AddToEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] values)
+    public ClassAdditionalVisualSettingsProgressionConfigurator SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+      ValidateParam(entries);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = entries;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClassAdditionalVisualSettingsProgressionConfigurator RemoveFromEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] values)
+    public ClassAdditionalVisualSettingsProgressionConfigurator AddToEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = CommonTool.Append(bp.Entries, entries ?? new BlueprintClassAdditionalVisualSettingsProgression.Entry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClassAdditionalVisualSettingsProgressionConfigurator RemoveFromEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
+    {
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = bp.Entries.Where(item => !entries.Contains(item)).ToArray();
+          });
     }
   }
 }

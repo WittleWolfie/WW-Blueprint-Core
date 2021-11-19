@@ -1,9 +1,10 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>
@@ -16,90 +17,131 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       where T : BlueprintDlcReward
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseDlcRewardConfigurator(string name) : base(name) { }
+    protected BaseDlcRewardConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescription(LocalizedString value)
+    public TBuilder SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsImportRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsImportRequired(bool value)
+    public TBuilder SetIsImportRequired(bool isImportRequired)
     {
-      return OnConfigureInternal(bp => bp.m_IsImportRequired = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsImportRequired = isImportRequired;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaign"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportIntoMainCampaign(DlcImportSettings value)
+    public TBuilder SetImportIntoMainCampaign(DlcImportSettings importIntoMainCampaign)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ImportIntoMainCampaign = value);
+      ValidateParam(importIntoMainCampaign);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ImportIntoMainCampaign = importIntoMainCampaign;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaign"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportFromMainCampaign(DlcImportSettings value)
+    public TBuilder SetImportFromMainCampaign(DlcImportSettings importFromMainCampaign)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ImportFromMainCampaign = value);
+      ValidateParam(importFromMainCampaign);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ImportFromMainCampaign = importFromMainCampaign;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToDlcs(params BlueprintDlc[] values)
+    public TBuilder SetDlcs(List<BlueprintDlc> dlcs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Dlcs.AddRange(values));
+      ValidateParam(dlcs);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs = dlcs;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromDlcs(params BlueprintDlc[] values)
+    public TBuilder AddToDlcs(params BlueprintDlc[] dlcs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Dlcs = bp.m_Dlcs.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(dlcs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs.AddRange(dlcs.ToList() ?? new List<BlueprintDlc>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromDlcs(params BlueprintDlc[] dlcs)
+    {
+      ValidateParam(dlcs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs = bp.m_Dlcs.Where(item => !dlcs.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsAvailable(Nullable<bool> value)
+    public TBuilder SetIsAvailable(bool? isAvailable)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_IsAvailable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsAvailable = isAvailable;
+          });
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintDlcReward"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDlcReward"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDlcReward))]
   public class DlcRewardConfigurator : BaseBlueprintConfigurator<BlueprintDlcReward, DlcRewardConfigurator>
   {
-     private DlcRewardConfigurator(string name) : base(name) { }
+    private DlcRewardConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DlcRewardConfigurator For(string name)
@@ -115,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DlcRewardConfigurator New(string name, string assetId)
+    public static DlcRewardConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDlcReward>(name, assetId);
       return For(name);
@@ -125,75 +167,114 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetDescription(LocalizedString value)
+    public DlcRewardConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsImportRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetIsImportRequired(bool value)
+    public DlcRewardConfigurator SetIsImportRequired(bool isImportRequired)
     {
-      return OnConfigureInternal(bp => bp.m_IsImportRequired = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsImportRequired = isImportRequired;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaign"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportIntoMainCampaign(DlcImportSettings value)
+    public DlcRewardConfigurator SetImportIntoMainCampaign(DlcImportSettings importIntoMainCampaign)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ImportIntoMainCampaign = value);
+      ValidateParam(importIntoMainCampaign);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ImportIntoMainCampaign = importIntoMainCampaign;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaign"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportFromMainCampaign(DlcImportSettings value)
+    public DlcRewardConfigurator SetImportFromMainCampaign(DlcImportSettings importFromMainCampaign)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ImportFromMainCampaign = value);
+      ValidateParam(importFromMainCampaign);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ImportFromMainCampaign = importFromMainCampaign;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator AddToDlcs(params BlueprintDlc[] values)
+    public DlcRewardConfigurator SetDlcs(List<BlueprintDlc> dlcs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Dlcs.AddRange(values));
+      ValidateParam(dlcs);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs = dlcs;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator RemoveFromDlcs(params BlueprintDlc[] values)
+    public DlcRewardConfigurator AddToDlcs(params BlueprintDlc[] dlcs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Dlcs = bp.m_Dlcs.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(dlcs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs.AddRange(dlcs.ToList() ?? new List<BlueprintDlc>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DlcRewardConfigurator RemoveFromDlcs(params BlueprintDlc[] dlcs)
+    {
+      ValidateParam(dlcs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dlcs = bp.m_Dlcs.Where(item => !dlcs.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetIsAvailable(Nullable<bool> value)
+    public DlcRewardConfigurator SetIsAvailable(bool? isAvailable)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_IsAvailable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsAvailable = isAvailable;
+          });
     }
   }
 }

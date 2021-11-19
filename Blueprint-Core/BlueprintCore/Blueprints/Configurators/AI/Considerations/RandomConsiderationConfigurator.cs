@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="RandomConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="RandomConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(RandomConsideration))]
   public class RandomConsiderationConfigurator : BaseConsiderationConfigurator<RandomConsideration, RandomConsiderationConfigurator>
   {
-     private RandomConsiderationConfigurator(string name) : base(name) { }
+    private RandomConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RandomConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RandomConsiderationConfigurator New(string name, string assetId)
+    public static RandomConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<RandomConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="RandomConsideration.MinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomConsiderationConfigurator SetMinScore(float value)
+    public RandomConsiderationConfigurator SetMinScore(float minScore)
     {
-      return OnConfigureInternal(bp => bp.MinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinScore = minScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="RandomConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomConsiderationConfigurator SetMaxScore(float value)
+    public RandomConsiderationConfigurator SetMaxScore(float maxScore)
     {
-      return OnConfigureInternal(bp => bp.MaxScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxScore = maxScore;
+          });
     }
   }
 }

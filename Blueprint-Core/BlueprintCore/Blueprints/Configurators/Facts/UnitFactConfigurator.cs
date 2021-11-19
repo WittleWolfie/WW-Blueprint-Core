@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Formations.Facts;
 using Kingmaker.Kingdom;
@@ -15,6 +16,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Parts;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -72,22 +74,23 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Adds <see cref="FormationACBonus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Property"><see cref="BlueprintUnitProperty"/></param>
-    /// <param name="m_IgnoreIfHasAnyFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="property"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="ignoreIfHasAnyFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FormationACBonus))]
     public TBuilder AddFormationACBonus(
-        bool UnitProperty,
-        int Bonus,
-        string m_Property,
-        string[] m_IgnoreIfHasAnyFact)
+        bool unitProperty = default,
+        int bonus = default,
+        string property = null,
+        string[] ignoreIfHasAnyFact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new FormationACBonus();
-      component.UnitProperty = UnitProperty;
-      component.Bonus = Bonus;
-      component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(m_Property);
-      component.m_IgnoreIfHasAnyFact = m_IgnoreIfHasAnyFact.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new FormationACBonus();
+      component.UnitProperty = unitProperty;
+      component.Bonus = bonus;
+      component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property);
+      component.m_IgnoreIfHasAnyFact = ignoreIfHasAnyFact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -97,21 +100,22 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(BuildBalanceRadarChart))]
     public TBuilder AddBuildBalanceRadarChart(
-        int Melee,
-        int Ranged,
-        int Magic,
-        int Defense,
-        int Support,
-        int Control)
+        int melee = default,
+        int ranged = default,
+        int magic = default,
+        int defense = default,
+        int support = default,
+        int control = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BuildBalanceRadarChart();
-      component.Melee = Melee;
-      component.Ranged = Ranged;
-      component.Magic = Magic;
-      component.Defense = Defense;
-      component.Support = Support;
-      component.Control = Control;
+      var component = new BuildBalanceRadarChart();
+      component.Melee = melee;
+      component.Ranged = ranged;
+      component.Magic = magic;
+      component.Defense = defense;
+      component.Support = support;
+      component.Control = control;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -121,23 +125,24 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(StatsDistributionPreset))]
     public TBuilder AddStatsDistributionPreset(
-        int TargetPoints,
-        int Strength,
-        int Dexterity,
-        int Constitution,
-        int Intelligence,
-        int Wisdom,
-        int Charisma)
+        int targetPoints = default,
+        int strength = default,
+        int dexterity = default,
+        int constitution = default,
+        int intelligence = default,
+        int wisdom = default,
+        int charisma = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new StatsDistributionPreset();
-      component.TargetPoints = TargetPoints;
-      component.Strength = Strength;
-      component.Dexterity = Dexterity;
-      component.Constitution = Constitution;
-      component.Intelligence = Intelligence;
-      component.Wisdom = Wisdom;
-      component.Charisma = Charisma;
+      var component = new StatsDistributionPreset();
+      component.TargetPoints = targetPoints;
+      component.Strength = strength;
+      component.Dexterity = dexterity;
+      component.Constitution = constitution;
+      component.Intelligence = intelligence;
+      component.Wisdom = wisdom;
+      component.Charisma = charisma;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -146,17 +151,19 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     [Generated]
     [Implements(typeof(AddAttackerSpellFailureChance))]
-    public TBuilder AddAddAttackerSpellFailureChance(
-        int Chance,
-        GameObject FailFx,
-        ConditionsBuilder Conditions)
+    public TBuilder AddAttackerSpellFailureChance(
+        GameObject failFx,
+        int chance = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(FailFx);
-      
-      var component =  new AddAttackerSpellFailureChance();
-      component.Chance = Chance;
-      component.FailFx = FailFx;
-      component.Conditions = Conditions.Build();
+      ValidateParam(failFx);
+    
+      var component = new AddAttackerSpellFailureChance();
+      component.Chance = chance;
+      component.FailFx = failFx;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -165,15 +172,15 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     [Generated]
     [Implements(typeof(AddLocalMapMarker))]
-    public TBuilder AddAddLocalMapMarker(
-        LocalMapMarkType Type,
-        bool ShowIfNotRevealed)
+    public TBuilder AddLocalMapMarker(
+        LocalMapMarkType type = default,
+        bool showIfNotRevealed = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Type);
-      
-      var component =  new AddLocalMapMarker();
-      component.Type = Type;
-      component.ShowIfNotRevealed = ShowIfNotRevealed;
+      var component = new AddLocalMapMarker();
+      component.Type = type;
+      component.ShowIfNotRevealed = showIfNotRevealed;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -182,24 +189,28 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     [Generated]
     [Implements(typeof(AddUndetectableAlignment))]
-    public TBuilder AddAddUndetectableAlignment()
+    public TBuilder AddUndetectableAlignment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AddUndetectableAlignment());
+      var component = new AddUndetectableAlignment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="SetChargeWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Weapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(SetChargeWeapon))]
     public TBuilder AddSetChargeWeapon(
-        string m_Weapon)
+        string weapon = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SetChargeWeapon();
-      component.m_Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(m_Weapon);
+      var component = new SetChargeWeapon();
+      component.m_Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -209,12 +220,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(SetFleeOrApproachLogic))]
     public TBuilder AddSetFleeOrApproachLogic(
-        UnitPartFleeOrApproach.CommandType CommandType)
+        UnitPartFleeOrApproach.CommandType commandType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(CommandType);
-      
-      var component =  new SetFleeOrApproachLogic();
-      component.CommandType = CommandType;
+      var component = new SetFleeOrApproachLogic();
+      component.CommandType = commandType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -223,9 +234,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     [Generated]
     [Implements(typeof(BlinkAoEDamageResistance))]
-    public TBuilder AddBlinkAoEDamageResistance()
+    public TBuilder AddBlinkAoEDamageResistance(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new BlinkAoEDamageResistance());
+      var component = new BlinkAoEDamageResistance();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -234,17 +248,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(SetAttackerMissChance))]
     public TBuilder AddSetAttackerMissChance(
-        SetAttackerMissChance.Type m_Type,
-        ContextValue Value,
-        ConditionsBuilder Conditions)
+        ContextValue value,
+        SetAttackerMissChance.Type type = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      ValidateParam(Value);
-      
-      var component =  new SetAttackerMissChance();
-      component.m_Type = m_Type;
-      component.Value = Value;
-      component.Conditions = Conditions.Build();
+      ValidateParam(value);
+    
+      var component = new SetAttackerMissChance();
+      component.m_Type = type;
+      component.Value = value;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -254,17 +269,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(SetFactOwnerMissChance))]
     public TBuilder AddSetFactOwnerMissChance(
-        SetFactOwnerMissChance.Type m_Type,
-        ContextValue Value,
-        ConditionsBuilder Conditions)
+        ContextValue value,
+        SetFactOwnerMissChance.Type type = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      ValidateParam(Value);
-      
-      var component =  new SetFactOwnerMissChance();
-      component.m_Type = m_Type;
-      component.Value = Value;
-      component.Conditions = Conditions.Build();
+      ValidateParam(value);
+    
+      var component = new SetFactOwnerMissChance();
+      component.m_Type = type;
+      component.Value = value;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -272,23 +288,25 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Adds <see cref="AbilityResourceOverride"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_AbilityResource"><see cref="BlueprintAbilityResource"/></param>
+    /// <param name="abilityResource"><see cref="BlueprintAbilityResource"/></param>
     [Generated]
     [Implements(typeof(AbilityResourceOverride))]
     public TBuilder AddAbilityResourceOverride(
-        string m_AbilityResource,
-        ContextValue m_LevelMultiplier,
-        ContextValue m_AdditionalCost,
-        bool m_SaveSpellSlot)
+        ContextValue levelMultiplier,
+        ContextValue additionalCost,
+        string abilityResource = null,
+        bool saveSpellSlot = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_LevelMultiplier);
-      ValidateParam(m_AdditionalCost);
-      
-      var component =  new AbilityResourceOverride();
-      component.m_AbilityResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(m_AbilityResource);
-      component.m_LevelMultiplier = m_LevelMultiplier;
-      component.m_AdditionalCost = m_AdditionalCost;
-      component.m_SaveSpellSlot = m_SaveSpellSlot;
+      ValidateParam(levelMultiplier);
+      ValidateParam(additionalCost);
+    
+      var component = new AbilityResourceOverride();
+      component.m_AbilityResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(abilityResource);
+      component.m_LevelMultiplier = levelMultiplier;
+      component.m_AdditionalCost = additionalCost;
+      component.m_SaveSpellSlot = saveSpellSlot;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -298,14 +316,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(ArmyLeaderAddResourcesOnBattleEnd))]
     public TBuilder AddArmyLeaderAddResourcesOnBattleEnd(
-        KingdomResourcesAmount m_ResourcesAmount,
-        bool OnlyOnVictory)
+        KingdomResourcesAmount resourcesAmount,
+        bool onlyOnVictory = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_ResourcesAmount);
-      
-      var component =  new ArmyLeaderAddResourcesOnBattleEnd();
-      component.m_ResourcesAmount = m_ResourcesAmount;
-      component.OnlyOnVictory = OnlyOnVictory;
+      var component = new ArmyLeaderAddResourcesOnBattleEnd();
+      component.m_ResourcesAmount = resourcesAmount;
+      component.OnlyOnVictory = onlyOnVictory;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -315,12 +333,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(CritAutoconfirmAgainstAlignment))]
     public TBuilder AddCritAutoconfirmAgainstAlignment(
-        AlignmentComponent EnemyAlignment)
+        AlignmentComponent enemyAlignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      
-      var component =  new CritAutoconfirmAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
+      var component = new CritAutoconfirmAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -328,21 +346,22 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Adds <see cref="DoubleDamageDiceOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_WeaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(DoubleDamageDiceOnAttack))]
     public TBuilder AddDoubleDamageDiceOnAttack(
-        bool OnlyOnFullAttack,
-        bool OnlyOnFirstAttack,
-        bool CriticalHit,
-        string m_WeaponType)
+        bool onlyOnFullAttack = default,
+        bool onlyOnFirstAttack = default,
+        bool criticalHit = default,
+        string weaponType = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DoubleDamageDiceOnAttack();
-      component.OnlyOnFullAttack = OnlyOnFullAttack;
-      component.OnlyOnFirstAttack = OnlyOnFirstAttack;
-      component.CriticalHit = CriticalHit;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_WeaponType);
+      var component = new DoubleDamageDiceOnAttack();
+      component.OnlyOnFullAttack = onlyOnFullAttack;
+      component.OnlyOnFirstAttack = onlyOnFirstAttack;
+      component.CriticalHit = criticalHit;
+      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -351,37 +370,41 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     [Generated]
     [Implements(typeof(IgnoreDamageGrowthByDifficulty))]
-    public TBuilder AddIgnoreDamageGrowthByDifficulty()
+    public TBuilder AddIgnoreDamageGrowthByDifficulty(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IgnoreDamageGrowthByDifficulty());
+      var component = new IgnoreDamageGrowthByDifficulty();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="IgnoreDamageReductionOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_WeaponType"><see cref="BlueprintWeaponType"/></param>
-    /// <param name="m_CheckedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(IgnoreDamageReductionOnAttack))]
     public TBuilder AddIgnoreDamageReductionOnAttack(
-        bool OnlyOnFullAttack,
-        bool OnlyOnFirstAttack,
-        bool CriticalHit,
-        string m_WeaponType,
-        bool CheckEnemyFact,
-        string m_CheckedFact,
-        bool OnlyNaturalAttacks)
+        bool onlyOnFullAttack = default,
+        bool onlyOnFirstAttack = default,
+        bool criticalHit = default,
+        string weaponType = null,
+        bool checkEnemyFact = default,
+        string checkedFact = null,
+        bool onlyNaturalAttacks = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IgnoreDamageReductionOnAttack();
-      component.OnlyOnFullAttack = OnlyOnFullAttack;
-      component.OnlyOnFirstAttack = OnlyOnFirstAttack;
-      component.CriticalHit = CriticalHit;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_WeaponType);
-      component.CheckEnemyFact = CheckEnemyFact;
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
-      component.OnlyNaturalAttacks = OnlyNaturalAttacks;
+      var component = new IgnoreDamageReductionOnAttack();
+      component.OnlyOnFullAttack = onlyOnFullAttack;
+      component.OnlyOnFirstAttack = onlyOnFirstAttack;
+      component.CriticalHit = criticalHit;
+      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
+      component.CheckEnemyFact = checkEnemyFact;
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
+      component.OnlyNaturalAttacks = onlyNaturalAttacks;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

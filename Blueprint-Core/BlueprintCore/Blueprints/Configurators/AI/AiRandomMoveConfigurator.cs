@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiRandomMove"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiRandomMove"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiRandomMove))]
   public class AiRandomMoveConfigurator : BaseAiActionConfigurator<BlueprintAiRandomMove, AiRandomMoveConfigurator>
   {
-     private AiRandomMoveConfigurator(string name) : base(name) { }
+    private AiRandomMoveConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiRandomMoveConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiRandomMoveConfigurator New(string name, string assetId)
+    public static AiRandomMoveConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiRandomMove>(name, assetId);
       return For(name);
@@ -34,9 +37,13 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiRandomMove.RoamingRadiusInFeet"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiRandomMoveConfigurator SetRoamingRadiusInFeet(int value)
+    public AiRandomMoveConfigurator SetRoamingRadiusInFeet(int roamingRadiusInFeet)
     {
-      return OnConfigureInternal(bp => bp.RoamingRadiusInFeet = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RoamingRadiusInFeet = roamingRadiusInFeet;
+          });
     }
   }
 }

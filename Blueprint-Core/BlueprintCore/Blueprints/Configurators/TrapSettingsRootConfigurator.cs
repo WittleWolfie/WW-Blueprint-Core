@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintTrapSettingsRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTrapSettingsRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTrapSettingsRoot))]
   public class TrapSettingsRootConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettingsRoot, TrapSettingsRootConfigurator>
   {
-     private TrapSettingsRootConfigurator(string name) : base(name) { }
+    private TrapSettingsRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TrapSettingsRootConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TrapSettingsRootConfigurator New(string name, string assetId)
+    public static TrapSettingsRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTrapSettingsRoot>(name, assetId);
       return For(name);
@@ -35,43 +38,70 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsRootConfigurator SetDefaultPerceptionRadius(float value)
+    public TrapSettingsRootConfigurator SetDefaultPerceptionRadius(float defaultPerceptionRadius)
     {
-      return OnConfigureInternal(bp => bp.m_DefaultPerceptionRadius = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultPerceptionRadius = defaultPerceptionRadius;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.m_DisableDCMargin"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsRootConfigurator SetDisableDCMargin(int value)
-    {
-      return OnConfigureInternal(bp => bp.m_DisableDCMargin = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintTrapSettings"/></param>
-    [Generated]
-    public TrapSettingsRootConfigurator AddToSettings(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Settings = CommonTool.Append(bp.m_Settings, values.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintTrapSettings"/></param>
-    [Generated]
-    public TrapSettingsRootConfigurator RemoveFromSettings(params string[] values)
+    public TrapSettingsRootConfigurator SetDisableDCMargin(int disableDCMargin)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name));
+            bp.m_DisableDCMargin = disableDCMargin;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    [Generated]
+    public TrapSettingsRootConfigurator Settings(string[] settings)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Settings = settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    [Generated]
+    public TrapSettingsRootConfigurator AddToSettings(params string[] settings)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Settings = CommonTool.Append(bp.m_Settings, settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    [Generated]
+    public TrapSettingsRootConfigurator RemoveFromSettings(params string[] settings)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name));
             bp.m_Settings =
                 bp.m_Settings
                     .Where(
@@ -84,18 +114,26 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintTrapSettingsRoot.EasyDisableDCDelta"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsRootConfigurator SetEasyDisableDCDelta(int value)
+    public TrapSettingsRootConfigurator SetEasyDisableDCDelta(int easyDisableDCDelta)
     {
-      return OnConfigureInternal(bp => bp.EasyDisableDCDelta = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EasyDisableDCDelta = easyDisableDCDelta;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.HardDisableDCDelta"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsRootConfigurator SetHardDisableDCDelta(int value)
+    public TrapSettingsRootConfigurator SetHardDisableDCDelta(int hardDisableDCDelta)
     {
-      return OnConfigureInternal(bp => bp.HardDisableDCDelta = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HardDisableDCDelta = hardDisableDCDelta;
+          });
     }
   }
 }

@@ -1,8 +1,9 @@
+using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -15,31 +16,50 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       where T : BlueprintItemEquipmentSimple
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseItemEquipmentSimpleConfigurator(string name) : base(name) { }
+    protected BaseItemEquipmentSimpleConfigurator(string name) : base(name) { }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public TBuilder AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
-    [Generated]
-    public TBuilder RemoveFromEnchantments(params string[] values)
+    public TBuilder SetEnchantments(string[] enchantments)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public TBuilder AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public TBuilder RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -52,10 +72,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipmentSimple.m_InventoryEquipSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetInventoryEquipSound(string value)
+    public TBuilder SetInventoryEquipSound(string inventoryEquipSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryEquipSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryEquipSound = inventoryEquipSound;
+          });
     }
   }
 }

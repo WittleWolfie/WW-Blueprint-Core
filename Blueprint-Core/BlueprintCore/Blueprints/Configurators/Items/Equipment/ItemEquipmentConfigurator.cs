@@ -1,11 +1,12 @@
+using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -18,136 +19,199 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       where T : BlueprintItemEquipment
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseItemEquipmentConfigurator(string name) : base(name) { }
+    protected BaseItemEquipmentConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.CR"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCR(int value)
+    public TBuilder SetCR(int cR)
     {
-      return OnConfigureInternal(bp => bp.CR = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CR = cR;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.m_Ability"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="BlueprintAbility"/></param>
     [Generated]
-    public TBuilder SetAbility(string value)
+    public TBuilder SetAbility(string ability)
     {
-      return OnConfigureInternal(bp => bp.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.m_ActivatableAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="activatableAbility"><see cref="BlueprintActivatableAbility"/></param>
     [Generated]
-    public TBuilder SetActivatableAbility(string value)
+    public TBuilder SetActivatableAbility(string activatableAbility)
     {
-      return OnConfigureInternal(bp => bp.m_ActivatableAbility = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActivatableAbility = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(activatableAbility);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.SpendCharges"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSpendCharges(bool value)
+    public TBuilder SetSpendCharges(bool spendCharges)
     {
-      return OnConfigureInternal(bp => bp.SpendCharges = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpendCharges = spendCharges;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.Charges"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCharges(int value)
+    public TBuilder SetCharges(int charges)
     {
-      return OnConfigureInternal(bp => bp.Charges = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Charges = charges;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetRestoreChargesOnRest(bool value)
+    public TBuilder SetRestoreChargesOnRest(bool restoreChargesOnRest)
     {
-      return OnConfigureInternal(bp => bp.RestoreChargesOnRest = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RestoreChargesOnRest = restoreChargesOnRest;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.CasterLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCasterLevel(int value)
+    public TBuilder SetCasterLevel(int casterLevel)
     {
-      return OnConfigureInternal(bp => bp.CasterLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CasterLevel = casterLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.SpellLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSpellLevel(int value)
+    public TBuilder SetSpellLevel(int spellLevel)
     {
-      return OnConfigureInternal(bp => bp.SpellLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellLevel = spellLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.DC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDC(int value)
+    public TBuilder SetDC(int dC)
     {
-      return OnConfigureInternal(bp => bp.DC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DC = dC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.IsNonRemovable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsNonRemovable(bool value)
+    public TBuilder SetIsNonRemovable(bool isNonRemovable)
     {
-      return OnConfigureInternal(bp => bp.IsNonRemovable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsNonRemovable = isNonRemovable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntity(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public TBuilder AddToEquipmentEntityAlternatives(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] values)
+    public TBuilder SetEquipmentEntity(string equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
+            bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(equipmentEntity);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
             bp.m_EquipmentEntityAlternatives =
                 bp.m_EquipmentEntityAlternatives
                     .Where(
@@ -160,24 +224,29 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetForcedRampColorPresetIndex(int value)
+    public TBuilder SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
-      return OnConfigureInternal(bp => bp.m_ForcedRampColorPresetIndex = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ForcedRampColorPresetIndex = forcedRampColorPresetIndex;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="AddFactToEquipmentWielder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactToEquipmentWielder))]
-    public TBuilder AddAddFactToEquipmentWielder(
-        string m_Fact)
+    public TBuilder AddFactToEquipmentWielder(
+        string fact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddFactToEquipmentWielder();
-      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
+      var component = new AddFactToEquipmentWielder();
+      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -187,12 +256,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(EquipmentRestrictionAlignment))]
     public TBuilder AddEquipmentRestrictionAlignment(
-        AlignmentMaskType Alignment)
+        AlignmentMaskType alignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Alignment);
-      
-      var component =  new EquipmentRestrictionAlignment();
-      component.Alignment = Alignment;
+      var component = new EquipmentRestrictionAlignment();
+      component.Alignment = alignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -201,26 +270,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     [Generated]
     [Implements(typeof(EquipmentRestrictionCannotEquip))]
-    public TBuilder AddEquipmentRestrictionCannotEquip()
+    public TBuilder AddEquipmentRestrictionCannotEquip(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EquipmentRestrictionCannotEquip());
+      var component = new EquipmentRestrictionCannotEquip();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionClass))]
     public TBuilder AddEquipmentRestrictionClass(
-        string m_Class,
-        bool Not)
+        string clazz = null,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EquipmentRestrictionClass();
-      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
-      component.Not = Not;
+      var component = new EquipmentRestrictionClass();
+      component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -228,17 +301,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds <see cref="EquipmentRestrictionHasAnyClassFromList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionHasAnyClassFromList))]
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
-        bool Not,
-        string[] m_Classes)
+        bool not = default,
+        string[] classes = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EquipmentRestrictionHasAnyClassFromList();
-      component.Not = Not;
-      component.m_Classes = m_Classes.Select(bp => BlueprintTool.GetRef<BlueprintCharacterClassReference>(bp)).ToArray();
+      var component = new EquipmentRestrictionHasAnyClassFromList();
+      component.Not = not;
+      component.m_Classes = classes.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -247,24 +321,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     [Generated]
     [Implements(typeof(EquipmentRestrictionMainPlayer))]
-    public TBuilder AddEquipmentRestrictionMainPlayer()
+    public TBuilder AddEquipmentRestrictionMainPlayer(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EquipmentRestrictionMainPlayer());
+      var component = new EquipmentRestrictionMainPlayer();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionSpecialUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Blueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="blueprint"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionSpecialUnit))]
     public TBuilder AddEquipmentRestrictionSpecialUnit(
-        string m_Blueprint)
+        string blueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EquipmentRestrictionSpecialUnit();
-      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_Blueprint);
+      var component = new EquipmentRestrictionSpecialUnit();
+      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -274,14 +352,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(EquipmentRestrictionStat))]
     public TBuilder AddEquipmentRestrictionStat(
-        StatType Stat,
-        int MinValue)
+        StatType stat = default,
+        int minValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new EquipmentRestrictionStat();
-      component.Stat = Stat;
-      component.MinValue = MinValue;
+      var component = new EquipmentRestrictionStat();
+      component.Stat = stat;
+      component.MinValue = minValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

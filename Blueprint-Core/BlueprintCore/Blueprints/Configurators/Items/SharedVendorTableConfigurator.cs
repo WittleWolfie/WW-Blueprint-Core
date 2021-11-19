@@ -1,15 +1,17 @@
 using BlueprintCore.Blueprints.Configurators.Loot;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
-  /// <summary>Configurator for <see cref="BlueprintSharedVendorTable"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintSharedVendorTable"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintSharedVendorTable))]
   public class SharedVendorTableConfigurator : BaseUnitLootConfigurator<BlueprintSharedVendorTable, SharedVendorTableConfigurator>
   {
-     private SharedVendorTableConfigurator(string name) : base(name) { }
+    private SharedVendorTableConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SharedVendorTableConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SharedVendorTableConfigurator New(string name, string assetId)
+    public static SharedVendorTableConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintSharedVendorTable>(name, assetId);
       return For(name);
@@ -35,9 +37,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SharedVendorTableConfigurator SetAutoIdentifyAllItems(bool value)
+    public SharedVendorTableConfigurator SetAutoIdentifyAllItems(bool autoIdentifyAllItems)
     {
-      return OnConfigureInternal(bp => bp.AutoIdentifyAllItems = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AutoIdentifyAllItems = autoIdentifyAllItems;
+          });
     }
   }
 }

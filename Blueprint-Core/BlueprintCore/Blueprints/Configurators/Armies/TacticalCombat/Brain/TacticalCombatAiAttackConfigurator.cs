@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
 {
-  /// <summary>Configurator for <see cref="BlueprintTacticalCombatAiAttack"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTacticalCombatAiAttack"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTacticalCombatAiAttack))]
   public class TacticalCombatAiAttackConfigurator : BaseTacticalCombatAiActionConfigurator<BlueprintTacticalCombatAiAttack, TacticalCombatAiAttackConfigurator>
   {
-     private TacticalCombatAiAttackConfigurator(string name) : base(name) { }
+    private TacticalCombatAiAttackConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TacticalCombatAiAttackConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TacticalCombatAiAttackConfigurator New(string name, string assetId)
+    public static TacticalCombatAiAttackConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTacticalCombatAiAttack>(name, assetId);
       return For(name);
@@ -34,9 +37,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
     /// Sets <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatAiAttackConfigurator SetCanAttackAllies(bool value)
+    public TacticalCombatAiAttackConfigurator SetCanAttackAllies(bool canAttackAllies)
     {
-      return OnConfigureInternal(bp => bp.CanAttackAllies = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CanAttackAllies = canAttackAllies;
+          });
     }
   }
 }

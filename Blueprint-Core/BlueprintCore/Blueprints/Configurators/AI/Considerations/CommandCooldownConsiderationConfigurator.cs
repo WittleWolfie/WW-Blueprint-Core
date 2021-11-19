@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.UnitLogic.Commands.Base;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="CommandCooldownConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="CommandCooldownConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(CommandCooldownConsideration))]
   public class CommandCooldownConsiderationConfigurator : BaseConsiderationConfigurator<CommandCooldownConsideration, CommandCooldownConsiderationConfigurator>
   {
-     private CommandCooldownConsiderationConfigurator(string name) : base(name) { }
+    private CommandCooldownConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CommandCooldownConsiderationConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CommandCooldownConsiderationConfigurator New(string name, string assetId)
+    public static CommandCooldownConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<CommandCooldownConsideration>(name, assetId);
       return For(name);
@@ -35,28 +38,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="CommandCooldownConsideration.CommandType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CommandCooldownConsiderationConfigurator SetCommandType(UnitCommand.CommandType value)
+    public CommandCooldownConsiderationConfigurator SetCommandType(UnitCommand.CommandType commandType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CommandType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CommandType = commandType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="CommandCooldownConsideration.OnCooldownScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CommandCooldownConsiderationConfigurator SetOnCooldownScore(float value)
+    public CommandCooldownConsiderationConfigurator SetOnCooldownScore(float onCooldownScore)
     {
-      return OnConfigureInternal(bp => bp.OnCooldownScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnCooldownScore = onCooldownScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="CommandCooldownConsideration.OffCooldownScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CommandCooldownConsiderationConfigurator SetOffCooldownScore(float value)
+    public CommandCooldownConsiderationConfigurator SetOffCooldownScore(float offCooldownScore)
     {
-      return OnConfigureInternal(bp => bp.OffCooldownScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OffCooldownScore = offCooldownScore;
+          });
     }
   }
 }

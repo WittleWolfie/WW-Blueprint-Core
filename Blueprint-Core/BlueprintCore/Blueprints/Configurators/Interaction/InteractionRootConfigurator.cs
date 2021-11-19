@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Interaction;
 using Kingmaker.ResourceLinks;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Interaction
 {
-  /// <summary>Configurator for <see cref="BlueprintInteractionRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintInteractionRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintInteractionRoot))]
   public class InteractionRootConfigurator : BaseBlueprintConfigurator<BlueprintInteractionRoot, InteractionRootConfigurator>
   {
-     private InteractionRootConfigurator(string name) : base(name) { }
+    private InteractionRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static InteractionRootConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static InteractionRootConfigurator New(string name, string assetId)
+    public static InteractionRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintInteractionRoot>(name, assetId);
       return For(name);
@@ -36,108 +39,147 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// Sets <see cref="BlueprintInteractionRoot.m_InteractionDCVariation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetInteractionDCVariation(int value)
+    public InteractionRootConfigurator SetInteractionDCVariation(int interactionDCVariation)
     {
-      return OnConfigureInternal(bp => bp.m_InteractionDCVariation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InteractionDCVariation = interactionDCVariation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetMagicPowerCost(int value)
+    public InteractionRootConfigurator SetMagicPowerCost(int magicPowerCost)
     {
-      return OnConfigureInternal(bp => bp.m_MagicPowerCost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MagicPowerCost = magicPowerCost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="magicPowerItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public InteractionRootConfigurator SetMagicPowerItem(string value)
+    public InteractionRootConfigurator SetMagicPowerItem(string magicPowerItem)
     {
-      return OnConfigureInternal(bp => bp.m_MagicPowerItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MagicPowerItem = BlueprintTool.GetRef<BlueprintItemReference>(magicPowerItem);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_DestructionFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetDestructionFx(PrefabLink value)
+    public InteractionRootConfigurator SetDestructionFx(PrefabLink destructionFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DestructionFx = value);
+      ValidateParam(destructionFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DestructionFx = destructionFx ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_FxDenominator"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetFxDenominator(float value)
+    public InteractionRootConfigurator SetFxDenominator(float fxDenominator)
     {
-      return OnConfigureInternal(bp => bp.m_FxDenominator = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FxDenominator = fxDenominator;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_DefaultDestructionSuccessSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetDefaultDestructionSuccessSound(string value)
+    public InteractionRootConfigurator SetDefaultDestructionSuccessSound(string defaultDestructionSuccessSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DefaultDestructionSuccessSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultDestructionSuccessSound = defaultDestructionSuccessSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickStartSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetLockpickStartSound(string value)
+    public InteractionRootConfigurator SetLockpickStartSound(string lockpickStartSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockpickStartSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockpickStartSound = lockpickStartSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickEndSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetLockpickEndSound(string value)
+    public InteractionRootConfigurator SetLockpickEndSound(string lockpickEndSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockpickEndSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockpickEndSound = lockpickEndSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickSuccessSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetLockpickSuccessSound(string value)
+    public InteractionRootConfigurator SetLockpickSuccessSound(string lockpickSuccessSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockpickSuccessSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockpickSuccessSound = lockpickSuccessSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickFailSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetLockpickFailSound(string value)
+    public InteractionRootConfigurator SetLockpickFailSound(string lockpickFailSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockpickFailSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockpickFailSound = lockpickFailSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickCriticalFailSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetLockpickCriticalFailSound(string value)
+    public InteractionRootConfigurator SetLockpickCriticalFailSound(string lockpickCriticalFailSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockpickCriticalFailSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockpickCriticalFailSound = lockpickCriticalFailSound;
+          });
     }
   }
 }

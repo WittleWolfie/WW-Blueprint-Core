@@ -1,19 +1,22 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.View;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
-  /// <summary>Configurator for <see cref="BlueprintRandomEncounter"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintRandomEncounter"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintRandomEncounter))]
   public class RandomEncounterConfigurator : BaseBlueprintConfigurator<BlueprintRandomEncounter, RandomEncounterConfigurator>
   {
-     private RandomEncounterConfigurator(string name) : base(name) { }
+    private RandomEncounterConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RandomEncounterConfigurator For(string name)
@@ -29,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RandomEncounterConfigurator New(string name, string assetId)
+    public static RandomEncounterConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintRandomEncounter>(name, assetId);
       return For(name);
@@ -39,144 +42,207 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.ExcludeFromREList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetExcludeFromREList(bool value)
+    public RandomEncounterConfigurator SetExcludeFromREList(bool excludeFromREList)
     {
-      return OnConfigureInternal(bp => bp.ExcludeFromREList = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExcludeFromREList = excludeFromREList;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.IsPeaceful"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetIsPeaceful(bool value)
+    public RandomEncounterConfigurator SetIsPeaceful(bool isPeaceful)
     {
-      return OnConfigureInternal(bp => bp.IsPeaceful = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsPeaceful = isPeaceful;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetName(LocalizedString value)
+    public RandomEncounterConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetDescription(LocalizedString value)
+    public RandomEncounterConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.AvoidType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetAvoidType(EncounterAvoidType value)
+    public RandomEncounterConfigurator SetAvoidType(EncounterAvoidType avoidType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AvoidType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AvoidType = avoidType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.AvoidDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetAvoidDC(int value)
+    public RandomEncounterConfigurator SetAvoidDC(int avoidDC)
     {
-      return OnConfigureInternal(bp => bp.AvoidDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AvoidDC = avoidDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.EncountersLimit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetEncountersLimit(int value)
+    public RandomEncounterConfigurator SetEncountersLimit(int encountersLimit)
     {
-      return OnConfigureInternal(bp => bp.EncountersLimit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EncountersLimit = encountersLimit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetConditions(ConditionsBuilder value)
+    public RandomEncounterConfigurator SetConditions(ConditionsBuilder conditions)
     {
-      return OnConfigureInternal(bp => bp.Conditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.PawnPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetPawnPrefab(GlobalMapRandomEncounterPawn value)
+    public RandomEncounterConfigurator SetPawnPrefab(GlobalMapRandomEncounterPawn pawnPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.PawnPrefab = value);
+      ValidateParam(pawnPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PawnPrefab = pawnPrefab;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetType(EncounterType value)
+    public RandomEncounterConfigurator SetType(EncounterType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.DisableAutoSave"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetDisableAutoSave(bool value)
+    public RandomEncounterConfigurator SetDisableAutoSave(bool disableAutoSave)
     {
-      return OnConfigureInternal(bp => bp.DisableAutoSave = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableAutoSave = disableAutoSave;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.OnEnter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetOnEnter(ActionsBuilder value)
+    public RandomEncounterConfigurator SetOnEnter(ActionList onEnter)
     {
-      return OnConfigureInternal(bp => bp.OnEnter = value.Build());
+      ValidateParam(onEnter);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnEnter = onEnter;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.CanBeCampingEncounter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetCanBeCampingEncounter(bool value)
+    public RandomEncounterConfigurator SetCanBeCampingEncounter(bool canBeCampingEncounter)
     {
-      return OnConfigureInternal(bp => bp.CanBeCampingEncounter = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CanBeCampingEncounter = canBeCampingEncounter;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.m_AreaEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="areaEntrance"><see cref="BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public RandomEncounterConfigurator SetAreaEntrance(string value)
+    public RandomEncounterConfigurator SetAreaEntrance(string areaEntrance)
     {
-      return OnConfigureInternal(bp => bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(areaEntrance);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.m_BookEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintDialog"/></param>
+    /// <param name="bookEvent"><see cref="BlueprintDialog"/></param>
     [Generated]
-    public RandomEncounterConfigurator SetBookEvent(string value)
+    public RandomEncounterConfigurator SetBookEvent(string bookEvent)
     {
-      return OnConfigureInternal(bp => bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(bookEvent);
+          });
     }
   }
 }

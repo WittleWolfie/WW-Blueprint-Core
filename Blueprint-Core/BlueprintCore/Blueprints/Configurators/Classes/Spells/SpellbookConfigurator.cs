@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
-  /// <summary>Configurator for <see cref="BlueprintSpellbook"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintSpellbook"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintSpellbook))]
   public class SpellbookConfigurator : BaseBlueprintConfigurator<BlueprintSpellbook, SpellbookConfigurator>
   {
-     private SpellbookConfigurator(string name) : base(name) { }
+    private SpellbookConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SpellbookConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SpellbookConfigurator New(string name, string assetId)
+    public static SpellbookConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintSpellbook>(name, assetId);
       return For(name);
@@ -37,208 +40,285 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetName(LocalizedString value)
+    public SpellbookConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.IsMythic"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetIsMythic(bool value)
+    public SpellbookConfigurator SetIsMythic(bool isMythic)
     {
-      return OnConfigureInternal(bp => bp.IsMythic = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsMythic = isMythic;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_SpellsPerDay"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellsPerDay"><see cref="BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellsPerDay(string value)
+    public SpellbookConfigurator SetSpellsPerDay(string spellsPerDay)
     {
-      return OnConfigureInternal(bp => bp.m_SpellsPerDay = BlueprintTool.GetRef<BlueprintSpellsTableReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellsPerDay = BlueprintTool.GetRef<BlueprintSpellsTableReference>(spellsPerDay);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_SpellsKnown"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellsKnown"><see cref="BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellsKnown(string value)
+    public SpellbookConfigurator SetSpellsKnown(string spellsKnown)
     {
-      return OnConfigureInternal(bp => bp.m_SpellsKnown = BlueprintTool.GetRef<BlueprintSpellsTableReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellsKnown = BlueprintTool.GetRef<BlueprintSpellsTableReference>(spellsKnown);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_SpellSlots"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellSlots"><see cref="BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellSlots(string value)
+    public SpellbookConfigurator SetSpellSlots(string spellSlots)
     {
-      return OnConfigureInternal(bp => bp.m_SpellSlots = BlueprintTool.GetRef<BlueprintSpellsTableReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellSlots = BlueprintTool.GetRef<BlueprintSpellsTableReference>(spellSlots);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_SpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellList(string value)
+    public SpellbookConfigurator SetSpellList(string spellList)
     {
-      return OnConfigureInternal(bp => bp.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_MythicSpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    /// <param name="mythicSpellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
-    public SpellbookConfigurator SetMythicSpellList(string value)
+    public SpellbookConfigurator SetMythicSpellList(string mythicSpellList)
     {
-      return OnConfigureInternal(bp => bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(mythicSpellList);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.m_CharacterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public SpellbookConfigurator SetCharacterClass(string value)
+    public SpellbookConfigurator SetCharacterClass(string characterClass)
     {
-      return OnConfigureInternal(bp => bp.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.CastingAttribute"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetCastingAttribute(StatType value)
+    public SpellbookConfigurator SetCastingAttribute(StatType castingAttribute)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CastingAttribute = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CastingAttribute = castingAttribute;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.Spontaneous"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetSpontaneous(bool value)
+    public SpellbookConfigurator SetSpontaneous(bool spontaneous)
     {
-      return OnConfigureInternal(bp => bp.Spontaneous = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Spontaneous = spontaneous;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.SpellsPerLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetSpellsPerLevel(int value)
+    public SpellbookConfigurator SetSpellsPerLevel(int spellsPerLevel)
     {
-      return OnConfigureInternal(bp => bp.SpellsPerLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellsPerLevel = spellsPerLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.AllSpellsKnown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetAllSpellsKnown(bool value)
+    public SpellbookConfigurator SetAllSpellsKnown(bool allSpellsKnown)
     {
-      return OnConfigureInternal(bp => bp.AllSpellsKnown = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AllSpellsKnown = allSpellsKnown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.CantripsType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetCantripsType(CantripsType value)
+    public SpellbookConfigurator SetCantripsType(CantripsType cantripsType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CantripsType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CantripsType = cantripsType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.CasterLevelModifier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetCasterLevelModifier(int value)
+    public SpellbookConfigurator SetCasterLevelModifier(int casterLevelModifier)
     {
-      return OnConfigureInternal(bp => bp.CasterLevelModifier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CasterLevelModifier = casterLevelModifier;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.CanCopyScrolls"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetCanCopyScrolls(bool value)
+    public SpellbookConfigurator SetCanCopyScrolls(bool canCopyScrolls)
     {
-      return OnConfigureInternal(bp => bp.CanCopyScrolls = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CanCopyScrolls = canCopyScrolls;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.IsArcane"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetIsArcane(bool value)
+    public SpellbookConfigurator SetIsArcane(bool isArcane)
     {
-      return OnConfigureInternal(bp => bp.IsArcane = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsArcane = isArcane;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.IsArcanist"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetIsArcanist(bool value)
+    public SpellbookConfigurator SetIsArcanist(bool isArcanist)
     {
-      return OnConfigureInternal(bp => bp.IsArcanist = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsArcanist = isArcanist;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.HasSpecialSpellList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetHasSpecialSpellList(bool value)
+    public SpellbookConfigurator SetHasSpecialSpellList(bool hasSpecialSpellList)
     {
-      return OnConfigureInternal(bp => bp.HasSpecialSpellList = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasSpecialSpellList = hasSpecialSpellList;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellbook.SpecialSpellListName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetSpecialSpellListName(LocalizedString value)
+    public SpellbookConfigurator SetSpecialSpellListName(LocalizedString specialSpellListName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SpecialSpellListName = value);
+      ValidateParam(specialSpellListName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialSpellListName = specialSpellListName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="AddCustomSpells"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SpellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(AddCustomSpells))]
-    public SpellbookConfigurator AddAddCustomSpells(
-        int CasterLevel,
-        string m_SpellList,
-        int MaxSpellLevel,
-        int Count)
+    public SpellbookConfigurator AddCustomSpells(
+        int casterLevel = default,
+        string spellList = null,
+        int maxSpellLevel = default,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddCustomSpells();
-      component.CasterLevel = CasterLevel;
-      component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(m_SpellList);
-      component.MaxSpellLevel = MaxSpellLevel;
-      component.Count = Count;
+      var component = new AddCustomSpells();
+      component.CasterLevel = casterLevel;
+      component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
+      component.MaxSpellLevel = maxSpellLevel;
+      component.Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -247,9 +327,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// </summary>
     [Generated]
     [Implements(typeof(IsAlchemistSpellbook))]
-    public SpellbookConfigurator AddIsAlchemistSpellbook()
+    public SpellbookConfigurator AddIsAlchemistSpellbook(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IsAlchemistSpellbook());
+      var component = new IsAlchemistSpellbook();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -257,9 +340,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// </summary>
     [Generated]
     [Implements(typeof(IsSinMagicSpecialistSpellbook))]
-    public SpellbookConfigurator AddIsSinMagicSpecialistSpellbook()
+    public SpellbookConfigurator AddIsSinMagicSpecialistSpellbook(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IsSinMagicSpecialistSpellbook());
+      var component = new IsSinMagicSpecialistSpellbook();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
-  /// <summary>Configurator for <see cref="BlueprintItemEquipmentGlasses"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemEquipmentGlasses"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemEquipmentGlasses))]
   public class ItemEquipmentGlassesConfigurator : BaseItemEquipmentSimpleConfigurator<BlueprintItemEquipmentGlasses, ItemEquipmentGlassesConfigurator>
   {
-     private ItemEquipmentGlassesConfigurator(string name) : base(name) { }
+    private ItemEquipmentGlassesConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemEquipmentGlassesConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemEquipmentGlassesConfigurator New(string name, string assetId)
+    public static ItemEquipmentGlassesConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemEquipmentGlasses>(name, assetId);
       return For(name);

@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiAttack"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiAttack"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiAttack))]
   public class AiAttackConfigurator : BaseAiActionConfigurator<BlueprintAiAttack, AiAttackConfigurator>
   {
-     private AiAttackConfigurator(string name) : base(name) { }
+    private AiAttackConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiAttackConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiAttackConfigurator New(string name, string assetId)
+    public static AiAttackConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiAttack>(name, assetId);
       return For(name);

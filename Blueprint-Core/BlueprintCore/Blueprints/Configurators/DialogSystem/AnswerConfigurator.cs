@@ -1,21 +1,24 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintAnswer"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAnswer"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAnswer))]
   public class AnswerConfigurator : BaseAnswerBaseConfigurator<BlueprintAnswer, AnswerConfigurator>
   {
-     private AnswerConfigurator(string name) : base(name) { }
+    private AnswerConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AnswerConfigurator For(string name)
@@ -31,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AnswerConfigurator New(string name, string assetId)
+    public static AnswerConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAnswer>(name, assetId);
       return For(name);
@@ -41,173 +44,253 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.Text"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetText(LocalizedString value)
+    public AnswerConfigurator SetText(LocalizedString text)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Text = value);
+      ValidateParam(text);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Text = text ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.NextCue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetNextCue(CueSelection value)
+    public AnswerConfigurator SetNextCue(CueSelection nextCue)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.NextCue = value);
+      ValidateParam(nextCue);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NextCue = nextCue;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowOnce"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetShowOnce(bool value)
+    public AnswerConfigurator SetShowOnce(bool showOnce)
     {
-      return OnConfigureInternal(bp => bp.ShowOnce = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ShowOnce = showOnce;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowOnceCurrentDialog"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetShowOnceCurrentDialog(bool value)
+    public AnswerConfigurator SetShowOnceCurrentDialog(bool showOnceCurrentDialog)
     {
-      return OnConfigureInternal(bp => bp.ShowOnceCurrentDialog = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ShowOnceCurrentDialog = showOnceCurrentDialog;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowCheck"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetShowCheck(ShowCheck value)
+    public AnswerConfigurator SetShowCheck(ShowCheck showCheck)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ShowCheck = value);
+      ValidateParam(showCheck);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ShowCheck = showCheck;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.Experience"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetExperience(DialogExperience value)
+    public AnswerConfigurator SetExperience(DialogExperience experience)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Experience = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Experience = experience;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.DebugMode"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetDebugMode(bool value)
+    public AnswerConfigurator SetDebugMode(bool debugMode)
     {
-      return OnConfigureInternal(bp => bp.DebugMode = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DebugMode = debugMode;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.CharacterSelection"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetCharacterSelection(CharacterSelection value)
+    public AnswerConfigurator SetCharacterSelection(CharacterSelection characterSelection)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CharacterSelection = value);
+      ValidateParam(characterSelection);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CharacterSelection = characterSelection;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetShowConditions(ConditionsBuilder value)
+    public AnswerConfigurator SetShowConditions(ConditionsBuilder showConditions)
     {
-      return OnConfigureInternal(bp => bp.ShowConditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ShowConditions = showConditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.SelectConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetSelectConditions(ConditionsBuilder value)
+    public AnswerConfigurator SetSelectConditions(ConditionsBuilder selectConditions)
     {
-      return OnConfigureInternal(bp => bp.SelectConditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SelectConditions = selectConditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.RequireValidCue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetRequireValidCue(bool value)
+    public AnswerConfigurator SetRequireValidCue(bool requireValidCue)
     {
-      return OnConfigureInternal(bp => bp.RequireValidCue = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RequireValidCue = requireValidCue;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.AddToHistory"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetAddToHistory(bool value)
+    public AnswerConfigurator SetAddToHistory(bool addToHistory)
     {
-      return OnConfigureInternal(bp => bp.AddToHistory = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AddToHistory = addToHistory;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.OnSelect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetOnSelect(ActionsBuilder value)
+    public AnswerConfigurator SetOnSelect(ActionList onSelect)
     {
-      return OnConfigureInternal(bp => bp.OnSelect = value.Build());
+      ValidateParam(onSelect);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnSelect = onSelect;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator AddToFakeChecks(params CheckData[] values)
+    public AnswerConfigurator SetFakeChecks(CheckData[] fakeChecks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.FakeChecks = CommonTool.Append(bp.FakeChecks, values));
+      ValidateParam(fakeChecks);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FakeChecks = fakeChecks;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator RemoveFromFakeChecks(params CheckData[] values)
+    public AnswerConfigurator AddToFakeChecks(params CheckData[] fakeChecks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.FakeChecks = bp.FakeChecks.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(fakeChecks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FakeChecks = CommonTool.Append(bp.FakeChecks, fakeChecks ?? new CheckData[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AnswerConfigurator RemoveFromFakeChecks(params CheckData[] fakeChecks)
+    {
+      ValidateParam(fakeChecks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FakeChecks = bp.FakeChecks.Where(item => !fakeChecks.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.AlignmentShift"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetAlignmentShift(AlignmentShift value)
+    public AnswerConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AlignmentShift = value);
+      ValidateParam(alignmentShift);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AlignmentShift = alignmentShift;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="ActingCompanion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ActingCompanion))]
     public AnswerConfigurator AddActingCompanion(
-        string m_Companion)
+        string companion = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ActingCompanion();
-      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
+      var component = new ActingCompanion();
+      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

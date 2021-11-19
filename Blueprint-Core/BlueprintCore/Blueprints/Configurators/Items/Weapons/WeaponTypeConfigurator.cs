@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
@@ -8,17 +9,19 @@ using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.Utility;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
-  /// <summary>Configurator for <see cref="BlueprintWeaponType"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintWeaponType"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintWeaponType))]
   public class WeaponTypeConfigurator : BaseBlueprintConfigurator<BlueprintWeaponType, WeaponTypeConfigurator>
   {
-     private WeaponTypeConfigurator(string name) : base(name) { }
+    private WeaponTypeConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static WeaponTypeConfigurator For(string name)
@@ -34,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static WeaponTypeConfigurator New(string name, string assetId)
+    public static WeaponTypeConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintWeaponType>(name, assetId);
       return For(name);
@@ -44,247 +47,359 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.Category"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetCategory(WeaponCategory value)
+    public WeaponTypeConfigurator SetCategory(WeaponCategory category)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Category = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Category = category;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetTypeNameText(LocalizedString value)
+    public WeaponTypeConfigurator SetTypeNameText(LocalizedString typeNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_TypeNameText = value);
+      ValidateParam(typeNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TypeNameText = typeNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDefaultNameText(LocalizedString value)
+    public WeaponTypeConfigurator SetDefaultNameText(LocalizedString defaultNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DefaultNameText = value);
+      ValidateParam(defaultNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultNameText = defaultNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDescriptionText(LocalizedString value)
+    public WeaponTypeConfigurator SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_MasterworkDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString value)
+    public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString masterworkDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MasterworkDescriptionText = value);
+      ValidateParam(masterworkDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MasterworkDescriptionText = masterworkDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString value)
+    public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString magicDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MagicDescriptionText = value);
+      ValidateParam(magicDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MagicDescriptionText = magicDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIcon(Sprite value)
+    public WeaponTypeConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetVisualParameters(WeaponVisualParameters value)
+    public WeaponTypeConfigurator SetVisualParameters(WeaponVisualParameters visualParameters)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_VisualParameters = value);
+      ValidateParam(visualParameters);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_VisualParameters = visualParameters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetAttackType(AttackType value)
+    public WeaponTypeConfigurator SetAttackType(AttackType attackType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_AttackType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AttackType = attackType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackRange"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetAttackRange(Feet value)
+    public WeaponTypeConfigurator SetAttackRange(Feet attackRange)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_AttackRange = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AttackRange = attackRange;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_BaseDamage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetBaseDamage(DiceFormula value)
+    public WeaponTypeConfigurator SetBaseDamage(DiceFormula baseDamage)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_BaseDamage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BaseDamage = baseDamage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DamageType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDamageType(DamageTypeDescription value)
+    public WeaponTypeConfigurator SetDamageType(DamageTypeDescription damageType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DamageType = value);
+      ValidateParam(damageType);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DamageType = damageType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_CriticalRollEdge"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetCriticalRollEdge(int value)
+    public WeaponTypeConfigurator SetCriticalRollEdge(int criticalRollEdge)
     {
-      return OnConfigureInternal(bp => bp.m_CriticalRollEdge = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CriticalRollEdge = criticalRollEdge;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_CriticalModifier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetCriticalModifier(DamageCriticalModifierType value)
+    public WeaponTypeConfigurator SetCriticalModifier(DamageCriticalModifierType criticalModifier)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_CriticalModifier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CriticalModifier = criticalModifier;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_FighterGroupFlags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetFighterGroupFlags(WeaponFighterGroupFlags value)
+    public WeaponTypeConfigurator SetFighterGroupFlags(WeaponFighterGroupFlags fighterGroupFlags)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_FighterGroupFlags = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FighterGroupFlags = fighterGroupFlags;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_Weight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetWeight(float value)
+    public WeaponTypeConfigurator SetWeight(float weight)
     {
-      return OnConfigureInternal(bp => bp.m_Weight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Weight = weight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsTwoHanded"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIsTwoHanded(bool value)
+    public WeaponTypeConfigurator SetIsTwoHanded(bool isTwoHanded)
     {
-      return OnConfigureInternal(bp => bp.m_IsTwoHanded = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsTwoHanded = isTwoHanded;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsLight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIsLight(bool value)
+    public WeaponTypeConfigurator SetIsLight(bool isLight)
     {
-      return OnConfigureInternal(bp => bp.m_IsLight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsLight = isLight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsMonk"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIsMonk(bool value)
+    public WeaponTypeConfigurator SetIsMonk(bool isMonk)
     {
-      return OnConfigureInternal(bp => bp.m_IsMonk = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsMonk = isMonk;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsNatural"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIsNatural(bool value)
+    public WeaponTypeConfigurator SetIsNatural(bool isNatural)
     {
-      return OnConfigureInternal(bp => bp.m_IsNatural = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsNatural = isNatural;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsUnarmed"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetIsUnarmed(bool value)
+    public WeaponTypeConfigurator SetIsUnarmed(bool isUnarmed)
     {
-      return OnConfigureInternal(bp => bp.m_IsUnarmed = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsUnarmed = isUnarmed;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_OverrideAttackBonusStat"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetOverrideAttackBonusStat(bool value)
+    public WeaponTypeConfigurator SetOverrideAttackBonusStat(bool overrideAttackBonusStat)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideAttackBonusStat = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideAttackBonusStat = overrideAttackBonusStat;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackBonusStatOverride"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetAttackBonusStatOverride(StatType value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_AttackBonusStatOverride = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintWeaponEnchantment"/></param>
-    [Generated]
-    public WeaponTypeConfigurator AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintWeaponEnchantment"/></param>
-    [Generated]
-    public WeaponTypeConfigurator RemoveFromEnchantments(params string[] values)
+    public WeaponTypeConfigurator SetAttackBonusStatOverride(StatType attackBonusStatOverride)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name));
+            bp.m_AttackBonusStatOverride = attackBonusStatOverride;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public WeaponTypeConfigurator SetEnchantments(string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public WeaponTypeConfigurator AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public WeaponTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -297,20 +412,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_Destructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDestructible(bool value)
+    public WeaponTypeConfigurator SetDestructible(bool destructible)
     {
-      return OnConfigureInternal(bp => bp.m_Destructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Destructible = destructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public WeaponTypeConfigurator SetShardItem(string value)
+    public WeaponTypeConfigurator SetShardItem(string shardItem)
     {
-      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(shardItem);
+          });
     }
   }
 }

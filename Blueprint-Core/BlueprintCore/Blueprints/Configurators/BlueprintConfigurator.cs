@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
@@ -269,6 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return Blueprint;
     }
 
+    // TODO: Add support for EditComponent<>
 
     /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</summary>
     /// 
@@ -352,81 +354,81 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.FactLogic.AddFacts">AddFacts</see>
-    /// </summary>
-    /// 
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
-    public TBuilder AddFacts(
-        string[] facts,
-        int casterLevel = 0,
-        bool hasDifficultyRequirements = false,
-        bool invertDifficultyRequirements = false,
-        GameDifficultyOption minDifficulty = GameDifficultyOption.Story)
-    {
-      var addFacts = new AddFacts
-      {
-        m_Facts =
-            facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray(),
-        CasterLevel = casterLevel,
-        HasDifficultyRequirements = hasDifficultyRequirements,
-        InvertDifficultyRequirements = invertDifficultyRequirements,
-        MinDifficulty = minDifficulty
-      };
-      return AddComponent(addFacts);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.UnitLogic.FactLogic.AddFacts">AddFacts</see>
+        /// </summary>
+        /// 
+        /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+        public TBuilder AddFacts(
+            string[] facts,
+            int casterLevel = 0,
+            bool hasDifficultyRequirements = false,
+            bool invertDifficultyRequirements = false,
+            GameDifficultyOption minDifficulty = GameDifficultyOption.Story)
+        {
+          var addFacts = new AddFacts
+          {
+            m_Facts =
+                facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray(),
+            CasterLevel = casterLevel,
+            HasDifficultyRequirements = hasDifficultyRequirements,
+            InvertDifficultyRequirements = invertDifficultyRequirements,
+            MinDifficulty = minDifficulty
+          };
+          return AddComponent(addFacts);
+        }
+    
+        /// <summary>
+        /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
+        /// </summary>
+        public TBuilder OnSkillCheck(
+            StatType skill, ActionsBuilder actions, bool onlySuccess = true)
+        {
+          var trigger = new AddInitiatorSkillRollTrigger
+          {
+            OnlySuccess = onlySuccess,
+            Skill = skill,
+            Action = actions.Build()
+          };
+          return AddComponent(trigger);
+        }
+    
+        /// <summary>
+        /// Adds <see cref="AddFactContextActions"/>
+        /// </summary>
+        /// 
+        /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
+        [Implements(typeof(AddFactContextActions))]
+        public TBuilder FactContextActions(
+            ActionsBuilder onActivated = null,
+            ActionsBuilder onDeactivated = null,
+            ActionsBuilder onNewRound = null,
+            ComponentMerge behavior = ComponentMerge.Merge,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          if (onActivated == null && onDeactivated == null && onNewRound == null)
+          {
+            throw new InvalidOperationException("No actions provided.");
+          }
+          var contextActions = new AddFactContextActions
+          {
+            Activated = onActivated?.Build() ?? Constants.Empty.Actions,
+            Deactivated = onDeactivated?.Build() ?? Constants.Empty.Actions,
+            NewRound = onNewRound?.Build() ?? Constants.Empty.Actions
+          };
+          return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
+        }
 
-    /// <summary>
-    /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
-    /// </summary>
-    public TBuilder OnSkillCheck(
-        StatType skill, ActionsBuilder actions, bool onlySuccess = true)
-    {
-      var trigger = new AddInitiatorSkillRollTrigger
-      {
-        OnlySuccess = onlySuccess,
-        Skill = skill,
-        Action = actions.Build()
-      };
-      return AddComponent(trigger);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFactContextActions"/>
-    /// </summary>
-    /// 
-    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
-    [Implements(typeof(AddFactContextActions))]
-    public TBuilder FactContextActions(
-        ActionsBuilder onActivated = null,
-        ActionsBuilder onDeactivated = null,
-        ActionsBuilder onNewRound = null,
-        ComponentMerge behavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      if (onActivated == null && onDeactivated == null && onNewRound == null)
-      {
-        throw new InvalidOperationException("No actions provided.");
-      }
-      var contextActions = new AddFactContextActions
-      {
-        Activated = onActivated?.Build() ?? Constants.Empty.Actions,
-        Deactivated = onDeactivated?.Build() ?? Constants.Empty.Actions,
-        NewRound = onNewRound?.Build() ?? Constants.Empty.Actions
-      };
-      return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
-    }
-
-    [Implements(typeof(AddFactContextActions))]
-    private static void MergeFactContextActions(
-        BlueprintComponent current, BlueprintComponent other)
-    {
-      var source = current as AddFactContextActions;
-      var target = other as AddFactContextActions;
-      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
-      source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
-      source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
-    }
+        [Implements(typeof(AddFactContextActions))]
+        private static void MergeFactContextActions(
+            BlueprintComponent current, BlueprintComponent other)
+        {
+          var source = current as AddFactContextActions;
+          var target = other as AddFactContextActions;
+          source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
+          source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
+          source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
+        }
 
     /// <summary>
     /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
@@ -434,15 +436,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AllowOnZoneSettings))]
     public TBuilder AddAllowOnZoneSettings(
-        GlobalMapZone[] m_AllowedNaturalSettings)
+        GlobalMapZone[] allowedNaturalSettings = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in m_AllowedNaturalSettings)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AllowOnZoneSettings();
-      component.m_AllowedNaturalSettings = m_AllowedNaturalSettings;
+      var component = new AllowOnZoneSettings();
+      component.m_AllowedNaturalSettings = allowedNaturalSettings;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -450,17 +449,18 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="DlcCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
     [Generated]
     [Implements(typeof(DlcCondition))]
     public TBuilder AddDlcCondition(
-        string m_DlcReward,
-        bool m_HideInstead)
+        string dlcReward = null,
+        bool hideInstead = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DlcCondition();
-      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
-      component.m_HideInstead = m_HideInstead;
+      var component = new DlcCondition();
+      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
+      component.m_HideInstead = hideInstead;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -470,13 +470,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DlcStoreCheat))]
     public TBuilder AddDlcStoreCheat(
-        bool m_IsAvailableInEditor,
-        bool m_IsAvailableInDevBuild)
+        bool isAvailableInEditor = default,
+        bool isAvailableInDevBuild = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DlcStoreCheat();
-      component.m_IsAvailableInEditor = m_IsAvailableInEditor;
-      component.m_IsAvailableInDevBuild = m_IsAvailableInDevBuild;
+      var component = new DlcStoreCheat();
+      component.m_IsAvailableInEditor = isAvailableInEditor;
+      component.m_IsAvailableInDevBuild = isAvailableInDevBuild;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -486,12 +487,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DlcStoreEpic))]
     public TBuilder AddDlcStoreEpic(
-        string m_EpicId)
+        string epicId,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_EpicId);
-      
-      var component =  new DlcStoreEpic();
-      component.m_EpicId = m_EpicId;
+      var component = new DlcStoreEpic();
+      component.m_EpicId = epicId;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -501,11 +502,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DlcStoreGog))]
     public TBuilder AddDlcStoreGog(
-        ulong m_GogId)
+        ulong gogId = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DlcStoreGog();
-      component.m_GogId = m_GogId;
+      var component = new DlcStoreGog();
+      component.m_GogId = gogId;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -515,11 +517,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DlcStoreSteam))]
     public TBuilder AddDlcStoreSteam(
-        uint m_SteamId)
+        uint steamId = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DlcStoreSteam();
-      component.m_SteamId = m_SteamId;
+      var component = new DlcStoreSteam();
+      component.m_SteamId = steamId;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -527,17 +530,18 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddBuffOnCorruptionClear"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AddBuffOnCorruptionClear))]
-    public TBuilder AddAddBuffOnCorruptionClear(
-        string m_Buff,
-        int m_TargetBuffRank)
+    public TBuilder AddBuffOnCorruptionClear(
+        string buff = null,
+        int targetBuffRank = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddBuffOnCorruptionClear();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.m_TargetBuffRank = m_TargetBuffRank;
+      var component = new AddBuffOnCorruptionClear();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.m_TargetBuffRank = targetBuffRank;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -545,15 +549,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ComponentsList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_List"><see cref="BlueprintComponentList"/></param>
+    /// <param name="list"><see cref="BlueprintComponentList"/></param>
     [Generated]
     [Implements(typeof(ComponentsList))]
     public TBuilder AddComponentsList(
-        string m_List)
+        string list = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ComponentsList();
-      component.m_List = BlueprintTool.GetRef<BlueprintComponentListReference>(m_List);
+      var component = new ComponentsList();
+      component.m_List = BlueprintTool.GetRef<BlueprintComponentListReference>(list);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -561,15 +566,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="UnlockableFlagComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_BlueprintKingdomProject"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="blueprintKingdomProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(UnlockableFlagComponent))]
     public TBuilder AddUnlockableFlagComponent(
-        string m_BlueprintKingdomProject)
+        string blueprintKingdomProject = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new UnlockableFlagComponent();
-      component.m_BlueprintKingdomProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(m_BlueprintKingdomProject);
+      var component = new UnlockableFlagComponent();
+      component.m_BlueprintKingdomProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(blueprintKingdomProject);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -577,15 +583,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddClassLevelsToPets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_BlueprintPet"><see cref="BlueprintPet"/></param>
+    /// <param name="blueprintPet"><see cref="BlueprintPet"/></param>
     [Generated]
     [Implements(typeof(AddClassLevelsToPets))]
-    public TBuilder AddAddClassLevelsToPets(
-        string m_BlueprintPet)
+    public TBuilder AddClassLevelsToPets(
+        string blueprintPet = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddClassLevelsToPets();
-      component.m_BlueprintPet = BlueprintTool.GetRef<BlueprintPet.Reference>(m_BlueprintPet);
+      var component = new AddClassLevelsToPets();
+      component.m_BlueprintPet = BlueprintTool.GetRef<BlueprintPet.Reference>(blueprintPet);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -594,12 +601,15 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AddPlayerLeaveCombatTrigger))]
-    public TBuilder AddAddPlayerLeaveCombatTrigger(
-        ActionsBuilder Actions)
+    public TBuilder AddPlayerLeaveCombatTrigger(
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddPlayerLeaveCombatTrigger();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new AddPlayerLeaveCombatTrigger();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -609,18 +619,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ChangeVendorPrices))]
     public TBuilder AddChangeVendorPrices(
-        ChangeVendorPrices.Entry[] m_PriceOverrides,
-        Dictionary<BlueprintItem,long> m_ItemsToCosts)
+        Dictionary<BlueprintItem,long> itemsToCosts,
+        ChangeVendorPrices.Entry[] priceOverrides = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in m_PriceOverrides)
-      {
-        ValidateParam(item);
-      }
-      ValidateParam(m_ItemsToCosts);
-      
-      var component =  new ChangeVendorPrices();
-      component.m_PriceOverrides = m_PriceOverrides;
-      component.m_ItemsToCosts = m_ItemsToCosts;
+      ValidateParam(priceOverrides);
+      ValidateParam(itemsToCosts);
+    
+      var component = new ChangeVendorPrices();
+      component.m_PriceOverrides = priceOverrides;
+      component.m_ItemsToCosts = itemsToCosts;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -628,21 +637,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ReplaceDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_WeaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(ReplaceDamageDice))]
     public TBuilder AddReplaceDamageDice(
-        string m_WeaponType,
-        ReplaceDamageDice.Progression[] Progressions)
+        string weaponType = null,
+        ReplaceDamageDice.Progression[] progressions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Progressions)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new ReplaceDamageDice();
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_WeaponType);
-      component.Progressions = Progressions;
+      ValidateParam(progressions);
+    
+      var component = new ReplaceDamageDice();
+      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
+      component.Progressions = progressions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -652,11 +660,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityAcceptBurnOnCast))]
     public TBuilder AddAbilityAcceptBurnOnCast(
-        int BurnValue)
+        int burnValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityAcceptBurnOnCast();
-      component.BurnValue = BurnValue;
+      var component = new AbilityAcceptBurnOnCast();
+      component.BurnValue = burnValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -665,16 +674,21 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AddBuffActions))]
-    public TBuilder AddAddBuffActions(
-        ActionsBuilder Activated,
-        ActionsBuilder Deactivated,
-        ActionsBuilder NewRound)
+    public TBuilder AddBuffActions(
+        ActionList activated,
+        ActionList deactivated,
+        ActionList newRound,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddBuffActions();
-      component.Activated = Activated.Build();
-      component.Deactivated = Deactivated.Build();
-      component.NewRound = NewRound.Build();
+      ValidateParam(activated);
+      ValidateParam(deactivated);
+      ValidateParam(newRound);
+    
+      var component = new AddBuffActions();
+      component.Activated = activated;
+      component.Deactivated = deactivated;
+      component.NewRound = newRound;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -684,29 +698,23 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(UnitPropertyComponent))]
     public TBuilder AddUnitPropertyComponent(
-        string Name,
-        PropertySettings m_Settings,
-        int m_BaseValue,
-        UnitPropertyComponent.ExternalProperty[] m_AddExternalProperties,
-        string[] m_AddLocalProperties)
+        string name,
+        PropertySettings settings,
+        int baseValue = default,
+        UnitPropertyComponent.ExternalProperty[] addExternalProperties = null,
+        string[] addLocalProperties = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Name);
-      ValidateParam(m_Settings);
-      foreach (var item in m_AddExternalProperties)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in m_AddLocalProperties)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new UnitPropertyComponent();
-      component.Name = Name;
-      component.m_Settings = m_Settings;
-      component.m_BaseValue = m_BaseValue;
-      component.m_AddExternalProperties = m_AddExternalProperties;
-      component.m_AddLocalProperties = m_AddLocalProperties;
+      ValidateParam(settings);
+      ValidateParam(addExternalProperties);
+    
+      var component = new UnitPropertyComponent();
+      component.Name = name;
+      component.m_Settings = settings;
+      component.m_BaseValue = baseValue;
+      component.m_AddExternalProperties = addExternalProperties;
+      component.m_AddLocalProperties = addLocalProperties;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -715,27 +723,29 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AddInitiatorAttackRollTrigger))]
-    public TBuilder AddAddInitiatorAttackRollTrigger(
-        bool OnlyHit,
-        bool CriticalHit,
-        bool SneakAttack,
-        bool OnOwner,
-        bool CheckWeapon,
-        WeaponCategory WeaponCategory,
-        bool AffectFriendlyTouchSpells,
-        ActionsBuilder Action)
+    public TBuilder AddInitiatorAttackRollTrigger(
+        ActionList action,
+        bool onlyHit = default,
+        bool criticalHit = default,
+        bool sneakAttack = default,
+        bool onOwner = default,
+        bool checkWeapon = default,
+        WeaponCategory weaponCategory = default,
+        bool affectFriendlyTouchSpells = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponCategory);
-      
-      var component =  new AddInitiatorAttackRollTrigger();
-      component.OnlyHit = OnlyHit;
-      component.CriticalHit = CriticalHit;
-      component.SneakAttack = SneakAttack;
-      component.OnOwner = OnOwner;
-      component.CheckWeapon = CheckWeapon;
-      component.WeaponCategory = WeaponCategory;
-      component.AffectFriendlyTouchSpells = AffectFriendlyTouchSpells;
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new AddInitiatorAttackRollTrigger();
+      component.OnlyHit = onlyHit;
+      component.CriticalHit = criticalHit;
+      component.SneakAttack = sneakAttack;
+      component.OnOwner = onOwner;
+      component.CheckWeapon = checkWeapon;
+      component.WeaponCategory = weaponCategory;
+      component.AffectFriendlyTouchSpells = affectFriendlyTouchSpells;
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -743,75 +753,74 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddInitiatorAttackWithWeaponTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_WeaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(AddInitiatorAttackWithWeaponTrigger))]
-    public TBuilder AddAddInitiatorAttackWithWeaponTrigger(
-        bool WaitForAttackResolve,
-        bool OnlyHit,
-        bool OnMiss,
-        bool OnlyOnFullAttack,
-        bool OnlyOnFirstAttack,
-        bool OnlyOnFirstHit,
-        bool CriticalHit,
-        bool OnAttackOfOpportunity,
-        bool NotCriticalHit,
-        bool OnlySneakAttack,
-        bool NotSneakAttack,
-        string m_WeaponType,
-        bool CheckWeaponCategory,
-        WeaponCategory Category,
-        bool CheckWeaponGroup,
-        WeaponFighterGroup Group,
-        bool CheckWeaponRangeType,
-        WeaponRangeType RangeType,
-        bool ActionsOnInitiator,
-        bool ReduceHPToZero,
-        bool DamageMoreTargetMaxHP,
-        bool CheckDistance,
-        Feet DistanceLessEqual,
-        bool AllNaturalAndUnarmed,
-        bool DuelistWeapon,
-        bool NotExtraAttack,
-        bool OnCharge,
-        bool IgnoreAutoHit,
-        ActionsBuilder Action)
+    public TBuilder AddInitiatorAttackWithWeaponTrigger(
+        Feet distanceLessEqual,
+        ActionList action,
+        bool waitForAttackResolve = default,
+        bool onlyHit = default,
+        bool onMiss = default,
+        bool onlyOnFullAttack = default,
+        bool onlyOnFirstAttack = default,
+        bool onlyOnFirstHit = default,
+        bool criticalHit = default,
+        bool onAttackOfOpportunity = default,
+        bool notCriticalHit = default,
+        bool onlySneakAttack = default,
+        bool notSneakAttack = default,
+        string weaponType = null,
+        bool checkWeaponCategory = default,
+        WeaponCategory category = default,
+        bool checkWeaponGroup = default,
+        WeaponFighterGroup group = default,
+        bool checkWeaponRangeType = default,
+        WeaponRangeType rangeType = default,
+        bool actionsOnInitiator = default,
+        bool reduceHPToZero = default,
+        bool damageMoreTargetMaxHP = default,
+        bool checkDistance = default,
+        bool allNaturalAndUnarmed = default,
+        bool duelistWeapon = default,
+        bool notExtraAttack = default,
+        bool onCharge = default,
+        bool ignoreAutoHit = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      ValidateParam(Group);
-      ValidateParam(RangeType);
-      ValidateParam(DistanceLessEqual);
-      
-      var component =  new AddInitiatorAttackWithWeaponTrigger();
-      component.WaitForAttackResolve = WaitForAttackResolve;
-      component.OnlyHit = OnlyHit;
-      component.OnMiss = OnMiss;
-      component.OnlyOnFullAttack = OnlyOnFullAttack;
-      component.OnlyOnFirstAttack = OnlyOnFirstAttack;
-      component.OnlyOnFirstHit = OnlyOnFirstHit;
-      component.CriticalHit = CriticalHit;
-      component.OnAttackOfOpportunity = OnAttackOfOpportunity;
-      component.NotCriticalHit = NotCriticalHit;
-      component.OnlySneakAttack = OnlySneakAttack;
-      component.NotSneakAttack = NotSneakAttack;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_WeaponType);
-      component.CheckWeaponCategory = CheckWeaponCategory;
-      component.Category = Category;
-      component.CheckWeaponGroup = CheckWeaponGroup;
-      component.Group = Group;
-      component.CheckWeaponRangeType = CheckWeaponRangeType;
-      component.RangeType = RangeType;
-      component.ActionsOnInitiator = ActionsOnInitiator;
-      component.ReduceHPToZero = ReduceHPToZero;
-      component.DamageMoreTargetMaxHP = DamageMoreTargetMaxHP;
-      component.CheckDistance = CheckDistance;
-      component.DistanceLessEqual = DistanceLessEqual;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.DuelistWeapon = DuelistWeapon;
-      component.NotExtraAttack = NotExtraAttack;
-      component.OnCharge = OnCharge;
-      component.IgnoreAutoHit = IgnoreAutoHit;
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new AddInitiatorAttackWithWeaponTrigger();
+      component.WaitForAttackResolve = waitForAttackResolve;
+      component.OnlyHit = onlyHit;
+      component.OnMiss = onMiss;
+      component.OnlyOnFullAttack = onlyOnFullAttack;
+      component.OnlyOnFirstAttack = onlyOnFirstAttack;
+      component.OnlyOnFirstHit = onlyOnFirstHit;
+      component.CriticalHit = criticalHit;
+      component.OnAttackOfOpportunity = onAttackOfOpportunity;
+      component.NotCriticalHit = notCriticalHit;
+      component.OnlySneakAttack = onlySneakAttack;
+      component.NotSneakAttack = notSneakAttack;
+      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
+      component.CheckWeaponCategory = checkWeaponCategory;
+      component.Category = category;
+      component.CheckWeaponGroup = checkWeaponGroup;
+      component.Group = group;
+      component.CheckWeaponRangeType = checkWeaponRangeType;
+      component.RangeType = rangeType;
+      component.ActionsOnInitiator = actionsOnInitiator;
+      component.ReduceHPToZero = reduceHPToZero;
+      component.DamageMoreTargetMaxHP = damageMoreTargetMaxHP;
+      component.CheckDistance = checkDistance;
+      component.DistanceLessEqual = distanceLessEqual;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.DuelistWeapon = duelistWeapon;
+      component.NotExtraAttack = notExtraAttack;
+      component.OnCharge = onCharge;
+      component.IgnoreAutoHit = ignoreAutoHit;
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -820,34 +829,34 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AddTargetAttackRollTrigger))]
-    public TBuilder AddAddTargetAttackRollTrigger(
-        bool OnlyHit,
-        bool CriticalHit,
-        bool OnlyMelee,
-        bool NotReach,
-        bool CheckCategory,
-        bool Not,
-        WeaponCategory[] Categories,
-        bool AffectFriendlyTouchSpells,
-        ActionsBuilder ActionsOnAttacker,
-        ActionsBuilder ActionOnSelf)
+    public TBuilder AddTargetAttackRollTrigger(
+        ActionList actionsOnAttacker,
+        ActionList actionOnSelf,
+        bool onlyHit = default,
+        bool criticalHit = default,
+        bool onlyMelee = default,
+        bool notReach = default,
+        bool checkCategory = default,
+        bool not = default,
+        WeaponCategory[] categories = null,
+        bool affectFriendlyTouchSpells = default,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Categories)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AddTargetAttackRollTrigger();
-      component.OnlyHit = OnlyHit;
-      component.CriticalHit = CriticalHit;
-      component.OnlyMelee = OnlyMelee;
-      component.NotReach = NotReach;
-      component.CheckCategory = CheckCategory;
-      component.Not = Not;
-      component.Categories = Categories;
-      component.AffectFriendlyTouchSpells = AffectFriendlyTouchSpells;
-      component.ActionsOnAttacker = ActionsOnAttacker.Build();
-      component.ActionOnSelf = ActionOnSelf.Build();
+      ValidateParam(actionsOnAttacker);
+      ValidateParam(actionOnSelf);
+    
+      var component = new AddTargetAttackRollTrigger();
+      component.OnlyHit = onlyHit;
+      component.CriticalHit = criticalHit;
+      component.OnlyMelee = onlyMelee;
+      component.NotReach = notReach;
+      component.CheckCategory = checkCategory;
+      component.Not = not;
+      component.Categories = categories;
+      component.AffectFriendlyTouchSpells = affectFriendlyTouchSpells;
+      component.ActionsOnAttacker = actionsOnAttacker;
+      component.ActionOnSelf = actionOnSelf;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -856,23 +865,26 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AddTargetBeforeAttackRollTrigger))]
-    public TBuilder AddAddTargetBeforeAttackRollTrigger(
-        bool OnlyMelee,
-        bool NotReach,
-        bool CheckDescriptor,
-        SpellDescriptorWrapper SpellDescriptors,
-        ActionsBuilder ActionsOnAttacker,
-        ActionsBuilder ActionOnSelf)
+    public TBuilder AddTargetBeforeAttackRollTrigger(
+        SpellDescriptorWrapper spellDescriptors,
+        ActionList actionsOnAttacker,
+        ActionList actionOnSelf,
+        bool onlyMelee = default,
+        bool notReach = default,
+        bool checkDescriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(SpellDescriptors);
-      
-      var component =  new AddTargetBeforeAttackRollTrigger();
-      component.OnlyMelee = OnlyMelee;
-      component.NotReach = NotReach;
-      component.CheckDescriptor = CheckDescriptor;
-      component.SpellDescriptors = SpellDescriptors;
-      component.ActionsOnAttacker = ActionsOnAttacker.Build();
-      component.ActionOnSelf = ActionOnSelf.Build();
+      ValidateParam(actionsOnAttacker);
+      ValidateParam(actionOnSelf);
+    
+      var component = new AddTargetBeforeAttackRollTrigger();
+      component.OnlyMelee = onlyMelee;
+      component.NotReach = notReach;
+      component.CheckDescriptor = checkDescriptor;
+      component.SpellDescriptors = spellDescriptors;
+      component.ActionsOnAttacker = actionsOnAttacker;
+      component.ActionOnSelf = actionOnSelf;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -880,81 +892,76 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AdditionalDiceOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_WeaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(AdditionalDiceOnAttack))]
-    public TBuilder AddAdditionalDiceOnAttack(
-        bool OnlyOnFullAttack,
-        bool OnlyOnFirstAttack,
-        bool OnHit,
-        bool OnlyOnFirstHit,
-        bool CriticalHit,
-        bool OnAttackOfOpportunity,
-        bool NotCriticalHit,
-        bool OnlySneakAttack,
-        bool NotSneakAttack,
-        string m_WeaponType,
-        bool CheckWeaponCategory,
-        WeaponCategory Category,
-        bool CheckWeaponGroup,
-        WeaponFighterGroup Group,
-        bool CheckWeaponRangeType,
-        WeaponRangeType RangeType,
-        bool ReduceHPToZero,
-        bool CheckDistance,
-        Feet DistanceLessEqual,
-        bool AllNaturalAndUnarmed,
-        bool DuelistWeapon,
-        bool NotExtraAttack,
-        bool OnCharge,
-        ConditionsBuilder InitiatorConditions,
-        ConditionsBuilder TargetConditions,
-        bool m_RandomizeDamage,
-        ContextDiceValue Value,
-        DamageTypeDescription DamageType,
-        List<AdditionalDiceOnAttack.DamageEntry> m_DamageEntries)
+    public TBuilder AdditionalDiceOnAttack(
+        Feet distanceLessEqual,
+        ContextDiceValue value,
+        DamageTypeDescription damageType,
+        bool onlyOnFullAttack = default,
+        bool onlyOnFirstAttack = default,
+        bool onHit = default,
+        bool onlyOnFirstHit = default,
+        bool criticalHit = default,
+        bool onAttackOfOpportunity = default,
+        bool notCriticalHit = default,
+        bool onlySneakAttack = default,
+        bool notSneakAttack = default,
+        string weaponType = null,
+        bool checkWeaponCategory = default,
+        WeaponCategory category = default,
+        bool checkWeaponGroup = default,
+        WeaponFighterGroup group = default,
+        bool checkWeaponRangeType = default,
+        WeaponRangeType rangeType = default,
+        bool reduceHPToZero = default,
+        bool checkDistance = default,
+        bool allNaturalAndUnarmed = default,
+        bool duelistWeapon = default,
+        bool notExtraAttack = default,
+        bool onCharge = default,
+        ConditionsBuilder initiatorConditions = null,
+        ConditionsBuilder targetConditions = null,
+        bool randomizeDamage = default,
+        List<AdditionalDiceOnAttack.DamageEntry> damageEntries = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      ValidateParam(Group);
-      ValidateParam(RangeType);
-      ValidateParam(DistanceLessEqual);
-      ValidateParam(Value);
-      ValidateParam(DamageType);
-      foreach (var item in m_DamageEntries)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AdditionalDiceOnAttack();
-      component.OnlyOnFullAttack = OnlyOnFullAttack;
-      component.OnlyOnFirstAttack = OnlyOnFirstAttack;
-      component.OnHit = OnHit;
-      component.OnlyOnFirstHit = OnlyOnFirstHit;
-      component.CriticalHit = CriticalHit;
-      component.OnAttackOfOpportunity = OnAttackOfOpportunity;
-      component.NotCriticalHit = NotCriticalHit;
-      component.OnlySneakAttack = OnlySneakAttack;
-      component.NotSneakAttack = NotSneakAttack;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_WeaponType);
-      component.CheckWeaponCategory = CheckWeaponCategory;
-      component.Category = Category;
-      component.CheckWeaponGroup = CheckWeaponGroup;
-      component.Group = Group;
-      component.CheckWeaponRangeType = CheckWeaponRangeType;
-      component.RangeType = RangeType;
-      component.ReduceHPToZero = ReduceHPToZero;
-      component.CheckDistance = CheckDistance;
-      component.DistanceLessEqual = DistanceLessEqual;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.DuelistWeapon = DuelistWeapon;
-      component.NotExtraAttack = NotExtraAttack;
-      component.OnCharge = OnCharge;
-      component.InitiatorConditions = InitiatorConditions.Build();
-      component.TargetConditions = TargetConditions.Build();
-      component.m_RandomizeDamage = m_RandomizeDamage;
-      component.Value = Value;
-      component.DamageType = DamageType;
-      component.m_DamageEntries = m_DamageEntries;
+      ValidateParam(value);
+      ValidateParam(damageType);
+      ValidateParam(damageEntries);
+    
+      var component = new AdditionalDiceOnAttack();
+      component.OnlyOnFullAttack = onlyOnFullAttack;
+      component.OnlyOnFirstAttack = onlyOnFirstAttack;
+      component.OnHit = onHit;
+      component.OnlyOnFirstHit = onlyOnFirstHit;
+      component.CriticalHit = criticalHit;
+      component.OnAttackOfOpportunity = onAttackOfOpportunity;
+      component.NotCriticalHit = notCriticalHit;
+      component.OnlySneakAttack = onlySneakAttack;
+      component.NotSneakAttack = notSneakAttack;
+      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
+      component.CheckWeaponCategory = checkWeaponCategory;
+      component.Category = category;
+      component.CheckWeaponGroup = checkWeaponGroup;
+      component.Group = group;
+      component.CheckWeaponRangeType = checkWeaponRangeType;
+      component.RangeType = rangeType;
+      component.ReduceHPToZero = reduceHPToZero;
+      component.CheckDistance = checkDistance;
+      component.DistanceLessEqual = distanceLessEqual;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.DuelistWeapon = duelistWeapon;
+      component.NotExtraAttack = notExtraAttack;
+      component.OnCharge = onCharge;
+      component.InitiatorConditions = initiatorConditions?.Build() ?? Constants.Empty.Conditions;
+      component.TargetConditions = targetConditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_RandomizeDamage = randomizeDamage;
+      component.Value = value;
+      component.DamageType = damageType;
+      component.m_DamageEntries = damageEntries;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -963,25 +970,23 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AdditionalStatBonusOnAttackDamage))]
-    public TBuilder AddAdditionalStatBonusOnAttackDamage(
-        ConditionEnum FullAttack,
-        ConditionEnum FirstAttack,
-        bool CheckCategory,
-        WeaponCategory Category,
-        bool CheckTwoHanded,
-        float Bonus)
+    public TBuilder AdditionalStatBonusOnAttackDamage(
+        ConditionEnum fullAttack = default,
+        ConditionEnum firstAttack = default,
+        bool checkCategory = default,
+        WeaponCategory category = default,
+        bool checkTwoHanded = default,
+        float bonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(FullAttack);
-      ValidateParam(FirstAttack);
-      ValidateParam(Category);
-      
-      var component =  new AdditionalStatBonusOnAttackDamage();
-      component.FullAttack = FullAttack;
-      component.FirstAttack = FirstAttack;
-      component.CheckCategory = CheckCategory;
-      component.Category = Category;
-      component.CheckTwoHanded = CheckTwoHanded;
-      component.Bonus = Bonus;
+      var component = new AdditionalStatBonusOnAttackDamage();
+      component.FullAttack = fullAttack;
+      component.FirstAttack = firstAttack;
+      component.CheckCategory = checkCategory;
+      component.Category = category;
+      component.CheckTwoHanded = checkTwoHanded;
+      component.Bonus = bonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -991,14 +996,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AllAttacksEnhancement))]
     public TBuilder AddAllAttacksEnhancement(
-        int Bonus,
-        ModifierDescriptor Descriptor)
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AllAttacksEnhancement();
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new AllAttacksEnhancement();
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1007,9 +1012,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(BashingFinish))]
-    public TBuilder AddBashingFinish()
+    public TBuilder AddBashingFinish(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new BashingFinish());
+      var component = new BashingFinish();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1017,9 +1025,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(DestructiveShockwave))]
-    public TBuilder AddDestructiveShockwave()
+    public TBuilder AddDestructiveShockwave(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new DestructiveShockwave());
+      var component = new DestructiveShockwave();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1027,9 +1038,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(ShieldMaster))]
-    public TBuilder AddShieldMaster()
+    public TBuilder AddShieldMaster(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ShieldMaster());
+      var component = new ShieldMaster();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1038,19 +1052,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityAoERadius))]
     public TBuilder AddAbilityAoERadius(
-        Feet m_Radius,
-        Kingmaker.UnitLogic.Abilities.Components.TargetType m_TargetType,
-        bool m_CanBeUsedInTacticalCombat,
-        int m_DiameterInCells)
+        Feet radius,
+        Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
+        bool canBeUsedInTacticalCombat = default,
+        int diameterInCells = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Radius);
-      ValidateParam(m_TargetType);
-      
-      var component =  new AbilityAoERadius();
-      component.m_Radius = m_Radius;
-      component.m_TargetType = m_TargetType;
-      component.m_CanBeUsedInTacticalCombat = m_CanBeUsedInTacticalCombat;
-      component.m_DiameterInCells = m_DiameterInCells;
+      var component = new AbilityAoERadius();
+      component.m_Radius = radius;
+      component.m_TargetType = targetType;
+      component.m_CanBeUsedInTacticalCombat = canBeUsedInTacticalCombat;
+      component.m_DiameterInCells = diameterInCells;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1058,15 +1071,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ImprovedFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="improvedFeature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AbilityMagusSpellRecallCostCalculator))]
     public TBuilder AddAbilityMagusSpellRecallCostCalculator(
-        string m_ImprovedFeature)
+        string improvedFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityMagusSpellRecallCostCalculator();
-      component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_ImprovedFeature);
+      var component = new AbilityMagusSpellRecallCostCalculator();
+      component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(improvedFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1076,20 +1090,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityUseOnRest))]
     public TBuilder AddAbilityUseOnRest(
-        AbilityUseOnRestType Type,
-        int BaseValue,
-        bool AddCasterLevel,
-        bool MultiplyByCasterLevel,
-        int MaxCasterLevel)
+        AbilityUseOnRestType type = default,
+        int baseValue = default,
+        bool addCasterLevel = default,
+        bool multiplyByCasterLevel = default,
+        int maxCasterLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Type);
-      
-      var component =  new AbilityUseOnRest();
-      component.Type = Type;
-      component.BaseValue = BaseValue;
-      component.AddCasterLevel = AddCasterLevel;
-      component.MultiplyByCasterLevel = MultiplyByCasterLevel;
-      component.MaxCasterLevel = MaxCasterLevel;
+      var component = new AbilityUseOnRest();
+      component.Type = type;
+      component.BaseValue = baseValue;
+      component.AddCasterLevel = addCasterLevel;
+      component.MultiplyByCasterLevel = multiplyByCasterLevel;
+      component.MaxCasterLevel = maxCasterLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1099,17 +1113,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityTargetCellsRestriction))]
     public TBuilder AddAbilityTargetCellsRestriction(
-        List<int> m_AllowedColumns,
-        bool m_FactionDependent,
-        bool m_OnlyEmptyCells,
-        int m_Diameter)
+        List<int> allowedColumns = null,
+        bool factionDependent = default,
+        bool onlyEmptyCells = default,
+        int diameter = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityTargetCellsRestriction();
-      component.m_AllowedColumns = m_AllowedColumns;
-      component.m_FactionDependent = m_FactionDependent;
-      component.m_OnlyEmptyCells = m_OnlyEmptyCells;
-      component.m_Diameter = m_Diameter;
+      var component = new AbilityTargetCellsRestriction();
+      component.m_AllowedColumns = allowedColumns;
+      component.m_FactionDependent = factionDependent;
+      component.m_OnlyEmptyCells = onlyEmptyCells;
+      component.m_Diameter = diameter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1119,14 +1134,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityTargetHasCondition))]
     public TBuilder AddAbilityTargetHasCondition(
-        UnitCondition Condition,
-        bool Not)
+        UnitCondition condition = default,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new AbilityTargetHasCondition();
-      component.Condition = Condition;
-      component.Not = Not;
+      var component = new AbilityTargetHasCondition();
+      component.Condition = condition;
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1134,20 +1149,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AbilityTargetHasConditionOrBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetHasConditionOrBuff))]
     public TBuilder AddAbilityTargetHasConditionOrBuff(
-        bool Not,
-        UnitCondition Condition,
-        string[] m_Buffs)
+        bool not = default,
+        UnitCondition condition = default,
+        string[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new AbilityTargetHasConditionOrBuff();
-      component.Not = Not;
-      component.Condition = Condition;
-      component.m_Buffs = m_Buffs.Select(bp => BlueprintTool.GetRef<BlueprintBuffReference>(bp)).ToArray();
+      var component = new AbilityTargetHasConditionOrBuff();
+      component.Not = not;
+      component.Condition = condition;
+      component.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1157,21 +1172,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityTargetHasOneOfConditionsOrHP))]
     public TBuilder AddAbilityTargetHasOneOfConditionsOrHP(
-        UnitCondition[] Condition,
-        bool NeedHPCondition,
-        int CurrentHPLessThan,
-        bool InvertedHP)
+        UnitCondition[] condition = null,
+        bool needHPCondition = default,
+        int currentHPLessThan = default,
+        bool invertedHP = default,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Condition)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AbilityTargetHasOneOfConditionsOrHP();
-      component.Condition = Condition;
-      component.NeedHPCondition = NeedHPCondition;
-      component.CurrentHPLessThan = CurrentHPLessThan;
-      component.InvertedHP = InvertedHP;
+      var component = new AbilityTargetHasOneOfConditionsOrHP();
+      component.Condition = condition;
+      component.NeedHPCondition = needHPCondition;
+      component.CurrentHPLessThan = currentHPLessThan;
+      component.InvertedHP = invertedHP;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1181,11 +1193,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityTargetIsAnimalCompanion))]
     public TBuilder AddAbilityTargetIsAnimalCompanion(
-        bool Not)
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityTargetIsAnimalCompanion();
-      component.Not = Not;
+      var component = new AbilityTargetIsAnimalCompanion();
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1194,9 +1207,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityTargetIsSuitableMount))]
-    public TBuilder AddAbilityTargetIsSuitableMount()
+    public TBuilder AddAbilityTargetIsSuitableMount(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AbilityTargetIsSuitableMount());
+      var component = new AbilityTargetIsSuitableMount();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1204,9 +1220,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityTargetIsSuitableMountSize))]
-    public TBuilder AddAbilityTargetIsSuitableMountSize()
+    public TBuilder AddAbilityTargetIsSuitableMountSize(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AbilityTargetIsSuitableMountSize());
+      var component = new AbilityTargetIsSuitableMountSize();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1215,15 +1234,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AbilityTargetRangeRestriction))]
     public TBuilder AddAbilityTargetRangeRestriction(
-        Feet Distance,
-        CompareOperation.Type CompareType)
+        Feet distance,
+        CompareOperation.Type compareType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Distance);
-      ValidateParam(CompareType);
-      
-      var component =  new AbilityTargetRangeRestriction();
-      component.Distance = Distance;
-      component.CompareType = CompareType;
+      var component = new AbilityTargetRangeRestriction();
+      component.Distance = distance;
+      component.CompareType = compareType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1231,32 +1249,34 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ArmyBattleResultsTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DemonArmies"><see cref="BlueprintArmyPreset"/></param>
-    /// <param name="m_CrusadeLeader"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="demonArmies"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="crusadeLeader"><see cref="BlueprintArmyLeader"/></param>
     [Generated]
     [Implements(typeof(ArmyBattleResultsTrigger))]
     public TBuilder AddArmyBattleResultsTrigger(
-        ActionsBuilder OnCrusadersVictory,
-        ActionsBuilder OnDemonsVictory,
-        RegionId m_AssignedRegion,
-        bool m_DemonsFromList,
-        string[] m_DemonArmies,
-        ArmyType m_DemonsArmyType,
-        bool m_SpecificCrusadeLeader,
-        string m_CrusadeLeader)
+        ActionList onCrusadersVictory,
+        ActionList onDemonsVictory,
+        RegionId assignedRegion = default,
+        bool demonsFromList = default,
+        string[] demonArmies = null,
+        ArmyType demonsArmyType = default,
+        bool specificCrusadeLeader = default,
+        string crusadeLeader = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_AssignedRegion);
-      ValidateParam(m_DemonsArmyType);
-      
-      var component =  new ArmyBattleResultsTrigger();
-      component.OnCrusadersVictory = OnCrusadersVictory.Build();
-      component.OnDemonsVictory = OnDemonsVictory.Build();
-      component.m_AssignedRegion = m_AssignedRegion;
-      component.m_DemonsFromList = m_DemonsFromList;
-      component.m_DemonArmies = m_DemonArmies.Select(bp => BlueprintTool.GetRef<BlueprintArmyPresetReference>(bp)).ToList();
-      component.m_DemonsArmyType = m_DemonsArmyType;
-      component.m_SpecificCrusadeLeader = m_SpecificCrusadeLeader;
-      component.m_CrusadeLeader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(m_CrusadeLeader);
+      ValidateParam(onCrusadersVictory);
+      ValidateParam(onDemonsVictory);
+    
+      var component = new ArmyBattleResultsTrigger();
+      component.OnCrusadersVictory = onCrusadersVictory;
+      component.OnDemonsVictory = onDemonsVictory;
+      component.m_AssignedRegion = assignedRegion;
+      component.m_DemonsFromList = demonsFromList;
+      component.m_DemonArmies = demonArmies.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name)).ToList();
+      component.m_DemonsArmyType = demonsArmyType;
+      component.m_SpecificCrusadeLeader = specificCrusadeLeader;
+      component.m_CrusadeLeader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(crusadeLeader);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1264,17 +1284,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="KingdomRegionClaimedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Regions"><see cref="BlueprintRegion"/></param>
+    /// <param name="regions"><see cref="BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomRegionClaimedTrigger))]
     public TBuilder AddKingdomRegionClaimedTrigger(
-        string[] m_Regions,
-        ActionsBuilder m_Actions)
+        ActionList actions,
+        string[] regions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new KingdomRegionClaimedTrigger();
-      component.m_Regions = m_Regions.Select(bp => BlueprintTool.GetRef<BlueprintRegionReference>(bp)).ToArray();
-      component.m_Actions = m_Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new KingdomRegionClaimedTrigger();
+      component.m_Regions = regions.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name)).ToArray();
+      component.m_Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1282,23 +1305,28 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SettlementSiegeTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SettlementLocation"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="settlementLocation"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(SettlementSiegeTrigger))]
     public TBuilder AddSettlementSiegeTrigger(
-        bool m_SpecificLocation,
-        string m_SettlementLocation,
-        ActionsBuilder m_OnSiegeStart,
-        ActionsBuilder m_OnSiegeEnd,
-        ActionsBuilder m_OnSettlementDestroyed)
+        ActionList onSiegeStart,
+        ActionList onSiegeEnd,
+        ActionList onSettlementDestroyed,
+        bool specificLocation = default,
+        string settlementLocation = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SettlementSiegeTrigger();
-      component.m_SpecificLocation = m_SpecificLocation;
-      component.m_SettlementLocation = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(m_SettlementLocation);
-      component.m_OnSiegeStart = m_OnSiegeStart.Build();
-      component.m_OnSiegeEnd = m_OnSiegeEnd.Build();
-      component.m_OnSettlementDestroyed = m_OnSettlementDestroyed.Build();
+      ValidateParam(onSiegeStart);
+      ValidateParam(onSiegeEnd);
+      ValidateParam(onSettlementDestroyed);
+    
+      var component = new SettlementSiegeTrigger();
+      component.m_SpecificLocation = specificLocation;
+      component.m_SettlementLocation = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(settlementLocation);
+      component.m_OnSiegeStart = onSiegeStart;
+      component.m_OnSiegeEnd = onSiegeEnd;
+      component.m_OnSettlementDestroyed = onSettlementDestroyed;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1306,29 +1334,30 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ArmyUnitRecruitedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ArmyUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="armyUnits"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ArmyUnitRecruitedTrigger))]
     public TBuilder AddArmyUnitRecruitedTrigger(
-        MercenariesIncludeOption m_MercenariesFilter,
-        bool m_ByTag,
-        ArmyProperties m_ArmyTag,
-        bool m_ByUnits,
-        string[] m_ArmyUnits,
-        int m_MinCount,
-        ActionsBuilder m_Action)
+        ActionList action,
+        MercenariesIncludeOption mercenariesFilter = default,
+        bool byTag = default,
+        ArmyProperties armyTag = default,
+        bool byUnits = default,
+        string[] armyUnits = null,
+        int minCount = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_MercenariesFilter);
-      ValidateParam(m_ArmyTag);
-      
-      var component =  new ArmyUnitRecruitedTrigger();
-      component.m_MercenariesFilter = m_MercenariesFilter;
-      component.m_ByTag = m_ByTag;
-      component.m_ArmyTag = m_ArmyTag;
-      component.m_ByUnits = m_ByUnits;
-      component.m_ArmyUnits = m_ArmyUnits.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToArray();
-      component.m_MinCount = m_MinCount;
-      component.m_Action = m_Action.Build();
+      ValidateParam(action);
+    
+      var component = new ArmyUnitRecruitedTrigger();
+      component.m_MercenariesFilter = mercenariesFilter;
+      component.m_ByTag = byTag;
+      component.m_ArmyTag = armyTag;
+      component.m_ByUnits = byUnits;
+      component.m_ArmyUnits = armyUnits.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
+      component.m_MinCount = minCount;
+      component.m_Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1338,11 +1367,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(LeaderRecruitedTrigger))]
     public TBuilder AddLeaderRecruitedTrigger(
-        ActionsBuilder m_Action)
+        ActionList action,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new LeaderRecruitedTrigger();
-      component.m_Action = m_Action.Build();
+      ValidateParam(action);
+    
+      var component = new LeaderRecruitedTrigger();
+      component.m_Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1352,15 +1384,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(SummonUnitsAfterArmyBattle))]
     public TBuilder AddSummonUnitsAfterArmyBattle(
-        SummonUnitsAfterArmyBattle.SummonGroup[] m_Groups)
+        SummonUnitsAfterArmyBattle.SummonGroup[] groups = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in m_Groups)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new SummonUnitsAfterArmyBattle();
-      component.m_Groups = m_Groups;
+      ValidateParam(groups);
+    
+      var component = new SummonUnitsAfterArmyBattle();
+      component.m_Groups = groups;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1370,12 +1401,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ArmyAbilityTags))]
     public TBuilder AddArmyAbilityTags(
-        ArmyProperties Properties)
+        ArmyProperties properties = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Properties);
-      
-      var component =  new ArmyAbilityTags();
-      component.Properties = Properties;
+      var component = new ArmyAbilityTags();
+      component.Properties = properties;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1383,17 +1414,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="GarrisonDefeatedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(GarrisonDefeatedTrigger))]
     public TBuilder AddGarrisonDefeatedTrigger(
-        string m_Location,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string location = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new GarrisonDefeatedTrigger();
-      component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new GarrisonDefeatedTrigger();
+      component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1401,17 +1435,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PlayerVisitGlobalMapLocationTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(PlayerVisitGlobalMapLocationTrigger))]
     public TBuilder AddPlayerVisitGlobalMapLocationTrigger(
-        string m_Location,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string location = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PlayerVisitGlobalMapLocationTrigger();
-      component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(m_Location);
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new PlayerVisitGlobalMapLocationTrigger();
+      component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1419,15 +1456,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddEquipmentToPet"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(AddEquipmentToPet))]
-    public TBuilder AddAddEquipmentToPet(
-        string[] m_Items)
+    public TBuilder AddEquipmentToPet(
+        string[] items = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddEquipmentToPet();
-      component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
+      var component = new AddEquipmentToPet();
+      component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1437,17 +1475,19 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(OnIsleStateEnterTrigger))]
     public TBuilder AddOnIsleStateEnterTrigger(
-        IsleEvaluator m_IsleEvaluator,
-        string m_TargetState,
-        ActionsBuilder m_Actions)
+        IsleEvaluator isleEvaluator,
+        string targetState,
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_IsleEvaluator);
-      ValidateParam(m_TargetState);
-      
-      var component =  new OnIsleStateEnterTrigger();
-      component.m_IsleEvaluator = m_IsleEvaluator;
-      component.m_TargetState = m_TargetState;
-      component.m_Actions = m_Actions.Build();
+      ValidateParam(isleEvaluator);
+      ValidateParam(actions);
+    
+      var component = new OnIsleStateEnterTrigger();
+      component.m_IsleEvaluator = isleEvaluator;
+      component.m_TargetState = targetState;
+      component.m_Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1457,17 +1497,19 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(OnIsleStateExitTrigger))]
     public TBuilder AddOnIsleStateExitTrigger(
-        IsleEvaluator m_IsleEvaluator,
-        string m_TargetState,
-        ActionsBuilder m_Actions)
+        IsleEvaluator isleEvaluator,
+        string targetState,
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_IsleEvaluator);
-      ValidateParam(m_TargetState);
-      
-      var component =  new OnIsleStateExitTrigger();
-      component.m_IsleEvaluator = m_IsleEvaluator;
-      component.m_TargetState = m_TargetState;
-      component.m_Actions = m_Actions.Build();
+      ValidateParam(isleEvaluator);
+      ValidateParam(actions);
+    
+      var component = new OnIsleStateExitTrigger();
+      component.m_IsleEvaluator = isleEvaluator;
+      component.m_TargetState = targetState;
+      component.m_Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1477,17 +1519,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ActivateTrigger))]
     public TBuilder AddActivateTrigger(
-        bool m_Once,
-        bool m_AlsoOnAreaLoad,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        bool once = default,
+        bool alsoOnAreaLoad = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ActivateTrigger();
-      component.m_Once = m_Once;
-      component.m_AlsoOnAreaLoad = m_AlsoOnAreaLoad;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new ActivateTrigger();
+      component.m_Once = once;
+      component.m_AlsoOnAreaLoad = alsoOnAreaLoad;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1497,13 +1542,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AreaDidLoadTrigger))]
     public TBuilder AddAreaDidLoadTrigger(
-        ActionsBuilder Actions,
-        ConditionsBuilder Conditions)
+        ActionList actions,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AreaDidLoadTrigger();
-      component.Actions = Actions.Build();
-      component.Conditions = Conditions.Build();
+      ValidateParam(actions);
+    
+      var component = new AreaDidLoadTrigger();
+      component.Actions = actions;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1511,17 +1559,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="CompanionRecruitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CompanionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionRecruitTrigger))]
     public TBuilder AddCompanionRecruitTrigger(
-        string m_CompanionBlueprint,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string companionBlueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CompanionRecruitTrigger();
-      component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CompanionBlueprint);
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new CompanionRecruitTrigger();
+      component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1529,19 +1580,22 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="CompanionUnrecruitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CompanionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionUnrecruitTrigger))]
     public TBuilder AddCompanionUnrecruitTrigger(
-        string m_CompanionBlueprint,
-        bool TriggerOnDeath,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string companionBlueprint = null,
+        bool triggerOnDeath = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CompanionUnrecruitTrigger();
-      component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CompanionBlueprint);
-      component.TriggerOnDeath = TriggerOnDeath;
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new CompanionUnrecruitTrigger();
+      component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
+      component.TriggerOnDeath = triggerOnDeath;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1551,14 +1605,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(CustomEventTrigger))]
     public TBuilder AddCustomEventTrigger(
-        string Id,
-        ActionsBuilder Actions)
+        string id,
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Id);
-      
-      var component =  new CustomEventTrigger();
-      component.Id = Id;
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new CustomEventTrigger();
+      component.Id = id;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1568,19 +1624,21 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DamageTypeTrigger))]
     public TBuilder AddDamageTypeTrigger(
-        UnitEvaluator Unit,
-        ActionsBuilder Actions,
-        bool AnyDamageType,
-        DamageEnergyType DamageEType)
+        UnitEvaluator unit,
+        ActionList actions,
+        bool anyDamageType = default,
+        DamageEnergyType damageEType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      ValidateParam(DamageEType);
-      
-      var component =  new DamageTypeTrigger();
-      component.Unit = Unit;
-      component.Actions = Actions.Build();
-      component.AnyDamageType = AnyDamageType;
-      component.DamageEType = DamageEType;
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new DamageTypeTrigger();
+      component.Unit = unit;
+      component.Actions = actions;
+      component.AnyDamageType = anyDamageType;
+      component.DamageEType = damageEType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1590,13 +1648,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DeactivateTrigger))]
     public TBuilder AddDeactivateTrigger(
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DeactivateTrigger();
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new DeactivateTrigger();
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1606,13 +1667,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DeviceInteractionTrigger))]
     public TBuilder AddDeviceInteractionTrigger(
-        ActionsBuilder Actions,
-        ActionsBuilder RestrictedActions)
+        ActionList actions,
+        ActionList restrictedActions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DeviceInteractionTrigger();
-      component.Actions = Actions.Build();
-      component.RestrictedActions = RestrictedActions.Build();
+      ValidateParam(actions);
+      ValidateParam(restrictedActions);
+    
+      var component = new DeviceInteractionTrigger();
+      component.Actions = actions;
+      component.RestrictedActions = restrictedActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1622,16 +1687,19 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EvaluatedUnitCombatTrigger))]
     public TBuilder AddEvaluatedUnitCombatTrigger(
-        UnitEvaluator Unit,
-        ActionsBuilder Actions,
-        bool TriggerOnExit)
+        UnitEvaluator unit,
+        ActionList actions,
+        bool triggerOnExit = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EvaluatedUnitCombatTrigger();
-      component.Unit = Unit;
-      component.Actions = Actions.Build();
-      component.TriggerOnExit = TriggerOnExit;
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new EvaluatedUnitCombatTrigger();
+      component.Unit = unit;
+      component.Actions = actions;
+      component.TriggerOnExit = triggerOnExit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1641,16 +1709,19 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EvaluatedUnitDeathTrigger))]
     public TBuilder AddEvaluatedUnitDeathTrigger(
-        bool AnyUnit,
-        UnitEvaluator Unit,
-        ActionsBuilder Actions)
+        UnitEvaluator unit,
+        ActionList actions,
+        bool anyUnit = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EvaluatedUnitDeathTrigger();
-      component.AnyUnit = AnyUnit;
-      component.Unit = Unit;
-      component.Actions = Actions.Build();
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new EvaluatedUnitDeathTrigger();
+      component.AnyUnit = anyUnit;
+      component.Unit = unit;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1660,20 +1731,23 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EvaluatedUnitHealthTrigger))]
     public TBuilder AddEvaluatedUnitHealthTrigger(
-        UnitEvaluator Unit,
-        bool Once,
-        int Percentage,
-        bool TriggerOnAlreadyLowerHeath,
-        ActionsBuilder Actions)
+        UnitEvaluator unit,
+        ActionList actions,
+        bool once = default,
+        int percentage = default,
+        bool triggerOnAlreadyLowerHeath = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EvaluatedUnitHealthTrigger();
-      component.Unit = Unit;
-      component.Once = Once;
-      component.Percentage = Percentage;
-      component.TriggerOnAlreadyLowerHeath = TriggerOnAlreadyLowerHeath;
-      component.Actions = Actions.Build();
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new EvaluatedUnitHealthTrigger();
+      component.Unit = unit;
+      component.Once = once;
+      component.Percentage = percentage;
+      component.TriggerOnAlreadyLowerHeath = triggerOnAlreadyLowerHeath;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1683,15 +1757,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ExperienceTrigger))]
     public TBuilder AddExperienceTrigger(
-        int Experience,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        int experience = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ExperienceTrigger();
-      component.Experience = Experience;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new ExperienceTrigger();
+      component.Experience = experience;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1701,16 +1778,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(GenericInteractionTrigger))]
     public TBuilder AddGenericInteractionTrigger(
-        EntityReference MapObject,
-        ActionsBuilder Actions,
-        ActionsBuilder RestrictedActions)
+        EntityReference mapObject,
+        ActionList actions,
+        ActionList restrictedActions,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(MapObject);
-      
-      var component =  new GenericInteractionTrigger();
-      component.MapObject = MapObject;
-      component.Actions = Actions.Build();
-      component.RestrictedActions = RestrictedActions.Build();
+      ValidateParam(mapObject);
+      ValidateParam(actions);
+      ValidateParam(restrictedActions);
+    
+      var component = new GenericInteractionTrigger();
+      component.MapObject = mapObject;
+      component.Actions = actions;
+      component.RestrictedActions = restrictedActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1718,22 +1799,26 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ItemInContainerTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ItemToCheck"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToCheck"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemInContainerTrigger))]
     public TBuilder AddItemInContainerTrigger(
-        string m_ItemToCheck,
-        MapObjectEvaluator MapObject,
-        ActionsBuilder OnAddActions,
-        ActionsBuilder OnRemoveActions)
+        MapObjectEvaluator mapObject,
+        ActionList onAddActions,
+        ActionList onRemoveActions,
+        string itemToCheck = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(MapObject);
-      
-      var component =  new ItemInContainerTrigger();
-      component.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToCheck);
-      component.MapObject = MapObject;
-      component.OnAddActions = OnAddActions.Build();
-      component.OnRemoveActions = OnRemoveActions.Build();
+      ValidateParam(mapObject);
+      ValidateParam(onAddActions);
+      ValidateParam(onRemoveActions);
+    
+      var component = new ItemInContainerTrigger();
+      component.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(itemToCheck);
+      component.MapObject = mapObject;
+      component.OnAddActions = onAddActions;
+      component.OnRemoveActions = onRemoveActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1743,13 +1828,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(MapObjectDestroyTrigger))]
     public TBuilder AddMapObjectDestroyTrigger(
-        ActionsBuilder DestroyedActions,
-        ActionsBuilder DestructionFailedActions)
+        ActionList destroyedActions,
+        ActionList destructionFailedActions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MapObjectDestroyTrigger();
-      component.DestroyedActions = DestroyedActions.Build();
-      component.DestructionFailedActions = DestructionFailedActions.Build();
+      ValidateParam(destroyedActions);
+      ValidateParam(destructionFailedActions);
+    
+      var component = new MapObjectDestroyTrigger();
+      component.DestroyedActions = destroyedActions;
+      component.DestructionFailedActions = destructionFailedActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1759,11 +1848,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(MapObjectPerceptionTrigger))]
     public TBuilder AddMapObjectPerceptionTrigger(
-        ActionsBuilder Actions)
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MapObjectPerceptionTrigger();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new MapObjectPerceptionTrigger();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1771,19 +1863,23 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PartyInventoryTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(PartyInventoryTrigger))]
     public TBuilder AddPartyInventoryTrigger(
-        string m_Item,
-        ActionsBuilder OnAddActions,
-        ActionsBuilder OnRemoveActions)
+        ActionList onAddActions,
+        ActionList onRemoveActions,
+        string item = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PartyInventoryTrigger();
-      component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
-      component.OnAddActions = OnAddActions.Build();
-      component.OnRemoveActions = OnRemoveActions.Build();
+      ValidateParam(onAddActions);
+      ValidateParam(onRemoveActions);
+    
+      var component = new PartyInventoryTrigger();
+      component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(item);
+      component.OnAddActions = onAddActions;
+      component.OnRemoveActions = onRemoveActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1793,17 +1889,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(PerceptionTrigger))]
     public TBuilder AddPerceptionTrigger(
-        UnitEvaluator Unit,
-        MapObjectEvaluator MapObject,
-        ActionsBuilder OnSpotted)
+        UnitEvaluator unit,
+        MapObjectEvaluator mapObject,
+        ActionList onSpotted,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      ValidateParam(MapObject);
-      
-      var component =  new PerceptionTrigger();
-      component.Unit = Unit;
-      component.MapObject = MapObject;
-      component.OnSpotted = OnSpotted.Build();
+      ValidateParam(unit);
+      ValidateParam(mapObject);
+      ValidateParam(onSpotted);
+    
+      var component = new PerceptionTrigger();
+      component.Unit = unit;
+      component.MapObject = mapObject;
+      component.OnSpotted = onSpotted;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1811,17 +1910,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PlayerOpenItemDescriptionFirstTimeTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(PlayerOpenItemDescriptionFirstTimeTrigger))]
     public TBuilder AddPlayerOpenItemDescriptionFirstTimeTrigger(
-        string m_Item,
-        ActionsBuilder Action)
+        ActionList action,
+        string item = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PlayerOpenItemDescriptionFirstTimeTrigger();
-      component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new PlayerOpenItemDescriptionFirstTimeTrigger();
+      component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(item);
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1831,18 +1933,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(RestTrigger))]
     public TBuilder AddRestTrigger(
-        bool Once,
-        RestResult RestResults,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        bool once = default,
+        RestResult restResults = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(RestResults);
-      
-      var component =  new RestTrigger();
-      component.Once = Once;
-      component.RestResults = RestResults;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new RestTrigger();
+      component.Once = once;
+      component.RestResults = restResults;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1852,23 +1956,26 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ScriptZoneTrigger))]
     public TBuilder AddScriptZoneTrigger(
-        EntityReference ScriptZone,
-        string UnitRef,
-        ConditionsBuilder OnEnterConditions,
-        ActionsBuilder OnEnterActions,
-        ConditionsBuilder OnExitConditions,
-        ActionsBuilder OnExitActions)
+        EntityReference scriptZone,
+        string unitRef,
+        ActionList onEnterActions,
+        ActionList onExitActions,
+        ConditionsBuilder onEnterConditions = null,
+        ConditionsBuilder onExitConditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ScriptZone);
-      ValidateParam(UnitRef);
-      
-      var component =  new ScriptZoneTrigger();
-      component.ScriptZone = ScriptZone;
-      component.UnitRef = UnitRef;
-      component.OnEnterConditions = OnEnterConditions.Build();
-      component.OnEnterActions = OnEnterActions.Build();
-      component.OnExitConditions = OnExitConditions.Build();
-      component.OnExitActions = OnExitActions.Build();
+      ValidateParam(scriptZone);
+      ValidateParam(onEnterActions);
+      ValidateParam(onExitActions);
+    
+      var component = new ScriptZoneTrigger();
+      component.ScriptZone = scriptZone;
+      component.UnitRef = unitRef;
+      component.OnEnterConditions = onEnterConditions?.Build() ?? Constants.Empty.Conditions;
+      component.OnEnterActions = onEnterActions;
+      component.OnExitConditions = onExitConditions?.Build() ?? Constants.Empty.Conditions;
+      component.OnExitActions = onExitActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1878,13 +1985,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(SkillCheckInteractionTrigger))]
     public TBuilder AddSkillCheckInteractionTrigger(
-        ActionsBuilder OnSuccess,
-        ActionsBuilder OnFailure)
+        ActionList onSuccess,
+        ActionList onFailure,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SkillCheckInteractionTrigger();
-      component.OnSuccess = OnSuccess.Build();
-      component.OnFailure = OnFailure.Build();
+      ValidateParam(onSuccess);
+      ValidateParam(onFailure);
+    
+      var component = new SkillCheckInteractionTrigger();
+      component.OnSuccess = onSuccess;
+      component.OnFailure = onFailure;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1892,17 +2003,20 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SpawnUnitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_TargetUnit"><see cref="BlueprintUnit"/></param>
+    /// <param name="targetUnit"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(SpawnUnitTrigger))]
     public TBuilder AddSpawnUnitTrigger(
-        string m_TargetUnit,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string targetUnit = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SpawnUnitTrigger();
-      component.m_TargetUnit = BlueprintTool.GetRef<BlueprintUnitReference>(m_TargetUnit);
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new SpawnUnitTrigger();
+      component.m_TargetUnit = BlueprintTool.GetRef<BlueprintUnitReference>(targetUnit);
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1910,20 +2024,23 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SpellCastTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(SpellCastTrigger))]
     public TBuilder AddSpellCastTrigger(
-        EntityReference ScriptZone,
-        string[] m_Spells,
-        ActionsBuilder Actions)
+        EntityReference scriptZone,
+        ActionList actions,
+        string[] spells = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ScriptZone);
-      
-      var component =  new SpellCastTrigger();
-      component.ScriptZone = ScriptZone;
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
-      component.Actions = Actions.Build();
+      ValidateParam(scriptZone);
+      ValidateParam(actions);
+    
+      var component = new SpellCastTrigger();
+      component.ScriptZone = scriptZone;
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1931,24 +2048,26 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SummonPoolTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolTrigger))]
     public TBuilder AddSummonPoolTrigger(
-        int Count,
-        SummonPoolTrigger.ChangeTypes ChangeType,
-        string m_SummonPool,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        int count = default,
+        SummonPoolTrigger.ChangeTypes changeType = default,
+        string summonPool = null,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ChangeType);
-      
-      var component =  new SummonPoolTrigger();
-      component.Count = Count;
-      component.ChangeType = ChangeType;
-      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new SummonPoolTrigger();
+      component.Count = count;
+      component.ChangeType = changeType;
+      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1958,11 +2077,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(TimeOfDayChangedTrigger))]
     public TBuilder AddTimeOfDayChangedTrigger(
-        ActionsBuilder Actions)
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TimeOfDayChangedTrigger();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new TimeOfDayChangedTrigger();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1972,16 +2094,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(UIEventTrigger))]
     public TBuilder AddUIEventTrigger(
-        UIEventType EventType,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        UIEventType eventType = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EventType);
-      
-      var component =  new UIEventTrigger();
-      component.EventType = EventType;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new UIEventTrigger();
+      component.EventType = eventType;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1989,19 +2113,22 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="UnitHealthTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(UnitHealthTrigger))]
     public TBuilder AddUnitHealthTrigger(
-        string m_Unit,
-        int Percentage,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string unit = null,
+        int percentage = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new UnitHealthTrigger();
-      component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
-      component.Percentage = Percentage;
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new UnitHealthTrigger();
+      component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
+      component.Percentage = percentage;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2011,16 +2138,20 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(TrapTrigger))]
     public TBuilder AddTrapTrigger(
-        MapObjectEvaluator Trap,
-        ActionsBuilder OnActivation,
-        ActionsBuilder OnDisarm)
+        MapObjectEvaluator trap,
+        ActionList onActivation,
+        ActionList onDisarm,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Trap);
-      
-      var component =  new TrapTrigger();
-      component.Trap = Trap;
-      component.OnActivation = OnActivation.Build();
-      component.OnDisarm = OnDisarm.Build();
+      ValidateParam(trap);
+      ValidateParam(onActivation);
+      ValidateParam(onDisarm);
+    
+      var component = new TrapTrigger();
+      component.Trap = trap;
+      component.OnActivation = onActivation;
+      component.OnDisarm = onDisarm;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2039,6 +2170,12 @@ namespace BlueprintCore.Blueprints.Configurators
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
     protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
+
+    protected void ValidateParam<T>(IEnumerable<T> objects)
+    {
+      if (objects is null) { return; }
+      foreach (var obj in objects) { ValidateParam(obj); }
+    }
 
     private void ConfigureBase()
     {
@@ -2122,6 +2259,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.Descriptor.m_IntValue &= ~DisableSpellDescriptors;
     }
 
+    // TODO: Refactor validation to rely on Validator. That way it can be used externally.
     /// <summary>
     /// Validates each <see cref="BlueprintComponent"/> using its own validation, attributes, and custom logic.
     /// </summary>
@@ -2164,6 +2302,20 @@ namespace BlueprintCore.Blueprints.Configurators
         {
           AddValidationWarning($"Component of {componentType} not allowed on {blueprintType}");
         }
+      }
+
+      // TODO: Unit test this
+      // Make sure there are no conflicting ContextRankConfigs
+      var duplicateRankTypes =
+          Blueprint.GetComponents<ContextRankConfig>()
+              .Select(config => config.m_Type)
+              .GroupBy(type => type)
+              .Where(group => group.Count() > 1)
+              .Select(group => group.Key);
+      if (duplicateRankTypes.Any())
+      {
+        AddValidationWarning(
+            $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(",", duplicateRankTypes)}");
       }
 
       Context.Errors.ToList().ForEach(str => AddValidationWarning(str));

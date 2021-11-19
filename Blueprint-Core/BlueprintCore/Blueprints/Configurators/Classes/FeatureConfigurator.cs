@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
@@ -12,9 +13,11 @@ using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.Settings;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
@@ -136,564 +139,565 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-    /// </summary>
-    /// 
-    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
-    public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
-    {
-      return AddComponent(rankConfig);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+        /// </summary>
+        /// 
+        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+        [Implements(typeof(ContextRankConfig))]
+        public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
+        {
+          return AddComponent(rankConfig);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
-    /// This is useful when a character has access to different feature selections based on some criteria.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
-    /// </para>
-    /// </remarks>
-    public TBuilder PrerequisiteSelectionPossible(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
-      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
-      return AddComponent(selectionPossible);
-    }
-    
-    /// <summary>
-    /// Adds <see cref="PrerequisiteArchetypeLevel"/>
-    /// </summary>
-    /// 
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteArchetypeLevel))]
-    public TBuilder PrerequisiteArchetype(
-        string clazz,
-        string archetype,
-        int level = 1,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
-      prereq.Level = level;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
+        /// </summary>
+        /// 
+        /// <remarks>
+        /// <para>
+        /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+        /// This is useful when a character has access to different feature selections based on some criteria.
+        /// </para>
+        /// 
+        /// <para>
+        /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
+        /// </para>
+        /// </remarks>
+        public TBuilder PrerequisiteSelectionPossible(
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+          selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
+          return AddComponent(selectionPossible);
+        }
+        
+        /// <summary>
+        /// Adds <see cref="PrerequisiteArchetypeLevel"/>
+        /// </summary>
+        /// 
+        /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+        /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
+        [Implements(typeof(PrerequisiteArchetypeLevel))]
+        public TBuilder PrerequisiteArchetype(
+            string clazz,
+            string archetype,
+            int level = 1,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteArchetypeLevel>(group, checkInProgression, hideInUI);
+          prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
+          prereq.Level = level;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteCasterType))]
-    public TBuilder PrerequisiteCasterType(
-        bool isArcane,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
-      prereq.IsArcane = isArcane;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteCasterType))]
+        public TBuilder PrerequisiteCasterType(
+            bool isArcane,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
+          prereq.IsArcane = isArcane;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
-    public TBuilder PrerequisiteCasterTypeSpellLevel(
-        bool isArcane,
-        bool onlySpontaneous,
-        int minSpellLevel,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
-      prereq.IsArcane = isArcane;
-      prereq.OnlySpontaneous = onlySpontaneous;
-      prereq.RequiredSpellLevel = minSpellLevel;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
+        public TBuilder PrerequisiteCasterTypeSpellLevel(
+            bool isArcane,
+            bool onlySpontaneous,
+            int minSpellLevel,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteCasterTypeSpellLevel>(group, checkInProgression, hideInUI);
+          prereq.IsArcane = isArcane;
+          prereq.OnlySpontaneous = onlySpontaneous;
+          prereq.RequiredSpellLevel = minSpellLevel;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteCharacterLevel))]
-    public TBuilder PrerequisiteCharacterLevel(
-        int minLevel,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
-      prereq.Level = minLevel;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteCharacterLevel))]
+        public TBuilder PrerequisiteCharacterLevel(
+            int minLevel,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
+          prereq.Level = minLevel;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel">PrerequisiteClassLevel</see>
-    /// </summary>
-    /// 
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassLevel))]
-    public TBuilder PrerequisiteClassLevel(
-        string clazz,
-        int minLevel,
-        bool negate = false,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      prereq.Level = minLevel;
-      prereq.Not = negate;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel">PrerequisiteClassLevel</see>
+        /// </summary>
+        /// 
+        /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+        [Implements(typeof(PrerequisiteClassLevel))]
+        public TBuilder PrerequisiteClassLevel(
+            string clazz,
+            int minLevel,
+            bool negate = false,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteClassLevel>(group, checkInProgression, hideInUI);
+          prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          prereq.Level = minLevel;
+          prereq.Not = negate;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassSpellLevel">PrerequisiteClassSpellLevel</see>
-    /// </summary>
-    /// 
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassSpellLevel))]
-    public TBuilder PrerequisiteClassSpellLevel(
-        string clazz,
-        int minSpellLevel,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      prereq.RequiredSpellLevel = minSpellLevel;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassSpellLevel">PrerequisiteClassSpellLevel</see>
+        /// </summary>
+        /// 
+        /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+        [Implements(typeof(PrerequisiteClassSpellLevel))]
+        public TBuilder PrerequisiteClassSpellLevel(
+            string clazz,
+            int minSpellLevel,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
+          prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          prereq.RequiredSpellLevel = minSpellLevel;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteEtude">PrerequisiteEtude</see>
-    /// </summary>
-    /// 
-    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
-    [Implements(typeof(PrerequisiteEtude))]
-    public TBuilder PrerequisiteEtude(
-        string etude,
-        bool playing = true,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
-      prereq.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      prereq.NotPlaying = !playing;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteEtude">PrerequisiteEtude</see>
+        /// </summary>
+        /// 
+        /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
+        [Implements(typeof(PrerequisiteEtude))]
+        public TBuilder PrerequisiteEtude(
+            string etude,
+            bool playing = true,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteEtude>(group, checkInProgression, hideInUI);
+          prereq.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
+          prereq.NotPlaying = !playing;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeature">PrerequisiteFeature</see>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeature))]
-    public TBuilder PrerequisiteFeature(
-        string feature,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeature">PrerequisiteFeature</see>
+        /// </summary>
+        /// 
+        /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteFeature))]
+        public TBuilder PrerequisiteFeature(
+            string feature,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteFeature>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeaturesFromList">PrerequisiteFeaturesFromList</see>
-    /// </summary>
-    /// 
-    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeaturesFromList))]
-    public TBuilder PrerequisiteFeaturesFromList(
-        string[] features,
-        int requiredNumber = 1,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
-      prereq.m_Features =
-          features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray();
-      prereq.Amount = requiredNumber;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteFeaturesFromList">PrerequisiteFeaturesFromList</see>
+        /// </summary>
+        /// 
+        /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteFeaturesFromList))]
+        public TBuilder PrerequisiteFeaturesFromList(
+            string[] features,
+            int requiredNumber = 1,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteFeaturesFromList>(group, checkInProgression, hideInUI);
+          prereq.m_Features =
+              features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray();
+          prereq.Amount = requiredNumber;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteIsPet))]
-    public TBuilder PrerequisiteIsPet(
-        bool negate = false,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
-      prereq.Not = negate;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteIsPet))]
+        public TBuilder PrerequisiteIsPet(
+            bool negate = false,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteIsPet>(group, checkInProgression, hideInUI);
+          prereq.Not = negate;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
-    public TBuilder PrerequisiteMainCharacter(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteMainCharacter))]
+        public TBuilder PrerequisiteMainCharacter(
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
-    public TBuilder PrerequisiteCompanion(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
-      prereq.Companion = true;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteMainCharacter))]
+        public TBuilder PrerequisiteCompanion(
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
+          prereq.Companion = true;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteMythicLevel))]
-    public TBuilder PrerequisiteMythicLevel(
-        int level,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
-      prereq.Level = level;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteMythicLevel))]
+        public TBuilder PrerequisiteMythicLevel(
+            int level,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
+          prereq.Level = level;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoArchetype">PrerequisiteNoArchetype</see>
-    /// </summary>
-    /// 
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteNoArchetype))]
-    public TBuilder PrerequisiteNoArchetype(
-        string clazz,
-        string archetype,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoArchetype">PrerequisiteNoArchetype</see>
+        /// </summary>
+        /// 
+        /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+        /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
+        [Implements(typeof(PrerequisiteNoArchetype))]
+        public TBuilder PrerequisiteNoArchetype(
+            string clazz,
+            string archetype,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteNoArchetype>(group, checkInProgression, hideInUI);
+          prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          prereq.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteNoClassLevel"/>
-    /// </summary>
-    /// 
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteNoClassLevel))]
-    public TBuilder PrerequisiteNoClass(
-        string clazz,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
-      prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteNoClassLevel"/>
+        /// </summary>
+        /// 
+        /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
+        [Implements(typeof(PrerequisiteNoClassLevel))]
+        public TBuilder PrerequisiteNoClass(
+            string clazz,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteNoClassLevel>(group, checkInProgression, hideInUI);
+          prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoFeature">PrerequisiteNoFeature</see>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteNoFeature))]
-    public TBuilder PrerequisiteNoFeature(
-        string feature,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNoFeature">PrerequisiteNoFeature</see>
+        /// </summary>
+        /// 
+        /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteNoFeature))]
+        public TBuilder PrerequisiteNoFeature(
+            string feature,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteNoFeature>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
-    /// </summary>
-    [Implements(typeof(PrerequisiteNotProficient))]
-    public TBuilder PrerequisiteNotProficient(
-        WeaponCategory[] weapons,
-        ArmorProficiencyGroup[] armors,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq =
-          PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
-      prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
+        /// </summary>
+        [Implements(typeof(PrerequisiteNotProficient))]
+        public TBuilder PrerequisiteNotProficient(
+            WeaponCategory[] weapons,
+            ArmorProficiencyGroup[] armors,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq =
+              PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
+          prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
+          prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
-    /// </summary>
-    /// 
-    /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
-    public TBuilder PrerequisiteParameterizedSpellFeature(
-        string spellFeature,
-        string spellAbility,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
-      // Note: There is no distinction between SpellSpecialization and LearnSpell, despite them
-      // being called out independently in the component.
-      prereq.ParameterType = FeatureParameterType.LearnSpell;
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(spellFeature);
-      prereq.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spellAbility);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+        /// </summary>
+        /// 
+        /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
+        [Implements(typeof(PrerequisiteParametrizedFeature))]
+        public TBuilder PrerequisiteParameterizedSpellFeature(
+            string spellFeature,
+            string spellAbility,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+          // Note: There is no distinction between SpellSpecialization and LearnSpell, despite them
+          // being called out independently in the component.
+          prereq.ParameterType = FeatureParameterType.LearnSpell;
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(spellFeature);
+          prereq.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spellAbility);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
-    public TBuilder PrerequisiteParameterizedWeaponFeature(
-        string feature,
-        WeaponCategory weapon,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq =
-          PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      prereq.ParameterType = FeatureParameterType.WeaponCategory;
-      prereq.WeaponCategory = weapon;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+        /// </summary>
+        /// 
+        /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteParametrizedFeature))]
+        public TBuilder PrerequisiteParameterizedWeaponFeature(
+            string feature,
+            WeaponCategory weapon,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq =
+              PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+          prereq.ParameterType = FeatureParameterType.WeaponCategory;
+          prereq.WeaponCategory = weapon;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
-    public TBuilder PrerequisiteParameterizedSpellSchoolFeature(
-        string feature,
-        SpellSchool school,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      prereq.ParameterType = FeatureParameterType.SpellSchool;
-      prereq.SpellSchool = school;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+        /// </summary>
+        /// 
+        /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteParametrizedFeature))]
+        public TBuilder PrerequisiteParameterizedSpellSchoolFeature(
+            string feature,
+            SpellSchool school,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteParametrizedFeature>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+          prereq.ParameterType = FeatureParameterType.SpellSchool;
+          prereq.SpellSchool = school;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteParametrizedWeaponSubcategory"/>
-    /// </summary>
-    /// 
-    /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
-    public TBuilder PrerequisiteParameterizedWeaponSubcategory(
-        string weaponFeature,
-        WeaponSubCategory weapon,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteParametrizedWeaponSubcategory>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(weaponFeature);
-      prereq.SubCategory = weapon;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteParametrizedWeaponSubcategory"/>
+        /// </summary>
+        /// 
+        /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
+        public TBuilder PrerequisiteParameterizedWeaponSubcategory(
+            string weaponFeature,
+            WeaponSubCategory weapon,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteParametrizedWeaponSubcategory>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(weaponFeature);
+          prereq.SubCategory = weapon;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
-    /// </summary>
-    [Implements(typeof(PrerequisitePet))]
-    public TBuilder PrerequisitePet(
-        PetType type,
-        bool negate = false,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisitePet>(group, checkInProgression, hideInUI);
-      prereq.Type = type;
-      prereq.NoCompanion = negate;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
+        /// </summary>
+        [Implements(typeof(PrerequisitePet))]
+        public TBuilder PrerequisitePet(
+            PetType type,
+            bool negate = false,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisitePet>(group, checkInProgression, hideInUI);
+          prereq.Type = type;
+          prereq.NoCompanion = negate;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePlayerHasFeature">PrerequisitePlayerHasFeature</see>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisitePlayerHasFeature))]
-    public TBuilder PrerequisitePlayerHasFeature(
-        string feature,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
-      prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePlayerHasFeature">PrerequisitePlayerHasFeature</see>
+        /// </summary>
+        /// 
+        /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+        [Implements(typeof(PrerequisitePlayerHasFeature))]
+        public TBuilder PrerequisitePlayerHasFeature(
+            string feature,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisitePlayerHasFeature>(group, checkInProgression, hideInUI);
+          prereq.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteProficiency"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteProficiency))]
-    public TBuilder PrerequisiteProficient(
-        WeaponCategory[] weapons,
-        ArmorProficiencyGroup[] armors,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false,
-        ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
-    {
-      var prereq =
-          PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
-      prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
-      return AddUniqueComponent(prereq, behavior, merge);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteProficiency"/>
+        /// </summary>
+        [Implements(typeof(PrerequisiteProficiency))]
+        public TBuilder PrerequisiteProficient(
+            WeaponCategory[] weapons,
+            ArmorProficiencyGroup[] armors,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false,
+            ComponentMerge behavior = ComponentMerge.Replace,
+            Action<BlueprintComponent, BlueprintComponent> merge = null)
+        {
+          var prereq =
+              PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
+          prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
+          prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
+          return AddUniqueComponent(prereq, behavior, merge);
+        }
 
-    /// <summary>
-    /// Adds <see cref="PrerequisiteStatValue"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteStatValue))]
-    public TBuilder PrerequisiteStat(
-        StatType type,
-        int minValue,
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var prereq = PrereqTool.Create<PrerequisiteStatValue>(group, checkInProgression, hideInUI);
-      prereq.Stat = type;
-      prereq.Value = minValue;
-      return AddComponent(prereq);
-    }
+        /// <summary>
+        /// Adds <see cref="PrerequisiteStatValue"/>
+        /// </summary>
+        [Implements(typeof(PrerequisiteStatValue))]
+        public TBuilder PrerequisiteStat(
+            StatType type,
+            int minValue,
+            Prerequisite.GroupType group = Prerequisite.GroupType.All,
+            bool checkInProgression = false,
+            bool hideInUI = false)
+        {
+          var prereq = PrereqTool.Create<PrerequisiteStatValue>(group, checkInProgression, hideInUI);
+          prereq.Stat = type;
+          prereq.Value = minValue;
+          return AddComponent(prereq);
+        }
 
-    /// <summary>
-    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        EnableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
+        /// <summary>
+        /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+        /// </summary>
+        [Implements(typeof(SpellDescriptorComponent))]
+        public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
+        {
+          foreach (SpellDescriptor descriptor in descriptors)
+          {
+            EnableSpellDescriptors |= (long)descriptor;
+          }
+          return Self;
+        }
 
-    /// <summary>
-    /// Modifies <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
-    public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-    {
-      foreach (SpellDescriptor descriptor in descriptors)
-      {
-        DisableSpellDescriptors |= (long)descriptor;
-      }
-      return Self;
-    }
+        /// <summary>
+        /// Modifies <see cref="SpellDescriptorComponent"/>
+        /// </summary>
+        [Implements(typeof(SpellDescriptorComponent))]
+        public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+        {
+          foreach (SpellDescriptor descriptor in descriptors)
+          {
+            DisableSpellDescriptors |= (long)descriptor;
+          }
+          return Self;
+        }
 
-    /// <summary>
-    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
+        /// <summary>
+        /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+        /// </summary>
+        [Implements(typeof(PrerequisiteAlignment))]
+        public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
+        {
+          foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
+          return Self;
+        }
 
-    /// <summary>
-    /// Modifies <see cref="PrerequisiteAlignment"/>
-    /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
-    public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
-    {
-      foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
-      return Self;
-    }
+        /// <summary>
+        /// Modifies <see cref="PrerequisiteAlignment"/>
+        /// </summary>
+        [Implements(typeof(PrerequisiteAlignment))]
+        public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
+        {
+          foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
+          return Self;
+        }
 
     /// <summary>
     /// Adds <see cref="AddGlobalMapSpellFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
     [Generated]
     [Implements(typeof(AddGlobalMapSpellFeature))]
-    public TBuilder AddAddGlobalMapSpellFeature(
-        string m_Spell)
+    public TBuilder AddGlobalMapSpellFeature(
+        string spell = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddGlobalMapSpellFeature();
-      component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(m_Spell);
+      var component = new AddGlobalMapSpellFeature();
+      component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -702,9 +706,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(FeatureSurvivesRespec))]
-    public TBuilder AddFeatureSurvivesRespec()
+    public TBuilder AddFeatureSurvivesRespec(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new FeatureSurvivesRespec());
+      var component = new FeatureSurvivesRespec();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -713,15 +720,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(LevelUpRecommendation))]
     public TBuilder AddLevelUpRecommendation(
-        ClassesPriority[] ClassPriorities)
+        ClassesPriority[] classPriorities = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in ClassPriorities)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new LevelUpRecommendation();
-      component.ClassPriorities = ClassPriorities;
+      ValidateParam(classPriorities);
+    
+      var component = new LevelUpRecommendation();
+      component.ClassPriorities = classPriorities;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -729,24 +735,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="PrerequisiteLoreMaster"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_LoreMaster"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="loreMaster"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(PrerequisiteLoreMaster))]
     public TBuilder AddPrerequisiteLoreMaster(
-        string m_LoreMaster,
-        int Rating,
-        Prerequisite.GroupType Group,
-        bool CheckInProgression,
-        bool HideInUI)
+        string loreMaster = null,
+        int rating = default,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Group);
-      
-      var component =  new PrerequisiteLoreMaster();
-      component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_LoreMaster);
-      component.Rating = Rating;
-      component.Group = Group;
-      component.CheckInProgression = CheckInProgression;
-      component.HideInUI = HideInUI;
+      var component = new PrerequisiteLoreMaster();
+      component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(loreMaster);
+      component.Rating = rating;
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -754,20 +760,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddBuffInBadWeather"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AddBuffInBadWeather))]
-    public TBuilder AddAddBuffInBadWeather(
-        string m_Buff,
-        InclemencyType Weather,
-        bool WhenCalmer)
+    public TBuilder AddBuffInBadWeather(
+        string buff = null,
+        InclemencyType weather = default,
+        bool whenCalmer = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Weather);
-      
-      var component =  new AddBuffInBadWeather();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Weather = Weather;
-      component.WhenCalmer = WhenCalmer;
+      var component = new AddBuffInBadWeather();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Weather = weather;
+      component.WhenCalmer = whenCalmer;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -776,20 +782,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddBuffOnApplyingSpell))]
-    public TBuilder AddAddBuffOnApplyingSpell(
-        bool OnEffectApplied,
-        bool OnResistSpell,
-        AddBuffOnApplyingSpell.SpellConditionAndBuff[] Buffs)
+    public TBuilder AddBuffOnApplyingSpell(
+        bool onEffectApplied = default,
+        bool onResistSpell = default,
+        AddBuffOnApplyingSpell.SpellConditionAndBuff[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Buffs)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new AddBuffOnApplyingSpell();
-      component.OnEffectApplied = OnEffectApplied;
-      component.OnResistSpell = OnResistSpell;
-      component.Buffs = Buffs;
+      ValidateParam(buffs);
+    
+      var component = new AddBuffOnApplyingSpell();
+      component.OnEffectApplied = onEffectApplied;
+      component.OnResistSpell = onResistSpell;
+      component.Buffs = buffs;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -798,25 +803,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddContextStatBonus))]
-    public TBuilder AddAddContextStatBonus(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Multiplier,
-        ContextValue Value,
-        bool HasMinimal,
-        int Minimal)
+    public TBuilder AddContextStatBonus(
+        ContextValue value,
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int multiplier = default,
+        bool hasMinimal = default,
+        int minimal = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      ValidateParam(Value);
-      
-      var component =  new AddContextStatBonus();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Multiplier = Multiplier;
-      component.Value = Value;
-      component.HasMinimal = HasMinimal;
-      component.Minimal = Minimal;
+      ValidateParam(value);
+    
+      var component = new AddContextStatBonus();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.Value = value;
+      component.HasMinimal = hasMinimal;
+      component.Minimal = minimal;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -824,20 +829,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddFeaturesFromSelectionToDescription"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_FeatureSelection"><see cref="BlueprintFeatureSelection"/></param>
+    /// <param name="featureSelection"><see cref="BlueprintFeatureSelection"/></param>
     [Generated]
     [Implements(typeof(AddFeaturesFromSelectionToDescription))]
-    public TBuilder AddAddFeaturesFromSelectionToDescription(
-        LocalizedString Introduction,
-        string m_FeatureSelection,
-        bool OnlyIfRequiresThisFeature)
+    public TBuilder AddFeaturesFromSelectionToDescription(
+        LocalizedString introduction = null,
+        string featureSelection = null,
+        bool onlyIfRequiresThisFeature = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Introduction);
-      
-      var component =  new AddFeaturesFromSelectionToDescription();
-      component.Introduction = Introduction;
-      component.m_FeatureSelection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(m_FeatureSelection);
-      component.OnlyIfRequiresThisFeature = OnlyIfRequiresThisFeature;
+      ValidateParam(introduction);
+    
+      var component = new AddFeaturesFromSelectionToDescription();
+      component.Introduction = introduction ?? Constants.Empty.String;
+      component.m_FeatureSelection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(featureSelection);
+      component.OnlyIfRequiresThisFeature = onlyIfRequiresThisFeature;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -846,16 +853,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddGoldenDragonSkillBonus))]
-    public TBuilder AddAddGoldenDragonSkillBonus(
-        ModifierDescriptor Descriptor,
-        StatType Stat)
+    public TBuilder AddGoldenDragonSkillBonus(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddGoldenDragonSkillBonus();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
+      var component = new AddGoldenDragonSkillBonus();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -864,12 +870,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddLocustSwarmMechanicPart))]
-    public TBuilder AddAddLocustSwarmMechanicPart(
-        int m_SwarmStartStrength)
+    public TBuilder AddLocustSwarmMechanicPart(
+        int swarmStartStrength = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddLocustSwarmMechanicPart();
-      component.m_SwarmStartStrength = m_SwarmStartStrength;
+      var component = new AddLocustSwarmMechanicPart();
+      component.m_SwarmStartStrength = swarmStartStrength;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -878,13 +885,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddMagusMechanicPart))]
-    public TBuilder AddAddMagusMechanicPart(
-        AddMagusMechanicPart.Feature m_Feature)
+    public TBuilder AddMagusMechanicPart(
+        AddMagusMechanicPart.Feature feature = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Feature);
-      
-      var component =  new AddMagusMechanicPart();
-      component.m_Feature = m_Feature;
+      var component = new AddMagusMechanicPart();
+      component.m_Feature = feature;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -893,25 +900,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddNocticulaBonus))]
-    public TBuilder AddAddNocticulaBonus(
-        ModifierDescriptor Descriptor,
-        ContextValue HighestStatBonus,
-        StatType m_HighestStat,
-        ContextValue SecondHighestStatBonus,
-        StatType m_SecondHighestStat)
+    public TBuilder AddNocticulaBonus(
+        ContextValue highestStatBonus,
+        ContextValue secondHighestStatBonus,
+        ModifierDescriptor descriptor = default,
+        StatType highestStat = default,
+        StatType secondHighestStat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(HighestStatBonus);
-      ValidateParam(m_HighestStat);
-      ValidateParam(SecondHighestStatBonus);
-      ValidateParam(m_SecondHighestStat);
-      
-      var component =  new AddNocticulaBonus();
-      component.Descriptor = Descriptor;
-      component.HighestStatBonus = HighestStatBonus;
-      component.m_HighestStat = m_HighestStat;
-      component.SecondHighestStatBonus = SecondHighestStatBonus;
-      component.m_SecondHighestStat = m_SecondHighestStat;
+      ValidateParam(highestStatBonus);
+      ValidateParam(secondHighestStatBonus);
+    
+      var component = new AddNocticulaBonus();
+      component.Descriptor = descriptor;
+      component.HighestStatBonus = highestStatBonus;
+      component.m_HighestStat = highestStat;
+      component.SecondHighestStatBonus = secondHighestStatBonus;
+      component.m_SecondHighestStat = secondHighestStat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -920,12 +926,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddRestTrigger))]
-    public TBuilder AddAddRestTrigger(
-        ActionsBuilder Action)
+    public TBuilder AddRestTrigger(
+        ActionList action,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddRestTrigger();
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new AddRestTrigger();
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -933,21 +942,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellsToDescription"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SpellLists"><see cref="BlueprintSpellList"/></param>
-    /// <param name="m_Spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spellLists"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spells"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddSpellsToDescription))]
-    public TBuilder AddAddSpellsToDescription(
-        LocalizedString Introduction,
-        string[] m_SpellLists,
-        string[] m_Spells)
+    public TBuilder AddSpellsToDescription(
+        LocalizedString introduction = null,
+        string[] spellLists = null,
+        string[] spells = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Introduction);
-      
-      var component =  new AddSpellsToDescription();
-      component.Introduction = Introduction;
-      component.m_SpellLists = m_SpellLists.Select(bp => BlueprintTool.GetRef<BlueprintSpellListReference>(bp)).ToArray();
-      component.m_Spells = m_Spells.Select(bp => BlueprintTool.GetRef<BlueprintAbilityReference>(bp)).ToArray();
+      ValidateParam(introduction);
+    
+      var component = new AddSpellsToDescription();
+      component.Introduction = introduction ?? Constants.Empty.String;
+      component.m_SpellLists = spellLists.Select(name => BlueprintTool.GetRef<BlueprintSpellListReference>(name)).ToArray();
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -956,13 +967,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddTricksterAthleticBonus))]
-    public TBuilder AddAddTricksterAthleticBonus(
-        ModifierDescriptor Descriptor)
+    public TBuilder AddTricksterAthleticBonus(
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AddTricksterAthleticBonus();
-      component.Descriptor = Descriptor;
+      var component = new AddTricksterAthleticBonus();
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -971,18 +982,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddWeaponEnhancementBonusToStat))]
-    public TBuilder AddAddWeaponEnhancementBonusToStat(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Multiplier)
+    public TBuilder AddWeaponEnhancementBonusToStat(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int multiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddWeaponEnhancementBonusToStat();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Multiplier = Multiplier;
+      var component = new AddWeaponEnhancementBonusToStat();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -992,15 +1002,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(MountedShield))]
     public TBuilder AddMountedShield(
-        ModifierDescriptor Descriptor,
-        StatType Stat)
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new MountedShield();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
+      var component = new MountedShield();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1008,24 +1017,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ShroudOfWater"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_UpgradeFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="upgradeFeature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ShroudOfWater))]
     public TBuilder AddShroudOfWater(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        ContextValue BaseValue,
-        string m_UpgradeFeature)
+        ContextValue baseValue,
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        string upgradeFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      ValidateParam(BaseValue);
-      
-      var component =  new ShroudOfWater();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.BaseValue = BaseValue;
-      component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_UpgradeFeature);
+      ValidateParam(baseValue);
+    
+      var component = new ShroudOfWater();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.BaseValue = baseValue;
+      component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1035,15 +1044,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(SpellResistanceAgainstAlignment))]
     public TBuilder AddSpellResistanceAgainstAlignment(
-        ContextValue Value,
-        AlignmentComponent Alignment)
+        ContextValue value,
+        AlignmentComponent alignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      ValidateParam(Alignment);
-      
-      var component =  new SpellResistanceAgainstAlignment();
-      component.Value = Value;
-      component.Alignment = Alignment;
+      ValidateParam(value);
+    
+      var component = new SpellResistanceAgainstAlignment();
+      component.Value = value;
+      component.Alignment = alignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1053,15 +1063,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(SpellResistanceAgainstSpellDescriptor))]
     public TBuilder AddSpellResistanceAgainstSpellDescriptor(
-        ContextValue Value,
-        SpellDescriptorWrapper SpellDescriptor)
+        ContextValue value,
+        SpellDescriptorWrapper spellDescriptor,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      ValidateParam(SpellDescriptor);
-      
-      var component =  new SpellResistanceAgainstSpellDescriptor();
-      component.Value = Value;
-      component.SpellDescriptor = SpellDescriptor;
+      ValidateParam(value);
+    
+      var component = new SpellResistanceAgainstSpellDescriptor();
+      component.Value = value;
+      component.SpellDescriptor = spellDescriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1069,32 +1080,33 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CustomProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public TBuilder AddContextCalculateAbilityParams(
-        bool UseKineticistMainStat,
-        StatType StatType,
-        bool StatTypeFromCustomProperty,
-        string m_CustomProperty,
-        bool ReplaceCasterLevel,
-        ContextValue CasterLevel,
-        bool ReplaceSpellLevel,
-        ContextValue SpellLevel)
+        ContextValue casterLevel,
+        ContextValue spellLevel,
+        bool useKineticistMainStat = default,
+        StatType statType = default,
+        bool statTypeFromCustomProperty = default,
+        string customProperty = null,
+        bool replaceCasterLevel = default,
+        bool replaceSpellLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StatType);
-      ValidateParam(CasterLevel);
-      ValidateParam(SpellLevel);
-      
-      var component =  new ContextCalculateAbilityParams();
-      component.UseKineticistMainStat = UseKineticistMainStat;
-      component.StatType = StatType;
-      component.StatTypeFromCustomProperty = StatTypeFromCustomProperty;
-      component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(m_CustomProperty);
-      component.ReplaceCasterLevel = ReplaceCasterLevel;
-      component.CasterLevel = CasterLevel;
-      component.ReplaceSpellLevel = ReplaceSpellLevel;
-      component.SpellLevel = SpellLevel;
+      ValidateParam(casterLevel);
+      ValidateParam(spellLevel);
+    
+      var component = new ContextCalculateAbilityParams();
+      component.UseKineticistMainStat = useKineticistMainStat;
+      component.StatType = statType;
+      component.StatTypeFromCustomProperty = statTypeFromCustomProperty;
+      component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(customProperty);
+      component.ReplaceCasterLevel = replaceCasterLevel;
+      component.CasterLevel = casterLevel;
+      component.ReplaceSpellLevel = replaceSpellLevel;
+      component.SpellLevel = spellLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1102,20 +1114,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CharacterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
-        bool UseKineticistMainStat,
-        StatType StatType,
-        string m_CharacterClass)
+        bool useKineticistMainStat = default,
+        StatType statType = default,
+        string characterClass = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StatType);
-      
-      var component =  new ContextCalculateAbilityParamsBasedOnClass();
-      component.UseKineticistMainStat = UseKineticistMainStat;
-      component.StatType = StatType;
-      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
+      var component = new ContextCalculateAbilityParamsBasedOnClass();
+      component.UseKineticistMainStat = useKineticistMainStat;
+      component.StatType = statType;
+      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1125,17 +1137,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ContextCalculateSharedValue))]
     public TBuilder AddContextCalculateSharedValue(
-        AbilitySharedValue ValueType,
-        ContextDiceValue Value,
-        double Modifier)
+        ContextDiceValue value,
+        AbilitySharedValue valueType = default,
+        double modifier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ValueType);
-      ValidateParam(Value);
-      
-      var component =  new ContextCalculateSharedValue();
-      component.ValueType = ValueType;
-      component.Value = Value;
-      component.Modifier = Modifier;
+      ValidateParam(value);
+    
+      var component = new ContextCalculateSharedValue();
+      component.ValueType = valueType;
+      component.Value = value;
+      component.Modifier = modifier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1145,23 +1158,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ContextSetAbilityParams))]
     public TBuilder AddContextSetAbilityParams(
-        bool Add10ToDC,
-        ContextValue DC,
-        ContextValue CasterLevel,
-        ContextValue Concentration,
-        ContextValue SpellLevel)
+        ContextValue dC,
+        ContextValue casterLevel,
+        ContextValue concentration,
+        ContextValue spellLevel,
+        bool add10ToDC = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(DC);
-      ValidateParam(CasterLevel);
-      ValidateParam(Concentration);
-      ValidateParam(SpellLevel);
-      
-      var component =  new ContextSetAbilityParams();
-      component.Add10ToDC = Add10ToDC;
-      component.DC = DC;
-      component.CasterLevel = CasterLevel;
-      component.Concentration = Concentration;
-      component.SpellLevel = SpellLevel;
+      ValidateParam(dC);
+      ValidateParam(casterLevel);
+      ValidateParam(concentration);
+      ValidateParam(spellLevel);
+    
+      var component = new ContextSetAbilityParams();
+      component.Add10ToDC = add10ToDC;
+      component.DC = dC;
+      component.CasterLevel = casterLevel;
+      component.Concentration = concentration;
+      component.SpellLevel = spellLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1170,9 +1185,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
-    public TBuilder AddAbilityDifficultyLimitDC()
+    public TBuilder AddAbilityDifficultyLimitDC(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AbilityDifficultyLimitDC());
+      var component = new AbilityDifficultyLimitDC();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1181,19 +1199,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(TacticalMoraleChanceModifier))]
     public TBuilder AddTacticalMoraleChanceModifier(
-        bool m_ChangePositiveMorale,
-        ContextValue m_PositiveMoraleChancePercentDelta,
-        bool m_ChangeNegativeMorale,
-        ContextValue m_NegativeMoraleChancePercentDelta)
+        ContextValue positiveMoraleChancePercentDelta,
+        ContextValue negativeMoraleChancePercentDelta,
+        bool changePositiveMorale = default,
+        bool changeNegativeMorale = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_PositiveMoraleChancePercentDelta);
-      ValidateParam(m_NegativeMoraleChancePercentDelta);
-      
-      var component =  new TacticalMoraleChanceModifier();
-      component.m_ChangePositiveMorale = m_ChangePositiveMorale;
-      component.m_PositiveMoraleChancePercentDelta = m_PositiveMoraleChancePercentDelta;
-      component.m_ChangeNegativeMorale = m_ChangeNegativeMorale;
-      component.m_NegativeMoraleChancePercentDelta = m_NegativeMoraleChancePercentDelta;
+      ValidateParam(positiveMoraleChancePercentDelta);
+      ValidateParam(negativeMoraleChancePercentDelta);
+    
+      var component = new TacticalMoraleChanceModifier();
+      component.m_ChangePositiveMorale = changePositiveMorale;
+      component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta;
+      component.m_ChangeNegativeMorale = changeNegativeMorale;
+      component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1203,12 +1223,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(PureRecommendation))]
     public TBuilder AddPureRecommendation(
-        RecommendationPriority Priority)
+        RecommendationPriority priority = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Priority);
-      
-      var component =  new PureRecommendation();
-      component.Priority = Priority;
+      var component = new PureRecommendation();
+      component.Priority = priority;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1217,9 +1237,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(RecommendationAccomplishedSneakAttacker))]
-    public TBuilder AddRecommendationAccomplishedSneakAttacker()
+    public TBuilder AddRecommendationAccomplishedSneakAttacker(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RecommendationAccomplishedSneakAttacker());
+      var component = new RecommendationAccomplishedSneakAttacker();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1228,13 +1251,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationBaseAttackPart))]
     public TBuilder AddRecommendationBaseAttackPart(
-        float MinPart,
-        bool NotRecommendIfHigher)
+        float minPart = default,
+        bool notRecommendIfHigher = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RecommendationBaseAttackPart();
-      component.MinPart = MinPart;
-      component.NotRecommendIfHigher = NotRecommendIfHigher;
+      var component = new RecommendationBaseAttackPart();
+      component.MinPart = minPart;
+      component.NotRecommendIfHigher = notRecommendIfHigher;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1242,15 +1266,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationCompanionBoon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CompanionRank"><see cref="BlueprintFeature"/></param>
+    /// <param name="companionRank"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(RecommendationCompanionBoon))]
     public TBuilder AddRecommendationCompanionBoon(
-        string m_CompanionRank)
+        string companionRank = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RecommendationCompanionBoon();
-      component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(m_CompanionRank);
+      var component = new RecommendationCompanionBoon();
+      component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(companionRank);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1258,17 +1283,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationHasFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationHasFeature))]
     public TBuilder AddRecommendationHasFeature(
-        string m_Feature,
-        bool Mandatory)
+        string feature = null,
+        bool mandatory = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RecommendationHasFeature();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Feature);
-      component.Mandatory = Mandatory;
+      var component = new RecommendationHasFeature();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
+      component.Mandatory = mandatory;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1276,17 +1302,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationNoFeatFromGroup"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Features"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationNoFeatFromGroup))]
     public TBuilder AddRecommendationNoFeatFromGroup(
-        string[] m_Features,
-        bool GoodIfNoFeature)
+        string[] features = null,
+        bool goodIfNoFeature = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RecommendationNoFeatFromGroup();
-      component.m_Features = m_Features.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.GoodIfNoFeature = GoodIfNoFeature;
+      var component = new RecommendationNoFeatFromGroup();
+      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.GoodIfNoFeature = goodIfNoFeature;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1295,9 +1322,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(RecommendationRequiresSpellbook))]
-    public TBuilder AddRecommendationRequiresSpellbook()
+    public TBuilder AddRecommendationRequiresSpellbook(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RecommendationRequiresSpellbook());
+      var component = new RecommendationRequiresSpellbook();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1306,15 +1336,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationRequiresSpellbookSource))]
     public TBuilder AddRecommendationRequiresSpellbookSource(
-        bool Arcane,
-        bool Divine,
-        bool Alchemist)
+        bool arcane = default,
+        bool divine = default,
+        bool alchemist = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RecommendationRequiresSpellbookSource();
-      component.Arcane = Arcane;
-      component.Divine = Divine;
-      component.Alchemist = Alchemist;
+      var component = new RecommendationRequiresSpellbookSource();
+      component.Arcane = arcane;
+      component.Divine = divine;
+      component.Alchemist = alchemist;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1324,17 +1355,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationStatComparison))]
     public TBuilder AddRecommendationStatComparison(
-        StatType HigherStat,
-        StatType LowerStat,
-        int Diff)
+        StatType higherStat = default,
+        StatType lowerStat = default,
+        int diff = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(HigherStat);
-      ValidateParam(LowerStat);
-      
-      var component =  new RecommendationStatComparison();
-      component.HigherStat = HigherStat;
-      component.LowerStat = LowerStat;
-      component.Diff = Diff;
+      var component = new RecommendationStatComparison();
+      component.HigherStat = higherStat;
+      component.LowerStat = lowerStat;
+      component.Diff = diff;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1344,16 +1374,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationStatMiminum))]
     public TBuilder AddRecommendationStatMiminum(
-        StatType Stat,
-        int MinimalValue,
-        bool GoodIfHigher)
+        StatType stat = default,
+        int minimalValue = default,
+        bool goodIfHigher = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new RecommendationStatMiminum();
-      component.Stat = Stat;
-      component.MinimalValue = MinimalValue;
-      component.GoodIfHigher = GoodIfHigher;
+      var component = new RecommendationStatMiminum();
+      component.Stat = stat;
+      component.MinimalValue = minimalValue;
+      component.GoodIfHigher = goodIfHigher;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1363,16 +1393,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationWeaponSubcategoryFocus))]
     public TBuilder AddRecommendationWeaponSubcategoryFocus(
-        WeaponSubCategory Subcategory,
-        bool HasFocus,
-        bool BadIfNoFocus)
+        WeaponSubCategory subcategory = default,
+        bool hasFocus = default,
+        bool badIfNoFocus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Subcategory);
-      
-      var component =  new RecommendationWeaponSubcategoryFocus();
-      component.Subcategory = Subcategory;
-      component.HasFocus = HasFocus;
-      component.BadIfNoFocus = BadIfNoFocus;
+      var component = new RecommendationWeaponSubcategoryFocus();
+      component.Subcategory = subcategory;
+      component.HasFocus = hasFocus;
+      component.BadIfNoFocus = badIfNoFocus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1382,14 +1412,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationWeaponTypeFocus))]
     public TBuilder AddRecommendationWeaponTypeFocus(
-        WeaponRangeType WeaponRangeType,
-        bool HasFocus)
+        WeaponRangeType weaponRangeType = default,
+        bool hasFocus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponRangeType);
-      
-      var component =  new RecommendationWeaponTypeFocus();
-      component.WeaponRangeType = WeaponRangeType;
-      component.HasFocus = HasFocus;
+      var component = new RecommendationWeaponTypeFocus();
+      component.WeaponRangeType = weaponRangeType;
+      component.HasFocus = hasFocus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1399,14 +1429,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(StatRecommendationChange))]
     public TBuilder AddStatRecommendationChange(
-        StatType Stat,
-        bool Recommended)
+        StatType stat = default,
+        bool recommended = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new StatRecommendationChange();
-      component.Stat = Stat;
-      component.Recommended = Recommended;
+      var component = new StatRecommendationChange();
+      component.Stat = stat;
+      component.Recommended = recommended;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1416,21 +1446,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(PrerequisiteFullStatValue))]
     public TBuilder AddPrerequisiteFullStatValue(
-        StatType Stat,
-        int Value,
-        Prerequisite.GroupType Group,
-        bool CheckInProgression,
-        bool HideInUI)
+        StatType stat = default,
+        int value = default,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Group);
-      
-      var component =  new PrerequisiteFullStatValue();
-      component.Stat = Stat;
-      component.Value = Value;
-      component.Group = Group;
-      component.CheckInProgression = CheckInProgression;
-      component.HideInUI = HideInUI;
+      var component = new PrerequisiteFullStatValue();
+      component.Stat = stat;
+      component.Value = value;
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1438,17 +1467,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellbookFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookFeature))]
-    public TBuilder AddAddSpellbookFeature(
-        string m_Spellbook,
-        int CasterLevel)
+    public TBuilder AddSpellbookFeature(
+        string spellbook = null,
+        int casterLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSpellbookFeature();
-      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
-      component.CasterLevel = CasterLevel;
+      var component = new AddSpellbookFeature();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
+      component.CasterLevel = casterLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1456,15 +1486,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellbookLevel"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookLevel))]
-    public TBuilder AddAddSpellbookLevel(
-        string m_Spellbook)
+    public TBuilder AddSpellbookLevel(
+        string spellbook = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSpellbookLevel();
-      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
+      var component = new AddSpellbookLevel();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1473,14 +1504,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(AddSpellsPerDay))]
-    public TBuilder AddAddSpellsPerDay(
-        int Amount,
-        int[] Levels)
+    public TBuilder AddSpellsPerDay(
+        int amount = default,
+        int[] levels = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSpellsPerDay();
-      component.Amount = Amount;
-      component.Levels = Levels;
+      var component = new AddSpellsPerDay();
+      component.Amount = amount;
+      component.Levels = levels;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1489,30 +1521,34 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(ArmorSpeedPenaltyRemoval))]
-    public TBuilder AddArmorSpeedPenaltyRemoval()
+    public TBuilder AddArmorSpeedPenaltyRemoval(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ArmorSpeedPenaltyRemoval());
+      var component = new ArmorSpeedPenaltyRemoval();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="BuffExtraEffects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="m_ExtraEffectBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="m_ExceptionFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="extraEffectBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="exceptionFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(BuffExtraEffects))]
     public TBuilder AddBuffExtraEffects(
-        string m_CheckedBuff,
-        string m_ExtraEffectBuff,
-        string m_ExceptionFact)
+        string checkedBuff = null,
+        string extraEffectBuff = null,
+        string exceptionFact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BuffExtraEffects();
-      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_CheckedBuff);
-      component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_ExtraEffectBuff);
-      component.m_ExceptionFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_ExceptionFact);
+      var component = new BuffExtraEffects();
+      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
+      component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(extraEffectBuff);
+      component.m_ExceptionFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(exceptionFact);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1521,9 +1557,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(HarmoniousMage))]
-    public TBuilder AddHarmoniousMage()
+    public TBuilder AddHarmoniousMage(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new HarmoniousMage());
+      var component = new HarmoniousMage();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1532,11 +1571,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(SavesFixerRecalculate))]
     public TBuilder AddSavesFixerRecalculate(
-        int Version)
+        int version = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SavesFixerRecalculate();
-      component.Version = Version;
+      var component = new SavesFixerRecalculate();
+      component.Version = version;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 

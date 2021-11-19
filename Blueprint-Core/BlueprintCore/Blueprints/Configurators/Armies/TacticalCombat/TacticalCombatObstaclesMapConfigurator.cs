@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
-  /// <summary>Configurator for <see cref="BlueprintTacticalCombatObstaclesMap"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTacticalCombatObstaclesMap"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTacticalCombatObstaclesMap))]
   public class TacticalCombatObstaclesMapConfigurator : BaseBlueprintConfigurator<BlueprintTacticalCombatObstaclesMap, TacticalCombatObstaclesMapConfigurator>
   {
-     private TacticalCombatObstaclesMapConfigurator(string name) : base(name) { }
+    private TacticalCombatObstaclesMapConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TacticalCombatObstaclesMapConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TacticalCombatObstaclesMapConfigurator New(string name, string assetId)
+    public static TacticalCombatObstaclesMapConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTacticalCombatObstaclesMap>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
+    /// Sets <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatObstaclesMapConfigurator AddToObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] values)
+    public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Obstacles = CommonTool.Append(bp.Obstacles, values));
+      ValidateParam(obstacles);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Obstacles = obstacles;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatObstaclesMapConfigurator RemoveFromObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] values)
+    public TacticalCombatObstaclesMapConfigurator AddToObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Obstacles = bp.Obstacles.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(obstacles);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Obstacles = CommonTool.Append(bp.Obstacles, obstacles ?? new BlueprintTacticalCombatObstaclesMap.MapObstacle[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatObstaclesMapConfigurator RemoveFromObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
+    {
+      ValidateParam(obstacles);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Obstacles = bp.Obstacles.Where(item => !obstacles.Contains(item)).ToArray();
+          });
     }
   }
 }

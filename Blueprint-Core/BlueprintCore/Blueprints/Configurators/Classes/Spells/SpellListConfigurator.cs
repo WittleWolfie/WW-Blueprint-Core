@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
-  /// <summary>Configurator for <see cref="BlueprintSpellList"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintSpellList"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintSpellList))]
   public class SpellListConfigurator : BaseBlueprintConfigurator<BlueprintSpellList, SpellListConfigurator>
   {
-     private SpellListConfigurator(string name) : base(name) { }
+    private SpellListConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SpellListConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SpellListConfigurator New(string name, string assetId)
+    public static SpellListConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintSpellList>(name, assetId);
       return For(name);
@@ -36,121 +39,175 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellList.IsMythic"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetIsMythic(bool value)
+    public SpellListConfigurator SetIsMythic(bool isMythic)
     {
-      return OnConfigureInternal(bp => bp.IsMythic = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsMythic = isMythic;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
+    /// Sets <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator AddToSpellsByLevel(params SpellLevelList[] values)
+    public SpellListConfigurator SetSpellsByLevel(SpellLevelList[] spellsByLevel)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpellsByLevel = CommonTool.Append(bp.SpellsByLevel, values));
+      ValidateParam(spellsByLevel);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellsByLevel = spellsByLevel;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator RemoveFromSpellsByLevel(params SpellLevelList[] values)
+    public SpellListConfigurator AddToSpellsByLevel(params SpellLevelList[] spellsByLevel)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpellsByLevel = bp.SpellsByLevel.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(spellsByLevel);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellsByLevel = CommonTool.Append(bp.SpellsByLevel, spellsByLevel ?? new SpellLevelList[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpellListConfigurator RemoveFromSpellsByLevel(params SpellLevelList[] spellsByLevel)
+    {
+      ValidateParam(spellsByLevel);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellsByLevel = bp.SpellsByLevel.Where(item => !spellsByLevel.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.m_FilteredList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    /// <param name="filteredList"><see cref="BlueprintSpellList"/></param>
     [Generated]
-    public SpellListConfigurator SetFilteredList(string value)
+    public SpellListConfigurator SetFilteredList(string filteredList)
     {
-      return OnConfigureInternal(bp => bp.m_FilteredList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FilteredList = BlueprintTool.GetRef<BlueprintSpellListReference>(filteredList);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.FilterByMaxLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetFilterByMaxLevel(int value)
+    public SpellListConfigurator SetFilterByMaxLevel(int filterByMaxLevel)
     {
-      return OnConfigureInternal(bp => bp.FilterByMaxLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FilterByMaxLevel = filterByMaxLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.FilterByDescriptor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetFilterByDescriptor(bool value)
+    public SpellListConfigurator SetFilterByDescriptor(bool filterByDescriptor)
     {
-      return OnConfigureInternal(bp => bp.FilterByDescriptor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FilterByDescriptor = filterByDescriptor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.Descriptor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetDescriptor(SpellDescriptorWrapper value)
+    public SpellListConfigurator SetDescriptor(SpellDescriptorWrapper descriptor)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Descriptor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Descriptor = descriptor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.FilterBySchool"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetFilterBySchool(bool value)
+    public SpellListConfigurator SetFilterBySchool(bool filterBySchool)
     {
-      return OnConfigureInternal(bp => bp.FilterBySchool = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FilterBySchool = filterBySchool;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.ExcludeFilterSchool"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetExcludeFilterSchool(bool value)
+    public SpellListConfigurator SetExcludeFilterSchool(bool excludeFilterSchool)
     {
-      return OnConfigureInternal(bp => bp.ExcludeFilterSchool = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExcludeFilterSchool = excludeFilterSchool;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.FilterSchool"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetFilterSchool(SpellSchool value)
+    public SpellListConfigurator SetFilterSchool(SpellSchool filterSchool)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FilterSchool = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FilterSchool = filterSchool;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.FilterSchool2"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetFilterSchool2(SpellSchool value)
+    public SpellListConfigurator SetFilterSchool2(SpellSchool filterSchool2)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FilterSchool2 = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FilterSchool2 = filterSchool2;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpellList.m_MaxLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetMaxLevel(int value)
+    public SpellListConfigurator SetMaxLevel(int maxLevel)
     {
-      return OnConfigureInternal(bp => bp.m_MaxLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaxLevel = maxLevel;
+          });
     }
   }
 }

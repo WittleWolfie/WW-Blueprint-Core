@@ -1,10 +1,11 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
@@ -17,132 +18,193 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       where T : BlueprintAiAction
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseAiActionConfigurator(string name) : base(name) { }
+    protected BaseAiActionConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.AdditionalBehaviour"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAdditionalBehaviour(bool value)
+    public TBuilder SetAdditionalBehaviour(bool additionalBehaviour)
     {
-      return OnConfigureInternal(bp => bp.AdditionalBehaviour = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AdditionalBehaviour = additionalBehaviour;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.MinDifficulty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMinDifficulty(GameDifficultyOption value)
+    public TBuilder SetMinDifficulty(GameDifficultyOption minDifficulty)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MinDifficulty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinDifficulty = minDifficulty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.InvertDifficultyRequirements"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetInvertDifficultyRequirements(bool value)
+    public TBuilder SetInvertDifficultyRequirements(bool invertDifficultyRequirements)
     {
-      return OnConfigureInternal(bp => bp.InvertDifficultyRequirements = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.InvertDifficultyRequirements = invertDifficultyRequirements;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.OncePerRound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetOncePerRound(bool value)
+    public TBuilder SetOncePerRound(bool oncePerRound)
     {
-      return OnConfigureInternal(bp => bp.OncePerRound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OncePerRound = oncePerRound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CooldownRounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCooldownRounds(int value)
+    public TBuilder SetCooldownRounds(int cooldownRounds)
     {
-      return OnConfigureInternal(bp => bp.CooldownRounds = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CooldownRounds = cooldownRounds;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CooldownDice"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCooldownDice(DiceFormula value)
+    public TBuilder SetCooldownDice(DiceFormula cooldownDice)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CooldownDice = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CooldownDice = cooldownDice;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.StartCooldownRounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetStartCooldownRounds(int value)
+    public TBuilder SetStartCooldownRounds(int startCooldownRounds)
     {
-      return OnConfigureInternal(bp => bp.StartCooldownRounds = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StartCooldownRounds = startCooldownRounds;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CombatCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCombatCount(int value)
+    public TBuilder SetCombatCount(int combatCount)
     {
-      return OnConfigureInternal(bp => bp.CombatCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CombatCount = combatCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.UseWhenAIDisabled"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetUseWhenAIDisabled(bool value)
+    public TBuilder SetUseWhenAIDisabled(bool useWhenAIDisabled)
     {
-      return OnConfigureInternal(bp => bp.UseWhenAIDisabled = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseWhenAIDisabled = useWhenAIDisabled;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.UseOnLimitedAI"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetUseOnLimitedAI(bool value)
+    public TBuilder SetUseOnLimitedAI(bool useOnLimitedAI)
     {
-      return OnConfigureInternal(bp => bp.UseOnLimitedAI = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseOnLimitedAI = useOnLimitedAI;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.BaseScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetBaseScore(float value)
-    {
-      return OnConfigureInternal(bp => bp.BaseScore = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="Consideration"/></param>
-    [Generated]
-    public TBuilder AddToActorConsiderations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_ActorConsiderations = CommonTool.Append(bp.m_ActorConsiderations, values.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="Consideration"/></param>
-    [Generated]
-    public TBuilder RemoveFromActorConsiderations(params string[] values)
+    public TBuilder SetBaseScore(float baseScore)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name));
+            bp.BaseScore = baseScore;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    [Generated]
+    public TBuilder SetActorConsiderations(string[] actorConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActorConsiderations = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    [Generated]
+    public TBuilder AddToActorConsiderations(params string[] actorConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActorConsiderations = CommonTool.Append(bp.m_ActorConsiderations, actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    [Generated]
+    public TBuilder RemoveFromActorConsiderations(params string[] actorConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name));
             bp.m_ActorConsiderations =
                 bp.m_ActorConsiderations
                     .Where(
@@ -152,28 +214,47 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="Consideration"/></param>
+    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
     [Generated]
-    public TBuilder AddToTargetConsiderations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_TargetConsiderations = CommonTool.Append(bp.m_TargetConsiderations, values.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="Consideration"/></param>
-    [Generated]
-    public TBuilder RemoveFromTargetConsiderations(params string[] values)
+    public TBuilder SetTargetConsiderations(string[] targetConsiderations)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name));
+            bp.m_TargetConsiderations = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
+    [Generated]
+    public TBuilder AddToTargetConsiderations(params string[] targetConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TargetConsiderations = CommonTool.Append(bp.m_TargetConsiderations, targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
+    [Generated]
+    public TBuilder RemoveFromTargetConsiderations(params string[] targetConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationReference>(name));
             bp.m_TargetConsiderations =
                 bp.m_TargetConsiderations
                     .Where(

@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -19,16 +18,19 @@ using Kingmaker.Sound;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
-  /// <summary>Configurator for <see cref="BlueprintEtude"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintEtude"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintEtude))]
   public class EtudeConfigurator : BaseFactConfigurator<BlueprintEtude, EtudeConfigurator>
   {
-     private EtudeConfigurator(string name) : base(name) { }
+    private EtudeConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static EtudeConfigurator For(string name)
@@ -44,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static EtudeConfigurator New(string name, string assetId)
+    public static EtudeConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintEtude>(name, assetId);
       return For(name);
@@ -54,54 +56,85 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Sets <see cref="BlueprintEtude.m_Parent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintEtude"/></param>
+    /// <param name="parent"><see cref="BlueprintEtude"/></param>
     [Generated]
-    public EtudeConfigurator SetParent(string value)
+    public EtudeConfigurator SetParent(string parent)
     {
-      return OnConfigureInternal(bp => bp.m_Parent = BlueprintTool.GetRef<BlueprintEtudeReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Parent = BlueprintTool.GetRef<BlueprintEtudeReference>(parent);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEtude.ActivationCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetActivationCondition(ConditionsBuilder value)
+    public EtudeConfigurator SetActivationCondition(ConditionsBuilder activationCondition)
     {
-      return OnConfigureInternal(bp => bp.ActivationCondition = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ActivationCondition = activationCondition?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEtude.CompletionCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetCompletionCondition(ConditionsBuilder value)
-    {
-      return OnConfigureInternal(bp => bp.CompletionCondition = value.Build());
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
-    [Generated]
-    public EtudeConfigurator AddToSynchronized(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Synchronized.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
-    [Generated]
-    public EtudeConfigurator RemoveFromSynchronized(params string[] values)
+    public EtudeConfigurator SetCompletionCondition(ConditionsBuilder completionCondition)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.CompletionCondition = completionCondition?.Build() ?? Constants.Empty.Conditions;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="synchronized"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator SetSynchronized(string[] synchronized)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Synchronized = synchronized.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="synchronized"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToSynchronized(params string[] synchronized)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Synchronized.AddRange(synchronized.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_Synchronized"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="synchronized"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromSynchronized(params string[] synchronized)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = synchronized.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
             bp.m_Synchronized =
                 bp.m_Synchronized
                     .Where(
@@ -114,54 +147,85 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Sets <see cref="BlueprintEtude.m_AllowActionStart"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetAllowActionStart(bool value)
+    public EtudeConfigurator SetAllowActionStart(bool allowActionStart)
     {
-      return OnConfigureInternal(bp => bp.m_AllowActionStart = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AllowActionStart = allowActionStart;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_LinkedAreaPart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="linkedAreaPart"><see cref="BlueprintAreaPart"/></param>
     [Generated]
-    public EtudeConfigurator SetLinkedAreaPart(string value)
+    public EtudeConfigurator SetLinkedAreaPart(string linkedAreaPart)
     {
-      return OnConfigureInternal(bp => bp.m_LinkedAreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LinkedAreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(linkedAreaPart);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_IncludeAreaParts"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetIncludeAreaParts(bool value)
-    {
-      return OnConfigureInternal(bp => bp.m_IncludeAreaParts = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaMechanics"/></param>
-    [Generated]
-    public EtudeConfigurator AddToAddedAreaMechanics(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_AddedAreaMechanics.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaMechanics"/></param>
-    [Generated]
-    public EtudeConfigurator RemoveFromAddedAreaMechanics(params string[] values)
+    public EtudeConfigurator SetIncludeAreaParts(bool includeAreaParts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name));
+            bp.m_IncludeAreaParts = includeAreaParts;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addedAreaMechanics"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    public EtudeConfigurator SetAddedAreaMechanics(string[] addedAreaMechanics)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AddedAreaMechanics = addedAreaMechanics.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addedAreaMechanics"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    public EtudeConfigurator AddToAddedAreaMechanics(params string[] addedAreaMechanics)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AddedAreaMechanics.AddRange(addedAreaMechanics.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_AddedAreaMechanics"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addedAreaMechanics"><see cref="BlueprintAreaMechanics"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromAddedAreaMechanics(params string[] addedAreaMechanics)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = addedAreaMechanics.Select(name => BlueprintTool.GetRef<BlueprintAreaMechanicsReference>(name));
             bp.m_AddedAreaMechanics =
                 bp.m_AddedAreaMechanics
                     .Where(
@@ -171,28 +235,47 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
+    /// Sets <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    /// <param name="startsWith"><see cref="BlueprintEtude"/></param>
     [Generated]
-    public EtudeConfigurator AddToStartsWith(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_StartsWith.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
-    [Generated]
-    public EtudeConfigurator RemoveFromStartsWith(params string[] values)
+    public EtudeConfigurator SetStartsWith(string[] startsWith)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.m_StartsWith = startsWith.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="startsWith"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToStartsWith(params string[] startsWith)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StartsWith.AddRange(startsWith.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_StartsWith"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="startsWith"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromStartsWith(params string[] startsWith)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = startsWith.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
             bp.m_StartsWith =
                 bp.m_StartsWith
                     .Where(
@@ -202,28 +285,47 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
+    /// Sets <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
+    /// <param name="startsOnComplete"><see cref="BlueprintEtude"/></param>
     [Generated]
-    public EtudeConfigurator AddToStartsOnComplete(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_StartsOnComplete.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtude"/></param>
-    [Generated]
-    public EtudeConfigurator RemoveFromStartsOnComplete(params string[] values)
+    public EtudeConfigurator SetStartsOnComplete(string[] startsOnComplete)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
+            bp.m_StartsOnComplete = startsOnComplete.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="startsOnComplete"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator AddToStartsOnComplete(params string[] startsOnComplete)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StartsOnComplete.AddRange(startsOnComplete.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_StartsOnComplete"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="startsOnComplete"><see cref="BlueprintEtude"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromStartsOnComplete(params string[] startsOnComplete)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = startsOnComplete.Select(name => BlueprintTool.GetRef<BlueprintEtudeReference>(name));
             bp.m_StartsOnComplete =
                 bp.m_StartsOnComplete
                     .Where(
@@ -236,43 +338,70 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Sets <see cref="BlueprintEtude.m_StartsParent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetStartsParent(bool value)
+    public EtudeConfigurator SetStartsParent(bool startsParent)
     {
-      return OnConfigureInternal(bp => bp.m_StartsParent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StartsParent = startsParent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_CompletesParent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetCompletesParent(bool value)
-    {
-      return OnConfigureInternal(bp => bp.m_CompletesParent = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtudeConflictingGroup"/></param>
-    [Generated]
-    public EtudeConfigurator AddToConflictingGroups(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_ConflictingGroups.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEtudeConflictingGroup"/></param>
-    [Generated]
-    public EtudeConfigurator RemoveFromConflictingGroups(params string[] values)
+    public EtudeConfigurator SetCompletesParent(bool completesParent)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name));
+            bp.m_CompletesParent = completesParent;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="conflictingGroups"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    [Generated]
+    public EtudeConfigurator SetConflictingGroups(string[] conflictingGroups)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ConflictingGroups = conflictingGroups.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="conflictingGroups"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    [Generated]
+    public EtudeConfigurator AddToConflictingGroups(params string[] conflictingGroups)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ConflictingGroups.AddRange(conflictingGroups.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_ConflictingGroups"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="conflictingGroups"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromConflictingGroups(params string[] conflictingGroups)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = conflictingGroups.Select(name => BlueprintTool.GetRef<BlueprintEtudeConflictingGroupReference>(name));
             bp.m_ConflictingGroups =
                 bp.m_ConflictingGroups
                     .Where(
@@ -285,24 +414,29 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Sets <see cref="BlueprintEtude.Priority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EtudeConfigurator SetPriority(int value)
+    public EtudeConfigurator SetPriority(int priority)
     {
-      return OnConfigureInternal(bp => bp.Priority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Priority = priority;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Tutorial"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorial"><see cref="BlueprintTutorial"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableTutorialSingle))]
     public EtudeConfigurator AddEtudeBracketEnableTutorialSingle(
-        string m_Tutorial)
+        string tutorial = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableTutorialSingle();
-      component.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
+      var component = new EtudeBracketEnableTutorialSingle();
+      component.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(tutorial);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -310,15 +444,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketEnableTutorials"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Tutorials"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorials"><see cref="BlueprintTutorial"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableTutorials))]
     public EtudeConfigurator AddEtudeBracketEnableTutorials(
-        string[] m_Tutorials)
+        string[] tutorials = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableTutorials();
-      component.m_Tutorials = m_Tutorials.Select(bp => BlueprintTool.GetRef<BlueprintTutorial.Reference>(bp)).ToArray();
+      var component = new EtudeBracketEnableTutorials();
+      component.m_Tutorials = tutorials.Select(name => BlueprintTool.GetRef<BlueprintTutorial.Reference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -328,11 +463,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeCorruptionFreeZone))]
     public EtudeConfigurator AddEtudeCorruptionFreeZone(
-        bool m_ClearAllCorruption)
+        bool clearAllCorruption = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeCorruptionFreeZone();
-      component.m_ClearAllCorruption = m_ClearAllCorruption;
+      var component = new EtudeCorruptionFreeZone();
+      component.m_ClearAllCorruption = clearAllCorruption;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -341,9 +477,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeDisableCooking))]
-    public EtudeConfigurator AddEtudeDisableCooking()
+    public EtudeConfigurator AddEtudeDisableCooking(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeDisableCooking());
+      var component = new EtudeDisableCooking();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -351,9 +490,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeDisableCraft))]
-    public EtudeConfigurator AddEtudeDisableCraft()
+    public EtudeConfigurator AddEtudeDisableCraft(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeDisableCraft());
+      var component = new EtudeDisableCraft();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -362,11 +504,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeOverrideCorruptionGrowth))]
     public EtudeConfigurator AddEtudeOverrideCorruptionGrowth(
-        int m_CorruptionGrowth)
+        int corruptionGrowth = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeOverrideCorruptionGrowth();
-      component.m_CorruptionGrowth = m_CorruptionGrowth;
+      var component = new EtudeOverrideCorruptionGrowth();
+      component.m_CorruptionGrowth = corruptionGrowth;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -376,13 +519,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public EtudeConfigurator AddBirthdayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BirthdayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new BirthdayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -392,15 +538,18 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public EtudeConfigurator AddEveryDayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipDays)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipDays = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryDayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipDays = SkipDays;
+      ValidateParam(actions);
+    
+      var component = new EveryDayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipDays = skipDays;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -410,15 +559,18 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public EtudeConfigurator AddEveryWeekTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipWeeks)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipWeeks = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryWeekTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipWeeks = SkipWeeks;
+      ValidateParam(actions);
+    
+      var component = new EveryWeekTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipWeeks = skipWeeks;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -428,11 +580,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeCompleteTrigger))]
     public EtudeConfigurator AddEtudeCompleteTrigger(
-        ActionsBuilder Actions)
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeCompleteTrigger();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new EtudeCompleteTrigger();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -442,13 +597,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeInvokeActionsDelayed))]
     public EtudeConfigurator AddEtudeInvokeActionsDelayed(
-        int m_Days,
-        ActionsBuilder m_ActionList)
+        ActionList actionList,
+        int days = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeInvokeActionsDelayed();
-      component.m_Days = m_Days;
-      component.m_ActionList = m_ActionList.Build();
+      ValidateParam(actionList);
+    
+      var component = new EtudeInvokeActionsDelayed();
+      component.m_Days = days;
+      component.m_ActionList = actionList;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -458,15 +616,18 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudePlayTrigger))]
     public EtudeConfigurator AddEtudePlayTrigger(
-        bool m_Once,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        bool once = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudePlayTrigger();
-      component.m_Once = m_Once;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new EtudePlayTrigger();
+      component.m_Once = once;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -475,9 +636,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(DisableMountRiding))]
-    public EtudeConfigurator AddDisableMountRiding()
+    public EtudeConfigurator AddDisableMountRiding(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new DisableMountRiding());
+      var component = new DisableMountRiding();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -486,21 +650,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketAudioEvents))]
     public EtudeConfigurator AddEtudeBracketAudioEvents(
-        AkEventReference[] OnEtudeStart,
-        AkEventReference[] OnEtudeStop)
+        AkEventReference[] onEtudeStart = null,
+        AkEventReference[] onEtudeStop = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in OnEtudeStart)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in OnEtudeStop)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EtudeBracketAudioEvents();
-      component.OnEtudeStart = OnEtudeStart;
-      component.OnEtudeStop = OnEtudeStop;
+      ValidateParam(onEtudeStart);
+      ValidateParam(onEtudeStop);
+    
+      var component = new EtudeBracketAudioEvents();
+      component.OnEtudeStart = onEtudeStart;
+      component.OnEtudeStop = onEtudeStop;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -510,12 +670,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketAudioObjects))]
     public EtudeConfigurator AddEtudeBracketAudioObjects(
-        string ConnectedObjectName)
+        string connectedObjectName,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ConnectedObjectName);
-      
-      var component =  new EtudeBracketAudioObjects();
-      component.ConnectedObjectName = ConnectedObjectName;
+      var component = new EtudeBracketAudioObjects();
+      component.ConnectedObjectName = connectedObjectName;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -525,13 +685,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketCampingAction))]
     public EtudeConfigurator AddEtudeBracketCampingAction(
-        ActionsBuilder Actions,
-        bool SkipRest)
+        ActionList actions,
+        bool skipRest = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketCampingAction();
-      component.Actions = Actions.Build();
-      component.SkipRest = SkipRest;
+      ValidateParam(actions);
+    
+      var component = new EtudeBracketCampingAction();
+      component.Actions = actions;
+      component.SkipRest = skipRest;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -541,15 +704,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketDetachPet))]
     public EtudeConfigurator AddEtudeBracketDetachPet(
-        UnitEvaluator Master,
-        PetType PetType)
+        UnitEvaluator master,
+        PetType petType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Master);
-      ValidateParam(PetType);
-      
-      var component =  new EtudeBracketDetachPet();
-      component.Master = Master;
-      component.PetType = PetType;
+      ValidateParam(master);
+    
+      var component = new EtudeBracketDetachPet();
+      component.Master = master;
+      component.PetType = petType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -558,9 +722,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketDisablePlayerRespec))]
-    public EtudeConfigurator AddEtudeBracketDisablePlayerRespec()
+    public EtudeConfigurator AddEtudeBracketDisablePlayerRespec(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketDisablePlayerRespec());
+      var component = new EtudeBracketDisablePlayerRespec();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -568,27 +735,31 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketDisableRandomEncounters))]
-    public EtudeConfigurator AddEtudeBracketDisableRandomEncounters()
+    public EtudeConfigurator AddEtudeBracketDisableRandomEncounters(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketDisableRandomEncounters());
+      var component = new EtudeBracketDisableRandomEncounters();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableAzataIsland"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
-    /// <param name="m_GlobalMapSpell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMapSpell"><see cref="BlueprintGlobalMagicSpell"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableAzataIsland))]
     public EtudeConfigurator AddEtudeBracketEnableAzataIsland(
-        string m_GlobalMap,
-        string m_GlobalMapSpell)
+        string globalMap = null,
+        string globalMapSpell = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableAzataIsland();
-      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
-      component.m_GlobalMapSpell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(m_GlobalMapSpell);
+      var component = new EtudeBracketEnableAzataIsland();
+      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+      component.m_GlobalMapSpell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(globalMapSpell);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -596,15 +767,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketEnableWarcamp"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableWarcamp))]
     public EtudeConfigurator AddEtudeBracketEnableWarcamp(
-        string m_GlobalMap)
+        string globalMap = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableWarcamp();
-      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      var component = new EtudeBracketEnableWarcamp();
+      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -612,27 +784,29 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketFollowUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketFollowUnit))]
     public EtudeConfigurator AddEtudeBracketFollowUnit(
-        UnitEvaluator Leader,
-        bool UseSummonPool,
-        UnitEvaluator Unit,
-        string SummonPool,
-        bool AlwaysRun,
-        bool CanBeSlowerThanLeader)
+        UnitEvaluator leader,
+        UnitEvaluator unit,
+        bool useSummonPool = default,
+        string summonPool = null,
+        bool alwaysRun = default,
+        bool canBeSlowerThanLeader = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Leader);
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketFollowUnit();
-      component.Leader = Leader;
-      component.UseSummonPool = UseSummonPool;
-      component.Unit = Unit;
-      component.SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(SummonPool);
-      component.AlwaysRun = AlwaysRun;
-      component.CanBeSlowerThanLeader = CanBeSlowerThanLeader;
+      ValidateParam(leader);
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketFollowUnit();
+      component.Leader = leader;
+      component.UseSummonPool = useSummonPool;
+      component.Unit = unit;
+      component.SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.AlwaysRun = alwaysRun;
+      component.CanBeSlowerThanLeader = canBeSlowerThanLeader;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -641,9 +815,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketForceCombatMode))]
-    public EtudeConfigurator AddEtudeBracketForceCombatMode()
+    public EtudeConfigurator AddEtudeBracketForceCombatMode(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketForceCombatMode());
+      var component = new EtudeBracketForceCombatMode();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -652,14 +829,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketIgnoreGameover))]
     public EtudeConfigurator AddEtudeBracketIgnoreGameover(
-        ActionsBuilder ActionList,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        ActionList actionList,
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketIgnoreGameover();
-      component.ActionList = ActionList.Build();
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(actionList);
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketIgnoreGameover();
+      component.ActionList = actionList;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -669,12 +849,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketMakePassive))]
     public EtudeConfigurator AddEtudeBracketMakePassive(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketMakePassive();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketMakePassive();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -684,12 +866,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketMarkUnitEssential))]
     public EtudeConfigurator AddEtudeBracketMarkUnitEssential(
-        UnitEvaluator Target)
+        UnitEvaluator target,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Target);
-      
-      var component =  new EtudeBracketMarkUnitEssential();
-      component.Target = Target;
+      ValidateParam(target);
+    
+      var component = new EtudeBracketMarkUnitEssential();
+      component.Target = target;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -699,15 +883,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketMusic))]
     public EtudeConfigurator AddEtudeBracketMusic(
-        AkEventReference StartTheme,
-        AkEventReference StopTheme)
+        AkEventReference startTheme,
+        AkEventReference stopTheme,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StartTheme);
-      ValidateParam(StopTheme);
-      
-      var component =  new EtudeBracketMusic();
-      component.StartTheme = StartTheme;
-      component.StopTheme = StopTheme;
+      ValidateParam(startTheme);
+      ValidateParam(stopTheme);
+    
+      var component = new EtudeBracketMusic();
+      component.StartTheme = startTheme;
+      component.StopTheme = stopTheme;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -717,16 +903,19 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketOverrideActionsOnClick))]
     public EtudeConfigurator AddEtudeBracketOverrideActionsOnClick(
-        UnitEvaluator Unit,
-        ActionsBuilder Actions,
-        float m_Distance)
+        UnitEvaluator unit,
+        ActionList actions,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketOverrideActionsOnClick();
-      component.Unit = Unit;
-      component.Actions = Actions.Build();
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new EtudeBracketOverrideActionsOnClick();
+      component.Unit = unit;
+      component.Actions = actions;
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -736,19 +925,21 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketOverrideBark))]
     public EtudeConfigurator AddEtudeBracketOverrideBark(
-        UnitEvaluator Unit,
-        SharedStringAsset WhatToBarkShared,
-        bool BarkDurationByText,
-        float m_Distance)
+        UnitEvaluator unit,
+        SharedStringAsset whatToBarkShared,
+        bool barkDurationByText = default,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      ValidateParam(WhatToBarkShared);
-      
-      var component =  new EtudeBracketOverrideBark();
-      component.Unit = Unit;
-      component.WhatToBarkShared = WhatToBarkShared;
-      component.BarkDurationByText = BarkDurationByText;
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+      ValidateParam(whatToBarkShared);
+    
+      var component = new EtudeBracketOverrideBark();
+      component.Unit = unit;
+      component.WhatToBarkShared = whatToBarkShared;
+      component.BarkDurationByText = barkDurationByText;
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -756,20 +947,22 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketOverrideDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketOverrideDialog))]
     public EtudeConfigurator AddEtudeBracketOverrideDialog(
-        UnitEvaluator Unit,
-        string Dialog,
-        float m_Distance)
+        UnitEvaluator unit,
+        string dialog = null,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketOverrideDialog();
-      component.Unit = Unit;
-      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(Dialog);
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketOverrideDialog();
+      component.Unit = unit;
+      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -779,15 +972,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketOverrideWeatherInclemency))]
     public EtudeConfigurator AddEtudeBracketOverrideWeatherInclemency(
-        InclemencyType Inclemency,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        InclemencyType inclemency = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Inclemency);
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketOverrideWeatherInclemency();
-      component.Inclemency = Inclemency;
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketOverrideWeatherInclemency();
+      component.Inclemency = inclemency;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -797,15 +991,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketOverrideWeatherProfile))]
     public EtudeConfigurator AddEtudeBracketOverrideWeatherProfile(
-        WeatherProfileExtended m_WeatherProfile,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        WeatherProfileExtended weatherProfile,
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_WeatherProfile);
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketOverrideWeatherProfile();
-      component.m_WeatherProfile = m_WeatherProfile;
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(weatherProfile);
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketOverrideWeatherProfile();
+      component.m_WeatherProfile = weatherProfile;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -815,12 +1011,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketPinCompanionInParty))]
     public EtudeConfigurator AddEtudeBracketPinCompanionInParty(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketPinCompanionInParty();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketPinCompanionInParty();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -830,12 +1028,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketPreventDirectControl))]
     public EtudeConfigurator AddEtudeBracketPreventDirectControl(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketPreventDirectControl();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketPreventDirectControl();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -845,14 +1045,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketProgressBar))]
     public EtudeConfigurator AddEtudeBracketProgressBar(
-        int MaxProgress,
-        LocalizedString Title)
+        int maxProgress = default,
+        LocalizedString title = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Title);
-      
-      var component =  new EtudeBracketProgressBar();
-      component.MaxProgress = MaxProgress;
-      component.Title = Title;
+      ValidateParam(title);
+    
+      var component = new EtudeBracketProgressBar();
+      component.MaxProgress = maxProgress;
+      component.Title = title ?? Constants.Empty.String;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -862,26 +1064,27 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketRestPhase))]
     public EtudeConfigurator AddEtudeBracketRestPhase(
-        bool MultiplePhases,
-        RestPhase Phase,
-        RestPhase FirstPhase,
-        RestPhase LastPhase,
-        ActionsBuilder OnStart,
-        ActionsBuilder OnStop,
-        bool HasStarted)
+        ActionList onStart,
+        ActionList onStop,
+        bool multiplePhases = default,
+        RestPhase phase = default,
+        RestPhase firstPhase = default,
+        RestPhase lastPhase = default,
+        bool hasStarted = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Phase);
-      ValidateParam(FirstPhase);
-      ValidateParam(LastPhase);
-      
-      var component =  new EtudeBracketRestPhase();
-      component.MultiplePhases = MultiplePhases;
-      component.Phase = Phase;
-      component.FirstPhase = FirstPhase;
-      component.LastPhase = LastPhase;
-      component.OnStart = OnStart.Build();
-      component.OnStop = OnStop.Build();
-      component.HasStarted = HasStarted;
+      ValidateParam(onStart);
+      ValidateParam(onStop);
+    
+      var component = new EtudeBracketRestPhase();
+      component.MultiplePhases = multiplePhases;
+      component.Phase = phase;
+      component.FirstPhase = firstPhase;
+      component.LastPhase = lastPhase;
+      component.OnStart = onStart;
+      component.OnStop = onStop;
+      component.HasStarted = hasStarted;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -889,20 +1092,22 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketSetCompanionPosition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketSetCompanionPosition))]
     public EtudeConfigurator AddEtudeBracketSetCompanionPosition(
-        string m_Companion,
-        EntityReference m_Locator,
-        bool m_ShouldRelease)
+        EntityReference locator,
+        string companion = null,
+        bool shouldRelease = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Locator);
-      
-      var component =  new EtudeBracketSetCompanionPosition();
-      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
-      component.m_Locator = m_Locator;
-      component.m_ShouldRelease = m_ShouldRelease;
+      ValidateParam(locator);
+    
+      var component = new EtudeBracketSetCompanionPosition();
+      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      component.m_Locator = locator;
+      component.m_ShouldRelease = shouldRelease;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -912,15 +1117,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketShowObjects))]
     public EtudeConfigurator AddEtudeBracketShowObjects(
-        EntityReference[] Objects)
+        EntityReference[] objects = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Objects)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EtudeBracketShowObjects();
-      component.Objects = Objects;
+      ValidateParam(objects);
+    
+      var component = new EtudeBracketShowObjects();
+      component.Objects = objects;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -928,20 +1132,21 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Adds <see cref="EtudeBracketSummonpoolOverrideDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
-    /// <param name="Dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketSummonpoolOverrideDialog))]
     public EtudeConfigurator AddEtudeBracketSummonpoolOverrideDialog(
-        string m_SummonPool,
-        string Dialog,
-        float m_Distance)
+        string summonPool = null,
+        string dialog = null,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketSummonpoolOverrideDialog();
-      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(Dialog);
-      component.m_Distance = m_Distance;
+      var component = new EtudeBracketSummonpoolOverrideDialog();
+      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -951,13 +1156,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketTriggerAction))]
     public EtudeConfigurator AddEtudeBracketTriggerAction(
-        ActionsBuilder OnActivated,
-        ActionsBuilder OnDeactivated)
+        ActionList onActivated,
+        ActionList onDeactivated,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketTriggerAction();
-      component.OnActivated = OnActivated.Build();
-      component.OnDeactivated = OnDeactivated.Build();
+      ValidateParam(onActivated);
+      ValidateParam(onDeactivated);
+    
+      var component = new EtudeBracketTriggerAction();
+      component.OnActivated = onActivated;
+      component.OnDeactivated = onDeactivated;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -967,11 +1176,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeGameOverTrigger))]
     public EtudeConfigurator AddEtudeGameOverTrigger(
-        ActionsBuilder OnGameOver)
+        ActionList onGameOver,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeGameOverTrigger();
-      component.OnGameOver = OnGameOver.Build();
+      ValidateParam(onGameOver);
+    
+      var component = new EtudeGameOverTrigger();
+      component.OnGameOver = onGameOver;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -980,9 +1192,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeIgnorePartyEncumbrance))]
-    public EtudeConfigurator AddEtudeIgnorePartyEncumbrance()
+    public EtudeConfigurator AddEtudeIgnorePartyEncumbrance(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeIgnorePartyEncumbrance());
+      var component = new EtudeIgnorePartyEncumbrance();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -990,9 +1205,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeIgnorePersonalEncumbrance))]
-    public EtudeConfigurator AddEtudeIgnorePersonalEncumbrance()
+    public EtudeConfigurator AddEtudeIgnorePersonalEncumbrance(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeIgnorePersonalEncumbrance());
+      var component = new EtudeIgnorePersonalEncumbrance();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1000,9 +1218,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     [Generated]
     [Implements(typeof(EtudePeacefulZone))]
-    public EtudeConfigurator AddEtudePeacefulZone()
+    public EtudeConfigurator AddEtudePeacefulZone(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudePeacefulZone());
+      var component = new EtudePeacefulZone();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1011,11 +1232,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(HideAllPets))]
     public EtudeConfigurator AddHideAllPets(
-        bool LeaveAzataDragon)
+        bool leaveAzataDragon = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new HideAllPets();
-      component.LeaveAzataDragon = LeaveAzataDragon;
+      var component = new HideAllPets();
+      component.LeaveAzataDragon = leaveAzataDragon;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1025,11 +1247,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(CapitalCompanionLogic))]
     public EtudeConfigurator AddCapitalCompanionLogic(
-        bool m_RestAllRemoteCompanions)
+        bool restAllRemoteCompanions = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CapitalCompanionLogic();
-      component.m_RestAllRemoteCompanions = m_RestAllRemoteCompanions;
+      var component = new CapitalCompanionLogic();
+      component.m_RestAllRemoteCompanions = restAllRemoteCompanions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

@@ -1,25 +1,29 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
-  /// <summary>Configurator for <see cref="BlueprintGlobalMapPoint"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintGlobalMapPoint"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintGlobalMapPoint))]
   public class GlobalMapPointConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMapPoint, GlobalMapPointConfigurator>
   {
-     private GlobalMapPointConfigurator(string name) : base(name) { }
+    private GlobalMapPointConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static GlobalMapPointConfigurator For(string name)
@@ -35,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static GlobalMapPointConfigurator New(string name, string assetId)
+    public static GlobalMapPointConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintGlobalMapPoint>(name, assetId);
       return For(name);
@@ -45,217 +49,324 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPoint.m_GlobalMap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetGlobalMap(string value)
+    public GlobalMapPointConfigurator SetGlobalMap(string globalMap)
     {
-      return OnConfigureInternal(bp => bp.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetType(GlobalMapPointType value)
+    public GlobalMapPointConfigurator SetType(GlobalMapPointType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.IsHidden"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetIsHidden(bool value)
+    public GlobalMapPointConfigurator SetIsHidden(bool isHidden)
     {
-      return OnConfigureInternal(bp => bp.IsHidden = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsHidden = isHidden;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.RevealedOnStart"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetRevealedOnStart(bool value)
+    public GlobalMapPointConfigurator SetRevealedOnStart(bool revealedOnStart)
     {
-      return OnConfigureInternal(bp => bp.RevealedOnStart = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RevealedOnStart = revealedOnStart;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ExploreOnEnter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetExploreOnEnter(bool value)
+    public GlobalMapPointConfigurator SetExploreOnEnter(bool exploreOnEnter)
     {
-      return OnConfigureInternal(bp => bp.ExploreOnEnter = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExploreOnEnter = exploreOnEnter;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ClosedOnStart"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetClosedOnStart(bool value)
+    public GlobalMapPointConfigurator SetClosedOnStart(bool closedOnStart)
     {
-      return OnConfigureInternal(bp => bp.ClosedOnStart = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClosedOnStart = closedOnStart;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetName(LocalizedString value)
+    public GlobalMapPointConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetDescription(LocalizedString value)
+    public GlobalMapPointConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.FakeName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetFakeName(LocalizedString value)
+    public GlobalMapPointConfigurator SetFakeName(LocalizedString fakeName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FakeName = value);
+      ValidateParam(fakeName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FakeName = fakeName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.FakeDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetFakeDescription(LocalizedString value)
+    public GlobalMapPointConfigurator SetFakeDescription(LocalizedString fakeDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.FakeDescription = value);
+      ValidateParam(fakeDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FakeDescription = fakeDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.DcPerception"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetDcPerception(int value)
+    public GlobalMapPointConfigurator SetDcPerception(int dcPerception)
     {
-      return OnConfigureInternal(bp => bp.DcPerception = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DcPerception = dcPerception;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
+    /// Sets <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator AddToDCModifiers(params DCModifier[] values)
+    public GlobalMapPointConfigurator SetDCModifiers(DCModifier[] dCModifiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.DCModifiers = CommonTool.Append(bp.DCModifiers, values));
+      ValidateParam(dCModifiers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = dCModifiers;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator RemoveFromDCModifiers(params DCModifier[] values)
+    public GlobalMapPointConfigurator AddToDCModifiers(params DCModifier[] dCModifiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.DCModifiers = bp.DCModifiers.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(dCModifiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = CommonTool.Append(bp.DCModifiers, dCModifiers ?? new DCModifier[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointConfigurator RemoveFromDCModifiers(params DCModifier[] dCModifiers)
+    {
+      ValidateParam(dCModifiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DCModifiers = bp.DCModifiers.Where(item => !dCModifiers.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OverrideRandomEncounterZoneSize"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetOverrideRandomEncounterZoneSize(bool value)
+    public GlobalMapPointConfigurator SetOverrideRandomEncounterZoneSize(bool overrideRandomEncounterZoneSize)
     {
-      return OnConfigureInternal(bp => bp.OverrideRandomEncounterZoneSize = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OverrideRandomEncounterZoneSize = overrideRandomEncounterZoneSize;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.NoRandomEncounterZoneSize"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetNoRandomEncounterZoneSize(float value)
+    public GlobalMapPointConfigurator SetNoRandomEncounterZoneSize(float noRandomEncounterZoneSize)
     {
-      return OnConfigureInternal(bp => bp.NoRandomEncounterZoneSize = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoRandomEncounterZoneSize = noRandomEncounterZoneSize;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.m_AreaEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="areaEntrance"><see cref="BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetAreaEntrance(string value)
+    public GlobalMapPointConfigurator SetAreaEntrance(string areaEntrance)
     {
-      return OnConfigureInternal(bp => bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(areaEntrance);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.m_Entrances"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintMultiEntrance"/></param>
+    /// <param name="entrances"><see cref="BlueprintMultiEntrance"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetEntrances(string value)
+    public GlobalMapPointConfigurator SetEntrances(string entrances)
     {
-      return OnConfigureInternal(bp => bp.m_Entrances = BlueprintTool.GetRef<BlueprintMultiEntrance.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Entrances = BlueprintTool.GetRef<BlueprintMultiEntrance.Reference>(entrances);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.m_BookEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintDialog"/></param>
+    /// <param name="bookEvent"><see cref="BlueprintDialog"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetBookEvent(string value)
+    public GlobalMapPointConfigurator SetBookEvent(string bookEvent)
     {
-      return OnConfigureInternal(bp => bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(bookEvent);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.PossibleToRevealCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetPossibleToRevealCondition(ConditionsBuilder value)
-    {
-      return OnConfigureInternal(bp => bp.PossibleToRevealCondition = value.Build());
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.LocationVariations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintGlobalMapPointVariation"/></param>
-    [Generated]
-    public GlobalMapPointConfigurator AddToLocationVariations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.LocationVariations = CommonTool.Append(bp.LocationVariations, values.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPointVariation.Reference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.LocationVariations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintGlobalMapPointVariation"/></param>
-    [Generated]
-    public GlobalMapPointConfigurator RemoveFromLocationVariations(params string[] values)
+    public GlobalMapPointConfigurator SetPossibleToRevealCondition(ConditionsBuilder possibleToRevealCondition)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPointVariation.Reference>(name));
+            bp.PossibleToRevealCondition = possibleToRevealCondition?.Build() ?? Constants.Empty.Conditions;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintGlobalMapPoint.LocationVariations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="locationVariations"><see cref="BlueprintGlobalMapPointVariation"/></param>
+    [Generated]
+    public GlobalMapPointConfigurator SetLocationVariations(string[] locationVariations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocationVariations = locationVariations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPointVariation.Reference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintGlobalMapPoint.LocationVariations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="locationVariations"><see cref="BlueprintGlobalMapPointVariation"/></param>
+    [Generated]
+    public GlobalMapPointConfigurator AddToLocationVariations(params string[] locationVariations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocationVariations = CommonTool.Append(bp.LocationVariations, locationVariations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPointVariation.Reference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintGlobalMapPoint.LocationVariations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="locationVariations"><see cref="BlueprintGlobalMapPointVariation"/></param>
+    [Generated]
+    public GlobalMapPointConfigurator RemoveFromLocationVariations(params string[] locationVariations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = locationVariations.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPointVariation.Reference>(name));
             bp.LocationVariations =
                 bp.LocationVariations
                     .Where(
@@ -268,254 +379,371 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPoint.HasKingdomResource"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetHasKingdomResource(bool value)
+    public GlobalMapPointConfigurator SetHasKingdomResource(bool hasKingdomResource)
     {
-      return OnConfigureInternal(bp => bp.HasKingdomResource = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasKingdomResource = hasKingdomResource;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceStats"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetResourceStats(KingdomStats.Changes value)
+    public GlobalMapPointConfigurator SetResourceStats(KingdomStats.Changes resourceStats)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ResourceStats = value);
+      ValidateParam(resourceStats);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceStats = resourceStats;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetResourceName(LocalizedString value)
+    public GlobalMapPointConfigurator SetResourceName(LocalizedString resourceName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ResourceName = value);
+      ValidateParam(resourceName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceName = resourceName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.HasIngredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetHasIngredients(bool value)
+    public GlobalMapPointConfigurator SetHasIngredients(bool hasIngredients)
     {
-      return OnConfigureInternal(bp => bp.HasIngredients = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasIngredients = hasIngredients;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
+    /// Sets <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator AddToIngredients(params IngredientPair[] values)
+    public GlobalMapPointConfigurator SetIngredients(IngredientPair[] ingredients)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Ingredients = CommonTool.Append(bp.Ingredients, values));
+      ValidateParam(ingredients);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = ingredients;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator RemoveFromIngredients(params IngredientPair[] values)
+    public GlobalMapPointConfigurator AddToIngredients(params IngredientPair[] ingredients)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Ingredients = bp.Ingredients.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(ingredients);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = CommonTool.Append(bp.Ingredients, ingredients ?? new IngredientPair[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointConfigurator RemoveFromIngredients(params IngredientPair[] ingredients)
+    {
+      ValidateParam(ingredients);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Ingredients = bp.Ingredients.Where(item => !ingredients.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.HasLoot"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetHasLoot(bool value)
+    public GlobalMapPointConfigurator SetHasLoot(bool hasLoot)
     {
-      return OnConfigureInternal(bp => bp.HasLoot = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasLoot = hasLoot;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
+    /// Sets <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator AddToLoot(params LootEntry[] values)
+    public GlobalMapPointConfigurator SetLoot(LootEntry[] loot)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Loot = CommonTool.Append(bp.Loot, values));
+      ValidateParam(loot);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Loot = loot;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator RemoveFromLoot(params LootEntry[] values)
+    public GlobalMapPointConfigurator AddToLoot(params LootEntry[] loot)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Loot = bp.Loot.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(loot);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Loot = CommonTool.Append(bp.Loot, loot ?? new LootEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GlobalMapPointConfigurator RemoveFromLoot(params LootEntry[] loot)
+    {
+      ValidateParam(loot);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Loot = bp.Loot.Where(item => !loot.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.AdditionalArmyExperience"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetAdditionalArmyExperience(int value)
+    public GlobalMapPointConfigurator SetAdditionalArmyExperience(int additionalArmyExperience)
     {
-      return OnConfigureInternal(bp => bp.AdditionalArmyExperience = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AdditionalArmyExperience = additionalArmyExperience;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceFoundDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetResourceFoundDescription(LocalizedString value)
+    public GlobalMapPointConfigurator SetResourceFoundDescription(LocalizedString resourceFoundDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ResourceFoundDescription = value);
+      ValidateParam(resourceFoundDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceFoundDescription = resourceFoundDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.m_ArmyObjective"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="armyObjective"><see cref="BlueprintQuestObjective"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetArmyObjective(string value)
+    public GlobalMapPointConfigurator SetArmyObjective(string armyObjective)
     {
-      return OnConfigureInternal(bp => bp.m_ArmyObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmyObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(armyObjective);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Region"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetRegion(RegionId value)
+    public GlobalMapPointConfigurator SetRegion(RegionId region)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Region = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Region = region;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ForceShowNameInUI"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetForceShowNameInUI(bool value)
+    public GlobalMapPointConfigurator SetForceShowNameInUI(bool forceShowNameInUI)
     {
-      return OnConfigureInternal(bp => bp.ForceShowNameInUI = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForceShowNameInUI = forceShowNameInUI;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OverrideEnterConfirmationText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetOverrideEnterConfirmationText(bool value)
+    public GlobalMapPointConfigurator SetOverrideEnterConfirmationText(bool overrideEnterConfirmationText)
     {
-      return OnConfigureInternal(bp => bp.OverrideEnterConfirmationText = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OverrideEnterConfirmationText = overrideEnterConfirmationText;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.CustomEnterConfirmationText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetCustomEnterConfirmationText(LocalizedString value)
+    public GlobalMapPointConfigurator SetCustomEnterConfirmationText(LocalizedString customEnterConfirmationText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CustomEnterConfirmationText = value);
+      ValidateParam(customEnterConfirmationText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomEnterConfirmationText = customEnterConfirmationText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OnEnterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetOnEnterActions(ActionsBuilder value)
+    public GlobalMapPointConfigurator SetOnEnterActions(ActionList onEnterActions)
     {
-      return OnConfigureInternal(bp => bp.OnEnterActions = value.Build());
+      ValidateParam(onEnterActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnEnterActions = onEnterActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.DemonGarrison"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="demonGarrison"><see cref="BlueprintArmyPreset"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetDemonGarrison(string value)
+    public GlobalMapPointConfigurator SetDemonGarrison(string demonGarrison)
     {
-      return OnConfigureInternal(bp => bp.DemonGarrison = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DemonGarrison = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(demonGarrison);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.GarrisonLeader"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="garrisonLeader"><see cref="BlueprintArmyLeader"/></param>
     [Generated]
-    public GlobalMapPointConfigurator SetGarrisonLeader(string value)
+    public GlobalMapPointConfigurator SetGarrisonLeader(string garrisonLeader)
     {
-      return OnConfigureInternal(bp => bp.GarrisonLeader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GarrisonLeader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(garrisonLeader);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.AutoDefeatData"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetAutoDefeatData(AutoDefeatData value)
+    public GlobalMapPointConfigurator SetAutoDefeatData(AutoDefeatData autoDefeatData)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AutoDefeatData = value);
+      ValidateParam(autoDefeatData);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AutoDefeatData = autoDefeatData;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.UseCustomClosedText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetUseCustomClosedText(bool value)
+    public GlobalMapPointConfigurator SetUseCustomClosedText(bool useCustomClosedText)
     {
-      return OnConfigureInternal(bp => bp.UseCustomClosedText = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseCustomClosedText = useCustomClosedText;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.CustomClosedText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetCustomClosedText(LocalizedString value)
+    public GlobalMapPointConfigurator SetCustomClosedText(LocalizedString customClosedText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CustomClosedText = value);
+      ValidateParam(customClosedText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomClosedText = customClosedText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.GlobalMapZone"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetGlobalMapZone(GlobalMapZone value)
+    public GlobalMapPointConfigurator SetGlobalMapZone(GlobalMapZone globalMapZone)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.GlobalMapZone = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GlobalMapZone = globalMapZone;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="LocationRadiusBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(LocationRadiusBuff))]
     public GlobalMapPointConfigurator AddLocationRadiusBuff(
-        float Radius,
-        string m_Buff)
+        float radius = default,
+        string buff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new LocationRadiusBuff();
-      component.Radius = Radius;
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      var component = new LocationRadiusBuff();
+      component.Radius = radius;
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -523,22 +751,24 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Adds <see cref="LocationRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="RequiredCompanions"><see cref="BlueprintUnit"/></param>
+    /// <param name="requiredCompanions"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(LocationRestriction))]
     public GlobalMapPointConfigurator AddLocationRestriction(
-        ConditionsBuilder IgnoreCondition,
-        ConditionsBuilder AllowedCondition,
-        string[] RequiredCompanions,
-        LocalizedString Description)
+        ConditionsBuilder ignoreCondition = null,
+        ConditionsBuilder allowedCondition = null,
+        string[] requiredCompanions = null,
+        LocalizedString description = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Description);
-      
-      var component =  new LocationRestriction();
-      component.IgnoreCondition = IgnoreCondition.Build();
-      component.AllowedCondition = AllowedCondition.Build();
-      component.RequiredCompanions = RequiredCompanions.Select(bp => BlueprintTool.GetRef<BlueprintUnitReference>(bp)).ToList();
-      component.Description = Description;
+      ValidateParam(description);
+    
+      var component = new LocationRestriction();
+      component.IgnoreCondition = ignoreCondition?.Build() ?? Constants.Empty.Conditions;
+      component.AllowedCondition = allowedCondition?.Build() ?? Constants.Empty.Conditions;
+      component.RequiredCompanions = requiredCompanions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
+      component.Description = description ?? Constants.Empty.String;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -548,13 +778,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     [Generated]
     [Implements(typeof(LocationRevealedTrigger))]
     public GlobalMapPointConfigurator AddLocationRevealedTrigger(
-        bool OnlyOnce,
-        ActionsBuilder OnReveal)
+        ActionList onReveal,
+        bool onlyOnce = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new LocationRevealedTrigger();
-      component.OnlyOnce = OnlyOnce;
-      component.OnReveal = OnReveal.Build();
+      ValidateParam(onReveal);
+    
+      var component = new LocationRevealedTrigger();
+      component.OnlyOnce = onlyOnce;
+      component.OnReveal = onReveal;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

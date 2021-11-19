@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.Blueprints;
 using Kingmaker.QA.Arbiter;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
 {
-  /// <summary>Configurator for <see cref="BlueprintArbiterInstruction"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintArbiterInstruction"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintArbiterInstruction))]
   public class ArbiterInstructionConfigurator : BaseBlueprintConfigurator<BlueprintArbiterInstruction, ArbiterInstructionConfigurator>
   {
-     private ArbiterInstructionConfigurator(string name) : base(name) { }
+    private ArbiterInstructionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArbiterInstructionConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArbiterInstructionConfigurator New(string name, string assetId)
+    public static ArbiterInstructionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintArbiterInstruction>(name, assetId);
       return For(name);
@@ -36,28 +39,29 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     /// Adds <see cref="ArbiterAreaTest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Area"><see cref="BlueprintArea"/></param>
-    /// <param name="OverrideAreaPreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="overrideAreaPreset"><see cref="BlueprintAreaPreset"/></param>
     [Generated]
     [Implements(typeof(ArbiterAreaTest))]
     public ArbiterInstructionConfigurator AddArbiterAreaTest(
-        string Area,
-        string OverrideAreaPreset,
-        bool OverrideTimeOfDay,
-        TimeOfDay TimeOfDay,
-        bool MakeMapScreenshot,
-        ArbiterElementList AreaParts)
+        ArbiterElementList areaParts,
+        string area = null,
+        string overrideAreaPreset = null,
+        bool overrideTimeOfDay = default,
+        TimeOfDay timeOfDay = default,
+        bool makeMapScreenshot = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(TimeOfDay);
-      ValidateParam(AreaParts);
-      
-      var component =  new ArbiterAreaTest();
-      component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(Area);
-      component.OverrideAreaPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(OverrideAreaPreset);
-      component.OverrideTimeOfDay = OverrideTimeOfDay;
-      component.TimeOfDay = TimeOfDay;
-      component.MakeMapScreenshot = MakeMapScreenshot;
-      component.AreaParts = AreaParts;
+      ValidateParam(areaParts);
+    
+      var component = new ArbiterAreaTest();
+      component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
+      component.OverrideAreaPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(overrideAreaPreset);
+      component.OverrideTimeOfDay = overrideTimeOfDay;
+      component.TimeOfDay = timeOfDay;
+      component.MakeMapScreenshot = makeMapScreenshot;
+      component.AreaParts = areaParts;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -65,15 +69,16 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     /// Adds <see cref="ArbiterWeaponTest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Weapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(ArbiterWeaponTest))]
     public ArbiterInstructionConfigurator AddArbiterWeaponTest(
-        string Weapon)
+        string weapon = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ArbiterWeaponTest();
-      component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(Weapon);
+      var component = new ArbiterWeaponTest();
+      component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

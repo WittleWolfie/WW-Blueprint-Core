@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
+using System;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintControllableProjectile"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintControllableProjectile"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintControllableProjectile))]
   public class ControllableProjectileConfigurator : BaseBlueprintConfigurator<BlueprintControllableProjectile, ControllableProjectileConfigurator>
   {
-     private ControllableProjectileConfigurator(string name) : base(name) { }
+    private ControllableProjectileConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ControllableProjectileConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ControllableProjectileConfigurator New(string name, string assetId)
+    public static ControllableProjectileConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintControllableProjectile>(name, assetId);
       return For(name);
@@ -36,68 +39,97 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink value)
+    public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink onCreatureCastPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_OnCreatureCastPrefab = value);
+      ValidateParam(onCreatureCastPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OnCreatureCastPrefab = onCreatureCastPrefab ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink value)
+    public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink onCreaturePrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_OnCreaturePrefab = value);
+      ValidateParam(onCreaturePrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OnCreaturePrefab = onCreaturePrefab ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_HeightOffset"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetHeightOffset(float value)
+    public ControllableProjectileConfigurator SetHeightOffset(float heightOffset)
     {
-      return OnConfigureInternal(bp => bp.m_HeightOffset = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HeightOffset = heightOffset;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_RotationLifetime"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetRotationLifetime(float value)
+    public ControllableProjectileConfigurator SetRotationLifetime(float rotationLifetime)
     {
-      return OnConfigureInternal(bp => bp.m_RotationLifetime = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RotationLifetime = rotationLifetime;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_RotationCurve"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetRotationCurve(AnimationCurve value)
+    public ControllableProjectileConfigurator SetRotationCurve(AnimationCurve rotationCurve)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_RotationCurve = value);
+      ValidateParam(rotationCurve);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RotationCurve = rotationCurve;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_PreparationStartSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetPreparationStartSound(string value)
+    public ControllableProjectileConfigurator SetPreparationStartSound(string preparationStartSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_PreparationStartSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PreparationStartSound = preparationStartSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_PreparationEndSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetPreparationEndSound(string value)
+    public ControllableProjectileConfigurator SetPreparationEndSound(string preparationEndSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_PreparationEndSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PreparationEndSound = preparationEndSound;
+          });
     }
   }
 }

@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="BuffsAroundConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BuffsAroundConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BuffsAroundConsideration))]
   public class BuffsAroundConsiderationConfigurator : BaseUnitsAroundConsiderationConfigurator<BuffsAroundConsideration, BuffsAroundConsiderationConfigurator>
   {
-     private BuffsAroundConsiderationConfigurator(string name) : base(name) { }
+    private BuffsAroundConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static BuffsAroundConsiderationConfigurator For(string name)
@@ -26,35 +29,54 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BuffsAroundConsiderationConfigurator New(string name, string assetId)
+    public static BuffsAroundConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BuffsAroundConsideration>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffsAroundConsideration.m_Buffs"/> (Auto Generated)
+    /// Sets <see cref="BuffsAroundConsideration.m_Buffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
     [Generated]
-    public BuffsAroundConsiderationConfigurator AddToBuffs(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Buffs = CommonTool.Append(bp.m_Buffs, values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffsAroundConsideration.m_Buffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    public BuffsAroundConsiderationConfigurator RemoveFromBuffs(params string[] values)
+    public BuffsAroundConsiderationConfigurator SetBuffs(string[] buffs)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
+            bp.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BuffsAroundConsideration.m_Buffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffsAroundConsiderationConfigurator AddToBuffs(params string[] buffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Buffs = CommonTool.Append(bp.m_Buffs, buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BuffsAroundConsideration.m_Buffs"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    public BuffsAroundConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
             bp.m_Buffs =
                 bp.m_Buffs
                     .Where(
@@ -67,9 +89,13 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="BuffsAroundConsideration.CheckAbsence"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BuffsAroundConsiderationConfigurator SetCheckAbsence(bool value)
+    public BuffsAroundConsiderationConfigurator SetCheckAbsence(bool checkAbsence)
     {
-      return OnConfigureInternal(bp => bp.CheckAbsence = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CheckAbsence = checkAbsence;
+          });
     }
   }
 }

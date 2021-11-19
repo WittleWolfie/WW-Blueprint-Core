@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
-  /// <summary>Configurator for <see cref="LeadersRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="LeadersRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(LeadersRoot))]
   public class LeadersRootConfigurator : BaseBlueprintConfigurator<LeadersRoot, LeadersRootConfigurator>
   {
-     private LeadersRootConfigurator(string name) : base(name) { }
+    private LeadersRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LeadersRootConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LeadersRootConfigurator New(string name, string assetId)
+    public static LeadersRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<LeadersRoot>(name, assetId);
       return For(name);
@@ -37,36 +40,59 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_ExpTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="expTable"><see cref="BlueprintStatProgression"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExpTable(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_ExpTable = BlueprintTool.GetRef<BlueprintStatProgressionReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArmyLeader"/></param>
-    [Generated]
-    public LeadersRootConfigurator AddToLeaders(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Leaders = CommonTool.Append(bp.m_Leaders, values.Select(name => BlueprintTool.GetRef<BlueprintArmyLeaderReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArmyLeader"/></param>
-    [Generated]
-    public LeadersRootConfigurator RemoveFromLeaders(params string[] values)
+    public LeadersRootConfigurator SetExpTable(string expTable)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintArmyLeaderReference>(name));
+            bp.m_ExpTable = BlueprintTool.GetRef<BlueprintStatProgressionReference>(expTable);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    [Generated]
+    public LeadersRootConfigurator SetLeaders(string[] leaders)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Leaders = leaders.Select(name => BlueprintTool.GetRef<BlueprintArmyLeaderReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    [Generated]
+    public LeadersRootConfigurator AddToLeaders(params string[] leaders)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Leaders = CommonTool.Append(bp.m_Leaders, leaders.Select(name => BlueprintTool.GetRef<BlueprintArmyLeaderReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    [Generated]
+    public LeadersRootConfigurator RemoveFromLeaders(params string[] leaders)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = leaders.Select(name => BlueprintTool.GetRef<BlueprintArmyLeaderReference>(name));
             bp.m_Leaders =
                 bp.m_Leaders
                     .Where(
@@ -79,171 +105,245 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_AttackLeaderFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintFeature"/></param>
+    /// <param name="attackLeaderFeature"><see cref="BlueprintFeature"/></param>
     [Generated]
-    public LeadersRootConfigurator SetAttackLeaderFeature(string value)
+    public LeadersRootConfigurator SetAttackLeaderFeature(string attackLeaderFeature)
     {
-      return OnConfigureInternal(bp => bp.m_AttackLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AttackLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(attackLeaderFeature);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_DeffenceLeaderFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintFeature"/></param>
+    /// <param name="deffenceLeaderFeature"><see cref="BlueprintFeature"/></param>
     [Generated]
-    public LeadersRootConfigurator SetDeffenceLeaderFeature(string value)
+    public LeadersRootConfigurator SetDeffenceLeaderFeature(string deffenceLeaderFeature)
     {
-      return OnConfigureInternal(bp => bp.m_DeffenceLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DeffenceLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(deffenceLeaderFeature);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_BaseManaRegen"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetBaseManaRegen(int value)
+    public LeadersRootConfigurator SetBaseManaRegen(int baseManaRegen)
     {
-      return OnConfigureInternal(bp => bp.m_BaseManaRegen = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BaseManaRegen = baseManaRegen;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.FirstLeadCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetFirstLeadCost(int value)
+    public LeadersRootConfigurator SetFirstLeadCost(int firstLeadCost)
     {
-      return OnConfigureInternal(bp => bp.FirstLeadCost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstLeadCost = firstLeadCost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.ReducedLeadCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetReducedLeadCost(int value)
+    public LeadersRootConfigurator SetReducedLeadCost(int reducedLeadCost)
     {
-      return OnConfigureInternal(bp => bp.ReducedLeadCost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ReducedLeadCost = reducedLeadCost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.LeadCostMultiply"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetLeadCostMultiply(float value)
+    public LeadersRootConfigurator SetLeadCostMultiply(float leadCostMultiply)
     {
-      return OnConfigureInternal(bp => bp.LeadCostMultiply = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeadCostMultiply = leadCostMultiply;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_ArmyLeaderAssignmentCooldownDays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetArmyLeaderAssignmentCooldownDays(int value)
+    public LeadersRootConfigurator SetArmyLeaderAssignmentCooldownDays(int armyLeaderAssignmentCooldownDays)
     {
-      return OnConfigureInternal(bp => bp.m_ArmyLeaderAssignmentCooldownDays = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmyLeaderAssignmentCooldownDays = armyLeaderAssignmentCooldownDays;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_CheaperLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="cheaperLeadersProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetCheaperLeadersProject(string value)
+    public LeadersRootConfigurator SetCheaperLeadersProject(string cheaperLeadersProject)
     {
-      return OnConfigureInternal(bp => bp.m_CheaperLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CheaperLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(cheaperLeadersProject);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_TalentedLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="talentedLeadersProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetTalentedLeadersProject(string value)
+    public LeadersRootConfigurator SetTalentedLeadersProject(string talentedLeadersProject)
     {
-      return OnConfigureInternal(bp => bp.m_TalentedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TalentedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(talentedLeadersProject);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_ExperiencedLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="experiencedLeadersProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExperiencedLeadersProject(string value)
+    public LeadersRootConfigurator SetExperiencedLeadersProject(string experiencedLeadersProject)
     {
-      return OnConfigureInternal(bp => bp.m_ExperiencedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ExperiencedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(experiencedLeadersProject);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.m_ExcellentLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="excellentLeadersProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExcellentLeadersProject(string value)
+    public LeadersRootConfigurator SetExcellentLeadersProject(string excellentLeadersProject)
     {
-      return OnConfigureInternal(bp => bp.m_ExcellentLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ExcellentLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(excellentLeadersProject);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.SkillsListName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetSkillsListName(LocalizedString value)
+    public LeadersRootConfigurator SetSkillsListName(LocalizedString skillsListName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SkillsListName = value);
+      ValidateParam(skillsListName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SkillsListName = skillsListName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.ManaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetManaName(LocalizedString value)
+    public LeadersRootConfigurator SetManaName(LocalizedString manaName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ManaName = value);
+      ValidateParam(manaName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ManaName = manaName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.AttackBonusName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetAttackBonusName(LocalizedString value)
+    public LeadersRootConfigurator SetAttackBonusName(LocalizedString attackBonusName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AttackBonusName = value);
+      ValidateParam(attackBonusName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AttackBonusName = attackBonusName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.DeffBonusName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetDeffBonusName(LocalizedString value)
+    public LeadersRootConfigurator SetDeffBonusName(LocalizedString deffBonusName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DeffBonusName = value);
+      ValidateParam(deffBonusName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeffBonusName = deffBonusName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.SpellStrengthName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetSpellStrengthName(LocalizedString value)
+    public LeadersRootConfigurator SetSpellStrengthName(LocalizedString spellStrengthName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SpellStrengthName = value);
+      ValidateParam(spellStrengthName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellStrengthName = spellStrengthName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LeadersRoot.LeaderHireText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetLeaderHireText(LocalizedString value)
+    public LeadersRootConfigurator SetLeaderHireText(LocalizedString leaderHireText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LeaderHireText = value);
+      ValidateParam(leaderHireText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeaderHireText = leaderHireText ?? Constants.Empty.String;
+          });
     }
   }
 }

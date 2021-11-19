@@ -1,4 +1,4 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -6,15 +6,17 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Visual.Animation.Kingmaker;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
-  /// <summary>Configurator for <see cref="BlueprintTrap"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTrap"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTrap))]
   public class TrapConfigurator : BaseMapObjectConfigurator<BlueprintTrap, TrapConfigurator>
   {
-     private TrapConfigurator(string name) : base(name) { }
+    private TrapConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TrapConfigurator For(string name)
@@ -30,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TrapConfigurator New(string name, string assetId)
+    public static TrapConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTrap>(name, assetId);
       return For(name);
@@ -40,111 +42,162 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.PerceptionDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetPerceptionDC(int value)
+    public TrapConfigurator SetPerceptionDC(int perceptionDC)
     {
-      return OnConfigureInternal(bp => bp.PerceptionDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PerceptionDC = perceptionDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.PerceptionRadius"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetPerceptionRadius(float value)
+    public TrapConfigurator SetPerceptionRadius(float perceptionRadius)
     {
-      return OnConfigureInternal(bp => bp.PerceptionRadius = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PerceptionRadius = perceptionRadius;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableDC(int value)
+    public TrapConfigurator SetDisableDC(int disableDC)
     {
-      return OnConfigureInternal(bp => bp.DisableDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableDC = disableDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableTriggerMargin"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableTriggerMargin(int value)
+    public TrapConfigurator SetDisableTriggerMargin(int disableTriggerMargin)
     {
-      return OnConfigureInternal(bp => bp.DisableTriggerMargin = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableTriggerMargin = disableTriggerMargin;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.IsHiddenWhenInactive"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetIsHiddenWhenInactive(bool value)
+    public TrapConfigurator SetIsHiddenWhenInactive(bool isHiddenWhenInactive)
     {
-      return OnConfigureInternal(bp => bp.IsHiddenWhenInactive = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsHiddenWhenInactive = isHiddenWhenInactive;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.AllowedForRandomEncounters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetAllowedForRandomEncounters(bool value)
+    public TrapConfigurator SetAllowedForRandomEncounters(bool allowedForRandomEncounters)
     {
-      return OnConfigureInternal(bp => bp.AllowedForRandomEncounters = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AllowedForRandomEncounters = allowedForRandomEncounters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisarmAnimation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisarmAnimation(UnitAnimationInteractionType value)
+    public TrapConfigurator SetDisarmAnimation(UnitAnimationInteractionType disarmAnimation)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DisarmAnimation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisarmAnimation = disarmAnimation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.m_Actor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    /// <param name="actor"><see cref="BlueprintUnit"/></param>
     [Generated]
-    public TrapConfigurator SetActor(string value)
+    public TrapConfigurator SetActor(string actor)
     {
-      return OnConfigureInternal(bp => bp.m_Actor = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Actor = BlueprintTool.GetRef<BlueprintUnitReference>(actor);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.TriggerConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetTriggerConditions(ConditionsBuilder value)
+    public TrapConfigurator SetTriggerConditions(ConditionsBuilder triggerConditions)
     {
-      return OnConfigureInternal(bp => bp.TriggerConditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TriggerConditions = triggerConditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableConditions(ConditionsBuilder value)
+    public TrapConfigurator SetDisableConditions(ConditionsBuilder disableConditions)
     {
-      return OnConfigureInternal(bp => bp.DisableConditions = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableConditions = disableConditions?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.TrapActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetTrapActions(ActionsBuilder value)
+    public TrapConfigurator SetTrapActions(ActionList trapActions)
     {
-      return OnConfigureInternal(bp => bp.TrapActions = value.Build());
+      ValidateParam(trapActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapActions = trapActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableActions(ActionsBuilder value)
+    public TrapConfigurator SetDisableActions(ActionList disableActions)
     {
-      return OnConfigureInternal(bp => bp.DisableActions = value.Build());
+      ValidateParam(disableActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableActions = disableActions;
+          });
     }
 
     /// <summary>
@@ -153,21 +206,22 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(Experience))]
     public TrapConfigurator AddExperience(
-        EncounterType Encounter,
-        int CR,
-        float Modifier,
-        IntEvaluator Count,
-        bool Dummy)
+        IntEvaluator count,
+        EncounterType encounter = default,
+        int cR = default,
+        float modifier = default,
+        bool dummy = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Encounter);
-      ValidateParam(Count);
-      
-      var component =  new Experience();
-      component.Encounter = Encounter;
-      component.CR = CR;
-      component.Modifier = Modifier;
-      component.Count = Count;
-      component.Dummy = Dummy;
+      ValidateParam(count);
+    
+      var component = new Experience();
+      component.Encounter = encounter;
+      component.CR = cR;
+      component.Modifier = modifier;
+      component.Count = count;
+      component.Dummy = dummy;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

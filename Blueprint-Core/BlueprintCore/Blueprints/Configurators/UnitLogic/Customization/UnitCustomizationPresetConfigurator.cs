@@ -1,16 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Customization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
-  /// <summary>Configurator for <see cref="UnitCustomizationPreset"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="UnitCustomizationPreset"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(UnitCustomizationPreset))]
   public class UnitCustomizationPresetConfigurator : BaseBlueprintConfigurator<UnitCustomizationPreset, UnitCustomizationPresetConfigurator>
   {
-     private UnitCustomizationPresetConfigurator(string name) : base(name) { }
+    private UnitCustomizationPresetConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitCustomizationPresetConfigurator For(string name)
@@ -26,81 +30,125 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitCustomizationPresetConfigurator New(string name, string assetId)
+    public static UnitCustomizationPresetConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<UnitCustomizationPreset>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
+    /// Sets <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator AddToPresetObjects(params PresetObject[] values)
+    public UnitCustomizationPresetConfigurator SetPresetObjects(List<PresetObject> presetObjects)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PresetObjects.AddRange(values));
+      ValidateParam(presetObjects);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PresetObjects = presetObjects;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
+    /// Adds to <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromPresetObjects(params PresetObject[] values)
+    public UnitCustomizationPresetConfigurator AddToPresetObjects(params PresetObject[] presetObjects)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PresetObjects = bp.PresetObjects.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(presetObjects);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PresetObjects.AddRange(presetObjects.ToList() ?? new List<PresetObject>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitCustomizationPresetConfigurator RemoveFromPresetObjects(params PresetObject[] presetObjects)
+    {
+      ValidateParam(presetObjects);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PresetObjects = bp.PresetObjects.Where(item => !presetObjects.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitCustomizationPreset.VariationsCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetVariationsCount(int value)
+    public UnitCustomizationPresetConfigurator SetVariationsCount(int variationsCount)
     {
-      return OnConfigureInternal(bp => bp.VariationsCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.VariationsCount = variationsCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitCustomizationPreset.m_Distribution"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="RaceGenderDistribution"/></param>
+    /// <param name="distribution"><see cref="RaceGenderDistribution"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetDistribution(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_Distribution = BlueprintTool.GetRef<RaceGenderDistributionReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnit"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator AddToUnits(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Units = CommonTool.Append(bp.m_Units, values.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnit"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromUnits(params string[] values)
+    public UnitCustomizationPresetConfigurator SetDistribution(string distribution)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name));
+            bp.m_Distribution = BlueprintTool.GetRef<RaceGenderDistributionReference>(distribution);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator SetUnits(string[] units)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Units = units.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator AddToUnits(params string[] units)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Units = CommonTool.Append(bp.m_Units, units.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator RemoveFromUnits(params string[] units)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = units.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name));
             bp.m_Units =
                 bp.m_Units
                     .Where(
@@ -110,80 +158,133 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
+    /// Sets <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator AddToClothesSelections(params ClothesSelection[] values)
+    public UnitCustomizationPresetConfigurator SetClothesSelections(ClothesSelection[] clothesSelections)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ClothesSelections = CommonTool.Append(bp.ClothesSelections, values));
+      ValidateParam(clothesSelections);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClothesSelections = clothesSelections;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
+    /// Adds to <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromClothesSelections(params ClothesSelection[] values)
+    public UnitCustomizationPresetConfigurator AddToClothesSelections(params ClothesSelection[] clothesSelections)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ClothesSelections = bp.ClothesSelections.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(clothesSelections);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClothesSelections = CommonTool.Append(bp.ClothesSelections, clothesSelections ?? new ClothesSelection[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
+    /// Removes from <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator AddToUnitVariations(params UnitVariations[] values)
+    public UnitCustomizationPresetConfigurator RemoveFromClothesSelections(params ClothesSelection[] clothesSelections)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitVariations.AddRange(values));
+      ValidateParam(clothesSelections);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClothesSelections = bp.ClothesSelections.Where(item => !clothesSelections.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
+    /// Sets <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromUnitVariations(params UnitVariations[] values)
+    public UnitCustomizationPresetConfigurator SetUnitVariations(List<UnitVariations> unitVariations)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitVariations = bp.UnitVariations.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(unitVariations);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitVariations = unitVariations;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
+    /// Adds to <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitCustomizationPresetConfigurator AddToUnitVariations(params UnitVariations[] unitVariations)
+    {
+      ValidateParam(unitVariations);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitVariations.AddRange(unitVariations.ToList() ?? new List<UnitVariations>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitCustomizationPresetConfigurator RemoveFromUnitVariations(params UnitVariations[] unitVariations)
+    {
+      ValidateParam(unitVariations);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitVariations = bp.UnitVariations.Where(item => !unitVariations.Contains(item)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator AddToMaleVoices(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.MaleVoices.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitAsksList"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromMaleVoices(params string[] values)
+    public UnitCustomizationPresetConfigurator SetMaleVoices(string[] maleVoices)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name));
+            bp.MaleVoices = maleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator AddToMaleVoices(params string[] maleVoices)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaleVoices.AddRange(maleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator RemoveFromMaleVoices(params string[] maleVoices)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = maleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name));
             bp.MaleVoices =
                 bp.MaleVoices
                     .Where(
@@ -193,28 +294,47 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
+    /// Sets <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator AddToFemaleVoices(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.FemaleVoices.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitAsksList"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator RemoveFromFemaleVoices(params string[] values)
+    public UnitCustomizationPresetConfigurator SetFemaleVoices(string[] femaleVoices)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name));
+            bp.FemaleVoices = femaleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator AddToFemaleVoices(params string[] femaleVoices)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FemaleVoices.AddRange(femaleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    [Generated]
+    public UnitCustomizationPresetConfigurator RemoveFromFemaleVoices(params string[] femaleVoices)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = femaleVoices.Select(name => BlueprintTool.GetRef<BlueprintUnitAsksListReference>(name));
             bp.FemaleVoices =
                 bp.FemaleVoices
                     .Where(
@@ -227,11 +347,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.randomParameters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="RandomParameters"/></param>
+    /// <param name="randomParameters"><see cref="RandomParameters"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetrandomParameters(string value)
+    public UnitCustomizationPresetConfigurator SetRandomParameters(string randomParameters)
     {
-      return OnConfigureInternal(bp => bp.randomParameters = BlueprintTool.GetRef<RandomParametersReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.randomParameters = BlueprintTool.GetRef<RandomParametersReference>(randomParameters);
+          });
     }
   }
 }

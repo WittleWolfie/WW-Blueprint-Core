@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
-  /// <summary>Configurator for <see cref="BlueprintGenericPackLoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintGenericPackLoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintGenericPackLoot))]
   public class GenericPackLootConfigurator : BaseBlueprintConfigurator<BlueprintGenericPackLoot, GenericPackLootConfigurator>
   {
-     private GenericPackLootConfigurator(string name) : base(name) { }
+    private GenericPackLootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static GenericPackLootConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static GenericPackLootConfigurator New(string name, string assetId)
+    public static GenericPackLootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintGenericPackLoot>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
+    /// Sets <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GenericPackLootConfigurator AddToEntries(params BlueprintGenericPackLoot.EntryType[] values)
+    public GenericPackLootConfigurator SetEntries(BlueprintGenericPackLoot.EntryType[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+      ValidateParam(entries);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = entries;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GenericPackLootConfigurator RemoveFromEntries(params BlueprintGenericPackLoot.EntryType[] values)
+    public GenericPackLootConfigurator AddToEntries(params BlueprintGenericPackLoot.EntryType[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = CommonTool.Append(bp.Entries, entries ?? new BlueprintGenericPackLoot.EntryType[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GenericPackLootConfigurator RemoveFromEntries(params BlueprintGenericPackLoot.EntryType[] entries)
+    {
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = bp.Entries.Where(item => !entries.Contains(item)).ToArray();
+          });
     }
   }
 }

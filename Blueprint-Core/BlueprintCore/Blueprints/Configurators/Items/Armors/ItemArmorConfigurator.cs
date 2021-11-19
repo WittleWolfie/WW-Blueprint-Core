@@ -3,16 +3,18 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Enums;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
-  /// <summary>Configurator for <see cref="BlueprintItemArmor"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemArmor"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemArmor))]
   public class ItemArmorConfigurator : BaseItemEquipmentConfigurator<BlueprintItemArmor, ItemArmorConfigurator>
   {
-     private ItemArmorConfigurator(string name) : base(name) { }
+    private ItemArmorConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemArmorConfigurator For(string name)
@@ -28,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemArmorConfigurator New(string name, string assetId)
+    public static ItemArmorConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemArmor>(name, assetId);
       return For(name);
@@ -38,56 +40,87 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintItemArmor.m_Type"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintArmorType"/></param>
+    /// <param name="type"><see cref="BlueprintArmorType"/></param>
     [Generated]
-    public ItemArmorConfigurator SetType(string value)
+    public ItemArmorConfigurator SetType(string type)
     {
-      return OnConfigureInternal(bp => bp.m_Type = BlueprintTool.GetRef<BlueprintArmorTypeReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Type = BlueprintTool.GetRef<BlueprintArmorTypeReference>(type);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_Size"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemArmorConfigurator SetSize(Size value)
+    public ItemArmorConfigurator SetSize(Size size)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Size = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Size = size;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_VisualParameters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemArmorConfigurator SetVisualParameters(ArmorVisualParameters value)
+    public ItemArmorConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_VisualParameters = value);
+      ValidateParam(visualParameters);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_VisualParameters = visualParameters;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public ItemArmorConfigurator AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
-    [Generated]
-    public ItemArmorConfigurator RemoveFromEnchantments(params string[] values)
+    public ItemArmorConfigurator SetEnchantments(string[] enchantments)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public ItemArmorConfigurator AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public ItemArmorConfigurator RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -100,18 +133,26 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintItemArmor.m_OverrideShardItem"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemArmorConfigurator SetOverrideShardItem(bool value)
+    public ItemArmorConfigurator SetOverrideShardItem(bool overrideShardItem)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideShardItem = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideShardItem = overrideShardItem;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_OverrideDestructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemArmorConfigurator SetOverrideDestructible(bool value)
+    public ItemArmorConfigurator SetOverrideDestructible(bool overrideDestructible)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideDestructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideDestructible = overrideDestructible;
+          });
     }
   }
 }

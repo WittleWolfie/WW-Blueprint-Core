@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
-
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
-  /// <summary>Configurator for <see cref="BlueprintEncyclopediaSkillPage"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintEncyclopediaSkillPage"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintEncyclopediaSkillPage))]
   public class EncyclopediaSkillPageConfigurator : BaseEncyclopediaPageConfigurator<BlueprintEncyclopediaSkillPage, EncyclopediaSkillPageConfigurator>
   {
-     private EncyclopediaSkillPageConfigurator(string name) : base(name) { }
+    private EncyclopediaSkillPageConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static EncyclopediaSkillPageConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static EncyclopediaSkillPageConfigurator New(string name, string assetId)
+    public static EncyclopediaSkillPageConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintEncyclopediaSkillPage>(name, assetId);
       return For(name);
@@ -35,11 +37,15 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaSkillPage.m_Class"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public EncyclopediaSkillPageConfigurator SetClass(string value)
+    public EncyclopediaSkillPageConfigurator SetClass(string clazz)
     {
-      return OnConfigureInternal(bp => bp.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+          });
     }
   }
 }

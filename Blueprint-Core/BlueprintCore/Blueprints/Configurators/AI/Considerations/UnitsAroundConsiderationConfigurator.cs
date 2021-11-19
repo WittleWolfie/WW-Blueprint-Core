@@ -1,6 +1,8 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
+using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>
@@ -13,97 +15,134 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       where T : UnitsAroundConsideration
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
+    protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.Filter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetFilter(Kingmaker.AI.Blueprints.TargetType value)
+    public TBuilder SetFilter(Kingmaker.AI.Blueprints.TargetType filter)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Filter = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Filter = filter;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MinCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMinCount(int value)
+    public TBuilder SetMinCount(int minCount)
     {
-      return OnConfigureInternal(bp => bp.MinCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinCount = minCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MaxCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMaxCount(int value)
+    public TBuilder SetMaxCount(int maxCount)
     {
-      return OnConfigureInternal(bp => bp.MaxCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxCount = maxCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.IncludeUnconscious"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIncludeUnconscious(bool value)
+    public TBuilder SetIncludeUnconscious(bool includeUnconscious)
     {
-      return OnConfigureInternal(bp => bp.IncludeUnconscious = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IncludeUnconscious = includeUnconscious;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.BelowMinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetBelowMinScore(float value)
+    public TBuilder SetBelowMinScore(float belowMinScore)
     {
-      return OnConfigureInternal(bp => bp.BelowMinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BelowMinScore = belowMinScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMinScore(float value)
+    public TBuilder SetMinScore(float minScore)
     {
-      return OnConfigureInternal(bp => bp.MinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinScore = minScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMaxScore(float value)
+    public TBuilder SetMaxScore(float maxScore)
     {
-      return OnConfigureInternal(bp => bp.MaxScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxScore = maxScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.ExtraTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetExtraTargetScore(float value)
+    public TBuilder SetExtraTargetScore(float extraTargetScore)
     {
-      return OnConfigureInternal(bp => bp.ExtraTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExtraTargetScore = extraTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.UseAbilityShape"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetUseAbilityShape(bool value)
+    public TBuilder SetUseAbilityShape(bool useAbilityShape)
     {
-      return OnConfigureInternal(bp => bp.UseAbilityShape = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseAbilityShape = useAbilityShape;
+          });
     }
   }
 
-  /// <summary>Configurator for <see cref="UnitsAroundConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="UnitsAroundConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(UnitsAroundConsideration))]
   public class UnitsAroundConsiderationConfigurator : BaseConsiderationConfigurator<UnitsAroundConsideration, UnitsAroundConsiderationConfigurator>
   {
-     private UnitsAroundConsiderationConfigurator(string name) : base(name) { }
+    private UnitsAroundConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitsAroundConsiderationConfigurator For(string name)
@@ -119,7 +158,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitsAroundConsiderationConfigurator New(string name, string assetId)
+    public static UnitsAroundConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<UnitsAroundConsideration>(name, assetId);
       return For(name);
@@ -129,82 +168,117 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="UnitsAroundConsideration.Filter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetFilter(Kingmaker.AI.Blueprints.TargetType value)
+    public UnitsAroundConsiderationConfigurator SetFilter(Kingmaker.AI.Blueprints.TargetType filter)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Filter = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Filter = filter;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MinCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetMinCount(int value)
+    public UnitsAroundConsiderationConfigurator SetMinCount(int minCount)
     {
-      return OnConfigureInternal(bp => bp.MinCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinCount = minCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MaxCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetMaxCount(int value)
+    public UnitsAroundConsiderationConfigurator SetMaxCount(int maxCount)
     {
-      return OnConfigureInternal(bp => bp.MaxCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxCount = maxCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.IncludeUnconscious"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetIncludeUnconscious(bool value)
+    public UnitsAroundConsiderationConfigurator SetIncludeUnconscious(bool includeUnconscious)
     {
-      return OnConfigureInternal(bp => bp.IncludeUnconscious = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IncludeUnconscious = includeUnconscious;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.BelowMinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetBelowMinScore(float value)
+    public UnitsAroundConsiderationConfigurator SetBelowMinScore(float belowMinScore)
     {
-      return OnConfigureInternal(bp => bp.BelowMinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BelowMinScore = belowMinScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetMinScore(float value)
+    public UnitsAroundConsiderationConfigurator SetMinScore(float minScore)
     {
-      return OnConfigureInternal(bp => bp.MinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinScore = minScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetMaxScore(float value)
+    public UnitsAroundConsiderationConfigurator SetMaxScore(float maxScore)
     {
-      return OnConfigureInternal(bp => bp.MaxScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxScore = maxScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.ExtraTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetExtraTargetScore(float value)
+    public UnitsAroundConsiderationConfigurator SetExtraTargetScore(float extraTargetScore)
     {
-      return OnConfigureInternal(bp => bp.ExtraTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExtraTargetScore = extraTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.UseAbilityShape"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsAroundConsiderationConfigurator SetUseAbilityShape(bool value)
+    public UnitsAroundConsiderationConfigurator SetUseAbilityShape(bool useAbilityShape)
     {
-      return OnConfigureInternal(bp => bp.UseAbilityShape = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseAbilityShape = useAbilityShape;
+          });
     }
   }
 }

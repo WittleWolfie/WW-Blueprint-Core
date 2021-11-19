@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="CustomAiConsiderationsRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="CustomAiConsiderationsRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(CustomAiConsiderationsRoot))]
   public class CustomAiConsiderationsRootConfigurator : BaseBlueprintConfigurator<CustomAiConsiderationsRoot, CustomAiConsiderationsRootConfigurator>
   {
-     private CustomAiConsiderationsRootConfigurator(string name) : base(name) { }
+    private CustomAiConsiderationsRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CustomAiConsiderationsRootConfigurator For(string name)
@@ -26,35 +28,54 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CustomAiConsiderationsRootConfigurator New(string name, string assetId)
+    public static CustomAiConsiderationsRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<CustomAiConsiderationsRoot>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
+    /// Sets <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="ConsiderationCustom"/></param>
+    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
     [Generated]
-    public CustomAiConsiderationsRootConfigurator AddToTargetConsiderations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_TargetConsiderations = CommonTool.Append(bp.m_TargetConsiderations, values.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="ConsiderationCustom"/></param>
-    [Generated]
-    public CustomAiConsiderationsRootConfigurator RemoveFromTargetConsiderations(params string[] values)
+    public CustomAiConsiderationsRootConfigurator SetTargetConsiderations(string[] targetConsiderations)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
+            bp.m_TargetConsiderations = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
+    [Generated]
+    public CustomAiConsiderationsRootConfigurator AddToTargetConsiderations(params string[] targetConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TargetConsiderations = CommonTool.Append(bp.m_TargetConsiderations, targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
+    [Generated]
+    public CustomAiConsiderationsRootConfigurator RemoveFromTargetConsiderations(params string[] targetConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
             bp.m_TargetConsiderations =
                 bp.m_TargetConsiderations
                     .Where(
@@ -64,28 +85,47 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
+    /// Sets <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="ConsiderationCustom"/></param>
+    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
     [Generated]
-    public CustomAiConsiderationsRootConfigurator AddToActorConsiderations(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_ActorConsiderations = CommonTool.Append(bp.m_ActorConsiderations, values.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="ConsiderationCustom"/></param>
-    [Generated]
-    public CustomAiConsiderationsRootConfigurator RemoveFromActorConsiderations(params string[] values)
+    public CustomAiConsiderationsRootConfigurator SetActorConsiderations(string[] actorConsiderations)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
+            bp.m_ActorConsiderations = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
+    [Generated]
+    public CustomAiConsiderationsRootConfigurator AddToActorConsiderations(params string[] actorConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActorConsiderations = CommonTool.Append(bp.m_ActorConsiderations, actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
+    [Generated]
+    public CustomAiConsiderationsRootConfigurator RemoveFromActorConsiderations(params string[] actorConsiderations)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
             bp.m_ActorConsiderations =
                 bp.m_ActorConsiderations
                     .Where(

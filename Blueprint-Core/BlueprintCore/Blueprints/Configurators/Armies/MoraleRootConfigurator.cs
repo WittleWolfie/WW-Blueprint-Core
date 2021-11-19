@@ -1,18 +1,21 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
-  /// <summary>Configurator for <see cref="MoraleRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="MoraleRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(MoraleRoot))]
   public class MoraleRootConfigurator : BaseBlueprintConfigurator<MoraleRoot, MoraleRootConfigurator>
   {
-     private MoraleRootConfigurator(string name) : base(name) { }
+    private MoraleRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static MoraleRootConfigurator For(string name)
@@ -28,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static MoraleRootConfigurator New(string name, string assetId)
+    public static MoraleRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<MoraleRoot>(name, assetId);
       return For(name);
@@ -38,53 +41,83 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.m_MoraleBorder"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetMoraleBorder(Vector2Int value)
+    public MoraleRootConfigurator SetMoraleBorder(Vector2Int moraleBorder)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MoraleBorder = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MoraleBorder = moraleBorder;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="MoraleRoot.m_DevineForNegative"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetDevineForNegative(float value)
+    public MoraleRootConfigurator SetDevineForNegative(float devineForNegative)
     {
-      return OnConfigureInternal(bp => bp.m_DevineForNegative = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DevineForNegative = devineForNegative;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="MoraleRoot.m_DevineForPositive"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetDevineForPositive(float value)
-    {
-      return OnConfigureInternal(bp => bp.m_DevineForPositive = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public MoraleRootConfigurator AddToNegativeFacts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_NegativeFacts = CommonTool.Append(bp.m_NegativeFacts, values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public MoraleRootConfigurator RemoveFromNegativeFacts(params string[] values)
+    public MoraleRootConfigurator SetDevineForPositive(float devineForPositive)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_DevineForPositive = devineForPositive;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public MoraleRootConfigurator SetNegativeFacts(string[] negativeFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NegativeFacts = negativeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public MoraleRootConfigurator AddToNegativeFacts(params string[] negativeFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NegativeFacts = CommonTool.Append(bp.m_NegativeFacts, negativeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public MoraleRootConfigurator RemoveFromNegativeFacts(params string[] negativeFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = negativeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
             bp.m_NegativeFacts =
                 bp.m_NegativeFacts
                     .Where(
@@ -97,41 +130,60 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.m_GlobalArmiesMoraleBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomBuff"/></param>
+    /// <param name="globalArmiesMoraleBuff"><see cref="BlueprintKingdomBuff"/></param>
     [Generated]
-    public MoraleRootConfigurator SetGlobalArmiesMoraleBuff(string value)
+    public MoraleRootConfigurator SetGlobalArmiesMoraleBuff(string globalArmiesMoraleBuff)
     {
-      return OnConfigureInternal(bp => bp.m_GlobalArmiesMoraleBuff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_GlobalArmiesMoraleBuff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(globalArmiesMoraleBuff);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="MoraleRoot.BaseMoraleValue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString value)
+    public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString baseMoraleValue)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.BaseMoraleValue = value);
+      ValidateParam(baseMoraleValue);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BaseMoraleValue = baseMoraleValue ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="MoraleRoot.ArmyEffectOnSquad"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString value)
+    public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString armyEffectOnSquad)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ArmyEffectOnSquad = value);
+      ValidateParam(armyEffectOnSquad);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArmyEffectOnSquad = armyEffectOnSquad ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="MoraleRoot.UnitNotHaveMorale"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString value)
+    public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString unitNotHaveMorale)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.UnitNotHaveMorale = value);
+      ValidateParam(unitNotHaveMorale);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitNotHaveMorale = unitNotHaveMorale ?? Constants.Empty.String;
+          });
     }
   }
 }

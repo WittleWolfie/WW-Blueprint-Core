@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.UnitLogic;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="ConditionConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ConditionConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ConditionConsideration))]
   public class ConditionConsiderationConfigurator : BaseConsiderationConfigurator<ConditionConsideration, ConditionConsiderationConfigurator>
   {
-     private ConditionConsiderationConfigurator(string name) : base(name) { }
+    private ConditionConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ConditionConsiderationConfigurator For(string name)
@@ -26,54 +29,75 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ConditionConsiderationConfigurator New(string name, string assetId)
+    public static ConditionConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ConditionConsideration>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
+    /// Sets <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConditionConsiderationConfigurator AddToConditions(params UnitCondition[] values)
+    public ConditionConsiderationConfigurator SetConditions(UnitCondition[] conditions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Conditions = CommonTool.Append(bp.Conditions, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = conditions;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
+    /// Adds to <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConditionConsiderationConfigurator RemoveFromConditions(params UnitCondition[] values)
+    public ConditionConsiderationConfigurator AddToConditions(params UnitCondition[] conditions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Conditions = bp.Conditions.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = CommonTool.Append(bp.Conditions, conditions ?? new UnitCondition[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ConditionConsiderationConfigurator RemoveFromConditions(params UnitCondition[] conditions)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Conditions = bp.Conditions.Where(item => !conditions.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConditionConsideration.HasCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConditionConsiderationConfigurator SetHasCondition(float value)
+    public ConditionConsiderationConfigurator SetHasCondition(float hasCondition)
     {
-      return OnConfigureInternal(bp => bp.HasCondition = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasCondition = hasCondition;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConditionConsideration.NoCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConditionConsiderationConfigurator SetNoCondition(float value)
+    public ConditionConsiderationConfigurator SetNoCondition(float noCondition)
     {
-      return OnConfigureInternal(bp => bp.NoCondition = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoCondition = noCondition;
+          });
     }
   }
 }

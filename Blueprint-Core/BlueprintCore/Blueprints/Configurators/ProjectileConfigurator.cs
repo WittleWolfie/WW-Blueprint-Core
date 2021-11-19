@@ -1,18 +1,21 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.HitSystem;
+using System;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintProjectile"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintProjectile"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintProjectile))]
   public class ProjectileConfigurator : BaseBlueprintConfigurator<BlueprintProjectile, ProjectileConfigurator>
   {
-     private ProjectileConfigurator(string name) : base(name) { }
+    private ProjectileConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ProjectileConfigurator For(string name)
@@ -28,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ProjectileConfigurator New(string name, string assetId)
+    public static ProjectileConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintProjectile>(name, assetId);
       return For(name);
@@ -38,227 +41,326 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintProjectile.Speed"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetSpeed(float value)
+    public ProjectileConfigurator SetSpeed(float speed)
     {
-      return OnConfigureInternal(bp => bp.Speed = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Speed = speed;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MinTime"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetMinTime(float value)
+    public ProjectileConfigurator SetMinTime(float minTime)
     {
-      return OnConfigureInternal(bp => bp.MinTime = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinTime = minTime;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.View"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetView(ProjectileLink value)
+    public ProjectileConfigurator SetView(ProjectileLink view)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.View = value);
+      ValidateParam(view);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.View = view;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.CastFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetCastFx(PrefabLink value)
+    public ProjectileConfigurator SetCastFx(PrefabLink castFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CastFx = value);
+      ValidateParam(castFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CastFx = castFx ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.CastEffectDuration"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetCastEffectDuration(float value)
+    public ProjectileConfigurator SetCastEffectDuration(float castEffectDuration)
     {
-      return OnConfigureInternal(bp => bp.CastEffectDuration = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CastEffectDuration = castEffectDuration;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.LifetimeParticlesAfterHit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetLifetimeParticlesAfterHit(float value)
+    public ProjectileConfigurator SetLifetimeParticlesAfterHit(float lifetimeParticlesAfterHit)
     {
-      return OnConfigureInternal(bp => bp.LifetimeParticlesAfterHit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LifetimeParticlesAfterHit = lifetimeParticlesAfterHit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.ProjectileHit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetProjectileHit(ProjectileHitSettings value)
+    public ProjectileConfigurator SetProjectileHit(ProjectileHitSettings projectileHit)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ProjectileHit = value);
+      ValidateParam(projectileHit);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectileHit = projectileHit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.DamageHit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetDamageHit(DamageHitSettings value)
+    public ProjectileConfigurator SetDamageHit(DamageHitSettings damageHit)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DamageHit = value);
+      ValidateParam(damageHit);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DamageHit = damageHit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBone"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetSourceBone(string value)
+    public ProjectileConfigurator SetSourceBone(string sourceBone)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SourceBone = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SourceBone = sourceBone;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBoneOffsetAtTarget"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetSourceBoneOffsetAtTarget(bool value)
+    public ProjectileConfigurator SetSourceBoneOffsetAtTarget(bool sourceBoneOffsetAtTarget)
     {
-      return OnConfigureInternal(bp => bp.SourceBoneOffsetAtTarget = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SourceBoneOffsetAtTarget = sourceBoneOffsetAtTarget;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.UseSourceBoneScale"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetUseSourceBoneScale(bool value)
+    public ProjectileConfigurator SetUseSourceBoneScale(bool useSourceBoneScale)
     {
-      return OnConfigureInternal(bp => bp.UseSourceBoneScale = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseSourceBoneScale = useSourceBoneScale;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBoneCorpulenceOffset"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetSourceBoneCorpulenceOffset(float value)
+    public ProjectileConfigurator SetSourceBoneCorpulenceOffset(float sourceBoneCorpulenceOffset)
     {
-      return OnConfigureInternal(bp => bp.SourceBoneCorpulenceOffset = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SourceBoneCorpulenceOffset = sourceBoneCorpulenceOffset;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBone"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetTargetBone(string value)
+    public ProjectileConfigurator SetTargetBone(string targetBone)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TargetBone = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TargetBone = targetBone;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBoneOnCrit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetTargetBoneOnCrit(string value)
+    public ProjectileConfigurator SetTargetBoneOnCrit(string targetBoneOnCrit)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TargetBoneOnCrit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TargetBoneOnCrit = targetBoneOnCrit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBoneOffsetMultiplier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetTargetBoneOffsetMultiplier(float value)
+    public ProjectileConfigurator SetTargetBoneOffsetMultiplier(float targetBoneOffsetMultiplier)
     {
-      return OnConfigureInternal(bp => bp.TargetBoneOffsetMultiplier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TargetBoneOffsetMultiplier = targetBoneOffsetMultiplier;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.FallsOnMiss"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetFallsOnMiss(bool value)
+    public ProjectileConfigurator SetFallsOnMiss(bool fallsOnMiss)
     {
-      return OnConfigureInternal(bp => bp.FallsOnMiss = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FallsOnMiss = fallsOnMiss;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissMinRadius"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetMissMinRadius(float value)
+    public ProjectileConfigurator SetMissMinRadius(float missMinRadius)
     {
-      return OnConfigureInternal(bp => bp.MissMinRadius = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MissMinRadius = missMinRadius;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissMaxRadius"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetMissMaxRadius(float value)
+    public ProjectileConfigurator SetMissMaxRadius(float missMaxRadius)
     {
-      return OnConfigureInternal(bp => bp.MissMaxRadius = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MissMaxRadius = missMaxRadius;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissRaycastDistance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetMissRaycastDistance(float value)
+    public ProjectileConfigurator SetMissRaycastDistance(float missRaycastDistance)
     {
-      return OnConfigureInternal(bp => bp.MissRaycastDistance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MissRaycastDistance = missRaycastDistance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.AddRagdollImpulse"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetAddRagdollImpulse(float value)
+    public ProjectileConfigurator SetAddRagdollImpulse(float addRagdollImpulse)
     {
-      return OnConfigureInternal(bp => bp.AddRagdollImpulse = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AddRagdollImpulse = addRagdollImpulse;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.m_Trajectory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintProjectileTrajectory"/></param>
+    /// <param name="trajectory"><see cref="BlueprintProjectileTrajectory"/></param>
     [Generated]
-    public ProjectileConfigurator SetTrajectory(string value)
+    public ProjectileConfigurator SetTrajectory(string trajectory)
     {
-      return OnConfigureInternal(bp => bp.m_Trajectory = BlueprintTool.GetRef<BlueprintProjectileTrajectoryReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Trajectory = BlueprintTool.GetRef<BlueprintProjectileTrajectoryReference>(trajectory);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.FollowTerrain"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetFollowTerrain(bool value)
+    public ProjectileConfigurator SetFollowTerrain(bool followTerrain)
     {
-      return OnConfigureInternal(bp => bp.FollowTerrain = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FollowTerrain = followTerrain;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.StuckArrowPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetStuckArrowPrefab(GameObject value)
+    public ProjectileConfigurator SetStuckArrowPrefab(GameObject stuckArrowPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StuckArrowPrefab = value);
+      ValidateParam(stuckArrowPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StuckArrowPrefab = stuckArrowPrefab;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.DeflectedArrowPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetDeflectedArrowPrefab(GameObject value)
+    public ProjectileConfigurator SetDeflectedArrowPrefab(GameObject deflectedArrowPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DeflectedArrowPrefab = value);
+      ValidateParam(deflectedArrowPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeflectedArrowPrefab = deflectedArrowPrefab;
+          });
     }
 
     /// <summary>
@@ -266,9 +368,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(CannotSneakAttack))]
-    public ProjectileConfigurator AddCannotSneakAttack()
+    public ProjectileConfigurator AddCannotSneakAttack(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new CannotSneakAttack());
+      var component = new CannotSneakAttack();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

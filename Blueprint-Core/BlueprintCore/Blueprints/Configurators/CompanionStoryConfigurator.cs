@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintCompanionStory"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCompanionStory"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCompanionStory))]
   public class CompanionStoryConfigurator : BaseBlueprintConfigurator<BlueprintCompanionStory, CompanionStoryConfigurator>
   {
-     private CompanionStoryConfigurator(string name) : base(name) { }
+    private CompanionStoryConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CompanionStoryConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CompanionStoryConfigurator New(string name, string assetId)
+    public static CompanionStoryConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCompanionStory>(name, assetId);
       return For(name);
@@ -36,51 +38,73 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintCompanionStory.m_Companion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
-    public CompanionStoryConfigurator SetCompanion(string value)
+    public CompanionStoryConfigurator SetCompanion(string companion)
     {
-      return OnConfigureInternal(bp => bp.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetTitle(LocalizedString value)
+    public CompanionStoryConfigurator SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetDescription(LocalizedString value)
+    public CompanionStoryConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Image"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetImage(Sprite value)
+    public CompanionStoryConfigurator SetImage(Sprite image)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Image = value);
+      ValidateParam(image);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Image = image;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Gender"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetGender(Gender value)
+    public CompanionStoryConfigurator SetGender(Gender gender)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Gender = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Gender = gender;
+          });
     }
   }
 }

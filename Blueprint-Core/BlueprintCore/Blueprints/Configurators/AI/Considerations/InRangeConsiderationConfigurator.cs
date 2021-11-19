@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="InRangeConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="InRangeConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(InRangeConsideration))]
   public class InRangeConsiderationConfigurator : BaseConsiderationConfigurator<InRangeConsideration, InRangeConsiderationConfigurator>
   {
-     private InRangeConsiderationConfigurator(string name) : base(name) { }
+    private InRangeConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static InRangeConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static InRangeConsiderationConfigurator New(string name, string assetId)
+    public static InRangeConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<InRangeConsideration>(name, assetId);
       return For(name);
@@ -34,27 +37,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="InRangeConsideration.InRangeScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InRangeConsiderationConfigurator SetInRangeScore(float value)
+    public InRangeConsiderationConfigurator SetInRangeScore(float inRangeScore)
     {
-      return OnConfigureInternal(bp => bp.InRangeScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.InRangeScore = inRangeScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="InRangeConsideration.OutOfRangeScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InRangeConsiderationConfigurator SetOutOfRangeScore(float value)
+    public InRangeConsiderationConfigurator SetOutOfRangeScore(float outOfRangeScore)
     {
-      return OnConfigureInternal(bp => bp.OutOfRangeScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OutOfRangeScore = outOfRangeScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="InRangeConsideration.OnlyIfThreated"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InRangeConsiderationConfigurator SetOnlyIfThreated(bool value)
+    public InRangeConsiderationConfigurator SetOnlyIfThreated(bool onlyIfThreated)
     {
-      return OnConfigureInternal(bp => bp.OnlyIfThreated = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnlyIfThreated = onlyIfThreated;
+          });
     }
   }
 }

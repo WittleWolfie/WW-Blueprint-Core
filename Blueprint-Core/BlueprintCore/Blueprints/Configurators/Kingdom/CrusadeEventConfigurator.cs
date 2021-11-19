@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
-  /// <summary>Configurator for <see cref="BlueprintCrusadeEvent"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCrusadeEvent"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCrusadeEvent))]
   public class CrusadeEventConfigurator : BaseKingdomEventBaseConfigurator<BlueprintCrusadeEvent, CrusadeEventConfigurator>
   {
-     private CrusadeEventConfigurator(string name) : base(name) { }
+    private CrusadeEventConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CrusadeEventConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CrusadeEventConfigurator New(string name, string assetId)
+    public static CrusadeEventConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCrusadeEvent>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CrusadeEventConfigurator AddToEventSolutions(params EventSolution[] values)
+    public CrusadeEventConfigurator SetEventSolutions(EventSolution[] eventSolutions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_EventSolutions = CommonTool.Append(bp.m_EventSolutions, values));
+      ValidateParam(eventSolutions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EventSolutions = eventSolutions;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CrusadeEventConfigurator RemoveFromEventSolutions(params EventSolution[] values)
+    public CrusadeEventConfigurator AddToEventSolutions(params EventSolution[] eventSolutions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_EventSolutions = bp.m_EventSolutions.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(eventSolutions);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EventSolutions = CommonTool.Append(bp.m_EventSolutions, eventSolutions ?? new EventSolution[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CrusadeEventConfigurator RemoveFromEventSolutions(params EventSolution[] eventSolutions)
+    {
+      ValidateParam(eventSolutions);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EventSolutions = bp.m_EventSolutions.Where(item => !eventSolutions.Contains(item)).ToArray();
+          });
     }
   }
 }

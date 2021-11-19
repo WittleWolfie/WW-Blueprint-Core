@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Enums;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
-  /// <summary>Configurator for <see cref="BlueprintLoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintLoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintLoot))]
   public class LootConfigurator : BaseBlueprintConfigurator<BlueprintLoot, LootConfigurator>
   {
-     private LootConfigurator(string name) : base(name) { }
+    private LootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LootConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LootConfigurator New(string name, string assetId)
+    public static LootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintLoot>(name, assetId);
       return For(name);
@@ -37,85 +40,123 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="BlueprintLoot.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetType(LootType value)
+    public LootConfigurator SetType(LootType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLoot.IsSuperTrash"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetIsSuperTrash(bool value)
+    public LootConfigurator SetIsSuperTrash(bool isSuperTrash)
     {
-      return OnConfigureInternal(bp => bp.IsSuperTrash = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsSuperTrash = isSuperTrash;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Identify"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetIdentify(bool value)
+    public LootConfigurator SetIdentify(bool identify)
     {
-      return OnConfigureInternal(bp => bp.Identify = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Identify = identify;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Setting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetSetting(LootSetting value)
+    public LootConfigurator Setting(LootSetting setting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Setting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Setting = setting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLoot.m_Area"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="BlueprintArea"/></param>
     [Generated]
-    public LootConfigurator SetArea(string value)
+    public LootConfigurator SetArea(string area)
     {
-      return OnConfigureInternal(bp => bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLoot.ContainerName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetContainerName(string value)
+    public LootConfigurator SetContainerName(string containerName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ContainerName = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ContainerName = containerName;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLoot.Items"/> (Auto Generated)
+    /// Sets <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator AddToItems(params LootEntry[] values)
+    public LootConfigurator SetItems(LootEntry[] items)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Items = CommonTool.Append(bp.Items, values));
+      ValidateParam(items);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = items;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLoot.Items"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator RemoveFromItems(params LootEntry[] values)
+    public LootConfigurator AddToItems(params LootEntry[] items)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Items = bp.Items.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(items);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = CommonTool.Append(bp.Items, items ?? new LootEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintLoot.Items"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LootConfigurator RemoveFromItems(params LootEntry[] items)
+    {
+      ValidateParam(items);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = bp.Items.Where(item => !items.Contains(item)).ToArray();
+          });
     }
   }
 }

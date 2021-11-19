@@ -1,18 +1,22 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Credits;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
-  /// <summary>Configurator for <see cref="BlueprintCreditsGroup"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCreditsGroup"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCreditsGroup))]
   public class CreditsGroupConfigurator : BaseBlueprintConfigurator<BlueprintCreditsGroup, CreditsGroupConfigurator>
   {
-     private CreditsGroupConfigurator(string name) : base(name) { }
+    private CreditsGroupConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CreditsGroupConfigurator For(string name)
@@ -28,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CreditsGroupConfigurator New(string name, string assetId)
+    public static CreditsGroupConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCreditsGroup>(name, assetId);
       return For(name);
@@ -38,114 +42,172 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.TabIcon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetTabIcon(Sprite value)
+    public CreditsGroupConfigurator SetTabIcon(Sprite tabIcon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TabIcon = value);
+      ValidateParam(tabIcon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TabIcon = tabIcon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.HeaderText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetHeaderText(LocalizedString value)
+    public CreditsGroupConfigurator SetHeaderText(LocalizedString headerText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.HeaderText = value);
+      ValidateParam(headerText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HeaderText = headerText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.LeftPageImage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetLeftPageImage(Sprite value)
+    public CreditsGroupConfigurator SetLeftPageImage(Sprite leftPageImage)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LeftPageImage = value);
+      ValidateParam(leftPageImage);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeftPageImage = leftPageImage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.LeftPageText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetLeftPageText(LocalizedString value)
+    public CreditsGroupConfigurator SetLeftPageText(LocalizedString leftPageText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LeftPageText = value);
+      ValidateParam(leftPageText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeftPageText = leftPageText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.m_RolesData"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCreditsRoles"/></param>
+    /// <param name="rolesData"><see cref="BlueprintCreditsRoles"/></param>
     [Generated]
-    public CreditsGroupConfigurator SetRolesData(string value)
+    public CreditsGroupConfigurator SetRolesData(string rolesData)
     {
-      return OnConfigureInternal(bp => bp.m_RolesData = BlueprintTool.GetRef<BlueprintCreditsRolesReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RolesData = BlueprintTool.GetRef<BlueprintCreditsRolesReference>(rolesData);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.m_TeamsData"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCreditsTeams"/></param>
+    /// <param name="teamsData"><see cref="BlueprintCreditsTeams"/></param>
     [Generated]
-    public CreditsGroupConfigurator SetTeamsData(string value)
+    public CreditsGroupConfigurator SetTeamsData(string teamsData)
     {
-      return OnConfigureInternal(bp => bp.m_TeamsData = BlueprintTool.GetRef<BlueprintCreditsTeamsReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TeamsData = BlueprintTool.GetRef<BlueprintCreditsTeamsReference>(teamsData);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator AddToOrderTeams(params string[] values)
+    public CreditsGroupConfigurator SetOrderTeams(List<string> orderTeams)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.OrderTeams.AddRange(values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OrderTeams = orderTeams;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator RemoveFromOrderTeams(params string[] values)
+    public CreditsGroupConfigurator AddToOrderTeams(params string[] orderTeams)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.OrderTeams = bp.OrderTeams.Where(item => !values.Contains(item)).ToList());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OrderTeams.AddRange(orderTeams.ToList() ?? new List<string>());
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator AddToPersones(params CreditPerson[] values)
+    public CreditsGroupConfigurator RemoveFromOrderTeams(params string[] orderTeams)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Persones.AddRange(values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OrderTeams = bp.OrderTeams.Where(item => !orderTeams.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator RemoveFromPersones(params CreditPerson[] values)
+    public CreditsGroupConfigurator SetPersones(List<CreditPerson> persones)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Persones = bp.Persones.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(persones);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Persones = persones;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CreditsGroupConfigurator AddToPersones(params CreditPerson[] persones)
+    {
+      ValidateParam(persones);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Persones.AddRange(persones.ToList() ?? new List<CreditPerson>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CreditsGroupConfigurator RemoveFromPersones(params CreditPerson[] persones)
+    {
+      ValidateParam(persones);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Persones = bp.Persones.Where(item => !persones.Contains(item)).ToList();
+          });
     }
   }
 }

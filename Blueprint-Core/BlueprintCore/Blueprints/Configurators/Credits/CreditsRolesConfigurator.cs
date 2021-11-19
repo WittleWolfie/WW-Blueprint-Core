@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Credits;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
-  /// <summary>Configurator for <see cref="BlueprintCreditsRoles"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCreditsRoles"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCreditsRoles))]
   public class CreditsRolesConfigurator : BaseBlueprintConfigurator<BlueprintCreditsRoles, CreditsRolesConfigurator>
   {
-     private CreditsRolesConfigurator(string name) : base(name) { }
+    private CreditsRolesConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CreditsRolesConfigurator For(string name)
@@ -25,36 +28,53 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CreditsRolesConfigurator New(string name, string assetId)
+    public static CreditsRolesConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCreditsRoles>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsRolesConfigurator AddToRoles(params CreditRole[] values)
+    public CreditsRolesConfigurator SetRoles(List<CreditRole> roles)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Roles.AddRange(values));
+      ValidateParam(roles);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Roles = roles;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsRolesConfigurator RemoveFromRoles(params CreditRole[] values)
+    public CreditsRolesConfigurator AddToRoles(params CreditRole[] roles)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Roles = bp.Roles.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(roles);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Roles.AddRange(roles.ToList() ?? new List<CreditRole>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CreditsRolesConfigurator RemoveFromRoles(params CreditRole[] roles)
+    {
+      ValidateParam(roles);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Roles = bp.Roles.Where(item => !roles.Contains(item)).ToList();
+          });
     }
   }
 }

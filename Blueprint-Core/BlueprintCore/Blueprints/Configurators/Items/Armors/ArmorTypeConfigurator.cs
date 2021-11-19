@@ -1,10 +1,11 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>
@@ -17,184 +18,272 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
       where T : BlueprintArmorType
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseArmorTypeConfigurator(string name) : base(name) { }
+    protected BaseArmorTypeConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTypeNameText(LocalizedString value)
+    public TBuilder SetTypeNameText(LocalizedString typeNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_TypeNameText = value);
+      ValidateParam(typeNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TypeNameText = typeNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDefaultNameText(LocalizedString value)
+    public TBuilder SetDefaultNameText(LocalizedString defaultNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DefaultNameText = value);
+      ValidateParam(defaultNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultNameText = defaultNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescriptionText(LocalizedString value)
+    public TBuilder SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMagicDescriptionText(LocalizedString value)
+    public TBuilder SetMagicDescriptionText(LocalizedString magicDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MagicDescriptionText = value);
+      ValidateParam(magicDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MagicDescriptionText = magicDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIcon(Sprite value)
+    public TBuilder SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetVisualParameters(ArmorVisualParameters value)
+    public TBuilder SetVisualParameters(ArmorVisualParameters visualParameters)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_VisualParameters = value);
+      ValidateParam(visualParameters);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_VisualParameters = visualParameters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetArmorBonus(int value)
+    public TBuilder SetArmorBonus(int armorBonus)
     {
-      return OnConfigureInternal(bp => bp.m_ArmorBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmorBonus = armorBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetArmorChecksPenalty(int value)
+    public TBuilder SetArmorChecksPenalty(int armorChecksPenalty)
     {
-      return OnConfigureInternal(bp => bp.m_ArmorChecksPenalty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmorChecksPenalty = armorChecksPenalty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_HasDexterityBonusLimit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetHasDexterityBonusLimit(bool value)
+    public TBuilder SetHasDexterityBonusLimit(bool hasDexterityBonusLimit)
     {
-      return OnConfigureInternal(bp => bp.m_HasDexterityBonusLimit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HasDexterityBonusLimit = hasDexterityBonusLimit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MaxDexterityBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMaxDexterityBonus(int value)
+    public TBuilder SetMaxDexterityBonus(int maxDexterityBonus)
     {
-      return OnConfigureInternal(bp => bp.m_MaxDexterityBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaxDexterityBonus = maxDexterityBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ProficiencyGroup"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetProficiencyGroup(ArmorProficiencyGroup value)
+    public TBuilder SetProficiencyGroup(ArmorProficiencyGroup proficiencyGroup)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ProficiencyGroup = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ProficiencyGroup = proficiencyGroup;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetArcaneSpellFailureChance(int value)
+    public TBuilder SetArcaneSpellFailureChance(int arcaneSpellFailureChance)
     {
-      return OnConfigureInternal(bp => bp.m_ArcaneSpellFailureChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArcaneSpellFailureChance = arcaneSpellFailureChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Weight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetWeight(float value)
+    public TBuilder SetWeight(float weight)
     {
-      return OnConfigureInternal(bp => bp.m_Weight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Weight = weight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsArmor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsArmor(bool value)
+    public TBuilder SetIsArmor(bool isArmor)
     {
-      return OnConfigureInternal(bp => bp.m_IsArmor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsArmor = isArmor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsShield"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsShield(bool value)
+    public TBuilder SetIsShield(bool isShield)
     {
-      return OnConfigureInternal(bp => bp.m_IsShield = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsShield = isShield;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntity(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public TBuilder AddToEquipmentEntityAlternatives(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] values)
+    public TBuilder SetEquipmentEntity(string equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
+            bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(equipmentEntity);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
             bp.m_EquipmentEntityAlternatives =
                 bp.m_EquipmentEntityAlternatives
                     .Where(
@@ -204,28 +293,47 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
     [Generated]
-    public TBuilder AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArmorEnchantment"/></param>
-    [Generated]
-    public TBuilder RemoveFromEnchantments(params string[] values)
+    public TBuilder SetEnchantments(string[] enchantments)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name));
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    [Generated]
+    public TBuilder AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    [Generated]
+    public TBuilder RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -238,38 +346,52 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetForcedRampColorPresetIndex(int value)
+    public TBuilder SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
-      return OnConfigureInternal(bp => bp.m_ForcedRampColorPresetIndex = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ForcedRampColorPresetIndex = forcedRampColorPresetIndex;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Destructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDestructible(bool value)
+    public TBuilder SetDestructible(bool destructible)
     {
-      return OnConfigureInternal(bp => bp.m_Destructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Destructible = destructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public TBuilder SetShardItem(string value)
+    public TBuilder SetShardItem(string shardItem)
     {
-      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(shardItem);
+          });
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintArmorType"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintArmorType"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintArmorType))]
   public class ArmorTypeConfigurator : BaseBlueprintConfigurator<BlueprintArmorType, ArmorTypeConfigurator>
   {
-     private ArmorTypeConfigurator(string name) : base(name) { }
+    private ArmorTypeConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArmorTypeConfigurator For(string name)
@@ -285,7 +407,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArmorTypeConfigurator New(string name, string assetId)
+    public static ArmorTypeConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintArmorType>(name, assetId);
       return For(name);
@@ -295,178 +417,266 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetTypeNameText(LocalizedString value)
+    public ArmorTypeConfigurator SetTypeNameText(LocalizedString typeNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_TypeNameText = value);
+      ValidateParam(typeNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TypeNameText = typeNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetDefaultNameText(LocalizedString value)
+    public ArmorTypeConfigurator SetDefaultNameText(LocalizedString defaultNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DefaultNameText = value);
+      ValidateParam(defaultNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultNameText = defaultNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetDescriptionText(LocalizedString value)
+    public ArmorTypeConfigurator SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString value)
+    public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString magicDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MagicDescriptionText = value);
+      ValidateParam(magicDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MagicDescriptionText = magicDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetIcon(Sprite value)
+    public ArmorTypeConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetVisualParameters(ArmorVisualParameters value)
+    public ArmorTypeConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_VisualParameters = value);
+      ValidateParam(visualParameters);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_VisualParameters = visualParameters;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetArmorBonus(int value)
+    public ArmorTypeConfigurator SetArmorBonus(int armorBonus)
     {
-      return OnConfigureInternal(bp => bp.m_ArmorBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmorBonus = armorBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetArmorChecksPenalty(int value)
+    public ArmorTypeConfigurator SetArmorChecksPenalty(int armorChecksPenalty)
     {
-      return OnConfigureInternal(bp => bp.m_ArmorChecksPenalty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmorChecksPenalty = armorChecksPenalty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_HasDexterityBonusLimit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetHasDexterityBonusLimit(bool value)
+    public ArmorTypeConfigurator SetHasDexterityBonusLimit(bool hasDexterityBonusLimit)
     {
-      return OnConfigureInternal(bp => bp.m_HasDexterityBonusLimit = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HasDexterityBonusLimit = hasDexterityBonusLimit;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MaxDexterityBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetMaxDexterityBonus(int value)
+    public ArmorTypeConfigurator SetMaxDexterityBonus(int maxDexterityBonus)
     {
-      return OnConfigureInternal(bp => bp.m_MaxDexterityBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaxDexterityBonus = maxDexterityBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ProficiencyGroup"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetProficiencyGroup(ArmorProficiencyGroup value)
+    public ArmorTypeConfigurator SetProficiencyGroup(ArmorProficiencyGroup proficiencyGroup)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ProficiencyGroup = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ProficiencyGroup = proficiencyGroup;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetArcaneSpellFailureChance(int value)
+    public ArmorTypeConfigurator SetArcaneSpellFailureChance(int arcaneSpellFailureChance)
     {
-      return OnConfigureInternal(bp => bp.m_ArcaneSpellFailureChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArcaneSpellFailureChance = arcaneSpellFailureChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Weight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetWeight(float value)
+    public ArmorTypeConfigurator SetWeight(float weight)
     {
-      return OnConfigureInternal(bp => bp.m_Weight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Weight = weight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsArmor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetIsArmor(bool value)
+    public ArmorTypeConfigurator SetIsArmor(bool isArmor)
     {
-      return OnConfigureInternal(bp => bp.m_IsArmor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsArmor = isArmor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsShield"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetIsShield(bool value)
+    public ArmorTypeConfigurator SetIsShield(bool isShield)
     {
-      return OnConfigureInternal(bp => bp.m_IsShield = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsShield = isShield;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetEquipmentEntity(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public ArmorTypeConfigurator AddToEquipmentEntityAlternatives(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="KingmakerEquipmentEntity"/></param>
-    [Generated]
-    public ArmorTypeConfigurator RemoveFromEquipmentEntityAlternatives(params string[] values)
+    public ArmorTypeConfigurator SetEquipmentEntity(string equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
+            bp.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(equipmentEntity);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public ArmorTypeConfigurator SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public ArmorTypeConfigurator AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    [Generated]
+    public ArmorTypeConfigurator RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = equipmentEntityAlternatives.Select(name => BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(name));
             bp.m_EquipmentEntityAlternatives =
                 bp.m_EquipmentEntityAlternatives
                     .Where(
@@ -476,28 +686,47 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
     [Generated]
-    public ArmorTypeConfigurator AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArmorEnchantment"/></param>
-    [Generated]
-    public ArmorTypeConfigurator RemoveFromEnchantments(params string[] values)
+    public ArmorTypeConfigurator SetEnchantments(string[] enchantments)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name));
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    [Generated]
+    public ArmorTypeConfigurator AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    [Generated]
+    public ArmorTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintArmorEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -510,29 +739,41 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetForcedRampColorPresetIndex(int value)
+    public ArmorTypeConfigurator SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
-      return OnConfigureInternal(bp => bp.m_ForcedRampColorPresetIndex = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ForcedRampColorPresetIndex = forcedRampColorPresetIndex;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Destructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetDestructible(bool value)
+    public ArmorTypeConfigurator SetDestructible(bool destructible)
     {
-      return OnConfigureInternal(bp => bp.m_Destructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Destructible = destructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetShardItem(string value)
+    public ArmorTypeConfigurator SetShardItem(string shardItem)
     {
-      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(shardItem);
+          });
     }
   }
 }

@@ -1,20 +1,23 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Settings;
 using Kingmaker.Settings.Difficulty;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Achievements
 {
-  /// <summary>Configurator for <see cref="AchievementData"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="AchievementData"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(AchievementData))]
   public class AchievementDataConfigurator : BaseBlueprintConfigurator<AchievementData, AchievementDataConfigurator>
   {
-     private AchievementDataConfigurator(string name) : base(name) { }
+    private AchievementDataConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AchievementDataConfigurator For(string name)
@@ -30,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AchievementDataConfigurator New(string name, string assetId)
+    public static AchievementDataConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<AchievementData>(name, assetId);
       return For(name);
@@ -40,219 +43,317 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// Sets <see cref="AchievementData.m_UnlockedIcon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetUnlockedIcon(Texture2D value)
+    public AchievementDataConfigurator SetUnlockedIcon(Texture2D unlockedIcon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_UnlockedIcon = value);
+      ValidateParam(unlockedIcon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UnlockedIcon = unlockedIcon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.m_LockedIcon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetLockedIcon(Texture2D value)
+    public AchievementDataConfigurator SetLockedIcon(Texture2D lockedIcon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LockedIcon = value);
+      ValidateParam(lockedIcon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LockedIcon = lockedIcon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetType(AchievementType value)
+    public AchievementDataConfigurator SetType(AchievementType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.SteamId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetSteamId(string value)
+    public AchievementDataConfigurator SetSteamId(string steamId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SteamId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SteamId = steamId;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.GogId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetGogId(string value)
+    public AchievementDataConfigurator SetGogId(string gogId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.GogId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GogId = gogId;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.EpicId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetEpicId(string value)
+    public AchievementDataConfigurator SetEpicId(string epicId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.EpicId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EpicId = epicId;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.PS4TrophyID"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetPS4TrophyID(int value)
+    public AchievementDataConfigurator SetPS4TrophyID(int pS4TrophyID)
     {
-      return OnConfigureInternal(bp => bp.PS4TrophyID = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PS4TrophyID = pS4TrophyID;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.XboxId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetXboxId(string value)
+    public AchievementDataConfigurator SetXboxId(string xboxId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.XboxId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.XboxId = xboxId;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.Hidden"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetHidden(bool value)
+    public AchievementDataConfigurator SetHidden(bool hidden)
     {
-      return OnConfigureInternal(bp => bp.Hidden = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Hidden = hidden;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.OnlyMainCampaign"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetOnlyMainCampaign(bool value)
+    public AchievementDataConfigurator SetOnlyMainCampaign(bool onlyMainCampaign)
     {
-      return OnConfigureInternal(bp => bp.OnlyMainCampaign = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnlyMainCampaign = onlyMainCampaign;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.SpecificDlc"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="specificDlc"><see cref="BlueprintDlcReward"/></param>
     [Generated]
-    public AchievementDataConfigurator SetSpecificDlc(string value)
+    public AchievementDataConfigurator SetSpecificDlc(string specificDlc)
     {
-      return OnConfigureInternal(bp => bp.SpecificDlc = BlueprintTool.GetRef<BlueprintDlcRewardReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecificDlc = BlueprintTool.GetRef<BlueprintDlcRewardReference>(specificDlc);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.MinDifficulty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetMinDifficulty(DifficultyPresetAsset value)
+    public AchievementDataConfigurator SetMinDifficulty(DifficultyPresetAsset minDifficulty)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MinDifficulty = value);
+      ValidateParam(minDifficulty);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinDifficulty = minDifficulty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.MinCrusadeDifficulty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetMinCrusadeDifficulty(KingdomDifficulty value)
+    public AchievementDataConfigurator SetMinCrusadeDifficulty(KingdomDifficulty minCrusadeDifficulty)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MinCrusadeDifficulty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinCrusadeDifficulty = minCrusadeDifficulty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.IronMan"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetIronMan(bool value)
+    public AchievementDataConfigurator SetIronMan(bool ironMan)
     {
-      return OnConfigureInternal(bp => bp.IronMan = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IronMan = ironMan;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.AchievementName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetAchievementName(string value)
+    public AchievementDataConfigurator SetAchievementName(string achievementName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AchievementName = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AchievementName = achievementName;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.EventsCountForUnlock"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetEventsCountForUnlock(int value)
+    public AchievementDataConfigurator SetEventsCountForUnlock(int eventsCountForUnlock)
     {
-      return OnConfigureInternal(bp => bp.EventsCountForUnlock = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EventsCountForUnlock = eventsCountForUnlock;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AchievementData.m_FinishGameFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="finishGameFlag"><see cref="BlueprintUnlockableFlag"/></param>
     [Generated]
-    public AchievementDataConfigurator SetFinishGameFlag(string value)
+    public AchievementDataConfigurator SetFinishGameFlag(string finishGameFlag)
     {
-      return OnConfigureInternal(bp => bp.m_FinishGameFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FinishGameFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(finishGameFlag);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Flags"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator AddToFlags(params AchievementData.UnlockableFlagsPack[] values)
+    public AchievementDataConfigurator SetFlags(AchievementData.UnlockableFlagsPack[] flags)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Flags = CommonTool.Append(bp.Flags, values));
+      ValidateParam(flags);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Flags = flags;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Flags"/> (Auto Generated)
+    /// Adds to <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator RemoveFromFlags(params AchievementData.UnlockableFlagsPack[] values)
+    public AchievementDataConfigurator AddToFlags(params AchievementData.UnlockableFlagsPack[] flags)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Flags = bp.Flags.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(flags);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Flags = CommonTool.Append(bp.Flags, flags ?? new AchievementData.UnlockableFlagsPack[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Etudes"/> (Auto Generated)
+    /// Removes from <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator AddToEtudes(params AchievementData.EtudesPack[] values)
+    public AchievementDataConfigurator RemoveFromFlags(params AchievementData.UnlockableFlagsPack[] flags)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Etudes = CommonTool.Append(bp.Etudes, values));
+      ValidateParam(flags);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Flags = bp.Flags.Where(item => !flags.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Etudes"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.Etudes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator RemoveFromEtudes(params AchievementData.EtudesPack[] values)
+    public AchievementDataConfigurator SetEtudes(AchievementData.EtudesPack[] etudes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Etudes = bp.Etudes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(etudes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Etudes = etudes;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="AchievementData.Etudes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AchievementDataConfigurator AddToEtudes(params AchievementData.EtudesPack[] etudes)
+    {
+      ValidateParam(etudes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Etudes = CommonTool.Append(bp.Etudes, etudes ?? new AchievementData.EtudesPack[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="AchievementData.Etudes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AchievementDataConfigurator RemoveFromEtudes(params AchievementData.EtudesPack[] etudes)
+    {
+      ValidateParam(etudes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Etudes = bp.Etudes.Where(item => !etudes.Contains(item)).ToArray();
+          });
     }
   }
 }

@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -6,16 +7,18 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
-  /// <summary>Configurator for <see cref="BlueprintParametrizedFeature"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintParametrizedFeature"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintParametrizedFeature))]
   public class ParametrizedFeatureConfigurator : BaseFeatureConfigurator<BlueprintParametrizedFeature, ParametrizedFeatureConfigurator>
   {
-     private ParametrizedFeatureConfigurator(string name) : base(name) { }
+    private ParametrizedFeatureConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ParametrizedFeatureConfigurator For(string name)
@@ -31,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ParametrizedFeatureConfigurator New(string name, string assetId)
+    public static ParametrizedFeatureConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintParametrizedFeature>(name, assetId);
       return For(name);
@@ -41,133 +44,193 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.ParameterType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetParameterType(FeatureParameterType value)
+    public ParametrizedFeatureConfigurator SetParameterType(FeatureParameterType parameterType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ParameterType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ParameterType = parameterType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetWeaponSubCategory(WeaponSubCategory value)
+    public ParametrizedFeatureConfigurator SetWeaponSubCategory(WeaponSubCategory weaponSubCategory)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.WeaponSubCategory = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.WeaponSubCategory = weaponSubCategory;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.SelectionFeatureGroup"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSelectionFeatureGroup(FeatureGroup value)
+    public ParametrizedFeatureConfigurator SetSelectionFeatureGroup(FeatureGroup selectionFeatureGroup)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SelectionFeatureGroup = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SelectionFeatureGroup = selectionFeatureGroup;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.RequireProficiency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetRequireProficiency(bool value)
+    public ParametrizedFeatureConfigurator SetRequireProficiency(bool requireProficiency)
     {
-      return OnConfigureInternal(bp => bp.RequireProficiency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RequireProficiency = requireProficiency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.m_SpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellList(string value)
+    public ParametrizedFeatureConfigurator SetSpellList(string spellList)
     {
-      return OnConfigureInternal(bp => bp.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="spellcasterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellcasterClass(string value)
+    public ParametrizedFeatureConfigurator SetSpellcasterClass(string spellcasterClass)
     {
-      return OnConfigureInternal(bp => bp.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(spellcasterClass);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.SpecificSpellLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpecificSpellLevel(bool value)
+    public ParametrizedFeatureConfigurator SetSpecificSpellLevel(bool specificSpellLevel)
     {
-      return OnConfigureInternal(bp => bp.SpecificSpellLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecificSpellLevel = specificSpellLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellLevelPenalty(int value)
+    public ParametrizedFeatureConfigurator SetSpellLevelPenalty(int spellLevelPenalty)
     {
-      return OnConfigureInternal(bp => bp.SpellLevelPenalty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellLevelPenalty = spellLevelPenalty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.SpellLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellLevel(int value)
+    public ParametrizedFeatureConfigurator SetSpellLevel(int spellLevel)
     {
-      return OnConfigureInternal(bp => bp.SpellLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpellLevel = spellLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetDisallowSpellsInSpellList(bool value)
+    public ParametrizedFeatureConfigurator SetDisallowSpellsInSpellList(bool disallowSpellsInSpellList)
     {
-      return OnConfigureInternal(bp => bp.DisallowSpellsInSpellList = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisallowSpellsInSpellList = disallowSpellsInSpellList;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.m_Prerequisite"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="prerequisite"><see cref="BlueprintParametrizedFeature"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetPrerequisite(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_Prerequisite = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
-    [Generated]
-    public ParametrizedFeatureConfigurator AddToCustomParameterVariants(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.CustomParameterVariants = CommonTool.Append(bp.CustomParameterVariants, values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
-    [Generated]
-    public ParametrizedFeatureConfigurator RemoveFromCustomParameterVariants(params string[] values)
+    public ParametrizedFeatureConfigurator SetPrerequisite(string prerequisite)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
+            bp.m_Prerequisite = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(prerequisite);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetCustomParameterVariants(string[] customParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomParameterVariants = customParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator AddToCustomParameterVariants(params string[] customParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomParameterVariants = CommonTool.Append(bp.CustomParameterVariants, customParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromCustomParameterVariants(params string[] customParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = customParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
             bp.CustomParameterVariants =
                 bp.CustomParameterVariants
                     .Where(
@@ -180,43 +243,70 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.HasNoSuchFeature"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetHasNoSuchFeature(bool value)
+    public ParametrizedFeatureConfigurator SetHasNoSuchFeature(bool hasNoSuchFeature)
     {
-      return OnConfigureInternal(bp => bp.HasNoSuchFeature = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasNoSuchFeature = hasNoSuchFeature;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetIgnoreParameterFeaturePrerequisites(bool value)
-    {
-      return OnConfigureInternal(bp => bp.IgnoreParameterFeaturePrerequisites = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
-    [Generated]
-    public ParametrizedFeatureConfigurator AddToBlueprintParameterVariants(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.BlueprintParameterVariants = CommonTool.Append(bp.BlueprintParameterVariants, values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintScriptableObject"/></param>
-    [Generated]
-    public ParametrizedFeatureConfigurator RemoveFromBlueprintParameterVariants(params string[] values)
+    public ParametrizedFeatureConfigurator SetIgnoreParameterFeaturePrerequisites(bool ignoreParameterFeaturePrerequisites)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
+            bp.IgnoreParameterFeaturePrerequisites = ignoreParameterFeaturePrerequisites;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator SetBlueprintParameterVariants(string[] blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BlueprintParameterVariants = blueprintParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator AddToBlueprintParameterVariants(params string[] blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BlueprintParameterVariants = CommonTool.Append(bp.BlueprintParameterVariants, blueprintParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromBlueprintParameterVariants(params string[] blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = blueprintParameterVariants.Select(name => BlueprintTool.GetRef<AnyBlueprintReference>(name));
             bp.BlueprintParameterVariants =
                 bp.BlueprintParameterVariants
                     .Where(
@@ -226,29 +316,46 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
+    /// Sets <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator AddToCachedItems(params FeatureUIData[] values)
+    public ParametrizedFeatureConfigurator SetCachedItems(FeatureUIData[] cachedItems)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedItems = CommonTool.Append(bp.m_CachedItems, values));
+      ValidateParam(cachedItems);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems = cachedItems;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator RemoveFromCachedItems(params FeatureUIData[] values)
+    public ParametrizedFeatureConfigurator AddToCachedItems(params FeatureUIData[] cachedItems)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedItems = bp.m_CachedItems.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(cachedItems);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems = CommonTool.Append(bp.m_CachedItems, cachedItems ?? new FeatureUIData[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ParametrizedFeatureConfigurator RemoveFromCachedItems(params FeatureUIData[] cachedItems)
+    {
+      ValidateParam(cachedItems);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems = bp.m_CachedItems.Where(item => !cachedItems.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
@@ -256,9 +363,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(AddParametrizedClassSkill))]
-    public ParametrizedFeatureConfigurator AddAddParametrizedClassSkill()
+    public ParametrizedFeatureConfigurator AddParametrizedClassSkill(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AddParametrizedClassSkill());
+      var component = new AddParametrizedClassSkill();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -266,16 +376,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(AddParametrizedStatBonus))]
-    public ParametrizedFeatureConfigurator AddAddParametrizedStatBonus(
-        ContextValue Value,
-        ModifierDescriptor Descriptor)
+    public ParametrizedFeatureConfigurator AddParametrizedStatBonus(
+        ContextValue value,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      ValidateParam(Descriptor);
-      
-      var component =  new AddParametrizedStatBonus();
-      component.Value = Value;
-      component.Descriptor = Descriptor;
+      ValidateParam(value);
+    
+      var component = new AddParametrizedStatBonus();
+      component.Value = value;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -285,11 +396,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(AbilityFocusParametrized))]
     public ParametrizedFeatureConfigurator AddAbilityFocusParametrized(
-        bool SpellsOnly)
+        bool spellsOnly = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AbilityFocusParametrized();
-      component.SpellsOnly = SpellsOnly;
+      var component = new AbilityFocusParametrized();
+      component.SpellsOnly = spellsOnly;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -298,9 +410,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(AddFeatureParametrized))]
-    public ParametrizedFeatureConfigurator AddAddFeatureParametrized()
+    public ParametrizedFeatureConfigurator AddFeatureParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new AddFeatureParametrized());
+      var component = new AddFeatureParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -308,13 +423,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(AddFeatureToPetParametrized))]
-    public ParametrizedFeatureConfigurator AddAddFeatureToPetParametrized(
-        PetType PetType)
+    public ParametrizedFeatureConfigurator AddFeatureToPetParametrized(
+        PetType petType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(PetType);
-      
-      var component =  new AddFeatureToPetParametrized();
-      component.PetType = PetType;
+      var component = new AddFeatureToPetParametrized();
+      component.PetType = petType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -323,42 +438,46 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(ExpandedArsenalMagicSchools))]
-    public ParametrizedFeatureConfigurator AddExpandedArsenalMagicSchools()
+    public ParametrizedFeatureConfigurator AddExpandedArsenalMagicSchools(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ExpandedArsenalMagicSchools());
+      var component = new ExpandedArsenalMagicSchools();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="FullWeaponMasterySkeletonParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Focus"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_Specialization"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_GreaterFocus"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_GreaterSpecialization"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_ImprovedCritical"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_WeaponMastery"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="m_GreaterFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="focus"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="specialization"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterFocus"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterSpecialization"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="improvedCritical"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="weaponMastery"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterFeature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(FullWeaponMasterySkeletonParametrized))]
     public ParametrizedFeatureConfigurator AddFullWeaponMasterySkeletonParametrized(
-        string m_Focus,
-        string m_Specialization,
-        string m_GreaterFocus,
-        string m_GreaterSpecialization,
-        string m_ImprovedCritical,
-        string m_WeaponMastery,
-        string m_GreaterFeature)
+        string focus = null,
+        string specialization = null,
+        string greaterFocus = null,
+        string greaterSpecialization = null,
+        string improvedCritical = null,
+        string weaponMastery = null,
+        string greaterFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new FullWeaponMasterySkeletonParametrized();
-      component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_Focus);
-      component.m_Specialization = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_Specialization);
-      component.m_GreaterFocus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_GreaterFocus);
-      component.m_GreaterSpecialization = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_GreaterSpecialization);
-      component.m_ImprovedCritical = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_ImprovedCritical);
-      component.m_WeaponMastery = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_WeaponMastery);
-      component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_GreaterFeature);
+      var component = new FullWeaponMasterySkeletonParametrized();
+      component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
+      component.m_Specialization = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(specialization);
+      component.m_GreaterFocus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(greaterFocus);
+      component.m_GreaterSpecialization = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(greaterSpecialization);
+      component.m_ImprovedCritical = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(improvedCritical);
+      component.m_WeaponMastery = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(weaponMastery);
+      component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(greaterFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -367,9 +486,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(ImprovedCriticalEdgeParametrized))]
-    public ParametrizedFeatureConfigurator AddImprovedCriticalEdgeParametrized()
+    public ParametrizedFeatureConfigurator AddImprovedCriticalEdgeParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ImprovedCriticalEdgeParametrized());
+      var component = new ImprovedCriticalEdgeParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -377,9 +499,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(ImprovedCriticalMythicParametrized))]
-    public ParametrizedFeatureConfigurator AddImprovedCriticalMythicParametrized()
+    public ParametrizedFeatureConfigurator AddImprovedCriticalMythicParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ImprovedCriticalMythicParametrized());
+      var component = new ImprovedCriticalMythicParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -387,24 +512,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(ImprovedCriticalParametrized))]
-    public ParametrizedFeatureConfigurator AddImprovedCriticalParametrized()
+    public ParametrizedFeatureConfigurator AddImprovedCriticalParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ImprovedCriticalParametrized());
+      var component = new ImprovedCriticalParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="KensaiChosenWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Focus"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="focus"><see cref="BlueprintParametrizedFeature"/></param>
     [Generated]
     [Implements(typeof(KensaiChosenWeapon))]
     public ParametrizedFeatureConfigurator AddKensaiChosenWeapon(
-        string m_Focus)
+        string focus = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new KensaiChosenWeapon();
-      component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_Focus);
+      var component = new KensaiChosenWeapon();
+      component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -412,24 +541,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="LearnSpellParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SpellcasterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="m_SpellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellcasterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(LearnSpellParametrized))]
     public ParametrizedFeatureConfigurator AddLearnSpellParametrized(
-        string m_SpellcasterClass,
-        string m_SpellList,
-        bool SpecificSpellLevel,
-        int SpellLevelPenalty,
-        int SpellLevel)
+        string spellcasterClass = null,
+        string spellList = null,
+        bool specificSpellLevel = default,
+        int spellLevelPenalty = default,
+        int spellLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new LearnSpellParametrized();
-      component.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_SpellcasterClass);
-      component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(m_SpellList);
-      component.SpecificSpellLevel = SpecificSpellLevel;
-      component.SpellLevelPenalty = SpellLevelPenalty;
-      component.SpellLevel = SpellLevel;
+      var component = new LearnSpellParametrized();
+      component.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(spellcasterClass);
+      component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
+      component.SpecificSpellLevel = specificSpellLevel;
+      component.SpellLevelPenalty = spellLevelPenalty;
+      component.SpellLevel = spellLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -438,9 +568,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(SavesFixerParamSpellSchool))]
-    public ParametrizedFeatureConfigurator AddSavesFixerParamSpellSchool()
+    public ParametrizedFeatureConfigurator AddSavesFixerParamSpellSchool(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SavesFixerParamSpellSchool());
+      var component = new SavesFixerParamSpellSchool();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -448,31 +581,34 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(SchoolMasteryParametrized))]
-    public ParametrizedFeatureConfigurator AddSchoolMasteryParametrized()
+    public ParametrizedFeatureConfigurator AddSchoolMasteryParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SchoolMasteryParametrized());
+      var component = new SchoolMasteryParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="SpellFocusParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_MythicFocus"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="mythicFocus"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(SpellFocusParametrized))]
     public ParametrizedFeatureConfigurator AddSpellFocusParametrized(
-        int BonusDC,
-        ModifierDescriptor Descriptor,
-        string m_MythicFocus,
-        bool SpellsOnly)
+        int bonusDC = default,
+        ModifierDescriptor descriptor = default,
+        string mythicFocus = null,
+        bool spellsOnly = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new SpellFocusParametrized();
-      component.BonusDC = BonusDC;
-      component.Descriptor = Descriptor;
-      component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_MythicFocus);
-      component.SpellsOnly = SpellsOnly;
+      var component = new SpellFocusParametrized();
+      component.BonusDC = bonusDC;
+      component.Descriptor = descriptor;
+      component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(mythicFocus);
+      component.SpellsOnly = spellsOnly;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -481,27 +617,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(SpellSpecializationParametrized))]
-    public ParametrizedFeatureConfigurator AddSpellSpecializationParametrized()
+    public ParametrizedFeatureConfigurator AddSpellSpecializationParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SpellSpecializationParametrized());
+      var component = new SpellSpecializationParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="WeaponFocusParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_MythicFocus"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="mythicFocus"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponFocusParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponFocusParametrized(
-        string m_MythicFocus,
-        ModifierDescriptor Descriptor)
+        string mythicFocus = null,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponFocusParametrized();
-      component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_MythicFocus);
-      component.Descriptor = Descriptor;
+      var component = new WeaponFocusParametrized();
+      component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(mythicFocus);
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -510,9 +649,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMasteryParametrized))]
-    public ParametrizedFeatureConfigurator AddWeaponMasteryParametrized()
+    public ParametrizedFeatureConfigurator AddWeaponMasteryParametrized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMasteryParametrized());
+      var component = new WeaponMasteryParametrized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -521,11 +663,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(WeaponSpecializationParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponSpecializationParametrized(
-        bool Mythic)
+        bool mythic = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponSpecializationParametrized();
-      component.Mythic = Mythic;
+      var component = new WeaponSpecializationParametrized();
+      component.Mythic = mythic;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

@@ -1,17 +1,19 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -24,31 +26,50 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where T : BlueprintArea
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseAreaConfigurator(string name) : base(name) { }
+    protected BaseAreaConfigurator(string name) : base(name) { }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
     [Generated]
-    public TBuilder AddToParts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Parts.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaPart"/></param>
-    [Generated]
-    public TBuilder RemoveFromParts(params string[] values)
+    public TBuilder SetParts(string[] parts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name));
+            bp.m_Parts = parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    [Generated]
+    public TBuilder AddToParts(params string[] parts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Parts.AddRange(parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    [Generated]
+    public TBuilder RemoveFromParts(params string[] parts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name));
             bp.m_Parts =
                 bp.m_Parts
                     .Where(
@@ -61,204 +82,303 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.IsGlobalMap"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsGlobalMap(bool value)
+    public TBuilder SetIsGlobalMap(bool isGlobalMap)
     {
-      return OnConfigureInternal(bp => bp.IsGlobalMap = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsGlobalMap = isGlobalMap;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraScrollMultiplier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCameraScrollMultiplier(float value)
+    public TBuilder SetCameraScrollMultiplier(float cameraScrollMultiplier)
     {
-      return OnConfigureInternal(bp => bp.CameraScrollMultiplier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CameraScrollMultiplier = cameraScrollMultiplier;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.SetDefaultCameraRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSetDefaultCameraRotation(bool value)
+    public TBuilder SetDefaultCameraRotation(bool setDefaultCameraRotation)
     {
-      return OnConfigureInternal(bp => bp.SetDefaultCameraRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SetDefaultCameraRotation = setDefaultCameraRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCameraRotation(float value)
+    public TBuilder SetCameraRotation(float cameraRotation)
     {
-      return OnConfigureInternal(bp => bp.CameraRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CameraRotation = cameraRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CampingSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCampingSettings(CampingSettings value)
+    public TBuilder SetCampingSettings(CampingSettings campingSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CampingSettings = value);
+      ValidateParam(campingSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CampingSettings = campingSettings;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.RandomEncounterSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetRandomEncounterSettings(RandomEncounterSettings value)
+    public TBuilder SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RandomEncounterSettings = value);
+      ValidateParam(randomEncounterSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RandomEncounterSettings = randomEncounterSettings;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.Designer"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDesigner(BlueprintArea.Designers value)
+    public TBuilder SetDesigner(BlueprintArea.Designers designer)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Designer = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Designer = designer;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.ArtSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetArtSetting(BlueprintArea.SettingType value)
+    public TBuilder SetArtSetting(BlueprintArea.SettingType artSetting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ArtSetting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArtSetting = artSetting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAreaName(LocalizedString value)
+    public TBuilder SetAreaName(LocalizedString areaName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AreaName = value);
+      ValidateParam(areaName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AreaName = areaName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.ExcludeFromSave"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetExcludeFromSave(bool value)
+    public TBuilder SetExcludeFromSave(bool excludeFromSave)
     {
-      return OnConfigureInternal(bp => bp.ExcludeFromSave = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExcludeFromSave = excludeFromSave;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.PS4ChunkId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetPS4ChunkId(PS4ChunkId value)
+    public TBuilder SetPS4ChunkId(PS4ChunkId pS4ChunkId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.PS4ChunkId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PS4ChunkId = pS4ChunkId;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToLoadingScreenSprites(params Sprite[] values)
+    public TBuilder SetLoadingScreenSprites(List<Sprite> loadingScreenSprites)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LoadingScreenSprites.AddRange(values));
+      ValidateParam(loadingScreenSprites);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites = loadingScreenSprites;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromLoadingScreenSprites(params Sprite[] values)
+    public TBuilder AddToLoadingScreenSprites(params Sprite[] loadingScreenSprites)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(loadingScreenSprites);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<Sprite>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    {
+      ValidateParam(loadingScreenSprites);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(item => !loadingScreenSprites.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.m_DefaultPreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="defaultPreset"><see cref="BlueprintAreaPreset"/></param>
     [Generated]
-    public TBuilder SetDefaultPreset(string value)
+    public TBuilder SetDefaultPreset(string defaultPreset)
     {
-      return OnConfigureInternal(bp => bp.m_DefaultPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(defaultPreset);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CR"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCR(int value)
+    public TBuilder SetCR(int cR)
     {
-      return OnConfigureInternal(bp => bp.CR = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CR = cR;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.OverrideCorruption"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetOverrideCorruption(bool value)
+    public TBuilder SetOverrideCorruption(bool overrideCorruption)
     {
-      return OnConfigureInternal(bp => bp.OverrideCorruption = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OverrideCorruption = overrideCorruption;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CorruptionGrowth"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCorruptionGrowth(int value)
+    public TBuilder SetCorruptionGrowth(int corruptionGrowth)
     {
-      return OnConfigureInternal(bp => bp.CorruptionGrowth = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CorruptionGrowth = corruptionGrowth;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.LootSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLootSetting(LootSetting value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LootSetting = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
-    [Generated]
-    public TBuilder AddToHotAreas(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_HotAreas = CommonTool.Append(bp.m_HotAreas, values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
-    [Generated]
-    public TBuilder RemoveFromHotAreas(params string[] values)
+    public TBuilder SetLootSetting(LootSetting lootSetting)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
+            bp.LootSetting = lootSetting;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public TBuilder SetHotAreas(string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HotAreas = hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public TBuilder AddToHotAreas(params string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HotAreas = CommonTool.Append(bp.m_HotAreas, hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public TBuilder RemoveFromHotAreas(params string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
             bp.m_HotAreas =
                 bp.m_HotAreas
                     .Where(
@@ -271,30 +391,25 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DefaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    /// <param name="m_GoodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="defaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="goodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(CombatRandomEncounterAreaSettings))]
     public TBuilder AddCombatRandomEncounterAreaSettings(
-        string m_DefaultEnterPoint,
-        string m_GoodAvoidanceEnterPoint,
-        GlobalMapZone[] AllowedNaturalSettings,
-        CombatRandomEncounterAreaSettings.Formation[] Formations)
+        string defaultEnterPoint = null,
+        string goodAvoidanceEnterPoint = null,
+        GlobalMapZone[] allowedNaturalSettings = null,
+        CombatRandomEncounterAreaSettings.Formation[] formations = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in AllowedNaturalSettings)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in Formations)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new CombatRandomEncounterAreaSettings();
-      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_DefaultEnterPoint);
-      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_GoodAvoidanceEnterPoint);
-      component.AllowedNaturalSettings = AllowedNaturalSettings;
-      component.Formations = Formations;
+      ValidateParam(formations);
+    
+      var component = new CombatRandomEncounterAreaSettings();
+      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(defaultEnterPoint);
+      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(goodAvoidanceEnterPoint);
+      component.AllowedNaturalSettings = allowedNaturalSettings;
+      component.Formations = formations;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -302,15 +417,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="AreaSettlementLink"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="SettlementRef"><see cref="BlueprintSettlement"/></param>
+    /// <param name="settlementRef"><see cref="BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(AreaSettlementLink))]
     public TBuilder AddAreaSettlementLink(
-        string SettlementRef)
+        string settlementRef = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AreaSettlementLink();
-      component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(SettlementRef);
+      var component = new AreaSettlementLink();
+      component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -320,13 +436,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public TBuilder AddOverrideCampingAction(
-        ActionsBuilder OnRestActions,
-        bool SkipRest)
+        ActionList onRestActions,
+        bool skipRest = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new OverrideCampingAction();
-      component.OnRestActions = OnRestActions.Build();
-      component.SkipRest = SkipRest;
+      ValidateParam(onRestActions);
+    
+      var component = new OverrideCampingAction();
+      component.OnRestActions = onRestActions;
+      component.SkipRest = skipRest;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -336,13 +455,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public TBuilder AddBirthdayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BirthdayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new BirthdayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -352,15 +474,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public TBuilder AddEveryDayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipDays)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipDays = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryDayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipDays = SkipDays;
+      ValidateParam(actions);
+    
+      var component = new EveryDayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipDays = skipDays;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -370,15 +495,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public TBuilder AddEveryWeekTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipWeeks)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipWeeks = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryWeekTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipWeeks = SkipWeeks;
+      ValidateParam(actions);
+    
+      var component = new EveryWeekTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipWeeks = skipWeeks;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -386,31 +514,34 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="SettlementAISettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_AIBuildListVillage"><see cref="SettlementBuildList"/></param>
-    /// <param name="m_AIBuildListTown"><see cref="SettlementBuildList"/></param>
-    /// <param name="m_AIBuildListCity"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListVillage"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListTown"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListCity"><see cref="SettlementBuildList"/></param>
     [Generated]
     [Implements(typeof(SettlementAISettings))]
     public TBuilder AddSettlementAISettings(
-        string m_AIBuildListVillage,
-        string m_AIBuildListTown,
-        string m_AIBuildListCity)
+        string aIBuildListVillage = null,
+        string aIBuildListTown = null,
+        string aIBuildListCity = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SettlementAISettings();
-      component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListVillage);
-      component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListTown);
-      component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListCity);
+      var component = new SettlementAISettings();
+      component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);
+      component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListTown);
+      component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListCity);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintArea"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintArea"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintArea))]
   public class AreaConfigurator : BaseAreaPartConfigurator<BlueprintArea, AreaConfigurator>
   {
-     private AreaConfigurator(string name) : base(name) { }
+    private AreaConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AreaConfigurator For(string name)
@@ -426,35 +557,54 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AreaConfigurator New(string name, string assetId)
+    public static AreaConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintArea>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
     [Generated]
-    public AreaConfigurator AddToParts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Parts.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaPart"/></param>
-    [Generated]
-    public AreaConfigurator RemoveFromParts(params string[] values)
+    public AreaConfigurator SetParts(string[] parts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name));
+            bp.m_Parts = parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    [Generated]
+    public AreaConfigurator AddToParts(params string[] parts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Parts.AddRange(parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    [Generated]
+    public AreaConfigurator RemoveFromParts(params string[] parts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = parts.Select(name => BlueprintTool.GetRef<BlueprintAreaPartReference>(name));
             bp.m_Parts =
                 bp.m_Parts
                     .Where(
@@ -467,204 +617,303 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.IsGlobalMap"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetIsGlobalMap(bool value)
+    public AreaConfigurator SetIsGlobalMap(bool isGlobalMap)
     {
-      return OnConfigureInternal(bp => bp.IsGlobalMap = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsGlobalMap = isGlobalMap;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraScrollMultiplier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetCameraScrollMultiplier(float value)
+    public AreaConfigurator SetCameraScrollMultiplier(float cameraScrollMultiplier)
     {
-      return OnConfigureInternal(bp => bp.CameraScrollMultiplier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CameraScrollMultiplier = cameraScrollMultiplier;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.SetDefaultCameraRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetSetDefaultCameraRotation(bool value)
+    public AreaConfigurator SetDefaultCameraRotation(bool setDefaultCameraRotation)
     {
-      return OnConfigureInternal(bp => bp.SetDefaultCameraRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SetDefaultCameraRotation = setDefaultCameraRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetCameraRotation(float value)
+    public AreaConfigurator SetCameraRotation(float cameraRotation)
     {
-      return OnConfigureInternal(bp => bp.CameraRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CameraRotation = cameraRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CampingSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetCampingSettings(CampingSettings value)
+    public AreaConfigurator SetCampingSettings(CampingSettings campingSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CampingSettings = value);
+      ValidateParam(campingSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CampingSettings = campingSettings;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.RandomEncounterSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetRandomEncounterSettings(RandomEncounterSettings value)
+    public AreaConfigurator SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RandomEncounterSettings = value);
+      ValidateParam(randomEncounterSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RandomEncounterSettings = randomEncounterSettings;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.Designer"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetDesigner(BlueprintArea.Designers value)
+    public AreaConfigurator SetDesigner(BlueprintArea.Designers designer)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Designer = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Designer = designer;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.ArtSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetArtSetting(BlueprintArea.SettingType value)
+    public AreaConfigurator SetArtSetting(BlueprintArea.SettingType artSetting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ArtSetting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArtSetting = artSetting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetAreaName(LocalizedString value)
+    public AreaConfigurator SetAreaName(LocalizedString areaName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AreaName = value);
+      ValidateParam(areaName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AreaName = areaName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.ExcludeFromSave"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetExcludeFromSave(bool value)
+    public AreaConfigurator SetExcludeFromSave(bool excludeFromSave)
     {
-      return OnConfigureInternal(bp => bp.ExcludeFromSave = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExcludeFromSave = excludeFromSave;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.PS4ChunkId"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetPS4ChunkId(PS4ChunkId value)
+    public AreaConfigurator SetPS4ChunkId(PS4ChunkId pS4ChunkId)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.PS4ChunkId = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PS4ChunkId = pS4ChunkId;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator AddToLoadingScreenSprites(params Sprite[] values)
+    public AreaConfigurator SetLoadingScreenSprites(List<Sprite> loadingScreenSprites)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LoadingScreenSprites.AddRange(values));
+      ValidateParam(loadingScreenSprites);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites = loadingScreenSprites;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator RemoveFromLoadingScreenSprites(params Sprite[] values)
+    public AreaConfigurator AddToLoadingScreenSprites(params Sprite[] loadingScreenSprites)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(loadingScreenSprites);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<Sprite>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaConfigurator RemoveFromLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    {
+      ValidateParam(loadingScreenSprites);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(item => !loadingScreenSprites.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.m_DefaultPreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="defaultPreset"><see cref="BlueprintAreaPreset"/></param>
     [Generated]
-    public AreaConfigurator SetDefaultPreset(string value)
+    public AreaConfigurator SetDefaultPreset(string defaultPreset)
     {
-      return OnConfigureInternal(bp => bp.m_DefaultPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(defaultPreset);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CR"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetCR(int value)
+    public AreaConfigurator SetCR(int cR)
     {
-      return OnConfigureInternal(bp => bp.CR = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CR = cR;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.OverrideCorruption"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetOverrideCorruption(bool value)
+    public AreaConfigurator SetOverrideCorruption(bool overrideCorruption)
     {
-      return OnConfigureInternal(bp => bp.OverrideCorruption = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OverrideCorruption = overrideCorruption;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.CorruptionGrowth"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetCorruptionGrowth(int value)
+    public AreaConfigurator SetCorruptionGrowth(int corruptionGrowth)
     {
-      return OnConfigureInternal(bp => bp.CorruptionGrowth = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CorruptionGrowth = corruptionGrowth;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintArea.LootSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetLootSetting(LootSetting value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LootSetting = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
-    [Generated]
-    public AreaConfigurator AddToHotAreas(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_HotAreas = CommonTool.Append(bp.m_HotAreas, values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintArea"/></param>
-    [Generated]
-    public AreaConfigurator RemoveFromHotAreas(params string[] values)
+    public AreaConfigurator SetLootSetting(LootSetting lootSetting)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
+            bp.LootSetting = lootSetting;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public AreaConfigurator SetHotAreas(string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HotAreas = hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public AreaConfigurator AddToHotAreas(params string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HotAreas = CommonTool.Append(bp.m_HotAreas, hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    [Generated]
+    public AreaConfigurator RemoveFromHotAreas(params string[] hotAreas)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = hotAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name));
             bp.m_HotAreas =
                 bp.m_HotAreas
                     .Where(
@@ -677,30 +926,25 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DefaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    /// <param name="m_GoodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="defaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="goodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(CombatRandomEncounterAreaSettings))]
     public AreaConfigurator AddCombatRandomEncounterAreaSettings(
-        string m_DefaultEnterPoint,
-        string m_GoodAvoidanceEnterPoint,
-        GlobalMapZone[] AllowedNaturalSettings,
-        CombatRandomEncounterAreaSettings.Formation[] Formations)
+        string defaultEnterPoint = null,
+        string goodAvoidanceEnterPoint = null,
+        GlobalMapZone[] allowedNaturalSettings = null,
+        CombatRandomEncounterAreaSettings.Formation[] formations = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in AllowedNaturalSettings)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in Formations)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new CombatRandomEncounterAreaSettings();
-      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_DefaultEnterPoint);
-      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(m_GoodAvoidanceEnterPoint);
-      component.AllowedNaturalSettings = AllowedNaturalSettings;
-      component.Formations = Formations;
+      ValidateParam(formations);
+    
+      var component = new CombatRandomEncounterAreaSettings();
+      component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(defaultEnterPoint);
+      component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(goodAvoidanceEnterPoint);
+      component.AllowedNaturalSettings = allowedNaturalSettings;
+      component.Formations = formations;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -708,15 +952,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="AreaSettlementLink"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="SettlementRef"><see cref="BlueprintSettlement"/></param>
+    /// <param name="settlementRef"><see cref="BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(AreaSettlementLink))]
     public AreaConfigurator AddAreaSettlementLink(
-        string SettlementRef)
+        string settlementRef = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AreaSettlementLink();
-      component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(SettlementRef);
+      var component = new AreaSettlementLink();
+      component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -726,13 +971,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public AreaConfigurator AddOverrideCampingAction(
-        ActionsBuilder OnRestActions,
-        bool SkipRest)
+        ActionList onRestActions,
+        bool skipRest = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new OverrideCampingAction();
-      component.OnRestActions = OnRestActions.Build();
-      component.SkipRest = SkipRest;
+      ValidateParam(onRestActions);
+    
+      var component = new OverrideCampingAction();
+      component.OnRestActions = onRestActions;
+      component.SkipRest = skipRest;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -742,13 +990,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public AreaConfigurator AddBirthdayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BirthdayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new BirthdayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -758,15 +1009,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public AreaConfigurator AddEveryDayTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipDays)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipDays = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryDayTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipDays = SkipDays;
+      ValidateParam(actions);
+    
+      var component = new EveryDayTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipDays = skipDays;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -776,15 +1030,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public AreaConfigurator AddEveryWeekTrigger(
-        ConditionsBuilder Condition,
-        ActionsBuilder Actions,
-        int SkipWeeks)
+        ActionList actions,
+        ConditionsBuilder condition = null,
+        int skipWeeks = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EveryWeekTrigger();
-      component.Condition = Condition.Build();
-      component.Actions = Actions.Build();
-      component.SkipWeeks = SkipWeeks;
+      ValidateParam(actions);
+    
+      var component = new EveryWeekTrigger();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.SkipWeeks = skipWeeks;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -792,21 +1049,22 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="SettlementAISettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_AIBuildListVillage"><see cref="SettlementBuildList"/></param>
-    /// <param name="m_AIBuildListTown"><see cref="SettlementBuildList"/></param>
-    /// <param name="m_AIBuildListCity"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListVillage"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListTown"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListCity"><see cref="SettlementBuildList"/></param>
     [Generated]
     [Implements(typeof(SettlementAISettings))]
     public AreaConfigurator AddSettlementAISettings(
-        string m_AIBuildListVillage,
-        string m_AIBuildListTown,
-        string m_AIBuildListCity)
+        string aIBuildListVillage = null,
+        string aIBuildListTown = null,
+        string aIBuildListCity = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new SettlementAISettings();
-      component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListVillage);
-      component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListTown);
-      component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(m_AIBuildListCity);
+      var component = new SettlementAISettings();
+      component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);
+      component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListTown);
+      component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListCity);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

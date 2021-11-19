@@ -1,4 +1,4 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -6,20 +6,23 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
-  /// <summary>Configurator for <see cref="BlueprintLeaderSkill"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintLeaderSkill"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintLeaderSkill))]
   public class LeaderSkillConfigurator : BaseBlueprintConfigurator<BlueprintLeaderSkill, LeaderSkillConfigurator>
   {
-     private LeaderSkillConfigurator(string name) : base(name) { }
+    private LeaderSkillConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LeaderSkillConfigurator For(string name)
@@ -35,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LeaderSkillConfigurator New(string name, string assetId)
+    public static LeaderSkillConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintLeaderSkill>(name, assetId);
       return For(name);
@@ -45,94 +48,143 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderSkill.Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetIcon(Sprite value)
+    public LeaderSkillConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetLocalizedName(LocalizedString value)
+    public LeaderSkillConfigurator SetLocalizedName(LocalizedString localizedName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LocalizedName = value);
+      ValidateParam(localizedName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalizedName = localizedName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.LocalizedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString value)
+    public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString localizedDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LocalizedDescription = value);
+      ValidateParam(localizedDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalizedDescription = localizedDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.BonusAttributes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetBonusAttributes(LeaderAttributes value)
+    public LeaderSkillConfigurator SetBonusAttributes(LeaderAttributes bonusAttributes)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.BonusAttributes = value);
+      ValidateParam(bonusAttributes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BonusAttributes = bonusAttributes;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetType(ArmyLeaderSkillType value)
+    public LeaderSkillConfigurator SetType(ArmyLeaderSkillType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.StackTag"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetStackTag(StackTag value)
+    public LeaderSkillConfigurator SetStackTag(StackTag stackTag)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StackTag = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StackTag = stackTag;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetPrerequisiteLevel(int value)
-    {
-      return OnConfigureInternal(bp => bp.m_PrerequisiteLevel = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
-    [Generated]
-    public LeaderSkillConfigurator AddToPrerequisites(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Prerequisites = CommonTool.Append(bp.m_Prerequisites, values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintLeaderSkill"/></param>
-    [Generated]
-    public LeaderSkillConfigurator RemoveFromPrerequisites(params string[] values)
+    public LeaderSkillConfigurator SetPrerequisiteLevel(int prerequisiteLevel)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name));
+            bp.m_PrerequisiteLevel = prerequisiteLevel;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillConfigurator SetPrerequisites(string[] prerequisites)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Prerequisites = prerequisites.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillConfigurator AddToPrerequisites(params string[] prerequisites)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Prerequisites = CommonTool.Append(bp.m_Prerequisites, prerequisites.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    [Generated]
+    public LeaderSkillConfigurator RemoveFromPrerequisites(params string[] prerequisites)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = prerequisites.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name));
             bp.m_Prerequisites =
                 bp.m_Prerequisites
                     .Where(
@@ -145,15 +197,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="AddFactOnLeaderUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactOnLeaderUnit))]
-    public LeaderSkillConfigurator AddAddFactOnLeaderUnit(
-        string[] m_Facts)
+    public LeaderSkillConfigurator AddFactOnLeaderUnit(
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddFactOnLeaderUnit();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new AddFactOnLeaderUnit();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -161,18 +214,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="AddFactOnTacticalUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactOnTacticalUnit))]
-    public LeaderSkillConfigurator AddAddFactOnTacticalUnit(
-        string[] m_Facts,
-        TargetFilter m_TargetController)
+    public LeaderSkillConfigurator AddFactOnTacticalUnit(
+        TargetFilter targetController,
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_TargetController);
-      
-      var component =  new AddFactOnTacticalUnit();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_TargetController = m_TargetController;
+      ValidateParam(targetController);
+    
+      var component = new AddFactOnTacticalUnit();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_TargetController = targetController;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -180,19 +235,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="CastOnTacticalCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SpellToCast"><see cref="BlueprintAbility"/></param>
+    /// <param name="spellToCast"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CastOnTacticalCombatStart))]
     public LeaderSkillConfigurator AddCastOnTacticalCombatStart(
-        string m_SpellToCast,
-        bool m_TargetCell,
-        List<int> m_AllowedColumns)
+        string spellToCast = null,
+        bool targetCell = default,
+        List<int> allowedColumns = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CastOnTacticalCombatStart();
-      component.m_SpellToCast = BlueprintTool.GetRef<BlueprintAbilityReference>(m_SpellToCast);
-      component.m_TargetCell = m_TargetCell;
-      component.m_AllowedColumns = m_AllowedColumns;
+      var component = new CastOnTacticalCombatStart();
+      component.m_SpellToCast = BlueprintTool.GetRef<BlueprintAbilityReference>(spellToCast);
+      component.m_TargetCell = targetCell;
+      component.m_AllowedColumns = allowedColumns;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -200,19 +256,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="LeaderExpBonus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_BonusSkills"><see cref="BlueprintLeaderSkillsList"/></param>
+    /// <param name="bonusSkills"><see cref="BlueprintLeaderSkillsList"/></param>
     [Generated]
     [Implements(typeof(LeaderExpBonus))]
     public LeaderSkillConfigurator AddLeaderExpBonus(
-        int m_BonusPercent,
-        int m_LevelForBonusSkills,
-        string m_BonusSkills)
+        int bonusPercent = default,
+        int levelForBonusSkills = default,
+        string bonusSkills = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new LeaderExpBonus();
-      component.m_BonusPercent = m_BonusPercent;
-      component.m_LevelForBonusSkills = m_LevelForBonusSkills;
-      component.m_BonusSkills = BlueprintTool.GetRef<BlueprintLeaderSkillsList.Reference>(m_BonusSkills);
+      var component = new LeaderExpBonus();
+      component.m_BonusPercent = bonusPercent;
+      component.m_LevelForBonusSkills = levelForBonusSkills;
+      component.m_BonusSkills = BlueprintTool.GetRef<BlueprintLeaderSkillsList.Reference>(bonusSkills);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -222,12 +279,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Generated]
     [Implements(typeof(LeaderPercentAttributeBonus))]
     public LeaderSkillConfigurator AddLeaderPercentAttributeBonus(
-        LeaderAttributes m_PercentBonuses)
+        LeaderAttributes percentBonuses,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_PercentBonuses);
-      
-      var component =  new LeaderPercentAttributeBonus();
-      component.m_PercentBonuses = m_PercentBonuses;
+      ValidateParam(percentBonuses);
+    
+      var component = new LeaderPercentAttributeBonus();
+      component.m_PercentBonuses = percentBonuses;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -237,11 +296,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Generated]
     [Implements(typeof(MaxArmySquadsBonusLeaderComponent))]
     public LeaderSkillConfigurator AddMaxArmySquadsBonusLeaderComponent(
-        int m_ArmySizeBonus)
+        int armySizeBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MaxArmySquadsBonusLeaderComponent();
-      component.m_ArmySizeBonus = m_ArmySizeBonus;
+      var component = new MaxArmySquadsBonusLeaderComponent();
+      component.m_ArmySizeBonus = armySizeBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -249,17 +309,18 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="PlaceLeaderTrapOnCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_PossibleTrapSkills"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="possibleTrapSkills"><see cref="BlueprintLeaderSkill"/></param>
     [Generated]
     [Implements(typeof(PlaceLeaderTrapOnCombatStart))]
     public LeaderSkillConfigurator AddPlaceLeaderTrapOnCombatStart(
-        string[] m_PossibleTrapSkills,
-        List<int> m_AllowedColumns)
+        string[] possibleTrapSkills = null,
+        List<int> allowedColumns = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PlaceLeaderTrapOnCombatStart();
-      component.m_PossibleTrapSkills = m_PossibleTrapSkills.Select(bp => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(bp)).ToArray();
-      component.m_AllowedColumns = m_AllowedColumns;
+      var component = new PlaceLeaderTrapOnCombatStart();
+      component.m_PossibleTrapSkills = possibleTrapSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
+      component.m_AllowedColumns = allowedColumns;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -267,18 +328,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="RemoveFactFromTacticalUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RemoveFactFromTacticalUnit))]
     public LeaderSkillConfigurator AddRemoveFactFromTacticalUnit(
-        string[] m_Facts,
-        TargetFilter m_TargetController)
+        TargetFilter targetController,
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_TargetController);
-      
-      var component =  new RemoveFactFromTacticalUnit();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.m_TargetController = m_TargetController;
+      ValidateParam(targetController);
+    
+      var component = new RemoveFactFromTacticalUnit();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_TargetController = targetController;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -286,22 +349,25 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="SquadsActionOnTacticalCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_BannedFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(SquadsActionOnTacticalCombatStart))]
     public LeaderSkillConfigurator AddSquadsActionOnTacticalCombatStart(
-        TargetFilter m_Filter,
-        string[] m_BannedFacts,
-        int m_MaxSquadsCount,
-        ActionsBuilder m_Actions)
+        TargetFilter filter,
+        ActionList actions,
+        string[] bannedFacts = null,
+        int maxSquadsCount = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Filter);
-      
-      var component =  new SquadsActionOnTacticalCombatStart();
-      component.m_Filter = m_Filter;
-      component.m_BannedFacts = m_BannedFacts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToList();
-      component.m_MaxSquadsCount = m_MaxSquadsCount;
-      component.m_Actions = m_Actions.Build();
+      ValidateParam(filter);
+      ValidateParam(actions);
+    
+      var component = new SquadsActionOnTacticalCombatStart();
+      component.m_Filter = filter;
+      component.m_BannedFacts = bannedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
+      component.m_MaxSquadsCount = maxSquadsCount;
+      component.m_Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -309,15 +375,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="TacticalLeaderRitualComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TacticalLeaderRitualComponent))]
     public LeaderSkillConfigurator AddTacticalLeaderRitualComponent(
-        string m_Ability)
+        string ability = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TacticalLeaderRitualComponent();
-      component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Ability);
+      var component = new TacticalLeaderRitualComponent();
+      component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -327,14 +394,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Generated]
     [Implements(typeof(ArmyLeaderAddResourcesOnBattleEnd))]
     public LeaderSkillConfigurator AddArmyLeaderAddResourcesOnBattleEnd(
-        KingdomResourcesAmount m_ResourcesAmount,
-        bool OnlyOnVictory)
+        KingdomResourcesAmount resourcesAmount,
+        bool onlyOnVictory = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_ResourcesAmount);
-      
-      var component =  new ArmyLeaderAddResourcesOnBattleEnd();
-      component.m_ResourcesAmount = m_ResourcesAmount;
-      component.OnlyOnVictory = OnlyOnVictory;
+      var component = new ArmyLeaderAddResourcesOnBattleEnd();
+      component.m_ResourcesAmount = resourcesAmount;
+      component.OnlyOnVictory = onlyOnVictory;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -344,17 +411,18 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Generated]
     [Implements(typeof(TacticalMoraleModifier))]
     public LeaderSkillConfigurator AddTacticalMoraleModifier(
-        TargetFilter m_TargetFilter,
-        TacticalMoraleModifier.FactionTarget m_FactionTarget,
-        int m_ModValue)
+        TargetFilter targetFilter,
+        TacticalMoraleModifier.FactionTarget factionTarget = default,
+        int modValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_TargetFilter);
-      ValidateParam(m_FactionTarget);
-      
-      var component =  new TacticalMoraleModifier();
-      component.m_TargetFilter = m_TargetFilter;
-      component.m_FactionTarget = m_FactionTarget;
-      component.m_ModValue = m_ModValue;
+      ValidateParam(targetFilter);
+    
+      var component = new TacticalMoraleModifier();
+      component.m_TargetFilter = targetFilter;
+      component.m_FactionTarget = factionTarget;
+      component.m_ModValue = modValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -364,13 +432,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Generated]
     [Implements(typeof(ArmyGlobalMapMovementBonus))]
     public LeaderSkillConfigurator AddArmyGlobalMapMovementBonus(
-        int DailyMovementPoints,
-        int MaxMovementPoints)
+        int dailyMovementPoints = default,
+        int maxMovementPoints = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ArmyGlobalMapMovementBonus();
-      component.DailyMovementPoints = DailyMovementPoints;
-      component.MaxMovementPoints = MaxMovementPoints;
+      var component = new ArmyGlobalMapMovementBonus();
+      component.DailyMovementPoints = dailyMovementPoints;
+      component.MaxMovementPoints = maxMovementPoints;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

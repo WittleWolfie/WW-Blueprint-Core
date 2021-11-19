@@ -1,9 +1,11 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>
@@ -16,50 +18,78 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       where T : BlueprintEncyclopediaNode
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseEncyclopediaNodeConfigurator(string name) : base(name) { }
+    protected BaseEncyclopediaNodeConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaNode.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTitle(LocalizedString value)
+    public TBuilder SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaNode.m_Expanded"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetExpanded(bool value)
-    {
-      return OnConfigureInternal(bp => bp.m_Expanded = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEncyclopediaPage"/></param>
-    [Generated]
-    public TBuilder AddToChildPages(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.ChildPages.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEncyclopediaPage"/></param>
-    [Generated]
-    public TBuilder RemoveFromChildPages(params string[] values)
+    public TBuilder SetExpanded(bool expanded)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(name));
+            bp.m_Expanded = expanded;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    [Generated]
+    public TBuilder SetChildPages(string[] childPages)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ChildPages = childPages.Select(name => BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    [Generated]
+    public TBuilder AddToChildPages(params string[] childPages)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ChildPages.AddRange(childPages.Select(name => BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    [Generated]
+    public TBuilder RemoveFromChildPages(params string[] childPages)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = childPages.Select(name => BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(name));
             bp.ChildPages =
                 bp.ChildPages
                     .Where(

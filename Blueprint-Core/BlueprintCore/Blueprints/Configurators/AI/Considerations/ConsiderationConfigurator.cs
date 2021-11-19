@@ -1,6 +1,7 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>
@@ -13,15 +14,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
       where T : Consideration
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseConsiderationConfigurator(string name) : base(name) { }
+    protected BaseConsiderationConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="Consideration.BaseScoreModifier"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetBaseScoreModifier(float value)
+    public TBuilder SetBaseScoreModifier(float baseScoreModifier)
     {
-      return OnConfigureInternal(bp => bp.BaseScoreModifier = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BaseScoreModifier = baseScoreModifier;
+          });
     }
   }
 }

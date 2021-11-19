@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="ArmorTypeConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ArmorTypeConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ArmorTypeConsideration))]
   public class ArmorTypeConsiderationConfigurator : BaseConsiderationConfigurator<ArmorTypeConsideration, ArmorTypeConsiderationConfigurator>
   {
-     private ArmorTypeConsiderationConfigurator(string name) : base(name) { }
+    private ArmorTypeConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArmorTypeConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArmorTypeConsiderationConfigurator New(string name, string assetId)
+    public static ArmorTypeConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ArmorTypeConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ArmorTypeConsideration.LightArmorScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConsiderationConfigurator SetLightArmorScore(float value)
+    public ArmorTypeConsiderationConfigurator SetLightArmorScore(float lightArmorScore)
     {
-      return OnConfigureInternal(bp => bp.LightArmorScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LightArmorScore = lightArmorScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ArmorTypeConsideration.HeavyArmorScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConsiderationConfigurator SetHeavyArmorScore(float value)
+    public ArmorTypeConsiderationConfigurator SetHeavyArmorScore(float heavyArmorScore)
     {
-      return OnConfigureInternal(bp => bp.HeavyArmorScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HeavyArmorScore = heavyArmorScore;
+          });
     }
   }
 }

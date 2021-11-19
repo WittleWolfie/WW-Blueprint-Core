@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items;
-
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
-  /// <summary>Configurator for <see cref="BlueprintItemNote"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemNote"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemNote))]
   public class ItemNoteConfigurator : BaseItemConfigurator<BlueprintItemNote, ItemNoteConfigurator>
   {
-     private ItemNoteConfigurator(string name) : base(name) { }
+    private ItemNoteConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemNoteConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemNoteConfigurator New(string name, string assetId)
+    public static ItemNoteConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemNote>(name, assetId);
       return For(name);

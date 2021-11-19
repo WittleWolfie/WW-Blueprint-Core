@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="CanMakeFullAttackConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="CanMakeFullAttackConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(CanMakeFullAttackConsideration))]
   public class CanMakeFullAttackConsiderationConfigurator : BaseConsiderationConfigurator<CanMakeFullAttackConsideration, CanMakeFullAttackConsiderationConfigurator>
   {
-     private CanMakeFullAttackConsiderationConfigurator(string name) : base(name) { }
+    private CanMakeFullAttackConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CanMakeFullAttackConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CanMakeFullAttackConsiderationConfigurator New(string name, string assetId)
+    public static CanMakeFullAttackConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<CanMakeFullAttackConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="CanMakeFullAttackConsideration.SuccessScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CanMakeFullAttackConsiderationConfigurator SetSuccessScore(float value)
+    public CanMakeFullAttackConsiderationConfigurator SetSuccessScore(float successScore)
     {
-      return OnConfigureInternal(bp => bp.SuccessScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SuccessScore = successScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="CanMakeFullAttackConsideration.FailScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CanMakeFullAttackConsiderationConfigurator SetFailScore(float value)
+    public CanMakeFullAttackConsiderationConfigurator SetFailScore(float failScore)
     {
-      return OnConfigureInternal(bp => bp.FailScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FailScore = failScore;
+          });
     }
   }
 }

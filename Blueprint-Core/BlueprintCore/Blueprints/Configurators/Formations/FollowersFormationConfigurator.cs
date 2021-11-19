@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Formations;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
-  /// <summary>Configurator for <see cref="FollowersFormation"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="FollowersFormation"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(FollowersFormation))]
   public class FollowersFormationConfigurator : BaseBlueprintConfigurator<FollowersFormation, FollowersFormationConfigurator>
   {
-     private FollowersFormationConfigurator(string name) : base(name) { }
+    private FollowersFormationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static FollowersFormationConfigurator For(string name)
@@ -26,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FollowersFormationConfigurator New(string name, string assetId)
+    public static FollowersFormationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<FollowersFormation>(name, assetId);
       return For(name);
@@ -36,63 +39,91 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// Sets <see cref="FollowersFormation.m_PlayerOffset"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator SetPlayerOffset(Vector2 value)
+    public FollowersFormationConfigurator SetPlayerOffset(Vector2 playerOffset)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_PlayerOffset = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PlayerOffset = playerOffset;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
+    /// Sets <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator AddToFormation(params Vector2[] values)
+    public FollowersFormationConfigurator SetFormation(Vector2[] formation)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Formation = CommonTool.Append(bp.m_Formation, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Formation = formation;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
+    /// Adds to <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator RemoveFromFormation(params Vector2[] values)
+    public FollowersFormationConfigurator AddToFormation(params Vector2[] formation)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Formation = bp.m_Formation.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Formation = CommonTool.Append(bp.m_Formation, formation ?? new Vector2[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FollowersFormationConfigurator RemoveFromFormation(params Vector2[] formation)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Formation = bp.m_Formation.Where(item => !formation.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_RepathDistance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator SetRepathDistance(float value)
+    public FollowersFormationConfigurator SetRepathDistance(float repathDistance)
     {
-      return OnConfigureInternal(bp => bp.m_RepathDistance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RepathDistance = repathDistance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_RepathCooldownSec"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator SetRepathCooldownSec(float value)
+    public FollowersFormationConfigurator SetRepathCooldownSec(float repathCooldownSec)
     {
-      return OnConfigureInternal(bp => bp.m_RepathCooldownSec = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RepathCooldownSec = repathCooldownSec;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_LookAngleRandomSpread"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator SetLookAngleRandomSpread(float value)
+    public FollowersFormationConfigurator SetLookAngleRandomSpread(float lookAngleRandomSpread)
     {
-      return OnConfigureInternal(bp => bp.m_LookAngleRandomSpread = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LookAngleRandomSpread = lookAngleRandomSpread;
+          });
     }
   }
 }

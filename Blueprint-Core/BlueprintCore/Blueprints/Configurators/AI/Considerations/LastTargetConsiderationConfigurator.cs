@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="LastTargetConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="LastTargetConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(LastTargetConsideration))]
   public class LastTargetConsiderationConfigurator : BaseConsiderationConfigurator<LastTargetConsideration, LastTargetConsiderationConfigurator>
   {
-     private LastTargetConsiderationConfigurator(string name) : base(name) { }
+    private LastTargetConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LastTargetConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LastTargetConsiderationConfigurator New(string name, string assetId)
+    public static LastTargetConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<LastTargetConsideration>(name, assetId);
       return For(name);
@@ -34,27 +37,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="LastTargetConsideration.SameLastTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LastTargetConsiderationConfigurator SetSameLastTargetScore(float value)
+    public LastTargetConsiderationConfigurator SetSameLastTargetScore(float sameLastTargetScore)
     {
-      return OnConfigureInternal(bp => bp.SameLastTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SameLastTargetScore = sameLastTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LastTargetConsideration.OtherLastTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LastTargetConsiderationConfigurator SetOtherLastTargetScore(float value)
+    public LastTargetConsiderationConfigurator SetOtherLastTargetScore(float otherLastTargetScore)
     {
-      return OnConfigureInternal(bp => bp.OtherLastTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OtherLastTargetScore = otherLastTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LastTargetConsideration.NoLastTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LastTargetConsiderationConfigurator SetNoLastTargetScore(float value)
+    public LastTargetConsiderationConfigurator SetNoLastTargetScore(float noLastTargetScore)
     {
-      return OnConfigureInternal(bp => bp.NoLastTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoLastTargetScore = noLastTargetScore;
+          });
     }
   }
 }

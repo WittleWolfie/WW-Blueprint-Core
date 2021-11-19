@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintTrapSettings"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTrapSettings"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTrapSettings))]
   public class TrapSettingsConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettings, TrapSettingsConfigurator>
   {
-     private TrapSettingsConfigurator(string name) : base(name) { }
+    private TrapSettingsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TrapSettingsConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TrapSettingsConfigurator New(string name, string assetId)
+    public static TrapSettingsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTrapSettings>(name, assetId);
       return For(name);
@@ -34,50 +37,67 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintTrapSettings.ActorLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsConfigurator SetActorLevel(int value)
+    public TrapSettingsConfigurator SetActorLevel(int actorLevel)
     {
-      return OnConfigureInternal(bp => bp.ActorLevel = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ActorLevel = actorLevel;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.ActorStatMod"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsConfigurator SetActorStatMod(BlueprintTrapSettings.IntRange value)
+    public TrapSettingsConfigurator SetActorStatMod(BlueprintTrapSettings.IntRange actorStatMod)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ActorStatMod = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ActorStatMod = actorStatMod;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.TrapActor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    /// <param name="trapActor"><see cref="BlueprintUnit"/></param>
     [Generated]
-    public TrapSettingsConfigurator SetTrapActor(string value)
+    public TrapSettingsConfigurator SetTrapActor(string trapActor)
     {
-      return OnConfigureInternal(bp => bp.TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(trapActor);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.DisableDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsConfigurator SetDisableDC(BlueprintTrapSettings.IntRange value)
+    public TrapSettingsConfigurator SetDisableDC(BlueprintTrapSettings.IntRange disableDC)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DisableDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DisableDC = disableDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.PerceptionDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapSettingsConfigurator SetPerceptionDC(BlueprintTrapSettings.IntRange value)
+    public TrapSettingsConfigurator SetPerceptionDC(BlueprintTrapSettings.IntRange perceptionDC)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.PerceptionDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PerceptionDC = perceptionDC;
+          });
     }
   }
 }

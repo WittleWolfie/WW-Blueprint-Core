@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintPet"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintPet"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintPet))]
   public class PetConfigurator : BaseBlueprintConfigurator<BlueprintPet, PetConfigurator>
   {
-     private PetConfigurator(string name) : base(name) { }
+    private PetConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static PetConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static PetConfigurator New(string name, string assetId)
+    public static PetConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintPet>(name, assetId);
       return For(name);

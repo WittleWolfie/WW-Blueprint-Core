@@ -1,10 +1,12 @@
+using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>
@@ -17,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       where T : BlueprintEquipmentEnchantment
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseEquipmentEnchantmentConfigurator(string name) : base(name) { }
+    protected BaseEquipmentEnchantmentConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Adds <see cref="AllSavesBonusEquipment"/> (Auto Generated)
@@ -25,14 +27,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AllSavesBonusEquipment))]
     public TBuilder AddAllSavesBonusEquipment(
-        ModifierDescriptor Descriptor,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AllSavesBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Value = Value;
+      var component = new AllSavesBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -42,19 +44,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeDamageStatReplacement))]
     public TBuilder AddEquipmentWeaponTypeDamageStatReplacement(
-        StatType Stat,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeDamageStatReplacement();
-      component.Stat = Stat;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new EquipmentWeaponTypeDamageStatReplacement();
+      component.Stat = stat;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -64,16 +65,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeEnhancement))]
     public TBuilder AddEquipmentWeaponTypeEnhancement(
-        int Enhancement,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category)
+        int enhancement = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeEnhancement();
-      component.Enhancement = Enhancement;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
+      var component = new EquipmentWeaponTypeEnhancement();
+      component.Enhancement = enhancement;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -83,12 +84,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(NaturalDamageStatReplacement))]
     public TBuilder AddNaturalDamageStatReplacement(
-        StatType Stat)
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new NaturalDamageStatReplacement();
-      component.Stat = Stat;
+      var component = new NaturalDamageStatReplacement();
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -98,17 +99,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponGroupAttackBonusEquipment))]
     public TBuilder AddWeaponGroupAttackBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponGroupAttackBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponGroupAttackBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -118,14 +118,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponGroupDamageBonusEquipment))]
     public TBuilder AddWeaponGroupDamageBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      
-      var component =  new WeaponGroupDamageBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
+      var component = new WeaponGroupDamageBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -135,27 +135,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponRangeTypeAttackBonusEquipment))]
     public TBuilder AddWeaponRangeTypeAttackBonusEquipment(
-        WeaponRangeType RangeType,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponRangeType rangeType = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(RangeType);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponRangeTypeAttackBonusEquipment();
-      component.RangeType = RangeType;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponRangeTypeAttackBonusEquipment();
+      component.RangeType = rangeType;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintEquipmentEnchantment"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintEquipmentEnchantment"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintEquipmentEnchantment))]
   public class EquipmentEnchantmentConfigurator : BaseItemEnchantmentConfigurator<BlueprintEquipmentEnchantment, EquipmentEnchantmentConfigurator>
   {
-     private EquipmentEnchantmentConfigurator(string name) : base(name) { }
+    private EquipmentEnchantmentConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static EquipmentEnchantmentConfigurator For(string name)
@@ -171,7 +172,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static EquipmentEnchantmentConfigurator New(string name, string assetId)
+    public static EquipmentEnchantmentConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintEquipmentEnchantment>(name, assetId);
       return For(name);
@@ -183,14 +184,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AllSavesBonusEquipment))]
     public EquipmentEnchantmentConfigurator AddAllSavesBonusEquipment(
-        ModifierDescriptor Descriptor,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AllSavesBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Value = Value;
+      var component = new AllSavesBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -200,19 +201,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeDamageStatReplacement))]
     public EquipmentEnchantmentConfigurator AddEquipmentWeaponTypeDamageStatReplacement(
-        StatType Stat,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeDamageStatReplacement();
-      component.Stat = Stat;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new EquipmentWeaponTypeDamageStatReplacement();
+      component.Stat = stat;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -222,16 +222,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeEnhancement))]
     public EquipmentEnchantmentConfigurator AddEquipmentWeaponTypeEnhancement(
-        int Enhancement,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category)
+        int enhancement = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeEnhancement();
-      component.Enhancement = Enhancement;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
+      var component = new EquipmentWeaponTypeEnhancement();
+      component.Enhancement = enhancement;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -241,12 +241,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(NaturalDamageStatReplacement))]
     public EquipmentEnchantmentConfigurator AddNaturalDamageStatReplacement(
-        StatType Stat)
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new NaturalDamageStatReplacement();
-      component.Stat = Stat;
+      var component = new NaturalDamageStatReplacement();
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -256,17 +256,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponGroupAttackBonusEquipment))]
     public EquipmentEnchantmentConfigurator AddWeaponGroupAttackBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponGroupAttackBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponGroupAttackBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -276,14 +275,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponGroupDamageBonusEquipment))]
     public EquipmentEnchantmentConfigurator AddWeaponGroupDamageBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      
-      var component =  new WeaponGroupDamageBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
+      var component = new WeaponGroupDamageBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -293,17 +292,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponRangeTypeAttackBonusEquipment))]
     public EquipmentEnchantmentConfigurator AddWeaponRangeTypeAttackBonusEquipment(
-        WeaponRangeType RangeType,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponRangeType rangeType = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(RangeType);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponRangeTypeAttackBonusEquipment();
-      component.RangeType = RangeType;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponRangeTypeAttackBonusEquipment();
+      component.RangeType = rangeType;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

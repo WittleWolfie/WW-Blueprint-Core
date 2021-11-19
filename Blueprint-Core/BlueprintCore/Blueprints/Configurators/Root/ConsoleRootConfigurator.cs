@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Console;
 using Kingmaker.Blueprints.Root;
 using Owlcat.Runtime.UI.ConsoleTools.GamepadInput;
-
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
-  /// <summary>Configurator for <see cref="ConsoleRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ConsoleRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ConsoleRoot))]
   public class ConsoleRootConfigurator : BaseBlueprintConfigurator<ConsoleRoot, ConsoleRootConfigurator>
   {
-     private ConsoleRootConfigurator(string name) : base(name) { }
+    private ConsoleRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ConsoleRootConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ConsoleRootConfigurator New(string name, string assetId)
+    public static ConsoleRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ConsoleRoot>(name, assetId);
       return For(name);
@@ -36,31 +38,45 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="ConsoleRoot.Icons"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsoleRootConfigurator SetIcons(GamePadIcons value)
+    public ConsoleRootConfigurator SetIcons(GamePadIcons icons)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Icons = value);
+      ValidateParam(icons);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Icons = icons;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConsoleRoot.Texts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="GamePadTexts"/></param>
+    /// <param name="texts"><see cref="GamePadTexts"/></param>
     [Generated]
-    public ConsoleRootConfigurator SetTexts(string value)
+    public ConsoleRootConfigurator SetTexts(string texts)
     {
-      return OnConfigureInternal(bp => bp.Texts = BlueprintTool.GetRef<GamePadTexts.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Texts = BlueprintTool.GetRef<GamePadTexts.Reference>(texts);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConsoleRoot.InGameMenuIcons"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsoleRootConfigurator SetInGameMenuIcons(ConsoleRoot.UIInGameMenuIcons value)
+    public ConsoleRootConfigurator SetInGameMenuIcons(ConsoleRoot.UIInGameMenuIcons inGameMenuIcons)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.InGameMenuIcons = value);
+      ValidateParam(inGameMenuIcons);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.InGameMenuIcons = inGameMenuIcons;
+          });
     }
   }
 }

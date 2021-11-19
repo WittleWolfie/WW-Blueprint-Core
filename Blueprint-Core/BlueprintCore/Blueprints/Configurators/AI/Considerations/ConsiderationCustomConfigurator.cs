@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="ConsiderationCustom"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ConsiderationCustom"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ConsiderationCustom))]
   public class ConsiderationCustomConfigurator : BaseConsiderationConfigurator<ConsiderationCustom, ConsiderationCustomConfigurator>
   {
-     private ConsiderationCustomConfigurator(string name) : base(name) { }
+    private ConsiderationCustomConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ConsiderationCustomConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ConsiderationCustomConfigurator New(string name, string assetId)
+    public static ConsiderationCustomConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ConsiderationCustom>(name, assetId);
       return For(name);
@@ -36,31 +38,45 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ConsiderationCustom.Consideration"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="Consideration"/></param>
+    /// <param name="consideration"><see cref="Consideration"/></param>
     [Generated]
-    public ConsiderationCustomConfigurator SetConsideration(string value)
+    public ConsiderationCustomConfigurator SetConsideration(string consideration)
     {
-      return OnConfigureInternal(bp => bp.Consideration = BlueprintTool.GetRef<ConsiderationReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Consideration = BlueprintTool.GetRef<ConsiderationReference>(consideration);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConsiderationCustom.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsiderationCustomConfigurator SetTitle(LocalizedString value)
+    public ConsiderationCustomConfigurator SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ConsiderationCustom.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsiderationCustomConfigurator SetDescription(LocalizedString value)
+    public ConsiderationCustomConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
   }
 }

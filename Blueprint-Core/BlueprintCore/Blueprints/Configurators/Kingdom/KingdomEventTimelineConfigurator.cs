@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
-  /// <summary>Configurator for <see cref="BlueprintKingdomEventTimeline"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintKingdomEventTimeline"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintKingdomEventTimeline))]
   public class KingdomEventTimelineConfigurator : BaseBlueprintConfigurator<BlueprintKingdomEventTimeline, KingdomEventTimelineConfigurator>
   {
-     private KingdomEventTimelineConfigurator(string name) : base(name) { }
+    private KingdomEventTimelineConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingdomEventTimelineConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingdomEventTimelineConfigurator New(string name, string assetId)
+    public static KingdomEventTimelineConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintKingdomEventTimeline>(name, assetId);
       return For(name);
@@ -34,10 +36,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEventTimeline.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventTimelineConfigurator SetEntries(BlueprintKingdomEventTimeline.EntryList value)
+    public KingdomEventTimelineConfigurator SetEntries(BlueprintKingdomEventTimeline.EntryList entries)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Entries = value);
+      ValidateParam(entries);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = entries;
+          });
     }
   }
 }

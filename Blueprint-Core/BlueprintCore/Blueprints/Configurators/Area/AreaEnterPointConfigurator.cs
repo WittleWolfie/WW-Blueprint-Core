@@ -1,18 +1,22 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
-  /// <summary>Configurator for <see cref="BlueprintAreaEnterPoint"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAreaEnterPoint"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAreaEnterPoint))]
   public class AreaEnterPointConfigurator : BaseBlueprintConfigurator<BlueprintAreaEnterPoint, AreaEnterPointConfigurator>
   {
-     private AreaEnterPointConfigurator(string name) : base(name) { }
+    private AreaEnterPointConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AreaEnterPointConfigurator For(string name)
@@ -28,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AreaEnterPointConfigurator New(string name, string assetId)
+    public static AreaEnterPointConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAreaEnterPoint>(name, assetId);
       return For(name);
@@ -38,87 +42,131 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaEnterPoint.m_Area"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="BlueprintArea"/></param>
     [Generated]
-    public AreaEnterPointConfigurator SetArea(string value)
+    public AreaEnterPointConfigurator SetArea(string area)
     {
-      return OnConfigureInternal(bp => bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_AreaPart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="areaPart"><see cref="BlueprintAreaPart"/></param>
     [Generated]
-    public AreaEnterPointConfigurator SetAreaPart(string value)
+    public AreaEnterPointConfigurator SetAreaPart(string areaPart)
     {
-      return OnConfigureInternal(bp => bp.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(areaPart);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator AddToTooltipList(params LocalizedString[] values)
+    public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString> tooltipList)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_TooltipList.AddRange(values));
+      ValidateParam(tooltipList);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TooltipList = tooltipList;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator RemoveFromTooltipList(params LocalizedString[] values)
+    public AreaEnterPointConfigurator AddToTooltipList(params LocalizedString[] tooltipList)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_TooltipList = bp.m_TooltipList.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(tooltipList);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TooltipList.AddRange(tooltipList.ToList() ?? new List<LocalizedString>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaEnterPointConfigurator RemoveFromTooltipList(params LocalizedString[] tooltipList)
+    {
+      ValidateParam(tooltipList);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TooltipList = bp.m_TooltipList.Where(item => !tooltipList.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_Tooltip"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetTooltip(LocalizedString value)
+    public AreaEnterPointConfigurator SetTooltip(LocalizedString tooltip)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Tooltip = value);
+      ValidateParam(tooltip);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Tooltip = tooltip ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_CanBeOutsideNavmesh"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetCanBeOutsideNavmesh(bool value)
+    public AreaEnterPointConfigurator SetCanBeOutsideNavmesh(bool canBeOutsideNavmesh)
     {
-      return OnConfigureInternal(bp => bp.m_CanBeOutsideNavmesh = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CanBeOutsideNavmesh = canBeOutsideNavmesh;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetIcon(Sprite value)
+    public AreaEnterPointConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.HoverIcon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetHoverIcon(Sprite value)
+    public AreaEnterPointConfigurator SetHoverIcon(Sprite hoverIcon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.HoverIcon = value);
+      ValidateParam(hoverIcon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HoverIcon = hoverIcon;
+          });
     }
   }
 }

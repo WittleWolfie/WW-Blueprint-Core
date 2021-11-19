@@ -1,7 +1,7 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
-
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>
@@ -14,25 +14,32 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
       where T : BlueprintSpawnableObject
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
+    protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetPrefab(PrefabLink value)
+    public TBuilder SetPrefab(PrefabLink prefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Prefab = value);
+      ValidateParam(prefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Prefab = prefab ?? Constants.Empty.PrefabLink;
+          });
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintSpawnableObject"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintSpawnableObject"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintSpawnableObject))]
   public class SpawnableObjectConfigurator : BaseBlueprintConfigurator<BlueprintSpawnableObject, SpawnableObjectConfigurator>
   {
-     private SpawnableObjectConfigurator(string name) : base(name) { }
+    private SpawnableObjectConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SpawnableObjectConfigurator For(string name)
@@ -48,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SpawnableObjectConfigurator New(string name, string assetId)
+    public static SpawnableObjectConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintSpawnableObject>(name, assetId);
       return For(name);
@@ -58,10 +65,15 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpawnableObjectConfigurator SetPrefab(PrefabLink value)
+    public SpawnableObjectConfigurator SetPrefab(PrefabLink prefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Prefab = value);
+      ValidateParam(prefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Prefab = prefab ?? Constants.Empty.PrefabLink;
+          });
     }
   }
 }

@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.View.Roaming;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
-  /// <summary>Configurator for <see cref="BlueprintDungeonRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDungeonRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDungeonRoot))]
   public class DungeonRootConfigurator : BaseBlueprintConfigurator<BlueprintDungeonRoot, DungeonRootConfigurator>
   {
-     private DungeonRootConfigurator(string name) : base(name) { }
+    private DungeonRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DungeonRootConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DungeonRootConfigurator New(string name, string assetId)
+    public static DungeonRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDungeonRoot>(name, assetId);
       return For(name);
@@ -37,685 +40,1063 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonRoot.DebugOutput"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetDebugOutput(BlueprintDungeonRoot.DebugOutputSettings value)
+    public DungeonRootConfigurator SetDebugOutput(BlueprintDungeonRoot.DebugOutputSettings debugOutput)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DebugOutput = value);
+      ValidateParam(debugOutput);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DebugOutput = debugOutput;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Test"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetTest(BlueprintDungeonRoot.TestSettings value)
+    public DungeonRootConfigurator SetTest(BlueprintDungeonRoot.TestSettings test)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Test = value);
+      ValidateParam(test);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Test = test;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_Localization"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintDungeonLocalizedStrings"/></param>
+    /// <param name="localization"><see cref="BlueprintDungeonLocalizedStrings"/></param>
     [Generated]
-    public DungeonRootConfigurator SetLocalization(string value)
+    public DungeonRootConfigurator SetLocalization(string localization)
     {
-      return OnConfigureInternal(bp => bp.m_Localization = BlueprintTool.GetRef<BlueprintDungeonLocalizedStringsReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Localization = BlueprintTool.GetRef<BlueprintDungeonLocalizedStringsReference>(localization);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_NewGamePreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="newGamePreset"><see cref="BlueprintAreaPreset"/></param>
     [Generated]
-    public DungeonRootConfigurator SetNewGamePreset(string value)
+    public DungeonRootConfigurator SetNewGamePreset(string newGamePreset)
     {
-      return OnConfigureInternal(bp => bp.m_NewGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NewGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(newGamePreset);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BoonsPoolSize"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetBoonsPoolSize(int value)
+    public DungeonRootConfigurator SetBoonsPoolSize(int boonsPoolSize)
     {
-      return OnConfigureInternal(bp => bp.BoonsPoolSize = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BoonsPoolSize = boonsPoolSize;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.QuestItemPerStageChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetQuestItemPerStageChance(int value)
+    public DungeonRootConfigurator SetQuestItemPerStageChance(int questItemPerStageChance)
     {
-      return OnConfigureInternal(bp => bp.QuestItemPerStageChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.QuestItemPerStageChance = questItemPerStageChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_UnitsWithQuestItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="unitsWithQuestItems"><see cref="BlueprintSummonPool"/></param>
     [Generated]
-    public DungeonRootConfigurator SetUnitsWithQuestItems(string value)
+    public DungeonRootConfigurator SetUnitsWithQuestItems(string unitsWithQuestItems)
     {
-      return OnConfigureInternal(bp => bp.m_UnitsWithQuestItems = BlueprintTool.GetRef<BlueprintSummonPoolReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UnitsWithQuestItems = BlueprintTool.GetRef<BlueprintSummonPoolReference>(unitsWithQuestItems);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_MainVendorTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSharedVendorTable"/></param>
+    /// <param name="mainVendorTable"><see cref="BlueprintSharedVendorTable"/></param>
     [Generated]
-    public DungeonRootConfigurator SetMainVendorTable(string value)
+    public DungeonRootConfigurator SetMainVendorTable(string mainVendorTable)
     {
-      return OnConfigureInternal(bp => bp.m_MainVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MainVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(mainVendorTable);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_DivineVendorTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSharedVendorTable"/></param>
+    /// <param name="divineVendorTable"><see cref="BlueprintSharedVendorTable"/></param>
     [Generated]
-    public DungeonRootConfigurator SetDivineVendorTable(string value)
+    public DungeonRootConfigurator SetDivineVendorTable(string divineVendorTable)
     {
-      return OnConfigureInternal(bp => bp.m_DivineVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DivineVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(divineVendorTable);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_CorruptedFighterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="corruptedFighterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public DungeonRootConfigurator SetCorruptedFighterClass(string value)
+    public DungeonRootConfigurator SetCorruptedFighterClass(string corruptedFighterClass)
     {
-      return OnConfigureInternal(bp => bp.m_CorruptedFighterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CorruptedFighterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(corruptedFighterClass);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_CorruptedArcherClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="corruptedArcherClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public DungeonRootConfigurator SetCorruptedArcherClass(string value)
+    public DungeonRootConfigurator SetCorruptedArcherClass(string corruptedArcherClass)
     {
-      return OnConfigureInternal(bp => bp.m_CorruptedArcherClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CorruptedArcherClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(corruptedArcherClass);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_CorruptedCasterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="corruptedCasterClass"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public DungeonRootConfigurator SetCorruptedCasterClass(string value)
+    public DungeonRootConfigurator SetCorruptedCasterClass(string corruptedCasterClass)
     {
-      return OnConfigureInternal(bp => bp.m_CorruptedCasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CorruptedCasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(corruptedCasterClass);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.StartSetting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetStartSetting(DungeonStageSetting value)
+    public DungeonRootConfigurator SetStartSetting(DungeonStageSetting startSetting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StartSetting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StartSetting = startSetting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstChangeSettingStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetFirstChangeSettingStage(int value)
+    public DungeonRootConfigurator SetFirstChangeSettingStage(int firstChangeSettingStage)
     {
-      return OnConfigureInternal(bp => bp.FirstChangeSettingStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstChangeSettingStage = firstChangeSettingStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ChangeSettingFrequency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetChangeSettingFrequency(int value)
+    public DungeonRootConfigurator SetChangeSettingFrequency(int changeSettingFrequency)
     {
-      return OnConfigureInternal(bp => bp.ChangeSettingFrequency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ChangeSettingFrequency = changeSettingFrequency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.RoomsPerStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetRoomsPerStage(int value)
+    public DungeonRootConfigurator SetRoomsPerStage(int roomsPerStage)
     {
-      return OnConfigureInternal(bp => bp.RoomsPerStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RoomsPerStage = roomsPerStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.EmptyRoomsPerStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetEmptyRoomsPerStage(int value)
+    public DungeonRootConfigurator SetEmptyRoomsPerStage(int emptyRoomsPerStage)
     {
-      return OnConfigureInternal(bp => bp.EmptyRoomsPerStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EmptyRoomsPerStage = emptyRoomsPerStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstBossStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetFirstBossStage(int value)
+    public DungeonRootConfigurator SetFirstBossStage(int firstBossStage)
     {
-      return OnConfigureInternal(bp => bp.FirstBossStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstBossStage = firstBossStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BossFrequency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetBossFrequency(int value)
+    public DungeonRootConfigurator SetBossFrequency(int bossFrequency)
     {
-      return OnConfigureInternal(bp => bp.BossFrequency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BossFrequency = bossFrequency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstMiniBossStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetFirstMiniBossStage(int value)
+    public DungeonRootConfigurator SetFirstMiniBossStage(int firstMiniBossStage)
     {
-      return OnConfigureInternal(bp => bp.FirstMiniBossStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstMiniBossStage = firstMiniBossStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.MiniBossFrequency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetMiniBossFrequency(int value)
+    public DungeonRootConfigurator SetMiniBossFrequency(int miniBossFrequency)
     {
-      return OnConfigureInternal(bp => bp.MiniBossFrequency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MiniBossFrequency = miniBossFrequency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.HardEncountersPerStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetHardEncountersPerStage(int value)
+    public DungeonRootConfigurator SetHardEncountersPerStage(int hardEncountersPerStage)
     {
-      return OnConfigureInternal(bp => bp.HardEncountersPerStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HardEncountersPerStage = hardEncountersPerStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalHardEncounterChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetAdditionalHardEncounterChance(int value)
+    public DungeonRootConfigurator SetAdditionalHardEncounterChance(int additionalHardEncounterChance)
     {
-      return OnConfigureInternal(bp => bp.AdditionalHardEncounterChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AdditionalHardEncounterChance = additionalHardEncounterChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ApplyThemeChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetApplyThemeChance(int value)
+    public DungeonRootConfigurator SetApplyThemeChance(int applyThemeChance)
     {
-      return OnConfigureInternal(bp => bp.ApplyThemeChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ApplyThemeChance = applyThemeChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalShrineChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetAdditionalShrineChance(int value)
+    public DungeonRootConfigurator SetAdditionalShrineChance(int additionalShrineChance)
     {
-      return OnConfigureInternal(bp => bp.AdditionalShrineChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AdditionalShrineChance = additionalShrineChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalLockedChestChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetAdditionalLockedChestChance(int value)
+    public DungeonRootConfigurator SetAdditionalLockedChestChance(int additionalLockedChestChance)
     {
-      return OnConfigureInternal(bp => bp.AdditionalLockedChestChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AdditionalLockedChestChance = additionalLockedChestChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.SecretEncounterChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetSecretEncounterChance(int value)
+    public DungeonRootConfigurator SetSecretEncounterChance(int secretEncounterChance)
     {
-      return OnConfigureInternal(bp => bp.SecretEncounterChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SecretEncounterChance = secretEncounterChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FinalBossPortalChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetFinalBossPortalChance(int value)
+    public DungeonRootConfigurator SetFinalBossPortalChance(int finalBossPortalChance)
     {
-      return OnConfigureInternal(bp => bp.FinalBossPortalChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FinalBossPortalChance = finalBossPortalChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstIncreaseCRStage"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetFirstIncreaseCRStage(int value)
+    public DungeonRootConfigurator SetFirstIncreaseCRStage(int firstIncreaseCRStage)
     {
-      return OnConfigureInternal(bp => bp.FirstIncreaseCRStage = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FirstIncreaseCRStage = firstIncreaseCRStage;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.IncreaseCRFrequency"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetIncreaseCRFrequency(int value)
+    public DungeonRootConfigurator SetIncreaseCRFrequency(int increaseCRFrequency)
     {
-      return OnConfigureInternal(bp => bp.IncreaseCRFrequency = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IncreaseCRFrequency = increaseCRFrequency;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BossCRBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetBossCRBonus(int value)
+    public DungeonRootConfigurator SetBossCRBonus(int bossCRBonus)
     {
-      return OnConfigureInternal(bp => bp.BossCRBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BossCRBonus = bossCRBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.MiniBossCRBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetMiniBossCRBonus(int value)
+    public DungeonRootConfigurator SetMiniBossCRBonus(int miniBossCRBonus)
     {
-      return OnConfigureInternal(bp => bp.MiniBossCRBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MiniBossCRBonus = miniBossCRBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.HardEncounterCRBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetHardEncounterCRBonus(int value)
+    public DungeonRootConfigurator SetHardEncounterCRBonus(int hardEncounterCRBonus)
     {
-      return OnConfigureInternal(bp => bp.HardEncounterCRBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HardEncounterCRBonus = hardEncounterCRBonus;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToRoomCRBonuses(params int[] values)
+    public DungeonRootConfigurator SetRoomCRBonuses(int[] roomCRBonuses)
     {
-      return OnConfigureInternal(bp => bp.RoomCRBonuses = CommonTool.Append(bp.RoomCRBonuses, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RoomCRBonuses = roomCRBonuses;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromRoomCRBonuses(params int[] values)
+    public DungeonRootConfigurator AddToRoomCRBonuses(params int[] roomCRBonuses)
     {
-      return OnConfigureInternal(bp => bp.RoomCRBonuses = bp.RoomCRBonuses.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RoomCRBonuses = CommonTool.Append(bp.RoomCRBonuses, roomCRBonuses ?? new int[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] values)
+    public DungeonRootConfigurator RemoveFromRoomCRBonuses(params int[] roomCRBonuses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.EveryRoomCRBonuses = CommonTool.Append(bp.EveryRoomCRBonuses, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RoomCRBonuses = bp.RoomCRBonuses.Where(item => !roomCRBonuses.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] values)
+    public DungeonRootConfigurator SetEveryRoomCRBonuses(BlueprintDungeonRoot.StageCRBonus[] everyRoomCRBonuses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.EveryRoomCRBonuses = bp.EveryRoomCRBonuses.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(everyRoomCRBonuses);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EveryRoomCRBonuses = everyRoomCRBonuses;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] everyRoomCRBonuses)
+    {
+      ValidateParam(everyRoomCRBonuses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EveryRoomCRBonuses = CommonTool.Append(bp.EveryRoomCRBonuses, everyRoomCRBonuses ?? new BlueprintDungeonRoot.StageCRBonus[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] everyRoomCRBonuses)
+    {
+      ValidateParam(everyRoomCRBonuses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EveryRoomCRBonuses = bp.EveryRoomCRBonuses.Where(item => !everyRoomCRBonuses.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.CorruptedUnitChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetCorruptedUnitChance(int value)
+    public DungeonRootConfigurator SetCorruptedUnitChance(int corruptedUnitChance)
     {
-      return OnConfigureInternal(bp => bp.CorruptedUnitChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CorruptedUnitChance = corruptedUnitChance;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] values)
+    public DungeonRootConfigurator SetUnitsCountInPack(BlueprintDungeonRoot.UnitsPerPack[] unitsCountInPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitsCountInPack = CommonTool.Append(bp.UnitsCountInPack, values));
+      ValidateParam(unitsCountInPack);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInPack = unitsCountInPack;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] values)
+    public DungeonRootConfigurator AddToUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitsCountInPack = bp.UnitsCountInPack.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(unitsCountInPack);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInPack = CommonTool.Append(bp.UnitsCountInPack, unitsCountInPack ?? new BlueprintDungeonRoot.UnitsPerPack[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] values)
+    public DungeonRootConfigurator RemoveFromUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitsCountInBossPack = CommonTool.Append(bp.UnitsCountInBossPack, values));
+      ValidateParam(unitsCountInPack);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInPack = bp.UnitsCountInPack.Where(item => !unitsCountInPack.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] values)
+    public DungeonRootConfigurator SetUnitsCountInBossPack(BlueprintDungeonRoot.UnitsPerPack[] unitsCountInBossPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UnitsCountInBossPack = bp.UnitsCountInBossPack.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(unitsCountInBossPack);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInBossPack = unitsCountInBossPack;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator AddToUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInBossPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PacksCountInRoom = CommonTool.Append(bp.PacksCountInRoom, values));
+      ValidateParam(unitsCountInBossPack);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInBossPack = CommonTool.Append(bp.UnitsCountInBossPack, unitsCountInBossPack ?? new BlueprintDungeonRoot.UnitsPerPack[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator RemoveFromUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInBossPack)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PacksCountInRoom = bp.PacksCountInRoom.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(unitsCountInBossPack);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnitsCountInBossPack = bp.UnitsCountInBossPack.Where(item => !unitsCountInBossPack.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator SetPacksCountInRoom(BlueprintDungeonRoot.ValueWithWeight[] packsCountInRoom)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PacksCountInBossRoom = CommonTool.Append(bp.PacksCountInBossRoom, values));
+      ValidateParam(packsCountInRoom);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInRoom = packsCountInRoom;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator AddToPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInRoom)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.PacksCountInBossRoom = bp.PacksCountInBossRoom.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(packsCountInRoom);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInRoom = CommonTool.Append(bp.PacksCountInRoom, packsCountInRoom ?? new BlueprintDungeonRoot.ValueWithWeight[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToArmies(params DungeonArmySettings[] values)
+    public DungeonRootConfigurator RemoveFromPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInRoom)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Armies = CommonTool.Append(bp.Armies, values));
+      ValidateParam(packsCountInRoom);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInRoom = bp.PacksCountInRoom.Where(item => !packsCountInRoom.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromArmies(params DungeonArmySettings[] values)
+    public DungeonRootConfigurator SetPacksCountInBossRoom(BlueprintDungeonRoot.ValueWithWeight[] packsCountInBossRoom)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Armies = bp.Armies.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(packsCountInBossRoom);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInBossRoom = packsCountInBossRoom;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInBossRoom)
+    {
+      ValidateParam(packsCountInBossRoom);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInBossRoom = CommonTool.Append(bp.PacksCountInBossRoom, packsCountInBossRoom ?? new BlueprintDungeonRoot.ValueWithWeight[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInBossRoom)
+    {
+      ValidateParam(packsCountInBossRoom);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.PacksCountInBossRoom = bp.PacksCountInBossRoom.Where(item => !packsCountInBossRoom.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator SetArmies(DungeonArmySettings[] armies)
+    {
+      ValidateParam(armies);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Armies = armies;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToArmies(params DungeonArmySettings[] armies)
+    {
+      ValidateParam(armies);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Armies = CommonTool.Append(bp.Armies, armies ?? new DungeonArmySettings[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromArmies(params DungeonArmySettings[] armies)
+    {
+      ValidateParam(armies);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Armies = bp.Armies.Where(item => !armies.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Roaming"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetRoaming(RoamingUnitSettings value)
+    public DungeonRootConfigurator SetRoaming(RoamingUnitSettings roaming)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Roaming = value);
+      ValidateParam(roaming);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Roaming = roaming;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] values)
+    public DungeonRootConfigurator SetCustomBosses(BlueprintDungeonRoot.CustomBossSettings[] customBosses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.CustomBosses = CommonTool.Append(bp.CustomBosses, values));
+      ValidateParam(customBosses);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomBosses = customBosses;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] values)
+    public DungeonRootConfigurator AddToCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] customBosses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.CustomBosses = bp.CustomBosses.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(customBosses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomBosses = CommonTool.Append(bp.CustomBosses, customBosses ?? new BlueprintDungeonRoot.CustomBossSettings[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] customBosses)
+    {
+      ValidateParam(customBosses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomBosses = bp.CustomBosses.Where(item => !customBosses.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_StageUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="stageUnits"><see cref="BlueprintSummonPool"/></param>
     [Generated]
-    public DungeonRootConfigurator SetStageUnits(string value)
+    public DungeonRootConfigurator SetStageUnits(string stageUnits)
     {
-      return OnConfigureInternal(bp => bp.m_StageUnits = BlueprintTool.GetRef<BlueprintSummonPoolReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StageUnits = BlueprintTool.GetRef<BlueprintSummonPoolReference>(stageUnits);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] values)
+    public DungeonRootConfigurator SetLootTableSmall(BlueprintDungeonRoot.LootTypeWeight[] lootTableSmall)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootTableSmall = CommonTool.Append(bp.LootTableSmall, values));
+      ValidateParam(lootTableSmall);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableSmall = lootTableSmall;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] values)
+    public DungeonRootConfigurator AddToLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] lootTableSmall)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootTableSmall = bp.LootTableSmall.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(lootTableSmall);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableSmall = CommonTool.Append(bp.LootTableSmall, lootTableSmall ?? new BlueprintDungeonRoot.LootTypeWeight[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] values)
+    public DungeonRootConfigurator RemoveFromLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] lootTableSmall)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootTableBig = CommonTool.Append(bp.LootTableBig, values));
+      ValidateParam(lootTableSmall);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableSmall = bp.LootTableSmall.Where(item => !lootTableSmall.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] values)
+    public DungeonRootConfigurator SetLootTableBig(BlueprintDungeonRoot.LootTypeWeight[] lootTableBig)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootTableBig = bp.LootTableBig.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(lootTableBig);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableBig = lootTableBig;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator AddToLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] lootTableBig)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootCRBonuses = CommonTool.Append(bp.LootCRBonuses, values));
+      ValidateParam(lootTableBig);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableBig = CommonTool.Append(bp.LootTableBig, lootTableBig ?? new BlueprintDungeonRoot.LootTypeWeight[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] values)
+    public DungeonRootConfigurator RemoveFromLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] lootTableBig)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LootCRBonuses = bp.LootCRBonuses.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(lootTableBig);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootTableBig = bp.LootTableBig.Where(item => !lootTableBig.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator SetLootCRBonuses(BlueprintDungeonRoot.ValueWithWeight[] lootCRBonuses)
+    {
+      ValidateParam(lootCRBonuses);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootCRBonuses = lootCRBonuses;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] lootCRBonuses)
+    {
+      ValidateParam(lootCRBonuses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootCRBonuses = CommonTool.Append(bp.LootCRBonuses, lootCRBonuses ?? new BlueprintDungeonRoot.ValueWithWeight[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] lootCRBonuses)
+    {
+      ValidateParam(lootCRBonuses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LootCRBonuses = bp.LootCRBonuses.Where(item => !lootCRBonuses.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Loot"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetLoot(DungeonLootRoot value)
+    public DungeonRootConfigurator SetLoot(DungeonLootRoot loot)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Loot = value);
+      ValidateParam(loot);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Loot = loot;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToItems(params BlueprintDungeonRoot.ItemsList[] values)
+    public DungeonRootConfigurator SetItems(BlueprintDungeonRoot.ItemsList[] items)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Items = CommonTool.Append(bp.Items, values));
+      ValidateParam(items);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = items;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromItems(params BlueprintDungeonRoot.ItemsList[] values)
+    public DungeonRootConfigurator AddToItems(params BlueprintDungeonRoot.ItemsList[] items)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Items = bp.Items.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(items);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = CommonTool.Append(bp.Items, items ?? new BlueprintDungeonRoot.ItemsList[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_Essentials"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromItems(params BlueprintDungeonRoot.ItemsList[] items)
+    {
+      ValidateParam(items);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Items = bp.Items.Where(item => !items.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.m_Essentials"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintItemEquipment"/></param>
+    /// <param name="essentials"><see cref="BlueprintItemEquipment"/></param>
     [Generated]
-    public DungeonRootConfigurator AddToEssentials(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Essentials = CommonTool.Append(bp.m_Essentials, values.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_Essentials"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintItemEquipment"/></param>
-    [Generated]
-    public DungeonRootConfigurator RemoveFromEssentials(params string[] values)
+    public DungeonRootConfigurator SetEssentials(string[] essentials)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentReference>(name));
+            bp.m_Essentials = essentials.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.m_Essentials"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="essentials"><see cref="BlueprintItemEquipment"/></param>
+    [Generated]
+    public DungeonRootConfigurator AddToEssentials(params string[] essentials)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Essentials = CommonTool.Append(bp.m_Essentials, essentials.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.m_Essentials"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="essentials"><see cref="BlueprintItemEquipment"/></param>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromEssentials(params string[] essentials)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = essentials.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentReference>(name));
             bp.m_Essentials =
                 bp.m_Essentials
                     .Where(
@@ -728,113 +1109,169 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonRoot.m_PackSpawnLoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintGenericPackLoot"/></param>
+    /// <param name="packSpawnLoot"><see cref="BlueprintGenericPackLoot"/></param>
     [Generated]
-    public DungeonRootConfigurator SetPackSpawnLoot(string value)
+    public DungeonRootConfigurator SetPackSpawnLoot(string packSpawnLoot)
     {
-      return OnConfigureInternal(bp => bp.m_PackSpawnLoot = BlueprintTool.GetRef<BlueprintGenericPackLootReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PackSpawnLoot = BlueprintTool.GetRef<BlueprintGenericPackLootReference>(packSpawnLoot);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapDisabledEvent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetTrapDisabledEvent(string value)
+    public DungeonRootConfigurator SetTrapDisabledEvent(string trapDisabledEvent)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TrapDisabledEvent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapDisabledEvent = trapDisabledEvent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapDisableFailedEvent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetTrapDisableFailedEvent(string value)
+    public DungeonRootConfigurator SetTrapDisableFailedEvent(string trapDisableFailedEvent)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TrapDisableFailedEvent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapDisableFailedEvent = trapDisableFailedEvent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapInteractionStartedEvent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetTrapInteractionStartedEvent(string value)
+    public DungeonRootConfigurator SetTrapInteractionStartedEvent(string trapInteractionStartedEvent)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TrapInteractionStartedEvent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapInteractionStartedEvent = trapInteractionStartedEvent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapInteractionEndedEvent"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetTrapInteractionEndedEvent(string value)
+    public DungeonRootConfigurator SetTrapInteractionEndedEvent(string trapInteractionEndedEvent)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.TrapInteractionEndedEvent = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrapInteractionEndedEvent = trapInteractionEndedEvent;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_FinalBossPortal"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpawnableObject"/></param>
+    /// <param name="finalBossPortal"><see cref="BlueprintSpawnableObject"/></param>
     [Generated]
-    public DungeonRootConfigurator SetFinalBossPortal(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_FinalBossPortal = BlueprintTool.GetRef<BlueprintDungeonSpawnableReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public DungeonRootConfigurator AddToSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpecialObjects = CommonTool.Append(bp.SpecialObjects, values));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public DungeonRootConfigurator RemoveFromSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.SpecialObjects = bp.SpecialObjects.Where(item => !values.Contains(item)).ToArray());
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_Boons"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintDungeonBoon"/></param>
-    [Generated]
-    public DungeonRootConfigurator AddToBoons(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Boons = CommonTool.Append(bp.m_Boons, values.Select(name => BlueprintTool.GetRef<BlueprintDungeonBoonReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_Boons"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintDungeonBoon"/></param>
-    [Generated]
-    public DungeonRootConfigurator RemoveFromBoons(params string[] values)
+    public DungeonRootConfigurator SetFinalBossPortal(string finalBossPortal)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintDungeonBoonReference>(name));
+            bp.m_FinalBossPortal = BlueprintTool.GetRef<BlueprintDungeonSpawnableReference>(finalBossPortal);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator SetSpecialObjects(BlueprintDungeonRoot.SpecialObjectsList[] specialObjects)
+    {
+      ValidateParam(specialObjects);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialObjects = specialObjects;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] specialObjects)
+    {
+      ValidateParam(specialObjects);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialObjects = CommonTool.Append(bp.SpecialObjects, specialObjects ?? new BlueprintDungeonRoot.SpecialObjectsList[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] specialObjects)
+    {
+      ValidateParam(specialObjects);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecialObjects = bp.SpecialObjects.Where(item => !specialObjects.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.m_Boons"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="boons"><see cref="BlueprintDungeonBoon"/></param>
+    [Generated]
+    public DungeonRootConfigurator SetBoons(string[] boons)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Boons = boons.Select(name => BlueprintTool.GetRef<BlueprintDungeonBoonReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.m_Boons"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="boons"><see cref="BlueprintDungeonBoon"/></param>
+    [Generated]
+    public DungeonRootConfigurator AddToBoons(params string[] boons)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Boons = CommonTool.Append(bp.m_Boons, boons.Select(name => BlueprintTool.GetRef<BlueprintDungeonBoonReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.m_Boons"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="boons"><see cref="BlueprintDungeonBoon"/></param>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromBoons(params string[] boons)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = boons.Select(name => BlueprintTool.GetRef<BlueprintDungeonBoonReference>(name));
             bp.m_Boons =
                 bp.m_Boons
                     .Where(
@@ -844,135 +1281,217 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] values)
+    public DungeonRootConfigurator SetThemeBuffs(BlueprintDungeonRoot.ThemeBuffSettings[] themeBuffs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeBuffs = CommonTool.Append(bp.ThemeBuffs, values));
+      ValidateParam(themeBuffs);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeBuffs = themeBuffs;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] values)
+    public DungeonRootConfigurator AddToThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] themeBuffs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeBuffs = bp.ThemeBuffs.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(themeBuffs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeBuffs = CommonTool.Append(bp.ThemeBuffs, themeBuffs ?? new BlueprintDungeonRoot.ThemeBuffSettings[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] values)
+    public DungeonRootConfigurator RemoveFromThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] themeBuffs)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeAudioScenes = CommonTool.Append(bp.ThemeAudioScenes, values));
+      ValidateParam(themeBuffs);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeBuffs = bp.ThemeBuffs.Where(item => !themeBuffs.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] values)
+    public DungeonRootConfigurator SetThemeAudioScenes(BlueprintDungeonRoot.ThemeAudioSettings[] themeAudioScenes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ThemeAudioScenes = bp.ThemeAudioScenes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(themeAudioScenes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeAudioScenes = themeAudioScenes;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator AddToThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] themeAudioScenes)
+    {
+      ValidateParam(themeAudioScenes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeAudioScenes = CommonTool.Append(bp.ThemeAudioScenes, themeAudioScenes ?? new BlueprintDungeonRoot.ThemeAudioSettings[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] themeAudioScenes)
+    {
+      ValidateParam(themeAudioScenes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ThemeAudioScenes = bp.ThemeAudioScenes.Where(item => !themeAudioScenes.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.m_TrapActor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    /// <param name="trapActor"><see cref="BlueprintUnit"/></param>
     [Generated]
-    public DungeonRootConfigurator SetTrapActor(string value)
+    public DungeonRootConfigurator SetTrapActor(string trapActor)
     {
-      return OnConfigureInternal(bp => bp.m_TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(trapActor);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator AddToTraps(params BlueprintDungeonRoot.TrapAndMinStage[] values)
+    public DungeonRootConfigurator SetTraps(BlueprintDungeonRoot.TrapAndMinStage[] traps)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Traps = CommonTool.Append(bp.Traps, values));
+      ValidateParam(traps);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = traps;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator RemoveFromTraps(params BlueprintDungeonRoot.TrapAndMinStage[] values)
+    public DungeonRootConfigurator AddToTraps(params BlueprintDungeonRoot.TrapAndMinStage[] traps)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Traps = bp.Traps.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(traps);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = CommonTool.Append(bp.Traps, traps ?? new BlueprintDungeonRoot.TrapAndMinStage[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromTraps(params BlueprintDungeonRoot.TrapAndMinStage[] traps)
+    {
+      ValidateParam(traps);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Traps = bp.Traps.Where(item => !traps.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ExperienceRewardForCompleteStageStart"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetExperienceRewardForCompleteStageStart(int value)
+    public DungeonRootConfigurator SetExperienceRewardForCompleteStageStart(int experienceRewardForCompleteStageStart)
     {
-      return OnConfigureInternal(bp => bp.ExperienceRewardForCompleteStageStart = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExperienceRewardForCompleteStageStart = experienceRewardForCompleteStageStart;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ExperienceRewardForCompleteStageStep"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonRootConfigurator SetExperienceRewardForCompleteStageStep(int value)
-    {
-      return OnConfigureInternal(bp => bp.ExperienceRewardForCompleteStageStep = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_EnterPoints"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaEnterPoint"/></param>
-    [Generated]
-    public DungeonRootConfigurator AddToEnterPoints(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_EnterPoints = CommonTool.Append(bp.m_EnterPoints, values.Select(name => BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.m_EnterPoints"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAreaEnterPoint"/></param>
-    [Generated]
-    public DungeonRootConfigurator RemoveFromEnterPoints(params string[] values)
+    public DungeonRootConfigurator SetExperienceRewardForCompleteStageStep(int experienceRewardForCompleteStageStep)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(name));
+            bp.ExperienceRewardForCompleteStageStep = experienceRewardForCompleteStageStep;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDungeonRoot.m_EnterPoints"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enterPoints"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    public DungeonRootConfigurator SetEnterPoints(string[] enterPoints)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EnterPoints = enterPoints.Select(name => BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDungeonRoot.m_EnterPoints"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enterPoints"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    public DungeonRootConfigurator AddToEnterPoints(params string[] enterPoints)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_EnterPoints = CommonTool.Append(bp.m_EnterPoints, enterPoints.Select(name => BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDungeonRoot.m_EnterPoints"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enterPoints"><see cref="BlueprintAreaEnterPoint"/></param>
+    [Generated]
+    public DungeonRootConfigurator RemoveFromEnterPoints(params string[] enterPoints)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enterPoints.Select(name => BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(name));
             bp.m_EnterPoints =
                 bp.m_EnterPoints
                     .Where(

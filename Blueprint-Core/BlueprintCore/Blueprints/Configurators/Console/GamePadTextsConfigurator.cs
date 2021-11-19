@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Console;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Console
 {
-  /// <summary>Configurator for <see cref="GamePadTexts"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="GamePadTexts"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(GamePadTexts))]
   public class GamePadTextsConfigurator : BaseBlueprintConfigurator<GamePadTexts, GamePadTextsConfigurator>
   {
-     private GamePadTextsConfigurator(string name) : base(name) { }
+    private GamePadTextsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static GamePadTextsConfigurator For(string name)
@@ -25,36 +28,53 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static GamePadTextsConfigurator New(string name, string assetId)
+    public static GamePadTextsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<GamePadTexts>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
+    /// Sets <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GamePadTextsConfigurator AddToLayers(params GamePadTexts.GamePadTextsLayer[] values)
+    public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer> layers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Layers.AddRange(values));
+      ValidateParam(layers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Layers = layers;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
+    /// Adds to <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GamePadTextsConfigurator RemoveFromLayers(params GamePadTexts.GamePadTextsLayer[] values)
+    public GamePadTextsConfigurator AddToLayers(params GamePadTexts.GamePadTextsLayer[] layers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Layers = bp.m_Layers.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(layers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Layers.AddRange(layers.ToList() ?? new List<GamePadTexts.GamePadTextsLayer>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public GamePadTextsConfigurator RemoveFromLayers(params GamePadTexts.GamePadTextsLayer[] layers)
+    {
+      ValidateParam(layers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Layers = bp.m_Layers.Where(item => !layers.Contains(item)).ToList();
+          });
     }
   }
 }

@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="ManualTargetConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ManualTargetConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ManualTargetConsideration))]
   public class ManualTargetConsiderationConfigurator : BaseConsiderationConfigurator<ManualTargetConsideration, ManualTargetConsiderationConfigurator>
   {
-     private ManualTargetConsiderationConfigurator(string name) : base(name) { }
+    private ManualTargetConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ManualTargetConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ManualTargetConsiderationConfigurator New(string name, string assetId)
+    public static ManualTargetConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ManualTargetConsideration>(name, assetId);
       return For(name);
@@ -34,27 +37,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ManualTargetConsideration.IsManualTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ManualTargetConsiderationConfigurator SetIsManualTargetScore(float value)
+    public ManualTargetConsiderationConfigurator SetIsManualTargetScore(float isManualTargetScore)
     {
-      return OnConfigureInternal(bp => bp.IsManualTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsManualTargetScore = isManualTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ManualTargetConsideration.NotManualTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ManualTargetConsiderationConfigurator SetNotManualTargetScore(float value)
+    public ManualTargetConsiderationConfigurator SetNotManualTargetScore(float notManualTargetScore)
     {
-      return OnConfigureInternal(bp => bp.NotManualTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NotManualTargetScore = notManualTargetScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ManualTargetConsideration.NoManualTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ManualTargetConsiderationConfigurator SetNoManualTargetScore(float value)
+    public ManualTargetConsiderationConfigurator SetNoManualTargetScore(float noManualTargetScore)
     {
-      return OnConfigureInternal(bp => bp.NoManualTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoManualTargetScore = noManualTargetScore;
+          });
     }
   }
 }

@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintPortrait"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintPortrait"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintPortrait))]
   public class PortraitConfigurator : BaseBlueprintConfigurator<BlueprintPortrait, PortraitConfigurator>
   {
-     private PortraitConfigurator(string name) : base(name) { }
+    private PortraitConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static PortraitConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static PortraitConfigurator New(string name, string assetId)
+    public static PortraitConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintPortrait>(name, assetId);
       return For(name);
@@ -34,39 +36,48 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintPortrait.Data"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PortraitConfigurator SetData(PortraitData value)
+    public PortraitConfigurator SetData(PortraitData data)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Data = value);
+      ValidateParam(data);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Data = data;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintPortrait.m_BackupPortrait"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintPortrait"/></param>
+    /// <param name="backupPortrait"><see cref="BlueprintPortrait"/></param>
     [Generated]
-    public PortraitConfigurator SetBackupPortrait(string value)
+    public PortraitConfigurator SetBackupPortrait(string backupPortrait)
     {
-      return OnConfigureInternal(bp => bp.m_BackupPortrait = BlueprintTool.GetRef<BlueprintPortraitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BackupPortrait = BlueprintTool.GetRef<BlueprintPortraitReference>(backupPortrait);
+          });
     }
 
     /// <summary>
     /// Adds <see cref="PortraitDollSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Race"><see cref="BlueprintRace"/></param>
+    /// <param name="race"><see cref="BlueprintRace"/></param>
     [Generated]
     [Implements(typeof(PortraitDollSettings))]
     public PortraitConfigurator AddPortraitDollSettings(
-        Gender Gender,
-        string m_Race)
+        Gender gender = default,
+        string race = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Gender);
-      
-      var component =  new PortraitDollSettings();
-      component.Gender = Gender;
-      component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(m_Race);
+      var component = new PortraitDollSettings();
+      component.Gender = gender;
+      component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -75,9 +86,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(PortraitPremiumSetting))]
-    public PortraitConfigurator AddPortraitPremiumSetting()
+    public PortraitConfigurator AddPortraitPremiumSetting(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new PortraitPremiumSetting());
+      var component = new PortraitPremiumSetting();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

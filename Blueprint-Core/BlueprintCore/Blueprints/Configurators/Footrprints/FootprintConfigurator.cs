@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.ResourceLinks;
-
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
-  /// <summary>Configurator for <see cref="BlueprintFootprint"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintFootprint"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFootprint))]
   public class FootprintConfigurator : BaseBlueprintConfigurator<BlueprintFootprint, FootprintConfigurator>
   {
-     private FootprintConfigurator(string name) : base(name) { }
+    private FootprintConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static FootprintConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FootprintConfigurator New(string name, string assetId)
+    public static FootprintConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintFootprint>(name, assetId);
       return For(name);
@@ -35,20 +37,30 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// Sets <see cref="BlueprintFootprint.LeftFootPrint"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FootprintConfigurator SetLeftFootPrint(PrefabLink value)
+    public FootprintConfigurator SetLeftFootPrint(PrefabLink leftFootPrint)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LeftFootPrint = value);
+      ValidateParam(leftFootPrint);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeftFootPrint = leftFootPrint ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintFootprint.RightFootPrint"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FootprintConfigurator SetRightFootPrint(PrefabLink value)
+    public FootprintConfigurator SetRightFootPrint(PrefabLink rightFootPrint)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RightFootPrint = value);
+      ValidateParam(rightFootPrint);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RightFootPrint = rightFootPrint ?? Constants.Empty.PrefabLink;
+          });
     }
   }
 }

@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="CasterClassConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="CasterClassConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(CasterClassConsideration))]
   public class CasterClassConsiderationConfigurator : BaseConsiderationConfigurator<CasterClassConsideration, CasterClassConsiderationConfigurator>
   {
-     private CasterClassConsiderationConfigurator(string name) : base(name) { }
+    private CasterClassConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CasterClassConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CasterClassConsiderationConfigurator New(string name, string assetId)
+    public static CasterClassConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<CasterClassConsideration>(name, assetId);
       return For(name);
@@ -34,27 +37,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="CasterClassConsideration.NotCasterScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CasterClassConsiderationConfigurator SetNotCasterScore(float value)
+    public CasterClassConsiderationConfigurator SetNotCasterScore(float notCasterScore)
     {
-      return OnConfigureInternal(bp => bp.NotCasterScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NotCasterScore = notCasterScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="CasterClassConsideration.ArcaneCasterScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CasterClassConsiderationConfigurator SetArcaneCasterScore(float value)
+    public CasterClassConsiderationConfigurator SetArcaneCasterScore(float arcaneCasterScore)
     {
-      return OnConfigureInternal(bp => bp.ArcaneCasterScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArcaneCasterScore = arcaneCasterScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="CasterClassConsideration.DivineCasterScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CasterClassConsiderationConfigurator SetDivineCasterScore(float value)
+    public CasterClassConsiderationConfigurator SetDivineCasterScore(float divineCasterScore)
     {
-      return OnConfigureInternal(bp => bp.DivineCasterScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DivineCasterScore = divineCasterScore;
+          });
     }
   }
 }

@@ -1,15 +1,17 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning;
-
 namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versioning
 {
-  /// <summary>Configurator for <see cref="BlueprintUnitUpgrader"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintUnitUpgrader"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUnitUpgrader))]
   public class UnitUpgraderConfigurator : BaseBlueprintConfigurator<BlueprintUnitUpgrader, UnitUpgraderConfigurator>
   {
-     private UnitUpgraderConfigurator(string name) : base(name) { }
+    private UnitUpgraderConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitUpgraderConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitUpgraderConfigurator New(string name, string assetId)
+    public static UnitUpgraderConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintUnitUpgrader>(name, assetId);
       return For(name);
@@ -35,9 +37,15 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
     /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitUpgraderConfigurator SetActions(ActionsBuilder value)
+    public UnitUpgraderConfigurator SetActions(ActionList actions)
     {
-      return OnConfigureInternal(bp => bp.Actions = value.Build());
+      ValidateParam(actions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Actions = actions;
+          });
     }
   }
 }

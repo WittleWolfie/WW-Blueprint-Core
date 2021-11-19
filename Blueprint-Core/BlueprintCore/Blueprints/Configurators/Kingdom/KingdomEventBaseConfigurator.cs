@@ -1,12 +1,13 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -19,166 +20,227 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where T : BlueprintKingdomEventBase
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
+    protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.InfoType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetInfoType(KingomEventInfoType value)
+    public TBuilder SetInfoType(KingomEventInfoType infoType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.InfoType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.InfoType = infoType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLocalizedName(LocalizedString value)
+    public TBuilder SetLocalizedName(LocalizedString localizedName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LocalizedName = value);
+      ValidateParam(localizedName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalizedName = localizedName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLocalizedDescription(LocalizedString value)
+    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LocalizedDescription = value);
+      ValidateParam(localizedDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalizedDescription = localizedDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.TriggerCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTriggerCondition(ConditionsBuilder value)
+    public TBuilder SetTriggerCondition(ConditionsBuilder triggerCondition)
     {
-      return OnConfigureInternal(bp => bp.TriggerCondition = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TriggerCondition = triggerCondition?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolutionTime"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetResolutionTime(int value)
+    public TBuilder SetResolutionTime(int resolutionTime)
     {
-      return OnConfigureInternal(bp => bp.ResolutionTime = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResolutionTime = resolutionTime;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolveAutomatically"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetResolveAutomatically(bool value)
+    public TBuilder SetResolveAutomatically(bool resolveAutomatically)
     {
-      return OnConfigureInternal(bp => bp.ResolveAutomatically = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResolveAutomatically = resolveAutomatically;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.NeedToVisitTheThroneRoom"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNeedToVisitTheThroneRoom(bool value)
+    public TBuilder SetNeedToVisitTheThroneRoom(bool needToVisitTheThroneRoom)
     {
-      return OnConfigureInternal(bp => bp.NeedToVisitTheThroneRoom = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NeedToVisitTheThroneRoom = needToVisitTheThroneRoom;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AICanCheat"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAICanCheat(bool value)
+    public TBuilder SetAICanCheat(bool aICanCheat)
     {
-      return OnConfigureInternal(bp => bp.AICanCheat = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AICanCheat = aICanCheat;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.SkipRoll"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSkipRoll(bool value)
+    public TBuilder SetSkipRoll(bool skipRoll)
     {
-      return OnConfigureInternal(bp => bp.SkipRoll = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SkipRoll = skipRoll;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolutionDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetResolutionDC(int value)
+    public TBuilder SetResolutionDC(int resolutionDC)
     {
-      return OnConfigureInternal(bp => bp.ResolutionDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResolutionDC = resolutionDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AutoResolveResult"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAutoResolveResult(EventResult.MarginType value)
+    public TBuilder SetAutoResolveResult(EventResult.MarginType autoResolveResult)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AutoResolveResult = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AutoResolveResult = autoResolveResult;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.Solutions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSolutions(PossibleEventSolutions value)
+    public TBuilder SetSolutions(PossibleEventSolutions solutions)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Solutions = value);
+      ValidateParam(solutions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Solutions = solutions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDefaultResolutionType(LeaderType value)
+    public TBuilder SetDefaultResolutionType(LeaderType defaultResolutionType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DefaultResolutionType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DefaultResolutionType = defaultResolutionType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDefaultResolutionDescription(LocalizedString value)
+    public TBuilder SetDefaultResolutionDescription(LocalizedString defaultResolutionDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.DefaultResolutionDescription = value);
+      ValidateParam(defaultResolutionDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DefaultResolutionDescription = defaultResolutionDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AIStopping"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAIStopping(bool value)
+    public TBuilder SetAIStopping(bool aIStopping)
     {
-      return OnConfigureInternal(bp => bp.AIStopping = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AIStopping = aIStopping;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="EventDynamicCostFeast"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Blueprint"><see cref="BlueprintKingdomEventBase"/></param>
+    /// <param name="blueprint"><see cref="BlueprintKingdomEventBase"/></param>
     [Generated]
-    [Implements(typeof(global::EventDynamicCostFeast))]
+    [Implements(typeof(EventDynamicCostFeast))]
     public TBuilder AddEventDynamicCostFeast(
-        string m_Blueprint,
-        KingdomResourcesAmount CostPerUse)
+        KingdomResourcesAmount costPerUse,
+        string blueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(CostPerUse);
-      
-      var component =  new global::EventDynamicCostFeast();
-      component.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(m_Blueprint);
-      component.CostPerUse = CostPerUse;
+      var component = new EventDynamicCostFeast();
+      component.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(blueprint);
+      component.CostPerUse = costPerUse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -186,22 +248,25 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="EventAISolution"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Dialog"><see cref="BlueprintDialog"/></param>
-    /// <param name="m_Answers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="answers"><see cref="BlueprintAnswer"/></param>
     [Generated]
     [Implements(typeof(EventAISolution))]
     public TBuilder AddEventAISolution(
-        ConditionsBuilder Condition,
-        string m_Dialog,
-        string[] m_Answers,
-        ActionsBuilder AdditionalActions)
+        ActionList additionalActions,
+        ConditionsBuilder condition = null,
+        string dialog = null,
+        string[] answers = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EventAISolution();
-      component.Condition = Condition.Build();
-      component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(m_Dialog);
-      component.m_Answers = m_Answers.Select(bp => BlueprintTool.GetRef<BlueprintAnswerReference>(bp)).ToArray();
-      component.AdditionalActions = AdditionalActions.Build();
+      ValidateParam(additionalActions);
+    
+      var component = new EventAISolution();
+      component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
+      component.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
+      component.AdditionalActions = additionalActions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -211,15 +276,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(EventFinalResults))]
     public TBuilder AddEventFinalResults(
-        EventResult[] Results)
+        EventResult[] results = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Results)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EventFinalResults();
-      component.Results = Results;
+      ValidateParam(results);
+    
+      var component = new EventFinalResults();
+      component.Results = results;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

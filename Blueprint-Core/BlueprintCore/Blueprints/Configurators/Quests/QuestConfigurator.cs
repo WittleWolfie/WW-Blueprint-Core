@@ -8,16 +8,19 @@ using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
-  /// <summary>Configurator for <see cref="BlueprintQuest"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintQuest"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintQuest))]
   public class QuestConfigurator : BaseFactConfigurator<BlueprintQuest, QuestConfigurator>
   {
-     private QuestConfigurator(string name) : base(name) { }
+    private QuestConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static QuestConfigurator For(string name)
@@ -33,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static QuestConfigurator New(string name, string assetId)
+    public static QuestConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintQuest>(name, assetId);
       return For(name);
@@ -43,93 +46,141 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuest.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetDescription(LocalizedString value)
+    public QuestConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetTitle(LocalizedString value)
+    public QuestConfigurator SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.CompletionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetCompletionText(LocalizedString value)
+    public QuestConfigurator SetCompletionText(LocalizedString completionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CompletionText = value);
+      ValidateParam(completionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CompletionText = completionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_Group"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetGroup(QuestGroupId value)
+    public QuestConfigurator SetGroup(QuestGroupId group)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Group = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Group = group;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_DescriptionPriority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetDescriptionPriority(int value)
+    public QuestConfigurator SetDescriptionPriority(int descriptionPriority)
     {
-      return OnConfigureInternal(bp => bp.m_DescriptionPriority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionPriority = descriptionPriority;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetType(QuestType value)
+    public QuestConfigurator SetType(QuestType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_LastChapter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetLastChapter(int value)
-    {
-      return OnConfigureInternal(bp => bp.m_LastChapter = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
-    [Generated]
-    public QuestConfigurator AddToObjectives(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Objectives.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintQuestObjective"/></param>
-    [Generated]
-    public QuestConfigurator RemoveFromObjectives(params string[] values)
+    public QuestConfigurator SetLastChapter(int lastChapter)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
+            bp.m_LastChapter = lastChapter;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestConfigurator SetObjectives(string[] objectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Objectives = objectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestConfigurator AddToObjectives(params string[] objectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Objectives.AddRange(objectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    [Generated]
+    public QuestConfigurator RemoveFromObjectives(params string[] objectives)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = objectives.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name));
             bp.m_Objectives =
                 bp.m_Objectives
                     .Where(
@@ -142,15 +193,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds <see cref="QuestRelatesToCompanionStory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(QuestRelatesToCompanionStory))]
     public QuestConfigurator AddQuestRelatesToCompanionStory(
-        string m_Companion)
+        string companion = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new QuestRelatesToCompanionStory();
-      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
+      var component = new QuestRelatesToCompanionStory();
+      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -160,11 +212,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(CrusadeMissionComponent))]
     public QuestConfigurator AddCrusadeMissionComponent(
-        int Chapter)
+        int chapter = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CrusadeMissionComponent();
-      component.Chapter = Chapter;
+      var component = new CrusadeMissionComponent();
+      component.Chapter = chapter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -173,9 +226,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityArmyRequestComponent))]
-    public QuestConfigurator AddNobilityArmyRequestComponent()
+    public QuestConfigurator AddNobilityArmyRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new NobilityArmyRequestComponent());
+      var component = new NobilityArmyRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -183,9 +239,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityBuildingsRequestComponent))]
-    public QuestConfigurator AddNobilityBuildingsRequestComponent()
+    public QuestConfigurator AddNobilityBuildingsRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new NobilityBuildingsRequestComponent());
+      var component = new NobilityBuildingsRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -193,9 +252,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityIncomeRequestComponent))]
-    public QuestConfigurator AddNobilityIncomeRequestComponent()
+    public QuestConfigurator AddNobilityIncomeRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new NobilityIncomeRequestComponent());
+      var component = new NobilityIncomeRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -203,9 +265,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilitySettlementsRequestComponent))]
-    public QuestConfigurator AddNobilitySettlementsRequestComponent()
+    public QuestConfigurator AddNobilitySettlementsRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new NobilitySettlementsRequestComponent());
+      var component = new NobilitySettlementsRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -213,9 +278,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtLeaderRequestComponent))]
-    public QuestConfigurator AddRoyalCourtLeaderRequestComponent()
+    public QuestConfigurator AddRoyalCourtLeaderRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RoyalCourtLeaderRequestComponent());
+      var component = new RoyalCourtLeaderRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -223,9 +291,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtMissionsRequestComponent))]
-    public QuestConfigurator AddRoyalCourtMissionsRequestComponent()
+    public QuestConfigurator AddRoyalCourtMissionsRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RoyalCourtMissionsRequestComponent());
+      var component = new RoyalCourtMissionsRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -233,9 +304,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtRanksRequestComponent))]
-    public QuestConfigurator AddRoyalCourtRanksRequestComponent()
+    public QuestConfigurator AddRoyalCourtRanksRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RoyalCourtRanksRequestComponent());
+      var component = new RoyalCourtRanksRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -243,9 +317,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtVictoryRequestComponent))]
-    public QuestConfigurator AddRoyalCourtVictoryRequestComponent()
+    public QuestConfigurator AddRoyalCourtVictoryRequestComponent(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RoyalCourtVictoryRequestComponent());
+      var component = new RoyalCourtVictoryRequestComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -254,21 +331,22 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(Experience))]
     public QuestConfigurator AddExperience(
-        EncounterType Encounter,
-        int CR,
-        float Modifier,
-        IntEvaluator Count,
-        bool Dummy)
+        IntEvaluator count,
+        EncounterType encounter = default,
+        int cR = default,
+        float modifier = default,
+        bool dummy = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Encounter);
-      ValidateParam(Count);
-      
-      var component =  new Experience();
-      component.Encounter = Encounter;
-      component.CR = CR;
-      component.Modifier = Modifier;
-      component.Count = Count;
-      component.Dummy = Dummy;
+      ValidateParam(count);
+    
+      var component = new Experience();
+      component.Encounter = encounter;
+      component.CR = cR;
+      component.Modifier = modifier;
+      component.Count = count;
+      component.Dummy = dummy;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

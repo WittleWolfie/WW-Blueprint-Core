@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="IsEngagedConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="IsEngagedConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(IsEngagedConsideration))]
   public class IsEngagedConsiderationConfigurator : BaseConsiderationConfigurator<IsEngagedConsideration, IsEngagedConsiderationConfigurator>
   {
-     private IsEngagedConsiderationConfigurator(string name) : base(name) { }
+    private IsEngagedConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static IsEngagedConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static IsEngagedConsiderationConfigurator New(string name, string assetId)
+    public static IsEngagedConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<IsEngagedConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="IsEngagedConsideration.EngagedScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public IsEngagedConsiderationConfigurator SetEngagedScore(float value)
+    public IsEngagedConsiderationConfigurator SetEngagedScore(float engagedScore)
     {
-      return OnConfigureInternal(bp => bp.EngagedScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.EngagedScore = engagedScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="IsEngagedConsideration.NotEngagedScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public IsEngagedConsiderationConfigurator SetNotEngagedScore(float value)
+    public IsEngagedConsiderationConfigurator SetNotEngagedScore(float notEngagedScore)
     {
-      return OnConfigureInternal(bp => bp.NotEngagedScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NotEngagedScore = notEngagedScore;
+          });
     }
   }
 }

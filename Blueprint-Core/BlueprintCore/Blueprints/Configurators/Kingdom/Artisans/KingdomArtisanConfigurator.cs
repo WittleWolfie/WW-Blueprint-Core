@@ -1,18 +1,21 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Artisans;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
-  /// <summary>Configurator for <see cref="BlueprintKingdomArtisan"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintKingdomArtisan"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintKingdomArtisan))]
   public class KingdomArtisanConfigurator : BaseBlueprintConfigurator<BlueprintKingdomArtisan, KingdomArtisanConfigurator>
   {
-     private KingdomArtisanConfigurator(string name) : base(name) { }
+    private KingdomArtisanConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingdomArtisanConfigurator For(string name)
@@ -28,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingdomArtisanConfigurator New(string name, string assetId)
+    public static KingdomArtisanConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintKingdomArtisan>(name, assetId);
       return For(name);
@@ -38,36 +41,59 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="BlueprintKingdomArtisan.m_ShopBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="shopBlueprint"><see cref="BlueprintSettlementBuilding"/></param>
     [Generated]
-    public KingdomArtisanConfigurator SetShopBlueprint(string value)
-    {
-      return OnConfigureInternal(bp => bp.m_ShopBlueprint = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(value));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomArtisan.ItemDecks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="ArtisanItemDeck"/></param>
-    [Generated]
-    public KingdomArtisanConfigurator AddToItemDecks(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.ItemDecks.AddRange(values.Select(name => BlueprintTool.GetRef<ArtisanItemDeckReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomArtisan.ItemDecks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="ArtisanItemDeck"/></param>
-    [Generated]
-    public KingdomArtisanConfigurator RemoveFromItemDecks(params string[] values)
+    public KingdomArtisanConfigurator SetShopBlueprint(string shopBlueprint)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<ArtisanItemDeckReference>(name));
+            bp.m_ShopBlueprint = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(shopBlueprint);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintKingdomArtisan.ItemDecks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="itemDecks"><see cref="ArtisanItemDeck"/></param>
+    [Generated]
+    public KingdomArtisanConfigurator SetItemDecks(string[] itemDecks)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ItemDecks = itemDecks.Select(name => BlueprintTool.GetRef<ArtisanItemDeckReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintKingdomArtisan.ItemDecks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="itemDecks"><see cref="ArtisanItemDeck"/></param>
+    [Generated]
+    public KingdomArtisanConfigurator AddToItemDecks(params string[] itemDecks)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ItemDecks.AddRange(itemDecks.Select(name => BlueprintTool.GetRef<ArtisanItemDeckReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintKingdomArtisan.ItemDecks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="itemDecks"><see cref="ArtisanItemDeck"/></param>
+    [Generated]
+    public KingdomArtisanConfigurator RemoveFromItemDecks(params string[] itemDecks)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = itemDecks.Select(name => BlueprintTool.GetRef<ArtisanItemDeckReference>(name));
             bp.ItemDecks =
                 bp.ItemDecks
                     .Where(
@@ -77,96 +103,147 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
+    /// Sets <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator AddToTiers(params BlueprintKingdomArtisan.TierData[] values)
+    public KingdomArtisanConfigurator SetTiers(BlueprintKingdomArtisan.TierData[] tiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tiers = CommonTool.Append(bp.Tiers, values));
+      ValidateParam(tiers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = tiers;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator RemoveFromTiers(params BlueprintKingdomArtisan.TierData[] values)
+    public KingdomArtisanConfigurator AddToTiers(params BlueprintKingdomArtisan.TierData[] tiers)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tiers = bp.Tiers.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(tiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = CommonTool.Append(bp.Tiers, tiers ?? new BlueprintKingdomArtisan.TierData[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public KingdomArtisanConfigurator RemoveFromTiers(params BlueprintKingdomArtisan.TierData[] tiers)
+    {
+      ValidateParam(tiers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tiers = bp.Tiers.Where(item => !tiers.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.m_Masterpiece"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="masterpiece"><see cref="BlueprintItem"/></param>
     [Generated]
-    public KingdomArtisanConfigurator SetMasterpiece(string value)
+    public KingdomArtisanConfigurator SetMasterpiece(string masterpiece)
     {
-      return OnConfigureInternal(bp => bp.m_Masterpiece = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Masterpiece = BlueprintTool.GetRef<BlueprintItemReference>(masterpiece);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.MasterpieceUnlock"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetMasterpieceUnlock(ConditionsBuilder value)
+    public KingdomArtisanConfigurator SetMasterpieceUnlock(ConditionsBuilder masterpieceUnlock)
     {
-      return OnConfigureInternal(bp => bp.MasterpieceUnlock = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MasterpieceUnlock = masterpieceUnlock?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.m_HelpProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="helpProject"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
-    public KingdomArtisanConfigurator SetHelpProject(string value)
+    public KingdomArtisanConfigurator SetHelpProject(string helpProject)
     {
-      return OnConfigureInternal(bp => bp.m_HelpProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HelpProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(helpProject);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnProductionStarted"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnProductionStarted(ActionsBuilder value)
+    public KingdomArtisanConfigurator SetOnProductionStarted(ActionList onProductionStarted)
     {
-      return OnConfigureInternal(bp => bp.OnProductionStarted = value.Build());
+      ValidateParam(onProductionStarted);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnProductionStarted = onProductionStarted;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftReady"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnGiftReady(ActionsBuilder value)
+    public KingdomArtisanConfigurator SetOnGiftReady(ActionList onGiftReady)
     {
-      return OnConfigureInternal(bp => bp.OnGiftReady = value.Build());
+      ValidateParam(onGiftReady);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnGiftReady = onGiftReady;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftCollected"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnGiftCollected(ActionsBuilder value)
+    public KingdomArtisanConfigurator SetOnGiftCollected(ActionList onGiftCollected)
     {
-      return OnConfigureInternal(bp => bp.OnGiftCollected = value.Build());
+      ValidateParam(onGiftCollected);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnGiftCollected = onGiftCollected;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.CanCollectGift"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetCanCollectGift(ConditionsBuilder value)
+    public KingdomArtisanConfigurator SetCanCollectGift(ConditionsBuilder canCollectGift)
     {
-      return OnConfigureInternal(bp => bp.CanCollectGift = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CanCollectGift = canCollectGift?.Build() ?? Constants.Empty.Conditions;
+          });
     }
   }
 }

@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="LifeStateConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="LifeStateConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(LifeStateConsideration))]
   public class LifeStateConsiderationConfigurator : BaseConsiderationConfigurator<LifeStateConsideration, LifeStateConsiderationConfigurator>
   {
-     private LifeStateConsiderationConfigurator(string name) : base(name) { }
+    private LifeStateConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LifeStateConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LifeStateConsiderationConfigurator New(string name, string assetId)
+    public static LifeStateConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<LifeStateConsideration>(name, assetId);
       return For(name);
@@ -34,27 +37,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="LifeStateConsideration.AliveScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LifeStateConsiderationConfigurator SetAliveScore(float value)
+    public LifeStateConsiderationConfigurator SetAliveScore(float aliveScore)
     {
-      return OnConfigureInternal(bp => bp.AliveScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AliveScore = aliveScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LifeStateConsideration.DeadScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LifeStateConsiderationConfigurator SetDeadScore(float value)
+    public LifeStateConsiderationConfigurator SetDeadScore(float deadScore)
     {
-      return OnConfigureInternal(bp => bp.DeadScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeadScore = deadScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="LifeStateConsideration.UnconsciousScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LifeStateConsiderationConfigurator SetUnconsciousScore(float value)
+    public LifeStateConsiderationConfigurator SetUnconsciousScore(float unconsciousScore)
     {
-      return OnConfigureInternal(bp => bp.UnconsciousScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UnconsciousScore = unconsciousScore;
+          });
     }
   }
 }

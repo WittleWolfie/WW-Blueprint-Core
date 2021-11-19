@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Weapons;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
-  /// <summary>Configurator for <see cref="BlueprintCategoryDefaults"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCategoryDefaults"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCategoryDefaults))]
   public class CategoryDefaultsConfigurator : BaseBlueprintConfigurator<BlueprintCategoryDefaults, CategoryDefaultsConfigurator>
   {
-     private CategoryDefaultsConfigurator(string name) : base(name) { }
+    private CategoryDefaultsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CategoryDefaultsConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CategoryDefaultsConfigurator New(string name, string assetId)
+    public static CategoryDefaultsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCategoryDefaults>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CategoryDefaultsConfigurator AddToEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] values)
+    public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = CommonTool.Append(bp.Entries, values));
+      ValidateParam(entries);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = entries;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CategoryDefaultsConfigurator RemoveFromEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] values)
+    public CategoryDefaultsConfigurator AddToEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Entries = bp.Entries.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = CommonTool.Append(bp.Entries, entries ?? new BlueprintCategoryDefaults.CategoryDefaultEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CategoryDefaultsConfigurator RemoveFromEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
+    {
+      ValidateParam(entries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Entries = bp.Entries.Where(item => !entries.Contains(item)).ToArray();
+          });
     }
   }
 }

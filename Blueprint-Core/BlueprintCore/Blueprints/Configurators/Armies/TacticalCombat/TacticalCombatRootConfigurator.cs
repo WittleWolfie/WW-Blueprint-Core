@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Brain;
@@ -5,17 +6,20 @@ using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Owlcat.Runtime.Core.Math;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
-  /// <summary>Configurator for <see cref="BlueprintTacticalCombatRoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTacticalCombatRoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTacticalCombatRoot))]
   public class TacticalCombatRootConfigurator : BaseBlueprintConfigurator<BlueprintTacticalCombatRoot, TacticalCombatRootConfigurator>
   {
-     private TacticalCombatRootConfigurator(string name) : base(name) { }
+    private TacticalCombatRootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TacticalCombatRootConfigurator For(string name)
@@ -31,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TacticalCombatRootConfigurator New(string name, string assetId)
+    public static TacticalCombatRootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTacticalCombatRoot>(name, assetId);
       return For(name);
@@ -41,216 +45,318 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ProbabilitySampler"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetProbabilitySampler(ProbabilityCurveSampler value)
+    public TacticalCombatRootConfigurator SetProbabilitySampler(ProbabilityCurveSampler probabilitySampler)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ProbabilitySampler = value);
+      ValidateParam(probabilitySampler);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ProbabilitySampler = probabilitySampler;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_CrusadersFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintFaction"/></param>
+    /// <param name="crusadersFaction"><see cref="BlueprintFaction"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetCrusadersFaction(string value)
+    public TacticalCombatRootConfigurator SetCrusadersFaction(string crusadersFaction)
     {
-      return OnConfigureInternal(bp => bp.m_CrusadersFaction = BlueprintTool.GetRef<BlueprintFactionReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CrusadersFaction = BlueprintTool.GetRef<BlueprintFactionReference>(crusadersFaction);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DemonsFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintFaction"/></param>
+    /// <param name="demonsFaction"><see cref="BlueprintFaction"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDemonsFaction(string value)
+    public TacticalCombatRootConfigurator SetDemonsFaction(string demonsFaction)
     {
-      return OnConfigureInternal(bp => bp.m_DemonsFaction = BlueprintTool.GetRef<BlueprintFactionReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DemonsFaction = BlueprintTool.GetRef<BlueprintFactionReference>(demonsFaction);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultBrain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintTacticalCombatBrain"/></param>
+    /// <param name="defaultBrain"><see cref="BlueprintTacticalCombatBrain"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDefaultBrain(string value)
+    public TacticalCombatRootConfigurator SetDefaultBrain(string defaultBrain)
     {
-      return OnConfigureInternal(bp => bp.m_DefaultBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(defaultBrain);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultLeaderBrain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintTacticalCombatBrain"/></param>
+    /// <param name="defaultLeaderBrain"><see cref="BlueprintTacticalCombatBrain"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDefaultLeaderBrain(string value)
+    public TacticalCombatRootConfigurator SetDefaultLeaderBrain(string defaultLeaderBrain)
     {
-      return OnConfigureInternal(bp => bp.m_DefaultLeaderBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultLeaderBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(defaultLeaderBrain);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AiSpellCastWeight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAiSpellCastWeight(float value)
+    public TacticalCombatRootConfigurator SetAiSpellCastWeight(float aiSpellCastWeight)
     {
-      return OnConfigureInternal(bp => bp.m_AiSpellCastWeight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AiSpellCastWeight = aiSpellCastWeight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AiCanUseRituals"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAiCanUseRituals(bool value)
+    public TacticalCombatRootConfigurator SetAiCanUseRituals(bool aiCanUseRituals)
     {
-      return OnConfigureInternal(bp => bp.m_AiCanUseRituals = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AiCanUseRituals = aiCanUseRituals;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayBetweenTurns"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetDelayBetweenTurns(float value)
+    public TacticalCombatRootConfigurator SetDelayBetweenTurns(float delayBetweenTurns)
     {
-      return OnConfigureInternal(bp => bp.m_DelayBetweenTurns = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DelayBetweenTurns = delayBetweenTurns;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayAfterMoraleEffect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetDelayAfterMoraleEffect(float value)
+    public TacticalCombatRootConfigurator SetDelayAfterMoraleEffect(float delayAfterMoraleEffect)
     {
-      return OnConfigureInternal(bp => bp.m_DelayAfterMoraleEffect = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DelayAfterMoraleEffect = delayAfterMoraleEffect;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayBeforeBattleEnd"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetDelayBeforeBattleEnd(float value)
+    public TacticalCombatRootConfigurator SetDelayBeforeBattleEnd(float delayBeforeBattleEnd)
     {
-      return OnConfigureInternal(bp => bp.m_DelayBeforeBattleEnd = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DelayBeforeBattleEnd = delayBeforeBattleEnd;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MaxTurnDuration"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetMaxTurnDuration(float value)
+    public TacticalCombatRootConfigurator SetMaxTurnDuration(float maxTurnDuration)
     {
-      return OnConfigureInternal(bp => bp.m_MaxTurnDuration = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaxTurnDuration = maxTurnDuration;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MoveSpeed"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetMoveSpeed(int value)
+    public TacticalCombatRootConfigurator SetMoveSpeed(int moveSpeed)
     {
-      return OnConfigureInternal(bp => bp.m_MoveSpeed = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MoveSpeed = moveSpeed;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MaxSquadsCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetMaxSquadsCount(int value)
+    public TacticalCombatRootConfigurator SetMaxSquadsCount(int maxSquadsCount)
     {
-      return OnConfigureInternal(bp => bp.m_MaxSquadsCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MaxSquadsCount = maxSquadsCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_BuffPrefix"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString value)
+    public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString buffPrefix)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_BuffPrefix = value);
+      ValidateParam(buffPrefix);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BuffPrefix = buffPrefix ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ArmyLossesCoefOnRetreat"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetArmyLossesCoefOnRetreat(float value)
+    public TacticalCombatRootConfigurator SetArmyLossesCoefOnRetreat(float armyLossesCoefOnRetreat)
     {
-      return OnConfigureInternal(bp => bp.m_ArmyLossesCoefOnRetreat = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ArmyLossesCoefOnRetreat = armyLossesCoefOnRetreat;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAutoVictoryChanceCoefficient(float value)
+    public TacticalCombatRootConfigurator SetAutoVictoryChanceCoefficient(float autoVictoryChanceCoefficient)
     {
-      return OnConfigureInternal(bp => bp.m_AutoVictoryChanceCoefficient = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AutoVictoryChanceCoefficient = autoVictoryChanceCoefficient;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceMinimum"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAutoVictoryChanceMinimum(float value)
+    public TacticalCombatRootConfigurator SetAutoVictoryChanceMinimum(float autoVictoryChanceMinimum)
     {
-      return OnConfigureInternal(bp => bp.m_AutoVictoryChanceMinimum = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AutoVictoryChanceMinimum = autoVictoryChanceMinimum;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAutoCombatLossesCoefficient(float value)
+    public TacticalCombatRootConfigurator SetAutoCombatLossesCoefficient(float autoCombatLossesCoefficient)
     {
-      return OnConfigureInternal(bp => bp.m_AutoCombatLossesCoefficient = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AutoCombatLossesCoefficient = autoCombatLossesCoefficient;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoCombatMinimumLossesCoefficient"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetAutoCombatMinimumLossesCoefficient(float value)
+    public TacticalCombatRootConfigurator SetAutoCombatMinimumLossesCoefficient(float autoCombatMinimumLossesCoefficient)
     {
-      return OnConfigureInternal(bp => bp.m_AutoCombatMinimumLossesCoefficient = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AutoCombatMinimumLossesCoefficient = autoCombatMinimumLossesCoefficient;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DiceRollResultsDistribution"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetDiceRollResultsDistribution(AnimationCurve value)
+    public TacticalCombatRootConfigurator SetDiceRollResultsDistribution(AnimationCurve diceRollResultsDistribution)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DiceRollResultsDistribution = value);
+      ValidateParam(diceRollResultsDistribution);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DiceRollResultsDistribution = diceRollResultsDistribution;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
+    /// Sets <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator AddToBannedUnitFacts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_BannedUnitFacts.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public TacticalCombatRootConfigurator RemoveFromBannedUnitFacts(params string[] values)
+    public TacticalCombatRootConfigurator SetBannedUnitFacts(string[] bannedUnitFacts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_BannedUnitFacts = bannedUnitFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public TacticalCombatRootConfigurator AddToBannedUnitFacts(params string[] bannedUnitFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BannedUnitFacts.AddRange(bannedUnitFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public TacticalCombatRootConfigurator RemoveFromBannedUnitFacts(params string[] bannedUnitFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = bannedUnitFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
             bp.m_BannedUnitFacts =
                 bp.m_BannedUnitFacts
                     .Where(
@@ -263,78 +369,116 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultZone"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetDefaultZone(TacticalCombatAreaZone value)
+    public TacticalCombatRootConfigurator SetDefaultZone(TacticalCombatAreaZone defaultZone)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DefaultZone = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DefaultZone = defaultZone;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
+    /// Sets <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator AddToZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] values)
+    public TacticalCombatRootConfigurator SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings> zoneSettings)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_ZoneSettings.AddRange(values));
+      ValidateParam(zoneSettings);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ZoneSettings = zoneSettings;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator RemoveFromZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] values)
+    public TacticalCombatRootConfigurator AddToZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] zoneSettings)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_ZoneSettings = bp.m_ZoneSettings.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(zoneSettings);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ZoneSettings.AddRange(zoneSettings.ToList() ?? new List<BlueprintTacticalCombatRoot.TacticalZoneSettings>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatRootConfigurator RemoveFromZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] zoneSettings)
+    {
+      ValidateParam(zoneSettings);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ZoneSettings = bp.m_ZoneSettings.Where(item => !zoneSettings.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_LeaderManaResource"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAbilityResource"/></param>
+    /// <param name="leaderManaResource"><see cref="BlueprintAbilityResource"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetLeaderManaResource(string value)
+    public TacticalCombatRootConfigurator SetLeaderManaResource(string leaderManaResource)
     {
-      return OnConfigureInternal(bp => bp.m_LeaderManaResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LeaderManaResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(leaderManaResource);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_WinnerCutscene"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="Cutscene"/></param>
+    /// <param name="winnerCutscene"><see cref="Cutscene"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetWinnerCutscene(string value)
+    public TacticalCombatRootConfigurator SetWinnerCutscene(string winnerCutscene)
     {
-      return OnConfigureInternal(bp => bp.m_WinnerCutscene = BlueprintTool.GetRef<CutsceneReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WinnerCutscene = BlueprintTool.GetRef<CutsceneReference>(winnerCutscene);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_PositiveMoraleFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink value)
+    public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink positiveMoraleFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_PositiveMoraleFx = value);
+      ValidateParam(positiveMoraleFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PositiveMoraleFx = positiveMoraleFx ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_NegativeMoraleFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink value)
+    public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink negativeMoraleFx)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_NegativeMoraleFx = value);
+      ValidateParam(negativeMoraleFx);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NegativeMoraleFx = negativeMoraleFx ?? Constants.Empty.PrefabLink;
+          });
     }
   }
 }

@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -5,6 +6,7 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.WeaponEnchants;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -15,17 +17,19 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
-  /// <summary>Configurator for <see cref="BlueprintWeaponEnchantment"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintWeaponEnchantment"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintWeaponEnchantment))]
   public class WeaponEnchantmentConfigurator : BaseItemEnchantmentConfigurator<BlueprintWeaponEnchantment, WeaponEnchantmentConfigurator>
   {
-     private WeaponEnchantmentConfigurator(string name) : base(name) { }
+    private WeaponEnchantmentConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static WeaponEnchantmentConfigurator For(string name)
@@ -41,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static WeaponEnchantmentConfigurator New(string name, string assetId)
+    public static WeaponEnchantmentConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintWeaponEnchantment>(name, assetId);
       return For(name);
@@ -51,10 +55,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponEnchantmentConfigurator SetWeaponFxPrefab(GameObject value)
+    public WeaponEnchantmentConfigurator SetWeaponFxPrefab(GameObject weaponFxPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.WeaponFxPrefab = value);
+      ValidateParam(weaponFxPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.WeaponFxPrefab = weaponFxPrefab;
+          });
     }
 
     /// <summary>
@@ -62,9 +71,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponDamageReroll))]
-    public WeaponEnchantmentConfigurator AddWeaponDamageReroll()
+    public WeaponEnchantmentConfigurator AddWeaponDamageReroll(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponDamageReroll());
+      var component = new WeaponDamageReroll();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -72,9 +84,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(TwoWeaponCriticalAdditionalAttackEnchant))]
-    public WeaponEnchantmentConfigurator AddTwoWeaponCriticalAdditionalAttackEnchant()
+    public WeaponEnchantmentConfigurator AddTwoWeaponCriticalAdditionalAttackEnchant(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
+      var component = new TwoWeaponCriticalAdditionalAttackEnchant();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -82,9 +97,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(SuppressBane))]
-    public WeaponEnchantmentConfigurator AddSuppressBane()
+    public WeaponEnchantmentConfigurator AddSuppressBane(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SuppressBane());
+      var component = new SuppressBane();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -93,14 +111,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCriticalConfirmationBonus))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalConfirmationBonus(
-        ContextValue Value,
-        int AdditionalBonus)
+        ContextValue value,
+        int additionalBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      
-      var component =  new WeaponCriticalConfirmationBonus();
-      component.Value = Value;
-      component.AdditionalBonus = AdditionalBonus;
+      ValidateParam(value);
+    
+      var component = new WeaponCriticalConfirmationBonus();
+      component.Value = value;
+      component.AdditionalBonus = additionalBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -109,9 +129,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeIncrease))]
-    public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeIncrease()
+    public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeIncrease(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponCriticalEdgeIncrease());
+      var component = new WeaponCriticalEdgeIncrease();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -120,11 +143,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeStackable))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeStackable(
-        int Bonus)
+        int bonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalEdgeStackable();
-      component.Bonus = Bonus;
+      var component = new WeaponCriticalEdgeStackable();
+      component.Bonus = bonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -134,11 +158,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCriticalMultiplierIncrease))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalMultiplierIncrease(
-        int AdditionalMultiplier)
+        int additionalMultiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalMultiplierIncrease();
-      component.AdditionalMultiplier = AdditionalMultiplier;
+      var component = new WeaponCriticalMultiplierIncrease();
+      component.AdditionalMultiplier = additionalMultiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -148,14 +173,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponDamageMultiplierStatReplacement))]
     public WeaponEnchantmentConfigurator AddWeaponDamageMultiplierStatReplacement(
-        StatType Stat,
-        float Multiplier)
+        StatType stat = default,
+        float multiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageMultiplierStatReplacement();
-      component.Stat = Stat;
-      component.Multiplier = Multiplier;
+      var component = new WeaponDamageMultiplierStatReplacement();
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -165,14 +190,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponDamageStatReplacement))]
     public WeaponEnchantmentConfigurator AddWeaponDamageStatReplacement(
-        StatType Stat,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageStatReplacement();
-      component.Stat = Stat;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new WeaponDamageStatReplacement();
+      component.Stat = stat;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -181,26 +206,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponOversized))]
-    public WeaponEnchantmentConfigurator AddWeaponOversized()
+    public WeaponEnchantmentConfigurator AddWeaponOversized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponOversized());
+      var component = new WeaponOversized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="IgnoreConcealmentAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(IgnoreConcealmentAgainstFactOwner))]
     public WeaponEnchantmentConfigurator AddIgnoreConcealmentAgainstFactOwner(
-        string[] m_Facts,
-        bool Not)
+        string[] facts = null,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IgnoreConcealmentAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.Not = Not;
+      var component = new IgnoreConcealmentAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -209,24 +238,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(IgnoreTargetDREnchantment))]
-    public WeaponEnchantmentConfigurator AddIgnoreTargetDREnchantment()
+    public WeaponEnchantmentConfigurator AddIgnoreTargetDREnchantment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IgnoreTargetDREnchantment());
+      var component = new IgnoreTargetDREnchantment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ImproveEnhancmentIfHasEnchantment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Enchantments"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(ImproveEnhancmentIfHasEnchantment))]
     public WeaponEnchantmentConfigurator AddImproveEnhancmentIfHasEnchantment(
-        string[] m_Enchantments)
+        string[] enchantments = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ImproveEnhancmentIfHasEnchantment();
-      component.m_Enchantments = m_Enchantments.Select(bp => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(bp)).ToArray();
+      var component = new ImproveEnhancmentIfHasEnchantment();
+      component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -236,24 +269,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(ModifyWeaponStatsConditional))]
     public WeaponEnchantmentConfigurator AddModifyWeaponStatsConditional(
-        ModifyWeaponStatsConditional.ModificationType m_Type,
-        DamageAlignment Alignment,
-        ContextValue BonusDamage,
-        AlignmentComponent WielderAlignmentRestriction,
-        AlignmentComponent TargetAlignmentRestriction)
+        ContextValue bonusDamage,
+        ModifyWeaponStatsConditional.ModificationType type = default,
+        DamageAlignment alignment = default,
+        AlignmentComponent wielderAlignmentRestriction = default,
+        AlignmentComponent targetAlignmentRestriction = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      ValidateParam(Alignment);
-      ValidateParam(BonusDamage);
-      ValidateParam(WielderAlignmentRestriction);
-      ValidateParam(TargetAlignmentRestriction);
-      
-      var component =  new ModifyWeaponStatsConditional();
-      component.m_Type = m_Type;
-      component.Alignment = Alignment;
-      component.BonusDamage = BonusDamage;
-      component.WielderAlignmentRestriction = WielderAlignmentRestriction;
-      component.TargetAlignmentRestriction = TargetAlignmentRestriction;
+      ValidateParam(bonusDamage);
+    
+      var component = new ModifyWeaponStatsConditional();
+      component.m_Type = type;
+      component.Alignment = alignment;
+      component.BonusDamage = bonusDamage;
+      component.WielderAlignmentRestriction = wielderAlignmentRestriction;
+      component.TargetAlignmentRestriction = targetAlignmentRestriction;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -262,26 +293,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(BrilliantEnergy))]
-    public WeaponEnchantmentConfigurator AddBrilliantEnergy()
+    public WeaponEnchantmentConfigurator AddBrilliantEnergy(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new BrilliantEnergy());
+      var component = new BrilliantEnergy();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="IncreaseWeaponDamageByBuffStack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(IncreaseWeaponDamageByBuffStack))]
     public WeaponEnchantmentConfigurator AddIncreaseWeaponDamageByBuffStack(
-        int BonusPerStack,
-        string m_CheckedBuff)
+        int bonusPerStack = default,
+        string checkedBuff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IncreaseWeaponDamageByBuffStack();
-      component.BonusPerStack = BonusPerStack;
-      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_CheckedBuff);
+      var component = new IncreaseWeaponDamageByBuffStack();
+      component.BonusPerStack = bonusPerStack;
+      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -291,20 +326,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
     public WeaponEnchantmentConfigurator AddIncreaseWeaponEnhancementBonusOnTargetFocus(
-        ContextValue BonusIncrementValue,
-        ContextValue MaximumTotalEnhancementBonus,
-        int m_CurrentEnhancementBonus,
-        UnitReference m_FocusingTarget)
+        ContextValue bonusIncrementValue,
+        ContextValue maximumTotalEnhancementBonus,
+        UnitReference focusingTarget,
+        int currentEnhancementBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(BonusIncrementValue);
-      ValidateParam(MaximumTotalEnhancementBonus);
-      ValidateParam(m_FocusingTarget);
-      
-      var component =  new IncreaseWeaponEnhancementBonusOnTargetFocus();
-      component.BonusIncrementValue = BonusIncrementValue;
-      component.MaximumTotalEnhancementBonus = MaximumTotalEnhancementBonus;
-      component.m_CurrentEnhancementBonus = m_CurrentEnhancementBonus;
-      component.m_FocusingTarget = m_FocusingTarget;
+      ValidateParam(bonusIncrementValue);
+      ValidateParam(maximumTotalEnhancementBonus);
+    
+      var component = new IncreaseWeaponEnhancementBonusOnTargetFocus();
+      component.BonusIncrementValue = bonusIncrementValue;
+      component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus;
+      component.m_CurrentEnhancementBonus = currentEnhancementBonus;
+      component.m_FocusingTarget = focusingTarget;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -312,15 +348,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="MissAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(MissAgainstFactOwner))]
     public WeaponEnchantmentConfigurator AddMissAgainstFactOwner(
-        string[] m_Facts)
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MissAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new MissAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -330,12 +367,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponAlignment))]
     public WeaponEnchantmentConfigurator AddWeaponAlignment(
-        DamageAlignment Alignment)
+        DamageAlignment alignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Alignment);
-      
-      var component =  new WeaponAlignment();
-      component.Alignment = Alignment;
+      var component = new WeaponAlignment();
+      component.Alignment = alignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -343,21 +380,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponAngelDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_MaximizeFeature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="maximizeFeature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponAngelDamageDice))]
     public WeaponEnchantmentConfigurator AddWeaponAngelDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element,
-        string m_MaximizeFeature)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        string maximizeFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponAngelDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
-      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_MaximizeFeature);
+      var component = new WeaponAngelDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(maximizeFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -365,21 +401,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponBuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnAttack))]
     public WeaponEnchantmentConfigurator AddWeaponBuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -387,23 +424,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponBuffOnConfirmedCrit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnConfirmedCrit))]
     public WeaponEnchantmentConfigurator AddWeaponBuffOnConfirmedCrit(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx,
-        bool OnlyNatural20)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        bool onlyNatural20 = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnConfirmedCrit();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
-      component.OnlyNatural20 = OnlyNatural20;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnConfirmedCrit();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.OnlyNatural20 = onlyNatural20;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -413,18 +451,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponConditionalDamageDice))]
     public WeaponEnchantmentConfigurator AddWeaponConditionalDamageDice(
-        DamageDescription Damage,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        DamageDescription damage,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Damage);
-      
-      var component =  new WeaponConditionalDamageDice();
-      component.Damage = Damage;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      ValidateParam(damage);
+    
+      var component = new WeaponConditionalDamageDice();
+      component.Damage = damage;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -434,17 +474,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponConditionalEnhancementBonus))]
     public WeaponEnchantmentConfigurator AddWeaponConditionalEnhancementBonus(
-        int EnhancementBonus,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        int enhancementBonus = default,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponConditionalEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      var component = new WeaponConditionalEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -454,12 +495,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstAlignment))]
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstAlignment(
-        AlignmentComponent EnemyAlignment)
+        AlignmentComponent enemyAlignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      
-      var component =  new WeaponCritAutoconfirmAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
+      var component = new WeaponCritAutoconfirmAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -469,12 +510,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstSize))]
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstSize(
-        Size Size)
+        Size size = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Size);
-      
-      var component =  new WeaponCritAutoconfirmAgainstSize();
-      component.Size = Size;
+      var component = new WeaponCritAutoconfirmAgainstSize();
+      component.Size = size;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -484,21 +525,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponDamageAgainstAlignment))]
     public WeaponEnchantmentConfigurator AddWeaponDamageAgainstAlignment(
-        AlignmentComponent EnemyAlignment,
-        DamageAlignment WeaponAlignment,
-        ContextDiceValue Value,
-        DamageEnergyType DamageType)
+        ContextDiceValue value,
+        AlignmentComponent enemyAlignment = default,
+        DamageAlignment weaponAlignment = default,
+        DamageEnergyType damageType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      ValidateParam(WeaponAlignment);
-      ValidateParam(Value);
-      ValidateParam(DamageType);
-      
-      var component =  new WeaponDamageAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
-      component.WeaponAlignment = WeaponAlignment;
-      component.Value = Value;
-      component.DamageType = DamageType;
+      ValidateParam(value);
+    
+      var component = new WeaponDamageAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.WeaponAlignment = weaponAlignment;
+      component.Value = value;
+      component.DamageType = damageType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -506,26 +546,26 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponDebuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponDebuffOnAttack))]
     public WeaponEnchantmentConfigurator AddWeaponDebuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        SavingThrowType SaveType,
-        int DC,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        SavingThrowType saveType = default,
+        int dC = default,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(SaveType);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponDebuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.SaveType = SaveType;
-      component.DC = DC;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponDebuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.SaveType = saveType;
+      component.DC = dC;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -535,15 +575,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponEnergyBurst))]
     public WeaponEnchantmentConfigurator AddWeaponEnergyBurst(
-        DamageEnergyType Element,
-        DiceType Dice)
+        DamageEnergyType element = default,
+        DiceType dice = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Element);
-      ValidateParam(Dice);
-      
-      var component =  new WeaponEnergyBurst();
-      component.Element = Element;
-      component.Dice = Dice;
+      var component = new WeaponEnergyBurst();
+      component.Element = element;
+      component.Dice = dice;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -553,15 +592,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponEnergyDamageDice))]
     public WeaponEnchantmentConfigurator AddWeaponEnergyDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponEnergyDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
+      var component = new WeaponEnergyDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -571,13 +609,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponEnhancementBonus))]
     public WeaponEnchantmentConfigurator AddWeaponEnhancementBonus(
-        int EnhancementBonus,
-        bool Stack)
+        int enhancementBonus = default,
+        bool stack = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.Stack = Stack;
+      var component = new WeaponEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.Stack = stack;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -587,13 +626,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponExtraAttack))]
     public WeaponEnchantmentConfigurator AddWeaponExtraAttack(
-        int Number,
-        bool Haste)
+        int number = default,
+        bool haste = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponExtraAttack();
-      component.Number = Number;
-      component.Haste = Haste;
+      var component = new WeaponExtraAttack();
+      component.Number = number;
+      component.Haste = haste;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -602,9 +642,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponImprovised))]
-    public WeaponEnchantmentConfigurator AddWeaponImprovised()
+    public WeaponEnchantmentConfigurator AddWeaponImprovised(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponImprovised());
+      var component = new WeaponImprovised();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -612,9 +655,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMagic))]
-    public WeaponEnchantmentConfigurator AddWeaponMagic()
+    public WeaponEnchantmentConfigurator AddWeaponMagic(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMagic());
+      var component = new WeaponMagic();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -622,9 +668,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMasterwork))]
-    public WeaponEnchantmentConfigurator AddWeaponMasterwork()
+    public WeaponEnchantmentConfigurator AddWeaponMasterwork(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMasterwork());
+      var component = new WeaponMasterwork();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -633,12 +682,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponMaterial))]
     public WeaponEnchantmentConfigurator AddWeaponMaterial(
-        PhysicalDamageMaterial Material)
+        PhysicalDamageMaterial material = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Material);
-      
-      var component =  new WeaponMaterial();
-      component.Material = Material;
+      var component = new WeaponMaterial();
+      component.Material = material;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -648,12 +697,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponReality))]
     public WeaponEnchantmentConfigurator AddWeaponReality(
-        DamageRealityType Reality)
+        DamageRealityType reality = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Reality);
-      
-      var component =  new WeaponReality();
-      component.Reality = Reality;
+      var component = new WeaponReality();
+      component.Reality = reality;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

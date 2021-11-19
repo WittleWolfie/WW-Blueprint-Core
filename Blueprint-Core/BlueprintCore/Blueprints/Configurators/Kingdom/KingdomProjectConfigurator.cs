@@ -1,10 +1,11 @@
+using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -17,108 +18,143 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       where T : BlueprintKingdomProject
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseKingdomProjectConfigurator(string name) : base(name) { }
+    protected BaseKingdomProjectConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetProjectType(KingdomProjectType value)
+    public TBuilder SetProjectType(KingdomProjectType projectType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ProjectType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectType = projectType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetProjectStartCost(KingdomResourcesAmount value)
+    public TBuilder SetProjectStartCost(KingdomResourcesAmount projectStartCost)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ProjectStartCost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectStartCost = projectStartCost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMechanicalDescription(LocalizedString value)
+    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MechanicalDescription = value);
+      ValidateParam(mechanicalDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MechanicalDescription = mechanicalDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSpendRulerTimeDays(int value)
+    public TBuilder SetSpendRulerTimeDays(int spendRulerTimeDays)
     {
-      return OnConfigureInternal(bp => bp.SpendRulerTimeDays = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpendRulerTimeDays = spendRulerTimeDays;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetRepeatable(bool value)
+    public TBuilder SetRepeatable(bool repeatable)
     {
-      return OnConfigureInternal(bp => bp.Repeatable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Repeatable = repeatable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCooldown(int value)
+    public TBuilder SetCooldown(int cooldown)
     {
-      return OnConfigureInternal(bp => bp.Cooldown = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Cooldown = cooldown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsRankUpProject(bool value)
+    public TBuilder SetIsRankUpProject(bool isRankUpProject)
     {
-      return OnConfigureInternal(bp => bp.IsRankUpProject = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsRankUpProject = isRankUpProject;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetRankupProjectFor(KingdomStats.Type value)
+    public TBuilder SetRankupProjectFor(KingdomStats.Type rankupProjectFor)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RankupProjectFor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RankupProjectFor = rankupProjectFor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAIPriority(int value)
+    public TBuilder SetAIPriority(int aIPriority)
     {
-      return OnConfigureInternal(bp => bp.AIPriority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AIPriority = aIPriority;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(EventItemCost))]
     public TBuilder AddEventItemCost(
-        string[] m_Items,
-        int Amount)
+        string[] items = null,
+        int amount = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EventItemCost();
-      component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
-      component.Amount = Amount;
+      var component = new EventItemCost();
+      component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
+      component.Amount = amount;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -126,15 +162,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Projects"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="projects"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(ExclusiveProjects))]
     public TBuilder AddExclusiveProjects(
-        string[] m_Projects)
+        string[] projects = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ExclusiveProjects();
-      component.m_Projects = m_Projects.Select(bp => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(bp)).ToArray();
+      var component = new ExclusiveProjects();
+      component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -142,15 +179,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public TBuilder AddFinishObjectiveOnTrigger(
-        string m_Objective)
+        string objective = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new FinishObjectiveOnTrigger();
-      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      var component = new FinishObjectiveOnTrigger();
+      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -159,18 +197,23 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     [Generated]
     [Implements(typeof(MarkAsCrusadeProject))]
-    public TBuilder AddMarkAsCrusadeProject()
+    public TBuilder AddMarkAsCrusadeProject(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new MarkAsCrusadeProject());
+      var component = new MarkAsCrusadeProject();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintKingdomProject"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintKingdomProject"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintKingdomProject))]
   public class KingdomProjectConfigurator : BaseKingdomEventBaseConfigurator<BlueprintKingdomProject, KingdomProjectConfigurator>
   {
-     private KingdomProjectConfigurator(string name) : base(name) { }
+    private KingdomProjectConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingdomProjectConfigurator For(string name)
@@ -186,7 +229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingdomProjectConfigurator New(string name, string assetId)
+    public static KingdomProjectConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintKingdomProject>(name, assetId);
       return For(name);
@@ -196,102 +239,137 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetProjectType(KingdomProjectType value)
+    public KingdomProjectConfigurator SetProjectType(KingdomProjectType projectType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ProjectType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectType = projectType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetProjectStartCost(KingdomResourcesAmount value)
+    public KingdomProjectConfigurator SetProjectStartCost(KingdomResourcesAmount projectStartCost)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ProjectStartCost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectStartCost = projectStartCost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString value)
+    public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString mechanicalDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MechanicalDescription = value);
+      ValidateParam(mechanicalDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MechanicalDescription = mechanicalDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetSpendRulerTimeDays(int value)
+    public KingdomProjectConfigurator SetSpendRulerTimeDays(int spendRulerTimeDays)
     {
-      return OnConfigureInternal(bp => bp.SpendRulerTimeDays = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpendRulerTimeDays = spendRulerTimeDays;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetRepeatable(bool value)
+    public KingdomProjectConfigurator SetRepeatable(bool repeatable)
     {
-      return OnConfigureInternal(bp => bp.Repeatable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Repeatable = repeatable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetCooldown(int value)
+    public KingdomProjectConfigurator SetCooldown(int cooldown)
     {
-      return OnConfigureInternal(bp => bp.Cooldown = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Cooldown = cooldown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetIsRankUpProject(bool value)
+    public KingdomProjectConfigurator SetIsRankUpProject(bool isRankUpProject)
     {
-      return OnConfigureInternal(bp => bp.IsRankUpProject = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsRankUpProject = isRankUpProject;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetRankupProjectFor(KingdomStats.Type value)
+    public KingdomProjectConfigurator SetRankupProjectFor(KingdomStats.Type rankupProjectFor)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.RankupProjectFor = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RankupProjectFor = rankupProjectFor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetAIPriority(int value)
+    public KingdomProjectConfigurator SetAIPriority(int aIPriority)
     {
-      return OnConfigureInternal(bp => bp.AIPriority = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AIPriority = aIPriority;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(EventItemCost))]
     public KingdomProjectConfigurator AddEventItemCost(
-        string[] m_Items,
-        int Amount)
+        string[] items = null,
+        int amount = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EventItemCost();
-      component.m_Items = m_Items.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToArray();
-      component.Amount = Amount;
+      var component = new EventItemCost();
+      component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
+      component.Amount = amount;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -299,15 +377,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Projects"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="projects"><see cref="BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(ExclusiveProjects))]
     public KingdomProjectConfigurator AddExclusiveProjects(
-        string[] m_Projects)
+        string[] projects = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ExclusiveProjects();
-      component.m_Projects = m_Projects.Select(bp => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(bp)).ToArray();
+      var component = new ExclusiveProjects();
+      component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -315,15 +394,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public KingdomProjectConfigurator AddFinishObjectiveOnTrigger(
-        string m_Objective)
+        string objective = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new FinishObjectiveOnTrigger();
-      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(m_Objective);
+      var component = new FinishObjectiveOnTrigger();
+      component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -332,9 +412,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     [Generated]
     [Implements(typeof(MarkAsCrusadeProject))]
-    public KingdomProjectConfigurator AddMarkAsCrusadeProject()
+    public KingdomProjectConfigurator AddMarkAsCrusadeProject(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new MarkAsCrusadeProject());
+      var component = new MarkAsCrusadeProject();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

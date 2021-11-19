@@ -1,19 +1,22 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintBookPage"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintBookPage"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintBookPage))]
   public class BookPageConfigurator : BaseCueBaseConfigurator<BlueprintBookPage, BookPageConfigurator>
   {
-     private BookPageConfigurator(string name) : base(name) { }
+    private BookPageConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static BookPageConfigurator For(string name)
@@ -29,35 +32,54 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BookPageConfigurator New(string name, string assetId)
+    public static BookPageConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintBookPage>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
+    /// Sets <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
     [Generated]
-    public BookPageConfigurator AddToCues(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Cues.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintCueBase"/></param>
-    [Generated]
-    public BookPageConfigurator RemoveFromCues(params string[] values)
+    public BookPageConfigurator SetCues(string[] cues)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
+            bp.Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    [Generated]
+    public BookPageConfigurator AddToCues(params string[] cues)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Cues.AddRange(cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    [Generated]
+    public BookPageConfigurator RemoveFromCues(params string[] cues)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
             bp.Cues =
                 bp.Cues
                     .Where(
@@ -67,28 +89,47 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
+    /// Sets <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
     [Generated]
-    public BookPageConfigurator AddToAnswers(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Answers.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAnswerBase"/></param>
-    [Generated]
-    public BookPageConfigurator RemoveFromAnswers(params string[] values)
+    public BookPageConfigurator SetAnswers(string[] answers)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
+            bp.Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    [Generated]
+    public BookPageConfigurator AddToAnswers(params string[] answers)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Answers.AddRange(answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    [Generated]
+    public BookPageConfigurator RemoveFromAnswers(params string[] answers)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
             bp.Answers =
                 bp.Answers
                     .Where(
@@ -101,39 +142,60 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetOnShow(ActionsBuilder value)
+    public BookPageConfigurator SetOnShow(ActionList onShow)
     {
-      return OnConfigureInternal(bp => bp.OnShow = value.Build());
+      ValidateParam(onShow);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnShow = onShow;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.ImageLink"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetImageLink(SpriteLink value)
+    public BookPageConfigurator SetImageLink(SpriteLink imageLink)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ImageLink = value);
+      ValidateParam(imageLink);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ImageLink = imageLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.ForeImageLink"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetForeImageLink(SpriteLink value)
+    public BookPageConfigurator SetForeImageLink(SpriteLink foreImageLink)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ForeImageLink = value);
+      ValidateParam(foreImageLink);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForeImageLink = foreImageLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetTitle(LocalizedString value)
+    public BookPageConfigurator SetTitle(LocalizedString title)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Title = value);
+      ValidateParam(title);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Title = title ?? Constants.Empty.String;
+          });
     }
   }
 }

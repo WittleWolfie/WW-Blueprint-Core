@@ -1,15 +1,17 @@
 using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
 {
-  /// <summary>Configurator for <see cref="ArmyHealthConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ArmyHealthConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ArmyHealthConsideration))]
   public class ArmyHealthConsiderationConfigurator : BaseConsiderationConfigurator<ArmyHealthConsideration, ArmyHealthConsiderationConfigurator>
   {
-     private ArmyHealthConsiderationConfigurator(string name) : base(name) { }
+    private ArmyHealthConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArmyHealthConsiderationConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArmyHealthConsiderationConfigurator New(string name, string assetId)
+    public static ArmyHealthConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ArmyHealthConsideration>(name, assetId);
       return For(name);
@@ -35,36 +37,52 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
     /// Sets <see cref="ArmyHealthConsideration.FullBorder"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyHealthConsiderationConfigurator SetFullBorder(float value)
+    public ArmyHealthConsiderationConfigurator SetFullBorder(float fullBorder)
     {
-      return OnConfigureInternal(bp => bp.FullBorder = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FullBorder = fullBorder;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.DeadBorder"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyHealthConsiderationConfigurator SetDeadBorder(float value)
+    public ArmyHealthConsiderationConfigurator SetDeadBorder(float deadBorder)
     {
-      return OnConfigureInternal(bp => bp.DeadBorder = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeadBorder = deadBorder;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.FullScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyHealthConsiderationConfigurator SetFullScore(float value)
+    public ArmyHealthConsiderationConfigurator SetFullScore(float fullScore)
     {
-      return OnConfigureInternal(bp => bp.FullScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FullScore = fullScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.DeadScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyHealthConsiderationConfigurator SetDeadScore(float value)
+    public ArmyHealthConsiderationConfigurator SetDeadScore(float deadScore)
     {
-      return OnConfigureInternal(bp => bp.DeadScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeadScore = deadScore;
+          });
     }
   }
 }

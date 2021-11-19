@@ -1,15 +1,17 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-
+using Kingmaker.ElementsSystem;
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintActionList"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintActionList"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintActionList))]
   public class ActionListConfigurator : BaseBlueprintConfigurator<BlueprintActionList, ActionListConfigurator>
   {
-     private ActionListConfigurator(string name) : base(name) { }
+    private ActionListConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ActionListConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ActionListConfigurator New(string name, string assetId)
+    public static ActionListConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintActionList>(name, assetId);
       return For(name);
@@ -35,9 +37,15 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintActionList.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActionListConfigurator SetActions(ActionsBuilder value)
+    public ActionListConfigurator SetActions(ActionList actions)
     {
-      return OnConfigureInternal(bp => bp.m_Actions = value.Build());
+      ValidateParam(actions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Actions = actions;
+          });
     }
   }
 }

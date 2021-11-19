@@ -2,15 +2,17 @@ using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
 {
-  /// <summary>Configurator for <see cref="TacticalCombatTagConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="TacticalCombatTagConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(TacticalCombatTagConsideration))]
   public class TacticalCombatTagConsiderationConfigurator : BaseConsiderationConfigurator<TacticalCombatTagConsideration, TacticalCombatTagConsiderationConfigurator>
   {
-     private TacticalCombatTagConsiderationConfigurator(string name) : base(name) { }
+    private TacticalCombatTagConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TacticalCombatTagConsiderationConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TacticalCombatTagConsiderationConfigurator New(string name, string assetId)
+    public static TacticalCombatTagConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<TacticalCombatTagConsideration>(name, assetId);
       return For(name);
@@ -36,37 +38,52 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Con
     /// Sets <see cref="TacticalCombatTagConsideration.HasTagScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatTagConsiderationConfigurator SetHasTagScore(float value)
+    public TacticalCombatTagConsiderationConfigurator SetHasTagScore(float hasTagScore)
     {
-      return OnConfigureInternal(bp => bp.HasTagScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasTagScore = hasTagScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.DoesNotHaveTagScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatTagConsiderationConfigurator SetDoesNotHaveTagScore(float value)
+    public TacticalCombatTagConsiderationConfigurator SetDoesNotHaveTagScore(float doesNotHaveTagScore)
     {
-      return OnConfigureInternal(bp => bp.DoesNotHaveTagScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DoesNotHaveTagScore = doesNotHaveTagScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.Tag"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatTagConsiderationConfigurator SetTag(ArmyProperties value)
+    public TacticalCombatTagConsiderationConfigurator SetTag(ArmyProperties tag)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Tag = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tag = tag;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.ShouldHaveAllTags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatTagConsiderationConfigurator SetShouldHaveAllTags(bool value)
+    public TacticalCombatTagConsiderationConfigurator SetShouldHaveAllTags(bool shouldHaveAllTags)
     {
-      return OnConfigureInternal(bp => bp.ShouldHaveAllTags = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ShouldHaveAllTags = shouldHaveAllTags;
+          });
     }
   }
 }

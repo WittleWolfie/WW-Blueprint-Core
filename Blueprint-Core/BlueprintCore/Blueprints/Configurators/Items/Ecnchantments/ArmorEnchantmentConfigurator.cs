@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
-  /// <summary>Configurator for <see cref="BlueprintArmorEnchantment"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintArmorEnchantment"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintArmorEnchantment))]
   public class ArmorEnchantmentConfigurator : BaseEquipmentEnchantmentConfigurator<BlueprintArmorEnchantment, ArmorEnchantmentConfigurator>
   {
-     private ArmorEnchantmentConfigurator(string name) : base(name) { }
+    private ArmorEnchantmentConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ArmorEnchantmentConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArmorEnchantmentConfigurator New(string name, string assetId)
+    public static ArmorEnchantmentConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintArmorEnchantment>(name, assetId);
       return For(name);
@@ -39,11 +42,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(ArmorEnhancementBonus))]
     public ArmorEnchantmentConfigurator AddArmorEnhancementBonus(
-        int EnhancementValue)
+        int enhancementValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ArmorEnhancementBonus();
-      component.EnhancementValue = EnhancementValue;
+      var component = new ArmorEnhancementBonus();
+      component.EnhancementValue = enhancementValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -51,15 +55,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddSavesFixerArmorRecalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddSavesFixerArmorRecalculator))]
-    public ArmorEnchantmentConfigurator AddAddSavesFixerArmorRecalculator(
-        string m_Feature)
+    public ArmorEnchantmentConfigurator AddSavesFixerArmorRecalculator(
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSavesFixerArmorRecalculator();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      var component = new AddSavesFixerArmorRecalculator();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -69,15 +74,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AdvanceArmorStats))]
     public ArmorEnchantmentConfigurator AddAdvanceArmorStats(
-        int MaxDexBonusShift,
-        int ArmorCheckPenaltyShift,
-        int ArcaneSpellFailureShift)
+        int maxDexBonusShift = default,
+        int armorCheckPenaltyShift = default,
+        int arcaneSpellFailureShift = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AdvanceArmorStats();
-      component.MaxDexBonusShift = MaxDexBonusShift;
-      component.ArmorCheckPenaltyShift = ArmorCheckPenaltyShift;
-      component.ArcaneSpellFailureShift = ArcaneSpellFailureShift;
+      var component = new AdvanceArmorStats();
+      component.MaxDexBonusShift = maxDexBonusShift;
+      component.ArmorCheckPenaltyShift = armorCheckPenaltyShift;
+      component.ArcaneSpellFailureShift = arcaneSpellFailureShift;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

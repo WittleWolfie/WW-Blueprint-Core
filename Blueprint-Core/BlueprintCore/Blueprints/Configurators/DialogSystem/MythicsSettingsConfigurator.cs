@@ -1,17 +1,21 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Tutorial;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintMythicsSettings"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintMythicsSettings"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintMythicsSettings))]
   public class MythicsSettingsConfigurator : BaseBlueprintConfigurator<BlueprintMythicsSettings, MythicsSettingsConfigurator>
   {
-     private MythicsSettingsConfigurator(string name) : base(name) { }
+    private MythicsSettingsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static MythicsSettingsConfigurator For(string name)
@@ -27,35 +31,54 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static MythicsSettingsConfigurator New(string name, string assetId)
+    public static MythicsSettingsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintMythicsSettings>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
+    /// Sets <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintMythicInfo"/></param>
+    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
     [Generated]
-    public MythicsSettingsConfigurator AddToMythicsInfos(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_MythicsInfos = CommonTool.Append(bp.m_MythicsInfos, values.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintMythicInfo"/></param>
-    [Generated]
-    public MythicsSettingsConfigurator RemoveFromMythicsInfos(params string[] values)
+    public MythicsSettingsConfigurator SetMythicsInfos(string[] mythicsInfos)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name));
+            bp.m_MythicsInfos = mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
+    [Generated]
+    public MythicsSettingsConfigurator AddToMythicsInfos(params string[] mythicsInfos)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicsInfos = CommonTool.Append(bp.m_MythicsInfos, mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
+    [Generated]
+    public MythicsSettingsConfigurator RemoveFromMythicsInfos(params string[] mythicsInfos)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name));
             bp.m_MythicsInfos =
                 bp.m_MythicsInfos
                     .Where(
@@ -65,58 +88,100 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator AddToMythicAlignments(params MythicAlignment[] values)
+    public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[] mythicAlignments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_MythicAlignments = CommonTool.Append(bp.m_MythicAlignments, values));
+      ValidateParam(mythicAlignments);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicAlignments = mythicAlignments;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator RemoveFromMythicAlignments(params MythicAlignment[] values)
+    public MythicsSettingsConfigurator AddToMythicAlignments(params MythicAlignment[] mythicAlignments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_MythicAlignments = bp.m_MythicAlignments.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(mythicAlignments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicAlignments = CommonTool.Append(bp.m_MythicAlignments, mythicAlignments ?? new MythicAlignment[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MythicsSettingsConfigurator RemoveFromMythicAlignments(params MythicAlignment[] mythicAlignments)
+    {
+      ValidateParam(mythicAlignments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicAlignments = bp.m_MythicAlignments.Where(item => !mythicAlignments.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintMythicsSettings.m_TutorialChooseMythic"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorialChooseMythic"><see cref="BlueprintTutorial"/></param>
     [Generated]
-    public MythicsSettingsConfigurator SetTutorialChooseMythic(string value)
+    public MythicsSettingsConfigurator SetTutorialChooseMythic(string tutorialChooseMythic)
     {
-      return OnConfigureInternal(bp => bp.m_TutorialChooseMythic = BlueprintTool.GetRef<BlueprintTutorial.Reference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_TutorialChooseMythic = BlueprintTool.GetRef<BlueprintTutorial.Reference>(tutorialChooseMythic);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
+    /// Sets <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator AddToCharcaterLevelRestrictions(params int[] values)
+    public MythicsSettingsConfigurator SetCharcaterLevelRestrictions(List<int> charcaterLevelRestrictions)
     {
-      return OnConfigureInternal(bp => bp.CharcaterLevelRestrictions.AddRange(values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CharcaterLevelRestrictions = charcaterLevelRestrictions;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator RemoveFromCharcaterLevelRestrictions(params int[] values)
+    public MythicsSettingsConfigurator AddToCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
     {
-      return OnConfigureInternal(bp => bp.CharcaterLevelRestrictions = bp.CharcaterLevelRestrictions.Where(item => !values.Contains(item)).ToList());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CharcaterLevelRestrictions.AddRange(charcaterLevelRestrictions.ToList() ?? new List<int>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public MythicsSettingsConfigurator RemoveFromCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CharcaterLevelRestrictions = bp.CharcaterLevelRestrictions.Where(item => !charcaterLevelRestrictions.Contains(item)).ToList();
+          });
     }
   }
 }

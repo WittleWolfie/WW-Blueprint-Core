@@ -1,17 +1,19 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
-
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
-  /// <summary>Configurator for <see cref="BlueprintMultiEntranceEntry"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintMultiEntranceEntry"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintMultiEntranceEntry))]
   public class MultiEntranceEntryConfigurator : BaseBlueprintConfigurator<BlueprintMultiEntranceEntry, MultiEntranceEntryConfigurator>
   {
-     private MultiEntranceEntryConfigurator(string name) : base(name) { }
+    private MultiEntranceEntryConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static MultiEntranceEntryConfigurator For(string name)
@@ -27,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static MultiEntranceEntryConfigurator New(string name, string assetId)
+    public static MultiEntranceEntryConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintMultiEntranceEntry>(name, assetId);
       return For(name);
@@ -37,28 +39,43 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntranceEntry.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetName(LocalizedString value)
+    public MultiEntranceEntryConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Condition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder value)
+    public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder condition)
     {
-      return OnConfigureInternal(bp => bp.m_Condition = value.Build());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetActions(ActionsBuilder value)
+    public MultiEntranceEntryConfigurator SetActions(ActionList actions)
     {
-      return OnConfigureInternal(bp => bp.m_Actions = value.Build());
+      ValidateParam(actions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Actions = actions;
+          });
     }
   }
 }

@@ -5,9 +5,9 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
 using Kingmaker.Visual.LightSelector;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -20,242 +20,339 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       where T : BlueprintAreaPart
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseAreaPartConfigurator(string name) : base(name) { }
+    protected BaseAreaPartConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_DynamicScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDynamicScene(SceneReference value)
+    public TBuilder SetDynamicScene(SceneReference dynamicScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DynamicScene = value);
+      ValidateParam(dynamicScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DynamicScene = dynamicScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_StaticScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetStaticScene(SceneReference value)
+    public TBuilder SetStaticScene(SceneReference staticScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_StaticScene = value);
+      ValidateParam(staticScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StaticScene = staticScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_LightScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLightScene(SceneReference value)
+    public TBuilder SetLightScene(SceneReference lightScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LightScene = value);
+      ValidateParam(lightScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LightScene = lightScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_Bounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetBounds(AreaPartBounds value)
+    public TBuilder SetBounds(AreaPartBounds bounds)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Bounds = value);
+      ValidateParam(bounds);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Bounds = bounds;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToAudioTimeOfDayVariants(params SceneReference[] values)
+    public TBuilder SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AudioTimeOfDayVariants = CommonTool.Append(bp.m_AudioTimeOfDayVariants, values));
+      ValidateParam(audioTimeOfDayVariants);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = audioTimeOfDayVariants;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromAudioTimeOfDayVariants(params SceneReference[] values)
+    public TBuilder AddToAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(audioTimeOfDayVariants);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = CommonTool.Append(bp.m_AudioTimeOfDayVariants, audioTimeOfDayVariants ?? new SceneReference[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToSoundBankNames(params string[] values)
+    public TBuilder RemoveFromAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_SoundBankNames = CommonTool.Append(bp.m_SoundBankNames, values));
+      ValidateParam(audioTimeOfDayVariants);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(item => !audioTimeOfDayVariants.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromSoundBankNames(params string[] values)
+    public TBuilder SetSoundBankNames(string[] soundBankNames)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_SoundBankNames = bp.m_SoundBankNames.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = soundBankNames;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder AddToSoundBankNames(params string[] soundBankNames)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = CommonTool.Append(bp.m_SoundBankNames, soundBankNames ?? new string[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromSoundBankNames(params string[] soundBankNames)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = bp.m_SoundBankNames.Where(item => !soundBankNames.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_ManageBanksSeparately"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetManageBanksSeparately(bool value)
+    public TBuilder SetManageBanksSeparately(bool manageBanksSeparately)
     {
-      return OnConfigureInternal(bp => bp.m_ManageBanksSeparately = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ManageBanksSeparately = manageBanksSeparately;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_UnloadBanksDelay"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetUnloadBanksDelay(float value)
+    public TBuilder SetUnloadBanksDelay(float unloadBanksDelay)
     {
-      return OnConfigureInternal(bp => bp.m_UnloadBanksDelay = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UnloadBanksDelay = unloadBanksDelay;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.MusicTheme"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMusicTheme(string value)
+    public TBuilder SetMusicTheme(string musicTheme)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MusicTheme = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MusicTheme = musicTheme;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.MusicThemeStop"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMusicThemeStop(string value)
+    public TBuilder SetMusicThemeStop(string musicThemeStop)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MusicThemeStop = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MusicThemeStop = musicThemeStop;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_IndoorType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIndoorType(IndoorType value)
+    public TBuilder SetIndoorType(IndoorType indoorType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_IndoorType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IndoorType = indoorType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherProfile"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetWeatherProfile(WeatherProfileExtended value)
+    public TBuilder SetWeatherProfile(WeatherProfileExtended weatherProfile)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherProfile = value);
+      ValidateParam(weatherProfile);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherProfile = weatherProfile;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherInclemencyMin"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetWeatherInclemencyMin(InclemencyType value)
+    public TBuilder SetWeatherInclemencyMin(InclemencyType weatherInclemencyMin)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherInclemencyMin = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherInclemencyMin = weatherInclemencyMin;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherInclemencyMax"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetWeatherInclemencyMax(InclemencyType value)
+    public TBuilder SetWeatherInclemencyMax(InclemencyType weatherInclemencyMax)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherInclemencyMax = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherInclemencyMax = weatherInclemencyMax;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.IsSingleLightScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsSingleLightScene(bool value)
+    public TBuilder SetIsSingleLightScene(bool isSingleLightScene)
     {
-      return OnConfigureInternal(bp => bp.IsSingleLightScene = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsSingleLightScene = isSingleLightScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.LocalMapRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLocalMapRotation(float value)
+    public TBuilder SetLocalMapRotation(float localMapRotation)
     {
-      return OnConfigureInternal(bp => bp.LocalMapRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalMapRotation = localMapRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.Setting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSetting(AreaSetting value)
+    public TBuilder Setting(AreaSetting setting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Setting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Setting = setting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.GraphCache"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetGraphCache(TextAsset value)
+    public TBuilder SetGraphCache(TextAsset graphCache)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.GraphCache = value);
+      ValidateParam(graphCache);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GraphCache = graphCache;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Settings"><see cref="BlueprintTimeOfDaySettings"/></param>
-    /// <param name="m_Override"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="settings"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="overrideValue"><see cref="BlueprintTimeOfDaySettings"/></param>
     [Generated]
     [Implements(typeof(TimeOfDaySettingsOverride))]
     public TBuilder AddTimeOfDaySettingsOverride(
-        string m_Settings,
-        string m_Override)
+        string settings = null,
+        string overrideValue = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TimeOfDaySettingsOverride();
-      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
-      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
+      var component = new TimeOfDaySettingsOverride();
+      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);
+      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(overrideValue);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintAreaPart"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAreaPart"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAreaPart))]
   public class AreaPartConfigurator : BaseFactConfigurator<BlueprintAreaPart, AreaPartConfigurator>
   {
-     private AreaPartConfigurator(string name) : base(name) { }
+    private AreaPartConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AreaPartConfigurator For(string name)
@@ -271,7 +368,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AreaPartConfigurator New(string name, string assetId)
+    public static AreaPartConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAreaPart>(name, assetId);
       return For(name);
@@ -281,226 +378,321 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.m_DynamicScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetDynamicScene(SceneReference value)
+    public AreaPartConfigurator SetDynamicScene(SceneReference dynamicScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DynamicScene = value);
+      ValidateParam(dynamicScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DynamicScene = dynamicScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_StaticScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetStaticScene(SceneReference value)
+    public AreaPartConfigurator SetStaticScene(SceneReference staticScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_StaticScene = value);
+      ValidateParam(staticScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StaticScene = staticScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_LightScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetLightScene(SceneReference value)
+    public AreaPartConfigurator SetLightScene(SceneReference lightScene)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_LightScene = value);
+      ValidateParam(lightScene);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LightScene = lightScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_Bounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetBounds(AreaPartBounds value)
+    public AreaPartConfigurator SetBounds(AreaPartBounds bounds)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Bounds = value);
+      ValidateParam(bounds);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Bounds = bounds;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator AddToAudioTimeOfDayVariants(params SceneReference[] values)
+    public AreaPartConfigurator SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AudioTimeOfDayVariants = CommonTool.Append(bp.m_AudioTimeOfDayVariants, values));
+      ValidateParam(audioTimeOfDayVariants);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = audioTimeOfDayVariants;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator RemoveFromAudioTimeOfDayVariants(params SceneReference[] values)
+    public AreaPartConfigurator AddToAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(audioTimeOfDayVariants);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = CommonTool.Append(bp.m_AudioTimeOfDayVariants, audioTimeOfDayVariants ?? new SceneReference[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator AddToSoundBankNames(params string[] values)
+    public AreaPartConfigurator RemoveFromAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_SoundBankNames = CommonTool.Append(bp.m_SoundBankNames, values));
+      ValidateParam(audioTimeOfDayVariants);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(item => !audioTimeOfDayVariants.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator RemoveFromSoundBankNames(params string[] values)
+    public AreaPartConfigurator SetSoundBankNames(string[] soundBankNames)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_SoundBankNames = bp.m_SoundBankNames.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = soundBankNames;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaPartConfigurator AddToSoundBankNames(params string[] soundBankNames)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = CommonTool.Append(bp.m_SoundBankNames, soundBankNames ?? new string[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public AreaPartConfigurator RemoveFromSoundBankNames(params string[] soundBankNames)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SoundBankNames = bp.m_SoundBankNames.Where(item => !soundBankNames.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_ManageBanksSeparately"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetManageBanksSeparately(bool value)
+    public AreaPartConfigurator SetManageBanksSeparately(bool manageBanksSeparately)
     {
-      return OnConfigureInternal(bp => bp.m_ManageBanksSeparately = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ManageBanksSeparately = manageBanksSeparately;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_UnloadBanksDelay"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetUnloadBanksDelay(float value)
+    public AreaPartConfigurator SetUnloadBanksDelay(float unloadBanksDelay)
     {
-      return OnConfigureInternal(bp => bp.m_UnloadBanksDelay = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UnloadBanksDelay = unloadBanksDelay;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.MusicTheme"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetMusicTheme(string value)
+    public AreaPartConfigurator SetMusicTheme(string musicTheme)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MusicTheme = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MusicTheme = musicTheme;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.MusicThemeStop"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetMusicThemeStop(string value)
+    public AreaPartConfigurator SetMusicThemeStop(string musicThemeStop)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.MusicThemeStop = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MusicThemeStop = musicThemeStop;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_IndoorType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetIndoorType(IndoorType value)
+    public AreaPartConfigurator SetIndoorType(IndoorType indoorType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_IndoorType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IndoorType = indoorType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherProfile"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetWeatherProfile(WeatherProfileExtended value)
+    public AreaPartConfigurator SetWeatherProfile(WeatherProfileExtended weatherProfile)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherProfile = value);
+      ValidateParam(weatherProfile);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherProfile = weatherProfile;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherInclemencyMin"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetWeatherInclemencyMin(InclemencyType value)
+    public AreaPartConfigurator SetWeatherInclemencyMin(InclemencyType weatherInclemencyMin)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherInclemencyMin = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherInclemencyMin = weatherInclemencyMin;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.m_WeatherInclemencyMax"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetWeatherInclemencyMax(InclemencyType value)
+    public AreaPartConfigurator SetWeatherInclemencyMax(InclemencyType weatherInclemencyMax)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_WeatherInclemencyMax = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_WeatherInclemencyMax = weatherInclemencyMax;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.IsSingleLightScene"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetIsSingleLightScene(bool value)
+    public AreaPartConfigurator SetIsSingleLightScene(bool isSingleLightScene)
     {
-      return OnConfigureInternal(bp => bp.IsSingleLightScene = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsSingleLightScene = isSingleLightScene;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.LocalMapRotation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetLocalMapRotation(float value)
+    public AreaPartConfigurator SetLocalMapRotation(float localMapRotation)
     {
-      return OnConfigureInternal(bp => bp.LocalMapRotation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalMapRotation = localMapRotation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.Setting"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetSetting(AreaSetting value)
+    public AreaPartConfigurator Setting(AreaSetting setting)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Setting = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Setting = setting;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintAreaPart.GraphCache"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetGraphCache(TextAsset value)
+    public AreaPartConfigurator SetGraphCache(TextAsset graphCache)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.GraphCache = value);
+      ValidateParam(graphCache);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GraphCache = graphCache;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Settings"><see cref="BlueprintTimeOfDaySettings"/></param>
-    /// <param name="m_Override"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="settings"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="overrideValue"><see cref="BlueprintTimeOfDaySettings"/></param>
     [Generated]
     [Implements(typeof(TimeOfDaySettingsOverride))]
     public AreaPartConfigurator AddTimeOfDaySettingsOverride(
-        string m_Settings,
-        string m_Override)
+        string settings = null,
+        string overrideValue = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new TimeOfDaySettingsOverride();
-      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Settings);
-      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(m_Override);
+      var component = new TimeOfDaySettingsOverride();
+      component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);
+      component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(overrideValue);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

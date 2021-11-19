@@ -1,18 +1,22 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
-  /// <summary>Configurator for <see cref="BlueprintRegion"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintRegion"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintRegion))]
   public class RegionConfigurator : BaseBlueprintConfigurator<BlueprintRegion, RegionConfigurator>
   {
-     private RegionConfigurator(string name) : base(name) { }
+    private RegionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RegionConfigurator For(string name)
@@ -28,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RegionConfigurator New(string name, string assetId)
+    public static RegionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintRegion>(name, assetId);
       return For(name);
@@ -38,55 +42,87 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.m_Id"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetId(RegionId value)
+    public RegionConfigurator SetId(RegionId id)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Id = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Id = id;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetLocalizedName(LocalizedString value)
+    public RegionConfigurator SetLocalizedName(LocalizedString localizedName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.LocalizedName = value);
+      ValidateParam(localizedName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LocalizedName = localizedName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.ClaimedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetClaimedDescription(LocalizedString value)
+    public RegionConfigurator SetClaimedDescription(LocalizedString claimedDescription)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ClaimedDescription = value);
+      ValidateParam(claimedDescription);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ClaimedDescription = claimedDescription ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
+    /// Sets <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintRegion"/></param>
+    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
     [Generated]
-    public RegionConfigurator AddToAdjacent(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Adjacent.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintRegion"/></param>
-    [Generated]
-    public RegionConfigurator RemoveFromAdjacent(params string[] values)
+    public RegionConfigurator SetAdjacent(string[] adjacent)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name));
+            bp.m_Adjacent = adjacent.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
+    [Generated]
+    public RegionConfigurator AddToAdjacent(params string[] adjacent)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Adjacent.AddRange(adjacent.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
+    [Generated]
+    public RegionConfigurator RemoveFromAdjacent(params string[] adjacent)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = adjacent.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name));
             bp.m_Adjacent =
                 bp.m_Adjacent
                     .Where(
@@ -99,72 +135,117 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.m_ClaimEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintKingdomClaim"/></param>
+    /// <param name="claimEvent"><see cref="BlueprintKingdomClaim"/></param>
     [Generated]
-    public RegionConfigurator SetClaimEvent(string value)
+    public RegionConfigurator SetClaimEvent(string claimEvent)
     {
-      return OnConfigureInternal(bp => bp.m_ClaimEvent = BlueprintTool.GetRef<BlueprintKingdomClaimReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ClaimEvent = BlueprintTool.GetRef<BlueprintKingdomClaimReference>(claimEvent);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.StatsWhenClaimed"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetStatsWhenClaimed(KingdomStats.Changes value)
+    public RegionConfigurator SetStatsWhenClaimed(KingdomStats.Changes statsWhenClaimed)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.StatsWhenClaimed = value);
+      ValidateParam(statsWhenClaimed);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StatsWhenClaimed = statsWhenClaimed;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
+    /// Sets <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator AddToUpgradeEvents(params BlueprintRegion.UpgradeVariant[] values)
+    public RegionConfigurator SetUpgradeEvents(List<BlueprintRegion.UpgradeVariant> upgradeEvents)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UpgradeEvents.AddRange(values));
+      ValidateParam(upgradeEvents);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UpgradeEvents = upgradeEvents;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator RemoveFromUpgradeEvents(params BlueprintRegion.UpgradeVariant[] values)
+    public RegionConfigurator AddToUpgradeEvents(params BlueprintRegion.UpgradeVariant[] upgradeEvents)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UpgradeEvents = bp.UpgradeEvents.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(upgradeEvents);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UpgradeEvents.AddRange(upgradeEvents.ToList() ?? new List<BlueprintRegion.UpgradeVariant>());
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RegionConfigurator RemoveFromUpgradeEvents(params BlueprintRegion.UpgradeVariant[] upgradeEvents)
+    {
+      ValidateParam(upgradeEvents);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UpgradeEvents = bp.UpgradeEvents.Where(item => !upgradeEvents.Contains(item)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
     [Generated]
-    public RegionConfigurator AddToArtisans(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Artisans.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintKingdomArtisan"/></param>
-    [Generated]
-    public RegionConfigurator RemoveFromArtisans(params string[] values)
+    public RegionConfigurator SetArtisans(string[] artisans)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(name));
+            bp.Artisans = artisans.Select(name => BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
+    [Generated]
+    public RegionConfigurator AddToArtisans(params string[] artisans)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Artisans.AddRange(artisans.Select(name => BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
+    [Generated]
+    public RegionConfigurator RemoveFromArtisans(params string[] artisans)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = artisans.Select(name => BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(name));
             bp.Artisans =
                 bp.Artisans
                     .Where(
@@ -177,47 +258,67 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.CR"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetCR(int value)
+    public RegionConfigurator SetCR(int cR)
     {
-      return OnConfigureInternal(bp => bp.CR = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CR = cR;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.HardEncountersDisabled"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetHardEncountersDisabled(bool value)
+    public RegionConfigurator SetHardEncountersDisabled(bool hardEncountersDisabled)
     {
-      return OnConfigureInternal(bp => bp.HardEncountersDisabled = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HardEncountersDisabled = hardEncountersDisabled;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.OverrideCorruption"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetOverrideCorruption(bool value)
+    public RegionConfigurator SetOverrideCorruption(bool overrideCorruption)
     {
-      return OnConfigureInternal(bp => bp.OverrideCorruption = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OverrideCorruption = overrideCorruption;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.CorruptionGrowth"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetCorruptionGrowth(int value)
+    public RegionConfigurator SetCorruptionGrowth(int corruptionGrowth)
     {
-      return OnConfigureInternal(bp => bp.CorruptionGrowth = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CorruptionGrowth = corruptionGrowth;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintRegion.m_GlobalMap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
     [Generated]
-    public RegionConfigurator SetGlobalMap(string value)
+    public RegionConfigurator SetGlobalMap(string globalMap)
     {
-      return OnConfigureInternal(bp => bp.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMapReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMapReference>(globalMap);
+          });
     }
   }
 }

@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Enums;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="AlignmentConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="AlignmentConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(AlignmentConsideration))]
   public class AlignmentConsiderationConfigurator : BaseConsiderationConfigurator<AlignmentConsideration, AlignmentConsiderationConfigurator>
   {
-     private AlignmentConsiderationConfigurator(string name) : base(name) { }
+    private AlignmentConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AlignmentConsiderationConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AlignmentConsiderationConfigurator New(string name, string assetId)
+    public static AlignmentConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<AlignmentConsideration>(name, assetId);
       return For(name);
@@ -35,28 +38,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="AlignmentConsideration.Alignment"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AlignmentConsiderationConfigurator SetAlignment(AlignmentComponent value)
+    public AlignmentConsiderationConfigurator SetAlignment(AlignmentComponent alignment)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Alignment = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Alignment = alignment;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AlignmentConsideration.SpecifiedAlignmentScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AlignmentConsiderationConfigurator SetSpecifiedAlignmentScore(float value)
+    public AlignmentConsiderationConfigurator SetSpecifiedAlignmentScore(float specifiedAlignmentScore)
     {
-      return OnConfigureInternal(bp => bp.SpecifiedAlignmentScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SpecifiedAlignmentScore = specifiedAlignmentScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="AlignmentConsideration.OtherAlignmentScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AlignmentConsiderationConfigurator SetOtherAlignmentScore(float value)
+    public AlignmentConsiderationConfigurator SetOtherAlignmentScore(float otherAlignmentScore)
     {
-      return OnConfigureInternal(bp => bp.OtherAlignmentScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OtherAlignmentScore = otherAlignmentScore;
+          });
     }
   }
 }

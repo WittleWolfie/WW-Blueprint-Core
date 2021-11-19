@@ -19,6 +19,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.BasicEx
@@ -504,19 +505,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="DetachBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(DetachBuff))]
-    public static ActionsBuilder AddDetachBuff(
+    public static ActionsBuilder DetachBuff(
         this ActionsBuilder builder,
-        string m_Buff,
-        UnitEvaluator Target)
+        UnitEvaluator target,
+        string buff = null)
     {
-      builder.Validate(Target);
-      
+      builder.Validate(target);
+    
       var element = ElementTool.Create<DetachBuff>();
-      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      element.Target = Target;
+      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      element.Target = target;
       return builder.Add(element);
     }
 
@@ -525,14 +526,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(DisableExperienceFromUnit))]
-    public static ActionsBuilder AddDisableExperienceFromUnit(
+    public static ActionsBuilder DisableExperienceFromUnit(
         this ActionsBuilder builder,
-        UnitEvaluator Unit)
+        UnitEvaluator unit)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<DisableExperienceFromUnit>();
-      element.Unit = Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -541,32 +542,29 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(DrainEnergy))]
-    public static ActionsBuilder AddDrainEnergy(
+    public static ActionsBuilder DrainEnergy(
         this ActionsBuilder builder,
-        bool NoSource,
-        UnitEvaluator Source,
-        UnitEvaluator Target,
-        EnergyDrainType Type,
-        Rounds Duration,
-        DiceFormula DamageDice,
-        int DamageBonus,
-        bool DisableBattleLog)
+        UnitEvaluator source,
+        UnitEvaluator target,
+        Rounds duration,
+        DiceFormula damageDice,
+        bool noSource = default,
+        EnergyDrainType type = default,
+        int damageBonus = default,
+        bool disableBattleLog = default)
     {
-      builder.Validate(Source);
-      builder.Validate(Target);
-      builder.Validate(Type);
-      builder.Validate(Duration);
-      builder.Validate(DamageDice);
-      
+      builder.Validate(source);
+      builder.Validate(target);
+    
       var element = ElementTool.Create<DrainEnergy>();
-      element.NoSource = NoSource;
-      element.Source = Source;
-      element.Target = Target;
-      element.Type = Type;
-      element.Duration = Duration;
-      element.DamageDice = DamageDice;
-      element.DamageBonus = DamageBonus;
-      element.DisableBattleLog = DisableBattleLog;
+      element.NoSource = noSource;
+      element.Source = source;
+      element.Target = target;
+      element.Type = type;
+      element.Duration = duration;
+      element.DamageDice = damageDice;
+      element.DamageBonus = damageBonus;
+      element.DisableBattleLog = disableBattleLog;
       return builder.Add(element);
     }
 
@@ -575,19 +573,20 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(FakePartyRest))]
-    public static ActionsBuilder AddFakePartyRest(
+    public static ActionsBuilder FakePartyRest(
         this ActionsBuilder builder,
-        bool m_Immediate,
-        bool m_IgnoreCorruption,
-        bool m_RestWithCraft,
-        ActionsBuilder m_ActionsOnRestEnd)
+        ActionList actionsOnRestEnd,
+        bool immediate = default,
+        bool ignoreCorruption = default,
+        bool restWithCraft = default)
     {
-      
+      builder.Validate(actionsOnRestEnd);
+    
       var element = ElementTool.Create<FakePartyRest>();
-      element.m_Immediate = m_Immediate;
-      element.m_IgnoreCorruption = m_IgnoreCorruption;
-      element.m_RestWithCraft = m_RestWithCraft;
-      element.m_ActionsOnRestEnd = m_ActionsOnRestEnd.Build();
+      element.m_Immediate = immediate;
+      element.m_IgnoreCorruption = ignoreCorruption;
+      element.m_RestWithCraft = restWithCraft;
+      element.m_ActionsOnRestEnd = actionsOnRestEnd;
       return builder.Add(element);
     }
 
@@ -596,23 +595,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(GainExp))]
-    public static ActionsBuilder AddGainExp(
+    public static ActionsBuilder GainExp(
         this ActionsBuilder builder,
-        EncounterType Encounter,
-        int CR,
-        float Modifier,
-        IntEvaluator Count,
-        bool Dummy)
+        IntEvaluator count,
+        EncounterType encounter = default,
+        int cR = default,
+        float modifier = default,
+        bool dummy = default)
     {
-      builder.Validate(Encounter);
-      builder.Validate(Count);
-      
+      builder.Validate(count);
+    
       var element = ElementTool.Create<GainExp>();
-      element.Encounter = Encounter;
-      element.CR = CR;
-      element.Modifier = Modifier;
-      element.Count = Count;
-      element.Dummy = Dummy;
+      element.Encounter = encounter;
+      element.CR = cR;
+      element.Modifier = modifier;
+      element.Count = count;
+      element.Dummy = dummy;
       return builder.Add(element);
     }
 
@@ -621,13 +619,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(GainMythicLevel))]
-    public static ActionsBuilder AddGainMythicLevel(
+    public static ActionsBuilder GainMythicLevel(
         this ActionsBuilder builder,
-        int Levels)
+        int levels = default)
     {
-      
       var element = ElementTool.Create<GainMythicLevel>();
-      element.Levels = Levels;
+      element.Levels = levels;
       return builder.Add(element);
     }
 
@@ -636,14 +633,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(HealParty))]
-    public static ActionsBuilder AddHealParty(
+    public static ActionsBuilder HealParty(
         this ActionsBuilder builder,
-        UnitEvaluator HealSource)
+        UnitEvaluator healSource)
     {
-      builder.Validate(HealSource);
-      
+      builder.Validate(healSource);
+    
       var element = ElementTool.Create<HealParty>();
-      element.HealSource = HealSource;
+      element.HealSource = healSource;
       return builder.Add(element);
     }
 
@@ -652,22 +649,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(HealUnit))]
-    public static ActionsBuilder AddHealUnit(
+    public static ActionsBuilder HealUnit(
         this ActionsBuilder builder,
-        UnitEvaluator Source,
-        UnitEvaluator Target,
-        bool ToFullHP,
-        IntEvaluator HealAmount)
+        UnitEvaluator source,
+        UnitEvaluator target,
+        IntEvaluator healAmount,
+        bool toFullHP = default)
     {
-      builder.Validate(Source);
-      builder.Validate(Target);
-      builder.Validate(HealAmount);
-      
+      builder.Validate(source);
+      builder.Validate(target);
+      builder.Validate(healAmount);
+    
       var element = ElementTool.Create<HealUnit>();
-      element.Source = Source;
-      element.Target = Target;
-      element.ToFullHP = ToFullHP;
-      element.HealAmount = HealAmount;
+      element.Source = source;
+      element.Target = target;
+      element.ToFullHP = toFullHP;
+      element.HealAmount = healAmount;
       return builder.Add(element);
     }
 
@@ -675,22 +672,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="ItemSetCharges"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemSetCharges))]
-    public static ActionsBuilder AddItemSetCharges(
+    public static ActionsBuilder ItemSetCharges(
         this ActionsBuilder builder,
-        string m_Item,
-        IntEvaluator Charges,
-        ItemsCollectionEvaluator Collection)
+        IntEvaluator charges,
+        ItemsCollectionEvaluator collection,
+        string item = null)
     {
-      builder.Validate(Charges);
-      builder.Validate(Collection);
-      
+      builder.Validate(charges);
+      builder.Validate(collection);
+    
       var element = ElementTool.Create<ItemSetCharges>();
-      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(m_Item);
-      element.Charges = Charges;
-      element.Collection = Collection;
+      element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(item);
+      element.Charges = charges;
+      element.Collection = collection;
       return builder.Add(element);
     }
 
@@ -699,23 +696,23 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(Kill))]
-    public static ActionsBuilder AddKill(
+    public static ActionsBuilder Kill(
         this ActionsBuilder builder,
-        UnitEvaluator Target,
-        UnitEvaluator Killer,
-        bool Critical,
-        bool DisableBattleLog,
-        bool RemoveExp)
+        UnitEvaluator target,
+        UnitEvaluator killer,
+        bool critical = default,
+        bool disableBattleLog = default,
+        bool removeExp = default)
     {
-      builder.Validate(Target);
-      builder.Validate(Killer);
-      
+      builder.Validate(target);
+      builder.Validate(killer);
+    
       var element = ElementTool.Create<Kill>();
-      element.Target = Target;
-      element.Killer = Killer;
-      element.Critical = Critical;
-      element.DisableBattleLog = DisableBattleLog;
-      element.RemoveExp = RemoveExp;
+      element.Target = target;
+      element.Killer = killer;
+      element.Critical = critical;
+      element.DisableBattleLog = disableBattleLog;
+      element.RemoveExp = removeExp;
       return builder.Add(element);
     }
 
@@ -724,17 +721,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(LevelUpUnit))]
-    public static ActionsBuilder AddLevelUpUnit(
+    public static ActionsBuilder LevelUpUnit(
         this ActionsBuilder builder,
-        UnitEvaluator Unit,
-        IntEvaluator TargetLevel)
+        UnitEvaluator unit,
+        IntEvaluator targetLevel)
     {
-      builder.Validate(Unit);
-      builder.Validate(TargetLevel);
-      
+      builder.Validate(unit);
+      builder.Validate(targetLevel);
+    
       var element = ElementTool.Create<LevelUpUnit>();
-      element.Unit = Unit;
-      element.TargetLevel = TargetLevel;
+      element.Unit = unit;
+      element.TargetLevel = targetLevel;
       return builder.Add(element);
     }
 
@@ -743,21 +740,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(MeleeAttack))]
-    public static ActionsBuilder AddMeleeAttack(
+    public static ActionsBuilder MeleeAttack(
         this ActionsBuilder builder,
-        UnitEvaluator Caster,
-        UnitEvaluator Target,
-        bool AutoHit,
-        bool IgnoreStatBonus)
+        UnitEvaluator caster,
+        UnitEvaluator target,
+        bool autoHit = default,
+        bool ignoreStatBonus = default)
     {
-      builder.Validate(Caster);
-      builder.Validate(Target);
-      
+      builder.Validate(caster);
+      builder.Validate(target);
+    
       var element = ElementTool.Create<MeleeAttack>();
-      element.Caster = Caster;
-      element.Target = Target;
-      element.AutoHit = AutoHit;
-      element.IgnoreStatBonus = IgnoreStatBonus;
+      element.Caster = caster;
+      element.Target = target;
+      element.AutoHit = autoHit;
+      element.IgnoreStatBonus = ignoreStatBonus;
       return builder.Add(element);
     }
 
@@ -766,16 +763,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PartyUnits))]
-    public static ActionsBuilder AddPartyUnits(
+    public static ActionsBuilder PartyUnits(
         this ActionsBuilder builder,
-        Player.CharactersList m_UnitsList,
-        ActionsBuilder Actions)
+        ActionList actions,
+        Player.CharactersList unitsList = default)
     {
-      builder.Validate(m_UnitsList);
-      
+      builder.Validate(actions);
+    
       var element = ElementTool.Create<PartyUnits>();
-      element.m_UnitsList = m_UnitsList;
-      element.Actions = Actions.Build();
+      element.m_UnitsList = unitsList;
+      element.Actions = actions;
       return builder.Add(element);
     }
 
@@ -784,16 +781,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PartyUseAbility))]
-    public static ActionsBuilder AddPartyUseAbility(
+    public static ActionsBuilder PartyUseAbility(
         this ActionsBuilder builder,
-        AbilitiesHelper.AbilityDescription Description,
-        bool AllowItems)
+        AbilitiesHelper.AbilityDescription description,
+        bool allowItems = default)
     {
-      builder.Validate(Description);
-      
+      builder.Validate(description);
+    
       var element = ElementTool.Create<PartyUseAbility>();
-      element.Description = Description;
-      element.AllowItems = AllowItems;
+      element.Description = description;
+      element.AllowItems = allowItems;
       return builder.Add(element);
     }
 
@@ -801,17 +798,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RaiseDead"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(RaiseDead))]
-    public static ActionsBuilder AddRaiseDead(
+    public static ActionsBuilder RaiseDead(
         this ActionsBuilder builder,
-        string m_companion,
-        bool riseAllCompanions)
+        string companion = null,
+        bool riseAllCompanions = default)
     {
-      
       var element = ElementTool.Create<RaiseDead>();
-      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       element.riseAllCompanions = riseAllCompanions;
       return builder.Add(element);
     }
@@ -821,17 +817,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(RandomAction))]
-    public static ActionsBuilder AddRandomAction(
+    public static ActionsBuilder RandomAction(
         this ActionsBuilder builder,
-        ActionAndWeight[] Actions)
+        ActionAndWeight[] actions = null)
     {
-      foreach (var item in Actions)
-      {
-        builder.Validate(item);
-      }
-      
       var element = ElementTool.Create<RandomAction>();
-      element.Actions = Actions;
+      element.Actions = actions;
       return builder.Add(element);
     }
 
@@ -840,14 +831,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(RemoveDeathDoor))]
-    public static ActionsBuilder AddRemoveDeathDoor(
+    public static ActionsBuilder RemoveDeathDoor(
         this ActionsBuilder builder,
-        UnitEvaluator Unit)
+        UnitEvaluator unit)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<RemoveDeathDoor>();
-      element.Unit = Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -855,19 +846,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RemoveFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RemoveFact))]
-    public static ActionsBuilder AddRemoveFact(
+    public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_Fact)
+        UnitEvaluator unit,
+        string fact = null)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<RemoveFact>();
-      element.Unit = Unit;
-      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
+      element.Unit = unit;
+      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       return builder.Add(element);
     }
 
@@ -876,24 +867,25 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(RollPartySkillCheck))]
-    public static ActionsBuilder AddRollPartySkillCheck(
+    public static ActionsBuilder RollPartySkillCheck(
         this ActionsBuilder builder,
-        StatType Stat,
-        int DC,
-        bool LogSuccess,
-        bool LogFailure,
-        ActionsBuilder OnSuccess,
-        ActionsBuilder OnFailure)
+        ActionList onSuccess,
+        ActionList onFailure,
+        StatType stat = default,
+        int dC = default,
+        bool logSuccess = default,
+        bool logFailure = default)
     {
-      builder.Validate(Stat);
-      
+      builder.Validate(onSuccess);
+      builder.Validate(onFailure);
+    
       var element = ElementTool.Create<RollPartySkillCheck>();
-      element.Stat = Stat;
-      element.DC = DC;
-      element.LogSuccess = LogSuccess;
-      element.LogFailure = LogFailure;
-      element.OnSuccess = OnSuccess.Build();
-      element.OnFailure = OnFailure.Build();
+      element.Stat = stat;
+      element.DC = dC;
+      element.LogSuccess = logSuccess;
+      element.LogFailure = logFailure;
+      element.OnSuccess = onSuccess;
+      element.OnFailure = onFailure;
       return builder.Add(element);
     }
 
@@ -902,31 +894,32 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(RollSkillCheck))]
-    public static ActionsBuilder AddRollSkillCheck(
+    public static ActionsBuilder RollSkillCheck(
         this ActionsBuilder builder,
-        StatType Stat,
-        UnitEvaluator Unit,
-        int DC,
-        bool LogSuccess,
-        bool LogFailure,
-        bool Voice,
-        bool ForbidPartyHelpInCamp,
-        ActionsBuilder OnSuccess,
-        ActionsBuilder OnFailure)
+        UnitEvaluator unit,
+        ActionList onSuccess,
+        ActionList onFailure,
+        StatType stat = default,
+        int dC = default,
+        bool logSuccess = default,
+        bool logFailure = default,
+        bool voice = default,
+        bool forbidPartyHelpInCamp = default)
     {
-      builder.Validate(Stat);
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+      builder.Validate(onSuccess);
+      builder.Validate(onFailure);
+    
       var element = ElementTool.Create<RollSkillCheck>();
-      element.Stat = Stat;
-      element.Unit = Unit;
-      element.DC = DC;
-      element.LogSuccess = LogSuccess;
-      element.LogFailure = LogFailure;
-      element.Voice = Voice;
-      element.ForbidPartyHelpInCamp = ForbidPartyHelpInCamp;
-      element.OnSuccess = OnSuccess.Build();
-      element.OnFailure = OnFailure.Build();
+      element.Stat = stat;
+      element.Unit = unit;
+      element.DC = dC;
+      element.LogSuccess = logSuccess;
+      element.LogFailure = logFailure;
+      element.Voice = voice;
+      element.ForbidPartyHelpInCamp = forbidPartyHelpInCamp;
+      element.OnSuccess = onSuccess;
+      element.OnFailure = onFailure;
       return builder.Add(element);
     }
 
@@ -934,21 +927,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RunActionHolder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Holder"><see cref="ActionsHolder"/></param>
+    /// <param name="holder"><see cref="ActionsHolder"/></param>
     [Generated]
     [Implements(typeof(RunActionHolder))]
-    public static ActionsBuilder AddRunActionHolder(
+    public static ActionsBuilder RunActionHolder(
         this ActionsBuilder builder,
-        string Comment,
-        string Holder,
-        ParametrizedContextSetter Parameters)
+        string comment,
+        ParametrizedContextSetter parameters,
+        string holder = null)
     {
-      builder.Validate(Parameters);
-      
+      builder.Validate(parameters);
+    
       var element = ElementTool.Create<RunActionHolder>();
-      element.Comment = Comment;
-      element.Holder = BlueprintTool.GetRef<ActionsReference>(Holder);
-      element.Parameters = Parameters;
+      element.Comment = comment;
+      element.Holder = BlueprintTool.GetRef<ActionsReference>(holder);
+      element.Parameters = parameters;
       return builder.Add(element);
     }
 
@@ -957,19 +950,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(Spawn))]
-    public static ActionsBuilder AddSpawn(
+    public static ActionsBuilder Spawn(
         this ActionsBuilder builder,
-        EntityReference[] Spawners,
-        ActionsBuilder ActionsOnSpawn)
+        ActionList actionsOnSpawn,
+        EntityReference[] spawners = null)
     {
-      foreach (var item in Spawners)
-      {
-        builder.Validate(item);
-      }
-      
+      builder.Validate(spawners);
+      builder.Validate(actionsOnSpawn);
+    
       var element = ElementTool.Create<Spawn>();
-      element.Spawners = Spawners;
-      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      element.Spawners = spawners;
+      element.ActionsOnSpawn = actionsOnSpawn;
       return builder.Add(element);
     }
 
@@ -977,18 +968,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SpawnBySummonPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Pool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SpawnBySummonPool))]
-    public static ActionsBuilder AddSpawnBySummonPool(
+    public static ActionsBuilder SpawnBySummonPool(
         this ActionsBuilder builder,
-        string m_Pool,
-        ActionsBuilder ActionsOnSpawn)
+        ActionList actionsOnSpawn,
+        string pool = null)
     {
-      
+      builder.Validate(actionsOnSpawn);
+    
       var element = ElementTool.Create<SpawnBySummonPool>();
-      element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_Pool);
-      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
+      element.ActionsOnSpawn = actionsOnSpawn;
       return builder.Add(element);
     }
 
@@ -997,16 +989,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(SpawnByUnitGroup))]
-    public static ActionsBuilder AddSpawnByUnitGroup(
+    public static ActionsBuilder SpawnByUnitGroup(
         this ActionsBuilder builder,
-        EntityReference Group,
-        ActionsBuilder ActionsOnSpawn)
+        EntityReference group,
+        ActionList actionsOnSpawn)
     {
-      builder.Validate(Group);
-      
+      builder.Validate(group);
+      builder.Validate(actionsOnSpawn);
+    
       var element = ElementTool.Create<SpawnByUnitGroup>();
-      element.Group = Group;
-      element.ActionsOnSpawn = ActionsOnSpawn.Build();
+      element.Group = group;
+      element.ActionsOnSpawn = actionsOnSpawn;
       return builder.Add(element);
     }
 
@@ -1015,19 +1008,18 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(StatusEffect))]
-    public static ActionsBuilder AddStatusEffect(
+    public static ActionsBuilder StatusEffect(
         this ActionsBuilder builder,
-        UnitEvaluator Unit,
-        UnitCondition Condition,
-        bool Remove)
+        UnitEvaluator unit,
+        UnitCondition condition = default,
+        bool remove = default)
     {
-      builder.Validate(Unit);
-      builder.Validate(Condition);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<StatusEffect>();
-      element.Unit = Unit;
-      element.Condition = Condition;
-      element.Remove = Remove;
+      element.Unit = unit;
+      element.Condition = condition;
+      element.Remove = remove;
       return builder.Add(element);
     }
 
@@ -1035,29 +1027,29 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="Summon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Unit"><see cref="BlueprintUnit"/></param>
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(Summon))]
-    public static ActionsBuilder AddSummon(
+    public static ActionsBuilder Summon(
         this ActionsBuilder builder,
-        string m_Unit,
-        string m_SummonPool,
-        bool GroupBySummonPool,
-        TransformEvaluator Transform,
-        Vector3 Offset,
-        ActionsBuilder OnSummmon)
+        TransformEvaluator transform,
+        Vector3 offset,
+        ActionList onSummmon,
+        string unit = null,
+        string summonPool = null,
+        bool groupBySummonPool = default)
     {
-      builder.Validate(Transform);
-      builder.Validate(Offset);
-      
+      builder.Validate(transform);
+      builder.Validate(onSummmon);
+    
       var element = ElementTool.Create<Summon>();
-      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(m_Unit);
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      element.GroupBySummonPool = GroupBySummonPool;
-      element.Transform = Transform;
-      element.Offset = Offset;
-      element.OnSummmon = OnSummmon.Build();
+      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      element.GroupBySummonPool = groupBySummonPool;
+      element.Transform = transform;
+      element.Offset = offset;
+      element.OnSummmon = onSummmon;
       return builder.Add(element);
     }
 
@@ -1065,20 +1057,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SummonPoolUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolUnits))]
-    public static ActionsBuilder AddSummonPoolUnits(
+    public static ActionsBuilder SummonPoolUnits(
         this ActionsBuilder builder,
-        string m_SummonPool,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        string summonPool = null,
+        ConditionsBuilder conditions = null)
     {
-      
+      builder.Validate(actions);
+    
       var element = ElementTool.Create<SummonPoolUnits>();
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      element.Conditions = Conditions.Build();
-      element.Actions = Actions.Build();
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      element.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      element.Actions = actions;
       return builder.Add(element);
     }
 
@@ -1086,29 +1079,30 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SummonUnitCopy"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CopyBlueprint"><see cref="BlueprintUnit"/></param>
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="copyBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonUnitCopy))]
-    public static ActionsBuilder AddSummonUnitCopy(
+    public static ActionsBuilder SummonUnitCopy(
         this ActionsBuilder builder,
-        UnitEvaluator CopyFrom,
-        LocatorEvaluator Locator,
-        string m_CopyBlueprint,
-        string m_SummonPool,
-        bool DoNotCreateItems,
-        ActionsBuilder OnSummon)
+        UnitEvaluator copyFrom,
+        LocatorEvaluator locator,
+        ActionList onSummon,
+        string copyBlueprint = null,
+        string summonPool = null,
+        bool doNotCreateItems = default)
     {
-      builder.Validate(CopyFrom);
-      builder.Validate(Locator);
-      
+      builder.Validate(copyFrom);
+      builder.Validate(locator);
+      builder.Validate(onSummon);
+    
       var element = ElementTool.Create<SummonUnitCopy>();
-      element.CopyFrom = CopyFrom;
-      element.Locator = Locator;
-      element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_CopyBlueprint);
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      element.DoNotCreateItems = DoNotCreateItems;
-      element.OnSummon = OnSummon.Build();
+      element.CopyFrom = copyFrom;
+      element.Locator = locator;
+      element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(copyBlueprint);
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      element.DoNotCreateItems = doNotCreateItems;
+      element.OnSummon = onSummon;
       return builder.Add(element);
     }
 
@@ -1116,21 +1110,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SwitchActivatableAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Ability"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="ability"><see cref="BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(SwitchActivatableAbility))]
-    public static ActionsBuilder AddSwitchActivatableAbility(
+    public static ActionsBuilder SwitchActivatableAbility(
         this ActionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_Ability,
-        bool IsOn)
+        UnitEvaluator unit,
+        string ability = null,
+        bool isOn = default)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<SwitchActivatableAbility>();
-      element.Unit = Unit;
-      element.m_Ability = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(m_Ability);
-      element.IsOn = IsOn;
+      element.Unit = unit;
+      element.m_Ability = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(ability);
+      element.IsOn = isOn;
       return builder.Add(element);
     }
 
@@ -1139,14 +1133,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(SwitchDualCompanion))]
-    public static ActionsBuilder AddSwitchDualCompanion(
+    public static ActionsBuilder SwitchDualCompanion(
         this ActionsBuilder builder,
-        UnitEvaluator Unit)
+        UnitEvaluator unit)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<SwitchDualCompanion>();
-      element.Unit = Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -1155,16 +1149,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitsFromSpawnersInUnitGroup))]
-    public static ActionsBuilder AddUnitsFromSpawnersInUnitGroup(
+    public static ActionsBuilder UnitsFromSpawnersInUnitGroup(
         this ActionsBuilder builder,
-        EntityReference m_Group,
-        ActionsBuilder Actions)
+        EntityReference group,
+        ActionList actions)
     {
-      builder.Validate(m_Group);
-      
+      builder.Validate(group);
+      builder.Validate(actions);
+    
       var element = ElementTool.Create<UnitsFromSpawnersInUnitGroup>();
-      element.m_Group = m_Group;
-      element.Actions = Actions.Build();
+      element.m_Group = group;
+      element.Actions = actions;
       return builder.Add(element);
     }
   }

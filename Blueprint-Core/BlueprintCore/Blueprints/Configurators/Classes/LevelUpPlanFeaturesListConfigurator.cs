@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintLevelUpPlanFeaturesList"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintLevelUpPlanFeaturesList"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintLevelUpPlanFeaturesList))]
   public class LevelUpPlanFeaturesListConfigurator : BaseFeatureConfigurator<BlueprintLevelUpPlanFeaturesList, LevelUpPlanFeaturesListConfigurator>
   {
-     private LevelUpPlanFeaturesListConfigurator(string name) : base(name) { }
+    private LevelUpPlanFeaturesListConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LevelUpPlanFeaturesListConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LevelUpPlanFeaturesListConfigurator New(string name, string assetId)
+    public static LevelUpPlanFeaturesListConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintLevelUpPlanFeaturesList>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
+    /// Sets <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LevelUpPlanFeaturesListConfigurator AddToFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] values)
+    public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Features = CommonTool.Append(bp.Features, values));
+      ValidateParam(features);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Features = features;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LevelUpPlanFeaturesListConfigurator RemoveFromFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] values)
+    public LevelUpPlanFeaturesListConfigurator AddToFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Features = bp.Features.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(features);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Features = CommonTool.Append(bp.Features, features ?? new BlueprintLevelUpPlanFeaturesList.FeatureWrapper[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LevelUpPlanFeaturesListConfigurator RemoveFromFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
+    {
+      ValidateParam(features);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Features = bp.Features.Where(item => !features.Contains(item)).ToArray();
+          });
     }
   }
 }

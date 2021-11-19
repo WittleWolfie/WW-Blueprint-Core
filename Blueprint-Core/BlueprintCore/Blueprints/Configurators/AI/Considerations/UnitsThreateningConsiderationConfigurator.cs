@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="UnitsThreateningConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="UnitsThreateningConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(UnitsThreateningConsideration))]
   public class UnitsThreateningConsiderationConfigurator : BaseConsiderationConfigurator<UnitsThreateningConsideration, UnitsThreateningConsiderationConfigurator>
   {
-     private UnitsThreateningConsiderationConfigurator(string name) : base(name) { }
+    private UnitsThreateningConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitsThreateningConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitsThreateningConsiderationConfigurator New(string name, string assetId)
+    public static UnitsThreateningConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<UnitsThreateningConsideration>(name, assetId);
       return For(name);
@@ -34,54 +37,78 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="UnitsThreateningConsideration.MinCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetMinCount(int value)
+    public UnitsThreateningConsiderationConfigurator SetMinCount(int minCount)
     {
-      return OnConfigureInternal(bp => bp.MinCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinCount = minCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsThreateningConsideration.MaxCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetMaxCount(int value)
+    public UnitsThreateningConsiderationConfigurator SetMaxCount(int maxCount)
     {
-      return OnConfigureInternal(bp => bp.MaxCount = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxCount = maxCount;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsThreateningConsideration.BelowMinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetBelowMinScore(float value)
+    public UnitsThreateningConsiderationConfigurator SetBelowMinScore(float belowMinScore)
     {
-      return OnConfigureInternal(bp => bp.BelowMinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BelowMinScore = belowMinScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsThreateningConsideration.MinScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetMinScore(float value)
+    public UnitsThreateningConsiderationConfigurator SetMinScore(float minScore)
     {
-      return OnConfigureInternal(bp => bp.MinScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MinScore = minScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsThreateningConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetMaxScore(float value)
+    public UnitsThreateningConsiderationConfigurator SetMaxScore(float maxScore)
     {
-      return OnConfigureInternal(bp => bp.MaxScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaxScore = maxScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="UnitsThreateningConsideration.ExtraTargetScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitsThreateningConsiderationConfigurator SetExtraTargetScore(float value)
+    public UnitsThreateningConsiderationConfigurator SetExtraTargetScore(float extraTargetScore)
     {
-      return OnConfigureInternal(bp => bp.ExtraTargetScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ExtraTargetScore = extraTargetScore;
+          });
     }
   }
 }

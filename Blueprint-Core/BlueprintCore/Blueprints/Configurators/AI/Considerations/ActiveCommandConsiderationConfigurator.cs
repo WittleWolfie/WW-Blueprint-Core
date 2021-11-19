@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.UnitLogic.Commands.Base;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="ActiveCommandConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="ActiveCommandConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(ActiveCommandConsideration))]
   public class ActiveCommandConsiderationConfigurator : BaseConsiderationConfigurator<ActiveCommandConsideration, ActiveCommandConsiderationConfigurator>
   {
-     private ActiveCommandConsiderationConfigurator(string name) : base(name) { }
+    private ActiveCommandConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ActiveCommandConsiderationConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ActiveCommandConsiderationConfigurator New(string name, string assetId)
+    public static ActiveCommandConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<ActiveCommandConsideration>(name, assetId);
       return For(name);
@@ -35,28 +38,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ActiveCommandConsideration.CommandType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActiveCommandConsiderationConfigurator SetCommandType(UnitCommand.CommandType value)
+    public ActiveCommandConsiderationConfigurator SetCommandType(UnitCommand.CommandType commandType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.CommandType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CommandType = commandType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ActiveCommandConsideration.HasCommandScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActiveCommandConsiderationConfigurator SetHasCommandScore(float value)
+    public ActiveCommandConsiderationConfigurator SetHasCommandScore(float hasCommandScore)
     {
-      return OnConfigureInternal(bp => bp.HasCommandScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasCommandScore = hasCommandScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="ActiveCommandConsideration.NoCommandScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActiveCommandConsiderationConfigurator SetNoCommandScore(float value)
+    public ActiveCommandConsiderationConfigurator SetNoCommandScore(float noCommandScore)
     {
-      return OnConfigureInternal(bp => bp.NoCommandScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoCommandScore = noCommandScore;
+          });
     }
   }
 }

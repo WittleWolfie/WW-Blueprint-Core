@@ -1,7 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
 {
   /// <summary>
@@ -14,6 +13,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
       where T : BlueprintTacticalCombatAiAction
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseTacticalCombatAiActionConfigurator(string name) : base(name) { }
+    protected BaseTacticalCombatAiActionConfigurator(string name) : base(name) { }
   }
 }

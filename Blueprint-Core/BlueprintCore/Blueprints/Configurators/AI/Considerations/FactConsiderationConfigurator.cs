@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="FactConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="FactConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(FactConsideration))]
   public class FactConsiderationConfigurator : BaseConsiderationConfigurator<FactConsideration, FactConsiderationConfigurator>
   {
-     private FactConsiderationConfigurator(string name) : base(name) { }
+    private FactConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static FactConsiderationConfigurator For(string name)
@@ -26,35 +29,54 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FactConsiderationConfigurator New(string name, string assetId)
+    public static FactConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<FactConsideration>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="FactConsideration.m_Fact"/> (Auto Generated)
+    /// Sets <see cref="FactConsideration.m_Fact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
-    public FactConsiderationConfigurator AddToFact(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Fact = CommonTool.Append(bp.m_Fact, values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FactConsideration.m_Fact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public FactConsiderationConfigurator RemoveFromFact(params string[] values)
+    public FactConsiderationConfigurator SetFact(string[] fact)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_Fact = fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="FactConsideration.m_Fact"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public FactConsiderationConfigurator AddToFact(params string[] fact)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Fact = CommonTool.Append(bp.m_Fact, fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="FactConsideration.m_Fact"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public FactConsiderationConfigurator RemoveFromFact(params string[] fact)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
             bp.m_Fact =
                 bp.m_Fact
                     .Where(
@@ -67,18 +89,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="FactConsideration.HasFactScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FactConsiderationConfigurator SetHasFactScore(float value)
+    public FactConsiderationConfigurator SetHasFactScore(float hasFactScore)
     {
-      return OnConfigureInternal(bp => bp.HasFactScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HasFactScore = hasFactScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="FactConsideration.NoFactScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FactConsiderationConfigurator SetNoFactScore(float value)
+    public FactConsiderationConfigurator SetNoFactScore(float noFactScore)
     {
-      return OnConfigureInternal(bp => bp.NoFactScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoFactScore = noFactScore;
+          });
     }
   }
 }

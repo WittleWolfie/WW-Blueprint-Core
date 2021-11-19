@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiTouch"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiTouch"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiTouch))]
   public class AiTouchConfigurator : BaseAiActionConfigurator<BlueprintAiTouch, AiTouchConfigurator>
   {
-     private AiTouchConfigurator(string name) : base(name) { }
+    private AiTouchConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiTouchConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiTouchConfigurator New(string name, string assetId)
+    public static AiTouchConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiTouch>(name, assetId);
       return For(name);

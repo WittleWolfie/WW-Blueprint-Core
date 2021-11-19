@@ -1,20 +1,24 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Alignments;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintCue"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCue"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCue))]
   public class CueConfigurator : BaseCueBaseConfigurator<BlueprintCue, CueConfigurator>
   {
-     private CueConfigurator(string name) : base(name) { }
+    private CueConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CueConfigurator For(string name)
@@ -30,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CueConfigurator New(string name, string assetId)
+    public static CueConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCue>(name, assetId);
       return For(name);
@@ -40,113 +44,173 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.Text"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetText(LocalizedString value)
+    public CueConfigurator SetText(LocalizedString text)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Text = value);
+      ValidateParam(text);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Text = text ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.Experience"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetExperience(DialogExperience value)
+    public CueConfigurator SetExperience(DialogExperience experience)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Experience = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Experience = experience;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.Speaker"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetSpeaker(DialogSpeaker value)
+    public CueConfigurator SetSpeaker(DialogSpeaker speaker)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Speaker = value);
+      ValidateParam(speaker);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Speaker = speaker;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.TurnSpeaker"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetTurnSpeaker(bool value)
+    public CueConfigurator SetTurnSpeaker(bool turnSpeaker)
     {
-      return OnConfigureInternal(bp => bp.TurnSpeaker = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TurnSpeaker = turnSpeaker;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.Animation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetAnimation(DialogAnimation value)
+    public CueConfigurator SetAnimation(DialogAnimation animation)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Animation = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Animation = animation;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.m_Listener"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintUnit"/></param>
+    /// <param name="listener"><see cref="BlueprintUnit"/></param>
     [Generated]
-    public CueConfigurator SetListener(string value)
+    public CueConfigurator SetListener(string listener)
     {
-      return OnConfigureInternal(bp => bp.m_Listener = BlueprintTool.GetRef<BlueprintUnitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Listener = BlueprintTool.GetRef<BlueprintUnitReference>(listener);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnShow(ActionsBuilder value)
+    public CueConfigurator SetOnShow(ActionList onShow)
     {
-      return OnConfigureInternal(bp => bp.OnShow = value.Build());
+      ValidateParam(onShow);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnShow = onShow;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.OnStop"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnStop(ActionsBuilder value)
+    public CueConfigurator SetOnStop(ActionList onStop)
     {
-      return OnConfigureInternal(bp => bp.OnStop = value.Build());
+      ValidateParam(onStop);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnStop = onStop;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintCue.AlignmentShift"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetAlignmentShift(AlignmentShift value)
+    public CueConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AlignmentShift = value);
+      ValidateParam(alignmentShift);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.AlignmentShift = alignmentShift;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCue.Answers"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCue.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
     [Generated]
-    public CueConfigurator AddToAnswers(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Answers.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCue.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintAnswerBase"/></param>
-    [Generated]
-    public CueConfigurator RemoveFromAnswers(params string[] values)
+    public CueConfigurator SetAnswers(string[] answers)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
+            bp.Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintCue.Answers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    [Generated]
+    public CueConfigurator AddToAnswers(params string[] answers)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Answers.AddRange(answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCue.Answers"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    [Generated]
+    public CueConfigurator RemoveFromAnswers(params string[] answers)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
             bp.Answers =
                 bp.Answers
                     .Where(
@@ -159,10 +223,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.Continue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetContinue(CueSelection value)
+    public CueConfigurator SetContinue(CueSelection continueValue)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Continue = value);
+      ValidateParam(continueValue);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Continue = continueValue;
+          });
     }
   }
 }

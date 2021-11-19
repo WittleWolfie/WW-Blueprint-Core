@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
-  /// <summary>Configurator for <see cref="RandomParameters"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="RandomParameters"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(RandomParameters))]
   public class RandomParametersConfigurator : BaseBlueprintConfigurator<RandomParameters, RandomParametersConfigurator>
   {
-     private RandomParametersConfigurator(string name) : base(name) { }
+    private RandomParametersConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RandomParametersConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RandomParametersConfigurator New(string name, string assetId)
+    public static RandomParametersConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<RandomParameters>(name, assetId);
       return For(name);
@@ -34,10 +36,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="RandomParameters.randomParametersInfo"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomParametersConfigurator SetrandomParametersInfo(RandomParametersInfo value)
+    public RandomParametersConfigurator SetRandomParametersInfo(RandomParametersInfo randomParametersInfo)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.randomParametersInfo = value);
+      ValidateParam(randomParametersInfo);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.randomParametersInfo = randomParametersInfo;
+          });
     }
   }
 }

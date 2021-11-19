@@ -2,15 +2,17 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Localization;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {
-  /// <summary>Configurator for <see cref="BlueprintKingdomMoraleFlag"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintKingdomMoraleFlag"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintKingdomMoraleFlag))]
   public class KingdomMoraleFlagConfigurator : BaseFactConfigurator<BlueprintKingdomMoraleFlag, KingdomMoraleFlagConfigurator>
   {
-     private KingdomMoraleFlagConfigurator(string name) : base(name) { }
+    private KingdomMoraleFlagConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static KingdomMoraleFlagConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static KingdomMoraleFlagConfigurator New(string name, string assetId)
+    public static KingdomMoraleFlagConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintKingdomMoraleFlag>(name, assetId);
       return For(name);
@@ -36,75 +38,108 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString value)
+    public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString displayName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DisplayName = value);
+      ValidateParam(displayName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DisplayName = displayName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetDescription(LocalizedString value)
+    public KingdomMoraleFlagConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NeutralDuration"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetNeutralDuration(int value)
+    public KingdomMoraleFlagConfigurator SetNeutralDuration(int neutralDuration)
     {
-      return OnConfigureInternal(bp => bp.m_NeutralDuration = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NeutralDuration = neutralDuration;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NegativeWarningDuration"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetNegativeWarningDuration(int value)
+    public KingdomMoraleFlagConfigurator SetNegativeWarningDuration(int negativeWarningDuration)
     {
-      return OnConfigureInternal(bp => bp.m_NegativeWarningDuration = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NegativeWarningDuration = negativeWarningDuration;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetPerDayBonus(int value)
+    public KingdomMoraleFlagConfigurator SetPerDayBonus(int perDayBonus)
     {
-      return OnConfigureInternal(bp => bp.m_PerDayBonus = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PerDayBonus = perDayBonus;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayPenalty"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetPerDayPenalty(int value)
+    public KingdomMoraleFlagConfigurator SetPerDayPenalty(int perDayPenalty)
     {
-      return OnConfigureInternal(bp => bp.m_PerDayPenalty = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PerDayPenalty = perDayPenalty;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_FlagType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetFlagType(BlueprintKingdomMoraleFlag.FlagType value)
+    public KingdomMoraleFlagConfigurator SetFlagType(BlueprintKingdomMoraleFlag.FlagType flagType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_FlagType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FlagType = flagType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_CounterDecrementPerDay"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetCounterDecrementPerDay(int value)
+    public KingdomMoraleFlagConfigurator SetCounterDecrementPerDay(int counterDecrementPerDay)
     {
-      return OnConfigureInternal(bp => bp.m_CounterDecrementPerDay = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CounterDecrementPerDay = counterDecrementPerDay;
+          });
     }
   }
 }

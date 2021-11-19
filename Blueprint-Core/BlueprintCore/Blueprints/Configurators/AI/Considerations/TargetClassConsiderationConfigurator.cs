@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="TargetClassConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="TargetClassConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(TargetClassConsideration))]
   public class TargetClassConsiderationConfigurator : BaseConsiderationConfigurator<TargetClassConsideration, TargetClassConsiderationConfigurator>
   {
-     private TargetClassConsiderationConfigurator(string name) : base(name) { }
+    private TargetClassConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TargetClassConsiderationConfigurator For(string name)
@@ -26,35 +29,54 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TargetClassConsiderationConfigurator New(string name, string assetId)
+    public static TargetClassConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<TargetClassConsideration>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> (Auto Generated)
+    /// Sets <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="firstPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public TargetClassConsiderationConfigurator AddToFirstPriorityClasses(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_FirstPriorityClasses = CommonTool.Append(bp.m_FirstPriorityClasses, values.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintCharacterClass"/></param>
-    [Generated]
-    public TargetClassConsiderationConfigurator RemoveFromFirstPriorityClasses(params string[] values)
+    public TargetClassConsiderationConfigurator SetFirstPriorityClasses(string[] firstPriorityClasses)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name));
+            bp.m_FirstPriorityClasses = firstPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="firstPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public TargetClassConsiderationConfigurator AddToFirstPriorityClasses(params string[] firstPriorityClasses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FirstPriorityClasses = CommonTool.Append(bp.m_FirstPriorityClasses, firstPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="firstPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public TargetClassConsiderationConfigurator RemoveFromFirstPriorityClasses(params string[] firstPriorityClasses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = firstPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name));
             bp.m_FirstPriorityClasses =
                 bp.m_FirstPriorityClasses
                     .Where(
@@ -67,34 +89,57 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="TargetClassConsideration.FirstPriorityScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TargetClassConsiderationConfigurator SetFirstPriorityScore(float value)
-    {
-      return OnConfigureInternal(bp => bp.FirstPriorityScore = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintCharacterClass"/></param>
-    [Generated]
-    public TargetClassConsiderationConfigurator AddToSecondPriorityClasses(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_SecondPriorityClasses = CommonTool.Append(bp.m_SecondPriorityClasses, values.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintCharacterClass"/></param>
-    [Generated]
-    public TargetClassConsiderationConfigurator RemoveFromSecondPriorityClasses(params string[] values)
+    public TargetClassConsiderationConfigurator SetFirstPriorityScore(float firstPriorityScore)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name));
+            bp.FirstPriorityScore = firstPriorityScore;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="secondPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public TargetClassConsiderationConfigurator SetSecondPriorityClasses(string[] secondPriorityClasses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SecondPriorityClasses = secondPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="secondPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public TargetClassConsiderationConfigurator AddToSecondPriorityClasses(params string[] secondPriorityClasses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SecondPriorityClasses = CommonTool.Append(bp.m_SecondPriorityClasses, secondPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="secondPriorityClasses"><see cref="BlueprintCharacterClass"/></param>
+    [Generated]
+    public TargetClassConsiderationConfigurator RemoveFromSecondPriorityClasses(params string[] secondPriorityClasses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = secondPriorityClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name));
             bp.m_SecondPriorityClasses =
                 bp.m_SecondPriorityClasses
                     .Where(
@@ -107,18 +152,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="TargetClassConsideration.SecondPriorityScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TargetClassConsiderationConfigurator SetSecondPriorityScore(float value)
+    public TargetClassConsiderationConfigurator SetSecondPriorityScore(float secondPriorityScore)
     {
-      return OnConfigureInternal(bp => bp.SecondPriorityScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SecondPriorityScore = secondPriorityScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="TargetClassConsideration.NoPriorityScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TargetClassConsiderationConfigurator SetNoPriorityScore(float value)
+    public TargetClassConsiderationConfigurator SetNoPriorityScore(float noPriorityScore)
     {
-      return OnConfigureInternal(bp => bp.NoPriorityScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoPriorityScore = noPriorityScore;
+          });
     }
   }
 }

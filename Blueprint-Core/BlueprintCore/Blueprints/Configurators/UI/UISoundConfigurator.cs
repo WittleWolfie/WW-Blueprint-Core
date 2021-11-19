@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UI;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.UI
 {
-  /// <summary>Configurator for <see cref="BlueprintUISound"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintUISound"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUISound))]
   public class UISoundConfigurator : BaseBlueprintConfigurator<BlueprintUISound, UISoundConfigurator>
   {
-     private UISoundConfigurator(string name) : base(name) { }
+    private UISoundConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UISoundConfigurator For(string name)
@@ -25,88 +28,139 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UISoundConfigurator New(string name, string assetId)
+    public static UISoundConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintUISound>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
+    /// Sets <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator AddToSounds(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound> sounds)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Sounds.AddRange(values));
+      ValidateParam(sounds);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Sounds = sounds;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator RemoveFromSounds(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator AddToSounds(params BlueprintUISound.UISound[] sounds)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Sounds = bp.Sounds.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(sounds);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Sounds.AddRange(sounds.ToList() ?? new List<BlueprintUISound.UISound>());
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator AddToArmyManagement(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator RemoveFromSounds(params BlueprintUISound.UISound[] sounds)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ArmyManagement.AddRange(values));
+      ValidateParam(sounds);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Sounds = bp.Sounds.Where(item => !sounds.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
+    /// Sets <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator RemoveFromArmyManagement(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound> armyManagement)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ArmyManagement = bp.ArmyManagement.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(armyManagement);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArmyManagement = armyManagement;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator AddToTooltip(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator AddToArmyManagement(params BlueprintUISound.UISound[] armyManagement)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tooltip.AddRange(values));
+      ValidateParam(armyManagement);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArmyManagement.AddRange(armyManagement.ToList() ?? new List<BlueprintUISound.UISound>());
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator RemoveFromTooltip(params BlueprintUISound.UISound[] values)
+    public UISoundConfigurator RemoveFromArmyManagement(params BlueprintUISound.UISound[] armyManagement)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Tooltip = bp.Tooltip.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(armyManagement);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ArmyManagement = bp.ArmyManagement.Where(item => !armyManagement.Contains(item)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound> tooltip)
+    {
+      ValidateParam(tooltip);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tooltip = tooltip;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UISoundConfigurator AddToTooltip(params BlueprintUISound.UISound[] tooltip)
+    {
+      ValidateParam(tooltip);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tooltip.AddRange(tooltip.ToList() ?? new List<BlueprintUISound.UISound>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UISoundConfigurator RemoveFromTooltip(params BlueprintUISound.UISound[] tooltip)
+    {
+      ValidateParam(tooltip);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Tooltip = bp.Tooltip.Where(item => !tooltip.Contains(item)).ToList();
+          });
     }
   }
 }

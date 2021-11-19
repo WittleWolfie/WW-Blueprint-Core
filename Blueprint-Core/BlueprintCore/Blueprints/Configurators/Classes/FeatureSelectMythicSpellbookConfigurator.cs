@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintFeatureSelectMythicSpellbook"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintFeatureSelectMythicSpellbook"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFeatureSelectMythicSpellbook))]
   public class FeatureSelectMythicSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureSelectMythicSpellbook, FeatureSelectMythicSpellbookConfigurator>
   {
-     private FeatureSelectMythicSpellbookConfigurator(string name) : base(name) { }
+    private FeatureSelectMythicSpellbookConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static FeatureSelectMythicSpellbookConfigurator For(string name)
@@ -27,61 +30,97 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FeatureSelectMythicSpellbookConfigurator New(string name, string assetId)
+    public static FeatureSelectMythicSpellbookConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintFeatureSelectMythicSpellbook>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
+    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FeatureSelectMythicSpellbookConfigurator AddToCachedItems(params IFeatureSelectionItem[] values)
+    public FeatureSelectMythicSpellbookConfigurator SetCachedItems(List<IFeatureSelectionItem> cachedItems)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedItems.AddRange(values));
+      ValidateParam(cachedItems);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems = cachedItems;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FeatureSelectMythicSpellbookConfigurator RemoveFromCachedItems(params IFeatureSelectionItem[] values)
+    public FeatureSelectMythicSpellbookConfigurator AddToCachedItems(params IFeatureSelectionItem[] cachedItems)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedItems = bp.m_CachedItems.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(cachedItems);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems.AddRange(cachedItems.ToList() ?? new List<IFeatureSelectionItem>());
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public FeatureSelectMythicSpellbookConfigurator RemoveFromCachedItems(params IFeatureSelectionItem[] cachedItems)
+    {
+      ValidateParam(cachedItems);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedItems = bp.m_CachedItems.Where(item => !cachedItems.Contains(item)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="allowedSpellbooks"><see cref="BlueprintSpellbook"/></param>
     [Generated]
-    public FeatureSelectMythicSpellbookConfigurator AddToAllowedSpellbooks(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_AllowedSpellbooks = CommonTool.Append(bp.m_AllowedSpellbooks, values.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintSpellbook"/></param>
-    [Generated]
-    public FeatureSelectMythicSpellbookConfigurator RemoveFromAllowedSpellbooks(params string[] values)
+    public FeatureSelectMythicSpellbookConfigurator SetAllowedSpellbooks(string[] allowedSpellbooks)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name));
+            bp.m_AllowedSpellbooks = allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="allowedSpellbooks"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    public FeatureSelectMythicSpellbookConfigurator AddToAllowedSpellbooks(params string[] allowedSpellbooks)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AllowedSpellbooks = CommonTool.Append(bp.m_AllowedSpellbooks, allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="allowedSpellbooks"><see cref="BlueprintSpellbook"/></param>
+    [Generated]
+    public FeatureSelectMythicSpellbookConfigurator RemoveFromAllowedSpellbooks(params string[] allowedSpellbooks)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name));
             bp.m_AllowedSpellbooks =
                 bp.m_AllowedSpellbooks
                     .Where(
@@ -94,11 +133,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_MythicSpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellList"/></param>
+    /// <param name="mythicSpellList"><see cref="BlueprintSpellList"/></param>
     [Generated]
-    public FeatureSelectMythicSpellbookConfigurator SetMythicSpellList(string value)
+    public FeatureSelectMythicSpellbookConfigurator SetMythicSpellList(string mythicSpellList)
     {
-      return OnConfigureInternal(bp => bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(mythicSpellList);
+          });
     }
   }
 }

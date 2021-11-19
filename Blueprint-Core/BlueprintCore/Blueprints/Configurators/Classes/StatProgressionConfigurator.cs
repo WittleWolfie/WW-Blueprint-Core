@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintStatProgression"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintStatProgression"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintStatProgression))]
   public class StatProgressionConfigurator : BaseBlueprintConfigurator<BlueprintStatProgression, StatProgressionConfigurator>
   {
-     private StatProgressionConfigurator(string name) : base(name) { }
+    private StatProgressionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static StatProgressionConfigurator For(string name)
@@ -25,28 +28,49 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static StatProgressionConfigurator New(string name, string assetId)
+    public static StatProgressionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintStatProgression>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
+    /// Sets <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public StatProgressionConfigurator AddToBonuses(params int[] values)
+    public StatProgressionConfigurator SetBonuses(int[] bonuses)
     {
-      return OnConfigureInternal(bp => bp.Bonuses = CommonTool.Append(bp.Bonuses, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Bonuses = bonuses;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public StatProgressionConfigurator RemoveFromBonuses(params int[] values)
+    public StatProgressionConfigurator AddToBonuses(params int[] bonuses)
     {
-      return OnConfigureInternal(bp => bp.Bonuses = bp.Bonuses.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Bonuses = CommonTool.Append(bp.Bonuses, bonuses ?? new int[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public StatProgressionConfigurator RemoveFromBonuses(params int[] bonuses)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Bonuses = bp.Bonuses.Where(item => !bonuses.Contains(item)).ToArray();
+          });
     }
   }
 }

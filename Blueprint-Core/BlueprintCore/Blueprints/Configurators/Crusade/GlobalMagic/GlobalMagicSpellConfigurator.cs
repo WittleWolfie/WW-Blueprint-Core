@@ -1,18 +1,21 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade.GlobalMagic;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using System;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
 {
-  /// <summary>Configurator for <see cref="BlueprintGlobalMagicSpell"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintGlobalMagicSpell"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintGlobalMagicSpell))]
   public class GlobalMagicSpellConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMagicSpell, GlobalMagicSpellConfigurator>
   {
-     private GlobalMagicSpellConfigurator(string name) : base(name) { }
+    private GlobalMagicSpellConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static GlobalMagicSpellConfigurator For(string name)
@@ -28,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static GlobalMagicSpellConfigurator New(string name, string assetId)
+    public static GlobalMagicSpellConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintGlobalMagicSpell>(name, assetId);
       return For(name);
@@ -38,78 +41,118 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSpellName(LocalizedString value)
+    public GlobalMagicSpellConfigurator SetSpellName(LocalizedString spellName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_SpellName = value);
+      ValidateParam(spellName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellName = spellName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetDescription(LocalizedString value)
+    public GlobalMagicSpellConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetIcon(Sprite value)
+    public GlobalMagicSpellConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_VFX"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetVFX(PrefabLink value)
+    public GlobalMagicSpellConfigurator SetVFX(PrefabLink vFX)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_VFX = value);
+      ValidateParam(vFX);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_VFX = vFX ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_HoursCooldown"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetHoursCooldown(GlobalMagicValue value)
+    public GlobalMagicSpellConfigurator SetHoursCooldown(GlobalMagicValue hoursCooldown)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_HoursCooldown = value);
+      ValidateParam(hoursCooldown);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HoursCooldown = hoursCooldown;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Executor"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetExecutor(BlueprintGlobalMagicSpell.ExecutorGlobalMagicSpell value)
+    public GlobalMagicSpellConfigurator SetExecutor(BlueprintGlobalMagicSpell.ExecutorGlobalMagicSpell executor)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Executor = value);
+      ValidateParam(executor);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Executor = executor;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder value)
+    public GlobalMagicSpellConfigurator SetSpellActions(ActionList spellActions)
     {
-      return OnConfigureInternal(bp => bp.m_SpellActions = value.Build());
+      ValidateParam(spellActions);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellActions = spellActions;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SetCooldownManually"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSetCooldownManually(bool value)
+    public GlobalMagicSpellConfigurator SetCooldownManually(bool setCooldownManually)
     {
-      return OnConfigureInternal(bp => bp.m_SetCooldownManually = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SetCooldownManually = setCooldownManually;
+          });
     }
   }
 }

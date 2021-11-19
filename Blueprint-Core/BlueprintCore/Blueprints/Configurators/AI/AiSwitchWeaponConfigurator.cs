@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiSwitchWeapon"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiSwitchWeapon"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiSwitchWeapon))]
   public class AiSwitchWeaponConfigurator : BaseAiActionConfigurator<BlueprintAiSwitchWeapon, AiSwitchWeaponConfigurator>
   {
-     private AiSwitchWeaponConfigurator(string name) : base(name) { }
+    private AiSwitchWeaponConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiSwitchWeaponConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiSwitchWeaponConfigurator New(string name, string assetId)
+    public static AiSwitchWeaponConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiSwitchWeapon>(name, assetId);
       return For(name);
@@ -34,10 +36,13 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiSwitchWeapon.SwitchTo"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiSwitchWeaponConfigurator SetSwitchTo(SwitchMode value)
+    public AiSwitchWeaponConfigurator SetSwitchTo(SwitchMode switchTo)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SwitchTo = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SwitchTo = switchTo;
+          });
     }
   }
 }

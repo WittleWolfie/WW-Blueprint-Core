@@ -1,4 +1,4 @@
-using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
@@ -16,16 +16,18 @@ using Kingmaker.Sound;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintComponentList"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintComponentList"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintComponentList))]
   public class ComponentListConfigurator : BaseBlueprintConfigurator<BlueprintComponentList, ComponentListConfigurator>
   {
-     private ComponentListConfigurator(string name) : base(name) { }
+    private ComponentListConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ComponentListConfigurator For(string name)
@@ -41,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ComponentListConfigurator New(string name, string assetId)
+    public static ComponentListConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintComponentList>(name, assetId);
       return For(name);
@@ -51,15 +53,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Tutorial"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorial"><see cref="BlueprintTutorial"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableTutorialSingle))]
     public ComponentListConfigurator AddEtudeBracketEnableTutorialSingle(
-        string m_Tutorial)
+        string tutorial = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableTutorialSingle();
-      component.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(m_Tutorial);
+      var component = new EtudeBracketEnableTutorialSingle();
+      component.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(tutorial);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -67,15 +70,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketEnableTutorials"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Tutorials"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorials"><see cref="BlueprintTutorial"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableTutorials))]
     public ComponentListConfigurator AddEtudeBracketEnableTutorials(
-        string[] m_Tutorials)
+        string[] tutorials = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableTutorials();
-      component.m_Tutorials = m_Tutorials.Select(bp => BlueprintTool.GetRef<BlueprintTutorial.Reference>(bp)).ToArray();
+      var component = new EtudeBracketEnableTutorials();
+      component.m_Tutorials = tutorials.Select(name => BlueprintTool.GetRef<BlueprintTutorial.Reference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -85,11 +89,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeCorruptionFreeZone))]
     public ComponentListConfigurator AddEtudeCorruptionFreeZone(
-        bool m_ClearAllCorruption)
+        bool clearAllCorruption = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeCorruptionFreeZone();
-      component.m_ClearAllCorruption = m_ClearAllCorruption;
+      var component = new EtudeCorruptionFreeZone();
+      component.m_ClearAllCorruption = clearAllCorruption;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -98,9 +103,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeDisableCooking))]
-    public ComponentListConfigurator AddEtudeDisableCooking()
+    public ComponentListConfigurator AddEtudeDisableCooking(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeDisableCooking());
+      var component = new EtudeDisableCooking();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -108,9 +116,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeDisableCraft))]
-    public ComponentListConfigurator AddEtudeDisableCraft()
+    public ComponentListConfigurator AddEtudeDisableCraft(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeDisableCraft());
+      var component = new EtudeDisableCraft();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -119,11 +130,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeOverrideCorruptionGrowth))]
     public ComponentListConfigurator AddEtudeOverrideCorruptionGrowth(
-        int m_CorruptionGrowth)
+        int corruptionGrowth = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeOverrideCorruptionGrowth();
-      component.m_CorruptionGrowth = m_CorruptionGrowth;
+      var component = new EtudeOverrideCorruptionGrowth();
+      component.m_CorruptionGrowth = corruptionGrowth;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -133,11 +145,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeCompleteTrigger))]
     public ComponentListConfigurator AddEtudeCompleteTrigger(
-        ActionsBuilder Actions)
+        ActionList actions,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeCompleteTrigger();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new EtudeCompleteTrigger();
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -147,15 +162,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudePlayTrigger))]
     public ComponentListConfigurator AddEtudePlayTrigger(
-        bool m_Once,
-        ConditionsBuilder Conditions,
-        ActionsBuilder Actions)
+        ActionList actions,
+        bool once = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudePlayTrigger();
-      component.m_Once = m_Once;
-      component.Conditions = Conditions.Build();
-      component.Actions = Actions.Build();
+      ValidateParam(actions);
+    
+      var component = new EtudePlayTrigger();
+      component.m_Once = once;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.Actions = actions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -165,21 +183,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketAudioEvents))]
     public ComponentListConfigurator AddEtudeBracketAudioEvents(
-        AkEventReference[] OnEtudeStart,
-        AkEventReference[] OnEtudeStop)
+        AkEventReference[] onEtudeStart = null,
+        AkEventReference[] onEtudeStop = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in OnEtudeStart)
-      {
-        ValidateParam(item);
-      }
-      foreach (var item in OnEtudeStop)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EtudeBracketAudioEvents();
-      component.OnEtudeStart = OnEtudeStart;
-      component.OnEtudeStop = OnEtudeStop;
+      ValidateParam(onEtudeStart);
+      ValidateParam(onEtudeStop);
+    
+      var component = new EtudeBracketAudioEvents();
+      component.OnEtudeStart = onEtudeStart;
+      component.OnEtudeStop = onEtudeStop;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -189,12 +203,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketAudioObjects))]
     public ComponentListConfigurator AddEtudeBracketAudioObjects(
-        string ConnectedObjectName)
+        string connectedObjectName,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(ConnectedObjectName);
-      
-      var component =  new EtudeBracketAudioObjects();
-      component.ConnectedObjectName = ConnectedObjectName;
+      var component = new EtudeBracketAudioObjects();
+      component.ConnectedObjectName = connectedObjectName;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -204,13 +218,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketCampingAction))]
     public ComponentListConfigurator AddEtudeBracketCampingAction(
-        ActionsBuilder Actions,
-        bool SkipRest)
+        ActionList actions,
+        bool skipRest = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketCampingAction();
-      component.Actions = Actions.Build();
-      component.SkipRest = SkipRest;
+      ValidateParam(actions);
+    
+      var component = new EtudeBracketCampingAction();
+      component.Actions = actions;
+      component.SkipRest = skipRest;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -220,15 +237,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketDetachPet))]
     public ComponentListConfigurator AddEtudeBracketDetachPet(
-        UnitEvaluator Master,
-        PetType PetType)
+        UnitEvaluator master,
+        PetType petType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Master);
-      ValidateParam(PetType);
-      
-      var component =  new EtudeBracketDetachPet();
-      component.Master = Master;
-      component.PetType = PetType;
+      ValidateParam(master);
+    
+      var component = new EtudeBracketDetachPet();
+      component.Master = master;
+      component.PetType = petType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -237,9 +255,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketDisablePlayerRespec))]
-    public ComponentListConfigurator AddEtudeBracketDisablePlayerRespec()
+    public ComponentListConfigurator AddEtudeBracketDisablePlayerRespec(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketDisablePlayerRespec());
+      var component = new EtudeBracketDisablePlayerRespec();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -247,27 +268,31 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketDisableRandomEncounters))]
-    public ComponentListConfigurator AddEtudeBracketDisableRandomEncounters()
+    public ComponentListConfigurator AddEtudeBracketDisableRandomEncounters(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketDisableRandomEncounters());
+      var component = new EtudeBracketDisableRandomEncounters();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableAzataIsland"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
-    /// <param name="m_GlobalMapSpell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMapSpell"><see cref="BlueprintGlobalMagicSpell"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableAzataIsland))]
     public ComponentListConfigurator AddEtudeBracketEnableAzataIsland(
-        string m_GlobalMap,
-        string m_GlobalMapSpell)
+        string globalMap = null,
+        string globalMapSpell = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableAzataIsland();
-      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
-      component.m_GlobalMapSpell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(m_GlobalMapSpell);
+      var component = new EtudeBracketEnableAzataIsland();
+      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+      component.m_GlobalMapSpell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(globalMapSpell);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -275,15 +300,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketEnableWarcamp"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_GlobalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketEnableWarcamp))]
     public ComponentListConfigurator AddEtudeBracketEnableWarcamp(
-        string m_GlobalMap)
+        string globalMap = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketEnableWarcamp();
-      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(m_GlobalMap);
+      var component = new EtudeBracketEnableWarcamp();
+      component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -291,27 +317,29 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketFollowUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketFollowUnit))]
     public ComponentListConfigurator AddEtudeBracketFollowUnit(
-        UnitEvaluator Leader,
-        bool UseSummonPool,
-        UnitEvaluator Unit,
-        string SummonPool,
-        bool AlwaysRun,
-        bool CanBeSlowerThanLeader)
+        UnitEvaluator leader,
+        UnitEvaluator unit,
+        bool useSummonPool = default,
+        string summonPool = null,
+        bool alwaysRun = default,
+        bool canBeSlowerThanLeader = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Leader);
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketFollowUnit();
-      component.Leader = Leader;
-      component.UseSummonPool = UseSummonPool;
-      component.Unit = Unit;
-      component.SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(SummonPool);
-      component.AlwaysRun = AlwaysRun;
-      component.CanBeSlowerThanLeader = CanBeSlowerThanLeader;
+      ValidateParam(leader);
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketFollowUnit();
+      component.Leader = leader;
+      component.UseSummonPool = useSummonPool;
+      component.Unit = unit;
+      component.SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.AlwaysRun = alwaysRun;
+      component.CanBeSlowerThanLeader = canBeSlowerThanLeader;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -320,9 +348,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeBracketForceCombatMode))]
-    public ComponentListConfigurator AddEtudeBracketForceCombatMode()
+    public ComponentListConfigurator AddEtudeBracketForceCombatMode(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeBracketForceCombatMode());
+      var component = new EtudeBracketForceCombatMode();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -331,14 +362,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketIgnoreGameover))]
     public ComponentListConfigurator AddEtudeBracketIgnoreGameover(
-        ActionsBuilder ActionList,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        ActionList actionList,
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketIgnoreGameover();
-      component.ActionList = ActionList.Build();
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(actionList);
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketIgnoreGameover();
+      component.ActionList = actionList;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -348,12 +382,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketMakePassive))]
     public ComponentListConfigurator AddEtudeBracketMakePassive(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketMakePassive();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketMakePassive();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -363,12 +399,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketMarkUnitEssential))]
     public ComponentListConfigurator AddEtudeBracketMarkUnitEssential(
-        UnitEvaluator Target)
+        UnitEvaluator target,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Target);
-      
-      var component =  new EtudeBracketMarkUnitEssential();
-      component.Target = Target;
+      ValidateParam(target);
+    
+      var component = new EtudeBracketMarkUnitEssential();
+      component.Target = target;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -378,15 +416,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketMusic))]
     public ComponentListConfigurator AddEtudeBracketMusic(
-        AkEventReference StartTheme,
-        AkEventReference StopTheme)
+        AkEventReference startTheme,
+        AkEventReference stopTheme,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(StartTheme);
-      ValidateParam(StopTheme);
-      
-      var component =  new EtudeBracketMusic();
-      component.StartTheme = StartTheme;
-      component.StopTheme = StopTheme;
+      ValidateParam(startTheme);
+      ValidateParam(stopTheme);
+    
+      var component = new EtudeBracketMusic();
+      component.StartTheme = startTheme;
+      component.StopTheme = stopTheme;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -396,16 +436,19 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketOverrideActionsOnClick))]
     public ComponentListConfigurator AddEtudeBracketOverrideActionsOnClick(
-        UnitEvaluator Unit,
-        ActionsBuilder Actions,
-        float m_Distance)
+        UnitEvaluator unit,
+        ActionList actions,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketOverrideActionsOnClick();
-      component.Unit = Unit;
-      component.Actions = Actions.Build();
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+      ValidateParam(actions);
+    
+      var component = new EtudeBracketOverrideActionsOnClick();
+      component.Unit = unit;
+      component.Actions = actions;
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -415,19 +458,21 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketOverrideBark))]
     public ComponentListConfigurator AddEtudeBracketOverrideBark(
-        UnitEvaluator Unit,
-        SharedStringAsset WhatToBarkShared,
-        bool BarkDurationByText,
-        float m_Distance)
+        UnitEvaluator unit,
+        SharedStringAsset whatToBarkShared,
+        bool barkDurationByText = default,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      ValidateParam(WhatToBarkShared);
-      
-      var component =  new EtudeBracketOverrideBark();
-      component.Unit = Unit;
-      component.WhatToBarkShared = WhatToBarkShared;
-      component.BarkDurationByText = BarkDurationByText;
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+      ValidateParam(whatToBarkShared);
+    
+      var component = new EtudeBracketOverrideBark();
+      component.Unit = unit;
+      component.WhatToBarkShared = whatToBarkShared;
+      component.BarkDurationByText = barkDurationByText;
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -435,20 +480,22 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketOverrideDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketOverrideDialog))]
     public ComponentListConfigurator AddEtudeBracketOverrideDialog(
-        UnitEvaluator Unit,
-        string Dialog,
-        float m_Distance)
+        UnitEvaluator unit,
+        string dialog = null,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketOverrideDialog();
-      component.Unit = Unit;
-      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(Dialog);
-      component.m_Distance = m_Distance;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketOverrideDialog();
+      component.Unit = unit;
+      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -458,15 +505,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketOverrideWeatherInclemency))]
     public ComponentListConfigurator AddEtudeBracketOverrideWeatherInclemency(
-        InclemencyType Inclemency,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        InclemencyType inclemency = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Inclemency);
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketOverrideWeatherInclemency();
-      component.Inclemency = Inclemency;
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketOverrideWeatherInclemency();
+      component.Inclemency = inclemency;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -476,15 +524,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketOverrideWeatherProfile))]
     public ComponentListConfigurator AddEtudeBracketOverrideWeatherProfile(
-        WeatherProfileExtended m_WeatherProfile,
-        EtudeBracketGameModeWaiter m_GameModeWaiter)
+        WeatherProfileExtended weatherProfile,
+        EtudeBracketGameModeWaiter gameModeWaiter,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_WeatherProfile);
-      ValidateParam(m_GameModeWaiter);
-      
-      var component =  new EtudeBracketOverrideWeatherProfile();
-      component.m_WeatherProfile = m_WeatherProfile;
-      component.m_GameModeWaiter = m_GameModeWaiter;
+      ValidateParam(weatherProfile);
+      ValidateParam(gameModeWaiter);
+    
+      var component = new EtudeBracketOverrideWeatherProfile();
+      component.m_WeatherProfile = weatherProfile;
+      component.m_GameModeWaiter = gameModeWaiter;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -494,12 +544,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketPinCompanionInParty))]
     public ComponentListConfigurator AddEtudeBracketPinCompanionInParty(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketPinCompanionInParty();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketPinCompanionInParty();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -509,12 +561,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketPreventDirectControl))]
     public ComponentListConfigurator AddEtudeBracketPreventDirectControl(
-        UnitEvaluator Unit)
+        UnitEvaluator unit,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Unit);
-      
-      var component =  new EtudeBracketPreventDirectControl();
-      component.Unit = Unit;
+      ValidateParam(unit);
+    
+      var component = new EtudeBracketPreventDirectControl();
+      component.Unit = unit;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -524,14 +578,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketProgressBar))]
     public ComponentListConfigurator AddEtudeBracketProgressBar(
-        int MaxProgress,
-        LocalizedString Title)
+        int maxProgress = default,
+        LocalizedString title = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Title);
-      
-      var component =  new EtudeBracketProgressBar();
-      component.MaxProgress = MaxProgress;
-      component.Title = Title;
+      ValidateParam(title);
+    
+      var component = new EtudeBracketProgressBar();
+      component.MaxProgress = maxProgress;
+      component.Title = title ?? Constants.Empty.String;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -541,26 +597,27 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketRestPhase))]
     public ComponentListConfigurator AddEtudeBracketRestPhase(
-        bool MultiplePhases,
-        RestPhase Phase,
-        RestPhase FirstPhase,
-        RestPhase LastPhase,
-        ActionsBuilder OnStart,
-        ActionsBuilder OnStop,
-        bool HasStarted)
+        ActionList onStart,
+        ActionList onStop,
+        bool multiplePhases = default,
+        RestPhase phase = default,
+        RestPhase firstPhase = default,
+        RestPhase lastPhase = default,
+        bool hasStarted = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Phase);
-      ValidateParam(FirstPhase);
-      ValidateParam(LastPhase);
-      
-      var component =  new EtudeBracketRestPhase();
-      component.MultiplePhases = MultiplePhases;
-      component.Phase = Phase;
-      component.FirstPhase = FirstPhase;
-      component.LastPhase = LastPhase;
-      component.OnStart = OnStart.Build();
-      component.OnStop = OnStop.Build();
-      component.HasStarted = HasStarted;
+      ValidateParam(onStart);
+      ValidateParam(onStop);
+    
+      var component = new EtudeBracketRestPhase();
+      component.MultiplePhases = multiplePhases;
+      component.Phase = phase;
+      component.FirstPhase = firstPhase;
+      component.LastPhase = lastPhase;
+      component.OnStart = onStart;
+      component.OnStop = onStop;
+      component.HasStarted = hasStarted;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -568,20 +625,22 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketSetCompanionPosition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketSetCompanionPosition))]
     public ComponentListConfigurator AddEtudeBracketSetCompanionPosition(
-        string m_Companion,
-        EntityReference m_Locator,
-        bool m_ShouldRelease)
+        EntityReference locator,
+        string companion = null,
+        bool shouldRelease = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Locator);
-      
-      var component =  new EtudeBracketSetCompanionPosition();
-      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
-      component.m_Locator = m_Locator;
-      component.m_ShouldRelease = m_ShouldRelease;
+      ValidateParam(locator);
+    
+      var component = new EtudeBracketSetCompanionPosition();
+      component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      component.m_Locator = locator;
+      component.m_ShouldRelease = shouldRelease;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -591,15 +650,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketShowObjects))]
     public ComponentListConfigurator AddEtudeBracketShowObjects(
-        EntityReference[] Objects)
+        EntityReference[] objects = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Objects)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EtudeBracketShowObjects();
-      component.Objects = Objects;
+      ValidateParam(objects);
+    
+      var component = new EtudeBracketShowObjects();
+      component.Objects = objects;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -607,20 +665,21 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="EtudeBracketSummonpoolOverrideDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
-    /// <param name="Dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(EtudeBracketSummonpoolOverrideDialog))]
     public ComponentListConfigurator AddEtudeBracketSummonpoolOverrideDialog(
-        string m_SummonPool,
-        string Dialog,
-        float m_Distance)
+        string summonPool = null,
+        string dialog = null,
+        float distance = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketSummonpoolOverrideDialog();
-      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
-      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(Dialog);
-      component.m_Distance = m_Distance;
+      var component = new EtudeBracketSummonpoolOverrideDialog();
+      component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
+      component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
+      component.m_Distance = distance;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -630,13 +689,17 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(EtudeBracketTriggerAction))]
     public ComponentListConfigurator AddEtudeBracketTriggerAction(
-        ActionsBuilder OnActivated,
-        ActionsBuilder OnDeactivated)
+        ActionList onActivated,
+        ActionList onDeactivated,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new EtudeBracketTriggerAction();
-      component.OnActivated = OnActivated.Build();
-      component.OnDeactivated = OnDeactivated.Build();
+      ValidateParam(onActivated);
+      ValidateParam(onDeactivated);
+    
+      var component = new EtudeBracketTriggerAction();
+      component.OnActivated = onActivated;
+      component.OnDeactivated = onDeactivated;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -645,9 +708,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeIgnorePartyEncumbrance))]
-    public ComponentListConfigurator AddEtudeIgnorePartyEncumbrance()
+    public ComponentListConfigurator AddEtudeIgnorePartyEncumbrance(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeIgnorePartyEncumbrance());
+      var component = new EtudeIgnorePartyEncumbrance();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -655,9 +721,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudeIgnorePersonalEncumbrance))]
-    public ComponentListConfigurator AddEtudeIgnorePersonalEncumbrance()
+    public ComponentListConfigurator AddEtudeIgnorePersonalEncumbrance(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudeIgnorePersonalEncumbrance());
+      var component = new EtudeIgnorePersonalEncumbrance();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -665,9 +734,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     [Generated]
     [Implements(typeof(EtudePeacefulZone))]
-    public ComponentListConfigurator AddEtudePeacefulZone()
+    public ComponentListConfigurator AddEtudePeacefulZone(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new EtudePeacefulZone());
+      var component = new EtudePeacefulZone();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -676,11 +748,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(CapitalCompanionLogic))]
     public ComponentListConfigurator AddCapitalCompanionLogic(
-        bool m_RestAllRemoteCompanions)
+        bool restAllRemoteCompanions = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CapitalCompanionLogic();
-      component.m_RestAllRemoteCompanions = m_RestAllRemoteCompanions;
+      var component = new CapitalCompanionLogic();
+      component.m_RestAllRemoteCompanions = restAllRemoteCompanions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>Configurator for <see cref="BlueprintAiRunAway"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintAiRunAway"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintAiRunAway))]
   public class AiRunAwayConfigurator : BaseAiActionConfigurator<BlueprintAiRunAway, AiRunAwayConfigurator>
   {
-     private AiRunAwayConfigurator(string name) : base(name) { }
+    private AiRunAwayConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AiRunAwayConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AiRunAwayConfigurator New(string name, string assetId)
+    public static AiRunAwayConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintAiRunAway>(name, assetId);
       return For(name);
@@ -34,9 +37,13 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiRunAway.BecameStalker"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiRunAwayConfigurator SetBecameStalker(bool value)
+    public AiRunAwayConfigurator SetBecameStalker(bool becameStalker)
     {
-      return OnConfigureInternal(bp => bp.BecameStalker = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BecameStalker = becameStalker;
+          });
     }
   }
 }

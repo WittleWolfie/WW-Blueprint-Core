@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -10,6 +9,7 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.WeaponEnchants;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -22,9 +22,10 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
@@ -37,213 +38,310 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       where T : BlueprintItem
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseItemConfigurator(string name) : base(name) { }
+    protected BaseItemConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDisplayNameText(LocalizedString value)
+    public TBuilder SetDisplayNameText(LocalizedString displayNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DisplayNameText = value);
+      ValidateParam(displayNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DisplayNameText = displayNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescriptionText(LocalizedString value)
+    public TBuilder SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetFlavorText(LocalizedString value)
+    public TBuilder SetFlavorText(LocalizedString flavorText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_FlavorText = value);
+      ValidateParam(flavorText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FlavorText = flavorText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNonIdentifiedNameText(LocalizedString value)
+    public TBuilder SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_NonIdentifiedNameText = value);
+      ValidateParam(nonIdentifiedNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NonIdentifiedNameText = nonIdentifiedNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString value)
+    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_NonIdentifiedDescriptionText = value);
+      ValidateParam(nonIdentifiedDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIcon(Sprite value)
+    public TBuilder SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCost(int value)
+    public TBuilder SetCost(int cost)
     {
-      return OnConfigureInternal(bp => bp.m_Cost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Cost = cost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetWeight(float value)
+    public TBuilder SetWeight(float weight)
     {
-      return OnConfigureInternal(bp => bp.m_Weight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Weight = weight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsNotable(bool value)
+    public TBuilder SetIsNotable(bool isNotable)
     {
-      return OnConfigureInternal(bp => bp.m_IsNotable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsNotable = isNotable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetForceStackable(bool value)
+    public TBuilder SetForceStackable(bool forceStackable)
     {
-      return OnConfigureInternal(bp => bp.m_ForceStackable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ForceStackable = forceStackable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDestructible(bool value)
+    public TBuilder SetDestructible(bool destructible)
     {
-      return OnConfigureInternal(bp => bp.m_Destructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Destructible = destructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public TBuilder SetShardItem(string value)
+    public TBuilder SetShardItem(string shardItem)
     {
-      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(shardItem);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMiscellaneousType(BlueprintItem.MiscellaneousItemType value)
+    public TBuilder SetMiscellaneousType(BlueprintItem.MiscellaneousItemType miscellaneousType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MiscellaneousType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MiscellaneousType = miscellaneousType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetInventoryPutSound(string value)
+    public TBuilder SetInventoryPutSound(string inventoryPutSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryPutSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryPutSound = inventoryPutSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetInventoryTakeSound(string value)
+    public TBuilder SetInventoryTakeSound(string inventoryTakeSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryTakeSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryTakeSound = inventoryTakeSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNeedSkinningForCollect(bool value)
+    public TBuilder SetNeedSkinningForCollect(bool needSkinningForCollect)
     {
-      return OnConfigureInternal(bp => bp.NeedSkinningForCollect = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NeedSkinningForCollect = needSkinningForCollect;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToTrashLootTypes(params TrashLootType[] values)
+    public TBuilder SetTrashLootTypes(TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = trashLootTypes;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromTrashLootTypes(params TrashLootType[] values)
+    public TBuilder AddToTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, trashLootTypes ?? new TrashLootType[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] values)
+    public TBuilder RemoveFromTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedEnchantments.AddRange(values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !trashLootTypes.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] values)
+    public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(cachedEnchantments);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments = cachedEnchantments;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      ValidateParam(cachedEnchantments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments.AddRange(cachedEnchantments.ToList() ?? new List<BlueprintItemEnchantment>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      ValidateParam(cachedEnchantments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !cachedEnchantments.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
@@ -252,11 +350,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ArmorEnhancementBonus))]
     public TBuilder AddArmorEnhancementBonus(
-        int EnhancementValue)
+        int enhancementValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ArmorEnhancementBonus();
-      component.EnhancementValue = EnhancementValue;
+      var component = new ArmorEnhancementBonus();
+      component.EnhancementValue = enhancementValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -264,15 +363,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
-        string m_Etude)
+        string etude = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemEnchantmentEnableWhileEtudePlaying();
-      component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(m_Etude);
+      var component = new ItemEnchantmentEnableWhileEtudePlaying();
+      component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -281,9 +381,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponDamageReroll))]
-    public TBuilder AddWeaponDamageReroll()
+    public TBuilder AddWeaponDamageReroll(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponDamageReroll());
+      var component = new WeaponDamageReroll();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -291,14 +394,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddItemShowInfoCallback))]
-    public TBuilder AddAddItemShowInfoCallback(
-        bool Once,
-        ActionsBuilder Action)
+    public TBuilder AddItemShowInfoCallback(
+        ActionList action,
+        bool once = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddItemShowInfoCallback();
-      component.Once = Once;
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new AddItemShowInfoCallback();
+      component.Once = once;
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -308,11 +414,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(BuildPointsReplacement))]
     public TBuilder AddBuildPointsReplacement(
-        int Cost)
+        int cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BuildPointsReplacement();
-      component.Cost = Cost;
+      var component = new BuildPointsReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -322,11 +429,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ConsumableEventBonusReplacement))]
     public TBuilder AddConsumableEventBonusReplacement(
-        int Cost)
+        int cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ConsumableEventBonusReplacement();
-      component.Cost = Cost;
+      var component = new ConsumableEventBonusReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -334,15 +442,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyRecipe"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Recipe"><see cref="BlueprintCookingRecipe"/></param>
+    /// <param name="recipe"><see cref="BlueprintCookingRecipe"/></param>
     [Generated]
     [Implements(typeof(CopyRecipe))]
     public TBuilder AddCopyRecipe(
-        string m_Recipe)
+        string recipe = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CopyRecipe();
-      component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(m_Recipe);
+      var component = new CopyRecipe();
+      component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -350,15 +459,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyScroll"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CustomSpell"><see cref="BlueprintAbility"/></param>
+    /// <param name="customSpell"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CopyScroll))]
     public TBuilder AddCopyScroll(
-        string m_CustomSpell)
+        string customSpell = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CopyScroll();
-      component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_CustomSpell);
+      var component = new CopyScroll();
+      component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -368,12 +478,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IdentifySkillReplacement))]
     public TBuilder AddIdentifySkillReplacement(
-        IdentifySkillReplacement.SkillType m_SkillType)
+        IdentifySkillReplacement.SkillType skillType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_SkillType);
-      
-      var component =  new IdentifySkillReplacement();
-      component.m_SkillType = m_SkillType;
+      var component = new IdentifySkillReplacement();
+      component.m_SkillType = skillType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -381,20 +491,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DialogReference"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialogReference"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(ItemDialog))]
     public TBuilder AddItemDialog(
-        ConditionsBuilder m_Conditions,
-        LocalizedString m_ItemName,
-        string m_DialogReference)
+        ConditionsBuilder conditions = null,
+        LocalizedString itemName = null,
+        string dialogReference = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_ItemName);
-      
-      var component =  new ItemDialog();
-      component.m_Conditions = m_Conditions.Build();
-      component.m_ItemName = m_ItemName;
-      component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(m_DialogReference);
+      ValidateParam(itemName);
+    
+      var component = new ItemDialog();
+      component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_ItemName = itemName ?? Constants.Empty.String;
+      component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(dialogReference);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -402,20 +514,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDlcRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DlcReward"><see cref="BlueprintDlcReward"/></param>
-    /// <param name="m_ChangeTo"><see cref="BlueprintItem"/></param>
+    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="changeTo"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemDlcRestriction))]
     public TBuilder AddItemDlcRestriction(
-        string m_DlcReward,
-        string m_ChangeTo,
-        bool HideInVendors)
+        string dlcReward = null,
+        string changeTo = null,
+        bool hideInVendors = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemDlcRestriction();
-      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
-      component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(m_ChangeTo);
-      component.HideInVendors = HideInVendors;
+      var component = new ItemDlcRestriction();
+      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
+      component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(changeTo);
+      component.HideInVendors = hideInVendors;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -423,18 +536,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemPolymorph"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_FlagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
-    /// <param name="m_PolymorphItems"><see cref="BlueprintItem"/></param>
+    /// <param name="flagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="polymorphItems"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemPolymorph))]
     public TBuilder AddItemPolymorph(
-        string m_FlagToCheck,
-        string[] m_PolymorphItems)
+        string flagToCheck = null,
+        string[] polymorphItems = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemPolymorph();
-      component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_FlagToCheck);
-      component.m_PolymorphItems = m_PolymorphItems.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToList();
+      var component = new ItemPolymorph();
+      component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
+      component.m_PolymorphItems = polymorphItems.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToList();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -444,11 +558,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(MoneyReplacement))]
     public TBuilder AddMoneyReplacement(
-        long Cost)
+        long cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MoneyReplacement();
-      component.Cost = Cost;
+      var component = new MoneyReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -457,9 +572,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(TwoWeaponCriticalAdditionalAttackEnchant))]
-    public TBuilder AddTwoWeaponCriticalAdditionalAttackEnchant()
+    public TBuilder AddTwoWeaponCriticalAdditionalAttackEnchant(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
+      var component = new TwoWeaponCriticalAdditionalAttackEnchant();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -467,9 +585,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(SuppressBane))]
-    public TBuilder AddSuppressBane()
+    public TBuilder AddSuppressBane(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SuppressBane());
+      var component = new SuppressBane();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -478,14 +599,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalConfirmationBonus))]
     public TBuilder AddWeaponCriticalConfirmationBonus(
-        ContextValue Value,
-        int AdditionalBonus)
+        ContextValue value,
+        int additionalBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      
-      var component =  new WeaponCriticalConfirmationBonus();
-      component.Value = Value;
-      component.AdditionalBonus = AdditionalBonus;
+      ValidateParam(value);
+    
+      var component = new WeaponCriticalConfirmationBonus();
+      component.Value = value;
+      component.AdditionalBonus = additionalBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -494,9 +617,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeIncrease))]
-    public TBuilder AddWeaponCriticalEdgeIncrease()
+    public TBuilder AddWeaponCriticalEdgeIncrease(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponCriticalEdgeIncrease());
+      var component = new WeaponCriticalEdgeIncrease();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -505,11 +631,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeStackable))]
     public TBuilder AddWeaponCriticalEdgeStackable(
-        int Bonus)
+        int bonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalEdgeStackable();
-      component.Bonus = Bonus;
+      var component = new WeaponCriticalEdgeStackable();
+      component.Bonus = bonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -519,11 +646,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalMultiplierIncrease))]
     public TBuilder AddWeaponCriticalMultiplierIncrease(
-        int AdditionalMultiplier)
+        int additionalMultiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalMultiplierIncrease();
-      component.AdditionalMultiplier = AdditionalMultiplier;
+      var component = new WeaponCriticalMultiplierIncrease();
+      component.AdditionalMultiplier = additionalMultiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -533,14 +661,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageMultiplierStatReplacement))]
     public TBuilder AddWeaponDamageMultiplierStatReplacement(
-        StatType Stat,
-        float Multiplier)
+        StatType stat = default,
+        float multiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageMultiplierStatReplacement();
-      component.Stat = Stat;
-      component.Multiplier = Multiplier;
+      var component = new WeaponDamageMultiplierStatReplacement();
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -550,14 +678,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageStatReplacement))]
     public TBuilder AddWeaponDamageStatReplacement(
-        StatType Stat,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageStatReplacement();
-      component.Stat = Stat;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new WeaponDamageStatReplacement();
+      component.Stat = stat;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -566,29 +694,32 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponOversized))]
-    public TBuilder AddWeaponOversized()
+    public TBuilder AddWeaponOversized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponOversized());
+      var component = new WeaponOversized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ACBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ACBonusAgainstFactOwnerEquipment))]
     public TBuilder AddACBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+        string checkedFact = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new ACBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(m_CheckedFact);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new ACBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -596,20 +727,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddCasterLevelEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="spell"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddCasterLevelEquipment))]
-    public TBuilder AddAddCasterLevelEquipment(
-        string m_Spell,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+    public TBuilder AddCasterLevelEquipment(
+        string spell = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AddCasterLevelEquipment();
-      component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new AddCasterLevelEquipment();
+      component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -618,13 +749,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddConditionImmunityEquipment))]
-    public TBuilder AddAddConditionImmunityEquipment(
-        UnitCondition Condition)
+    public TBuilder AddConditionImmunityEquipment(
+        UnitCondition condition = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new AddConditionImmunityEquipment();
-      component.Condition = Condition;
+      var component = new AddConditionImmunityEquipment();
+      component.Condition = condition;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -632,15 +763,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddSavesFixerArmorRecalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddSavesFixerArmorRecalculator))]
-    public TBuilder AddAddSavesFixerArmorRecalculator(
-        string m_Feature)
+    public TBuilder AddSavesFixerArmorRecalculator(
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSavesFixerArmorRecalculator();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      var component = new AddSavesFixerArmorRecalculator();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -648,17 +780,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddSpellbookEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookEquipment))]
-    public TBuilder AddAddSpellbookEquipment(
-        string m_Spellbook,
-        int CasterLevel)
+    public TBuilder AddSpellbookEquipment(
+        string spellbook = null,
+        int casterLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSpellbookEquipment();
-      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
-      component.CasterLevel = CasterLevel;
+      var component = new AddSpellbookEquipment();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
+      component.CasterLevel = casterLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -667,18 +800,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddStatBonusEquipment))]
-    public TBuilder AddAddStatBonusEquipment(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value)
+    public TBuilder AddStatBonusEquipment(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddStatBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
+      var component = new AddStatBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -686,23 +818,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddStatBonusEquipmentUnlessEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedEnchantment"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="checkedEnchantment"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(AddStatBonusEquipmentUnlessEnchant))]
-    public TBuilder AddAddStatBonusEquipmentUnlessEnchant(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value,
-        string m_CheckedEnchantment)
+    public TBuilder AddStatBonusEquipmentUnlessEnchant(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        string checkedEnchantment = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddStatBonusEquipmentUnlessEnchant();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
-      component.m_CheckedEnchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(m_CheckedEnchantment);
+      var component = new AddStatBonusEquipmentUnlessEnchant();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_CheckedEnchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(checkedEnchantment);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -710,15 +841,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddUnitFactEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Blueprint"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="blueprint"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddUnitFactEquipment))]
-    public TBuilder AddAddUnitFactEquipment(
-        string m_Blueprint)
+    public TBuilder AddUnitFactEquipment(
+        string blueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddUnitFactEquipment();
-      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Blueprint);
+      var component = new AddUnitFactEquipment();
+      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(blueprint);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -726,15 +858,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddUnitFeatureEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddUnitFeatureEquipment))]
-    public TBuilder AddAddUnitFeatureEquipment(
-        string m_Feature)
+    public TBuilder AddUnitFeatureEquipment(
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddUnitFeatureEquipment();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      var component = new AddUnitFeatureEquipment();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -744,14 +877,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AllSavesBonusEquipment))]
     public TBuilder AddAllSavesBonusEquipment(
-        ModifierDescriptor Descriptor,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AllSavesBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Value = Value;
+      var component = new AllSavesBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -759,20 +892,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AttackBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AttackBonusAgainstFactOwnerEquipment))]
     public TBuilder AddAttackBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        string checkedFact = null,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AttackBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(m_CheckedFact);
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new AttackBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -780,17 +913,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="DamageBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(DamageBonusAgainstFactOwnerEquipment))]
     public TBuilder AddDamageBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int DamageBonus)
+        string checkedFact = null,
+        int damageBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DamageBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
-      component.DamageBonus = DamageBonus;
+      var component = new DamageBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
+      component.DamageBonus = damageBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -800,15 +934,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
-        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] Buffs)
+        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Buffs)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EnchantmentAddBuffWhileInStealth();
-      component.Buffs = Buffs;
+      ValidateParam(buffs);
+    
+      var component = new EnchantmentAddBuffWhileInStealth();
+      component.Buffs = buffs;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -818,19 +951,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeDamageStatReplacement))]
     public TBuilder AddEquipmentWeaponTypeDamageStatReplacement(
-        StatType Stat,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeDamageStatReplacement();
-      component.Stat = Stat;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new EquipmentWeaponTypeDamageStatReplacement();
+      component.Stat = stat;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -840,16 +972,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeEnhancement))]
     public TBuilder AddEquipmentWeaponTypeEnhancement(
-        int Enhancement,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category)
+        int enhancement = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeEnhancement();
-      component.Enhancement = Enhancement;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
+      var component = new EquipmentWeaponTypeEnhancement();
+      component.Enhancement = enhancement;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -857,17 +989,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="IgnoreConcealmentAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(IgnoreConcealmentAgainstFactOwner))]
     public TBuilder AddIgnoreConcealmentAgainstFactOwner(
-        string[] m_Facts,
-        bool Not)
+        string[] facts = null,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IgnoreConcealmentAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.Not = Not;
+      var component = new IgnoreConcealmentAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -877,12 +1010,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
-        IgnoreResistanceForDamageFromEnchantment.IgnoreType m_Type)
+        IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      
-      var component =  new IgnoreResistanceForDamageFromEnchantment();
-      component.m_Type = m_Type;
+      var component = new IgnoreResistanceForDamageFromEnchantment();
+      component.m_Type = type;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -891,24 +1024,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(IgnoreTargetDREnchantment))]
-    public TBuilder AddIgnoreTargetDREnchantment()
+    public TBuilder AddIgnoreTargetDREnchantment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IgnoreTargetDREnchantment());
+      var component = new IgnoreTargetDREnchantment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ImproveEnhancmentIfHasEnchantment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Enchantments"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(ImproveEnhancmentIfHasEnchantment))]
     public TBuilder AddImproveEnhancmentIfHasEnchantment(
-        string[] m_Enchantments)
+        string[] enchantments = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ImproveEnhancmentIfHasEnchantment();
-      component.m_Enchantments = m_Enchantments.Select(bp => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(bp)).ToArray();
+      var component = new ImproveEnhancmentIfHasEnchantment();
+      component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -918,11 +1055,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseMaxStatEnchantment))]
     public TBuilder AddIncreaseMaxStatEnchantment(
-        int Value)
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IncreaseMaxStatEnchantment();
-      component.Value = Value;
+      var component = new IncreaseMaxStatEnchantment();
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -932,17 +1070,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseStatEquipment))]
     public TBuilder AddIncreaseStatEquipment(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new IncreaseStatEquipment();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
+      var component = new IncreaseStatEquipment();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -951,9 +1088,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(MithralEnchantment))]
-    public TBuilder AddMithralEnchantment()
+    public TBuilder AddMithralEnchantment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new MithralEnchantment());
+      var component = new MithralEnchantment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -962,24 +1102,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ModifyWeaponStatsConditional))]
     public TBuilder AddModifyWeaponStatsConditional(
-        ModifyWeaponStatsConditional.ModificationType m_Type,
-        DamageAlignment Alignment,
-        ContextValue BonusDamage,
-        AlignmentComponent WielderAlignmentRestriction,
-        AlignmentComponent TargetAlignmentRestriction)
+        ContextValue bonusDamage,
+        ModifyWeaponStatsConditional.ModificationType type = default,
+        DamageAlignment alignment = default,
+        AlignmentComponent wielderAlignmentRestriction = default,
+        AlignmentComponent targetAlignmentRestriction = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      ValidateParam(Alignment);
-      ValidateParam(BonusDamage);
-      ValidateParam(WielderAlignmentRestriction);
-      ValidateParam(TargetAlignmentRestriction);
-      
-      var component =  new ModifyWeaponStatsConditional();
-      component.m_Type = m_Type;
-      component.Alignment = Alignment;
-      component.BonusDamage = BonusDamage;
-      component.WielderAlignmentRestriction = WielderAlignmentRestriction;
-      component.TargetAlignmentRestriction = TargetAlignmentRestriction;
+      ValidateParam(bonusDamage);
+    
+      var component = new ModifyWeaponStatsConditional();
+      component.m_Type = type;
+      component.Alignment = alignment;
+      component.BonusDamage = bonusDamage;
+      component.WielderAlignmentRestriction = wielderAlignmentRestriction;
+      component.TargetAlignmentRestriction = targetAlignmentRestriction;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -989,12 +1127,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(NaturalDamageStatReplacement))]
     public TBuilder AddNaturalDamageStatReplacement(
-        StatType Stat)
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new NaturalDamageStatReplacement();
-      component.Stat = Stat;
+      var component = new NaturalDamageStatReplacement();
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1004,17 +1142,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponGroupAttackBonusEquipment))]
     public TBuilder AddWeaponGroupAttackBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponGroupAttackBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponGroupAttackBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1024,14 +1161,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponGroupDamageBonusEquipment))]
     public TBuilder AddWeaponGroupDamageBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      
-      var component =  new WeaponGroupDamageBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
+      var component = new WeaponGroupDamageBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1041,17 +1178,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponRangeTypeAttackBonusEquipment))]
     public TBuilder AddWeaponRangeTypeAttackBonusEquipment(
-        WeaponRangeType RangeType,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponRangeType rangeType = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(RangeType);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponRangeTypeAttackBonusEquipment();
-      component.RangeType = RangeType;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponRangeTypeAttackBonusEquipment();
+      component.RangeType = rangeType;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1059,15 +1195,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="PreventAbilityInterruption"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Abilities"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="abilities"><see cref="BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(PreventAbilityInterruption))]
     public TBuilder AddPreventAbilityInterruption(
-        string[] m_Abilities)
+        string[] abilities = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PreventAbilityInterruption();
-      component.m_Abilities = m_Abilities.Select(bp => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(bp)).ToList();
+      var component = new PreventAbilityInterruption();
+      component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToList();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1077,15 +1214,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AdvanceArmorStats))]
     public TBuilder AddAdvanceArmorStats(
-        int MaxDexBonusShift,
-        int ArmorCheckPenaltyShift,
-        int ArcaneSpellFailureShift)
+        int maxDexBonusShift = default,
+        int armorCheckPenaltyShift = default,
+        int arcaneSpellFailureShift = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AdvanceArmorStats();
-      component.MaxDexBonusShift = MaxDexBonusShift;
-      component.ArmorCheckPenaltyShift = ArmorCheckPenaltyShift;
-      component.ArcaneSpellFailureShift = ArcaneSpellFailureShift;
+      var component = new AdvanceArmorStats();
+      component.MaxDexBonusShift = maxDexBonusShift;
+      component.ArmorCheckPenaltyShift = armorCheckPenaltyShift;
+      component.ArcaneSpellFailureShift = arcaneSpellFailureShift;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1094,26 +1232,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(BrilliantEnergy))]
-    public TBuilder AddBrilliantEnergy()
+    public TBuilder AddBrilliantEnergy(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new BrilliantEnergy());
+      var component = new BrilliantEnergy();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="IncreaseWeaponDamageByBuffStack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(IncreaseWeaponDamageByBuffStack))]
     public TBuilder AddIncreaseWeaponDamageByBuffStack(
-        int BonusPerStack,
-        string m_CheckedBuff)
+        int bonusPerStack = default,
+        string checkedBuff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IncreaseWeaponDamageByBuffStack();
-      component.BonusPerStack = BonusPerStack;
-      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_CheckedBuff);
+      var component = new IncreaseWeaponDamageByBuffStack();
+      component.BonusPerStack = bonusPerStack;
+      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1123,20 +1265,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
     public TBuilder AddIncreaseWeaponEnhancementBonusOnTargetFocus(
-        ContextValue BonusIncrementValue,
-        ContextValue MaximumTotalEnhancementBonus,
-        int m_CurrentEnhancementBonus,
-        UnitReference m_FocusingTarget)
+        ContextValue bonusIncrementValue,
+        ContextValue maximumTotalEnhancementBonus,
+        UnitReference focusingTarget,
+        int currentEnhancementBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(BonusIncrementValue);
-      ValidateParam(MaximumTotalEnhancementBonus);
-      ValidateParam(m_FocusingTarget);
-      
-      var component =  new IncreaseWeaponEnhancementBonusOnTargetFocus();
-      component.BonusIncrementValue = BonusIncrementValue;
-      component.MaximumTotalEnhancementBonus = MaximumTotalEnhancementBonus;
-      component.m_CurrentEnhancementBonus = m_CurrentEnhancementBonus;
-      component.m_FocusingTarget = m_FocusingTarget;
+      ValidateParam(bonusIncrementValue);
+      ValidateParam(maximumTotalEnhancementBonus);
+    
+      var component = new IncreaseWeaponEnhancementBonusOnTargetFocus();
+      component.BonusIncrementValue = bonusIncrementValue;
+      component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus;
+      component.m_CurrentEnhancementBonus = currentEnhancementBonus;
+      component.m_FocusingTarget = focusingTarget;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1144,15 +1287,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="MissAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(MissAgainstFactOwner))]
     public TBuilder AddMissAgainstFactOwner(
-        string[] m_Facts)
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MissAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new MissAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1162,12 +1306,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponAlignment))]
     public TBuilder AddWeaponAlignment(
-        DamageAlignment Alignment)
+        DamageAlignment alignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Alignment);
-      
-      var component =  new WeaponAlignment();
-      component.Alignment = Alignment;
+      var component = new WeaponAlignment();
+      component.Alignment = alignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1175,21 +1319,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponAngelDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_MaximizeFeature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="maximizeFeature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponAngelDamageDice))]
     public TBuilder AddWeaponAngelDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element,
-        string m_MaximizeFeature)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        string maximizeFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponAngelDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
-      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_MaximizeFeature);
+      var component = new WeaponAngelDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(maximizeFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1197,21 +1340,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponBuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnAttack))]
     public TBuilder AddWeaponBuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1219,23 +1363,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponBuffOnConfirmedCrit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnConfirmedCrit))]
     public TBuilder AddWeaponBuffOnConfirmedCrit(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx,
-        bool OnlyNatural20)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        bool onlyNatural20 = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnConfirmedCrit();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
-      component.OnlyNatural20 = OnlyNatural20;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnConfirmedCrit();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.OnlyNatural20 = onlyNatural20;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1245,18 +1390,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponConditionalDamageDice))]
     public TBuilder AddWeaponConditionalDamageDice(
-        DamageDescription Damage,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        DamageDescription damage,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Damage);
-      
-      var component =  new WeaponConditionalDamageDice();
-      component.Damage = Damage;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      ValidateParam(damage);
+    
+      var component = new WeaponConditionalDamageDice();
+      component.Damage = damage;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1266,17 +1413,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponConditionalEnhancementBonus))]
     public TBuilder AddWeaponConditionalEnhancementBonus(
-        int EnhancementBonus,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        int enhancementBonus = default,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponConditionalEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      var component = new WeaponConditionalEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1286,12 +1434,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstAlignment))]
     public TBuilder AddWeaponCritAutoconfirmAgainstAlignment(
-        AlignmentComponent EnemyAlignment)
+        AlignmentComponent enemyAlignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      
-      var component =  new WeaponCritAutoconfirmAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
+      var component = new WeaponCritAutoconfirmAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1301,12 +1449,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstSize))]
     public TBuilder AddWeaponCritAutoconfirmAgainstSize(
-        Size Size)
+        Size size = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Size);
-      
-      var component =  new WeaponCritAutoconfirmAgainstSize();
-      component.Size = Size;
+      var component = new WeaponCritAutoconfirmAgainstSize();
+      component.Size = size;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1316,21 +1464,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageAgainstAlignment))]
     public TBuilder AddWeaponDamageAgainstAlignment(
-        AlignmentComponent EnemyAlignment,
-        DamageAlignment WeaponAlignment,
-        ContextDiceValue Value,
-        DamageEnergyType DamageType)
+        ContextDiceValue value,
+        AlignmentComponent enemyAlignment = default,
+        DamageAlignment weaponAlignment = default,
+        DamageEnergyType damageType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      ValidateParam(WeaponAlignment);
-      ValidateParam(Value);
-      ValidateParam(DamageType);
-      
-      var component =  new WeaponDamageAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
-      component.WeaponAlignment = WeaponAlignment;
-      component.Value = Value;
-      component.DamageType = DamageType;
+      ValidateParam(value);
+    
+      var component = new WeaponDamageAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.WeaponAlignment = weaponAlignment;
+      component.Value = value;
+      component.DamageType = damageType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1338,26 +1485,26 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponDebuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponDebuffOnAttack))]
     public TBuilder AddWeaponDebuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        SavingThrowType SaveType,
-        int DC,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        SavingThrowType saveType = default,
+        int dC = default,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(SaveType);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponDebuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.SaveType = SaveType;
-      component.DC = DC;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponDebuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.SaveType = saveType;
+      component.DC = dC;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1367,15 +1514,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnergyBurst))]
     public TBuilder AddWeaponEnergyBurst(
-        DamageEnergyType Element,
-        DiceType Dice)
+        DamageEnergyType element = default,
+        DiceType dice = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Element);
-      ValidateParam(Dice);
-      
-      var component =  new WeaponEnergyBurst();
-      component.Element = Element;
-      component.Dice = Dice;
+      var component = new WeaponEnergyBurst();
+      component.Element = element;
+      component.Dice = dice;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1385,15 +1531,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnergyDamageDice))]
     public TBuilder AddWeaponEnergyDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponEnergyDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
+      var component = new WeaponEnergyDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1403,13 +1548,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnhancementBonus))]
     public TBuilder AddWeaponEnhancementBonus(
-        int EnhancementBonus,
-        bool Stack)
+        int enhancementBonus = default,
+        bool stack = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.Stack = Stack;
+      var component = new WeaponEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.Stack = stack;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1419,13 +1565,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponExtraAttack))]
     public TBuilder AddWeaponExtraAttack(
-        int Number,
-        bool Haste)
+        int number = default,
+        bool haste = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponExtraAttack();
-      component.Number = Number;
-      component.Haste = Haste;
+      var component = new WeaponExtraAttack();
+      component.Number = number;
+      component.Haste = haste;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1434,9 +1581,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponImprovised))]
-    public TBuilder AddWeaponImprovised()
+    public TBuilder AddWeaponImprovised(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponImprovised());
+      var component = new WeaponImprovised();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1444,9 +1594,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMagic))]
-    public TBuilder AddWeaponMagic()
+    public TBuilder AddWeaponMagic(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMagic());
+      var component = new WeaponMagic();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1454,9 +1607,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMasterwork))]
-    public TBuilder AddWeaponMasterwork()
+    public TBuilder AddWeaponMasterwork(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMasterwork());
+      var component = new WeaponMasterwork();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1465,12 +1621,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponMaterial))]
     public TBuilder AddWeaponMaterial(
-        PhysicalDamageMaterial Material)
+        PhysicalDamageMaterial material = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Material);
-      
-      var component =  new WeaponMaterial();
-      component.Material = Material;
+      var component = new WeaponMaterial();
+      component.Material = material;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1480,12 +1636,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponReality))]
     public TBuilder AddWeaponReality(
-        DamageRealityType Reality)
+        DamageRealityType reality = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Reality);
-      
-      var component =  new WeaponReality();
-      component.Reality = Reality;
+      var component = new WeaponReality();
+      component.Reality = reality;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1493,30 +1649,32 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponTypeAttackEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(WeaponTypeAttackEnchant))]
     public TBuilder AddWeaponTypeAttackEnchant(
-        string m_Type,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+        string type = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponTypeAttackEnchant();
-      component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_Type);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponTypeAttackEnchant();
+      component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintItem"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItem"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItem))]
   public class ItemConfigurator : BaseFactConfigurator<BlueprintItem, ItemConfigurator>
   {
-     private ItemConfigurator(string name) : base(name) { }
+    private ItemConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemConfigurator For(string name)
@@ -1532,7 +1690,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemConfigurator New(string name, string assetId)
+    public static ItemConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItem>(name, assetId);
       return For(name);
@@ -1542,207 +1700,304 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetDisplayNameText(LocalizedString value)
+    public ItemConfigurator SetDisplayNameText(LocalizedString displayNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DisplayNameText = value);
+      ValidateParam(displayNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DisplayNameText = displayNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetDescriptionText(LocalizedString value)
+    public ItemConfigurator SetDescriptionText(LocalizedString descriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DescriptionText = value);
+      ValidateParam(descriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DescriptionText = descriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetFlavorText(LocalizedString value)
+    public ItemConfigurator SetFlavorText(LocalizedString flavorText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_FlavorText = value);
+      ValidateParam(flavorText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FlavorText = flavorText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetNonIdentifiedNameText(LocalizedString value)
+    public ItemConfigurator SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_NonIdentifiedNameText = value);
+      ValidateParam(nonIdentifiedNameText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NonIdentifiedNameText = nonIdentifiedNameText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString value)
+    public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_NonIdentifiedDescriptionText = value);
+      ValidateParam(nonIdentifiedDescriptionText);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetIcon(Sprite value)
+    public ItemConfigurator SetIcon(Sprite icon)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Icon = value);
+      ValidateParam(icon);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Icon = icon;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetCost(int value)
+    public ItemConfigurator SetCost(int cost)
     {
-      return OnConfigureInternal(bp => bp.m_Cost = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Cost = cost;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetWeight(float value)
+    public ItemConfigurator SetWeight(float weight)
     {
-      return OnConfigureInternal(bp => bp.m_Weight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Weight = weight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetIsNotable(bool value)
+    public ItemConfigurator SetIsNotable(bool isNotable)
     {
-      return OnConfigureInternal(bp => bp.m_IsNotable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsNotable = isNotable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetForceStackable(bool value)
+    public ItemConfigurator SetForceStackable(bool forceStackable)
     {
-      return OnConfigureInternal(bp => bp.m_ForceStackable = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ForceStackable = forceStackable;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetDestructible(bool value)
+    public ItemConfigurator SetDestructible(bool destructible)
     {
-      return OnConfigureInternal(bp => bp.m_Destructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Destructible = destructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
     [Generated]
-    public ItemConfigurator SetShardItem(string value)
+    public ItemConfigurator SetShardItem(string shardItem)
     {
-      return OnConfigureInternal(bp => bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(shardItem);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetMiscellaneousType(BlueprintItem.MiscellaneousItemType value)
+    public ItemConfigurator SetMiscellaneousType(BlueprintItem.MiscellaneousItemType miscellaneousType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_MiscellaneousType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_MiscellaneousType = miscellaneousType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetInventoryPutSound(string value)
+    public ItemConfigurator SetInventoryPutSound(string inventoryPutSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryPutSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryPutSound = inventoryPutSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetInventoryTakeSound(string value)
+    public ItemConfigurator SetInventoryTakeSound(string inventoryTakeSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryTakeSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryTakeSound = inventoryTakeSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetNeedSkinningForCollect(bool value)
+    public ItemConfigurator SetNeedSkinningForCollect(bool needSkinningForCollect)
     {
-      return OnConfigureInternal(bp => bp.NeedSkinningForCollect = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NeedSkinningForCollect = needSkinningForCollect;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator AddToTrashLootTypes(params TrashLootType[] values)
+    public ItemConfigurator SetTrashLootTypes(TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = trashLootTypes;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator RemoveFromTrashLootTypes(params TrashLootType[] values)
+    public ItemConfigurator AddToTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, trashLootTypes ?? new TrashLootType[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator AddToCachedEnchantments(params BlueprintItemEnchantment[] values)
+    public ItemConfigurator RemoveFromTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedEnchantments.AddRange(values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.TrashLootTypes = bp.TrashLootTypes.Where(item => !trashLootTypes.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] values)
+    public ItemConfigurator SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(cachedEnchantments);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments = cachedEnchantments;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      ValidateParam(cachedEnchantments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments.AddRange(cachedEnchantments.ToList() ?? new List<BlueprintItemEnchantment>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      ValidateParam(cachedEnchantments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(item => !cachedEnchantments.Contains(item)).ToList();
+          });
     }
 
     /// <summary>
@@ -1751,11 +2006,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ArmorEnhancementBonus))]
     public ItemConfigurator AddArmorEnhancementBonus(
-        int EnhancementValue)
+        int enhancementValue = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ArmorEnhancementBonus();
-      component.EnhancementValue = EnhancementValue;
+      var component = new ArmorEnhancementBonus();
+      component.EnhancementValue = enhancementValue;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1763,15 +2019,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public ItemConfigurator AddItemEnchantmentEnableWhileEtudePlaying(
-        string m_Etude)
+        string etude = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemEnchantmentEnableWhileEtudePlaying();
-      component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(m_Etude);
+      var component = new ItemEnchantmentEnableWhileEtudePlaying();
+      component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1780,9 +2037,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponDamageReroll))]
-    public ItemConfigurator AddWeaponDamageReroll()
+    public ItemConfigurator AddWeaponDamageReroll(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponDamageReroll());
+      var component = new WeaponDamageReroll();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1790,14 +2050,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddItemShowInfoCallback))]
-    public ItemConfigurator AddAddItemShowInfoCallback(
-        bool Once,
-        ActionsBuilder Action)
+    public ItemConfigurator AddItemShowInfoCallback(
+        ActionList action,
+        bool once = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddItemShowInfoCallback();
-      component.Once = Once;
-      component.Action = Action.Build();
+      ValidateParam(action);
+    
+      var component = new AddItemShowInfoCallback();
+      component.Once = once;
+      component.Action = action;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1807,11 +2070,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(BuildPointsReplacement))]
     public ItemConfigurator AddBuildPointsReplacement(
-        int Cost)
+        int cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new BuildPointsReplacement();
-      component.Cost = Cost;
+      var component = new BuildPointsReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1821,11 +2085,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ConsumableEventBonusReplacement))]
     public ItemConfigurator AddConsumableEventBonusReplacement(
-        int Cost)
+        int cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ConsumableEventBonusReplacement();
-      component.Cost = Cost;
+      var component = new ConsumableEventBonusReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1833,15 +2098,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyRecipe"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Recipe"><see cref="BlueprintCookingRecipe"/></param>
+    /// <param name="recipe"><see cref="BlueprintCookingRecipe"/></param>
     [Generated]
     [Implements(typeof(CopyRecipe))]
     public ItemConfigurator AddCopyRecipe(
-        string m_Recipe)
+        string recipe = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CopyRecipe();
-      component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(m_Recipe);
+      var component = new CopyRecipe();
+      component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1849,15 +2115,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyScroll"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CustomSpell"><see cref="BlueprintAbility"/></param>
+    /// <param name="customSpell"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CopyScroll))]
     public ItemConfigurator AddCopyScroll(
-        string m_CustomSpell)
+        string customSpell = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new CopyScroll();
-      component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_CustomSpell);
+      var component = new CopyScroll();
+      component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1867,12 +2134,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IdentifySkillReplacement))]
     public ItemConfigurator AddIdentifySkillReplacement(
-        IdentifySkillReplacement.SkillType m_SkillType)
+        IdentifySkillReplacement.SkillType skillType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_SkillType);
-      
-      var component =  new IdentifySkillReplacement();
-      component.m_SkillType = m_SkillType;
+      var component = new IdentifySkillReplacement();
+      component.m_SkillType = skillType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1880,20 +2147,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DialogReference"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialogReference"><see cref="BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(ItemDialog))]
     public ItemConfigurator AddItemDialog(
-        ConditionsBuilder m_Conditions,
-        LocalizedString m_ItemName,
-        string m_DialogReference)
+        ConditionsBuilder conditions = null,
+        LocalizedString itemName = null,
+        string dialogReference = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_ItemName);
-      
-      var component =  new ItemDialog();
-      component.m_Conditions = m_Conditions.Build();
-      component.m_ItemName = m_ItemName;
-      component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(m_DialogReference);
+      ValidateParam(itemName);
+    
+      var component = new ItemDialog();
+      component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_ItemName = itemName ?? Constants.Empty.String;
+      component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(dialogReference);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1901,20 +2170,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDlcRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_DlcReward"><see cref="BlueprintDlcReward"/></param>
-    /// <param name="m_ChangeTo"><see cref="BlueprintItem"/></param>
+    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="changeTo"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemDlcRestriction))]
     public ItemConfigurator AddItemDlcRestriction(
-        string m_DlcReward,
-        string m_ChangeTo,
-        bool HideInVendors)
+        string dlcReward = null,
+        string changeTo = null,
+        bool hideInVendors = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemDlcRestriction();
-      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(m_DlcReward);
-      component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(m_ChangeTo);
-      component.HideInVendors = HideInVendors;
+      var component = new ItemDlcRestriction();
+      component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
+      component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(changeTo);
+      component.HideInVendors = hideInVendors;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1922,18 +2192,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemPolymorph"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_FlagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
-    /// <param name="m_PolymorphItems"><see cref="BlueprintItem"/></param>
+    /// <param name="flagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="polymorphItems"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemPolymorph))]
     public ItemConfigurator AddItemPolymorph(
-        string m_FlagToCheck,
-        string[] m_PolymorphItems)
+        string flagToCheck = null,
+        string[] polymorphItems = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ItemPolymorph();
-      component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_FlagToCheck);
-      component.m_PolymorphItems = m_PolymorphItems.Select(bp => BlueprintTool.GetRef<BlueprintItemReference>(bp)).ToList();
+      var component = new ItemPolymorph();
+      component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
+      component.m_PolymorphItems = polymorphItems.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToList();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1943,11 +2214,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(MoneyReplacement))]
     public ItemConfigurator AddMoneyReplacement(
-        long Cost)
+        long cost = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MoneyReplacement();
-      component.Cost = Cost;
+      var component = new MoneyReplacement();
+      component.Cost = cost;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1956,9 +2228,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(TwoWeaponCriticalAdditionalAttackEnchant))]
-    public ItemConfigurator AddTwoWeaponCriticalAdditionalAttackEnchant()
+    public ItemConfigurator AddTwoWeaponCriticalAdditionalAttackEnchant(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
+      var component = new TwoWeaponCriticalAdditionalAttackEnchant();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1966,9 +2241,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(SuppressBane))]
-    public ItemConfigurator AddSuppressBane()
+    public ItemConfigurator AddSuppressBane(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SuppressBane());
+      var component = new SuppressBane();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1977,14 +2255,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalConfirmationBonus))]
     public ItemConfigurator AddWeaponCriticalConfirmationBonus(
-        ContextValue Value,
-        int AdditionalBonus)
+        ContextValue value,
+        int additionalBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Value);
-      
-      var component =  new WeaponCriticalConfirmationBonus();
-      component.Value = Value;
-      component.AdditionalBonus = AdditionalBonus;
+      ValidateParam(value);
+    
+      var component = new WeaponCriticalConfirmationBonus();
+      component.Value = value;
+      component.AdditionalBonus = additionalBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1993,9 +2273,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeIncrease))]
-    public ItemConfigurator AddWeaponCriticalEdgeIncrease()
+    public ItemConfigurator AddWeaponCriticalEdgeIncrease(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponCriticalEdgeIncrease());
+      var component = new WeaponCriticalEdgeIncrease();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2004,11 +2287,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalEdgeStackable))]
     public ItemConfigurator AddWeaponCriticalEdgeStackable(
-        int Bonus)
+        int bonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalEdgeStackable();
-      component.Bonus = Bonus;
+      var component = new WeaponCriticalEdgeStackable();
+      component.Bonus = bonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2018,11 +2302,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCriticalMultiplierIncrease))]
     public ItemConfigurator AddWeaponCriticalMultiplierIncrease(
-        int AdditionalMultiplier)
+        int additionalMultiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponCriticalMultiplierIncrease();
-      component.AdditionalMultiplier = AdditionalMultiplier;
+      var component = new WeaponCriticalMultiplierIncrease();
+      component.AdditionalMultiplier = additionalMultiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2032,14 +2317,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageMultiplierStatReplacement))]
     public ItemConfigurator AddWeaponDamageMultiplierStatReplacement(
-        StatType Stat,
-        float Multiplier)
+        StatType stat = default,
+        float multiplier = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageMultiplierStatReplacement();
-      component.Stat = Stat;
-      component.Multiplier = Multiplier;
+      var component = new WeaponDamageMultiplierStatReplacement();
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2049,14 +2334,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageStatReplacement))]
     public ItemConfigurator AddWeaponDamageStatReplacement(
-        StatType Stat,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new WeaponDamageStatReplacement();
-      component.Stat = Stat;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new WeaponDamageStatReplacement();
+      component.Stat = stat;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2065,29 +2350,32 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponOversized))]
-    public ItemConfigurator AddWeaponOversized()
+    public ItemConfigurator AddWeaponOversized(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponOversized());
+      var component = new WeaponOversized();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ACBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ACBonusAgainstFactOwnerEquipment))]
     public ItemConfigurator AddACBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+        string checkedFact = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new ACBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(m_CheckedFact);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new ACBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2095,20 +2383,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddCasterLevelEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="spell"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddCasterLevelEquipment))]
-    public ItemConfigurator AddAddCasterLevelEquipment(
-        string m_Spell,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+    public ItemConfigurator AddCasterLevelEquipment(
+        string spell = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AddCasterLevelEquipment();
-      component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Spell);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new AddCasterLevelEquipment();
+      component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2117,13 +2405,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddConditionImmunityEquipment))]
-    public ItemConfigurator AddAddConditionImmunityEquipment(
-        UnitCondition Condition)
+    public ItemConfigurator AddConditionImmunityEquipment(
+        UnitCondition condition = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new AddConditionImmunityEquipment();
-      component.Condition = Condition;
+      var component = new AddConditionImmunityEquipment();
+      component.Condition = condition;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2131,15 +2419,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddSavesFixerArmorRecalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddSavesFixerArmorRecalculator))]
-    public ItemConfigurator AddAddSavesFixerArmorRecalculator(
-        string m_Feature)
+    public ItemConfigurator AddSavesFixerArmorRecalculator(
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSavesFixerArmorRecalculator();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      var component = new AddSavesFixerArmorRecalculator();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2147,17 +2436,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddSpellbookEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookEquipment))]
-    public ItemConfigurator AddAddSpellbookEquipment(
-        string m_Spellbook,
-        int CasterLevel)
+    public ItemConfigurator AddSpellbookEquipment(
+        string spellbook = null,
+        int casterLevel = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddSpellbookEquipment();
-      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(m_Spellbook);
-      component.CasterLevel = CasterLevel;
+      var component = new AddSpellbookEquipment();
+      component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
+      component.CasterLevel = casterLevel;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2166,18 +2456,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(AddStatBonusEquipment))]
-    public ItemConfigurator AddAddStatBonusEquipment(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value)
+    public ItemConfigurator AddStatBonusEquipment(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddStatBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
+      var component = new AddStatBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2185,23 +2474,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddStatBonusEquipmentUnlessEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedEnchantment"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="checkedEnchantment"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(AddStatBonusEquipmentUnlessEnchant))]
-    public ItemConfigurator AddAddStatBonusEquipmentUnlessEnchant(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value,
-        string m_CheckedEnchantment)
+    public ItemConfigurator AddStatBonusEquipmentUnlessEnchant(
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        string checkedEnchantment = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new AddStatBonusEquipmentUnlessEnchant();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
-      component.m_CheckedEnchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(m_CheckedEnchantment);
+      var component = new AddStatBonusEquipmentUnlessEnchant();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_CheckedEnchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(checkedEnchantment);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2209,15 +2497,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddUnitFactEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Blueprint"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="blueprint"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddUnitFactEquipment))]
-    public ItemConfigurator AddAddUnitFactEquipment(
-        string m_Blueprint)
+    public ItemConfigurator AddUnitFactEquipment(
+        string blueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddUnitFactEquipment();
-      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Blueprint);
+      var component = new AddUnitFactEquipment();
+      component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(blueprint);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2225,15 +2514,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AddUnitFeatureEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddUnitFeatureEquipment))]
-    public ItemConfigurator AddAddUnitFeatureEquipment(
-        string m_Feature)
+    public ItemConfigurator AddUnitFeatureEquipment(
+        string feature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AddUnitFeatureEquipment();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(m_Feature);
+      var component = new AddUnitFeatureEquipment();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2243,14 +2533,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AllSavesBonusEquipment))]
     public ItemConfigurator AddAllSavesBonusEquipment(
-        ModifierDescriptor Descriptor,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AllSavesBonusEquipment();
-      component.Descriptor = Descriptor;
-      component.Value = Value;
+      var component = new AllSavesBonusEquipment();
+      component.Descriptor = descriptor;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2258,20 +2548,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="AttackBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AttackBonusAgainstFactOwnerEquipment))]
     public ItemConfigurator AddAttackBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        string checkedFact = null,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new AttackBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(m_CheckedFact);
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new AttackBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2279,17 +2569,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="DamageBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(DamageBonusAgainstFactOwnerEquipment))]
     public ItemConfigurator AddDamageBonusAgainstFactOwnerEquipment(
-        string m_CheckedFact,
-        int DamageBonus)
+        string checkedFact = null,
+        int damageBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DamageBonusAgainstFactOwnerEquipment();
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
-      component.DamageBonus = DamageBonus;
+      var component = new DamageBonusAgainstFactOwnerEquipment();
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
+      component.DamageBonus = damageBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2299,15 +2590,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public ItemConfigurator AddEnchantmentAddBuffWhileInStealth(
-        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] Buffs)
+        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in Buffs)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new EnchantmentAddBuffWhileInStealth();
-      component.Buffs = Buffs;
+      ValidateParam(buffs);
+    
+      var component = new EnchantmentAddBuffWhileInStealth();
+      component.Buffs = buffs;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2317,19 +2607,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeDamageStatReplacement))]
     public ItemConfigurator AddEquipmentWeaponTypeDamageStatReplacement(
-        StatType Stat,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category,
-        bool RequiresFinesse)
+        StatType stat = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        bool requiresFinesse = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeDamageStatReplacement();
-      component.Stat = Stat;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
-      component.RequiresFinesse = RequiresFinesse;
+      var component = new EquipmentWeaponTypeDamageStatReplacement();
+      component.Stat = stat;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.RequiresFinesse = requiresFinesse;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2339,16 +2628,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EquipmentWeaponTypeEnhancement))]
     public ItemConfigurator AddEquipmentWeaponTypeEnhancement(
-        int Enhancement,
-        bool AllNaturalAndUnarmed,
-        WeaponCategory Category)
+        int enhancement = default,
+        bool allNaturalAndUnarmed = default,
+        WeaponCategory category = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Category);
-      
-      var component =  new EquipmentWeaponTypeEnhancement();
-      component.Enhancement = Enhancement;
-      component.AllNaturalAndUnarmed = AllNaturalAndUnarmed;
-      component.Category = Category;
+      var component = new EquipmentWeaponTypeEnhancement();
+      component.Enhancement = enhancement;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
+      component.Category = category;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2356,17 +2645,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="IgnoreConcealmentAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(IgnoreConcealmentAgainstFactOwner))]
     public ItemConfigurator AddIgnoreConcealmentAgainstFactOwner(
-        string[] m_Facts,
-        bool Not)
+        string[] facts = null,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IgnoreConcealmentAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
-      component.Not = Not;
+      var component = new IgnoreConcealmentAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2376,12 +2666,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
     public ItemConfigurator AddIgnoreResistanceForDamageFromEnchantment(
-        IgnoreResistanceForDamageFromEnchantment.IgnoreType m_Type)
+        IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      
-      var component =  new IgnoreResistanceForDamageFromEnchantment();
-      component.m_Type = m_Type;
+      var component = new IgnoreResistanceForDamageFromEnchantment();
+      component.m_Type = type;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2390,24 +2680,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(IgnoreTargetDREnchantment))]
-    public ItemConfigurator AddIgnoreTargetDREnchantment()
+    public ItemConfigurator AddIgnoreTargetDREnchantment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new IgnoreTargetDREnchantment());
+      var component = new IgnoreTargetDREnchantment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ImproveEnhancmentIfHasEnchantment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Enchantments"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(ImproveEnhancmentIfHasEnchantment))]
     public ItemConfigurator AddImproveEnhancmentIfHasEnchantment(
-        string[] m_Enchantments)
+        string[] enchantments = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ImproveEnhancmentIfHasEnchantment();
-      component.m_Enchantments = m_Enchantments.Select(bp => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(bp)).ToArray();
+      var component = new ImproveEnhancmentIfHasEnchantment();
+      component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2417,11 +2711,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseMaxStatEnchantment))]
     public ItemConfigurator AddIncreaseMaxStatEnchantment(
-        int Value)
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IncreaseMaxStatEnchantment();
-      component.Value = Value;
+      var component = new IncreaseMaxStatEnchantment();
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2431,17 +2726,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseStatEquipment))]
     public ItemConfigurator AddIncreaseStatEquipment(
-        ModifierDescriptor Descriptor,
-        StatType Stat,
-        int Value)
+        ModifierDescriptor descriptor = default,
+        StatType stat = default,
+        int value = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      ValidateParam(Stat);
-      
-      var component =  new IncreaseStatEquipment();
-      component.Descriptor = Descriptor;
-      component.Stat = Stat;
-      component.Value = Value;
+      var component = new IncreaseStatEquipment();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Value = value;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2450,9 +2744,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(MithralEnchantment))]
-    public ItemConfigurator AddMithralEnchantment()
+    public ItemConfigurator AddMithralEnchantment(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new MithralEnchantment());
+      var component = new MithralEnchantment();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2461,24 +2758,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(ModifyWeaponStatsConditional))]
     public ItemConfigurator AddModifyWeaponStatsConditional(
-        ModifyWeaponStatsConditional.ModificationType m_Type,
-        DamageAlignment Alignment,
-        ContextValue BonusDamage,
-        AlignmentComponent WielderAlignmentRestriction,
-        AlignmentComponent TargetAlignmentRestriction)
+        ContextValue bonusDamage,
+        ModifyWeaponStatsConditional.ModificationType type = default,
+        DamageAlignment alignment = default,
+        AlignmentComponent wielderAlignmentRestriction = default,
+        AlignmentComponent targetAlignmentRestriction = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Type);
-      ValidateParam(Alignment);
-      ValidateParam(BonusDamage);
-      ValidateParam(WielderAlignmentRestriction);
-      ValidateParam(TargetAlignmentRestriction);
-      
-      var component =  new ModifyWeaponStatsConditional();
-      component.m_Type = m_Type;
-      component.Alignment = Alignment;
-      component.BonusDamage = BonusDamage;
-      component.WielderAlignmentRestriction = WielderAlignmentRestriction;
-      component.TargetAlignmentRestriction = TargetAlignmentRestriction;
+      ValidateParam(bonusDamage);
+    
+      var component = new ModifyWeaponStatsConditional();
+      component.m_Type = type;
+      component.Alignment = alignment;
+      component.BonusDamage = bonusDamage;
+      component.WielderAlignmentRestriction = wielderAlignmentRestriction;
+      component.TargetAlignmentRestriction = targetAlignmentRestriction;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2488,12 +2783,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(NaturalDamageStatReplacement))]
     public ItemConfigurator AddNaturalDamageStatReplacement(
-        StatType Stat)
+        StatType stat = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Stat);
-      
-      var component =  new NaturalDamageStatReplacement();
-      component.Stat = Stat;
+      var component = new NaturalDamageStatReplacement();
+      component.Stat = stat;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2503,17 +2798,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponGroupAttackBonusEquipment))]
     public ItemConfigurator AddWeaponGroupAttackBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponGroupAttackBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponGroupAttackBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2523,14 +2817,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponGroupDamageBonusEquipment))]
     public ItemConfigurator AddWeaponGroupDamageBonusEquipment(
-        WeaponFighterGroup WeaponGroup,
-        int AttackBonus)
+        WeaponFighterGroup weaponGroup = default,
+        int attackBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(WeaponGroup);
-      
-      var component =  new WeaponGroupDamageBonusEquipment();
-      component.WeaponGroup = WeaponGroup;
-      component.AttackBonus = AttackBonus;
+      var component = new WeaponGroupDamageBonusEquipment();
+      component.WeaponGroup = weaponGroup;
+      component.AttackBonus = attackBonus;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2540,17 +2834,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponRangeTypeAttackBonusEquipment))]
     public ItemConfigurator AddWeaponRangeTypeAttackBonusEquipment(
-        WeaponRangeType RangeType,
-        int AttackBonus,
-        ModifierDescriptor Descriptor)
+        WeaponRangeType rangeType = default,
+        int attackBonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(RangeType);
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponRangeTypeAttackBonusEquipment();
-      component.RangeType = RangeType;
-      component.AttackBonus = AttackBonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponRangeTypeAttackBonusEquipment();
+      component.RangeType = rangeType;
+      component.AttackBonus = attackBonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2558,15 +2851,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="PreventAbilityInterruption"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Abilities"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="abilities"><see cref="BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(PreventAbilityInterruption))]
     public ItemConfigurator AddPreventAbilityInterruption(
-        string[] m_Abilities)
+        string[] abilities = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new PreventAbilityInterruption();
-      component.m_Abilities = m_Abilities.Select(bp => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(bp)).ToList();
+      var component = new PreventAbilityInterruption();
+      component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToList();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2576,15 +2870,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AdvanceArmorStats))]
     public ItemConfigurator AddAdvanceArmorStats(
-        int MaxDexBonusShift,
-        int ArmorCheckPenaltyShift,
-        int ArcaneSpellFailureShift)
+        int maxDexBonusShift = default,
+        int armorCheckPenaltyShift = default,
+        int arcaneSpellFailureShift = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new AdvanceArmorStats();
-      component.MaxDexBonusShift = MaxDexBonusShift;
-      component.ArmorCheckPenaltyShift = ArmorCheckPenaltyShift;
-      component.ArcaneSpellFailureShift = ArcaneSpellFailureShift;
+      var component = new AdvanceArmorStats();
+      component.MaxDexBonusShift = maxDexBonusShift;
+      component.ArmorCheckPenaltyShift = armorCheckPenaltyShift;
+      component.ArcaneSpellFailureShift = arcaneSpellFailureShift;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2593,26 +2888,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(BrilliantEnergy))]
-    public ItemConfigurator AddBrilliantEnergy()
+    public ItemConfigurator AddBrilliantEnergy(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new BrilliantEnergy());
+      var component = new BrilliantEnergy();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="IncreaseWeaponDamageByBuffStack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(IncreaseWeaponDamageByBuffStack))]
     public ItemConfigurator AddIncreaseWeaponDamageByBuffStack(
-        int BonusPerStack,
-        string m_CheckedBuff)
+        int bonusPerStack = default,
+        string checkedBuff = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new IncreaseWeaponDamageByBuffStack();
-      component.BonusPerStack = BonusPerStack;
-      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(m_CheckedBuff);
+      var component = new IncreaseWeaponDamageByBuffStack();
+      component.BonusPerStack = bonusPerStack;
+      component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2622,20 +2921,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
     public ItemConfigurator AddIncreaseWeaponEnhancementBonusOnTargetFocus(
-        ContextValue BonusIncrementValue,
-        ContextValue MaximumTotalEnhancementBonus,
-        int m_CurrentEnhancementBonus,
-        UnitReference m_FocusingTarget)
+        ContextValue bonusIncrementValue,
+        ContextValue maximumTotalEnhancementBonus,
+        UnitReference focusingTarget,
+        int currentEnhancementBonus = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(BonusIncrementValue);
-      ValidateParam(MaximumTotalEnhancementBonus);
-      ValidateParam(m_FocusingTarget);
-      
-      var component =  new IncreaseWeaponEnhancementBonusOnTargetFocus();
-      component.BonusIncrementValue = BonusIncrementValue;
-      component.MaximumTotalEnhancementBonus = MaximumTotalEnhancementBonus;
-      component.m_CurrentEnhancementBonus = m_CurrentEnhancementBonus;
-      component.m_FocusingTarget = m_FocusingTarget;
+      ValidateParam(bonusIncrementValue);
+      ValidateParam(maximumTotalEnhancementBonus);
+    
+      var component = new IncreaseWeaponEnhancementBonusOnTargetFocus();
+      component.BonusIncrementValue = bonusIncrementValue;
+      component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus;
+      component.m_CurrentEnhancementBonus = currentEnhancementBonus;
+      component.m_FocusingTarget = focusingTarget;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2643,15 +2943,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="MissAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(MissAgainstFactOwner))]
     public ItemConfigurator AddMissAgainstFactOwner(
-        string[] m_Facts)
+        string[] facts = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new MissAgainstFactOwner();
-      component.m_Facts = m_Facts.Select(bp => BlueprintTool.GetRef<BlueprintUnitFactReference>(bp)).ToArray();
+      var component = new MissAgainstFactOwner();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2661,12 +2962,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponAlignment))]
     public ItemConfigurator AddWeaponAlignment(
-        DamageAlignment Alignment)
+        DamageAlignment alignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Alignment);
-      
-      var component =  new WeaponAlignment();
-      component.Alignment = Alignment;
+      var component = new WeaponAlignment();
+      component.Alignment = alignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2674,21 +2975,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponAngelDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_MaximizeFeature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="maximizeFeature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponAngelDamageDice))]
     public ItemConfigurator AddWeaponAngelDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element,
-        string m_MaximizeFeature)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        string maximizeFeature = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponAngelDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
-      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_MaximizeFeature);
+      var component = new WeaponAngelDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(maximizeFeature);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2696,21 +2996,22 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponBuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnAttack))]
     public ItemConfigurator AddWeaponBuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2718,23 +3019,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponBuffOnConfirmedCrit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnConfirmedCrit))]
     public ItemConfigurator AddWeaponBuffOnConfirmedCrit(
-        string m_Buff,
-        Rounds Duration,
-        PrefabLink Fx,
-        bool OnlyNatural20)
+        Rounds duration,
+        string buff = null,
+        PrefabLink fx = null,
+        bool onlyNatural20 = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponBuffOnConfirmedCrit();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.Fx = Fx;
-      component.OnlyNatural20 = OnlyNatural20;
+      ValidateParam(fx);
+    
+      var component = new WeaponBuffOnConfirmedCrit();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.OnlyNatural20 = onlyNatural20;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2744,18 +3046,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponConditionalDamageDice))]
     public ItemConfigurator AddWeaponConditionalDamageDice(
-        DamageDescription Damage,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        DamageDescription damage,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Damage);
-      
-      var component =  new WeaponConditionalDamageDice();
-      component.Damage = Damage;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      ValidateParam(damage);
+    
+      var component = new WeaponConditionalDamageDice();
+      component.Damage = damage;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2765,17 +3069,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponConditionalEnhancementBonus))]
     public ItemConfigurator AddWeaponConditionalEnhancementBonus(
-        int EnhancementBonus,
-        bool CheckWielder,
-        bool IsBane,
-        ConditionsBuilder Conditions)
+        int enhancementBonus = default,
+        bool checkWielder = default,
+        bool isBane = default,
+        ConditionsBuilder conditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponConditionalEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.CheckWielder = CheckWielder;
-      component.IsBane = IsBane;
-      component.Conditions = Conditions.Build();
+      var component = new WeaponConditionalEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.CheckWielder = checkWielder;
+      component.IsBane = isBane;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2785,12 +3090,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstAlignment))]
     public ItemConfigurator AddWeaponCritAutoconfirmAgainstAlignment(
-        AlignmentComponent EnemyAlignment)
+        AlignmentComponent enemyAlignment = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      
-      var component =  new WeaponCritAutoconfirmAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
+      var component = new WeaponCritAutoconfirmAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2800,12 +3105,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponCritAutoconfirmAgainstSize))]
     public ItemConfigurator AddWeaponCritAutoconfirmAgainstSize(
-        Size Size)
+        Size size = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Size);
-      
-      var component =  new WeaponCritAutoconfirmAgainstSize();
-      component.Size = Size;
+      var component = new WeaponCritAutoconfirmAgainstSize();
+      component.Size = size;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2815,21 +3120,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponDamageAgainstAlignment))]
     public ItemConfigurator AddWeaponDamageAgainstAlignment(
-        AlignmentComponent EnemyAlignment,
-        DamageAlignment WeaponAlignment,
-        ContextDiceValue Value,
-        DamageEnergyType DamageType)
+        ContextDiceValue value,
+        AlignmentComponent enemyAlignment = default,
+        DamageAlignment weaponAlignment = default,
+        DamageEnergyType damageType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnemyAlignment);
-      ValidateParam(WeaponAlignment);
-      ValidateParam(Value);
-      ValidateParam(DamageType);
-      
-      var component =  new WeaponDamageAgainstAlignment();
-      component.EnemyAlignment = EnemyAlignment;
-      component.WeaponAlignment = WeaponAlignment;
-      component.Value = Value;
-      component.DamageType = DamageType;
+      ValidateParam(value);
+    
+      var component = new WeaponDamageAgainstAlignment();
+      component.EnemyAlignment = enemyAlignment;
+      component.WeaponAlignment = weaponAlignment;
+      component.Value = value;
+      component.DamageType = damageType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2837,26 +3141,26 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponDebuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponDebuffOnAttack))]
     public ItemConfigurator AddWeaponDebuffOnAttack(
-        string m_Buff,
-        Rounds Duration,
-        SavingThrowType SaveType,
-        int DC,
-        PrefabLink Fx)
+        Rounds duration,
+        string buff = null,
+        SavingThrowType saveType = default,
+        int dC = default,
+        PrefabLink fx = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Duration);
-      ValidateParam(SaveType);
-      ValidateParam(Fx);
-      
-      var component =  new WeaponDebuffOnAttack();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
-      component.Duration = Duration;
-      component.SaveType = SaveType;
-      component.DC = DC;
-      component.Fx = Fx;
+      ValidateParam(fx);
+    
+      var component = new WeaponDebuffOnAttack();
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.Duration = duration;
+      component.SaveType = saveType;
+      component.DC = dC;
+      component.Fx = fx ?? Constants.Empty.PrefabLink;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2866,15 +3170,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnergyBurst))]
     public ItemConfigurator AddWeaponEnergyBurst(
-        DamageEnergyType Element,
-        DiceType Dice)
+        DamageEnergyType element = default,
+        DiceType dice = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Element);
-      ValidateParam(Dice);
-      
-      var component =  new WeaponEnergyBurst();
-      component.Element = Element;
-      component.Dice = Dice;
+      var component = new WeaponEnergyBurst();
+      component.Element = element;
+      component.Dice = dice;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2884,15 +3187,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnergyDamageDice))]
     public ItemConfigurator AddWeaponEnergyDamageDice(
-        DiceFormula EnergyDamageDice,
-        DamageEnergyType Element)
+        DiceFormula energyDamageDice,
+        DamageEnergyType element = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(EnergyDamageDice);
-      ValidateParam(Element);
-      
-      var component =  new WeaponEnergyDamageDice();
-      component.EnergyDamageDice = EnergyDamageDice;
-      component.Element = Element;
+      var component = new WeaponEnergyDamageDice();
+      component.EnergyDamageDice = energyDamageDice;
+      component.Element = element;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2902,13 +3204,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponEnhancementBonus))]
     public ItemConfigurator AddWeaponEnhancementBonus(
-        int EnhancementBonus,
-        bool Stack)
+        int enhancementBonus = default,
+        bool stack = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponEnhancementBonus();
-      component.EnhancementBonus = EnhancementBonus;
-      component.Stack = Stack;
+      var component = new WeaponEnhancementBonus();
+      component.EnhancementBonus = enhancementBonus;
+      component.Stack = stack;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2918,13 +3221,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponExtraAttack))]
     public ItemConfigurator AddWeaponExtraAttack(
-        int Number,
-        bool Haste)
+        int number = default,
+        bool haste = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponExtraAttack();
-      component.Number = Number;
-      component.Haste = Haste;
+      var component = new WeaponExtraAttack();
+      component.Number = number;
+      component.Haste = haste;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2933,9 +3237,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponImprovised))]
-    public ItemConfigurator AddWeaponImprovised()
+    public ItemConfigurator AddWeaponImprovised(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponImprovised());
+      var component = new WeaponImprovised();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2943,9 +3250,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMagic))]
-    public ItemConfigurator AddWeaponMagic()
+    public ItemConfigurator AddWeaponMagic(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMagic());
+      var component = new WeaponMagic();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2953,9 +3263,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     [Generated]
     [Implements(typeof(WeaponMasterwork))]
-    public ItemConfigurator AddWeaponMasterwork()
+    public ItemConfigurator AddWeaponMasterwork(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new WeaponMasterwork());
+      var component = new WeaponMasterwork();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2964,12 +3277,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponMaterial))]
     public ItemConfigurator AddWeaponMaterial(
-        PhysicalDamageMaterial Material)
+        PhysicalDamageMaterial material = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Material);
-      
-      var component =  new WeaponMaterial();
-      component.Material = Material;
+      var component = new WeaponMaterial();
+      component.Material = material;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2979,12 +3292,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(WeaponReality))]
     public ItemConfigurator AddWeaponReality(
-        DamageRealityType Reality)
+        DamageRealityType reality = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Reality);
-      
-      var component =  new WeaponReality();
-      component.Reality = Reality;
+      var component = new WeaponReality();
+      component.Reality = reality;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -2992,20 +3305,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponTypeAttackEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(WeaponTypeAttackEnchant))]
     public ItemConfigurator AddWeaponTypeAttackEnchant(
-        string m_Type,
-        int Bonus,
-        ModifierDescriptor Descriptor)
+        string type = null,
+        int bonus = default,
+        ModifierDescriptor descriptor = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Descriptor);
-      
-      var component =  new WeaponTypeAttackEnchant();
-      component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(m_Type);
-      component.Bonus = Bonus;
-      component.Descriptor = Descriptor;
+      var component = new WeaponTypeAttackEnchant();
+      component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
+      component.Bonus = bonus;
+      component.Descriptor = descriptor;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

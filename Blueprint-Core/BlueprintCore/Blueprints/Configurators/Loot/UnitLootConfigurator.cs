@@ -1,7 +1,10 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
-
+using System;
+using System.Linq;
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>
@@ -14,16 +17,21 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       where T : BlueprintUnitLoot
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseUnitLootConfigurator(string name) : base(name) { }
+    protected BaseUnitLootConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDummy(BlueprintUnitLoot.Dummy value)
+    public TBuilder SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Dummy = value);
+      ValidateParam(dummy);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dummy = dummy;
+          });
     }
 
     /// <summary>
@@ -32,15 +40,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(DungeonVendorItemsComponent))]
     public TBuilder AddDungeonVendorItemsComponent(
-        bool BigTable,
-        int MinCR,
-        int Count)
+        bool bigTable = default,
+        int minCR = default,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DungeonVendorItemsComponent();
-      component.BigTable = BigTable;
-      component.MinCR = MinCR;
-      component.Count = Count;
+      var component = new DungeonVendorItemsComponent();
+      component.BigTable = bigTable;
+      component.MinCR = minCR;
+      component.Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -50,14 +59,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootItemsPackFixed))]
     public TBuilder AddLootItemsPackFixed(
-        LootItem m_Item,
-        int m_Count)
+        LootItem item,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Item);
-      
-      var component =  new LootItemsPackFixed();
-      component.m_Item = m_Item;
-      component.m_Count = m_Count;
+      ValidateParam(item);
+    
+      var component = new LootItemsPackFixed();
+      component.m_Item = item;
+      component.m_Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -67,16 +78,18 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootItemsPackVariable))]
     public TBuilder AddLootItemsPackVariable(
-        LootItem m_Item,
-        int m_CountFrom,
-        int m_CountTo)
+        LootItem item,
+        int countFrom = default,
+        int countTo = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Item);
-      
-      var component =  new LootItemsPackVariable();
-      component.m_Item = m_Item;
-      component.m_CountFrom = m_CountFrom;
-      component.m_CountTo = m_CountTo;
+      ValidateParam(item);
+    
+      var component = new LootItemsPackVariable();
+      component.m_Item = item;
+      component.m_CountFrom = countFrom;
+      component.m_CountTo = countTo;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -86,25 +99,26 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootRandomItem))]
     public TBuilder AddLootRandomItem(
-        LootItemAndWeight[] m_Items)
+        LootItemAndWeight[] items = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in m_Items)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new LootRandomItem();
-      component.m_Items = m_Items;
+      ValidateParam(items);
+    
+      var component = new LootRandomItem();
+      component.m_Items = items;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintUnitLoot"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintUnitLoot"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUnitLoot))]
   public class UnitLootConfigurator : BaseBlueprintConfigurator<BlueprintUnitLoot, UnitLootConfigurator>
   {
-     private UnitLootConfigurator(string name) : base(name) { }
+    private UnitLootConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitLootConfigurator For(string name)
@@ -120,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitLootConfigurator New(string name, string assetId)
+    public static UnitLootConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintUnitLoot>(name, assetId);
       return For(name);
@@ -130,10 +144,15 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy value)
+    public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Dummy = value);
+      ValidateParam(dummy);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Dummy = dummy;
+          });
     }
 
     /// <summary>
@@ -142,15 +161,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(DungeonVendorItemsComponent))]
     public UnitLootConfigurator AddDungeonVendorItemsComponent(
-        bool BigTable,
-        int MinCR,
-        int Count)
+        bool bigTable = default,
+        int minCR = default,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new DungeonVendorItemsComponent();
-      component.BigTable = BigTable;
-      component.MinCR = MinCR;
-      component.Count = Count;
+      var component = new DungeonVendorItemsComponent();
+      component.BigTable = bigTable;
+      component.MinCR = minCR;
+      component.Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -160,14 +180,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootItemsPackFixed))]
     public UnitLootConfigurator AddLootItemsPackFixed(
-        LootItem m_Item,
-        int m_Count)
+        LootItem item,
+        int count = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Item);
-      
-      var component =  new LootItemsPackFixed();
-      component.m_Item = m_Item;
-      component.m_Count = m_Count;
+      ValidateParam(item);
+    
+      var component = new LootItemsPackFixed();
+      component.m_Item = item;
+      component.m_Count = count;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -177,16 +199,18 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootItemsPackVariable))]
     public UnitLootConfigurator AddLootItemsPackVariable(
-        LootItem m_Item,
-        int m_CountFrom,
-        int m_CountTo)
+        LootItem item,
+        int countFrom = default,
+        int countTo = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(m_Item);
-      
-      var component =  new LootItemsPackVariable();
-      component.m_Item = m_Item;
-      component.m_CountFrom = m_CountFrom;
-      component.m_CountTo = m_CountTo;
+      ValidateParam(item);
+    
+      var component = new LootItemsPackVariable();
+      component.m_Item = item;
+      component.m_CountFrom = countFrom;
+      component.m_CountTo = countTo;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -196,15 +220,14 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootRandomItem))]
     public UnitLootConfigurator AddLootRandomItem(
-        LootItemAndWeight[] m_Items)
+        LootItemAndWeight[] items = null,
+        BlueprintComponent.Flags flags = default)
     {
-      foreach (var item in m_Items)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new LootRandomItem();
-      component.m_Items = m_Items;
+      ValidateParam(items);
+    
+      var component = new LootRandomItem();
+      component.m_Items = items;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

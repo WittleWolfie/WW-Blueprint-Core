@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Visual.LightSelector;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
 {
-  /// <summary>Configurator for <see cref="BlueprintTimeOfDaySettings"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintTimeOfDaySettings"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintTimeOfDaySettings))]
   public class TimeOfDaySettingsConfigurator : BaseBlueprintConfigurator<BlueprintTimeOfDaySettings, TimeOfDaySettingsConfigurator>
   {
-     private TimeOfDaySettingsConfigurator(string name) : base(name) { }
+    private TimeOfDaySettingsConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static TimeOfDaySettingsConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static TimeOfDaySettingsConfigurator New(string name, string assetId)
+    public static TimeOfDaySettingsConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintTimeOfDaySettings>(name, assetId);
       return For(name);
@@ -35,40 +37,60 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
     /// Sets <see cref="BlueprintTimeOfDaySettings.Morning"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TimeOfDaySettingsConfigurator SetMorning(GameObject value)
+    public TimeOfDaySettingsConfigurator SetMorning(GameObject morning)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Morning = value);
+      ValidateParam(morning);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Morning = morning;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Day"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TimeOfDaySettingsConfigurator SetDay(GameObject value)
+    public TimeOfDaySettingsConfigurator SetDay(GameObject day)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Day = value);
+      ValidateParam(day);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Day = day;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Evening"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TimeOfDaySettingsConfigurator SetEvening(GameObject value)
+    public TimeOfDaySettingsConfigurator SetEvening(GameObject evening)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Evening = value);
+      ValidateParam(evening);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Evening = evening;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Night"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TimeOfDaySettingsConfigurator SetNight(GameObject value)
+    public TimeOfDaySettingsConfigurator SetNight(GameObject night)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Night = value);
+      ValidateParam(night);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Night = night;
+          });
     }
   }
 }

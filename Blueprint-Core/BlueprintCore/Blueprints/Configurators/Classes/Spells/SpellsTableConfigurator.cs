@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes.Spells;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
-  /// <summary>Configurator for <see cref="BlueprintSpellsTable"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintSpellsTable"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintSpellsTable))]
   public class SpellsTableConfigurator : BaseBlueprintConfigurator<BlueprintSpellsTable, SpellsTableConfigurator>
   {
-     private SpellsTableConfigurator(string name) : base(name) { }
+    private SpellsTableConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SpellsTableConfigurator For(string name)
@@ -25,36 +27,53 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SpellsTableConfigurator New(string name, string assetId)
+    public static SpellsTableConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintSpellsTable>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
+    /// Sets <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellsTableConfigurator AddToLevels(params SpellsLevelEntry[] values)
+    public SpellsTableConfigurator SetLevels(SpellsLevelEntry[] levels)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Levels = CommonTool.Append(bp.Levels, values));
+      ValidateParam(levels);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Levels = levels;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellsTableConfigurator RemoveFromLevels(params SpellsLevelEntry[] values)
+    public SpellsTableConfigurator AddToLevels(params SpellsLevelEntry[] levels)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Levels = bp.Levels.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(levels);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Levels = CommonTool.Append(bp.Levels, levels ?? new SpellsLevelEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public SpellsTableConfigurator RemoveFromLevels(params SpellsLevelEntry[] levels)
+    {
+      ValidateParam(levels);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Levels = bp.Levels.Where(item => !levels.Contains(item)).ToArray();
+          });
     }
   }
 }

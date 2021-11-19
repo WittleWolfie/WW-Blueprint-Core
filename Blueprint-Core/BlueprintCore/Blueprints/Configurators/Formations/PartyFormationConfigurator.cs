@@ -1,17 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Formations;
 using Kingmaker.Localization;
 using System.Linq;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
-  /// <summary>Configurator for <see cref="BlueprintPartyFormation"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintPartyFormation"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintPartyFormation))]
   public class PartyFormationConfigurator : BaseBlueprintConfigurator<BlueprintPartyFormation, PartyFormationConfigurator>
   {
-     private PartyFormationConfigurator(string name) : base(name) { }
+    private PartyFormationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static PartyFormationConfigurator For(string name)
@@ -27,56 +29,77 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static PartyFormationConfigurator New(string name, string assetId)
+    public static PartyFormationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintPartyFormation>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
+    /// Sets <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator AddToPositions(params Vector2[] values)
+    public PartyFormationConfigurator SetPositions(Vector2[] positions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Positions = CommonTool.Append(bp.Positions, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Positions = positions;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator RemoveFromPositions(params Vector2[] values)
+    public PartyFormationConfigurator AddToPositions(params Vector2[] positions)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Positions = bp.Positions.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Positions = CommonTool.Append(bp.Positions, positions ?? new Vector2[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public PartyFormationConfigurator RemoveFromPositions(params Vector2[] positions)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Positions = bp.Positions.Where(item => !positions.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintPartyFormation.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator SetType(PartyFormationType value)
+    public PartyFormationConfigurator SetType(PartyFormationType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintPartyFormation.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator SetName(LocalizedString value)
+    public PartyFormationConfigurator SetName(LocalizedString name)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Name = value);
+      ValidateParam(name);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Name = name ?? Constants.Empty.String;
+          });
     }
   }
 }

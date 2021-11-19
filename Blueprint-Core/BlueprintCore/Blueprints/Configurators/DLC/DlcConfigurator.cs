@@ -1,17 +1,19 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
-  /// <summary>Configurator for <see cref="BlueprintDlc"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDlc"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDlc))]
   public class DlcConfigurator : BaseBlueprintConfigurator<BlueprintDlc, DlcConfigurator>
   {
-     private DlcConfigurator(string name) : base(name) { }
+    private DlcConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DlcConfigurator For(string name)
@@ -27,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DlcConfigurator New(string name, string assetId)
+    public static DlcConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDlc>(name, assetId);
       return For(name);
@@ -37,35 +39,59 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlc.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcConfigurator SetDescription(LocalizedString value)
+    public DlcConfigurator SetDescription(LocalizedString description)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Description = value);
+      ValidateParam(description);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Description = description ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
     [Generated]
-    public DlcConfigurator AddToRewardReferences(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.RewardReferences = CommonTool.Append(bp.RewardReferences, values.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintDlcReward"/></param>
-    [Generated]
-    public DlcConfigurator RemoveFromRewardReferences(params string[] values)
+    public DlcConfigurator SetRewardReferences(string[] rewardReferences)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name));
+            bp.RewardReferences = rewardReferences.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
+    [Generated]
+    public DlcConfigurator AddToRewardReferences(params string[] rewardReferences)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RewardReferences = CommonTool.Append(bp.RewardReferences, rewardReferences.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
+    [Generated]
+    public DlcConfigurator RemoveFromRewardReferences(params string[] rewardReferences)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = rewardReferences.Select(name => BlueprintTool.GetRef<BlueprintDlcRewardReference>(name));
             bp.RewardReferences =
                 bp.RewardReferences
                     .Where(

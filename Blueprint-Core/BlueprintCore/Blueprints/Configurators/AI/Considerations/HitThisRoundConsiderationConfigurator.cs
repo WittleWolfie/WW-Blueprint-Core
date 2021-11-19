@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="HitThisRoundConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="HitThisRoundConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(HitThisRoundConsideration))]
   public class HitThisRoundConsiderationConfigurator : BaseConsiderationConfigurator<HitThisRoundConsideration, HitThisRoundConsiderationConfigurator>
   {
-     private HitThisRoundConsiderationConfigurator(string name) : base(name) { }
+    private HitThisRoundConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static HitThisRoundConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static HitThisRoundConsiderationConfigurator New(string name, string assetId)
+    public static HitThisRoundConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<HitThisRoundConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="HitThisRoundConsideration.HitScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public HitThisRoundConsiderationConfigurator SetHitScore(float value)
+    public HitThisRoundConsiderationConfigurator SetHitScore(float hitScore)
     {
-      return OnConfigureInternal(bp => bp.HitScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HitScore = hitScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="HitThisRoundConsideration.NoHitScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public HitThisRoundConsiderationConfigurator SetNoHitScore(float value)
+    public HitThisRoundConsiderationConfigurator SetNoHitScore(float noHitScore)
     {
-      return OnConfigureInternal(bp => bp.NoHitScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.NoHitScore = noHitScore;
+          });
     }
   }
 }

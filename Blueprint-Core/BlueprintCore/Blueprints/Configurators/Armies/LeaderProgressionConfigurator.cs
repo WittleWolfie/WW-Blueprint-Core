@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Localization;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
-  /// <summary>Configurator for <see cref="BlueprintLeaderProgression"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintLeaderProgression"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintLeaderProgression))]
   public class LeaderProgressionConfigurator : BaseBlueprintConfigurator<BlueprintLeaderProgression, LeaderProgressionConfigurator>
   {
-     private LeaderProgressionConfigurator(string name) : base(name) { }
+    private LeaderProgressionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static LeaderProgressionConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static LeaderProgressionConfigurator New(string name, string assetId)
+    public static LeaderProgressionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintLeaderProgression>(name, assetId);
       return For(name);
@@ -36,46 +38,71 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator SetProgressionType(LeaderProgressionType value)
+    public LeaderProgressionConfigurator SetProgressionType(LeaderProgressionType progressionType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ProgressionType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ProgressionType = progressionType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator SetProgressionName(LocalizedString value)
+    public LeaderProgressionConfigurator SetProgressionName(LocalizedString progressionName)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ProgressionName = value);
+      ValidateParam(progressionName);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ProgressionName = progressionName ?? Constants.Empty.String;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
+    /// Sets <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator AddToLevels(params LeaderLevel[] values)
+    public LeaderProgressionConfigurator SetLevels(LeaderLevel[] levels)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Levels = CommonTool.Append(bp.m_Levels, values));
+      ValidateParam(levels);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Levels = levels;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator RemoveFromLevels(params LeaderLevel[] values)
+    public LeaderProgressionConfigurator AddToLevels(params LeaderLevel[] levels)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Levels = bp.m_Levels.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(levels);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Levels = CommonTool.Append(bp.m_Levels, levels ?? new LeaderLevel[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public LeaderProgressionConfigurator RemoveFromLevels(params LeaderLevel[] levels)
+    {
+      ValidateParam(levels);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Levels = bp.m_Levels.Where(item => !levels.Contains(item)).ToArray();
+          });
     }
   }
 }

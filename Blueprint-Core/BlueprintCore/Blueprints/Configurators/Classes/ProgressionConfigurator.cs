@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintProgression"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintProgression"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintProgression))]
   public class ProgressionConfigurator : BaseFeatureConfigurator<BlueprintProgression, ProgressionConfigurator>
   {
-     private ProgressionConfigurator(string name) : base(name) { }
+    private ProgressionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ProgressionConfigurator For(string name)
@@ -26,184 +29,295 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ProgressionConfigurator New(string name, string assetId)
+    public static ProgressionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintProgression>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator AddToClasses(params BlueprintProgression.ClassWithLevel[] values)
+    public ProgressionConfigurator SetClasses(BlueprintProgression.ClassWithLevel[] classes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Classes = CommonTool.Append(bp.m_Classes, values));
+      ValidateParam(classes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Classes = classes;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator RemoveFromClasses(params BlueprintProgression.ClassWithLevel[] values)
+    public ProgressionConfigurator AddToClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Classes = bp.m_Classes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(classes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Classes = CommonTool.Append(bp.m_Classes, classes ?? new BlueprintProgression.ClassWithLevel[0]);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator AddToArchetypes(params BlueprintProgression.ArchetypeWithLevel[] values)
+    public ProgressionConfigurator RemoveFromClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Archetypes = CommonTool.Append(bp.m_Archetypes, values));
+      ValidateParam(classes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Classes = bp.m_Classes.Where(item => !classes.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
+    /// Sets <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator RemoveFromArchetypes(params BlueprintProgression.ArchetypeWithLevel[] values)
+    public ProgressionConfigurator SetArchetypes(BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_Archetypes = bp.m_Archetypes.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(archetypes);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Archetypes = archetypes;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator AddToArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
+    {
+      ValidateParam(archetypes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Archetypes = CommonTool.Append(bp.m_Archetypes, archetypes ?? new BlueprintProgression.ArchetypeWithLevel[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator RemoveFromArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
+    {
+      ValidateParam(archetypes);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Archetypes = bp.m_Archetypes.Where(item => !archetypes.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProgression.ForAllOtherClasses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator SetForAllOtherClasses(bool value)
+    public ProgressionConfigurator SetForAllOtherClasses(bool forAllOtherClasses)
     {
-      return OnConfigureInternal(bp => bp.ForAllOtherClasses = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ForAllOtherClasses = forAllOtherClasses;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
+    /// Sets <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator AddToAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] values)
+    public ProgressionConfigurator SetAlternateProgressionClasses(BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AlternateProgressionClasses = CommonTool.Append(bp.m_AlternateProgressionClasses, values));
+      ValidateParam(alternateProgressionClasses);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AlternateProgressionClasses = alternateProgressionClasses;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] values)
+    public ProgressionConfigurator AddToAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(alternateProgressionClasses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AlternateProgressionClasses = CommonTool.Append(bp.m_AlternateProgressionClasses, alternateProgressionClasses ?? new BlueprintProgression.ClassWithLevel[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
+    {
+      ValidateParam(alternateProgressionClasses);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses.Where(item => !alternateProgressionClasses.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProgression.AlternateProgressionType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator SetAlternateProgressionType(AlternateProgressionType value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.AlternateProgressionType = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public ProgressionConfigurator AddToLevelEntries(params LevelEntry[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LevelEntries = CommonTool.Append(bp.LevelEntries, values));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public ProgressionConfigurator RemoveFromLevelEntries(params LevelEntry[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.LevelEntries = bp.LevelEntries.Where(item => !values.Contains(item)).ToArray());
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public ProgressionConfigurator AddToUIGroups(params UIGroup[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UIGroups = CommonTool.Append(bp.UIGroups, values));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public ProgressionConfigurator RemoveFromUIGroups(params UIGroup[] values)
-    {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.UIGroups = bp.UIGroups.Where(item => !values.Contains(item)).ToArray());
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintFeatureBase"/></param>
-    [Generated]
-    public ProgressionConfigurator AddToUIDeterminatorsGroup(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_UIDeterminatorsGroup = CommonTool.Append(bp.m_UIDeterminatorsGroup, values.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintFeatureBase"/></param>
-    [Generated]
-    public ProgressionConfigurator RemoveFromUIDeterminatorsGroup(params string[] values)
+    public ProgressionConfigurator SetAlternateProgressionType(AlternateProgressionType alternateProgressionType)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name));
+            bp.AlternateProgressionType = alternateProgressionType;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator SetLevelEntries(LevelEntry[] levelEntries)
+    {
+      ValidateParam(levelEntries);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LevelEntries = levelEntries;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator AddToLevelEntries(params LevelEntry[] levelEntries)
+    {
+      ValidateParam(levelEntries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LevelEntries = CommonTool.Append(bp.LevelEntries, levelEntries ?? new LevelEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator RemoveFromLevelEntries(params LevelEntry[] levelEntries)
+    {
+      ValidateParam(levelEntries);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LevelEntries = bp.LevelEntries.Where(item => !levelEntries.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator SetUIGroups(UIGroup[] uIGroups)
+    {
+      ValidateParam(uIGroups);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UIGroups = uIGroups;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator AddToUIGroups(params UIGroup[] uIGroups)
+    {
+      ValidateParam(uIGroups);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UIGroups = CommonTool.Append(bp.UIGroups, uIGroups ?? new UIGroup[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ProgressionConfigurator RemoveFromUIGroups(params UIGroup[] uIGroups)
+    {
+      ValidateParam(uIGroups);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UIGroups = bp.UIGroups.Where(item => !uIGroups.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="uIDeterminatorsGroup"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public ProgressionConfigurator SetUIDeterminatorsGroup(string[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UIDeterminatorsGroup = uIDeterminatorsGroup.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="uIDeterminatorsGroup"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public ProgressionConfigurator AddToUIDeterminatorsGroup(params string[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_UIDeterminatorsGroup = CommonTool.Append(bp.m_UIDeterminatorsGroup, uIDeterminatorsGroup.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="uIDeterminatorsGroup"><see cref="BlueprintFeatureBase"/></param>
+    [Generated]
+    public ProgressionConfigurator RemoveFromUIDeterminatorsGroup(params string[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = uIDeterminatorsGroup.Select(name => BlueprintTool.GetRef<BlueprintFeatureBaseReference>(name));
             bp.m_UIDeterminatorsGroup =
                 bp.m_UIDeterminatorsGroup
                     .Where(
@@ -216,31 +330,43 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintProgression.m_ExclusiveProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="exclusiveProgression"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
-    public ProgressionConfigurator SetExclusiveProgression(string value)
+    public ProgressionConfigurator SetExclusiveProgression(string exclusiveProgression)
     {
-      return OnConfigureInternal(bp => bp.m_ExclusiveProgression = BlueprintTool.GetRef<BlueprintCharacterClassReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ExclusiveProgression = BlueprintTool.GetRef<BlueprintCharacterClassReference>(exclusiveProgression);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProgression.GiveFeaturesForPreviousLevels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProgressionConfigurator SetGiveFeaturesForPreviousLevels(bool value)
+    public ProgressionConfigurator SetGiveFeaturesForPreviousLevels(bool giveFeaturesForPreviousLevels)
     {
-      return OnConfigureInternal(bp => bp.GiveFeaturesForPreviousLevels = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.GiveFeaturesForPreviousLevels = giveFeaturesForPreviousLevels;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintProgression.m_FeatureRankIncrease"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintFeature"/></param>
+    /// <param name="featureRankIncrease"><see cref="BlueprintFeature"/></param>
     [Generated]
-    public ProgressionConfigurator SetFeatureRankIncrease(string value)
+    public ProgressionConfigurator SetFeatureRankIncrease(string featureRankIncrease)
     {
-      return OnConfigureInternal(bp => bp.m_FeatureRankIncrease = BlueprintTool.GetRef<BlueprintFeatureReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FeatureRankIncrease = BlueprintTool.GetRef<BlueprintFeatureReference>(featureRankIncrease);
+          });
     }
   }
 }

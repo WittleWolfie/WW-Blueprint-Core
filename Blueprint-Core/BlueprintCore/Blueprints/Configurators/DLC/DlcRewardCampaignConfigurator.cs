@@ -1,16 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.DLC;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using UnityEngine;
-
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
-  /// <summary>Configurator for <see cref="BlueprintDlcRewardCampaign"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintDlcRewardCampaign"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintDlcRewardCampaign))]
   public class DlcRewardCampaignConfigurator : BaseDlcRewardConfigurator<BlueprintDlcRewardCampaign, DlcRewardCampaignConfigurator>
   {
-     private DlcRewardCampaignConfigurator(string name) : base(name) { }
+    private DlcRewardCampaignConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static DlcRewardCampaignConfigurator For(string name)
@@ -26,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static DlcRewardCampaignConfigurator New(string name, string assetId)
+    public static DlcRewardCampaignConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintDlcRewardCampaign>(name, assetId);
       return For(name);
@@ -36,21 +38,30 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardCampaignConfigurator SetScreenshotForImportSave(Texture2D value)
+    public DlcRewardCampaignConfigurator SetScreenshotForImportSave(Texture2D screenshotForImportSave)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ScreenshotForImportSave = value);
+      ValidateParam(screenshotForImportSave);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ScreenshotForImportSave = screenshotForImportSave;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintDlcRewardCampaign.m_StartGamePreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="startGamePreset"><see cref="BlueprintAreaPreset"/></param>
     [Generated]
-    public DlcRewardCampaignConfigurator SetStartGamePreset(string value)
+    public DlcRewardCampaignConfigurator SetStartGamePreset(string startGamePreset)
     {
-      return OnConfigureInternal(bp => bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(startGamePreset);
+          });
     }
   }
 }

@@ -1,14 +1,16 @@
+using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
-  /// <summary>Configurator for <see cref="BlueprintItemEquipmentRing"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemEquipmentRing"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemEquipmentRing))]
   public class ItemEquipmentRingConfigurator : BaseItemEquipmentSimpleConfigurator<BlueprintItemEquipmentRing, ItemEquipmentRingConfigurator>
   {
-     private ItemEquipmentRingConfigurator(string name) : base(name) { }
+    private ItemEquipmentRingConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemEquipmentRingConfigurator For(string name)
@@ -24,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemEquipmentRingConfigurator New(string name, string assetId)
+    public static ItemEquipmentRingConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemEquipmentRing>(name, assetId);
       return For(name);

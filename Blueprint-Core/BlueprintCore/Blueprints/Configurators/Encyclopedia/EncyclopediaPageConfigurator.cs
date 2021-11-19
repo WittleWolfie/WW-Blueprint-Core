@@ -1,9 +1,10 @@
+using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Blueprints.Encyclopedia.Blocks;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>
@@ -16,52 +17,75 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       where T : BlueprintEncyclopediaPage
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-     protected BaseEncyclopediaPageConfigurator(string name) : base(name) { }
+    protected BaseEncyclopediaPageConfigurator(string name) : base(name) { }
 
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaPage.m_ParentAsset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintEncyclopediaNode"/></param>
+    /// <param name="parentAsset"><see cref="BlueprintEncyclopediaNode"/></param>
     [Generated]
-    public TBuilder SetParentAsset(string value)
+    public TBuilder SetParentAsset(string parentAsset)
     {
-      return OnConfigureInternal(bp => bp.m_ParentAsset = BlueprintTool.GetRef<BlueprintEncyclopediaNodeReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ParentAsset = BlueprintTool.GetRef<BlueprintEncyclopediaNodeReference>(parentAsset);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToBlocks(params BlueprintEncyclopediaBlock[] values)
+    public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock> blocks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Blocks.AddRange(values));
+      ValidateParam(blocks);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks = blocks;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromBlocks(params BlueprintEncyclopediaBlock[] values)
+    public TBuilder AddToBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Blocks = bp.Blocks.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(blocks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks.AddRange(blocks.ToList() ?? new List<BlueprintEncyclopediaBlock>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromBlocks(params BlueprintEncyclopediaBlock[] blocks)
+    {
+      ValidateParam(blocks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks = bp.Blocks.Where(item => !blocks.Contains(item)).ToList();
+          });
     }
   }
 
-  /// <summary>Configurator for <see cref="BlueprintEncyclopediaPage"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintEncyclopediaPage"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintEncyclopediaPage))]
   public class EncyclopediaPageConfigurator : BaseEncyclopediaNodeConfigurator<BlueprintEncyclopediaPage, EncyclopediaPageConfigurator>
   {
-     private EncyclopediaPageConfigurator(string name) : base(name) { }
+    private EncyclopediaPageConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static EncyclopediaPageConfigurator For(string name)
@@ -77,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static EncyclopediaPageConfigurator New(string name, string assetId)
+    public static EncyclopediaPageConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintEncyclopediaPage>(name, assetId);
       return For(name);
@@ -87,37 +111,58 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaPage.m_ParentAsset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintEncyclopediaNode"/></param>
+    /// <param name="parentAsset"><see cref="BlueprintEncyclopediaNode"/></param>
     [Generated]
-    public EncyclopediaPageConfigurator SetParentAsset(string value)
+    public EncyclopediaPageConfigurator SetParentAsset(string parentAsset)
     {
-      return OnConfigureInternal(bp => bp.m_ParentAsset = BlueprintTool.GetRef<BlueprintEncyclopediaNodeReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ParentAsset = BlueprintTool.GetRef<BlueprintEncyclopediaNodeReference>(parentAsset);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EncyclopediaPageConfigurator AddToBlocks(params BlueprintEncyclopediaBlock[] values)
+    public EncyclopediaPageConfigurator SetBlocks(List<BlueprintEncyclopediaBlock> blocks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Blocks.AddRange(values));
+      ValidateParam(blocks);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks = blocks;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EncyclopediaPageConfigurator RemoveFromBlocks(params BlueprintEncyclopediaBlock[] values)
+    public EncyclopediaPageConfigurator AddToBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Blocks = bp.Blocks.Where(item => !values.Contains(item)).ToList());
+      ValidateParam(blocks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks.AddRange(blocks.ToList() ?? new List<BlueprintEncyclopediaBlock>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public EncyclopediaPageConfigurator RemoveFromBlocks(params BlueprintEncyclopediaBlock[] blocks)
+    {
+      ValidateParam(blocks);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Blocks = bp.Blocks.Where(item => !blocks.Contains(item)).ToList();
+          });
     }
   }
 }

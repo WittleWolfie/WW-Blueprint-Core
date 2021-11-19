@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>Configurator for <see cref="BlueprintUnitTemplate"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintUnitTemplate"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUnitTemplate))]
   public class UnitTemplateConfigurator : BaseBlueprintConfigurator<BlueprintUnitTemplate, UnitTemplateConfigurator>
   {
-     private UnitTemplateConfigurator(string name) : base(name) { }
+    private UnitTemplateConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static UnitTemplateConfigurator For(string name)
@@ -25,35 +27,54 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static UnitTemplateConfigurator New(string name, string assetId)
+    public static UnitTemplateConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintUnitTemplate>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
+    /// Sets <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
-    public UnitTemplateConfigurator AddToRemoveFacts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_RemoveFacts = CommonTool.Append(bp.m_RemoveFacts, values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public UnitTemplateConfigurator RemoveFromRemoveFacts(params string[] values)
+    public UnitTemplateConfigurator SetRemoveFacts(string[] removeFacts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_RemoveFacts = removeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitTemplateConfigurator AddToRemoveFacts(params string[] removeFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_RemoveFacts = CommonTool.Append(bp.m_RemoveFacts, removeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitTemplateConfigurator RemoveFromRemoveFacts(params string[] removeFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = removeFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
             bp.m_RemoveFacts =
                 bp.m_RemoveFacts
                     .Where(
@@ -63,28 +84,47 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
+    /// Sets <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
     [Generated]
-    public UnitTemplateConfigurator AddToAddFacts(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_AddFacts = CommonTool.Append(bp.m_AddFacts, values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    public UnitTemplateConfigurator RemoveFromAddFacts(params string[] values)
+    public UnitTemplateConfigurator SetAddFacts(string[] addFacts)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
+            bp.m_AddFacts = addFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitTemplateConfigurator AddToAddFacts(params string[] addFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AddFacts = CommonTool.Append(bp.m_AddFacts, addFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    [Generated]
+    public UnitTemplateConfigurator RemoveFromAddFacts(params string[] addFacts)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = addFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
             bp.m_AddFacts =
                 bp.m_AddFacts
                     .Where(
@@ -94,29 +134,46 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitTemplateConfigurator AddToStatAdjustments(params BlueprintUnitTemplate.StatAdjustment[] values)
+    public UnitTemplateConfigurator SetStatAdjustments(BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.StatAdjustments = CommonTool.Append(bp.StatAdjustments, values));
+      ValidateParam(statAdjustments);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StatAdjustments = statAdjustments;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitTemplateConfigurator RemoveFromStatAdjustments(params BlueprintUnitTemplate.StatAdjustment[] values)
+    public UnitTemplateConfigurator AddToStatAdjustments(params BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.StatAdjustments = bp.StatAdjustments.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(statAdjustments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StatAdjustments = CommonTool.Append(bp.StatAdjustments, statAdjustments ?? new BlueprintUnitTemplate.StatAdjustment[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitTemplateConfigurator RemoveFromStatAdjustments(params BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
+    {
+      ValidateParam(statAdjustments);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.StatAdjustments = bp.StatAdjustments.Where(item => !statAdjustments.Contains(item)).ToArray();
+          });
     }
   }
 }

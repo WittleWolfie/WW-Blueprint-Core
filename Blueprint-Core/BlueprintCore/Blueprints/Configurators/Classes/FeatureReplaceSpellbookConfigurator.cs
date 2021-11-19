@@ -1,15 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-  /// <summary>Configurator for <see cref="BlueprintFeatureReplaceSpellbook"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintFeatureReplaceSpellbook"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFeatureReplaceSpellbook))]
   public class FeatureReplaceSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureReplaceSpellbook, FeatureReplaceSpellbookConfigurator>
   {
-     private FeatureReplaceSpellbookConfigurator(string name) : base(name) { }
+    private FeatureReplaceSpellbookConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static FeatureReplaceSpellbookConfigurator For(string name)
@@ -25,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FeatureReplaceSpellbookConfigurator New(string name, string assetId)
+    public static FeatureReplaceSpellbookConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintFeatureReplaceSpellbook>(name, assetId);
       return For(name);
@@ -35,11 +37,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
     [Generated]
-    public FeatureReplaceSpellbookConfigurator SetSpellbook(string value)
+    public FeatureReplaceSpellbookConfigurator SetSpellbook(string spellbook)
     {
-      return OnConfigureInternal(bp => bp.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
+          });
     }
   }
 }

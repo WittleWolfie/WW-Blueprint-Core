@@ -1,16 +1,19 @@
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using System.Collections.Generic;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
-  /// <summary>Configurator for <see cref="BlueprintCueSequence"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintCueSequence"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintCueSequence))]
   public class CueSequenceConfigurator : BaseCueBaseConfigurator<BlueprintCueSequence, CueSequenceConfigurator>
   {
-     private CueSequenceConfigurator(string name) : base(name) { }
+    private CueSequenceConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static CueSequenceConfigurator For(string name)
@@ -26,35 +29,54 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static CueSequenceConfigurator New(string name, string assetId)
+    public static CueSequenceConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintCueSequence>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
     [Generated]
-    public CueSequenceConfigurator AddToCues(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.Cues.AddRange(values.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name))));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintCueBase"/></param>
-    [Generated]
-    public CueSequenceConfigurator RemoveFromCues(params string[] values)
+    public CueSequenceConfigurator SetCues(string[] cues)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
+            bp.Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    [Generated]
+    public CueSequenceConfigurator AddToCues(params string[] cues)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Cues.AddRange(cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    [Generated]
+    public CueSequenceConfigurator RemoveFromCues(params string[] cues)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
             bp.Cues =
                 bp.Cues
                     .Where(
@@ -67,11 +89,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCueSequence.m_Exit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintSequenceExit"/></param>
+    /// <param name="exit"><see cref="BlueprintSequenceExit"/></param>
     [Generated]
-    public CueSequenceConfigurator SetExit(string value)
+    public CueSequenceConfigurator SetExit(string exit)
     {
-      return OnConfigureInternal(bp => bp.m_Exit = BlueprintTool.GetRef<BlueprintSequenceExitReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Exit = BlueprintTool.GetRef<BlueprintSequenceExitReference>(exit);
+          });
     }
   }
 }

@@ -1,3 +1,4 @@
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
@@ -6,6 +7,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Buffs.Conditions;
+using System;
 namespace BlueprintCore.Conditions.Builder.BasicEx
 {
   /// <summary>
@@ -22,15 +24,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(DualCompanionInactive))]
-    public static ConditionsBuilder AddDualCompanionInactive(
+    public static ConditionsBuilder DualCompanionInactive(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
+        UnitEvaluator unit,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<DualCompanionInactive>();
-      element.Unit = Unit;
+      element.Unit = unit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -40,14 +42,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(BuffConditionCheckRoundNumber))]
-    public static ConditionsBuilder AddBuffConditionCheckRoundNumber(
+    public static ConditionsBuilder BuffConditionCheckRoundNumber(
         this ConditionsBuilder builder,
-        int RoundNumber,
+        int roundNumber = default,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<BuffConditionCheckRoundNumber>();
-      element.RoundNumber = RoundNumber;
+      element.RoundNumber = roundNumber;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -56,20 +57,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CheckConditionsHolder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ConditionsHolder"><see cref="ConditionsHolder"/></param>
+    /// <param name="conditionsHolder"><see cref="ConditionsHolder"/></param>
     [Generated]
     [Implements(typeof(CheckConditionsHolder))]
-    public static ConditionsBuilder AddCheckConditionsHolder(
+    public static ConditionsBuilder CheckConditionsHolder(
         this ConditionsBuilder builder,
-        string ConditionsHolder,
-        ParametrizedContextSetter Parameters,
+        ParametrizedContextSetter parameters,
+        string conditionsHolder = null,
         bool negate = false)
     {
-      builder.Validate(Parameters);
-      
+      builder.Validate(parameters);
+    
       var element = ElementTool.Create<CheckConditionsHolder>();
-      element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(ConditionsHolder);
-      element.Parameters = Parameters;
+      element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(conditionsHolder);
+      element.Parameters = parameters;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -78,23 +79,22 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CheckItemCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_TargetItem"><see cref="BlueprintItem"/></param>
+    /// <param name="targetItem"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(CheckItemCondition))]
-    public static ConditionsBuilder AddCheckItemCondition(
+    public static ConditionsBuilder CheckItemCondition(
         this ConditionsBuilder builder,
-        string m_TargetItem,
-        CheckItemCondition.RequiredState m_RequiredState,
-        UnitEvaluator m_UnitEvaluator,
+        UnitEvaluator unitEvaluator,
+        string targetItem = null,
+        CheckItemCondition.RequiredState requiredState = default,
         bool negate = false)
     {
-      builder.Validate(m_RequiredState);
-      builder.Validate(m_UnitEvaluator);
-      
+      builder.Validate(unitEvaluator);
+    
       var element = ElementTool.Create<CheckItemCondition>();
-      element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(m_TargetItem);
-      element.m_RequiredState = m_RequiredState;
-      element.m_UnitEvaluator = m_UnitEvaluator;
+      element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(targetItem);
+      element.m_RequiredState = requiredState;
+      element.m_UnitEvaluator = unitEvaluator;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -103,27 +103,26 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionInParty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionInParty))]
-    public static ConditionsBuilder AddCompanionInParty(
+    public static ConditionsBuilder CompanionInParty(
         this ConditionsBuilder builder,
-        string m_companion,
-        bool MatchWhenActive,
-        bool MatchWhenDetached,
-        bool MatchWhenRemote,
-        bool MatchWhenDead,
-        bool MatchWhenEx,
+        string companion = null,
+        bool matchWhenActive = default,
+        bool matchWhenDetached = default,
+        bool matchWhenRemote = default,
+        bool matchWhenDead = default,
+        bool matchWhenEx = default,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<CompanionInParty>();
-      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
-      element.MatchWhenActive = MatchWhenActive;
-      element.MatchWhenDetached = MatchWhenDetached;
-      element.MatchWhenRemote = MatchWhenRemote;
-      element.MatchWhenDead = MatchWhenDead;
-      element.MatchWhenEx = MatchWhenEx;
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      element.MatchWhenActive = matchWhenActive;
+      element.MatchWhenDetached = matchWhenDetached;
+      element.MatchWhenRemote = matchWhenRemote;
+      element.MatchWhenDead = matchWhenDead;
+      element.MatchWhenEx = matchWhenEx;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -132,18 +131,17 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionIsDead"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsDead))]
-    public static ConditionsBuilder AddCompanionIsDead(
+    public static ConditionsBuilder CompanionIsDead(
         this ConditionsBuilder builder,
-        string m_companion,
-        bool anyCompanion,
+        string companion = null,
+        bool anyCompanion = default,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<CompanionIsDead>();
-      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_companion);
+      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       element.anyCompanion = anyCompanion;
       element.Not = negate;
       return builder.Add(element);
@@ -153,17 +151,16 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionIsLost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsLost))]
-    public static ConditionsBuilder AddCompanionIsLost(
+    public static ConditionsBuilder CompanionIsLost(
         this ConditionsBuilder builder,
-        string m_Companion,
+        string companion = null,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<CompanionIsLost>();
-      element.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(m_Companion);
+      element.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -175,13 +172,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <param name="companion"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsUnconscious))]
-    public static ConditionsBuilder AddCompanionIsUnconscious(
+    public static ConditionsBuilder CompanionIsUnconscious(
         this ConditionsBuilder builder,
-        string companion,
-        bool anyCompanion,
+        string companion = null,
+        bool anyCompanion = default,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<CompanionIsUnconscious>();
       element.companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       element.anyCompanion = anyCompanion;
@@ -194,18 +190,18 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(CheckLos))]
-    public static ConditionsBuilder AddCheckLos(
+    public static ConditionsBuilder CheckLos(
         this ConditionsBuilder builder,
-        PositionEvaluator Point1,
-        PositionEvaluator Point2,
+        PositionEvaluator point1,
+        PositionEvaluator point2,
         bool negate = false)
     {
-      builder.Validate(Point1);
-      builder.Validate(Point2);
-      
+      builder.Validate(point1);
+      builder.Validate(point2);
+    
       var element = ElementTool.Create<CheckLos>();
-      element.Point1 = Point1;
-      element.Point2 = Point2;
+      element.Point1 = point1;
+      element.Point2 = point2;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -214,20 +210,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="HasBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(HasBuff))]
-    public static ConditionsBuilder AddHasBuff(
+    public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
-        UnitEvaluator Target,
-        string m_Buff,
+        UnitEvaluator target,
+        string buff = null,
         bool negate = false)
     {
-      builder.Validate(Target);
-      
+      builder.Validate(target);
+    
       var element = ElementTool.Create<HasBuff>();
-      element.Target = Target;
-      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(m_Buff);
+      element.Target = target;
+      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -236,20 +232,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="HasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(HasFact))]
-    public static ConditionsBuilder AddHasFact(
+    public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_Fact,
+        UnitEvaluator unit,
+        string fact = null,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<HasFact>();
-      element.Unit = Unit;
-      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Fact);
+      element.Unit = unit;
+      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -259,18 +255,18 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsEnemy))]
-    public static ConditionsBuilder AddIsEnemy(
+    public static ConditionsBuilder IsEnemy(
         this ConditionsBuilder builder,
-        UnitEvaluator FirstUnit,
-        UnitEvaluator SecondUnit,
+        UnitEvaluator firstUnit,
+        UnitEvaluator secondUnit,
         bool negate = false)
     {
-      builder.Validate(FirstUnit);
-      builder.Validate(SecondUnit);
-      
+      builder.Validate(firstUnit);
+      builder.Validate(secondUnit);
+    
       var element = ElementTool.Create<IsEnemy>();
-      element.FirstUnit = FirstUnit;
-      element.SecondUnit = SecondUnit;
+      element.FirstUnit = firstUnit;
+      element.SecondUnit = secondUnit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -280,17 +276,17 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsInCombat))]
-    public static ConditionsBuilder AddIsInCombat(
+    public static ConditionsBuilder IsInCombat(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        bool Player,
+        UnitEvaluator unit,
+        bool player = default,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<IsInCombat>();
-      element.Unit = Unit;
-      element.Player = Player;
+      element.Unit = unit;
+      element.Player = player;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -300,11 +296,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsInTurnBasedCombat))]
-    public static ConditionsBuilder AddIsInTurnBasedCombat(
+    public static ConditionsBuilder IsInTurnBasedCombat(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<IsInTurnBasedCombat>();
       element.Not = negate;
       return builder.Add(element);
@@ -315,15 +310,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsPartyMember))]
-    public static ConditionsBuilder AddIsPartyMember(
+    public static ConditionsBuilder IsPartyMember(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
+        UnitEvaluator unit,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<IsPartyMember>();
-      element.Unit = Unit;
+      element.Unit = unit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -333,15 +328,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsUnconscious))]
-    public static ConditionsBuilder AddIsUnconscious(
+    public static ConditionsBuilder IsUnconscious(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
+        UnitEvaluator unit,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<IsUnconscious>();
-      element.Unit = Unit;
+      element.Unit = unit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -351,19 +346,19 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(IsUnitLevelLessThan))]
-    public static ConditionsBuilder AddIsUnitLevelLessThan(
+    public static ConditionsBuilder IsUnitLevelLessThan(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        int Level,
-        bool CheckExperience,
+        UnitEvaluator unit,
+        int level = default,
+        bool checkExperience = default,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<IsUnitLevelLessThan>();
-      element.Unit = Unit;
-      element.Level = Level;
-      element.CheckExperience = CheckExperience;
+      element.Unit = unit;
+      element.Level = level;
+      element.CheckExperience = checkExperience;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -372,20 +367,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="ItemBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="Blueprint"><see cref="BlueprintItem"/></param>
+    /// <param name="blueprint"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemBlueprint))]
-    public static ConditionsBuilder AddItemBlueprint(
+    public static ConditionsBuilder ItemBlueprint(
         this ConditionsBuilder builder,
-        ItemEvaluator Item,
-        string Blueprint,
+        ItemEvaluator item,
+        string blueprint = null,
         bool negate = false)
     {
-      builder.Validate(Item);
-      
+      builder.Validate(item);
+    
       var element = ElementTool.Create<ItemBlueprint>();
-      element.Item = Item;
-      element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(Blueprint);
+      element.Item = item;
+      element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(blueprint);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -395,19 +390,19 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(ItemFromCollectionCondition))]
-    public static ConditionsBuilder AddItemFromCollectionCondition(
+    public static ConditionsBuilder ItemFromCollectionCondition(
         this ConditionsBuilder builder,
-        ItemsCollectionEvaluator Items,
-        bool Any,
-        ConditionsBuilder Condition,
+        ItemsCollectionEvaluator items,
+        bool any = default,
+        ConditionsBuilder condition = null,
         bool negate = false)
     {
-      builder.Validate(Items);
-      
+      builder.Validate(items);
+    
       var element = ElementTool.Create<ItemFromCollectionCondition>();
-      element.Items = Items;
-      element.Any = Any;
-      element.Condition = Condition.Build();
+      element.Items = items;
+      element.Any = any;
+      element.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -416,21 +411,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="ItemsEnough"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ItemToCheck"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToCheck"><see cref="BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemsEnough))]
-    public static ConditionsBuilder AddItemsEnough(
+    public static ConditionsBuilder ItemsEnough(
         this ConditionsBuilder builder,
-        bool Money,
-        string m_ItemToCheck,
-        int Quantity,
+        bool money = default,
+        string itemToCheck = null,
+        int quantity = default,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<ItemsEnough>();
-      element.Money = Money;
-      element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(m_ItemToCheck);
-      element.Quantity = Quantity;
+      element.Money = money;
+      element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(itemToCheck);
+      element.Quantity = quantity;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -440,17 +434,17 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PartyCanUseAbility))]
-    public static ConditionsBuilder AddPartyCanUseAbility(
+    public static ConditionsBuilder PartyCanUseAbility(
         this ConditionsBuilder builder,
-        AbilitiesHelper.AbilityDescription Description,
-        bool AllowItems,
+        AbilitiesHelper.AbilityDescription description,
+        bool allowItems = default,
         bool negate = false)
     {
-      builder.Validate(Description);
-      
+      builder.Validate(description);
+    
       var element = ElementTool.Create<PartyCanUseAbility>();
-      element.Description = Description;
-      element.AllowItems = AllowItems;
+      element.Description = description;
+      element.AllowItems = allowItems;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -460,16 +454,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PartyUnits))]
-    public static ConditionsBuilder AddPartyUnits(
+    public static ConditionsBuilder PartyUnits(
         this ConditionsBuilder builder,
-        bool Any,
-        ConditionsBuilder Conditions,
+        bool any = default,
+        ConditionsBuilder conditions = null,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<PartyUnits>();
-      element.Any = Any;
-      element.Conditions = Conditions.Build();
+      element.Any = any;
+      element.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -479,11 +472,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PcFemale))]
-    public static ConditionsBuilder AddPcFemale(
+    public static ConditionsBuilder PcFemale(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<PcFemale>();
       element.Not = negate;
       return builder.Add(element);
@@ -494,11 +486,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PcMale))]
-    public static ConditionsBuilder AddPcMale(
+    public static ConditionsBuilder PcMale(
         this ConditionsBuilder builder,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<PcMale>();
       element.Not = negate;
       return builder.Add(element);
@@ -509,15 +500,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(PcRace))]
-    public static ConditionsBuilder AddPcRace(
+    public static ConditionsBuilder PcRace(
         this ConditionsBuilder builder,
-        Race Race,
+        Race race = default,
         bool negate = false)
     {
-      builder.Validate(Race);
-      
       var element = ElementTool.Create<PcRace>();
-      element.Race = Race;
+      element.Race = race;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -526,17 +515,16 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="SummonPoolExistsAndEmpty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolExistsAndEmpty))]
-    public static ConditionsBuilder AddSummonPoolExistsAndEmpty(
+    public static ConditionsBuilder SummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
-        string m_SummonPool,
+        string summonPool = null,
         bool negate = false)
     {
-      
       var element = ElementTool.Create<SummonPoolExistsAndEmpty>();
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -546,15 +534,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitIsDead))]
-    public static ConditionsBuilder AddUnitIsDead(
+    public static ConditionsBuilder UnitIsDead(
         this ConditionsBuilder builder,
-        UnitEvaluator Target,
+        UnitEvaluator target,
         bool negate = false)
     {
-      builder.Validate(Target);
-      
+      builder.Validate(target);
+    
       var element = ElementTool.Create<UnitIsDead>();
-      element.Target = Target;
+      element.Target = target;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -564,15 +552,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitIsHidden))]
-    public static ConditionsBuilder AddUnitIsHidden(
+    public static ConditionsBuilder UnitIsHidden(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
+        UnitEvaluator unit,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<UnitIsHidden>();
-      element.Unit = Unit;
+      element.Unit = unit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -581,20 +569,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Blueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="blueprint"><see cref="BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(UnitBlueprint))]
-    public static ConditionsBuilder AddUnitBlueprint(
+    public static ConditionsBuilder UnitBlueprint(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_Blueprint,
+        UnitEvaluator unit,
+        string blueprint = null,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<UnitBlueprint>();
-      element.Unit = Unit;
-      element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(m_Blueprint);
+      element.Unit = unit;
+      element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -603,23 +591,23 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Class"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(UnitClass))]
-    public static ConditionsBuilder AddUnitClass(
+    public static ConditionsBuilder UnitClass(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_Class,
-        IntEvaluator MinLevel,
+        UnitEvaluator unit,
+        IntEvaluator minLevel,
+        string clazz = null,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      builder.Validate(MinLevel);
-      
+      builder.Validate(unit);
+      builder.Validate(minLevel);
+    
       var element = ElementTool.Create<UnitClass>();
-      element.Unit = Unit;
-      element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_Class);
-      element.MinLevel = MinLevel;
+      element.Unit = unit;
+      element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      element.MinLevel = minLevel;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -629,18 +617,18 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitEqual))]
-    public static ConditionsBuilder AddUnitEqual(
+    public static ConditionsBuilder UnitEqual(
         this ConditionsBuilder builder,
-        UnitEvaluator FirstUnit,
-        UnitEvaluator SecondUnit,
+        UnitEvaluator firstUnit,
+        UnitEvaluator secondUnit,
         bool negate = false)
     {
-      builder.Validate(FirstUnit);
-      builder.Validate(SecondUnit);
-      
+      builder.Validate(firstUnit);
+      builder.Validate(secondUnit);
+    
       var element = ElementTool.Create<UnitEqual>();
-      element.FirstUnit = FirstUnit;
-      element.SecondUnit = SecondUnit;
+      element.FirstUnit = firstUnit;
+      element.SecondUnit = secondUnit;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -650,15 +638,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitFromSpawnerIsDead))]
-    public static ConditionsBuilder AddUnitFromSpawnerIsDead(
+    public static ConditionsBuilder UnitFromSpawnerIsDead(
         this ConditionsBuilder builder,
-        EntityReference Target,
+        EntityReference target,
         bool negate = false)
     {
-      builder.Validate(Target);
-      
+      builder.Validate(target);
+    
       var element = ElementTool.Create<UnitFromSpawnerIsDead>();
-      element.Target = Target;
+      element.Target = target;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -667,20 +655,20 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitFromSummonPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_SummonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(UnitFromSummonPool))]
-    public static ConditionsBuilder AddUnitFromSummonPool(
+    public static ConditionsBuilder UnitFromSummonPool(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        string m_SummonPool,
+        UnitEvaluator unit,
+        string summonPool = null,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<UnitFromSummonPool>();
-      element.Unit = Unit;
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(m_SummonPool);
+      element.Unit = unit;
+      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -690,18 +678,17 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitGender))]
-    public static ConditionsBuilder AddUnitGender(
+    public static ConditionsBuilder UnitGender(
         this ConditionsBuilder builder,
-        UnitEvaluator Unit,
-        Gender Gender,
+        UnitEvaluator unit,
+        Gender gender = default,
         bool negate = false)
     {
-      builder.Validate(Unit);
-      builder.Validate(Gender);
-      
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<UnitGender>();
-      element.Unit = Unit;
-      element.Gender = Gender;
+      element.Unit = unit;
+      element.Gender = gender;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -711,15 +698,15 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     [Generated]
     [Implements(typeof(UnitIsNull))]
-    public static ConditionsBuilder AddUnitIsNull(
+    public static ConditionsBuilder UnitIsNull(
         this ConditionsBuilder builder,
-        UnitEvaluator Target,
+        UnitEvaluator target,
         bool negate = false)
     {
-      builder.Validate(Target);
-      
+      builder.Validate(target);
+    
       var element = ElementTool.Create<UnitIsNull>();
-      element.Target = Target;
+      element.Target = target;
       element.Not = negate;
       return builder.Add(element);
     }

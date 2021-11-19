@@ -6,16 +6,18 @@ using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Class.Kineticist;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
-  /// <summary>Configurator for <see cref="BlueprintItemWeapon"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemWeapon"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemWeapon))]
   public class ItemWeaponConfigurator : BaseItemEquipmentHandConfigurator<BlueprintItemWeapon, ItemWeaponConfigurator>
   {
-     private ItemWeaponConfigurator(string name) : base(name) { }
+    private ItemWeaponConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemWeaponConfigurator For(string name)
@@ -31,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemWeaponConfigurator New(string name, string assetId)
+    public static ItemWeaponConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemWeapon>(name, assetId);
       return For(name);
@@ -41,46 +43,72 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintItemWeapon.m_Type"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
     [Generated]
-    public ItemWeaponConfigurator SetType(string value)
+    public ItemWeaponConfigurator SetType(string type)
     {
-      return OnConfigureInternal(bp => bp.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_Size"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetSize(Size value)
-    {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_Size = value);
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintWeaponEnchantment"/></param>
-    [Generated]
-    public ItemWeaponConfigurator AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintWeaponEnchantment"/></param>
-    [Generated]
-    public ItemWeaponConfigurator RemoveFromEnchantments(params string[] values)
+    public ItemWeaponConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name));
+            bp.m_Size = size;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public ItemWeaponConfigurator SetEnchantments(string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public ItemWeaponConfigurator AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    [Generated]
+    public ItemWeaponConfigurator RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(
@@ -93,112 +121,153 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetOverrideDamageDice(bool value)
+    public ItemWeaponConfigurator SetOverrideDamageDice(bool overrideDamageDice)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideDamageDice = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideDamageDice = overrideDamageDice;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_DamageDice"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetDamageDice(DiceFormula value)
+    public ItemWeaponConfigurator SetDamageDice(DiceFormula damageDice)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DamageDice = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DamageDice = damageDice;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetOverrideDamageType(bool value)
+    public ItemWeaponConfigurator SetOverrideDamageType(bool overrideDamageType)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideDamageType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideDamageType = overrideDamageType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_DamageType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetDamageType(DamageTypeDescription value)
+    public ItemWeaponConfigurator SetDamageType(DamageTypeDescription damageType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_DamageType = value);
+      ValidateParam(damageType);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DamageType = damageType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.Double"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetDouble(bool value)
+    public ItemWeaponConfigurator SetDouble(bool doubleValue)
     {
-      return OnConfigureInternal(bp => bp.Double = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Double = doubleValue;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_SecondWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="secondWeapon"><see cref="BlueprintItemWeapon"/></param>
     [Generated]
-    public ItemWeaponConfigurator SetSecondWeapon(string value)
+    public ItemWeaponConfigurator SetSecondWeapon(string secondWeapon)
     {
-      return OnConfigureInternal(bp => bp.m_SecondWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SecondWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(secondWeapon);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.KeepInPolymorph"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetKeepInPolymorph(bool value)
+    public ItemWeaponConfigurator SetKeepInPolymorph(bool keepInPolymorph)
     {
-      return OnConfigureInternal(bp => bp.KeepInPolymorph = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.KeepInPolymorph = keepInPolymorph;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideShardItem"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetOverrideShardItem(bool value)
+    public ItemWeaponConfigurator SetOverrideShardItem(bool overrideShardItem)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideShardItem = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideShardItem = overrideShardItem;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDestructible"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetOverrideDestructible(bool value)
+    public ItemWeaponConfigurator SetOverrideDestructible(bool overrideDestructible)
     {
-      return OnConfigureInternal(bp => bp.m_OverrideDestructible = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OverrideDestructible = overrideDestructible;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemWeaponConfigurator SetAlwaysPrimary(bool value)
+    public ItemWeaponConfigurator SetAlwaysPrimary(bool alwaysPrimary)
     {
-      return OnConfigureInternal(bp => bp.m_AlwaysPrimary = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AlwaysPrimary = alwaysPrimary;
+          });
     }
 
     /// <summary>
     /// Adds <see cref="WeaponKineticBlade"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_ActivationAbility"><see cref="BlueprintAbility"/></param>
-    /// <param name="m_Blast"><see cref="BlueprintAbility"/></param>
+    /// <param name="activationAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="blast"><see cref="BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(WeaponKineticBlade))]
     public ItemWeaponConfigurator AddWeaponKineticBlade(
-        string m_ActivationAbility,
-        string m_Blast)
+        string activationAbility = null,
+        string blast = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new WeaponKineticBlade();
-      component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(m_ActivationAbility);
-      component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(m_Blast);
+      var component = new WeaponKineticBlade();
+      component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(activationAbility);
+      component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(blast);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

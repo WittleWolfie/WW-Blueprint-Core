@@ -1,17 +1,20 @@
+using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.ResourceLinks;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
-  /// <summary>Configurator for <see cref="BlueprintItemEquipmentUsable"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintItemEquipmentUsable"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintItemEquipmentUsable))]
   public class ItemEquipmentUsableConfigurator : BaseItemEquipmentConfigurator<BlueprintItemEquipmentUsable, ItemEquipmentUsableConfigurator>
   {
-     private ItemEquipmentUsableConfigurator(string name) : base(name) { }
+    private ItemEquipmentUsableConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ItemEquipmentUsableConfigurator For(string name)
@@ -27,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ItemEquipmentUsableConfigurator New(string name, string assetId)
+    public static ItemEquipmentUsableConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintItemEquipmentUsable>(name, assetId);
       return For(name);
@@ -37,64 +40,98 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipmentUsable.Type"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetType(UsableItemType value)
+    public ItemEquipmentUsableConfigurator SetType(UsableItemType type)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Type = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Type = type;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_IdentifyDC"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetIdentifyDC(int value)
+    public ItemEquipmentUsableConfigurator SetIdentifyDC(int identifyDC)
     {
-      return OnConfigureInternal(bp => bp.m_IdentifyDC = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IdentifyDC = identifyDC;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_InventoryEquipSound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetInventoryEquipSound(string value)
+    public ItemEquipmentUsableConfigurator SetInventoryEquipSound(string inventoryEquipSound)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_InventoryEquipSound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_InventoryEquipSound = inventoryEquipSound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink value)
+    public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink beltItemPrefab)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_BeltItemPrefab = value);
+      ValidateParam(beltItemPrefab);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BeltItemPrefab = beltItemPrefab ?? Constants.Empty.PrefabLink;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
+    /// Sets <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public ItemEquipmentUsableConfigurator AddToEnchantments(params string[] values)
-    {
-      return OnConfigureInternal(bp => bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray()));
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="values"><see cref="BlueprintEquipmentEnchantment"/></param>
-    [Generated]
-    public ItemEquipmentUsableConfigurator RemoveFromEnchantments(params string[] values)
+    public ItemEquipmentUsableConfigurator SetEnchantments(string[] enchantments)
     {
       return OnConfigureInternal(
           bp =>
           {
-            var excludeRefs = values.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
+            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public ItemEquipmentUsableConfigurator AddToEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    [Generated]
+    public ItemEquipmentUsableConfigurator RemoveFromEnchantments(params string[] enchantments)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
             bp.m_Enchantments =
                 bp.m_Enchantments
                     .Where(

@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.EntitySystem.Stats;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="SavingThrowConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="SavingThrowConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(SavingThrowConsideration))]
   public class SavingThrowConsiderationConfigurator : BaseConsiderationConfigurator<SavingThrowConsideration, SavingThrowConsiderationConfigurator>
   {
-     private SavingThrowConsiderationConfigurator(string name) : base(name) { }
+    private SavingThrowConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static SavingThrowConsiderationConfigurator For(string name)
@@ -25,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static SavingThrowConsiderationConfigurator New(string name, string assetId)
+    public static SavingThrowConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<SavingThrowConsideration>(name, assetId);
       return For(name);
@@ -35,28 +38,39 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="SavingThrowConsideration.SaveType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SavingThrowConsiderationConfigurator SetSaveType(SavingThrowType value)
+    public SavingThrowConsiderationConfigurator SetSaveType(SavingThrowType saveType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.SaveType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.SaveType = saveType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="SavingThrowConsideration.LowScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SavingThrowConsiderationConfigurator SetLowScore(float value)
+    public SavingThrowConsiderationConfigurator SetLowScore(float lowScore)
     {
-      return OnConfigureInternal(bp => bp.LowScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LowScore = lowScore;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="SavingThrowConsideration.HighScore"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SavingThrowConsiderationConfigurator SetHighScore(float value)
+    public SavingThrowConsiderationConfigurator SetHighScore(float highScore)
     {
-      return OnConfigureInternal(bp => bp.HighScore = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.HighScore = highScore;
+          });
     }
   }
 }

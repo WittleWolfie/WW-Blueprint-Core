@@ -1,15 +1,18 @@
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
-  /// <summary>Configurator for <see cref="RaceGenderDistribution"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="RaceGenderDistribution"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(RaceGenderDistribution))]
   public class RaceGenderDistributionConfigurator : BaseBlueprintConfigurator<RaceGenderDistribution, RaceGenderDistributionConfigurator>
   {
-     private RaceGenderDistributionConfigurator(string name) : base(name) { }
+    private RaceGenderDistributionConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static RaceGenderDistributionConfigurator For(string name)
@@ -25,63 +28,92 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static RaceGenderDistributionConfigurator New(string name, string assetId)
+    public static RaceGenderDistributionConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<RaceGenderDistribution>(name, assetId);
       return For(name);
     }
 
     /// <summary>
-    /// Modifies <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
+    /// Sets <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator AddToRaces(params RaceEntry[] values)
+    public RaceGenderDistributionConfigurator SetRaces(RaceEntry[] races)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Races = CommonTool.Append(bp.Races, values));
+      ValidateParam(races);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Races = races;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
+    /// Adds to <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator RemoveFromRaces(params RaceEntry[] values)
+    public RaceGenderDistributionConfigurator AddToRaces(params RaceEntry[] races)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.Races = bp.Races.Where(item => !values.Contains(item)).ToArray());
+      ValidateParam(races);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Races = CommonTool.Append(bp.Races, races ?? new RaceEntry[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RaceGenderDistributionConfigurator RemoveFromRaces(params RaceEntry[] races)
+    {
+      ValidateParam(races);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Races = bp.Races.Where(item => !races.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.LeftHandedChance"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator SetLeftHandedChance(float value)
+    public RaceGenderDistributionConfigurator SetLeftHandedChance(float leftHandedChance)
     {
-      return OnConfigureInternal(bp => bp.LeftHandedChance = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.LeftHandedChance = leftHandedChance;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.MaleBaseWeight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator SetMaleBaseWeight(float value)
+    public RaceGenderDistributionConfigurator SetMaleBaseWeight(float maleBaseWeight)
     {
-      return OnConfigureInternal(bp => bp.MaleBaseWeight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.MaleBaseWeight = maleBaseWeight;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.FemaleBaseWeight"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator SetFemaleBaseWeight(float value)
+    public RaceGenderDistributionConfigurator SetFemaleBaseWeight(float femaleBaseWeight)
     {
-      return OnConfigureInternal(bp => bp.FemaleBaseWeight = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FemaleBaseWeight = femaleBaseWeight;
+          });
     }
   }
 }

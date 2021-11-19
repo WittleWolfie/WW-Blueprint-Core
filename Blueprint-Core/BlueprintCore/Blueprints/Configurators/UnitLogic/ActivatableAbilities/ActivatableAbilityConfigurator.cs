@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic;
@@ -11,16 +12,18 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
+using System;
 using System.Linq;
-
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
-  /// <summary>Configurator for <see cref="BlueprintActivatableAbility"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintActivatableAbility"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintActivatableAbility))]
   public class ActivatableAbilityConfigurator : BaseUnitFactConfigurator<BlueprintActivatableAbility, ActivatableAbilityConfigurator>
   {
-     private ActivatableAbilityConfigurator(string name) : base(name) { }
+    private ActivatableAbilityConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static ActivatableAbilityConfigurator For(string name)
@@ -36,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ActivatableAbilityConfigurator New(string name, string assetId)
+    public static ActivatableAbilityConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<BlueprintActivatableAbility>(name, assetId);
       return For(name);
@@ -46,178 +49,251 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Sets <see cref="BlueprintActivatableAbility.m_Buff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
     [Generated]
-    public ActivatableAbilityConfigurator SetBuff(string value)
+    public ActivatableAbilityConfigurator SetBuff(string buff)
     {
-      return OnConfigureInternal(bp => bp.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.Group"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetGroup(ActivatableAbilityGroup value)
+    public ActivatableAbilityConfigurator SetGroup(ActivatableAbilityGroup group)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.Group = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Group = group;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.WeightInGroup"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetWeightInGroup(int value)
+    public ActivatableAbilityConfigurator SetWeightInGroup(int weightInGroup)
     {
-      return OnConfigureInternal(bp => bp.WeightInGroup = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.WeightInGroup = weightInGroup;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.IsOnByDefault"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetIsOnByDefault(bool value)
+    public ActivatableAbilityConfigurator SetIsOnByDefault(bool isOnByDefault)
     {
-      return OnConfigureInternal(bp => bp.IsOnByDefault = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsOnByDefault = isOnByDefault;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDeactivateIfCombatEnded(bool value)
+    public ActivatableAbilityConfigurator SetDeactivateIfCombatEnded(bool deactivateIfCombatEnded)
     {
-      return OnConfigureInternal(bp => bp.DeactivateIfCombatEnded = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeactivateIfCombatEnded = deactivateIfCombatEnded;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DeactivateAfterFirstRound"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDeactivateAfterFirstRound(bool value)
+    public ActivatableAbilityConfigurator SetDeactivateAfterFirstRound(bool deactivateAfterFirstRound)
     {
-      return OnConfigureInternal(bp => bp.DeactivateAfterFirstRound = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeactivateAfterFirstRound = deactivateAfterFirstRound;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DeactivateImmediately"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDeactivateImmediately(bool value)
+    public ActivatableAbilityConfigurator SetDeactivateImmediately(bool deactivateImmediately)
     {
-      return OnConfigureInternal(bp => bp.DeactivateImmediately = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeactivateImmediately = deactivateImmediately;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.IsTargeted"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetIsTargeted(bool value)
+    public ActivatableAbilityConfigurator SetIsTargeted(bool isTargeted)
     {
-      return OnConfigureInternal(bp => bp.IsTargeted = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.IsTargeted = isTargeted;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDeactivateIfOwnerDisabled(bool value)
+    public ActivatableAbilityConfigurator SetDeactivateIfOwnerDisabled(bool deactivateIfOwnerDisabled)
     {
-      return OnConfigureInternal(bp => bp.DeactivateIfOwnerDisabled = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeactivateIfOwnerDisabled = deactivateIfOwnerDisabled;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DeactivateIfOwnerUnconscious"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDeactivateIfOwnerUnconscious(bool value)
+    public ActivatableAbilityConfigurator SetDeactivateIfOwnerUnconscious(bool deactivateIfOwnerUnconscious)
     {
-      return OnConfigureInternal(bp => bp.DeactivateIfOwnerUnconscious = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DeactivateIfOwnerUnconscious = deactivateIfOwnerUnconscious;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.OnlyInCombat"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetOnlyInCombat(bool value)
+    public ActivatableAbilityConfigurator SetOnlyInCombat(bool onlyInCombat)
     {
-      return OnConfigureInternal(bp => bp.OnlyInCombat = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OnlyInCombat = onlyInCombat;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.DoNotTurnOffOnRest"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetDoNotTurnOffOnRest(bool value)
+    public ActivatableAbilityConfigurator SetDoNotTurnOffOnRest(bool doNotTurnOffOnRest)
     {
-      return OnConfigureInternal(bp => bp.DoNotTurnOffOnRest = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DoNotTurnOffOnRest = doNotTurnOffOnRest;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.ActivationType"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetActivationType(AbilityActivationType value)
+    public ActivatableAbilityConfigurator SetActivationType(AbilityActivationType activationType)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.ActivationType = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ActivationType = activationType;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.m_ActivateWithUnitCommand"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetActivateWithUnitCommand(UnitCommand.CommandType value)
+    public ActivatableAbilityConfigurator SetActivateWithUnitCommand(UnitCommand.CommandType activateWithUnitCommand)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ActivateWithUnitCommand = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActivateWithUnitCommand = activateWithUnitCommand;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetActivateOnUnitAction(AbilityActivateOnUnitActionType value)
+    public ActivatableAbilityConfigurator SetActivateOnUnitAction(AbilityActivateOnUnitActionType activateOnUnitAction)
     {
-      ValidateParam(value);
-      return OnConfigureInternal(bp => bp.m_ActivateOnUnitAction = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_ActivateOnUnitAction = activateOnUnitAction;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="value"><see cref="BlueprintAbility"/></param>
+    /// <param name="selectTargetAbility"><see cref="BlueprintAbility"/></param>
     [Generated]
-    public ActivatableAbilityConfigurator SetSelectTargetAbility(string value)
+    public ActivatableAbilityConfigurator SetSelectTargetAbility(string selectTargetAbility)
     {
-      return OnConfigureInternal(bp => bp.m_SelectTargetAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(value));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SelectTargetAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(selectTargetAbility);
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
+    /// Sets <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator AddToResourceAssetIds(params string[] values)
+    public ActivatableAbilityConfigurator SetResourceAssetIds(string[] resourceAssetIds)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, values));
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceAssetIds = resourceAssetIds;
+          });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator RemoveFromResourceAssetIds(params string[] values)
+    public ActivatableAbilityConfigurator AddToResourceAssetIds(params string[] resourceAssetIds)
     {
-      foreach (var item in values)
-      {
-        ValidateParam(item);
-      }
-      return OnConfigureInternal(bp => bp.ResourceAssetIds = bp.ResourceAssetIds.Where(item => !values.Contains(item)).ToArray());
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, resourceAssetIds ?? new string[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ActivatableAbilityConfigurator RemoveFromResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ResourceAssetIds = bp.ResourceAssetIds.Where(item => !resourceAssetIds.Contains(item)).ToArray();
+          });
     }
 
     /// <summary>
@@ -226,15 +302,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(ActionPanelLogic))]
     public ActivatableAbilityConfigurator AddActionPanelLogic(
-        int Priority,
-        ConditionsBuilder AutoFillConditions,
-        ConditionsBuilder AutoCastConditions)
+        int priority = default,
+        ConditionsBuilder autoFillConditions = null,
+        ConditionsBuilder autoCastConditions = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new ActionPanelLogic();
-      component.Priority = Priority;
-      component.AutoFillConditions = AutoFillConditions.Build();
-      component.AutoCastConditions = AutoCastConditions.Build();
+      var component = new ActionPanelLogic();
+      component.Priority = priority;
+      component.AutoFillConditions = autoFillConditions?.Build() ?? Constants.Empty.Conditions;
+      component.AutoCastConditions = autoCastConditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -244,12 +321,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(AbilityActivateWithUnitCommandInTurnBased))]
     public ActivatableAbilityConfigurator AddAbilityActivateWithUnitCommandInTurnBased(
-        UnitCommand.CommandType CommandType)
+        UnitCommand.CommandType commandType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(CommandType);
-      
-      var component =  new AbilityActivateWithUnitCommandInTurnBased();
-      component.CommandType = CommandType;
+      var component = new AbilityActivateWithUnitCommandInTurnBased();
+      component.CommandType = commandType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -258,9 +335,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(RestrictionCanGatherPower))]
-    public ActivatableAbilityConfigurator AddRestrictionCanGatherPower()
+    public ActivatableAbilityConfigurator AddRestrictionCanGatherPower(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RestrictionCanGatherPower());
+      var component = new RestrictionCanGatherPower();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -268,9 +348,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(RestrictionCanUseKineticBlade))]
-    public ActivatableAbilityConfigurator AddRestrictionCanUseKineticBlade()
+    public ActivatableAbilityConfigurator AddRestrictionCanUseKineticBlade(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RestrictionCanUseKineticBlade());
+      var component = new RestrictionCanUseKineticBlade();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -278,36 +361,35 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(ActivatableAbilityMount))]
-    public ActivatableAbilityConfigurator AddActivatableAbilityMount()
+    public ActivatableAbilityConfigurator AddActivatableAbilityMount(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new ActivatableAbilityMount());
+      var component = new ActivatableAbilityMount();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="ActivatableAbilityResourceLogic"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_RequiredResource"><see cref="BlueprintAbilityResource"/></param>
-    /// <param name="m_FreeBlueprint"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="requiredResource"><see cref="BlueprintAbilityResource"/></param>
+    /// <param name="freeBlueprint"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(ActivatableAbilityResourceLogic))]
     public ActivatableAbilityConfigurator AddActivatableAbilityResourceLogic(
-        ActivatableAbilityResourceLogic.ResourceSpendType SpendType,
-        string m_RequiredResource,
-        string m_FreeBlueprint,
-        WeaponCategory[] Categories)
+        ActivatableAbilityResourceLogic.ResourceSpendType spendType = default,
+        string requiredResource = null,
+        string freeBlueprint = null,
+        WeaponCategory[] categories = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(SpendType);
-      foreach (var item in Categories)
-      {
-        ValidateParam(item);
-      }
-      
-      var component =  new ActivatableAbilityResourceLogic();
-      component.SpendType = SpendType;
-      component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(m_RequiredResource);
-      component.m_FreeBlueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_FreeBlueprint);
-      component.Categories = Categories;
+      var component = new ActivatableAbilityResourceLogic();
+      component.SpendType = spendType;
+      component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(requiredResource);
+      component.m_FreeBlueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(freeBlueprint);
+      component.Categories = categories;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -317,12 +399,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(ActivatableAbilityUnitCommand))]
     public ActivatableAbilityConfigurator AddActivatableAbilityUnitCommand(
-        UnitCommand.CommandType Type)
+        UnitCommand.CommandType type = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Type);
-      
-      var component =  new ActivatableAbilityUnitCommand();
-      component.Type = Type;
+      var component = new ActivatableAbilityUnitCommand();
+      component.Type = type;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -331,9 +413,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(DeactivateImmediatelyIfNoAttacksThisRound))]
-    public ActivatableAbilityConfigurator AddDeactivateImmediatelyIfNoAttacksThisRound()
+    public ActivatableAbilityConfigurator AddDeactivateImmediatelyIfNoAttacksThisRound(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new DeactivateImmediatelyIfNoAttacksThisRound());
+      var component = new DeactivateImmediatelyIfNoAttacksThisRound();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -342,12 +427,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(TurnOffImmediatelyWithUnitCommand))]
     public ActivatableAbilityConfigurator AddTurnOffImmediatelyWithUnitCommand(
-        UnitCommand.CommandType CommandType)
+        UnitCommand.CommandType commandType = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(CommandType);
-      
-      var component =  new TurnOffImmediatelyWithUnitCommand();
-      component.CommandType = CommandType;
+      var component = new TurnOffImmediatelyWithUnitCommand();
+      component.CommandType = commandType;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -355,17 +440,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RestrictionHasFact))]
     public ActivatableAbilityConfigurator AddRestrictionHasFact(
-        string m_Feature,
-        bool Not)
+        string feature = null,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RestrictionHasFact();
-      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_Feature);
-      component.Not = Not;
+      var component = new RestrictionHasFact();
+      component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
+      component.Not = not;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -375,14 +461,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionHasUnitCondition))]
     public ActivatableAbilityConfigurator AddRestrictionHasUnitCondition(
-        UnitCondition Condition,
-        bool Invert)
+        UnitCondition condition = default,
+        bool invert = default,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new RestrictionHasUnitCondition();
-      component.Condition = Condition;
-      component.Invert = Invert;
+      var component = new RestrictionHasUnitCondition();
+      component.Condition = condition;
+      component.Invert = invert;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -390,18 +476,19 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionKensaiWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CharacterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="m_ChosenWeaponBlueprint"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="chosenWeaponBlueprint"><see cref="BlueprintParametrizedFeature"/></param>
     [Generated]
     [Implements(typeof(RestrictionKensaiWeapon))]
     public ActivatableAbilityConfigurator AddRestrictionKensaiWeapon(
-        string m_CharacterClass,
-        string m_ChosenWeaponBlueprint)
+        string characterClass = null,
+        string chosenWeaponBlueprint = null,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RestrictionKensaiWeapon();
-      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(m_CharacterClass);
-      component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(m_ChosenWeaponBlueprint);
+      var component = new RestrictionKensaiWeapon();
+      component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
+      component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(chosenWeaponBlueprint);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -410,27 +497,30 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(RestrictionRangedWeapon))]
-    public ActivatableAbilityConfigurator AddRestrictionRangedWeapon()
+    public ActivatableAbilityConfigurator AddRestrictionRangedWeapon(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new RestrictionRangedWeapon());
+      var component = new RestrictionRangedWeapon();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
 
     /// <summary>
     /// Adds <see cref="RestrictionUnitConditionUnlessFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_CheckedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RestrictionUnitConditionUnlessFact))]
     public ActivatableAbilityConfigurator AddRestrictionUnitConditionUnlessFact(
-        UnitCondition Condition,
-        string m_CheckedFact)
+        UnitCondition condition = default,
+        string checkedFact = null,
+        BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(Condition);
-      
-      var component =  new RestrictionUnitConditionUnlessFact();
-      component.Condition = Condition;
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(m_CheckedFact);
+      var component = new RestrictionUnitConditionUnlessFact();
+      component.Condition = condition;
+      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -438,17 +528,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionUnlockableFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_NeededFlag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="neededFlag"><see cref="BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(RestrictionUnlockableFlag))]
     public ActivatableAbilityConfigurator AddRestrictionUnlockableFlag(
-        string m_NeededFlag,
-        bool Invert)
+        string neededFlag = null,
+        bool invert = default,
+        BlueprintComponent.Flags flags = default)
     {
-      
-      var component =  new RestrictionUnlockableFlag();
-      component.m_NeededFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(m_NeededFlag);
-      component.Invert = Invert;
+      var component = new RestrictionUnlockableFlag();
+      component.m_NeededFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(neededFlag);
+      component.Invert = invert;
+      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -457,9 +548,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </summary>
     [Generated]
     [Implements(typeof(SwitchOffAtCombatEnd))]
-    public ActivatableAbilityConfigurator AddSwitchOffAtCombatEnd()
+    public ActivatableAbilityConfigurator AddSwitchOffAtCombatEnd(
+        BlueprintComponent.Flags flags = default)
     {
-      return AddComponent(new SwitchOffAtCombatEnd());
+      var component = new SwitchOffAtCombatEnd();
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

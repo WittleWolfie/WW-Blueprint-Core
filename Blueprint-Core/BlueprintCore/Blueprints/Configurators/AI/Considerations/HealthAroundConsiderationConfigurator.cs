@@ -1,14 +1,17 @@
+using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-
+using System;
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
-  /// <summary>Configurator for <see cref="HealthAroundConsideration"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="HealthAroundConsideration"/>.
+  /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(HealthAroundConsideration))]
   public class HealthAroundConsiderationConfigurator : BaseUnitsAroundConsiderationConfigurator<HealthAroundConsideration, HealthAroundConsiderationConfigurator>
   {
-     private HealthAroundConsiderationConfigurator(string name) : base(name) { }
+    private HealthAroundConsiderationConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static HealthAroundConsiderationConfigurator For(string name)
@@ -24,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static HealthAroundConsiderationConfigurator New(string name, string assetId)
+    public static HealthAroundConsiderationConfigurator For(string name, string assetId)
     {
       BlueprintTool.Create<HealthAroundConsideration>(name, assetId);
       return For(name);
@@ -34,18 +37,26 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="HealthAroundConsideration.RequiredMissingHealth"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public HealthAroundConsiderationConfigurator SetRequiredMissingHealth(int value)
+    public HealthAroundConsiderationConfigurator SetRequiredMissingHealth(int requiredMissingHealth)
     {
-      return OnConfigureInternal(bp => bp.RequiredMissingHealth = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RequiredMissingHealth = requiredMissingHealth;
+          });
     }
 
     /// <summary>
     /// Sets <see cref="HealthAroundConsideration.RequiredHealthLeft"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public HealthAroundConsiderationConfigurator SetRequiredHealthLeft(int value)
+    public HealthAroundConsiderationConfigurator SetRequiredHealthLeft(int requiredHealthLeft)
     {
-      return OnConfigureInternal(bp => bp.RequiredHealthLeft = value);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.RequiredHealthLeft = requiredHealthLeft;
+          });
     }
   }
 }
