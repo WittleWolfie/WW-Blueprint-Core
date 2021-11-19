@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static BlueprintCoreGen.CodeGen.MethodFactory;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -33,6 +34,9 @@ namespace BlueprintCoreGen.CodeGen
       ActionsBuilder,
       ConditionsBuilder
     }
+
+    private static readonly string BuilderValidationMethod = "builder.Validate";
+    private static readonly string ConfiguratorValidationMethod = "ValidateParam";
 
     /// <summary>
     /// Creates a method for adding an Element to a Builder
@@ -62,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         method.AddLine($"public static {builderType} {GetMethodName("Add", elementTypeName)}(this {builderType} builder)");
         method.AddLine($"{{");
-        method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>();");
+        method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
         method.AddLine($"}}");
         return method;
       }
@@ -73,10 +77,9 @@ namespace BlueprintCoreGen.CodeGen
       AddParamDeclarations(method, fields);
       method.AddLine($"{{");
 
-      AddBuilderValidation(method, fields);
+      AddValidation(method, fields, BuilderValidationMethod);
 
       method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
-
       fields.ForEach(field => field.GetAssignment("element").ForEach(assignment => method.AddLine($"  {assignment}")));
 
       method.AddLine($"  return builder.Add(element);");
@@ -100,30 +103,49 @@ namespace BlueprintCoreGen.CodeGen
       method.AddLine($"    {declarations.Last()})");
     }
 
-    private static void AddBuilderValidation(Method method, List<IField> fields)
+    /// <summary>
+    /// Creates a method for adding a blueprint component.
+    /// </summary>
+    public static IMethod CreateForBlueprintComponent(Type componentType, string returnType)
     {
-      bool hasValidation = false;
-      fields.ForEach(
-          field =>
-          {
-            if (field.ShouldValidate)
-            {
-              hasValidation = true;
-              method.AddLine($"  if ({field.ParamName} is not null)");
-              method.AddLine($"  {{");
-              if (field is IEnumerableField)
-              {
-                var enumerable = field as IEnumerableField;
-                method.AddLine($"    foreach (var item in {field.ParamName}) {{ builder.Validate(item); }}");
-              }
-              else
-              {
-                method.AddLine($"    builder.Validate({field.ParamName});");
-              }
-              method.AddLine($"  }}");
-            }
-          });
-      if (hasValidation) { method.AddLine(""); }
+      var componentTypeName = TypeTool.GetName(componentType);
+      var fields =
+          componentType.GetFields()
+              .Select(field => FieldFactory.Create(field))
+              .Where(field => field is not null)
+              .ToList();
+
+      var method = new Method();
+      fields.ForEach(field => method.AddImports(field.Imports.ToList()));
+
+      AddComments(
+          method,
+          "Adds",
+          componentTypeName,
+          fields.Select(field => field.Comment).Where(comment => comment is not null).ToList());
+      AddAttributes(method, componentTypeName);
+
+      if (!fields.Any())
+      {
+        method.AddLine($"public {returnType} {GetMethodName("Add", componentTypeName)}()");
+        method.AddLine($"{{");
+        method.AddLine($"  return AddComponent(new {componentTypeName}());");
+        method.AddLine($"}}");
+        return method;
+      }
+
+      method.AddLine($"public {returnType} {GetMethodName("Add", componentTypeName)}(");
+      AddParamDeclarations(method, fields);
+      method.AddLine($"{{");
+
+      AddValidation(method, fields, ConfiguratorValidationMethod);
+
+      method.AddLine($"  var component = new {componentTypeName}();");
+      fields.ForEach(field => field.GetAssignment("component").ForEach(assignment => method.AddLine($"  {assignment}")));
+
+      method.AddLine($"  return AddComponent(component);");
+      method.AddLine($"}}");
+      return method;
     }
 
     /// <summary>
@@ -155,7 +177,7 @@ namespace BlueprintCoreGen.CodeGen
 
       if (field.ShouldValidate)
       {
-        AddValidation(method, field, isEnumerable);
+        AddValidation(method, field, ConfiguratorValidationMethod, isEnumerable);
         method.AddLine("");
       }
 
@@ -181,7 +203,7 @@ namespace BlueprintCoreGen.CodeGen
 
       if (field.ShouldValidate)
       {
-        AddValidation(method, field, isEnumerable: true);
+        AddValidation(method, field, ConfiguratorValidationMethod, isEnumerable: true);
       }
 
       AddOnConfigure(method, addTo ? field.GetAddTo("bp") : field.GetRemoveFrom("bp"));
@@ -230,17 +252,32 @@ namespace BlueprintCoreGen.CodeGen
       return methodName;
     }
 
-    private static void AddValidation(Method method, IField field, bool isEnumerable)
+    private static void AddValidation(Method method, List<IField> fields, string validationMethod)
+    {
+      bool hasValidation = false;
+      fields.ForEach(
+          field =>
+          {
+            if (field.ShouldValidate)
+            {
+              hasValidation = true;
+              AddValidation(method, field, validationMethod, field is IEnumerableField);
+            }
+          });
+      if (hasValidation) { method.AddLine(""); }
+    }
+
+    private static void AddValidation(Method method, IField field, string validateFunction, bool isEnumerable)
     {
       method.AddLine($"  if ({field.ParamName} is not null)");
       method.AddLine($"  {{");
       if (isEnumerable)
       {
-        method.AddLine($"    foreach (var item in {field.ParamName}) {{ ValidateParam(item); }}");
+        method.AddLine($"    foreach (var item in {field.ParamName}) {{ {validateFunction}(item); }}");
       }
       else
       {
-        method.AddLine($"    ValidateParam({field.ParamName});");
+        method.AddLine($"    {validateFunction}({field.ParamName});");
       }
       method.AddLine($"  }}");
     }
