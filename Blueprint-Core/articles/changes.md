@@ -8,6 +8,7 @@
 * Added generic Add functions w/ init for BlueprintComponent, Action, and Condition
 * Updated generated code field declarations to use primitive type names
 * Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
+* Added validation check for duplicate AbilityRankType definitions in ContextRankConfig
 
 ### Breaking Changes
 
@@ -18,6 +19,7 @@ Some code was moved around for consistency and a new DLL reference is required.
 * New assembly references are required:
     * Owlcat.Runtime.Visual.dll
     * Owlcat.Runtime.UI.dll
+* Auto-generated methods provide default values for primitives, nullable types, and specific game types
 
 ## v0.6.0 Release
 

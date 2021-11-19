@@ -4,7 +4,9 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Validation;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -233,6 +235,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       return Blueprint;
     }
 
+    // TODO: Add support for EditComponent<>
 
     /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</summary>
     /// 
@@ -415,6 +418,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       component.Descriptor.m_IntValue &= ~DisableSpellDescriptors;
     }
 
+    // TODO: Refactor validation to rely on Validator. That way it can be used externally.
     /// <summary>
     /// Validates each <see cref="BlueprintComponent"/> using its own validation, attributes, and custom logic.
     /// </summary>
@@ -457,6 +461,20 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         {
           AddValidationWarning($"Component of {componentType} not allowed on {blueprintType}");
         }
+      }
+
+      // TODO: Unit test this
+      // Make sure there are no conflicting ContextRankConfigs
+      var duplicateRankTypes =
+          Blueprint.GetComponents<ContextRankConfig>()
+              .Select(config => config.m_Type)
+              .GroupBy(type => type)
+              .Where(group => group.Count() > 1)
+              .Select(group => group.Key);
+      if (duplicateRankTypes.Any())
+      {
+        AddValidationWarning(
+            $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(',', duplicateRankTypes)}");
       }
 
       Context.Errors.ToList().ForEach(str => AddValidationWarning(str));
