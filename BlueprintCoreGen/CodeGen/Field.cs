@@ -3,7 +3,11 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem;
+using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -88,9 +92,14 @@ namespace BlueprintCoreGen.CodeGen
 
   public static class FieldFactory
   {
-    public static IField Create(FieldInfo info)
+    public static IField Create(FieldInfo info, bool forConditionsBuilder = false)
     {
       if (IsIgnoredField(info)) { return null; }
+
+      if (DefaultEmptyField.TypeToEmptyConstant.ContainsKey(info.FieldType))
+      {
+        return new DefaultEmptyField(info);
+      }
 
       var enumerableType = GetEnumerableType(info.FieldType);
       if (enumerableType is not null && !IsIgnoredEnumerableType(info.FieldType))
@@ -112,6 +121,10 @@ namespace BlueprintCoreGen.CodeGen
       if (info.FieldType == typeof(ConditionsChecker))
       {
         return new BuilderField(info, BuilderField.BuilderType.Conditions);
+      }
+      if (forConditionsBuilder && info.Name == "Not")
+      {
+        return new NegateConditionField();
       }
       return new Field(info);
     }
@@ -174,6 +187,7 @@ namespace BlueprintCoreGen.CodeGen
         DefaultValue = GetDefaultValue(info.FieldType);
 
         Imports = new();
+        Imports.Add(typeof(Constants));
         PopulateImports(info.FieldType, Imports);
       }
 
@@ -208,8 +222,7 @@ namespace BlueprintCoreGen.CodeGen
         }
         type.GetGenericArguments().ToList().ForEach(t => PopulateImports(t, imports));
       }
-      
-      // TODO: Use a dictionary -- set default values based on Constants? Requires imports too...
+
       private static string GetDefaultValue(Type type)
       {
         if (type.IsPrimitive) { return "default"; }
@@ -229,6 +242,46 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
+    private class DefaultEmptyField : Field
+    {
+      private readonly string EmptyConstant;
+
+      public static readonly Dictionary<Type, string> TypeToEmptyConstant =
+          new()
+          {
+            { typeof(PrefabLink), "Constants.Empty.PrefabLink" },
+            { typeof(LocalizedString), "Constants.Empty.String" },
+            { typeof(ContextDiceValue), "Constants.Empty.DiceValue" }
+          };
+      public DefaultEmptyField(FieldInfo info) : base(info)
+      {
+        DefaultValue = "null";
+        EmptyConstant = TypeToEmptyConstant[info.FieldType];
+      }
+
+      public override List<string> GetAssignment(string objectName)
+      {
+        return new() { $"{objectName}.{Name} = {ParamName} ?? {EmptyConstant};" };
+      }
+    }
+
+    private class NegateConditionField : IField
+    {
+      public string Name => "Not";
+      public string TypeName => "bool";
+      public string ParamName => "negate";
+      public string MethodName => throw new NotImplementedException();
+      public string Comment => throw new NotImplementedException();
+      public string DefaultValue => "false";
+      public bool ShouldValidate => false;
+      public HashSet<Type> Imports => new();
+
+      public List<string> GetAssignment(string objectName)
+      {
+        return new() { $"{objectName}.Not = negate;" };
+      }
+    }
+
     private class BuilderField : Field
     {
       public enum BuilderType
@@ -242,6 +295,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         Type = builderType;
         TypeName = GetBuilderTypeName(Type);
+        DefaultValue = "null";
 
         ShouldValidate = false;
 
@@ -293,6 +347,8 @@ namespace BlueprintCoreGen.CodeGen
         IsArray = info.FieldType.IsArray;
         ToEnumerable = IsArray ? "ToArray()" : "ToList()";
 
+        DefaultValue = "null";
+
         ShouldValidate = GetShouldValidate(enumerableType);
 
         Imports.Add(typeof(Enumerable));
@@ -305,8 +361,8 @@ namespace BlueprintCoreGen.CodeGen
             new()
             {
               IsArray
-                  ? $"{objectName}.{Name} = CommonTool.Append({objectName}.{Name}, {ParamName});"
-                  : $"{objectName}.{Name}.AddRange({ParamName});"
+                  ? $"{objectName}.{Name} = CommonTool.Append({objectName}.{Name}, {ParamName} ?? new {EnumerableTypeName}());"
+                  : $"{objectName}.{Name}.AddRange({ParamName} ?? new {EnumerableTypeName}());"
             };
       }
 

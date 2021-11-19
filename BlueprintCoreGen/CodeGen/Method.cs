@@ -28,15 +28,21 @@ namespace BlueprintCoreGen.CodeGen
 
   public class MethodFactory
   {
+    public enum BuilderType
+    {
+      ActionsBuilder,
+      ConditionsBuilder
+    }
+
     /// <summary>
-    /// Creates a method for adding an Action to an ActionsBuilder
+    /// Creates a method for adding an Element to a Builder
     /// </summary>
-    public static IMethod CreateForActionsBuilder(Type elementType)
+    public static IMethod CreateForBuilder(Type elementType, BuilderType builderType)
     {
       var elementTypeName = TypeTool.GetName(elementType);
       var fields =
           elementType.GetFields()
-              .Select(field => FieldFactory.Create(field))
+              .Select(field => FieldFactory.Create(field, builderType == BuilderType.ConditionsBuilder))
               .Where(field => field is not null)
               .ToList();
 
@@ -54,26 +60,26 @@ namespace BlueprintCoreGen.CodeGen
 
       if (!fields.Any())
       {
-        method.AddLine($"public static ActionsBuilder {GetMethodName("Add", elementTypeName)}(this ActionsBuilder builder)");
+        method.AddLine($"public static {builderType} {GetMethodName("Add", elementTypeName)}(this {builderType} builder)");
         method.AddLine($"{{");
         method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>();");
         method.AddLine($"}}");
         return method;
       }
 
-      method.AddLine($"public static ActionsBuilder {GetMethodName("Add", elementTypeName)}(");
-      method.AddLine($"    this ActionsBuilder builder,");
+      method.AddLine($"public static {builderType} {GetMethodName("Add", elementTypeName)}(");
+      method.AddLine($"    this {builderType} builder,");
 
       AddParamDeclarations(method, fields);
       method.AddLine($"{{");
 
-      AddValidation(method, fields);
+      AddBuilderValidation(method, fields);
 
-      method.AddLine($"  var action = ElementTool.Create<{elementTypeName}>();");
+      method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
 
-      fields.ForEach(field => field.GetAssignment("action").ForEach(assignment => method.AddLine($"  {assignment}")));
+      fields.ForEach(field => field.GetAssignment("element").ForEach(assignment => method.AddLine($"  {assignment}")));
 
-      method.AddLine($"  return builder.Add(action);");
+      method.AddLine($"  return builder.Add(element);");
       method.AddLine($"}}");
       return method;
     }
@@ -94,7 +100,7 @@ namespace BlueprintCoreGen.CodeGen
       method.AddLine($"    {declarations.Last()})");
     }
 
-    private static void AddValidation(Method method, List<IField> fields)
+    private static void AddBuilderValidation(Method method, List<IField> fields)
     {
       bool hasValidation = false;
       fields.ForEach(
@@ -103,7 +109,18 @@ namespace BlueprintCoreGen.CodeGen
             if (field.ShouldValidate)
             {
               hasValidation = true;
-              AddValidation(method, field, field is IEnumerableField);
+              method.AddLine($"  if ({field.ParamName} is not null)");
+              method.AddLine($"  {{");
+              if (field is IEnumerableField)
+              {
+                var enumerable = field as IEnumerableField;
+                method.AddLine($"    foreach (var item in {field.ParamName}) {{ builder.Validate(item); }}");
+              }
+              else
+              {
+                method.AddLine($"    builder.Validate({field.ParamName});");
+              }
+              method.AddLine($"  }}");
             }
           });
       if (hasValidation) { method.AddLine(""); }
@@ -215,14 +232,17 @@ namespace BlueprintCoreGen.CodeGen
 
     private static void AddValidation(Method method, IField field, bool isEnumerable)
     {
+      method.AddLine($"  if ({field.ParamName} is not null)");
+      method.AddLine($"  {{");
       if (isEnumerable)
       {
-        method.AddLine($"  foreach (var item in {field.ParamName}) {{ ValidateParam(item); }}");
+        method.AddLine($"    foreach (var item in {field.ParamName}) {{ ValidateParam(item); }}");
       }
       else
       {
-        method.AddLine($"  ValidateParam({field.ParamName});");
+        method.AddLine($"    ValidateParam({field.ParamName});");
       }
+      method.AddLine($"  }}");
     }
 
     private static void AddOnConfigure(Method method, List<string> onConfigureBody)
