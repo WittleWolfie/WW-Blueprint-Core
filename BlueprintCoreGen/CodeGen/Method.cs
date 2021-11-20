@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
@@ -141,6 +142,15 @@ namespace BlueprintCoreGen.CodeGen
               .Where(field => field is not null)
               .ToList();
 
+      var isUnique =
+          !Attribute.GetCustomAttributes(componentType)
+              .Where(attr => attr is AllowMultipleComponentsAttribute)
+              .Any();
+      if (isUnique)
+      {
+        fields.AddRange(FieldFactory.CreateUniqueComponentFields());
+      }
+
       var method = new Method();
       method.AddImport(componentType);
       fields.ForEach(field => method.AddImports(field.Imports.ToList()));
@@ -168,9 +178,17 @@ namespace BlueprintCoreGen.CodeGen
       AddValidation(method, fields, ConfiguratorValidationMethod);
 
       method.AddLine($"  var component = new {componentTypeName}();");
-      fields.ForEach(field => field.GetAssignment("component").ForEach(assignment => method.AddLine($"  {assignment}")));
+      fields.ForEach(
+          field => field.GetAssignment("component").ForEach(assignment => method.AddLine($"  {assignment}")));
 
-      method.AddLine($"  return AddComponent(component);");
+      if (isUnique)
+      {
+        method.AddLine($"  return AddUniqueComponent(component, mergeBehavior, mergeAction);");
+      }
+      else
+      {
+        method.AddLine($"  return AddComponent(component);");
+      }
       method.AddLine($"}}");
       return method;
     }

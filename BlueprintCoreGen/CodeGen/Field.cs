@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -125,6 +126,12 @@ namespace BlueprintCoreGen.CodeGen
         return new NegateConditionField();
       }
       return new Field(info);
+    }
+
+    private static List<IField> UniqueComponentFields = new() { new MergeBehaviorField(), new MergeActionField() };
+    public static List<IField> CreateUniqueComponentFields()
+    {
+      return UniqueComponentFields;
     }
 
     private static bool IsIgnoredField(FieldInfo field)
@@ -281,6 +288,31 @@ namespace BlueprintCoreGen.CodeGen
       {
         return new() { $"{objectName}.Not = negate;" };
       }
+    }
+
+    private class MergeBehaviorField : IField
+    {
+      public string Name => null;
+      public virtual string TypeName => "ComponentMerge";
+      public virtual string ParamName => "mergeBehavior";
+      public string MethodName => null;
+      public string Comment => null;
+      public virtual string DefaultValue => "ComponentMerge.Replace";
+      public bool ShouldValidate => false;
+      public HashSet<Type> Imports =>
+          new() { typeof(BlueprintConfigurator<>), typeof(Action), typeof(BlueprintComponent) };
+
+      public List<string> GetAssignment(string objectName)
+      {
+        return new();
+      }
+    }
+
+    private class MergeActionField : MergeBehaviorField
+    {
+      public override string TypeName => "Action<BlueprintComponent, BlueprintComponent>";
+      public override string ParamName => "mergeAction";
+      public override string DefaultValue => "null";
     }
 
     private class BuilderField : Field
