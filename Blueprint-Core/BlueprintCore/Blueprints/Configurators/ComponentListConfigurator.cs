@@ -2,10 +2,8 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Capital;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
@@ -586,33 +584,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Adds <see cref="EtudeBracketRestPhase"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketRestPhase))]
-    public ComponentListConfigurator AddEtudeBracketRestPhase(
-        bool multiplePhases = default,
-        RestPhase phase = default,
-        RestPhase firstPhase = default,
-        RestPhase lastPhase = default,
-        ActionsBuilder onStart = null,
-        ActionsBuilder onStop = null,
-        bool hasStarted = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new EtudeBracketRestPhase();
-      component.MultiplePhases = multiplePhases;
-      component.Phase = phase;
-      component.FirstPhase = firstPhase;
-      component.LastPhase = lastPhase;
-      component.OnStart = onStart?.Build() ?? Constants.Empty.Actions;
-      component.OnStop = onStop?.Build() ?? Constants.Empty.Actions;
-      component.HasStarted = hasStarted;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="EtudeBracketSetCompanionPosition"/> (Auto Generated)
     /// </summary>
     ///
@@ -726,21 +697,6 @@ namespace BlueprintCore.Blueprints.Configurators
         BlueprintComponent.Flags flags = default)
     {
       var component = new EtudePeacefulZone();
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CapitalCompanionLogic"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(CapitalCompanionLogic))]
-    public ComponentListConfigurator AddCapitalCompanionLogic(
-        bool restAllRemoteCompanions = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new CapitalCompanionLogic();
-      component.m_RestAllRemoteCompanions = restAllRemoteCompanions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

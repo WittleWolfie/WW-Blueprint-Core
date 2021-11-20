@@ -148,15 +148,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionBuffRank))]
     public static ConditionsBuilder ContextConditionBuffRank(
         this ConditionsBuilder builder,
-        ContextValue rankValue,
         string buff = null,
+        ContextValue rankValue = null,
         bool negate = false)
     {
       builder.Validate(rankValue);
     
       var element = ElementTool.Create<ContextConditionBuffRank>();
       element.Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      element.RankValue = rankValue;
+      element.RankValue = rankValue ?? ContextValues.Constant(0);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -234,9 +234,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCompare))]
     public static ConditionsBuilder ContextConditionCompare(
         this ConditionsBuilder builder,
-        ContextValue checkValue,
-        ContextValue targetValue,
         ContextConditionCompare.Type type = default,
+        ContextValue checkValue = null,
+        ContextValue targetValue = null,
         bool negate = false)
     {
       builder.Validate(checkValue);
@@ -244,8 +244,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     
       var element = ElementTool.Create<ContextConditionCompare>();
       element.m_Type = type;
-      element.CheckValue = checkValue;
-      element.TargetValue = targetValue;
+      element.CheckValue = checkValue ?? ContextValues.Constant(0);
+      element.TargetValue = targetValue ?? ContextValues.Constant(0);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -257,15 +257,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCompareCasterHP))]
     public static ConditionsBuilder ContextConditionCompareCasterHP(
         this ConditionsBuilder builder,
-        ContextValue value,
         ContextConditionCompareCasterHP.CompareType compareType = default,
+        ContextValue value = null,
         bool negate = false)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<ContextConditionCompareCasterHP>();
       element.m_CompareType = compareType;
-      element.Value = value;
+      element.Value = value ?? ContextValues.Constant(0);
       element.Not = negate;
       return builder.Add(element);
     }
@@ -277,15 +277,15 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     [Implements(typeof(ContextConditionCompareTargetHP))]
     public static ConditionsBuilder ContextConditionCompareTargetHP(
         this ConditionsBuilder builder,
-        ContextValue value,
         ContextConditionCompareTargetHP.CompareType compareType = default,
+        ContextValue value = null,
         bool negate = false)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<ContextConditionCompareTargetHP>();
       element.m_CompareType = compareType;
-      element.Value = value;
+      element.Value = value ?? ContextValues.Constant(0);
       element.Not = negate;
       return builder.Add(element);
     }

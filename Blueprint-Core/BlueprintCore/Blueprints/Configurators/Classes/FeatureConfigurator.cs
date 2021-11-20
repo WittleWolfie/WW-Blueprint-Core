@@ -24,7 +24,6 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -787,57 +786,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Adds <see cref="AddBuffInBadWeather"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AddBuffInBadWeather))]
-    public TBuilder AddBuffInBadWeather(
-        string buff = null,
-        InclemencyType weather = default,
-        bool whenCalmer = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddBuffInBadWeather();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      component.Weather = weather;
-      component.WhenCalmer = whenCalmer;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddBuffOnApplyingSpell"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddBuffOnApplyingSpell))]
-    public TBuilder AddBuffOnApplyingSpell(
-        bool onEffectApplied = default,
-        bool onResistSpell = default,
-        AddBuffOnApplyingSpell.SpellConditionAndBuff[] buffs = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(buffs);
-    
-      var component = new AddBuffOnApplyingSpell();
-      component.OnEffectApplied = onEffectApplied;
-      component.OnResistSpell = onResistSpell;
-      component.Buffs = buffs;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AddContextStatBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(AddContextStatBonus))]
     public TBuilder AddContextStatBonus(
-        ContextValue value,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         int multiplier = default,
+        ContextValue value = null,
         bool hasMinimal = default,
         int minimal = default,
         BlueprintComponent.Flags flags = default)
@@ -848,7 +805,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Multiplier = multiplier;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.HasMinimal = hasMinimal;
       component.Minimal = minimal;
       component.m_Flags = flags;
@@ -931,10 +888,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddNocticulaBonus))]
     public TBuilder AddNocticulaBonus(
-        ContextValue highestStatBonus,
-        ContextValue secondHighestStatBonus,
         ModifierDescriptor descriptor = default,
+        ContextValue highestStatBonus = null,
         StatType highestStat = default,
+        ContextValue secondHighestStatBonus = null,
         StatType secondHighestStat = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -943,9 +900,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     
       var component = new AddNocticulaBonus();
       component.Descriptor = descriptor;
-      component.HighestStatBonus = highestStatBonus;
+      component.HighestStatBonus = highestStatBonus ?? ContextValues.Constant(0);
       component.m_HighestStat = highestStat;
-      component.SecondHighestStatBonus = secondHighestStatBonus;
+      component.SecondHighestStatBonus = secondHighestStatBonus ?? ContextValues.Constant(0);
       component.m_SecondHighestStat = secondHighestStat;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1049,9 +1006,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ShroudOfWater))]
     public TBuilder AddShroudOfWater(
-        ContextValue baseValue,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
+        ContextValue baseValue = null,
         string upgradeFeature = null,
         BlueprintComponent.Flags flags = default)
     {
@@ -1060,46 +1017,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       var component = new ShroudOfWater();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.BaseValue = baseValue;
+      component.BaseValue = baseValue ?? ContextValues.Constant(0);
       component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellResistanceAgainstAlignment"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SpellResistanceAgainstAlignment))]
-    public TBuilder AddSpellResistanceAgainstAlignment(
-        ContextValue value,
-        AlignmentComponent alignment = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SpellResistanceAgainstAlignment();
-      component.Value = value;
-      component.Alignment = alignment;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellResistanceAgainstSpellDescriptor"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SpellResistanceAgainstSpellDescriptor))]
-    public TBuilder AddSpellResistanceAgainstSpellDescriptor(
-        ContextValue value,
-        SpellDescriptorWrapper spellDescriptor,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SpellResistanceAgainstSpellDescriptor();
-      component.Value = value;
-      component.SpellDescriptor = spellDescriptor;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1112,14 +1031,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public TBuilder AddContextCalculateAbilityParams(
-        ContextValue casterLevel,
-        ContextValue spellLevel,
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
         string customProperty = null,
         bool replaceCasterLevel = default,
+        ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(casterLevel);
@@ -1131,9 +1050,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.StatTypeFromCustomProperty = statTypeFromCustomProperty;
       component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(customProperty);
       component.ReplaceCasterLevel = replaceCasterLevel;
-      component.CasterLevel = casterLevel;
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.ReplaceSpellLevel = replaceSpellLevel;
-      component.SpellLevel = spellLevel;
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1165,8 +1084,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ContextCalculateSharedValue))]
     public TBuilder AddContextCalculateSharedValue(
-        ContextDiceValue value,
         AbilitySharedValue valueType = default,
+        ContextDiceValue value = null,
         double modifier = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1174,7 +1093,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
-      component.Value = value;
+      component.Value = value ?? Constants.Empty.DiceValue;
       component.Modifier = modifier;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1186,11 +1105,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(ContextSetAbilityParams))]
     public TBuilder AddContextSetAbilityParams(
-        ContextValue dC,
-        ContextValue casterLevel,
-        ContextValue concentration,
-        ContextValue spellLevel,
         bool add10ToDC = default,
+        ContextValue dC = null,
+        ContextValue casterLevel = null,
+        ContextValue concentration = null,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(dC);
@@ -1200,10 +1119,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
-      component.DC = dC;
-      component.CasterLevel = casterLevel;
-      component.Concentration = concentration;
-      component.SpellLevel = spellLevel;
+      component.DC = dC ?? ContextValues.Constant(0);
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
+      component.Concentration = concentration ?? ContextValues.Constant(0);
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1227,10 +1146,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(TacticalMoraleChanceModifier))]
     public TBuilder AddTacticalMoraleChanceModifier(
-        ContextValue positiveMoraleChancePercentDelta,
-        ContextValue negativeMoraleChancePercentDelta,
         bool changePositiveMorale = default,
+        ContextValue positiveMoraleChancePercentDelta = null,
         bool changeNegativeMorale = default,
+        ContextValue negativeMoraleChancePercentDelta = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(positiveMoraleChancePercentDelta);
@@ -1238,9 +1157,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     
       var component = new TacticalMoraleChanceModifier();
       component.m_ChangePositiveMorale = changePositiveMorale;
-      component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta;
+      component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_ChangeNegativeMorale = changeNegativeMorale;
-      component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta;
+      component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }

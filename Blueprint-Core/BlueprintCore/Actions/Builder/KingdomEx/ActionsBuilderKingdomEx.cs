@@ -1894,12 +1894,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(TacticalCombatRecoverLeaderMana))]
     public static ActionsBuilder TacticalCombatRecoverLeaderMana(
         this ActionsBuilder builder,
-        ContextValue value)
+        ContextValue value = null)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<TacticalCombatRecoverLeaderMana>();
-      element.m_Value = value;
+      element.m_Value = value ?? ContextValues.Constant(0);
       return builder.Add(element);
     }
 

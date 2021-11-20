@@ -112,14 +112,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCriticalConfirmationBonus))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalConfirmationBonus(
-        ContextValue value,
+        ContextValue value = null,
         int additionalBonus = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
     
       var component = new WeaponCriticalConfirmationBonus();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.AdditionalBonus = additionalBonus;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -270,9 +270,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(ModifyWeaponStatsConditional))]
     public WeaponEnchantmentConfigurator AddModifyWeaponStatsConditional(
-        ContextValue bonusDamage,
         ModifyWeaponStatsConditional.ModificationType type = default,
         DamageAlignment alignment = default,
+        ContextValue bonusDamage = null,
         AlignmentComponent wielderAlignmentRestriction = default,
         AlignmentComponent targetAlignmentRestriction = default,
         BlueprintComponent.Flags flags = default)
@@ -282,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       var component = new ModifyWeaponStatsConditional();
       component.m_Type = type;
       component.Alignment = alignment;
-      component.BonusDamage = bonusDamage;
+      component.BonusDamage = bonusDamage ?? ContextValues.Constant(0);
       component.WielderAlignmentRestriction = wielderAlignmentRestriction;
       component.TargetAlignmentRestriction = targetAlignmentRestriction;
       component.m_Flags = flags;
@@ -327,9 +327,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
     public WeaponEnchantmentConfigurator AddIncreaseWeaponEnhancementBonusOnTargetFocus(
-        ContextValue bonusIncrementValue,
-        ContextValue maximumTotalEnhancementBonus,
         UnitReference focusingTarget,
+        ContextValue bonusIncrementValue = null,
+        ContextValue maximumTotalEnhancementBonus = null,
         int currentEnhancementBonus = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -337,8 +337,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       ValidateParam(maximumTotalEnhancementBonus);
     
       var component = new IncreaseWeaponEnhancementBonusOnTargetFocus();
-      component.BonusIncrementValue = bonusIncrementValue;
-      component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus;
+      component.BonusIncrementValue = bonusIncrementValue ?? ContextValues.Constant(0);
+      component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus ?? ContextValues.Constant(0);
       component.m_CurrentEnhancementBonus = currentEnhancementBonus;
       component.m_FocusingTarget = focusingTarget;
       component.m_Flags = flags;
@@ -526,9 +526,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponDamageAgainstAlignment))]
     public WeaponEnchantmentConfigurator AddWeaponDamageAgainstAlignment(
-        ContextDiceValue value,
         AlignmentComponent enemyAlignment = default,
         DamageAlignment weaponAlignment = default,
+        ContextDiceValue value = null,
         DamageEnergyType damageType = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -537,7 +537,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       var component = new WeaponDamageAgainstAlignment();
       component.EnemyAlignment = enemyAlignment;
       component.WeaponAlignment = weaponAlignment;
-      component.Value = value;
+      component.Value = value ?? Constants.Empty.DiceValue;
       component.DamageType = damageType;
       component.m_Flags = flags;
       return AddComponent(component);

@@ -41,9 +41,9 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(TacticalCombatSquadHitPointsCondition))]
     public static ConditionsBuilder TacticalCombatSquadHitPointsCondition(
         this ConditionsBuilder builder,
-        ContextValue referenceValue,
         bool checkInitiatorHP = default,
         CompareOperation.Type operation = default,
+        ContextValue referenceValue = null,
         bool negate = false)
     {
       builder.Validate(referenceValue);
@@ -51,7 +51,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
       var element = ElementTool.Create<TacticalCombatSquadHitPointsCondition>();
       element.CheckInitiatorHP = checkInitiatorHP;
       element.Operation = operation;
-      element.ReferenceValue = referenceValue;
+      element.ReferenceValue = referenceValue ?? ContextValues.Constant(0);
       element.Not = negate;
       return builder.Add(element);
     }

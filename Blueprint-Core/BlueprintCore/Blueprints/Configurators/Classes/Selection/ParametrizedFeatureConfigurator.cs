@@ -378,14 +378,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(AddParametrizedStatBonus))]
     public ParametrizedFeatureConfigurator AddParametrizedStatBonus(
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
     
       var component = new AddParametrizedStatBonus();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
       return AddComponent(component);

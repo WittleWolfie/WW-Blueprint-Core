@@ -1454,29 +1454,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Adds <see cref="PrerequisiteSelectionPossible"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="thisFeature"><see cref="BlueprintFeatureSelection"/></param>
-    [Generated]
-    [Implements(typeof(PrerequisiteSelectionPossible))]
-    public CharacterClassConfigurator AddPrerequisiteSelectionPossible(
-        string thisFeature = null,
-        Prerequisite.GroupType group = default,
-        bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new PrerequisiteSelectionPossible();
-      component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(thisFeature);
-      component.Group = group;
-      component.CheckInProgression = checkInProgression;
-      component.HideInUI = hideInUI;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="PrerequisiteFullStatValue"/> (Auto Generated)
     /// </summary>
     [Generated]

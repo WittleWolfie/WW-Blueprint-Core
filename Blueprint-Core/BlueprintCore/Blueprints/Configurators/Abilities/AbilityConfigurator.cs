@@ -918,14 +918,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public AbilityConfigurator AddContextCalculateAbilityParams(
-        ContextValue casterLevel,
-        ContextValue spellLevel,
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
         string customProperty = null,
         bool replaceCasterLevel = default,
+        ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(casterLevel);
@@ -937,9 +937,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.StatTypeFromCustomProperty = statTypeFromCustomProperty;
       component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(customProperty);
       component.ReplaceCasterLevel = replaceCasterLevel;
-      component.CasterLevel = casterLevel;
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.ReplaceSpellLevel = replaceSpellLevel;
-      component.SpellLevel = spellLevel;
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -971,8 +971,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(ContextCalculateSharedValue))]
     public AbilityConfigurator AddContextCalculateSharedValue(
-        ContextDiceValue value,
         AbilitySharedValue valueType = default,
+        ContextDiceValue value = null,
         double modifier = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -980,7 +980,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
-      component.Value = value;
+      component.Value = value ?? Constants.Empty.DiceValue;
       component.Modifier = modifier;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -992,11 +992,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(ContextSetAbilityParams))]
     public AbilityConfigurator AddContextSetAbilityParams(
-        ContextValue dC,
-        ContextValue casterLevel,
-        ContextValue concentration,
-        ContextValue spellLevel,
         bool add10ToDC = default,
+        ContextValue dC = null,
+        ContextValue casterLevel = null,
+        ContextValue concentration = null,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(dC);
@@ -1006,10 +1006,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
-      component.DC = dC;
-      component.CasterLevel = casterLevel;
-      component.Concentration = concentration;
-      component.SpellLevel = spellLevel;
+      component.DC = dC ?? ContextValues.Constant(0);
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
+      component.Concentration = concentration ?? ContextValues.Constant(0);
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1638,10 +1638,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDeliverChain))]
     public AbilityConfigurator AddAbilityDeliverChain(
-        ContextValue targetsCount,
         Feet radius,
         string projectileFirst = null,
         string projectile = null,
+        ContextValue targetsCount = null,
         bool targetDead = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         ConditionsBuilder condition = null,
@@ -1652,7 +1652,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       var component = new AbilityDeliverChain();
       component.m_ProjectileFirst = BlueprintTool.GetRef<BlueprintProjectileReference>(projectileFirst);
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
-      component.TargetsCount = targetsCount;
+      component.TargetsCount = targetsCount ?? ContextValues.Constant(0);
       component.Radius = radius;
       component.TargetDead = targetDead;
       component.m_TargetType = targetType;

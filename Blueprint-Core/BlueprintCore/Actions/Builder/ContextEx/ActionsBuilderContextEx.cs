@@ -2047,12 +2047,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionAcceptBurn))]
     public static ActionsBuilder ContextActionAcceptBurn(
         this ActionsBuilder builder,
-        ContextValue value)
+        ContextValue value = null)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<ContextActionAcceptBurn>();
-      element.Value = value;
+      element.Value = value ?? ContextValues.Constant(0);
       return builder.Add(element);
     }
 
@@ -2063,12 +2063,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionHealBurn))]
     public static ActionsBuilder ContextActionHealBurn(
         this ActionsBuilder builder,
-        ContextValue value)
+        ContextValue value = null)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<ContextActionHealBurn>();
-      element.Value = value;
+      element.Value = value ?? ContextValues.Constant(0);
       return builder.Add(element);
     }
 
@@ -2079,15 +2079,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(BuffActionAddStatBonus))]
     public static ActionsBuilder BuffActionAddStatBonus(
         this ActionsBuilder builder,
-        ContextValue value,
         StatType stat = default,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default)
     {
       builder.Validate(value);
     
       var element = ElementTool.Create<BuffActionAddStatBonus>();
       element.Stat = stat;
-      element.Value = value;
+      element.Value = value ?? ContextValues.Constant(0);
       element.Descriptor = descriptor;
       return builder.Add(element);
     }
@@ -2129,12 +2129,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionPrintHDRestrictionToCombatLog))]
     public static ActionsBuilder ContextActionPrintHDRestrictionToCombatLog(
         this ActionsBuilder builder,
-        ContextValue hitDice)
+        ContextValue hitDice = null)
     {
       builder.Validate(hitDice);
     
       var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
-      element.HitDice = hitDice;
+      element.HitDice = hitDice ?? ContextValues.Constant(0);
       return builder.Add(element);
     }
 

@@ -13,7 +13,6 @@ using Kingmaker.Controllers.Units;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Designers.Mechanics.Facts.Behavior;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -22,7 +21,6 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
 using Kingmaker.UI.GenericSlot;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
@@ -37,7 +35,6 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Kingmaker.Visual;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
-using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -268,21 +265,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="CorruptionProtection"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(CorruptionProtection))]
-    public BuffConfigurator AddCorruptionProtection(
-        bool removeRankAfterRest = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new CorruptionProtection();
-      component.m_RemoveRankAfterRest = removeRankAfterRest;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="GlobalMapSpeedModifier"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -298,72 +280,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="AddBuffInBadWeather"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AddBuffInBadWeather))]
-    public BuffConfigurator AddBuffInBadWeather(
-        string buff = null,
-        InclemencyType weather = default,
-        bool whenCalmer = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddBuffInBadWeather();
-      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      component.Weather = weather;
-      component.WhenCalmer = whenCalmer;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddBuffOnApplyingSpell"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddBuffOnApplyingSpell))]
-    public BuffConfigurator AddBuffOnApplyingSpell(
-        bool onEffectApplied = default,
-        bool onResistSpell = default,
-        AddBuffOnApplyingSpell.SpellConditionAndBuff[] buffs = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(buffs);
-    
-      var component = new AddBuffOnApplyingSpell();
-      component.OnEffectApplied = onEffectApplied;
-      component.OnResistSpell = onResistSpell;
-      component.Buffs = buffs;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddClusteredAttack"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddClusteredAttack))]
-    public BuffConfigurator AddClusteredAttack(
-        AddClusteredAttack.Type attackType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddClusteredAttack();
-      component.AttackType = attackType;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AddContextStatBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(AddContextStatBonus))]
     public BuffConfigurator AddContextStatBonus(
-        ContextValue value,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         int multiplier = default,
+        ContextValue value = null,
         bool hasMinimal = default,
         int minimal = default,
         BlueprintComponent.Flags flags = default)
@@ -374,135 +299,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Multiplier = multiplier;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.HasMinimal = hasMinimal;
       component.Minimal = minimal;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddCumulativeDamageBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddCumulativeDamageBonus))]
-    public BuffConfigurator AddCumulativeDamageBonus(
-        bool onlyNaturalAttacks = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddCumulativeDamageBonus();
-      component.OnlyNaturalAttacks = onlyNaturalAttacks;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddCumulativeDamageBonusX3"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddCumulativeDamageBonusX3))]
-    public BuffConfigurator AddCumulativeDamageBonusX3(
-        bool onlyNaturalAttacks = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddCumulativeDamageBonusX3();
-      component.OnlyNaturalAttacks = onlyNaturalAttacks;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddDamageTypeVulnerability"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddDamageTypeVulnerability))]
-    public BuffConfigurator AddDamageTypeVulnerability(
-        bool physcicalForm = default,
-        PhysicalDamageForm formType = default,
-        bool physcicalAlignment = default,
-        DamageAlignment damageAlignmentType = default,
-        bool physcicalMaterial = default,
-        PhysicalDamageMaterial materialType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddDamageTypeVulnerability();
-      component.PhyscicalForm = physcicalForm;
-      component.FormType = formType;
-      component.PhyscicalAlignment = physcicalAlignment;
-      component.DamageAlignmentType = damageAlignmentType;
-      component.PhyscicalMaterial = physcicalMaterial;
-      component.MaterialType = materialType;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddEnergyDamageImmunity"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddEnergyDamageImmunity))]
-    public BuffConfigurator AddEnergyDamageImmunity(
-        DamageEnergyType energyType = default,
-        bool healOnDamage = default,
-        AddEnergyDamageImmunity.HealingRate healRate = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddEnergyDamageImmunity();
-      component.EnergyType = energyType;
-      component.HealOnDamage = healOnDamage;
-      component.m_HealRate = healRate;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddEnergyImmunity"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddEnergyImmunity))]
-    public BuffConfigurator AddEnergyImmunity(
-        DamageEnergyType type = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddEnergyImmunity();
-      component.Type = type;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddEnergyVulnerability"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddEnergyVulnerability))]
-    public BuffConfigurator AddEnergyVulnerability(
-        DamageEnergyType type = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddEnergyVulnerability();
-      component.Type = type;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFactsFromCaster"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="selection"><see cref="BlueprintFeatureSelection"/></param>
-    [Generated]
-    [Implements(typeof(AddFactsFromCaster))]
-    public BuffConfigurator AddFactsFromCaster(
-        string[] facts = null,
-        bool featureFromSelection = default,
-        string selection = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddFactsFromCaster();
-      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
-      component.FeatureFromSelection = featureFromSelection;
-      component.m_Selection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(selection);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -513,13 +312,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddForceMove))]
     public BuffConfigurator AddForceMove(
-        ContextValue feetPerRound,
+        ContextValue feetPerRound = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(feetPerRound);
     
       var component = new AddForceMove();
-      component.FeetPerRound = feetPerRound;
+      component.FeetPerRound = feetPerRound ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -542,56 +341,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="AddIncomingDamageWeaponProperty"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(AddIncomingDamageWeaponProperty))]
-    public BuffConfigurator AddIncomingDamageWeaponProperty(
-        bool addMagic = default,
-        bool addMaterial = default,
-        PhysicalDamageMaterial material = default,
-        bool addForm = default,
-        PhysicalDamageForm form = default,
-        bool addAlignment = default,
-        DamageAlignment alignment = default,
-        bool addReality = default,
-        DamageRealityType reality = default,
-        bool checkWeaponType = default,
-        string weaponType = null,
-        bool checkRange = default,
-        bool isRanged = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddIncomingDamageWeaponProperty();
-      component.AddMagic = addMagic;
-      component.AddMaterial = addMaterial;
-      component.Material = material;
-      component.AddForm = addForm;
-      component.Form = form;
-      component.AddAlignment = addAlignment;
-      component.Alignment = alignment;
-      component.AddReality = addReality;
-      component.Reality = reality;
-      component.CheckWeaponType = checkWeaponType;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
-      component.CheckRange = checkRange;
-      component.IsRanged = isRanged;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AddNocticulaBonus"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(AddNocticulaBonus))]
     public BuffConfigurator AddNocticulaBonus(
-        ContextValue highestStatBonus,
-        ContextValue secondHighestStatBonus,
         ModifierDescriptor descriptor = default,
+        ContextValue highestStatBonus = null,
         StatType highestStat = default,
+        ContextValue secondHighestStatBonus = null,
         StatType secondHighestStat = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -600,75 +358,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new AddNocticulaBonus();
       component.Descriptor = descriptor;
-      component.HighestStatBonus = highestStatBonus;
+      component.HighestStatBonus = highestStatBonus ?? ContextValues.Constant(0);
       component.m_HighestStat = highestStat;
-      component.SecondHighestStatBonus = secondHighestStatBonus;
+      component.SecondHighestStatBonus = secondHighestStatBonus ?? ContextValues.Constant(0);
       component.m_SecondHighestStat = secondHighestStat;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddOutgoingPhysicalDamageProperty"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
-    /// <param name="unitFact"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AddOutgoingPhysicalDamageProperty))]
-    public BuffConfigurator AddOutgoingPhysicalDamageProperty(
-        bool affectAnyPhysicalDamage = default,
-        bool naturalAttacks = default,
-        bool addMagic = default,
-        bool addMaterial = default,
-        PhysicalDamageMaterial material = default,
-        bool addForm = default,
-        PhysicalDamageForm form = default,
-        bool addAlignment = default,
-        DamageAlignment alignment = default,
-        bool myAlignment = default,
-        bool addReality = default,
-        DamageRealityType reality = default,
-        bool checkWeaponType = default,
-        string weaponType = null,
-        bool checkRange = default,
-        bool isRanged = default,
-        bool againstFactOwner = default,
-        string unitFact = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddOutgoingPhysicalDamageProperty();
-      component.AffectAnyPhysicalDamage = affectAnyPhysicalDamage;
-      component.NaturalAttacks = naturalAttacks;
-      component.AddMagic = addMagic;
-      component.AddMaterial = addMaterial;
-      component.Material = material;
-      component.AddForm = addForm;
-      component.Form = form;
-      component.AddAlignment = addAlignment;
-      component.Alignment = alignment;
-      component.MyAlignment = myAlignment;
-      component.AddReality = addReality;
-      component.Reality = reality;
-      component.CheckWeaponType = checkWeaponType;
-      component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
-      component.CheckRange = checkRange;
-      component.IsRanged = isRanged;
-      component.AgainstFactOwner = againstFactOwner;
-      component.m_UnitFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(unitFact);
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddPhysicalImmunity"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddPhysicalImmunity))]
-    public BuffConfigurator AddPhysicalImmunity(
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AddPhysicalImmunity();
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -826,19 +519,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="CompleteDamageImmunity"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(CompleteDamageImmunity))]
-    public BuffConfigurator AddCompleteDamageImmunity(
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new CompleteDamageImmunity();
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="DropLootAndDestroyOnDeactivate"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -851,19 +531,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new DropLootAndDestroyOnDeactivate();
       component.m_Coroutine = coroutine;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="IgnoreIncommingDamage"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(IgnoreIncommingDamage))]
-    public BuffConfigurator AddIgnoreIncommingDamage(
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new IgnoreIncommingDamage();
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -894,23 +561,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new MountedShield();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RedirectDamageToPet"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(RedirectDamageToPet))]
-    public BuffConfigurator AddRedirectDamageToPet(
-        int percentRedirected = default,
-        PetType petType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new RedirectDamageToPet();
-      component.m_PercentRedirected = percentRedirected;
-      component.m_PetType = petType;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -951,9 +601,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ShroudOfWater))]
     public BuffConfigurator AddShroudOfWater(
-        ContextValue baseValue,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
+        ContextValue baseValue = null,
         string upgradeFeature = null,
         BlueprintComponent.Flags flags = default)
     {
@@ -962,46 +612,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new ShroudOfWater();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.BaseValue = baseValue;
+      component.BaseValue = baseValue ?? ContextValues.Constant(0);
       component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellResistanceAgainstAlignment"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SpellResistanceAgainstAlignment))]
-    public BuffConfigurator AddSpellResistanceAgainstAlignment(
-        ContextValue value,
-        AlignmentComponent alignment = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SpellResistanceAgainstAlignment();
-      component.Value = value;
-      component.Alignment = alignment;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellResistanceAgainstSpellDescriptor"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SpellResistanceAgainstSpellDescriptor))]
-    public BuffConfigurator AddSpellResistanceAgainstSpellDescriptor(
-        ContextValue value,
-        SpellDescriptorWrapper spellDescriptor,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SpellResistanceAgainstSpellDescriptor();
-      component.Value = value;
-      component.SpellDescriptor = spellDescriptor;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1203,13 +815,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddEffectContextFastHealing))]
     public BuffConfigurator AddEffectContextFastHealing(
-        ContextValue bonus,
+        ContextValue bonus = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(bonus);
     
       var component = new AddEffectContextFastHealing();
-      component.Bonus = bonus;
+      component.Bonus = bonus ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1281,14 +893,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddMirrorImage))]
     public BuffConfigurator AddMirrorImage(
-        ContextDiceValue count,
+        ContextDiceValue count = null,
         int maxCount = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(count);
     
       var component = new AddMirrorImage();
-      component.Count = count;
+      component.Count = count ?? Constants.Empty.DiceValue;
       component.MaxCount = maxCount;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1429,10 +1041,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(WeaponAttackTypeDamageBonus))]
     public BuffConfigurator AddWeaponAttackTypeDamageBonus(
-        ContextValue value,
         WeaponRangeType type = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
+        ContextValue value = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
@@ -1441,7 +1053,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.Type = type;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1454,14 +1066,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public BuffConfigurator AddContextCalculateAbilityParams(
-        ContextValue casterLevel,
-        ContextValue spellLevel,
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
         string customProperty = null,
         bool replaceCasterLevel = default,
+        ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(casterLevel);
@@ -1473,9 +1085,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.StatTypeFromCustomProperty = statTypeFromCustomProperty;
       component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(customProperty);
       component.ReplaceCasterLevel = replaceCasterLevel;
-      component.CasterLevel = casterLevel;
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.ReplaceSpellLevel = replaceSpellLevel;
-      component.SpellLevel = spellLevel;
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1507,8 +1119,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ContextCalculateSharedValue))]
     public BuffConfigurator AddContextCalculateSharedValue(
-        ContextDiceValue value,
         AbilitySharedValue valueType = default,
+        ContextDiceValue value = null,
         double modifier = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1516,7 +1128,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
-      component.Value = value;
+      component.Value = value ?? Constants.Empty.DiceValue;
       component.Modifier = modifier;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1528,11 +1140,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ContextSetAbilityParams))]
     public BuffConfigurator AddContextSetAbilityParams(
-        ContextValue dC,
-        ContextValue casterLevel,
-        ContextValue concentration,
-        ContextValue spellLevel,
         bool add10ToDC = default,
+        ContextValue dC = null,
+        ContextValue casterLevel = null,
+        ContextValue concentration = null,
+        ContextValue spellLevel = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(dC);
@@ -1542,10 +1154,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
-      component.DC = dC;
-      component.CasterLevel = casterLevel;
-      component.Concentration = concentration;
-      component.SpellLevel = spellLevel;
+      component.DC = dC ?? ContextValues.Constant(0);
+      component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
+      component.Concentration = concentration ?? ContextValues.Constant(0);
+      component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1570,7 +1182,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AttackBonusAgainstTacticalOwner))]
     public BuffConfigurator AddAttackBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1579,7 +1191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new AttackBonusAgainstTacticalOwner();
       component.m_TargetFilter = targetFilter;
-      component.m_Value = value;
+      component.m_Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1592,7 +1204,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AttackBonusAgainstTacticalTarget))]
     public BuffConfigurator AddAttackBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1601,7 +1213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new AttackBonusAgainstTacticalTarget();
       component.m_TargetFilter = targetFilter;
-      component.m_Value = value;
+      component.m_Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1614,8 +1226,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(DamageBonusAgainstTacticalOwner))]
     public BuffConfigurator AddDamageBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
-        ContextValue value,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
+        ContextValue value = null,
         int bonusPercentValue = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1625,7 +1237,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new DamageBonusAgainstTacticalOwner();
       component.m_TargetFilter = targetFilter;
       component._valueType = _valueType;
-      component.m_Value = value;
+      component.m_Value = value ?? ContextValues.Constant(0);
       component.m_BonusPercentValue = bonusPercentValue;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1638,8 +1250,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(DamageBonusAgainstTacticalTarget))]
     public BuffConfigurator AddDamageBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
-        ContextValue value,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
+        ContextValue value = null,
         int bonusPercentValue = default,
         BlueprintComponent.Flags flags = default)
     {
@@ -1649,7 +1261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new DamageBonusAgainstTacticalTarget();
       component.m_TargetFilter = targetFilter;
       component._valueType = _valueType;
-      component.m_Value = value;
+      component.m_Value = value ?? ContextValues.Constant(0);
       component.m_BonusPercentValue = bonusPercentValue;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1699,10 +1311,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(TacticalMoraleChanceModifier))]
     public BuffConfigurator AddTacticalMoraleChanceModifier(
-        ContextValue positiveMoraleChancePercentDelta,
-        ContextValue negativeMoraleChancePercentDelta,
         bool changePositiveMorale = default,
+        ContextValue positiveMoraleChancePercentDelta = null,
         bool changeNegativeMorale = default,
+        ContextValue negativeMoraleChancePercentDelta = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(positiveMoraleChancePercentDelta);
@@ -1710,9 +1322,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     
       var component = new TacticalMoraleChanceModifier();
       component.m_ChangePositiveMorale = changePositiveMorale;
-      component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta;
+      component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_ChangeNegativeMorale = changeNegativeMorale;
-      component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta;
+      component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1731,25 +1343,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="ActionsOnBuffApply"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="gainedFact"><see cref="BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(ActionsOnBuffApply))]
-    public BuffConfigurator AddActionsOnBuffApply(
-        string gainedFact = null,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new ActionsOnBuffApply();
-      component.m_GainedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(gainedFact);
-      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="BodyguardACBonus"/> (Auto Generated)
     /// </summary>
     ///
@@ -1757,9 +1350,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(BodyguardACBonus))]
     public BuffConfigurator AddBodyguardACBonus(
-        ContextValue value,
         string checkBuff = null,
         ModifierDescriptor descriptor = default,
+        ContextValue value = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
@@ -1767,7 +1360,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new BodyguardACBonus();
       component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkBuff);
       component.Descriptor = descriptor;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1791,19 +1384,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
       component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(extraEffectBuff);
       component.m_ExceptionFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(exceptionFact);
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DeathOnLevelStacks"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DeathOnLevelStacks))]
-    public BuffConfigurator AddDeathOnLevelStacks(
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new DeathOnLevelStacks();
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1976,48 +1556,19 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="ImpatienceWatcherTickingResolve"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="impatience"><see cref="BlueprintBuff"/></param>
-    /// <param name="targetedImpatience"><see cref="BlueprintBuff"/></param>
-    /// <param name="patience"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(ImpatienceWatcherTickingResolve))]
-    public BuffConfigurator AddImpatienceWatcherTickingResolve(
-        string impatience = null,
-        string targetedImpatience = null,
-        string patience = null,
-        int[] resolveChances = null,
-        int[] resolveChancesForLowInt = null,
-        int[] resolveChancesForHighInt = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new ImpatienceWatcherTickingResolve();
-      component.m_Impatience = BlueprintTool.GetRef<BlueprintBuffReference>(impatience);
-      component.m_TargetedImpatience = BlueprintTool.GetRef<BlueprintBuffReference>(targetedImpatience);
-      component.m_Patience = BlueprintTool.GetRef<BlueprintBuffReference>(patience);
-      component.ResolveChances = resolveChances;
-      component.ResolveChancesForLowInt = resolveChancesForLowInt;
-      component.ResolveChancesForHighInt = resolveChancesForHighInt;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="ACBonusAgainstCaster"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(ACBonusAgainstCaster))]
     public BuffConfigurator AddACBonusAgainstCaster(
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
     
       var component = new ACBonusAgainstCaster();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -2029,7 +1580,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ACBonusAgainstTarget))]
     public BuffConfigurator AddACBonusAgainstTarget(
-        ContextValue value,
+        ContextValue value = null,
         bool checkCaster = default,
         bool checkCasterFriend = default,
         ModifierDescriptor descriptor = default,
@@ -2038,7 +1589,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(value);
     
       var component = new ACBonusAgainstTarget();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.CheckCaster = checkCaster;
       component.CheckCasterFriend = checkCasterFriend;
       component.Descriptor = descriptor;
@@ -2072,9 +1623,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddStatBonusAbilityValue))]
     public BuffConfigurator AddStatBonusAbilityValue(
-        ContextValue value,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
+        ContextValue value = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
@@ -2082,7 +1633,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new AddStatBonusAbilityValue();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2095,9 +1646,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddStatBonusIfHasFact))]
     public BuffConfigurator AddStatBonusIfHasFact(
-        ContextValue value,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
+        ContextValue value = null,
         bool invertCondition = default,
         bool requireAllFacts = default,
         string[] checkedFacts = null,
@@ -2108,7 +1659,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new AddStatBonusIfHasFact();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.InvertCondition = invertCondition;
       component.RequireAllFacts = requireAllFacts;
       component.m_CheckedFacts = checkedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -2165,50 +1716,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="Afterbuff"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="afterBuff"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(Afterbuff))]
-    public BuffConfigurator AddAfterbuff(
-        string afterBuff = null,
-        int durationMultiplier = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new Afterbuff();
-      component.m_AfterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(afterBuff);
-      component.DurationMultiplier = durationMultiplier;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AfterbuffIfHasFact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="featureToCheck"><see cref="BlueprintFeature"/></param>
-    /// <param name="afterBuffFalse"><see cref="BlueprintBuff"/></param>
-    /// <param name="afterBuffTrue"><see cref="BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AfterbuffIfHasFact))]
-    public BuffConfigurator AddAfterbuffIfHasFact(
-        string featureToCheck = null,
-        string afterBuffFalse = null,
-        string afterBuffTrue = null,
-        int durationMultiplier = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new AfterbuffIfHasFact();
-      component.m_FeatureToCheck = BlueprintTool.GetRef<BlueprintFeatureReference>(featureToCheck);
-      component.m_AfterBuffFalse = BlueprintTool.GetRef<BlueprintBuffReference>(afterBuffFalse);
-      component.m_AfterBuffTrue = BlueprintTool.GetRef<BlueprintBuffReference>(afterBuffTrue);
-      component.DurationMultiplier = durationMultiplier;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="ApplyBuffOnHit"/> (Auto Generated)
     /// </summary>
     ///
@@ -2228,32 +1735,19 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="ArmagsBladeEnrage"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ArmagsBladeEnrage))]
-    public BuffConfigurator AddArmagsBladeEnrage(
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new ArmagsBladeEnrage();
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AttackBonusAgainstCaster"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(AttackBonusAgainstCaster))]
     public BuffConfigurator AddAttackBonusAgainstCaster(
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
     
       var component = new AttackBonusAgainstCaster();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -2265,7 +1759,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AttackBonusAgainstTarget))]
     public BuffConfigurator AddAttackBonusAgainstTarget(
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         bool checkCaster = default,
         bool checkCasterFriend = default,
@@ -2276,7 +1770,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(value);
     
       var component = new AttackBonusAgainstTarget();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.CheckCaster = checkCaster;
       component.CheckCasterFriend = checkCasterFriend;
@@ -2287,72 +1781,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="BuffAllSkillsBonusAbilityValue"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffAllSkillsBonusAbilityValue))]
-    public BuffConfigurator AddBuffAllSkillsBonusAbilityValue(
-        ContextValue value,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new BuffAllSkillsBonusAbilityValue();
-      component.Descriptor = descriptor;
-      component.Value = value;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffDamageEachRound"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffDamageEachRound))]
-    public BuffConfigurator AddBuffDamageEachRound(
-        DiceFormula energyDamageDice,
-        int baseRounds = default,
-        float additionalRoundsPerCasterLevel = default,
-        DamageEnergyType element = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new BuffDamageEachRound();
-      component.baseRounds = baseRounds;
-      component.AdditionalRoundsPerCasterLevel = additionalRoundsPerCasterLevel;
-      component.EnergyDamageDice = energyDamageDice;
-      component.Element = element;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffIncomingDamageIncrease"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffIncomingDamageIncrease))]
-    public BuffConfigurator AddBuffIncomingDamageIncrease(
-        ContextValue value,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new BuffIncomingDamageIncrease();
-      component.Value = value;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="BuffInvisibility"/> (Auto Generated)
     /// </summary>
     [Generated]
     [Implements(typeof(BuffInvisibility))]
     public BuffConfigurator AddBuffInvisibility(
-        ContextValue chance,
         bool notDispellAfterOffensiveAction = default,
         int stealthBonus = default,
         bool dispelWithAChance = default,
+        ContextValue chance = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(chance);
@@ -2361,51 +1798,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.NotDispellAfterOffensiveAction = notDispellAfterOffensiveAction;
       component.m_StealthBonus = stealthBonus;
       component.DispelWithAChance = dispelWithAChance;
-      component.Chance = chance;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffParticleEffectPlay"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffParticleEffectPlay))]
-    public BuffConfigurator AddBuffParticleEffectPlay(
-        bool playOnActivate = default,
-        PrefabLink activateFx = null,
-        bool playOnDeactivate = default,
-        PrefabLink deactivateFx = null,
-        bool playEachRound = default,
-        PrefabLink eachRoundFx = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(activateFx);
-      ValidateParam(deactivateFx);
-      ValidateParam(eachRoundFx);
-    
-      var component = new BuffParticleEffectPlay();
-      component.PlayOnActivate = playOnActivate;
-      component.ActivateFx = activateFx ?? Constants.Empty.PrefabLink;
-      component.PlayOnDeactivate = playOnDeactivate;
-      component.DeactivateFx = deactivateFx ?? Constants.Empty.PrefabLink;
-      component.PlayEachRound = playEachRound;
-      component.EachRoundFx = eachRoundFx ?? Constants.Empty.PrefabLink;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffPerceptionBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffPerceptionBonus))]
-    public BuffConfigurator AddBuffPerceptionBonus(
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new BuffPerceptionBonus();
-      component.Descriptor = descriptor;
+      component.Chance = chance ?? ContextValues.Constant(0);
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2445,12 +1838,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(BuffPoisonStatDamageContext))]
     public BuffConfigurator AddBuffPoisonStatDamageContext(
-        ContextDiceValue value,
-        ContextValue bonus,
-        ContextValue ticks,
-        ContextValue succesfullSaves,
         ModifierDescriptor descriptor = default,
         StatType stat = default,
+        ContextDiceValue value = null,
+        ContextValue bonus = null,
+        ContextValue ticks = null,
+        ContextValue succesfullSaves = null,
         SavingThrowType saveType = default,
         bool noEffectOnFirstTick = default,
         BlueprintComponent.Flags flags = default)
@@ -2463,102 +1856,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new BuffPoisonStatDamageContext();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.Value = value;
-      component.Bonus = bonus;
-      component.Ticks = ticks;
-      component.SuccesfullSaves = succesfullSaves;
+      component.Value = value ?? Constants.Empty.DiceValue;
+      component.Bonus = bonus ?? ContextValues.Constant(0);
+      component.Ticks = ticks ?? ContextValues.Constant(0);
+      component.SuccesfullSaves = succesfullSaves ?? ContextValues.Constant(0);
       component.SaveType = saveType;
       component.NoEffectOnFirstTick = noEffectOnFirstTick;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffSaveEachRound"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffSaveEachRound))]
-    public BuffConfigurator AddBuffSaveEachRound(
-        SavingThrowType saveType = default,
-        int saveDC = default,
-        int increaseDC = default,
-        ActionsBuilder actionsOnPass = null,
-        ActionsBuilder actionsOnFail = null,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new BuffSaveEachRound();
-      component.SaveType = saveType;
-      component.SaveDC = saveDC;
-      component.IncreaseDC = increaseDC;
-      component.ActionsOnPass = actionsOnPass?.Build() ?? Constants.Empty.Actions;
-      component.ActionsOnFail = actionsOnFail?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffSaveOrDieEachRound"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffSaveOrDieEachRound))]
-    public BuffConfigurator AddBuffSaveOrDieEachRound(
-        GameObject effectOnDeath,
-        UnitCondition condition = default,
-        SavingThrowType saveType = default,
-        int saveDC = default,
-        int increaseDC = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(effectOnDeath);
-    
-      var component = new BuffSaveOrDieEachRound();
-      component.Condition = condition;
-      component.SaveType = saveType;
-      component.SaveDC = saveDC;
-      component.IncreaseDC = increaseDC;
-      component.EffectOnDeath = effectOnDeath;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffStatPenaltyDice"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffStatPenaltyDice))]
-    public BuffConfigurator AddBuffStatPenaltyDice(
-        DiceFormula value,
-        ModifierDescriptor descriptor = default,
-        StatType stat = default,
-        int bonus = default,
-        SavingThrowType saveType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new BuffStatPenaltyDice();
-      component.Descriptor = descriptor;
-      component.Stat = stat;
-      component.Value = value;
-      component.Bonus = bonus;
-      component.SaveType = saveType;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffStatusCondition"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffStatusCondition))]
-    public BuffConfigurator AddBuffStatusCondition(
-        bool saveEachRound = default,
-        UnitCondition condition = default,
-        SavingThrowType saveType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new BuffStatusCondition();
-      component.SaveEachRound = saveEachRound;
-      component.Condition = condition;
-      component.SaveType = saveType;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2582,7 +1885,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(DamageBonusAgainstTarget))]
     public BuffConfigurator AddDamageBonusAgainstTarget(
-        ContextValue value,
+        ContextValue value = null,
         bool checkCaster = default,
         bool checkCasterFriend = default,
         bool applyToSpellDamage = default,
@@ -2591,46 +1894,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(value);
     
       var component = new DamageBonusAgainstTarget();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.CheckCaster = checkCaster;
       component.CheckCasterFriend = checkCasterFriend;
       component.ApplyToSpellDamage = applyToSpellDamage;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DamageOnRemove"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DamageOnRemove))]
-    public BuffConfigurator AddDamageOnRemove(
-        DiceFormula damage,
-        DamageEnergyType energyType = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new DamageOnRemove();
-      component.Damage = damage;
-      component.EnergyType = energyType;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DamageOverTime"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DamageOverTime))]
-    public BuffConfigurator AddDamageOverTime(
-        DiceFormula damage,
-        DamageEnergyType energyType = default,
-        bool instantStartTick = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new DamageOverTime();
-      component.Damage = damage;
-      component.EnergyType = energyType;
-      component.InstantStartTick = instantStartTick;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2654,59 +1921,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(GreaterSnapShotBonus))]
     public BuffConfigurator AddGreaterSnapShotBonus(
-        ContextValue value,
+        ContextValue value = null,
         ModifierDescriptor descriptor = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(value);
     
       var component = new GreaterSnapShotBonus();
-      component.Value = value;
+      component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="HealOverTime"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(HealOverTime))]
-    public BuffConfigurator AddHealOverTime(
-        int heal = default,
-        bool instantStartTick = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new HealOverTime();
-      component.Heal = heal;
-      component.InstantStartTick = instantStartTick;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="HealOverTimeIfHasFact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(HealOverTimeIfHasFact))]
-    public BuffConfigurator AddHealOverTimeIfHasFact(
-        BuffScaling scaling,
-        int heal = default,
-        bool instantStartTick = default,
-        string checkedFact = null,
-        bool scale = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(scaling);
-    
-      var component = new HealOverTimeIfHasFact();
-      component.Heal = heal;
-      component.InstantStartTick = instantStartTick;
-      component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
-      component.Scale = scale;
-      component.Scaling = scaling;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2746,35 +1969,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="ProtectionFromEnergy"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ProtectionFromEnergy))]
-    public BuffConfigurator AddProtectionFromEnergy(
-        ContextValue valueMultiplier,
-        ContextValue value,
-        ContextValue pool,
-        DamageEnergyType type = default,
-        bool useValueMultiplier = default,
-        bool usePool = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(valueMultiplier);
-      ValidateParam(value);
-      ValidateParam(pool);
-    
-      var component = new ProtectionFromEnergy();
-      component.Type = type;
-      component.UseValueMultiplier = useValueMultiplier;
-      component.ValueMultiplier = valueMultiplier;
-      component.Value = value;
-      component.UsePool = usePool;
-      component.Pool = pool;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="RemovedByHeal"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2783,149 +1977,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         BlueprintComponent.Flags flags = default)
     {
       var component = new RemovedByHeal();
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ResistEnergyContext"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ResistEnergyContext))]
-    public BuffConfigurator AddResistEnergyContext(
-        ContextValue valueMultiplier,
-        ContextValue value,
-        ContextValue pool,
-        DamageEnergyType type = default,
-        bool useValueMultiplier = default,
-        bool usePool = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(valueMultiplier);
-      ValidateParam(value);
-      ValidateParam(pool);
-    
-      var component = new ResistEnergyContext();
-      component.Type = type;
-      component.UseValueMultiplier = useValueMultiplier;
-      component.ValueMultiplier = valueMultiplier;
-      component.Value = value;
-      component.UsePool = usePool;
-      component.Pool = pool;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SaveSuccessIfBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SaveSuccessIfBonus))]
-    public BuffConfigurator AddSaveSuccessIfBonus(
-        ContextValue value,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SaveSuccessIfBonus();
-      component.Value = value;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SkillSuccessIfBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(SkillSuccessIfBonus))]
-    public BuffConfigurator AddSkillSuccessIfBonus(
-        ContextValue value,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new SkillSuccessIfBonus();
-      component.Value = value;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TemporaryHitPointsConstitutionBased"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TemporaryHitPointsConstitutionBased))]
-    public BuffConfigurator AddTemporaryHitPointsConstitutionBased(
-        ContextValue value,
-        int bonusMultiplier = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new TemporaryHitPointsConstitutionBased();
-      component.Value = value;
-      component.BonusMultiplier = bonusMultiplier;
-      component.Descriptor = descriptor;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TemporaryHitPointsEqualCasterLevel"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TemporaryHitPointsEqualCasterLevel))]
-    public BuffConfigurator AddTemporaryHitPointsEqualCasterLevel(
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      var component = new TemporaryHitPointsEqualCasterLevel();
-      component.Descriptor = descriptor;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TemporaryHitPointsFromAbilityValue"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TemporaryHitPointsFromAbilityValue))]
-    public BuffConfigurator AddTemporaryHitPointsFromAbilityValue(
-        ContextValue value,
-        ModifierDescriptor descriptor = default,
-        bool removeWhenHitPointsEnd = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(value);
-    
-      var component = new TemporaryHitPointsFromAbilityValue();
-      component.Descriptor = descriptor;
-      component.Value = value;
-      component.RemoveWhenHitPointsEnd = removeWhenHitPointsEnd;
-      component.m_Flags = flags;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TemporaryHitPointsRandom"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TemporaryHitPointsRandom))]
-    public BuffConfigurator AddTemporaryHitPointsRandom(
-        DiceFormula dice,
-        ContextValue bonus,
-        ModifierDescriptor descriptor = default,
-        bool scaleBonusByCasterLevel = default,
-        BlueprintComponent.Flags flags = default)
-    {
-      ValidateParam(bonus);
-    
-      var component = new TemporaryHitPointsRandom();
-      component.Descriptor = descriptor;
-      component.Dice = dice;
-      component.Bonus = bonus;
-      component.ScaleBonusByCasterLevel = scaleBonusByCasterLevel;
       component.m_Flags = flags;
       return AddComponent(component);
     }

@@ -683,7 +683,6 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AdditionalDiceOnAttack))]
     public TBuilder AdditionalDiceOnAttack(
         Feet distanceLessEqual,
-        ContextDiceValue value,
         DamageTypeDescription damageType,
         bool onlyOnFullAttack = default,
         bool onlyOnFirstAttack = default,
@@ -710,6 +709,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder initiatorConditions = null,
         ConditionsBuilder targetConditions = null,
         bool randomizeDamage = default,
+        ContextDiceValue value = null,
         List<AdditionalDiceOnAttack.DamageEntry> damageEntries = null,
         BlueprintComponent.Flags flags = default)
     {
@@ -744,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.InitiatorConditions = initiatorConditions?.Build() ?? Constants.Empty.Conditions;
       component.TargetConditions = targetConditions?.Build() ?? Constants.Empty.Conditions;
       component.m_RandomizeDamage = randomizeDamage;
-      component.Value = value;
+      component.Value = value ?? Constants.Empty.DiceValue;
       component.DamageType = damageType;
       component.m_DamageEntries = damageEntries;
       component.m_Flags = flags;
