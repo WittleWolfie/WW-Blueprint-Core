@@ -179,12 +179,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private bool Configured = false;
     private readonly StringBuilder ValidationWarnings = new();
 
-    protected long EnableSpellDescriptors;
-    protected long DisableSpellDescriptors;
-
-    protected AlignmentMaskType EnablePrerequisiteAlignment;
-    protected AlignmentMaskType DisablePrerequisiteAlignment;
-
     protected readonly TBuilder Self = null;
     protected readonly string Name;
     protected readonly T Blueprint;
@@ -213,7 +207,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
       Configured = true;
       Logger.Verbose($"Configuring {Name}.");
-      ConfigureBase();
       ConfigureInternal();
 
       AddComponents();
@@ -354,12 +347,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       foreach (var obj in objects) { ValidateParam(obj); }
     }
 
-    private void ConfigureBase()
-    {
-      ConfigurePrerequisiteAlignment();
-      ConfigureSpellDescriptors();
-    }
-
     private void OnConfigure()
     {
       InternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
@@ -404,36 +391,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       foreach (var error in validationContext.Errors) { AddValidationWarning(error); }
 
       ValidateComponents();
-    }
-
-    private void ConfigurePrerequisiteAlignment()
-    {
-      var component = Blueprint.GetComponent<PrerequisiteAlignment>();
-      if (component == null)
-      {
-        // Don't create a component to remove prerequisite alignments
-        if (EnablePrerequisiteAlignment == 0) { return; }
-
-        component = new PrerequisiteAlignment();
-        AddComponent(component);
-      }
-      component.Alignment |= EnablePrerequisiteAlignment;
-      component.Alignment &= ~DisablePrerequisiteAlignment;
-    }
-
-    private void ConfigureSpellDescriptors()
-    {
-      var component = Blueprint.GetComponent<SpellDescriptorComponent>();
-      if (component == null)
-      {
-        // Don't create a component to remove descriptors
-        if (EnableSpellDescriptors == 0) { return; }
-
-        component = new SpellDescriptorComponent();
-        AddComponent(component);
-      }
-      component.Descriptor.m_IntValue |= EnableSpellDescriptors;
-      component.Descriptor.m_IntValue &= ~DisableSpellDescriptors;
     }
 
     // TODO: Refactor validation to rely on Validator. That way it can be used externally.
@@ -481,7 +438,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         }
       }
 
-      // TODO: Unit test this
       // Make sure there are no conflicting ContextRankConfigs
       var duplicateRankTypes =
           Blueprint.GetComponents<ContextRankConfig>()
