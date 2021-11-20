@@ -235,14 +235,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder AddEventDynamicCostFeast(
         KingdomResourcesAmount costPerUse,
         string blueprint = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EventDynamicCostFeast();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(blueprint);
       component.CostPerUse = costPerUse;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -258,15 +256,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ConditionsBuilder condition = null,
         string dialog = null,
         string[] answers = null,
-        ActionsBuilder additionalActions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder additionalActions = null)
     {
       var component = new EventAISolution();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
       component.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
       component.AdditionalActions = additionalActions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -277,7 +273,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(EventFinalResults))]
     public TBuilder AddEventFinalResults(
         EventResult[] results = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -285,7 +280,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     
       var component = new EventFinalResults();
       component.Results = results;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

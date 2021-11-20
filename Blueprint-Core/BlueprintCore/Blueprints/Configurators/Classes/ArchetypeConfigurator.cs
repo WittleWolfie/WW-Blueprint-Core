@@ -593,13 +593,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(DeityDependencyClass))]
     public ArchetypeConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -615,8 +613,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int rating = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteLoreMaster();
       component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(loreMaster);
@@ -624,7 +621,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -638,8 +634,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int value = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteFullStatValue();
       component.Stat = stat;
@@ -647,7 +642,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

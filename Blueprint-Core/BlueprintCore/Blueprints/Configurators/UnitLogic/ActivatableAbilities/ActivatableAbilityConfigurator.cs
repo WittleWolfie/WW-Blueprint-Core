@@ -305,7 +305,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         int priority = default,
         ConditionsBuilder autoFillConditions = null,
         ConditionsBuilder autoCastConditions = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -313,7 +312,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       component.Priority = priority;
       component.AutoFillConditions = autoFillConditions?.Build() ?? Constants.Empty.Conditions;
       component.AutoCastConditions = autoCastConditions?.Build() ?? Constants.Empty.Conditions;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -324,13 +322,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(AbilityActivateWithUnitCommandInTurnBased))]
     public ActivatableAbilityConfigurator AddAbilityActivateWithUnitCommandInTurnBased(
         UnitCommand.CommandType commandType = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityActivateWithUnitCommandInTurnBased();
       component.CommandType = commandType;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -340,12 +336,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionCanGatherPower))]
     public ActivatableAbilityConfigurator AddRestrictionCanGatherPower(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionCanGatherPower();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -355,12 +349,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionCanUseKineticBlade))]
     public ActivatableAbilityConfigurator AddRestrictionCanUseKineticBlade(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionCanUseKineticBlade();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -370,12 +362,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(ActivatableAbilityMount))]
     public ActivatableAbilityConfigurator AddActivatableAbilityMount(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ActivatableAbilityMount();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -392,7 +382,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         string requiredResource = null,
         string freeBlueprint = null,
         WeaponCategory[] categories = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -401,7 +390,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(requiredResource);
       component.m_FreeBlueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(freeBlueprint);
       component.Categories = categories;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -412,13 +400,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(ActivatableAbilityUnitCommand))]
     public ActivatableAbilityConfigurator AddActivatableAbilityUnitCommand(
         UnitCommand.CommandType type = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ActivatableAbilityUnitCommand();
       component.Type = type;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -428,12 +414,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(DeactivateImmediatelyIfNoAttacksThisRound))]
     public ActivatableAbilityConfigurator AddDeactivateImmediatelyIfNoAttacksThisRound(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DeactivateImmediatelyIfNoAttacksThisRound();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -444,13 +428,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(TurnOffImmediatelyWithUnitCommand))]
     public ActivatableAbilityConfigurator AddTurnOffImmediatelyWithUnitCommand(
         UnitCommand.CommandType commandType = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TurnOffImmediatelyWithUnitCommand();
       component.CommandType = commandType;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -464,14 +446,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionHasFact(
         string feature = null,
         bool not = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionHasFact();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
       component.Not = not;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -482,13 +462,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionHasUnitCondition))]
     public ActivatableAbilityConfigurator AddRestrictionHasUnitCondition(
         UnitCondition condition = default,
-        bool invert = default,
-        BlueprintComponent.Flags flags = default)
+        bool invert = default)
     {
       var component = new RestrictionHasUnitCondition();
       component.Condition = condition;
       component.Invert = invert;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -503,14 +481,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionKensaiWeapon(
         string characterClass = null,
         string chosenWeaponBlueprint = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionKensaiWeapon();
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(chosenWeaponBlueprint);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -520,12 +496,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionRangedWeapon))]
     public ActivatableAbilityConfigurator AddRestrictionRangedWeapon(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionRangedWeapon();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -538,13 +512,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionUnitConditionUnlessFact))]
     public ActivatableAbilityConfigurator AddRestrictionUnitConditionUnlessFact(
         UnitCondition condition = default,
-        string checkedFact = null,
-        BlueprintComponent.Flags flags = default)
+        string checkedFact = null)
     {
       var component = new RestrictionUnitConditionUnlessFact();
       component.Condition = condition;
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -558,14 +530,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionUnlockableFlag(
         string neededFlag = null,
         bool invert = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RestrictionUnlockableFlag();
       component.m_NeededFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(neededFlag);
       component.Invert = invert;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -575,12 +545,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(SwitchOffAtCombatEnd))]
     public ActivatableAbilityConfigurator AddSwitchOffAtCombatEnd(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SwitchOffAtCombatEnd();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

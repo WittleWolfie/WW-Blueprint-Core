@@ -154,7 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(ChangeGlobalMagicPower))]
     public KingdomBuffConfigurator AddChangeGlobalMagicPower(
         GlobalMagicValue changeValue,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -162,7 +161,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     
       var component = new ChangeGlobalMagicPower();
       component.m_ChangeValue = changeValue;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -178,8 +176,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ArmyProperties properties = default,
         KingdomUnitsGrowthIncrease.UnitListOperation operation = default,
         string[] units = null,
-        int bonusPercent = default,
-        BlueprintComponent.Flags flags = default)
+        int bonusPercent = default)
     {
       var component = new KingdomUnitsGrowthIncrease();
       component.AllUnits = allUnits;
@@ -187,7 +184,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.Operation = operation;
       component.Units = units.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
       component.BonusPercent = bonusPercent;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -198,13 +194,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(BirthdayTrigger))]
     public KingdomBuffConfigurator AddBirthdayTrigger(
         ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder actions = null)
     {
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -218,14 +212,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddBuildingCostModifier(
         float modifier = default,
         string[] buildings = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildingCostModifier();
       component.Modifier = modifier;
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -239,14 +231,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddBuildingSequenceCostMultiplierReduce(
         float reduceMultiplierBy = default,
         string[] buildings = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildingSequenceCostMultiplierReduce();
       component.ReduceMultiplierBy = reduceMultiplierBy;
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -263,8 +253,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         string specificBuilding = null,
         int atLeastThisManyBuildings = default,
         ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder actions = null)
     {
       var component = new BuildingTrigger();
       component.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintRegionReference>(specificSettlement);
@@ -272,7 +261,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.AtLeastThisManyBuildings = atLeastThisManyBuildings;
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -283,13 +271,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(ChangeKingdomMoraleMinimum))]
     public KingdomBuffConfigurator AddChangeKingdomMoraleMinimum(
         int minValueDelta = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ChangeKingdomMoraleMinimum();
       component.m_MinValueDelta = minValueDelta;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -309,8 +295,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         LeaderType onlyLeader = default,
         string onlySpecificLeader = null,
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       ValidateParam(requiredTags);
     
@@ -324,7 +309,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.m_OnlySpecificLeader = BlueprintTool.GetRef<BlueprintUnitReference>(onlySpecificLeader);
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -338,8 +322,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool applyToProblems = default,
         bool applyToOpportunities = default,
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       ValidateParam(requiredTags);
     
@@ -349,7 +332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.RequiredTags = requiredTags;
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -361,14 +343,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddEveryDayTrigger(
         ConditionsBuilder condition = null,
         ActionsBuilder actions = null,
-        int skipDays = default,
-        BlueprintComponent.Flags flags = default)
+        int skipDays = default)
     {
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -380,14 +360,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddEveryWeekTrigger(
         ConditionsBuilder condition = null,
         ActionsBuilder actions = null,
-        int skipWeeks = default,
-        BlueprintComponent.Flags flags = default)
+        int skipWeeks = default)
     {
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -399,14 +377,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddGlobalArmiesMoraleModifier(
         ArmyFaction faction = default,
         int moraleModifier = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new GlobalArmiesMoraleModifier();
       component.m_Faction = faction;
       component.m_MoraleModifier = moraleModifier;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -417,13 +393,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomAddMercenaryReroll))]
     public KingdomBuffConfigurator AddKingdomAddMercenaryReroll(
         int freeRerollsToAdd = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenaryReroll();
       component.m_FreeRerollsToAdd = freeRerollsToAdd;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -434,13 +408,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomAddMercenarySlot))]
     public KingdomBuffConfigurator AddKingdomAddMercenarySlot(
         int slotsToAdd = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenarySlot();
       component.m_SlotsToAdd = slotsToAdd;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -451,15 +423,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomConditionalStatChange))]
     public KingdomBuffConfigurator AddKingdomConditionalStatChange(
         KingdomStats.Changes stats,
-        ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        ConditionsBuilder condition = null)
     {
       ValidateParam(stats);
     
       var component = new KingdomConditionalStatChange();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Stats = stats;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -470,13 +440,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomEventFixedBonus))]
     public KingdomBuffConfigurator AddKingdomEventFixedBonus(
         LeaderType leader = default,
-        int leaderBonus = default,
-        BlueprintComponent.Flags flags = default)
+        int leaderBonus = default)
     {
       var component = new KingdomEventFixedBonus();
       component.Leader = leader;
       component.LeaderBonus = leaderBonus;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -502,8 +470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool onlyPositive = default,
         bool onlyNegative = default,
         bool addReroll = default,
-        bool addDisadvantage = default,
-        BlueprintComponent.Flags flags = default)
+        bool addDisadvantage = default)
     {
       ValidateParam(requiredTags);
     
@@ -523,7 +490,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.OnlyNegative = onlyNegative;
       component.AddReroll = addReroll;
       component.AddDisadvantage = addDisadvantage;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -536,15 +502,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         int modifier = default,
         int financeModifier = default,
         int basicsModifier = default,
-        int favorsModifier = default,
-        BlueprintComponent.Flags flags = default)
+        int favorsModifier = default)
     {
       var component = new KingdomIncomeModifier();
       component.Modifier = modifier;
       component.FinanceModifier = financeModifier;
       component.BasicsModifier = basicsModifier;
       component.FavorsModifier = favorsModifier;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -556,14 +520,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddKingdomIncomePerSettlement(
         KingdomResourcesAmount resourcesPerVillage,
         KingdomResourcesAmount resourcesPerTown,
-        KingdomResourcesAmount resourcesPerCity,
-        BlueprintComponent.Flags flags = default)
+        KingdomResourcesAmount resourcesPerCity)
     {
       var component = new KingdomIncomePerSettlement();
       component.ResourcesPerVillage = resourcesPerVillage;
       component.ResourcesPerTown = resourcesPerTown;
       component.ResourcesPerCity = resourcesPerCity;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -574,13 +536,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomIncomePerStat))]
     public KingdomBuffConfigurator AddKingdomIncomePerStat(
         KingdomResourcesAmount resourcesPerRank,
-        KingdomStats.Type stat = default,
-        BlueprintComponent.Flags flags = default)
+        KingdomStats.Type stat = default)
     {
       var component = new KingdomIncomePerStat();
       component.ResourcesPerRank = resourcesPerRank;
       component.Stat = stat;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -590,12 +550,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(KingdomIncomePerUnrest))]
     public KingdomBuffConfigurator AddKingdomIncomePerUnrest(
-        KingdomResourcesAmount resourcesPerUnrest,
-        BlueprintComponent.Flags flags = default)
+        KingdomResourcesAmount resourcesPerUnrest)
     {
       var component = new KingdomIncomePerUnrest();
       component.ResourcesPerUnrest = resourcesPerUnrest;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -607,14 +565,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddKingdomMoraleEffectMultiplier(
         float incomeMultiplier = default,
         float unitMultiplier = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomMoraleEffectMultiplier();
       component.IncomeMultiplier = incomeMultiplier;
       component.UnitMultiplier = unitMultiplier;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -626,14 +582,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddKingdomMoraleForArmies(
         ArmyFaction faction = default,
         float multiplier = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomMoraleForArmies();
       component.m_Faction = faction;
       component.m_Multiplier = multiplier;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -652,8 +606,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool byUnits = default,
         string[] armyUnits = null,
         string[] features = null,
-        ArmyFaction faction = default,
-        BlueprintComponent.Flags flags = default)
+        ArmyFaction faction = default)
     {
       var component = new KingdomTacticalArmyFeature();
       component.m_MercenariesFilter = mercenariesFilter;
@@ -663,7 +616,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.m_ArmyUnits = armyUnits.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
       component.m_Faction = faction;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -674,13 +626,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomUnrestChangeTrigger))]
     public KingdomBuffConfigurator AddKingdomUnrestChangeTrigger(
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       var component = new KingdomUnrestChangeTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -691,13 +641,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(MaxArmySquadsBonus))]
     public KingdomBuffConfigurator AddMaxArmySquadsBonus(
         int bonus = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MaxArmySquadsBonus();
       component.m_Bonus = bonus;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -715,7 +663,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ArmyProperties properties = default,
         KingdomUnitsGrowthIncrease.UnitListOperation operation = default,
         string[] units = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -726,7 +673,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.Properties = properties;
       component.Operation = operation;
       component.Units = units.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -736,12 +682,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(RecruitDisable))]
     public KingdomBuffConfigurator AddRecruitDisable(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecruitDisable();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -754,13 +698,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(RegionBasedPartyBuff))]
     public KingdomBuffConfigurator AddRegionBasedPartyBuff(
         RegionBasedPartyBuff.TargetType target = default,
-        string buff = null,
-        BlueprintComponent.Flags flags = default)
+        string buff = null)
     {
       var component = new RegionBasedPartyBuff();
       component.Target = target;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -774,14 +716,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddSettlementTrigger(
         string specificSettlement = null,
         ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder actions = null)
     {
       var component = new SettlementTrigger();
       component.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(specificSettlement);
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -794,15 +734,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         KingdomStats.Type stat = default,
         float statPerFinances = default,
         float statPerMaterials = default,
-        float statPerFavors = default,
-        BlueprintComponent.Flags flags = default)
+        float statPerFavors = default)
     {
       var component = new KingdomStatFromCrusadeResources();
       component.m_Stat = stat;
       component.m_StatPerFinances = statPerFinances;
       component.m_StatPerMaterials = statPerMaterials;
       component.m_StatPerFavors = statPerFavors;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -814,14 +752,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator AddKingdomStatFromLeaderExperience(
         KingdomStats.Type stat = default,
         float statPerLeaderExperience = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomStatFromLeaderExperience();
       component.m_Stat = stat;
       component.m_StatPerLeaderExperience = statPerLeaderExperience;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -832,13 +768,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(KingdomStatFromRecruitment))]
     public KingdomBuffConfigurator AddKingdomStatFromRecruitment(
         KingdomStats.Type stat = default,
-        float statPerExp = default,
-        BlueprintComponent.Flags flags = default)
+        float statPerExp = default)
     {
       var component = new KingdomStatFromRecruitment();
       component.m_Stat = stat;
       component.m_StatPerExp = statPerExp;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -855,8 +789,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         int minLevel = default,
         string skill = null,
         bool useSkillsList = default,
-        string[] skillsList = null,
-        BlueprintComponent.Flags flags = default)
+        string[] skillsList = null)
     {
       var component = new KingdomGainSkillToLeaders();
       component.m_TargetFactions = targetFactions;
@@ -864,7 +797,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.m_Skill = BlueprintTool.GetRef<BlueprintLeaderSkillReference>(skill);
       component.m_UseSkillsList = useSkillsList;
       component.m_SkillsList = skillsList.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -875,13 +807,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(ArmyGlobalMapMovementBonus))]
     public KingdomBuffConfigurator AddArmyGlobalMapMovementBonus(
         int dailyMovementPoints = default,
-        int maxMovementPoints = default,
-        BlueprintComponent.Flags flags = default)
+        int maxMovementPoints = default)
     {
       var component = new ArmyGlobalMapMovementBonus();
       component.DailyMovementPoints = dailyMovementPoints;
       component.MaxMovementPoints = maxMovementPoints;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

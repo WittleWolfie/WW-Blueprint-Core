@@ -48,8 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
         string overrideAreaPreset = null,
         bool overrideTimeOfDay = default,
         TimeOfDay timeOfDay = default,
-        bool makeMapScreenshot = default,
-        BlueprintComponent.Flags flags = default)
+        bool makeMapScreenshot = default)
     {
       ValidateParam(areaParts);
     
@@ -60,7 +59,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
       component.TimeOfDay = timeOfDay;
       component.MakeMapScreenshot = makeMapScreenshot;
       component.AreaParts = areaParts;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -72,12 +70,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     [Generated]
     [Implements(typeof(ArbiterWeaponTest))]
     public ArbiterInstructionConfigurator AddArbiterWeaponTest(
-        string weapon = null,
-        BlueprintComponent.Flags flags = default)
+        string weapon = null)
     {
       var component = new ArbiterWeaponTest();
       component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

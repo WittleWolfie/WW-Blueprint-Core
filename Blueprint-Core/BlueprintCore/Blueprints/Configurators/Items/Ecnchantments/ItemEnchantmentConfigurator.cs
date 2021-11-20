@@ -148,13 +148,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
         string etude = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -174,7 +172,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -190,7 +187,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.ReplaceSpellLevel = replaceSpellLevel;
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -205,7 +201,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool useKineticistMainStat = default,
         StatType statType = default,
         string characterClass = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -213,7 +208,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -225,8 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue value = null,
-        double modifier = default,
-        BlueprintComponent.Flags flags = default)
+        double modifier = default)
     {
       ValidateParam(value);
     
@@ -234,7 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
       component.Modifier = modifier;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -249,7 +241,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ContextValue casterLevel = null,
         ContextValue concentration = null,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -264,7 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.Concentration = concentration ?? ContextValues.Constant(0);
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -274,12 +264,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public TBuilder AddAbilityDifficultyLimitDC(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -293,14 +281,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddACBonusAgainstFactOwnerEquipment(
         string checkedFact = null,
         int bonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new ACBonusAgainstFactOwnerEquipment();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
       component.Bonus = bonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -314,14 +300,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddCasterLevelEquipment(
         string spell = null,
         int bonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new AddCasterLevelEquipment();
       component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
       component.Bonus = bonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -331,12 +315,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AddConditionImmunityEquipment))]
     public TBuilder AddConditionImmunityEquipment(
-        UnitCondition condition = default,
-        BlueprintComponent.Flags flags = default)
+        UnitCondition condition = default)
     {
       var component = new AddConditionImmunityEquipment();
       component.Condition = condition;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -349,13 +331,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(AddSpellbookEquipment))]
     public TBuilder AddSpellbookEquipment(
         string spellbook = null,
-        int casterLevel = default,
-        BlueprintComponent.Flags flags = default)
+        int casterLevel = default)
     {
       var component = new AddSpellbookEquipment();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
       component.CasterLevel = casterLevel;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -367,14 +347,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddStatBonusEquipment(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        int value = default,
-        BlueprintComponent.Flags flags = default)
+        int value = default)
     {
       var component = new AddStatBonusEquipment();
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Value = value;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -389,15 +367,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         int value = default,
-        string checkedEnchantment = null,
-        BlueprintComponent.Flags flags = default)
+        string checkedEnchantment = null)
     {
       var component = new AddStatBonusEquipmentUnlessEnchant();
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Value = value;
       component.m_CheckedEnchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(checkedEnchantment);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -409,12 +385,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AddUnitFactEquipment))]
     public TBuilder AddUnitFactEquipment(
-        string blueprint = null,
-        BlueprintComponent.Flags flags = default)
+        string blueprint = null)
     {
       var component = new AddUnitFactEquipment();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(blueprint);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -426,12 +400,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AddUnitFeatureEquipment))]
     public TBuilder AddUnitFeatureEquipment(
-        string feature = null,
-        BlueprintComponent.Flags flags = default)
+        string feature = null)
     {
       var component = new AddUnitFeatureEquipment();
       component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -445,14 +417,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddAttackBonusAgainstFactOwnerEquipment(
         string checkedFact = null,
         int attackBonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new AttackBonusAgainstFactOwnerEquipment();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -465,13 +435,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(DamageBonusAgainstFactOwnerEquipment))]
     public TBuilder AddDamageBonusAgainstFactOwnerEquipment(
         string checkedFact = null,
-        int damageBonus = default,
-        BlueprintComponent.Flags flags = default)
+        int damageBonus = default)
     {
       var component = new DamageBonusAgainstFactOwnerEquipment();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.DamageBonus = damageBonus;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -482,7 +450,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
         EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -490,7 +457,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -501,13 +467,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -518,13 +482,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(IncreaseMaxStatEnchantment))]
     public TBuilder AddIncreaseMaxStatEnchantment(
         int value = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IncreaseMaxStatEnchantment();
       component.Value = value;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -536,14 +498,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddIncreaseStatEquipment(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        int value = default,
-        BlueprintComponent.Flags flags = default)
+        int value = default)
     {
       var component = new IncreaseStatEquipment();
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Value = value;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -552,12 +512,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     [Generated]
     [Implements(typeof(MithralEnchantment))]
-    public TBuilder AddMithralEnchantment(
-        BlueprintComponent.Flags flags = default)
+    public TBuilder AddMithralEnchantment()
     {
-      var component = new MithralEnchantment();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new MithralEnchantment());
     }
 
     /// <summary>
@@ -569,13 +526,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(PreventAbilityInterruption))]
     public TBuilder AddPreventAbilityInterruption(
         string[] abilities = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PreventAbilityInterruption();
       component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -589,14 +544,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddWeaponTypeAttackEnchant(
         string type = null,
         int bonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new WeaponTypeAttackEnchant();
       component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
       component.Bonus = bonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

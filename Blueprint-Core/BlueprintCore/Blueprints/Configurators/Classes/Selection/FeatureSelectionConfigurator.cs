@@ -112,14 +112,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
         bool anyFeatureFromSelection = default,
         string[] features = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = anyFeatureFromSelection;
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -134,15 +132,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         string thisFeature = null,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteSelectionPossible();
       component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(thisFeature);
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

@@ -28,13 +28,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(AllSavesBonusEquipment))]
     public TBuilder AddAllSavesBonusEquipment(
         ModifierDescriptor descriptor = default,
-        int value = default,
-        BlueprintComponent.Flags flags = default)
+        int value = default)
     {
       var component = new AllSavesBonusEquipment();
       component.Descriptor = descriptor;
       component.Value = value;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -48,7 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         bool requiresFinesse = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -57,7 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
       component.RequiresFinesse = requiresFinesse;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -70,7 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancement = default,
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -78,7 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.Enhancement = enhancement;
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -89,13 +83,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(NaturalDamageStatReplacement))]
     public TBuilder AddNaturalDamageStatReplacement(
         StatType stat = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -108,7 +100,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -116,7 +107,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -128,14 +118,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddWeaponGroupDamageBonusEquipment(
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -148,7 +136,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponRangeType rangeType = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -156,7 +143,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.RangeType = rangeType;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
@@ -197,13 +183,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(AllSavesBonusEquipment))]
     public EquipmentEnchantmentConfigurator AddAllSavesBonusEquipment(
         ModifierDescriptor descriptor = default,
-        int value = default,
-        BlueprintComponent.Flags flags = default)
+        int value = default)
     {
       var component = new AllSavesBonusEquipment();
       component.Descriptor = descriptor;
       component.Value = value;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -217,7 +201,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         bool requiresFinesse = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -226,7 +209,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
       component.RequiresFinesse = requiresFinesse;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -239,7 +221,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancement = default,
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -247,7 +228,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.Enhancement = enhancement;
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -258,13 +238,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(NaturalDamageStatReplacement))]
     public EquipmentEnchantmentConfigurator AddNaturalDamageStatReplacement(
         StatType stat = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -277,7 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -285,7 +262,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -297,14 +273,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public EquipmentEnchantmentConfigurator AddWeaponGroupDamageBonusEquipment(
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -317,7 +291,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponRangeType rangeType = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -325,7 +298,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.RangeType = rangeType;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

@@ -369,12 +369,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(CannotSneakAttack))]
     public ProjectileConfigurator AddCannotSneakAttack(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CannotSneakAttack();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

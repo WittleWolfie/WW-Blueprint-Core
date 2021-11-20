@@ -183,7 +183,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder allowedCondition = null,
         string[] requiredCompanions = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -194,7 +193,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       component.AllowedCondition = allowedCondition?.Build() ?? Constants.Empty.Conditions;
       component.RequiredCompanions = requiredCompanions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
       component.Description = description ?? Constants.Empty.String;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

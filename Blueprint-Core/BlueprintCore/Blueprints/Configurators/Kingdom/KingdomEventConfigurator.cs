@@ -160,7 +160,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool tickOnStart = default,
         ActionsBuilder onRecurrence = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -173,7 +172,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.OnRecurrence = onRecurrence?.Build() ?? Constants.Empty.Actions;
       component.StatsOnRecurrence = statsOnRecurrence;
       component.Description = description ?? Constants.Empty.String;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

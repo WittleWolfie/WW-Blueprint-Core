@@ -241,14 +241,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddLocationRadiusBuff(
         float radius = default,
         string buff = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRadiusBuff();
       component.Radius = radius;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -261,13 +259,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(AdjacencyRestriction))]
     public SettlementBuildingConfigurator AddAdjacencyRestriction(
         bool invert = default,
-        string[] buildings = null,
-        BlueprintComponent.Flags flags = default)
+        string[] buildings = null)
     {
       var component = new AdjacencyRestriction();
       component.Invert = invert;
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -277,12 +273,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(AlignmentRestriction))]
     public SettlementBuildingConfigurator AddAlignmentRestriction(
-        AlignmentMaskType allowed = default,
-        BlueprintComponent.Flags flags = default)
+        AlignmentMaskType allowed = default)
     {
       var component = new AlignmentRestriction();
       component.Allowed = allowed;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -291,12 +285,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     [Generated]
     [Implements(typeof(ArtisanRestriction))]
-    public SettlementBuildingConfigurator AddArtisanRestriction(
-        BlueprintComponent.Flags flags = default)
+    public SettlementBuildingConfigurator AddArtisanRestriction()
     {
-      var component = new ArtisanRestriction();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new ArtisanRestriction());
     }
 
     /// <summary>
@@ -305,12 +296,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(Aviary))]
     public SettlementBuildingConfigurator AddAviary(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new Aviary();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -327,8 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         BuildingAdjacencyBonus.DistanceRequirementType distance = default,
         BuildingAdjacencyBonus.CalculationType calculation = default,
         bool anyBuilding = default,
-        string[] buildings = null,
-        BlueprintComponent.Flags flags = default)
+        string[] buildings = null)
     {
       ValidateParam(stats);
     
@@ -339,7 +327,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.Stats = stats;
       component.AnyBuilding = anyBuilding;
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -352,15 +339,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool allUnits = default,
         ArmyProperties properties = default,
         BuildingAdjacencyBonus.DistanceRequirementType distance = default,
-        int bonusPercent = default,
-        BlueprintComponent.Flags flags = default)
+        int bonusPercent = default)
     {
       var component = new BuildingAdjacentGrowthIncrease();
       component.AllUnits = allUnits;
       component.Properties = properties;
       component.Distance = distance;
       component.BonusPercent = bonusPercent;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -377,8 +362,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         int favorsModifier = default,
         string specificBuilding = null,
         BuildingAdjacencyBonus.DistanceRequirementType distance = default,
-        int bonusPercent = default,
-        BlueprintComponent.Flags flags = default)
+        int bonusPercent = default)
     {
       var component = new BuildingAdjacentResourceIncrease();
       component.FinanceModifier = financeModifier;
@@ -387,7 +371,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.m_SpecificBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(specificBuilding);
       component.Distance = distance;
       component.BonusPercent = bonusPercent;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -400,13 +383,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingAttachedBuff))]
     public SettlementBuildingConfigurator AddBuildingAttachedBuff(
         string buff = null,
-        bool onlyInRegion = default,
-        BlueprintComponent.Flags flags = default)
+        bool onlyInRegion = default)
     {
       var component = new BuildingAttachedBuff();
       component.m_Buff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(buff);
       component.m_OnlyInRegion = onlyInRegion;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -419,13 +400,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingCountsAs))]
     public SettlementBuildingConfigurator AddBuildingCountsAs(
         string[] buildings = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildingCountsAs();
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -437,14 +416,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddBuildingGlobalGrowthIncrease(
         bool allUnits = default,
         ArmyProperties properties = default,
-        int bonusPercent = default,
-        BlueprintComponent.Flags flags = default)
+        int bonusPercent = default)
     {
       var component = new BuildingGlobalGrowthIncrease();
       component.AllUnits = allUnits;
       component.Properties = properties;
       component.BonusPercent = bonusPercent;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -454,14 +431,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(BuildingLoneSlotBonus))]
     public SettlementBuildingConfigurator AddBuildingLoneSlotBonus(
-        KingdomStats.Changes stats,
-        BlueprintComponent.Flags flags = default)
+        KingdomStats.Changes stats)
     {
       ValidateParam(stats);
     
       var component = new BuildingLoneSlotBonus();
       component.Stats = stats;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -474,15 +449,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool negative = default,
         bool positive = default,
         int percentBonus = default,
-        int flatBonus = default,
-        BlueprintComponent.Flags flags = default)
+        int flatBonus = default)
     {
       var component = new BuildingMoraleChangeBonus();
       component.Negative = negative;
       component.Positive = positive;
       component.PercentBonus = percentBonus;
       component.FlatBonus = flatBonus;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -496,13 +469,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingPartOfQuestObjective))]
     public SettlementBuildingConfigurator AddBuildingPartOfQuestObjective(
         string[] buildings = null,
-        string objective = null,
-        BlueprintComponent.Flags flags = default)
+        string objective = null)
     {
       var component = new BuildingPartOfQuestObjective();
       component.m_Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToArray();
       component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -515,15 +486,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         int modifier = default,
         int financeModifier = default,
         int basicsModifier = default,
-        int favorsModifier = default,
-        BlueprintComponent.Flags flags = default)
+        int favorsModifier = default)
     {
       var component = new BuildingResourceGrowthGlobalIncrease();
       component.Modifier = modifier;
       component.FinanceModifier = financeModifier;
       component.BasicsModifier = basicsModifier;
       component.FavorsModifier = favorsModifier;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -533,12 +502,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(BuildingResourceGrowthIncrease))]
     public SettlementBuildingConfigurator AddBuildingResourceGrowthIncrease(
-        KingdomResourcesAmount resourcesAmount,
-        BlueprintComponent.Flags flags = default)
+        KingdomResourcesAmount resourcesAmount)
     {
       var component = new BuildingResourceGrowthIncrease();
       component.ResourcesAmount = resourcesAmount;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -551,13 +518,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingSiegeDurationIncrease))]
     public SettlementBuildingConfigurator AddBuildingSiegeDurationIncrease(
         int durationDeltaInDays = default,
-        string[] affectedFlags = null,
-        BlueprintComponent.Flags flags = default)
+        string[] affectedFlags = null)
     {
       var component = new BuildingSiegeDurationIncrease();
       component.DurationDeltaInDays = durationDeltaInDays;
       component.m_AffectedFlags = affectedFlags.Select(name => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -571,14 +536,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddBuildingTacticalUnitFactBonus(
         BuildingTacticalUnitFactBonus.DistanceType distance = default,
         string[] features = null,
-        bool onlyForCurrentRegion = default,
-        BlueprintComponent.Flags flags = default)
+        bool onlyForCurrentRegion = default)
     {
       var component = new BuildingTacticalUnitFactBonus();
       component.m_Distance = distance;
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
       component.m_OnlyForCurrentRegion = onlyForCurrentRegion;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -591,13 +554,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingUnitGrowthIncrease))]
     public SettlementBuildingConfigurator AddBuildingUnitGrowthIncrease(
         string unit = null,
-        int count = default,
-        BlueprintComponent.Flags flags = default)
+        int count = default)
     {
       var component = new BuildingUnitGrowthIncrease();
       component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
       component.Count = count;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -611,8 +572,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddBuildingUpgradeBonus(
         KingdomStats.Changes stats,
         string upgradeProject = null,
-        BuildingUpgradeBonus.RegionApplicabilityType region = default,
-        BlueprintComponent.Flags flags = default)
+        BuildingUpgradeBonus.RegionApplicabilityType region = default)
     {
       ValidateParam(stats);
     
@@ -620,7 +580,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.Stats = stats;
       component.m_UpgradeProject = BlueprintTool.GetRef<BlueprintKingdomUpgradeReference>(upgradeProject);
       component.Region = region;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -633,13 +592,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(CaptalLevelRestriction))]
     public SettlementBuildingConfigurator AddCaptalLevelRestriction(
         string settlement = null,
-        SettlementState.LevelType level = default,
-        BlueprintComponent.Flags flags = default)
+        SettlementState.LevelType level = default)
     {
       var component = new CaptalLevelRestriction();
       component.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
       component.Level = level;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -651,12 +608,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(DLCRestriction))]
     public SettlementBuildingConfigurator AddDLCRestriction(
-        string dlcReward = null,
-        BlueprintComponent.Flags flags = default)
+        string dlcReward = null)
     {
       var component = new DLCRestriction();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -665,12 +620,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     [Generated]
     [Implements(typeof(LoneSlotRestriction))]
-    public SettlementBuildingConfigurator AddLoneSlotRestriction(
-        BlueprintComponent.Flags flags = default)
+    public SettlementBuildingConfigurator AddLoneSlotRestriction()
     {
-      var component = new LoneSlotRestriction();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new LoneSlotRestriction());
     }
 
     /// <summary>
@@ -678,12 +630,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     [Generated]
     [Implements(typeof(OncePerSettlementRestriction))]
-    public SettlementBuildingConfigurator AddOncePerSettlementRestriction(
-        BlueprintComponent.Flags flags = default)
+    public SettlementBuildingConfigurator AddOncePerSettlementRestriction()
     {
-      var component = new OncePerSettlementRestriction();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new OncePerSettlementRestriction());
     }
 
     /// <summary>
@@ -696,14 +645,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddOtherBuildingRestriction(
         bool invert = default,
         bool requireAll = default,
-        string[] buildings = null,
-        BlueprintComponent.Flags flags = default)
+        string[] buildings = null)
     {
       var component = new OtherBuildingRestriction();
       component.Invert = invert;
       component.RequireAll = requireAll;
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -715,12 +662,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(ProjectRestriction))]
     public SettlementBuildingConfigurator AddProjectRestriction(
-        string[] projects = null,
-        BlueprintComponent.Flags flags = default)
+        string[] projects = null)
     {
       var component = new ProjectRestriction();
       component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -733,13 +678,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(SpecificSettlementRestriction))]
     public SettlementBuildingConfigurator AddSpecificSettlementRestriction(
         string settlement = null,
-        bool not = default,
-        BlueprintComponent.Flags flags = default)
+        bool not = default)
     {
       var component = new SpecificSettlementRestriction();
       component.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
       component.m_Not = not;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -751,14 +694,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddStatRankRestriction(
         KingdomStats.Type stat = default,
         int rank = default,
-        bool atMost = default,
-        BlueprintComponent.Flags flags = default)
+        bool atMost = default)
     {
       var component = new StatRankRestriction();
       component.Stat = stat;
       component.Rank = rank;
       component.AtMost = atMost;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -768,12 +709,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(TeleportationCircle))]
     public SettlementBuildingConfigurator AddTeleportationCircle(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TeleportationCircle();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -786,13 +725,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(UnlockRestriction))]
     public SettlementBuildingConfigurator AddUnlockRestriction(
         string flag = null,
-        bool mustBeLocked = default,
-        BlueprintComponent.Flags flags = default)
+        bool mustBeLocked = default)
     {
       var component = new UnlockRestriction();
       component.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
       component.MustBeLocked = mustBeLocked;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -803,13 +740,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BirthdayTrigger))]
     public SettlementBuildingConfigurator AddBirthdayTrigger(
         ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder actions = null)
     {
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -829,8 +764,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         LeaderType onlyLeader = default,
         string onlySpecificLeader = null,
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       ValidateParam(requiredTags);
     
@@ -844,7 +778,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.m_OnlySpecificLeader = BlueprintTool.GetRef<BlueprintUnitReference>(onlySpecificLeader);
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -858,8 +791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool applyToProblems = default,
         bool applyToOpportunities = default,
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       ValidateParam(requiredTags);
     
@@ -869,7 +801,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.RequiredTags = requiredTags;
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -881,14 +812,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddEveryDayTrigger(
         ConditionsBuilder condition = null,
         ActionsBuilder actions = null,
-        int skipDays = default,
-        BlueprintComponent.Flags flags = default)
+        int skipDays = default)
     {
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -900,14 +829,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddEveryWeekTrigger(
         ConditionsBuilder condition = null,
         ActionsBuilder actions = null,
-        int skipWeeks = default,
-        BlueprintComponent.Flags flags = default)
+        int skipWeeks = default)
     {
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -918,13 +845,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomAddMercenaryReroll))]
     public SettlementBuildingConfigurator AddKingdomAddMercenaryReroll(
         int freeRerollsToAdd = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenaryReroll();
       component.m_FreeRerollsToAdd = freeRerollsToAdd;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -935,13 +860,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomAddMercenarySlot))]
     public SettlementBuildingConfigurator AddKingdomAddMercenarySlot(
         int slotsToAdd = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenarySlot();
       component.m_SlotsToAdd = slotsToAdd;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -952,15 +875,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomConditionalStatChange))]
     public SettlementBuildingConfigurator AddKingdomConditionalStatChange(
         KingdomStats.Changes stats,
-        ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        ConditionsBuilder condition = null)
     {
       ValidateParam(stats);
     
       var component = new KingdomConditionalStatChange();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Stats = stats;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -971,13 +892,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomEventFixedBonus))]
     public SettlementBuildingConfigurator AddKingdomEventFixedBonus(
         LeaderType leader = default,
-        int leaderBonus = default,
-        BlueprintComponent.Flags flags = default)
+        int leaderBonus = default)
     {
       var component = new KingdomEventFixedBonus();
       component.Leader = leader;
       component.LeaderBonus = leaderBonus;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1003,8 +922,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool onlyPositive = default,
         bool onlyNegative = default,
         bool addReroll = default,
-        bool addDisadvantage = default,
-        BlueprintComponent.Flags flags = default)
+        bool addDisadvantage = default)
     {
       ValidateParam(requiredTags);
     
@@ -1024,7 +942,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.OnlyNegative = onlyNegative;
       component.AddReroll = addReroll;
       component.AddDisadvantage = addDisadvantage;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1035,13 +952,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomUnrestChangeTrigger))]
     public SettlementBuildingConfigurator AddKingdomUnrestChangeTrigger(
         ConditionsBuilder condition = null,
-        ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder action = null)
     {
       var component = new KingdomUnrestChangeTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

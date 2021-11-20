@@ -310,15 +310,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         int casterLevel = default,
         string spellList = null,
         int maxSpellLevel = default,
-        int count = default,
-        BlueprintComponent.Flags flags = default)
+        int count = default)
     {
       var component = new AddCustomSpells();
       component.CasterLevel = casterLevel;
       component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
       component.MaxSpellLevel = maxSpellLevel;
       component.Count = count;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -328,12 +326,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Generated]
     [Implements(typeof(IsAlchemistSpellbook))]
     public SpellbookConfigurator AddIsAlchemistSpellbook(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IsAlchemistSpellbook();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -343,12 +339,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Generated]
     [Implements(typeof(IsSinMagicSpecialistSpellbook))]
     public SpellbookConfigurator AddIsSinMagicSpecialistSpellbook(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IsSinMagicSpecialistSpellbook();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

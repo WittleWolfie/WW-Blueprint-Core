@@ -735,14 +735,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator AddLocationRadiusBuff(
         float radius = default,
         string buff = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRadiusBuff();
       component.Radius = radius;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -758,7 +756,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder allowedCondition = null,
         string[] requiredCompanions = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -769,7 +766,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       component.AllowedCondition = allowedCondition?.Build() ?? Constants.Empty.Conditions;
       component.RequiredCompanions = requiredCompanions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
       component.Description = description ?? Constants.Empty.String;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -781,14 +777,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator AddLocationRevealedTrigger(
         bool onlyOnce = default,
         ActionsBuilder onReveal = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRevealedTrigger();
       component.OnlyOnce = onlyOnce;
       component.OnReveal = onReveal?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

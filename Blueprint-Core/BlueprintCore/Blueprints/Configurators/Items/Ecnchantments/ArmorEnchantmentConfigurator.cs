@@ -43,13 +43,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(ArmorEnhancementBonus))]
     public ArmorEnchantmentConfigurator AddArmorEnhancementBonus(
         int enhancementValue = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmorEnhancementBonus();
       component.EnhancementValue = enhancementValue;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -61,12 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(AddSavesFixerArmorRecalculator))]
     public ArmorEnchantmentConfigurator AddSavesFixerArmorRecalculator(
-        string feature = null,
-        BlueprintComponent.Flags flags = default)
+        string feature = null)
     {
       var component = new AddSavesFixerArmorRecalculator();
       component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -79,7 +75,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int maxDexBonusShift = default,
         int armorCheckPenaltyShift = default,
         int arcaneSpellFailureShift = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -87,7 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.MaxDexBonusShift = maxDexBonusShift;
       component.ArmorCheckPenaltyShift = armorCheckPenaltyShift;
       component.ArcaneSpellFailureShift = arcaneSpellFailureShift;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

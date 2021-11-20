@@ -342,13 +342,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
         string etude = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -360,14 +358,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddItemShowInfoCallback(
         bool once = default,
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddItemShowInfoCallback();
       component.Once = once;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -378,13 +374,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(BuildPointsReplacement))]
     public TBuilder AddBuildPointsReplacement(
         int cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildPointsReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -395,13 +389,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ConsumableEventBonusReplacement))]
     public TBuilder AddConsumableEventBonusReplacement(
         int cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ConsumableEventBonusReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -414,13 +406,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(CopyRecipe))]
     public TBuilder AddCopyRecipe(
         string recipe = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CopyRecipe();
       component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -433,13 +423,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(CopyScroll))]
     public TBuilder AddCopyScroll(
         string customSpell = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CopyScroll();
       component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -450,13 +438,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(IdentifySkillReplacement))]
     public TBuilder AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IdentifySkillReplacement();
       component.m_SkillType = skillType;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -471,7 +457,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ConditionsBuilder conditions = null,
         LocalizedString itemName = null,
         string dialogReference = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -481,7 +466,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
       component.m_ItemName = itemName ?? Constants.Empty.String;
       component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(dialogReference);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -497,7 +481,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string dlcReward = null,
         string changeTo = null,
         bool hideInVendors = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -505,7 +488,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
       component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(changeTo);
       component.HideInVendors = hideInVendors;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -519,13 +501,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ItemPolymorph))]
     public TBuilder AddItemPolymorph(
         string flagToCheck = null,
-        string[] polymorphItems = null,
-        BlueprintComponent.Flags flags = default)
+        string[] polymorphItems = null)
     {
       var component = new ItemPolymorph();
       component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
       component.m_PolymorphItems = polymorphItems.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -536,13 +516,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(MoneyReplacement))]
     public TBuilder AddMoneyReplacement(
         long cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MoneyReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -553,7 +531,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
         EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -561,7 +538,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -572,13 +548,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -592,14 +566,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddWeaponTypeAttackEnchant(
         string type = null,
         int bonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new WeaponTypeAttackEnchant();
       component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
       component.Bonus = bonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
@@ -946,13 +918,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public ItemConfigurator AddItemEnchantmentEnableWhileEtudePlaying(
         string etude = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -964,14 +934,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddItemShowInfoCallback(
         bool once = default,
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddItemShowInfoCallback();
       component.Once = once;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -982,13 +950,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(BuildPointsReplacement))]
     public ItemConfigurator AddBuildPointsReplacement(
         int cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildPointsReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -999,13 +965,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ConsumableEventBonusReplacement))]
     public ItemConfigurator AddConsumableEventBonusReplacement(
         int cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ConsumableEventBonusReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1018,13 +982,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(CopyRecipe))]
     public ItemConfigurator AddCopyRecipe(
         string recipe = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CopyRecipe();
       component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1037,13 +999,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(CopyScroll))]
     public ItemConfigurator AddCopyScroll(
         string customSpell = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CopyScroll();
       component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1054,13 +1014,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(IdentifySkillReplacement))]
     public ItemConfigurator AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IdentifySkillReplacement();
       component.m_SkillType = skillType;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1075,7 +1033,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ConditionsBuilder conditions = null,
         LocalizedString itemName = null,
         string dialogReference = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1085,7 +1042,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
       component.m_ItemName = itemName ?? Constants.Empty.String;
       component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(dialogReference);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1101,7 +1057,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         string dlcReward = null,
         string changeTo = null,
         bool hideInVendors = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1109,7 +1064,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
       component.m_ChangeTo = BlueprintTool.GetRef<BlueprintItemReference>(changeTo);
       component.HideInVendors = hideInVendors;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1123,13 +1077,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(ItemPolymorph))]
     public ItemConfigurator AddItemPolymorph(
         string flagToCheck = null,
-        string[] polymorphItems = null,
-        BlueprintComponent.Flags flags = default)
+        string[] polymorphItems = null)
     {
       var component = new ItemPolymorph();
       component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
       component.m_PolymorphItems = polymorphItems.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1140,13 +1092,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(MoneyReplacement))]
     public ItemConfigurator AddMoneyReplacement(
         long cost = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MoneyReplacement();
       component.Cost = cost;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1157,7 +1107,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public ItemConfigurator AddEnchantmentAddBuffWhileInStealth(
         EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1165,7 +1114,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1176,13 +1124,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
     public ItemConfigurator AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1196,14 +1142,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddWeaponTypeAttackEnchant(
         string type = null,
         int bonus = default,
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new WeaponTypeAttackEnchant();
       component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
       component.Bonus = bonus;
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

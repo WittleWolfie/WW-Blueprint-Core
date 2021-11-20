@@ -81,7 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
         UnitAsksComponent.Bark currentlyActiveBark,
         string[] soundBanks = null,
         UnitAsksComponent.AnimationBark[] animationBarks = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -133,7 +132,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
       component.AnimationBarks = animationBarks;
       component.m_Unit = unit;
       component.m_CurrentlyActiveBark = currentlyActiveBark;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

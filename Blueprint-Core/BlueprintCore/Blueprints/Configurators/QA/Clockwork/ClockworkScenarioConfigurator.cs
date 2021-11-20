@@ -803,8 +803,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
         ClockworkCommandList commandList,
         string area = null,
         string areaPart = null,
-        bool everyVisit = default,
-        BlueprintComponent.Flags flags = default)
+        bool everyVisit = default)
     {
       ValidateParam(condition);
       ValidateParam(commandList);
@@ -815,7 +814,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
       component.EveryVisit = everyVisit;
       component.Condition = condition;
       component.CommandList = commandList;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -826,8 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     [Implements(typeof(ConditionalCommandList))]
     public ClockworkScenarioConfigurator AddConditionalCommandList(
         Condition condition,
-        ClockworkCommandList commandList,
-        BlueprintComponent.Flags flags = default)
+        ClockworkCommandList commandList)
     {
       ValidateParam(condition);
       ValidateParam(commandList);
@@ -835,7 +832,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
       var component = new ConditionalCommandList();
       component.Condition = condition;
       component.CommandList = commandList;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -849,14 +845,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     public ClockworkScenarioConfigurator AddExploreFlyingIsles(
         bool justIgnoreWalls = default,
         float waitTimeAfterCamRotation = default,
-        string[] areas = null,
-        BlueprintComponent.Flags flags = default)
+        string[] areas = null)
     {
       var component = new ExploreFlyingIsles();
       component.JustIgnoreWalls = justIgnoreWalls;
       component.WaitTimeAfterCamRotation = waitTimeAfterCamRotation;
       component.Areas = areas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToList();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -873,7 +867,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
         string beginnerMythic = null,
         string earlyMythic = null,
         string lateMythic = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -881,7 +874,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
       component.BeginnerMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(beginnerMythic);
       component.EarlyMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(earlyMythic);
       component.LateMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(lateMythic);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

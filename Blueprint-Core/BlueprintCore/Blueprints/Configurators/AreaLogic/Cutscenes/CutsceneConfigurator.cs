@@ -232,12 +232,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     [Generated]
     [Implements(typeof(StopCutsceneWhenExitingArea))]
     public CutsceneConfigurator AddStopCutsceneWhenExitingArea(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new StopCutsceneWhenExitingArea();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -247,12 +245,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     [Generated]
     [Implements(typeof(DestroyCutsceneOnLoad))]
     public CutsceneConfigurator AddDestroyCutsceneOnLoad(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DestroyCutsceneOnLoad();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

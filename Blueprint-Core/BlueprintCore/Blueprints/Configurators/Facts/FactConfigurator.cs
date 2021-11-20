@@ -65,12 +65,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(ComponentsList))]
     public TBuilder AddComponentsList(
-        string list = null,
-        BlueprintComponent.Flags flags = default)
+        string list = null)
     {
       var component = new ComponentsList();
       component.m_List = BlueprintTool.GetRef<BlueprintComponentListReference>(list);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -82,14 +80,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffActions(
         ActionsBuilder activated = null,
         ActionsBuilder deactivated = null,
-        ActionsBuilder newRound = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder newRound = null)
     {
       var component = new AddBuffActions();
       component.Activated = activated?.Build() ?? Constants.Empty.Actions;
       component.Deactivated = deactivated?.Build() ?? Constants.Empty.Actions;
       component.NewRound = newRound?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

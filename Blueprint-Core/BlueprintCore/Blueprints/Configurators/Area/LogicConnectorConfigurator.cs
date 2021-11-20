@@ -1,7 +1,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.Enums.Damage;
@@ -30,8 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,
-        PhysicalDamageForm physicalDamageForm = default,
-        BlueprintComponent.Flags flags = default)
+        PhysicalDamageForm physicalDamageForm = default)
     {
       var component = new DamageToMapObjectTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -39,7 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.EnergyType = energyType;
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm;
       component.PhysicalDamageForm = physicalDamageForm;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
@@ -83,8 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,
-        PhysicalDamageForm physicalDamageForm = default,
-        BlueprintComponent.Flags flags = default)
+        PhysicalDamageForm physicalDamageForm = default)
     {
       var component = new DamageToMapObjectTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -92,7 +88,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.EnergyType = energyType;
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm;
       component.PhysicalDamageForm = physicalDamageForm;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

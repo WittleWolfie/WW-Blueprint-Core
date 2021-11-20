@@ -119,14 +119,12 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator AddBoonLogicExperience(
         int step = default,
         int start = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BoonLogicExperience();
       component.Step = step;
       component.Start = start;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -138,14 +136,12 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator AddBoonLogicExperienceRate(
         int step = default,
         int start = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BoonLogicExperienceRate();
       component.Step = step;
       component.Start = start;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -157,14 +153,12 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator AddBoonLogicGold(
         int step = default,
         int start = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BoonLogicGold();
       component.Step = step;
       component.Start = start;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -179,7 +173,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         bool pack = default,
         int step = default,
         int start = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -189,7 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       component.Pack = pack;
       component.Step = step;
       component.Start = start;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -207,7 +199,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         bool onlyRandomCharacterClass = default,
         int step = default,
         int start = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -218,7 +209,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       component.OnlyRandomCharacterClass = onlyRandomCharacterClass;
       component.Step = step;
       component.Start = start;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

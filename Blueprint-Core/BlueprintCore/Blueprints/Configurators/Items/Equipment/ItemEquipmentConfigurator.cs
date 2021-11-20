@@ -241,12 +241,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(AddFactToEquipmentWielder))]
     public TBuilder AddFactToEquipmentWielder(
-        string fact = null,
-        BlueprintComponent.Flags flags = default)
+        string fact = null)
     {
       var component = new AddFactToEquipmentWielder();
       component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -256,12 +254,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(EquipmentRestrictionAlignment))]
     public TBuilder AddEquipmentRestrictionAlignment(
-        AlignmentMaskType alignment = default,
-        BlueprintComponent.Flags flags = default)
+        AlignmentMaskType alignment = default)
     {
       var component = new EquipmentRestrictionAlignment();
       component.Alignment = alignment;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -270,12 +266,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     [Generated]
     [Implements(typeof(EquipmentRestrictionCannotEquip))]
-    public TBuilder AddEquipmentRestrictionCannotEquip(
-        BlueprintComponent.Flags flags = default)
+    public TBuilder AddEquipmentRestrictionCannotEquip()
     {
-      var component = new EquipmentRestrictionCannotEquip();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new EquipmentRestrictionCannotEquip());
     }
 
     /// <summary>
@@ -287,13 +280,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Implements(typeof(EquipmentRestrictionClass))]
     public TBuilder AddEquipmentRestrictionClass(
         string clazz = null,
-        bool not = default,
-        BlueprintComponent.Flags flags = default)
+        bool not = default)
     {
       var component = new EquipmentRestrictionClass();
       component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       component.Not = not;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -307,14 +298,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
         bool not = default,
         string[] classes = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionHasAnyClassFromList();
       component.Not = not;
       component.m_Classes = classes.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -324,12 +313,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(EquipmentRestrictionMainPlayer))]
     public TBuilder AddEquipmentRestrictionMainPlayer(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionMainPlayer();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -342,13 +329,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Implements(typeof(EquipmentRestrictionSpecialUnit))]
     public TBuilder AddEquipmentRestrictionSpecialUnit(
         string blueprint = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionSpecialUnit();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -359,13 +344,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Implements(typeof(EquipmentRestrictionStat))]
     public TBuilder AddEquipmentRestrictionStat(
         StatType stat = default,
-        int minValue = default,
-        BlueprintComponent.Flags flags = default)
+        int minValue = default)
     {
       var component = new EquipmentRestrictionStat();
       component.Stat = stat;
       component.MinValue = minValue;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

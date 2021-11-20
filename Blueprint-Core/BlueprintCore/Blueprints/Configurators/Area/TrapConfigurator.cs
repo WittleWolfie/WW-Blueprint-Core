@@ -208,7 +208,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -220,7 +219,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.Modifier = modifier;
       component.Count = count;
       component.Dummy = dummy;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

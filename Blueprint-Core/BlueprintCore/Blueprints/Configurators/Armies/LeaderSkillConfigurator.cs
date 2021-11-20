@@ -202,13 +202,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(AddFactOnLeaderUnit))]
     public LeaderSkillConfigurator AddFactOnLeaderUnit(
         string[] facts = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddFactOnLeaderUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -221,15 +219,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(AddFactOnTacticalUnit))]
     public LeaderSkillConfigurator AddFactOnTacticalUnit(
         TargetFilter targetController,
-        string[] facts = null,
-        BlueprintComponent.Flags flags = default)
+        string[] facts = null)
     {
       ValidateParam(targetController);
     
       var component = new AddFactOnTacticalUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_TargetController = targetController;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -243,14 +239,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddCastOnTacticalCombatStart(
         string spellToCast = null,
         bool targetCell = default,
-        List<int> allowedColumns = null,
-        BlueprintComponent.Flags flags = default)
+        List<int> allowedColumns = null)
     {
       var component = new CastOnTacticalCombatStart();
       component.m_SpellToCast = BlueprintTool.GetRef<BlueprintAbilityReference>(spellToCast);
       component.m_TargetCell = targetCell;
       component.m_AllowedColumns = allowedColumns;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -265,7 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         int bonusPercent = default,
         int levelForBonusSkills = default,
         string bonusSkills = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -273,7 +266,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       component.m_BonusPercent = bonusPercent;
       component.m_LevelForBonusSkills = levelForBonusSkills;
       component.m_BonusSkills = BlueprintTool.GetRef<BlueprintLeaderSkillsList.Reference>(bonusSkills);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -284,7 +276,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(LeaderPercentAttributeBonus))]
     public LeaderSkillConfigurator AddLeaderPercentAttributeBonus(
         LeaderAttributes percentBonuses,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -292,7 +283,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     
       var component = new LeaderPercentAttributeBonus();
       component.m_PercentBonuses = percentBonuses;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -303,13 +293,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(MaxArmySquadsBonusLeaderComponent))]
     public LeaderSkillConfigurator AddMaxArmySquadsBonusLeaderComponent(
         int armySizeBonus = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MaxArmySquadsBonusLeaderComponent();
       component.m_ArmySizeBonus = armySizeBonus;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -322,13 +310,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(PlaceLeaderTrapOnCombatStart))]
     public LeaderSkillConfigurator AddPlaceLeaderTrapOnCombatStart(
         string[] possibleTrapSkills = null,
-        List<int> allowedColumns = null,
-        BlueprintComponent.Flags flags = default)
+        List<int> allowedColumns = null)
     {
       var component = new PlaceLeaderTrapOnCombatStart();
       component.m_PossibleTrapSkills = possibleTrapSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
       component.m_AllowedColumns = allowedColumns;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -341,15 +327,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(RemoveFactFromTacticalUnit))]
     public LeaderSkillConfigurator AddRemoveFactFromTacticalUnit(
         TargetFilter targetController,
-        string[] facts = null,
-        BlueprintComponent.Flags flags = default)
+        string[] facts = null)
     {
       ValidateParam(targetController);
     
       var component = new RemoveFactFromTacticalUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_TargetController = targetController;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -364,8 +348,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         TargetFilter filter,
         string[] bannedFacts = null,
         int maxSquadsCount = default,
-        ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        ActionsBuilder actions = null)
     {
       ValidateParam(filter);
     
@@ -374,7 +357,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       component.m_BannedFacts = bannedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.m_MaxSquadsCount = maxSquadsCount;
       component.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -387,13 +369,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(TacticalLeaderRitualComponent))]
     public LeaderSkillConfigurator AddTacticalLeaderRitualComponent(
         string ability = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TacticalLeaderRitualComponent();
       component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -405,14 +385,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddArmyLeaderAddResourcesOnBattleEnd(
         KingdomResourcesAmount resourcesAmount,
         bool onlyOnVictory = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmyLeaderAddResourcesOnBattleEnd();
       component.m_ResourcesAmount = resourcesAmount;
       component.OnlyOnVictory = onlyOnVictory;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -424,8 +402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddTacticalMoraleModifier(
         TargetFilter targetFilter,
         TacticalMoraleModifier.FactionTarget factionTarget = default,
-        int modValue = default,
-        BlueprintComponent.Flags flags = default)
+        int modValue = default)
     {
       ValidateParam(targetFilter);
     
@@ -433,7 +410,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       component.m_TargetFilter = targetFilter;
       component.m_FactionTarget = factionTarget;
       component.m_ModValue = modValue;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -444,13 +420,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(ArmyGlobalMapMovementBonus))]
     public LeaderSkillConfigurator AddArmyGlobalMapMovementBonus(
         int dailyMovementPoints = default,
-        int maxMovementPoints = default,
-        BlueprintComponent.Flags flags = default)
+        int maxMovementPoints = default)
     {
       var component = new ArmyGlobalMapMovementBonus();
       component.DailyMovementPoints = dailyMovementPoints;
       component.MaxMovementPoints = maxMovementPoints;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }

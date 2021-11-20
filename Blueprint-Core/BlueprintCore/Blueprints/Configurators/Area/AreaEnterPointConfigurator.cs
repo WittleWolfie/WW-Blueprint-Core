@@ -178,13 +178,11 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Implements(typeof(AllowOnZoneSettings))]
     public AreaEnterPointConfigurator AddAllowOnZoneSettings(
         GlobalMapZone[] allowedNaturalSettings = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AllowOnZoneSettings();
       component.m_AllowedNaturalSettings = allowedNaturalSettings;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

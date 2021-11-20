@@ -719,13 +719,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddGlobalMapSpellFeature))]
     public TBuilder AddGlobalMapSpellFeature(
         string spell = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddGlobalMapSpellFeature();
       component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -735,12 +733,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(FeatureSurvivesRespec))]
     public TBuilder AddFeatureSurvivesRespec(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new FeatureSurvivesRespec();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -751,7 +747,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(LevelUpRecommendation))]
     public TBuilder AddLevelUpRecommendation(
         ClassesPriority[] classPriorities = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -759,7 +754,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     
       var component = new LevelUpRecommendation();
       component.ClassPriorities = classPriorities;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -775,8 +769,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int rating = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteLoreMaster();
       component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(loreMaster);
@@ -784,7 +777,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -799,8 +791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int multiplier = default,
         ContextValue value = null,
         bool hasMinimal = default,
-        int minimal = default,
-        BlueprintComponent.Flags flags = default)
+        int minimal = default)
     {
       ValidateParam(value);
     
@@ -811,7 +802,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Value = value ?? ContextValues.Constant(0);
       component.HasMinimal = hasMinimal;
       component.Minimal = minimal;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -825,8 +815,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddFeaturesFromSelectionToDescription(
         LocalizedString introduction = null,
         string featureSelection = null,
-        bool onlyIfRequiresThisFeature = default,
-        BlueprintComponent.Flags flags = default)
+        bool onlyIfRequiresThisFeature = default)
     {
       ValidateParam(introduction);
     
@@ -834,7 +823,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Introduction = introduction ?? Constants.Empty.String;
       component.m_FeatureSelection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(featureSelection);
       component.OnlyIfRequiresThisFeature = onlyIfRequiresThisFeature;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -845,13 +833,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddGoldenDragonSkillBonus))]
     public TBuilder AddGoldenDragonSkillBonus(
         ModifierDescriptor descriptor = default,
-        StatType stat = default,
-        BlueprintComponent.Flags flags = default)
+        StatType stat = default)
     {
       var component = new AddGoldenDragonSkillBonus();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -862,13 +848,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddLocustSwarmMechanicPart))]
     public TBuilder AddLocustSwarmMechanicPart(
         int swarmStartStrength = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddLocustSwarmMechanicPart();
       component.m_SwarmStartStrength = swarmStartStrength;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -878,12 +862,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddMagusMechanicPart))]
     public TBuilder AddMagusMechanicPart(
-        AddMagusMechanicPart.Feature feature = default,
-        BlueprintComponent.Flags flags = default)
+        AddMagusMechanicPart.Feature feature = default)
     {
       var component = new AddMagusMechanicPart();
       component.m_Feature = feature;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -897,8 +879,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue highestStatBonus = null,
         StatType highestStat = default,
         ContextValue secondHighestStatBonus = null,
-        StatType secondHighestStat = default,
-        BlueprintComponent.Flags flags = default)
+        StatType secondHighestStat = default)
     {
       ValidateParam(highestStatBonus);
       ValidateParam(secondHighestStatBonus);
@@ -909,7 +890,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.m_HighestStat = highestStat;
       component.SecondHighestStatBonus = secondHighestStatBonus ?? ContextValues.Constant(0);
       component.m_SecondHighestStat = secondHighestStat;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -920,13 +900,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddRestTrigger))]
     public TBuilder AddRestTrigger(
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddRestTrigger();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -941,8 +919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddSpellsToDescription(
         LocalizedString introduction = null,
         string[] spellLists = null,
-        string[] spells = null,
-        BlueprintComponent.Flags flags = default)
+        string[] spells = null)
     {
       ValidateParam(introduction);
     
@@ -950,7 +927,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Introduction = introduction ?? Constants.Empty.String;
       component.m_SpellLists = spellLists.Select(name => BlueprintTool.GetRef<BlueprintSpellListReference>(name)).ToArray();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -960,12 +936,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddTricksterAthleticBonus))]
     public TBuilder AddTricksterAthleticBonus(
-        ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        ModifierDescriptor descriptor = default)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -977,14 +951,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddWeaponEnhancementBonusToStat(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        int multiplier = default,
-        BlueprintComponent.Flags flags = default)
+        int multiplier = default)
     {
       var component = new AddWeaponEnhancementBonusToStat();
       component.Descriptor = descriptor;
       component.Stat = stat;
       component.Multiplier = multiplier;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -996,14 +968,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddMountedShield(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MountedShield();
       component.Descriptor = descriptor;
       component.Stat = stat;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1018,8 +988,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         ContextValue baseValue = null,
-        string upgradeFeature = null,
-        BlueprintComponent.Flags flags = default)
+        string upgradeFeature = null)
     {
       ValidateParam(baseValue);
     
@@ -1028,7 +997,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Stat = stat;
       component.BaseValue = baseValue ?? ContextValues.Constant(0);
       component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1048,7 +1016,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1064,7 +1031,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.ReplaceSpellLevel = replaceSpellLevel;
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1079,7 +1045,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool useKineticistMainStat = default,
         StatType statType = default,
         string characterClass = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1087,7 +1052,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1099,8 +1063,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue value = null,
-        double modifier = default,
-        BlueprintComponent.Flags flags = default)
+        double modifier = default)
     {
       ValidateParam(value);
     
@@ -1108,7 +1071,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
       component.Modifier = modifier;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1123,7 +1085,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue casterLevel = null,
         ContextValue concentration = null,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1138,7 +1099,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.Concentration = concentration ?? ContextValues.Constant(0);
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1148,12 +1108,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public TBuilder AddAbilityDifficultyLimitDC(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1167,7 +1125,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue positiveMoraleChancePercentDelta = null,
         bool changeNegativeMorale = default,
         ContextValue negativeMoraleChancePercentDelta = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1179,7 +1136,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_ChangeNegativeMorale = changeNegativeMorale;
       component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta ?? ContextValues.Constant(0);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1190,13 +1146,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(PureRecommendation))]
     public TBuilder AddPureRecommendation(
         RecommendationPriority priority = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PureRecommendation();
       component.Priority = priority;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1205,12 +1159,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(RecommendationAccomplishedSneakAttacker))]
-    public TBuilder AddRecommendationAccomplishedSneakAttacker(
-        BlueprintComponent.Flags flags = default)
+    public TBuilder AddRecommendationAccomplishedSneakAttacker()
     {
-      var component = new RecommendationAccomplishedSneakAttacker();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new RecommendationAccomplishedSneakAttacker());
     }
 
     /// <summary>
@@ -1221,14 +1172,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationBaseAttackPart(
         float minPart = default,
         bool notRecommendIfHigher = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationBaseAttackPart();
       component.MinPart = minPart;
       component.NotRecommendIfHigher = notRecommendIfHigher;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1240,12 +1189,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationCompanionBoon))]
     public TBuilder AddRecommendationCompanionBoon(
-        string companionRank = null,
-        BlueprintComponent.Flags flags = default)
+        string companionRank = null)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(companionRank);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1258,13 +1205,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(RecommendationHasFeature))]
     public TBuilder AddRecommendationHasFeature(
         string feature = null,
-        bool mandatory = default,
-        BlueprintComponent.Flags flags = default)
+        bool mandatory = default)
     {
       var component = new RecommendationHasFeature();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
       component.Mandatory = mandatory;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1277,13 +1222,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(RecommendationNoFeatFromGroup))]
     public TBuilder AddRecommendationNoFeatFromGroup(
         string[] features = null,
-        bool goodIfNoFeature = default,
-        BlueprintComponent.Flags flags = default)
+        bool goodIfNoFeature = default)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.GoodIfNoFeature = goodIfNoFeature;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1293,12 +1236,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(RecommendationRequiresSpellbook))]
     public TBuilder AddRecommendationRequiresSpellbook(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbook();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1311,7 +1252,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool arcane = default,
         bool divine = default,
         bool alchemist = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1319,7 +1259,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Arcane = arcane;
       component.Divine = divine;
       component.Alchemist = alchemist;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1332,7 +1271,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         StatType higherStat = default,
         StatType lowerStat = default,
         int diff = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1340,7 +1278,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.HigherStat = higherStat;
       component.LowerStat = lowerStat;
       component.Diff = diff;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1352,14 +1289,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationStatMiminum(
         StatType stat = default,
         int minimalValue = default,
-        bool goodIfHigher = default,
-        BlueprintComponent.Flags flags = default)
+        bool goodIfHigher = default)
     {
       var component = new RecommendationStatMiminum();
       component.Stat = stat;
       component.MinimalValue = minimalValue;
       component.GoodIfHigher = goodIfHigher;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1371,14 +1306,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationWeaponSubcategoryFocus(
         WeaponSubCategory subcategory = default,
         bool hasFocus = default,
-        bool badIfNoFocus = default,
-        BlueprintComponent.Flags flags = default)
+        bool badIfNoFocus = default)
     {
       var component = new RecommendationWeaponSubcategoryFocus();
       component.Subcategory = subcategory;
       component.HasFocus = hasFocus;
       component.BadIfNoFocus = badIfNoFocus;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1390,14 +1323,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationWeaponTypeFocus(
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = weaponRangeType;
       component.HasFocus = hasFocus;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1408,13 +1339,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(StatRecommendationChange))]
     public TBuilder AddStatRecommendationChange(
         StatType stat = default,
-        bool recommended = default,
-        BlueprintComponent.Flags flags = default)
+        bool recommended = default)
     {
       var component = new StatRecommendationChange();
       component.Stat = stat;
       component.Recommended = recommended;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1428,8 +1357,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int value = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteFullStatValue();
       component.Stat = stat;
@@ -1437,7 +1365,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1450,13 +1377,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddSpellbookFeature))]
     public TBuilder AddSpellbookFeature(
         string spellbook = null,
-        int casterLevel = default,
-        BlueprintComponent.Flags flags = default)
+        int casterLevel = default)
     {
       var component = new AddSpellbookFeature();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
       component.CasterLevel = casterLevel;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1468,12 +1393,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddSpellbookLevel))]
     public TBuilder AddSpellbookLevel(
-        string spellbook = null,
-        BlueprintComponent.Flags flags = default)
+        string spellbook = null)
     {
       var component = new AddSpellbookLevel();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1484,13 +1407,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddSpellsPerDay))]
     public TBuilder AddSpellsPerDay(
         int amount = default,
-        int[] levels = null,
-        BlueprintComponent.Flags flags = default)
+        int[] levels = null)
     {
       var component = new AddSpellsPerDay();
       component.Amount = amount;
       component.Levels = levels;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1499,12 +1420,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(ArmorSpeedPenaltyRemoval))]
-    public TBuilder AddArmorSpeedPenaltyRemoval(
-        BlueprintComponent.Flags flags = default)
+    public TBuilder AddArmorSpeedPenaltyRemoval()
     {
-      var component = new ArmorSpeedPenaltyRemoval();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new ArmorSpeedPenaltyRemoval());
     }
 
     /// <summary>
@@ -1519,14 +1437,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddBuffExtraEffects(
         string checkedBuff = null,
         string extraEffectBuff = null,
-        string exceptionFact = null,
-        BlueprintComponent.Flags flags = default)
+        string exceptionFact = null)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
       component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(extraEffectBuff);
       component.m_ExceptionFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(exceptionFact);
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1535,12 +1451,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(HarmoniousMage))]
-    public TBuilder AddHarmoniousMage(
-        BlueprintComponent.Flags flags = default)
+    public TBuilder AddHarmoniousMage()
     {
-      var component = new HarmoniousMage();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new HarmoniousMage());
     }
 
     /// <summary>
@@ -1549,12 +1462,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(SavesFixerRecalculate))]
     public TBuilder AddSavesFixerRecalculate(
-        int version = default,
-        BlueprintComponent.Flags flags = default)
+        int version = default)
     {
       var component = new SavesFixerRecalculate();
       component.Version = version;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 

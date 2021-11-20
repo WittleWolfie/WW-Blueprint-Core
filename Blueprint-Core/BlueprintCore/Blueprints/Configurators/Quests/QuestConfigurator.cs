@@ -198,13 +198,11 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Implements(typeof(QuestRelatesToCompanionStory))]
     public QuestConfigurator AddQuestRelatesToCompanionStory(
         string companion = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new QuestRelatesToCompanionStory();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -214,12 +212,10 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(CrusadeMissionComponent))]
     public QuestConfigurator AddCrusadeMissionComponent(
-        int chapter = default,
-        BlueprintComponent.Flags flags = default)
+        int chapter = default)
     {
       var component = new CrusadeMissionComponent();
       component.Chapter = chapter;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -228,12 +224,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityArmyRequestComponent))]
-    public QuestConfigurator AddNobilityArmyRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddNobilityArmyRequestComponent()
     {
-      var component = new NobilityArmyRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new NobilityArmyRequestComponent());
     }
 
     /// <summary>
@@ -241,12 +234,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityBuildingsRequestComponent))]
-    public QuestConfigurator AddNobilityBuildingsRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddNobilityBuildingsRequestComponent()
     {
-      var component = new NobilityBuildingsRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new NobilityBuildingsRequestComponent());
     }
 
     /// <summary>
@@ -254,12 +244,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilityIncomeRequestComponent))]
-    public QuestConfigurator AddNobilityIncomeRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddNobilityIncomeRequestComponent()
     {
-      var component = new NobilityIncomeRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new NobilityIncomeRequestComponent());
     }
 
     /// <summary>
@@ -267,12 +254,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(NobilitySettlementsRequestComponent))]
-    public QuestConfigurator AddNobilitySettlementsRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddNobilitySettlementsRequestComponent()
     {
-      var component = new NobilitySettlementsRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new NobilitySettlementsRequestComponent());
     }
 
     /// <summary>
@@ -280,12 +264,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtLeaderRequestComponent))]
-    public QuestConfigurator AddRoyalCourtLeaderRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddRoyalCourtLeaderRequestComponent()
     {
-      var component = new RoyalCourtLeaderRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new RoyalCourtLeaderRequestComponent());
     }
 
     /// <summary>
@@ -293,12 +274,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtMissionsRequestComponent))]
-    public QuestConfigurator AddRoyalCourtMissionsRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddRoyalCourtMissionsRequestComponent()
     {
-      var component = new RoyalCourtMissionsRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new RoyalCourtMissionsRequestComponent());
     }
 
     /// <summary>
@@ -306,12 +284,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtRanksRequestComponent))]
-    public QuestConfigurator AddRoyalCourtRanksRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddRoyalCourtRanksRequestComponent()
     {
-      var component = new RoyalCourtRanksRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new RoyalCourtRanksRequestComponent());
     }
 
     /// <summary>
@@ -319,12 +294,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     [Generated]
     [Implements(typeof(RoyalCourtVictoryRequestComponent))]
-    public QuestConfigurator AddRoyalCourtVictoryRequestComponent(
-        BlueprintComponent.Flags flags = default)
+    public QuestConfigurator AddRoyalCourtVictoryRequestComponent()
     {
-      var component = new RoyalCourtVictoryRequestComponent();
-      component.m_Flags = flags;
-      return AddComponent(component);
+      return AddComponent(new RoyalCourtVictoryRequestComponent());
     }
 
     /// <summary>
@@ -338,7 +310,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -350,7 +321,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.Modifier = modifier;
       component.Count = count;
       component.Dummy = dummy;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

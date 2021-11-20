@@ -1334,13 +1334,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(DeityDependencyClass))]
     public CharacterClassConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1350,12 +1348,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(HideClassIfPrerequisitesRequiredComponent))]
     public CharacterClassConfigurator AddHideClassIfPrerequisitesRequiredComponent(
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new HideClassIfPrerequisitesRequiredComponent();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1376,7 +1372,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         SpriteLink abilityFrame,
         SpriteLink emblem,
         string[] portraits = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
@@ -1399,7 +1394,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.m_AbilityFrame = abilityFrame;
       component.m_Emblem = emblem;
       component.m_Portraits = portraits.Select(name => BlueprintTool.GetRef<BlueprintPortraitReference>(name)).ToArray();
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1410,13 +1404,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(MythicClassLockComponent))]
     public CharacterClassConfigurator AddMythicClassLockComponent(
         Mythic[] locks = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MythicClassLockComponent();
       component.Locks = locks;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1427,13 +1419,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(SkipLevelsForSpellProgression))]
     public CharacterClassConfigurator AddSkipLevelsForSpellProgression(
         int[] levels = null,
-        BlueprintComponent.Flags flags = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SkipLevelsForSpellProgression();
       component.Levels = levels;
-      component.m_Flags = flags;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1449,8 +1439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int rating = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteLoreMaster();
       component.m_LoreMaster = BlueprintTool.GetRef<BlueprintCharacterClassReference>(loreMaster);
@@ -1458,7 +1447,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
 
@@ -1472,8 +1460,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int value = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
-        bool hideInUI = default,
-        BlueprintComponent.Flags flags = default)
+        bool hideInUI = default)
     {
       var component = new PrerequisiteFullStatValue();
       component.Stat = stat;
@@ -1481,7 +1468,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group;
       component.CheckInProgression = checkInProgression;
       component.HideInUI = hideInUI;
-      component.m_Flags = flags;
       return AddComponent(component);
     }
   }
