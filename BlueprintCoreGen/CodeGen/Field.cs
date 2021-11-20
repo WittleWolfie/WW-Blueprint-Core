@@ -127,20 +127,10 @@ namespace BlueprintCoreGen.CodeGen
       return new Field(info);
     }
 
-    private static readonly List<string> IgnoredFieldNames =
-        new()
-        {
-          "m_PrototypeLink",
-          "m_HasIsAllyEffectRunConditions",
-          "m_NextObjectivesProxy",
-          "m_AddendumsProxy",
-          "m_AreasProxy",
-          "name"
-        };
     private static bool IsIgnoredField(FieldInfo field)
     {
       return field.Name.Contains("__BackingField") // Compiler generated field
-          || IgnoredFieldNames.Contains(field.Name)
+          || Overrides.IgnoredFieldNames.Contains(field.Name)
           // Skip constant, static, and read-only
           || field.IsLiteral
           || field.IsStatic
@@ -234,18 +224,6 @@ namespace BlueprintCoreGen.CodeGen
         return null;
       }
 
-      private static readonly Dictionary<string, string> FriendlyNameOverrides =
-          new()
-          {
-            { "default", "defaultValue" },
-            { "event", "eventValue" },
-            { "break", "breakValue"},
-            { "string", "stringValue" },
-            { "class", "clazz"},
-            { "override", "overrideValue" },
-            { "continue", "continueValue" },
-            { "double", "doubleValue" }
-          };
       private static string GetFriendlyName(string fieldName, bool lowercase)
       {
         StringBuilder friendlyName = new(fieldName);
@@ -256,7 +234,7 @@ namespace BlueprintCoreGen.CodeGen
         friendlyName[0] = lowercase ? char.ToLower(friendlyName[0]) : char.ToUpper(friendlyName[0]);
         
         var result = friendlyName.ToString();
-        if (FriendlyNameOverrides.ContainsKey(result)) { return FriendlyNameOverrides[result]; }
+        if (Overrides.FriendlyNameOverrides.ContainsKey(result)) { return Overrides.FriendlyNameOverrides[result]; }
         return result;
       }
     }

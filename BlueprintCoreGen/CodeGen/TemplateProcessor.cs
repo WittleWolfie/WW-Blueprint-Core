@@ -1,14 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Quests.Logic;
-using Kingmaker.RandomEncounters.Settings;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
@@ -92,13 +83,6 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static readonly List<Type> IgnoredComponentTypes =
-        new()
-        {
-          typeof(QuestComponentDelegate<>),
-          typeof(QuestComponentDelegate),
-          typeof(UnlockableFlagComponent)
-        };
     private static Dictionary<Type, List<IMethod>> GetComponentMethodsByBlueprintType(
         string templatesRoot, Type[] gameTypes)
     {
@@ -122,7 +106,7 @@ namespace BlueprintCoreGen.CodeGen
 
       // Generate methods for any component types not found in templates
       GetMissingTypes(typeof(BlueprintComponent), methodsByComponentType.Keys, gameTypes)
-        .Where(type => !IgnoredComponentTypes.Contains(type))
+        .Where(type => !Overrides.IgnoredComponentTypes.Contains(type))
         .ToList()
         .ForEach(
             type =>
@@ -217,9 +201,9 @@ namespace BlueprintCoreGen.CodeGen
       {
         var name = componentType.Name;
       }
-      if (AllowedBlueprintTypesOverride.ContainsKey(componentType))
+      if (Overrides.AllowedBlueprintTypesOverride.ContainsKey(componentType))
       {
-        return AllowedBlueprintTypesOverride[componentType];
+        return Overrides.AllowedBlueprintTypesOverride[componentType];
       }
 
       // Take the youngest descendant's types only, essentially overriding inheritance. This is counter to the
@@ -255,19 +239,5 @@ namespace BlueprintCoreGen.CodeGen
       allowedOn.RemoveAll(type => allowedOn.Exists(parent => type.IsSubclassOf(parent)));
       return allowedOn;
     }
-
-    private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
-        new()
-        {
-          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } },
-          { typeof(AbilityUseOnRest), new() { typeof(BlueprintAbility) } },
-          { typeof(AddFactContextActions), new() { typeof(BlueprintFact) } },
-          { typeof(AddBuffActions), new() { typeof(BlueprintFact) } },
-          { typeof(AllowOnZoneSettings), new() { typeof(BlueprintAreaEnterPoint) } },
-          { typeof(ComponentsList), new() { typeof(BlueprintFact) } },
-          { typeof(AddClassLevelsToPets), new() { typeof(BlueprintUnit) } },
-          { typeof(ChangeVendorPrices), new() { typeof(BlueprintUnit) } },
-          { typeof(AbilityAcceptBurnOnCast), new() { typeof(BlueprintAbility) } }
-        };
   }
 }

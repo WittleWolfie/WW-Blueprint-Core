@@ -11,6 +11,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Controllers.Rest.Special;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.TempMapCode.Ambush;
 using Kingmaker.ElementsSystem;
@@ -1427,6 +1428,23 @@ namespace BlueprintCore.Blueprints.Configurators
         BlueprintComponent.Flags flags = default)
     {
       var component = new MobCaster();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddEquipmentToPet"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="items"><see cref="BlueprintItem"/></param>
+    [Generated]
+    [Implements(typeof(AddEquipmentToPet))]
+    public UnitConfigurator AddEquipmentToPet(
+        string[] items = null,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AddEquipmentToPet();
+      component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
       component.m_Flags = flags;
       return AddComponent(component);
     }

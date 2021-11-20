@@ -3,7 +3,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

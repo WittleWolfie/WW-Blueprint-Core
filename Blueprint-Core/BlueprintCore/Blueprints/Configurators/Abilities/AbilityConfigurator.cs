@@ -1096,6 +1096,27 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityAoERadius"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityAoERadius))]
+    public AbilityConfigurator AddAbilityAoERadius(
+        Feet radius,
+        Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
+        bool canBeUsedInTacticalCombat = default,
+        int diameterInCells = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityAoERadius();
+      component.m_Radius = radius;
+      component.m_TargetType = targetType;
+      component.m_CanBeUsedInTacticalCombat = canBeUsedInTacticalCombat;
+      component.m_DiameterInCells = diameterInCells;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityApplyFact"/> (Auto Generated)
     /// </summary>
     ///
@@ -1922,6 +1943,23 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="improvedFeature"><see cref="BlueprintFeature"/></param>
+    [Generated]
+    [Implements(typeof(AbilityMagusSpellRecallCostCalculator))]
+    public AbilityConfigurator AddAbilityMagusSpellRecallCostCalculator(
+        string improvedFeature = null,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityMagusSpellRecallCostCalculator();
+      component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(improvedFeature);
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityRequirementCanMove"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2258,6 +2296,27 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetCellsRestriction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetCellsRestriction))]
+    public AbilityConfigurator AddAbilityTargetCellsRestriction(
+        List<int> allowedColumns = null,
+        bool factionDependent = default,
+        bool onlyEmptyCells = default,
+        int diameter = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetCellsRestriction();
+      component.m_AllowedColumns = allowedColumns;
+      component.m_FactionDependent = factionDependent;
+      component.m_OnlyEmptyCells = onlyEmptyCells;
+      component.m_Diameter = diameter;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetDivineTroth"/> (Auto Generated)
     /// </summary>
     ///
@@ -2295,6 +2354,44 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.CheckFact = checkFact;
       component.m_FactToCheck = BlueprintTool.GetRef<BlueprintUnitFactReference>(factToCheck);
       component.OverrideCurrentHPLessThan = overrideCurrentHPLessThan;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetHasCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetHasCondition))]
+    public AbilityConfigurator AddAbilityTargetHasCondition(
+        UnitCondition condition = default,
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetHasCondition();
+      component.Condition = condition;
+      component.Not = not;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetHasConditionOrBuff"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    [Generated]
+    [Implements(typeof(AbilityTargetHasConditionOrBuff))]
+    public AbilityConfigurator AddAbilityTargetHasConditionOrBuff(
+        bool not = default,
+        UnitCondition condition = default,
+        string[] buffs = null,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetHasConditionOrBuff();
+      component.Not = not;
+      component.Condition = condition;
+      component.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2352,6 +2449,27 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetHasOneOfConditionsOrHP"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetHasOneOfConditionsOrHP))]
+    public AbilityConfigurator AddAbilityTargetHasOneOfConditionsOrHP(
+        UnitCondition[] condition = null,
+        bool needHPCondition = default,
+        int currentHPLessThan = default,
+        bool invertedHP = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetHasOneOfConditionsOrHP();
+      component.Condition = condition;
+      component.NeedHPCondition = needHPCondition;
+      component.CurrentHPLessThan = currentHPLessThan;
+      component.InvertedHP = invertedHP;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetIsAlly"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2361,6 +2479,21 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         BlueprintComponent.Flags flags = default)
     {
       var component = new AbilityTargetIsAlly();
+      component.Not = not;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetIsAnimalCompanion"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetIsAnimalCompanion))]
+    public AbilityConfigurator AddAbilityTargetIsAnimalCompanion(
+        bool not = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetIsAnimalCompanion();
       component.Not = not;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -2447,6 +2580,32 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetIsSuitableMount"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetIsSuitableMount))]
+    public AbilityConfigurator AddAbilityTargetIsSuitableMount(
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetIsSuitableMount();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetIsSuitableMountSize"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetIsSuitableMountSize))]
+    public AbilityConfigurator AddAbilityTargetIsSuitableMountSize(
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetIsSuitableMountSize();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetMaximumHitDice"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2470,6 +2629,23 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         BlueprintComponent.Flags flags = default)
     {
       var component = new AbilityTargetNotSelf();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetRangeRestriction"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityTargetRangeRestriction))]
+    public AbilityConfigurator AddAbilityTargetRangeRestriction(
+        Feet distance,
+        CompareOperation.Type compareType = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityTargetRangeRestriction();
+      component.Distance = distance;
+      component.CompareType = compareType;
       component.m_Flags = flags;
       return AddComponent(component);
     }
