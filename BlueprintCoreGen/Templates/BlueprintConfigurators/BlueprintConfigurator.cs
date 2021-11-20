@@ -206,7 +206,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       Logger.Verbose($"Configuring {Name}.");
       ConfigureInternal();
 
-      AddComponents();
+      ConfigureComponents();
       OnConfigure();
       Blueprint.OnEnable();
 
@@ -350,7 +350,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       ExternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
     }
 
-    private void AddComponents()
+    private void ConfigureComponents()
     {
       foreach (UniqueComponent component in UniqueComponents)
       {
@@ -377,7 +377,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         }
       }
 
-      Blueprint.Components = Blueprint.Components.Except(ComponentsToRemove).ToArray();
+      if (Blueprint.Components is not null)
+      {
+        Blueprint.Components = Blueprint.Components.Except(ComponentsToRemove).ToArray();
+      }
       Blueprint.AddComponents(Components.ToArray());
     }
 
