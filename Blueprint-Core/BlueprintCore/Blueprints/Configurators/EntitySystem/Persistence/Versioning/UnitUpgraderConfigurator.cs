@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.ElementsSystem;
@@ -37,14 +38,12 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
     /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitUpgraderConfigurator SetActions(ActionList actions)
+    public UnitUpgraderConfigurator SetActions(ActionsBuilder actions)
     {
-      ValidateParam(actions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.Actions = actions;
+            bp.Actions = actions?.Build() ?? Constants.Empty.Actions;
           });
     }
   }

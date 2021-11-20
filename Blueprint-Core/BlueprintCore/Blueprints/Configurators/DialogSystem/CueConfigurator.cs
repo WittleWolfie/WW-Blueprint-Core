@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -128,14 +129,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnShow(ActionList onShow)
+    public CueConfigurator SetOnShow(ActionsBuilder onShow)
     {
-      ValidateParam(onShow);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnShow = onShow;
+            bp.OnShow = onShow?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -143,14 +142,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.OnStop"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnStop(ActionList onStop)
+    public CueConfigurator SetOnStop(ActionsBuilder onStop)
     {
-      ValidateParam(onStop);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnStop = onStop;
+            bp.OnStop = onStop?.Build() ?? Constants.Empty.Actions;
           });
     }
 

@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -631,14 +632,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPoint.OnEnterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointConfigurator SetOnEnterActions(ActionList onEnterActions)
+    public GlobalMapPointConfigurator SetOnEnterActions(ActionsBuilder onEnterActions)
     {
-      ValidateParam(onEnterActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnEnterActions = onEnterActions;
+            bp.OnEnterActions = onEnterActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -778,15 +777,13 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     [Generated]
     [Implements(typeof(LocationRevealedTrigger))]
     public GlobalMapPointConfigurator AddLocationRevealedTrigger(
-        ActionList onReveal,
         bool onlyOnce = default,
+        ActionsBuilder onReveal = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onReveal);
-    
       var component = new LocationRevealedTrigger();
       component.OnlyOnce = onlyOnce;
-      component.OnReveal = onReveal;
+      component.OnReveal = onReveal?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -142,14 +143,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetOnShow(ActionList onShow)
+    public BookPageConfigurator SetOnShow(ActionsBuilder onShow)
     {
-      ValidateParam(onShow);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnShow = onShow;
+            bp.OnShow = onShow?.Build() ?? Constants.Empty.Actions;
           });
     }
 

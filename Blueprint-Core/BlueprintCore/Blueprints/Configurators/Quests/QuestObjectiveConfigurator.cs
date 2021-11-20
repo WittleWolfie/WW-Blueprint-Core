@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -424,16 +425,13 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(QuestObjectiveCallback))]
     public QuestObjectiveConfigurator AddQuestObjectiveCallback(
-        ActionList onComplete,
-        ActionList onFail,
+        ActionsBuilder onComplete = null,
+        ActionsBuilder onFail = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onComplete);
-      ValidateParam(onFail);
-    
       var component = new QuestObjectiveCallback();
-      component.m_OnComplete = onComplete;
-      component.m_OnFail = onFail;
+      component.m_OnComplete = onComplete?.Build() ?? Constants.Empty.Actions;
+      component.m_OnFail = onFail?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -444,15 +442,13 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(TimedObjectiveTrigger))]
     public QuestObjectiveConfigurator AddTimedObjectiveTrigger(
-        ActionList action,
         int daysTillTrigger = default,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new TimedObjectiveTrigger();
       component.DaysTillTrigger = daysTillTrigger;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -554,17 +550,15 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Generated]
     [Implements(typeof(ObjectiveStatusTrigger))]
     public QuestObjectiveConfigurator AddObjectiveStatusTrigger(
-        ActionList actions,
         QuestObjectiveState objectiveState = default,
         ConditionsBuilder conditions = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new ObjectiveStatusTrigger();
       component.objectiveState = objectiveState;
       component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

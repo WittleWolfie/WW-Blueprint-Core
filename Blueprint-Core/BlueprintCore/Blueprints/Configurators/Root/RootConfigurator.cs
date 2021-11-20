@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
@@ -218,14 +219,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.StartGameActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RootConfigurator SetStartGameActions(ActionList startGameActions)
+    public RootConfigurator SetStartGameActions(ActionsBuilder startGameActions)
     {
-      ValidateParam(startGameActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.StartGameActions = startGameActions;
+            bp.StartGameActions = startGameActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

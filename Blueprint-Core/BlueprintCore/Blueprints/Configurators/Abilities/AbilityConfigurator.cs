@@ -328,361 +328,361 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterAlignment"/>
-        /// </summary>
-        /// 
-        /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-        [Implements(typeof(AbilityCasterAlignment))]
-        public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
-        {
-          var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
-          if (ignoreFact != null)
+    /// <summary>
+    /// Adds <see cref="AbilityCasterAlignment"/>
+    /// </summary>
+    /// 
+    /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterAlignment))]
+    public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
+    {
+      var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
+      if (ignoreFact != null)
+      {
+        hasAlignment.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
+      }
+      return AddComponent(hasAlignment);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasFacts"/>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasFacts))]
+    public AbilityConfigurator RequireCasterFacts(params string[] facts)
+    {
+      var hasFacts = new AbilityCasterHasFacts
+      {
+        m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
+      };
+      return AddComponent(hasFacts);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasNoFacts"/>
+    /// </summary>
+    /// 
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasNoFacts))]
+    public AbilityConfigurator RequireCasterHasNoFacts(params string[] facts)
+    {
+      var hasNoFacts = new AbilityCasterHasNoFacts
+      {
+        m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
+      };
+      return AddComponent(hasNoFacts);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasChosenWeapon"/>
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Requires the caster to wield their chosen weapon, i.e. the weapon in which they have Weapon Focus or Weapon
+    /// Specialization.
+    /// </remarks>
+    /// 
+    /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
+    /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
+    [Implements(typeof(AbilityCasterHasChosenWeapon))]
+    public AbilityConfigurator RequireCasterHasChosenWeapon(
+        string parameterizedWeaponFeature, string ignoreFact = null)
+    {
+      var hasChosenWeapon = new AbilityCasterHasChosenWeapon
+      {
+        m_ChosenWeaponFeature = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(parameterizedWeaponFeature)
+      };
+      if (ignoreFact != null)
+      {
+        hasChosenWeapon.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
+      }
+      return AddComponent(hasChosenWeapon);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
+    /// </summary>
+    [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
+    public AbilityConfigurator RequireCasterWeaponRange(WeaponRangeType range)
+    {
+      var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
+      return AddComponent(hasWeaponRange);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterInCombat"/>
+    /// </summary>
+    [Implements(typeof(AbilityCasterInCombat))]
+    public AbilityConfigurator RequireCasterInCombat(bool requireInCombat = true)
+    {
+      var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
+      return AddComponent(isInCombat);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterIsOnFavoredTerrain"/>
+    /// </summary>
+    /// 
+    /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
+    [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
+    public AbilityConfigurator RequireCasterOnFavoredTerrain(string ignoreFeature = null)
+    {
+      var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
+      if (ignoreFeature != null)
+      {
+        onFavoredTerrain.m_IgnoreFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
+      }
+      return AddComponent(onFavoredTerrain);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TargetHasBuffsFromCaster"/>
+    /// </summary>
+    /// 
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
+    [Implements(typeof(TargetHasBuffsFromCaster))]
+    public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
+    {
+      var hasBuffs = new TargetHasBuffsFromCaster
+      {
+        Buffs = buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray(),
+        RequireAllBuffs = requireAllBuffs
+      };
+      return AddComponent(hasBuffs);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCanTargetDead"/>
+    /// </summary>
+    [Implements(typeof(AbilityCanTargetDead))]
+    public AbilityConfigurator CanTargetDead()
+    {
+      return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityDeliveredByWeapon"/>
+    /// </summary>
+    [DeliverEffectAttr]
+    [Implements(typeof(AbilityDeliveredByWeapon))]
+    public AbilityConfigurator DeliveredByWeapon()
+    {
+      return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityEffectRunAction"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
+    [ApplyEffectAttr]
+    [Implements(typeof(AbilityEffectRunAction))]
+    public AbilityConfigurator RunActions(
+        ActionsBuilder actions,
+        SavingThrowType savingThrow = SavingThrowType.Unknown,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      var run = new AbilityEffectRunAction
+      {
+        Actions = actions.Build(),
+        SavingThrowType = savingThrow
+      };
+      return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
+    }
+
+    [Implements(typeof(AbilityEffectRunAction))]
+    private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
+    {
+      var source = current as AbilityEffectRunAction;
+      var target = other as AbilityEffectRunAction;
+      source.Actions.Actions = CommonTool.Append(source.Actions.Actions, target.Actions.Actions);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityEffectMiss"/>
+    /// </summary>
+    /// 
+    /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
+    [Implements(typeof(AbilityEffectMiss))]
+    public AbilityConfigurator OnMiss(
+        ActionsBuilder actions,
+        bool useTargetSelector = true,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      var onMiss = new AbilityEffectMiss
+      {
+        MissAction = actions.Build(),
+        UseTargetSelector = useTargetSelector
+      };
+      return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
+    }
+
+    [Implements(typeof(AbilityEffectMiss))]
+    private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
+    {
+      var source = current as AbilityEffectMiss;
+      var target = other as AbilityEffectMiss;
+      source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityExecuteActionOnCast"/>
+    /// </summary>
+    [Implements(typeof(AbilityExecuteActionOnCast))]
+    public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
+    {
+      var onCast = new AbilityExecuteActionOnCast
+      {
+        Conditions = checker?.Build() ?? Constants.Empty.Conditions,
+        Actions = actions.Build()
+      };
+      return AddComponent(onCast);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpellComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellComponent))]
+    public AbilityConfigurator SetSpellSchool(
+        SpellSchool school,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      var schoolComponent = new SpellComponent { School = school };
+      return AddUniqueComponent(schoolComponent, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CantripComponent"/>
+    /// </summary>
+    [Implements(typeof(CantripComponent))]
+    public AbilityConfigurator MakeCantrip()
+    {
+      return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
+    }
+
+    /// <summary>
+    /// Removes <see cref="CantripComponent"/>
+    /// </summary>
+    [Implements(typeof(CantripComponent))]
+    public AbilityConfigurator MakeNotCantrip()
+    {
+      return RemoveComponents(c => c is CantripComponent);
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="AbilityVariants"/>
+    /// </summary>
+    /// 
+    /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
+    [Implements(typeof(AbilityVariants))]
+    public AbilityConfigurator AddVariants(params string[] abilities)
+    {
+      return OnConfigureInternal(
+          blueprint =>
+              AddVariants(
+                  blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
+    }
+
+    [Implements(typeof(AbilityVariants))]
+    private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+    {
+      var component = bp.GetComponent<AbilityVariants>();
+      if (component is null)
+      {
+        component = new AbilityVariants();
+        bp.AddComponents(component);
+      }
+      var bpRef = bp.ToReference<BlueprintAbilityReference>();
+      variants.ForEach(reference => reference.Get().m_Parent = bpRef);
+      component.m_Variants = CommonTool.Append(component.m_Variants, variants.ToArray());
+    }
+
+    /// <summary>
+    /// Modifies <see cref="AbilityVariants"/>
+    /// </summary>
+    /// 
+    /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
+    [Implements(typeof(AbilityVariants))]
+    public AbilityConfigurator RemoveVariants(params string[] abilities)
+    {
+      return OnConfigureInternal(
+          blueprint =>
+              RemoveVariants(
+                  blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
+    }
+
+    [Implements(typeof(AbilityVariants))]
+    private static void RemoveVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+    {
+      var component = bp.GetComponent<AbilityVariants>();
+      if (component is null) { return; }
+
+      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      variants.ForEach(
+          reference =>
           {
-            hasAlignment.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
-          }
-          return AddComponent(hasAlignment);
-        }
+            var ability = reference.Get();
+            if (ability.m_Parent?.deserializedGuid == bp.AssetGuid) { ability.m_Parent = nullRef; }
+          });
+      component.m_Variants =
+          component.m_Variants
+              .Where(
+                  reference => !variants.Exists(removeRef => reference.deserializedGuid == removeRef.deserializedGuid))
+              .ToArray();
+    }
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterHasFacts"/>
-        /// </summary>
-        /// 
-        /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-        [Implements(typeof(AbilityCasterHasFacts))]
-        public AbilityConfigurator RequireCasterFacts(params string[] facts)
-        {
-          var hasFacts = new AbilityCasterHasFacts
-          {
-            m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
-          };
-          return AddComponent(hasFacts);
-        }
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public AbilityConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterHasNoFacts"/>
-        /// </summary>
-        /// 
-        /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-        [Implements(typeof(AbilityCasterHasNoFacts))]
-        public AbilityConfigurator RequireCasterHasNoFacts(params string[] facts)
-        {
-          var hasNoFacts = new AbilityCasterHasNoFacts
-          {
-            m_Facts = facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray()
-          };
-          return AddComponent(hasNoFacts);
-        }
+    /// <summary>
+    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public AbilityConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterHasChosenWeapon"/>
-        /// </summary>
-        /// 
-        /// <remarks>
-        /// Requires the caster to wield their chosen weapon, i.e. the weapon in which they have Weapon Focus or Weapon
-        /// Specialization.
-        /// </remarks>
-        /// 
-        /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
-        /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-        [Implements(typeof(AbilityCasterHasChosenWeapon))]
-        public AbilityConfigurator RequireCasterHasChosenWeapon(
-            string parameterizedWeaponFeature, string ignoreFact = null)
-        {
-          var hasChosenWeapon = new AbilityCasterHasChosenWeapon
-          {
-            m_ChosenWeaponFeature = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(parameterizedWeaponFeature)
-          };
-          if (ignoreFact != null)
-          {
-            hasChosenWeapon.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
-          }
-          return AddComponent(hasChosenWeapon);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null)
+      {
+        component = new SpellDescriptorComponent();
+        bp.AddComponents(component);
+      }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
+    }
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
-        /// </summary>
-        [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
-        public AbilityConfigurator RequireCasterWeaponRange(WeaponRangeType range)
-        {
-          var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
-          return AddComponent(hasWeaponRange);
-        }
+    /// <summary>
+    /// Modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public AbilityConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        /// <summary>
-        /// Adds <see cref="AbilityCasterInCombat"/>
-        /// </summary>
-        [Implements(typeof(AbilityCasterInCombat))]
-        public AbilityConfigurator RequireCasterInCombat(bool requireInCombat = true)
-        {
-          var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
-          return AddComponent(isInCombat);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityCasterIsOnFavoredTerrain"/>
-        /// </summary>
-        /// 
-        /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-        [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
-        public AbilityConfigurator RequireCasterOnFavoredTerrain(string ignoreFeature = null)
-        {
-          var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
-          if (ignoreFeature != null)
-          {
-            onFavoredTerrain.m_IgnoreFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
-          }
-          return AddComponent(onFavoredTerrain);
-        }
-
-        /// <summary>
-        /// Adds <see cref="TargetHasBuffsFromCaster"/>
-        /// </summary>
-        /// 
-        /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-        [Implements(typeof(TargetHasBuffsFromCaster))]
-        public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
-        {
-          var hasBuffs = new TargetHasBuffsFromCaster
-          {
-            Buffs = buffs.Select(buff => BlueprintTool.GetRef<BlueprintBuffReference>(buff)).ToArray(),
-            RequireAllBuffs = requireAllBuffs
-          };
-          return AddComponent(hasBuffs);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityCanTargetDead"/>
-        /// </summary>
-        [Implements(typeof(AbilityCanTargetDead))]
-        public AbilityConfigurator CanTargetDead()
-        {
-          return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityDeliveredByWeapon"/>
-        /// </summary>
-        [DeliverEffectAttr]
-        [Implements(typeof(AbilityDeliveredByWeapon))]
-        public AbilityConfigurator DeliveredByWeapon()
-        {
-          return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityEffectRunAction"/>
-        /// </summary>
-        /// 
-        /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
-        [ApplyEffectAttr]
-        [Implements(typeof(AbilityEffectRunAction))]
-        public AbilityConfigurator RunActions(
-            ActionsBuilder actions,
-            SavingThrowType savingThrow = SavingThrowType.Unknown,
-            ComponentMerge mergeBehavior = ComponentMerge.Merge,
-            Action<BlueprintComponent, BlueprintComponent> merge = null)
-        {
-          var run = new AbilityEffectRunAction
-          {
-            Actions = actions.Build(),
-            SavingThrowType = savingThrow
-          };
-          return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
-        }
-
-        [Implements(typeof(AbilityEffectRunAction))]
-        private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
-        {
-          var source = current as AbilityEffectRunAction;
-          var target = other as AbilityEffectRunAction;
-          source.Actions.Actions = CommonTool.Append(source.Actions.Actions, target.Actions.Actions);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityEffectMiss"/>
-        /// </summary>
-        /// 
-        /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
-        [Implements(typeof(AbilityEffectMiss))]
-        public AbilityConfigurator OnMiss(
-            ActionsBuilder actions,
-            bool useTargetSelector = true,
-            ComponentMerge mergeBehavior = ComponentMerge.Merge,
-            Action<BlueprintComponent, BlueprintComponent> merge = null)
-        {
-          var onMiss = new AbilityEffectMiss
-          {
-            MissAction = actions.Build(),
-            UseTargetSelector = useTargetSelector
-          };
-          return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
-        }
-
-        [Implements(typeof(AbilityEffectMiss))]
-        private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
-        {
-          var source = current as AbilityEffectMiss;
-          var target = other as AbilityEffectMiss;
-          source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
-        }
-
-        /// <summary>
-        /// Adds <see cref="AbilityExecuteActionOnCast"/>
-        /// </summary>
-        [Implements(typeof(AbilityExecuteActionOnCast))]
-        public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
-        {
-          var onCast = new AbilityExecuteActionOnCast
-          {
-            Conditions = checker?.Build() ?? Constants.Empty.Conditions,
-            Actions = actions.Build()
-          };
-          return AddComponent(onCast);
-        }
-
-        /// <summary>
-        /// Adds <see cref="SpellComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellComponent))]
-        public AbilityConfigurator SetSpellSchool(
-            SpellSchool school,
-            ComponentMerge mergeBehavior = ComponentMerge.Replace,
-            Action<BlueprintComponent, BlueprintComponent> merge = null)
-        {
-          var schoolComponent = new SpellComponent { School = school };
-          return AddUniqueComponent(schoolComponent, mergeBehavior, merge);
-        }
-
-        /// <summary>
-        /// Adds <see cref="CantripComponent"/>
-        /// </summary>
-        [Implements(typeof(CantripComponent))]
-        public AbilityConfigurator MakeCantrip()
-        {
-          return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
-        }
-
-        /// <summary>
-        /// Removes <see cref="CantripComponent"/>
-        /// </summary>
-        [Implements(typeof(CantripComponent))]
-        public AbilityConfigurator MakeNotCantrip()
-        {
-          return RemoveComponents(c => c is CantripComponent);
-        }
-
-        /// <summary>
-        /// Adds or modifies <see cref="AbilityVariants"/>
-        /// </summary>
-        /// 
-        /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
-        [Implements(typeof(AbilityVariants))]
-        public AbilityConfigurator AddVariants(params string[] abilities)
-        {
-          return OnConfigureInternal(
-              blueprint =>
-                  AddVariants(
-                      blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
-        }
-
-        [Implements(typeof(AbilityVariants))]
-        private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
-        {
-          var component = bp.GetComponent<AbilityVariants>();
-          if (component is null)
-          {
-            component = new AbilityVariants();
-            bp.AddComponents(component);
-          }
-          var bpRef = bp.ToReference<BlueprintAbilityReference>();
-          variants.ForEach(reference => reference.Get().m_Parent = bpRef);
-          component.m_Variants = CommonTool.Append(component.m_Variants, variants.ToArray());
-        }
-
-        /// <summary>
-        /// Modifies <see cref="AbilityVariants"/>
-        /// </summary>
-        /// 
-        /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
-        [Implements(typeof(AbilityVariants))]
-        public AbilityConfigurator RemoveVariants(params string[] abilities)
-        {
-          return OnConfigureInternal(
-              blueprint =>
-                  RemoveVariants(
-                      blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
-        }
-
-        [Implements(typeof(AbilityVariants))]
-        private static void RemoveVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
-        {
-          var component = bp.GetComponent<AbilityVariants>();
-          if (component is null) { return; }
-    
-          var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
-          variants.ForEach(
-              reference =>
-              {
-                var ability = reference.Get();
-                if (ability.m_Parent?.deserializedGuid == bp.AssetGuid) { ability.m_Parent = nullRef; }
-              });
-          component.m_Variants =
-              component.m_Variants
-                  .Where(
-                      reference => !variants.Exists(removeRef => reference.deserializedGuid == removeRef.deserializedGuid))
-                  .ToArray();
-        }
-
-        /// <summary>
-        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-        /// </summary>
-        /// 
-        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-        [Implements(typeof(ContextRankConfig))]
-        public AbilityConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-        {
-          return AddComponent(rankConfig);
-        }
-
-        /// <summary>
-        /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public AbilityConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
-        }
-
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null)
-          {
-            component = new SpellDescriptorComponent();
-            bp.AddComponents(component);
-          }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
-        }
-
-        /// <summary>
-        /// Modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public AbilityConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
-        }
-
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null) { return; }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null) { return; }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
+    }
 
     /// <summary>
     /// Adds <see cref="InPowerDismemberComponent"/> (Auto Generated)
@@ -851,6 +851,21 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         BlueprintComponent.Flags flags = default)
     {
       var component = new UniqueSpellComponent();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityAcceptBurnOnCast"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityAcceptBurnOnCast))]
+    public AbilityConfigurator AddAbilityAcceptBurnOnCast(
+        int burnValue = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityAcceptBurnOnCast();
+      component.BurnValue = burnValue;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1499,17 +1514,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomOverrun))]
     public AbilityConfigurator AddAbilityCustomOverrun(
-        ActionList actions,
         string addBuffWhileRunning = null,
         float delayBeforeStart = default,
         float delayAfterFinish = default,
         bool firstTargetOnly = default,
         bool autoSuccess = default,
         bool stopOnCorpulence = default,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new AbilityCustomOverrun();
       component.m_AddBuffWhileRunning = BlueprintTool.GetRef<BlueprintBuffReference>(addBuffWhileRunning);
       component.DelayBeforeStart = delayBeforeStart;
@@ -1517,7 +1530,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.FirstTargetOnly = firstTargetOnly;
       component.AutoSuccess = autoSuccess;
       component.StopOnCorpulence = stopOnCorpulence;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1830,13 +1843,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedPoint))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedPoint(
-        ActionList action,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AbilityEffectRunActionOnClickedPoint();
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1847,13 +1858,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedTarget))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedTarget(
-        ActionList action,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AbilityEffectRunActionOnClickedTarget();
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1864,13 +1873,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedUnit))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedUnit(
-        ActionList action,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AbilityEffectRunActionOnClickedUnit();
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2164,6 +2171,29 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_IncludeDead = includeDead;
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_SpreadSpeed = spreadSpeed;
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityUseOnRest"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AbilityUseOnRest))]
+    public AbilityConfigurator AddAbilityUseOnRest(
+        AbilityUseOnRestType type = default,
+        int baseValue = default,
+        bool addCasterLevel = default,
+        bool multiplyByCasterLevel = default,
+        int maxCasterLevel = default,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AbilityUseOnRest();
+      component.Type = type;
+      component.BaseValue = baseValue;
+      component.AddCasterLevel = addCasterLevel;
+      component.MultiplyByCasterLevel = multiplyByCasterLevel;
+      component.MaxCasterLevel = maxCasterLevel;
       component.m_Flags = flags;
       return AddComponent(component);
     }

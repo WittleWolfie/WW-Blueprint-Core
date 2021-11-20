@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -174,14 +175,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.TrapActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetTrapActions(ActionList trapActions)
+    public TrapConfigurator SetTrapActions(ActionsBuilder trapActions)
     {
-      ValidateParam(trapActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.TrapActions = trapActions;
+            bp.TrapActions = trapActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -189,14 +188,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.DisableActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableActions(ActionList disableActions)
+    public TrapConfigurator SetDisableActions(ActionsBuilder disableActions)
     {
-      ValidateParam(disableActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.DisableActions = disableActions;
+            bp.DisableActions = disableActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

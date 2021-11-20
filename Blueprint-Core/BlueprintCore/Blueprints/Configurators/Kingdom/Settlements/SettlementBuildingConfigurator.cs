@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -794,15 +795,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public SettlementBuildingConfigurator AddBirthdayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -816,7 +815,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(EventResolutonTrigger))]
     public SettlementBuildingConfigurator AddEventResolutonTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
-        ActionList action,
         bool applyToProblems = default,
         bool applyToOpportunities = default,
         bool onlyInRegion = default,
@@ -824,10 +822,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         LeaderType onlyLeader = default,
         string onlySpecificLeader = null,
         ConditionsBuilder condition = null,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(requiredTags);
-      ValidateParam(action);
     
       var component = new EventResolutonTrigger();
       component.ApplyToProblems = applyToProblems;
@@ -838,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.OnlyLeader = onlyLeader;
       component.m_OnlySpecificLeader = BlueprintTool.GetRef<BlueprintUnitReference>(onlySpecificLeader);
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -850,21 +848,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(EventStartTrigger))]
     public SettlementBuildingConfigurator AddEventStartTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
-        ActionList action,
         bool applyToProblems = default,
         bool applyToOpportunities = default,
         ConditionsBuilder condition = null,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(requiredTags);
-      ValidateParam(action);
     
       var component = new EventStartTrigger();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;
       component.RequiredTags = requiredTags;
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -875,16 +872,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public SettlementBuildingConfigurator AddEveryDayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipDays = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -896,16 +891,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public SettlementBuildingConfigurator AddEveryWeekTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipWeeks = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1030,15 +1023,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(KingdomUnrestChangeTrigger))]
     public SettlementBuildingConfigurator AddKingdomUnrestChangeTrigger(
-        ActionList action,
         ConditionsBuilder condition = null,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new KingdomUnrestChangeTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

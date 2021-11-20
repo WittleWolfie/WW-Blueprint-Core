@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -436,14 +437,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public TBuilder AddOverrideCampingAction(
-        ActionList onRestActions,
+        ActionsBuilder onRestActions = null,
         bool skipRest = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onRestActions);
-    
       var component = new OverrideCampingAction();
-      component.OnRestActions = onRestActions;
+      component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
       component.SkipRest = skipRest;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -455,15 +454,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public TBuilder AddBirthdayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -474,16 +471,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public TBuilder AddEveryDayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipDays = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -495,16 +490,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public TBuilder AddEveryWeekTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipWeeks = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -971,14 +964,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public AreaConfigurator AddOverrideCampingAction(
-        ActionList onRestActions,
+        ActionsBuilder onRestActions = null,
         bool skipRest = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onRestActions);
-    
       var component = new OverrideCampingAction();
-      component.OnRestActions = onRestActions;
+      component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
       component.SkipRest = skipRest;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -990,15 +981,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public AreaConfigurator AddBirthdayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1009,16 +998,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public AreaConfigurator AddEveryDayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipDays = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1030,16 +1017,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public AreaConfigurator AddEveryWeekTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipWeeks = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
       component.m_Flags = flags;
       return AddComponent(component);

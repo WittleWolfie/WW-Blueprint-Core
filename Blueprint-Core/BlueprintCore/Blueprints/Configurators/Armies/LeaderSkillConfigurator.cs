@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
@@ -354,19 +355,18 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(SquadsActionOnTacticalCombatStart))]
     public LeaderSkillConfigurator AddSquadsActionOnTacticalCombatStart(
         TargetFilter filter,
-        ActionList actions,
         string[] bannedFacts = null,
         int maxSquadsCount = default,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(filter);
-      ValidateParam(actions);
     
       var component = new SquadsActionOnTacticalCombatStart();
       component.m_Filter = filter;
       component.m_BannedFacts = bannedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.m_MaxSquadsCount = maxSquadsCount;
-      component.m_Actions = actions;
+      component.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -278,14 +279,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.EnterWarCampAction"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapConfigurator SetEnterWarCampAction(ActionList enterWarCampAction)
+    public GlobalMapConfigurator SetEnterWarCampAction(ActionsBuilder enterWarCampAction)
     {
-      ValidateParam(enterWarCampAction);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.EnterWarCampAction = enterWarCampAction;
+            bp.EnterWarCampAction = enterWarCampAction?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -293,14 +292,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.EnterAzataIslandAction"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapConfigurator SetEnterAzataIslandAction(ActionList enterAzataIslandAction)
+    public GlobalMapConfigurator SetEnterAzataIslandAction(ActionsBuilder enterAzataIslandAction)
     {
-      ValidateParam(enterAzataIslandAction);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.EnterAzataIslandAction = enterAzataIslandAction;
+            bp.EnterAzataIslandAction = enterAzataIslandAction?.Build() ?? Constants.Empty.Actions;
           });
     }
 

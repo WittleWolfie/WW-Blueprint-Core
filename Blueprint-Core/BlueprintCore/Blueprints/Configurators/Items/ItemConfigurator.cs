@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -395,15 +396,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AddItemShowInfoCallback))]
     public TBuilder AddItemShowInfoCallback(
-        ActionList action,
         bool once = default,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AddItemShowInfoCallback();
       component.Once = once;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2051,15 +2050,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(AddItemShowInfoCallback))]
     public ItemConfigurator AddItemShowInfoCallback(
-        ActionList action,
         bool once = default,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AddItemShowInfoCallback();
       component.Once = once;
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -51,14 +52,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintScriptZone.EnterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ScriptZoneConfigurator SetEnterActions(ActionList enterActions)
+    public ScriptZoneConfigurator SetEnterActions(ActionsBuilder enterActions)
     {
-      ValidateParam(enterActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.EnterActions = enterActions;
+            bp.EnterActions = enterActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -66,14 +65,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintScriptZone.ExitActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ScriptZoneConfigurator SetExitActions(ActionList exitActions)
+    public ScriptZoneConfigurator SetExitActions(ActionsBuilder exitActions)
     {
-      ValidateParam(exitActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.ExitActions = exitActions;
+            bp.ExitActions = exitActions?.Build() ?? Constants.Empty.Actions;
           });
     }
   }

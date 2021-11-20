@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -83,14 +84,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.StartActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetStartActions(ActionList startActions)
+    public DialogConfigurator SetStartActions(ActionsBuilder startActions)
     {
-      ValidateParam(startActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.StartActions = startActions;
+            bp.StartActions = startActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -98,14 +97,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.FinishActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetFinishActions(ActionList finishActions)
+    public DialogConfigurator SetFinishActions(ActionsBuilder finishActions)
     {
-      ValidateParam(finishActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.FinishActions = finishActions;
+            bp.FinishActions = finishActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -113,14 +110,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.ReplaceActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetReplaceActions(ActionList replaceActions)
+    public DialogConfigurator SetReplaceActions(ActionsBuilder replaceActions)
     {
-      ValidateParam(replaceActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.ReplaceActions = replaceActions;
+            bp.ReplaceActions = replaceActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

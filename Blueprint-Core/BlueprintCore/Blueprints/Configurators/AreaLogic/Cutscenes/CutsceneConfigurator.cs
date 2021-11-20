@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
@@ -217,14 +218,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Cutscene.OnStopped"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetOnStopped(ActionList onStopped)
+    public CutsceneConfigurator SetOnStopped(ActionsBuilder onStopped)
     {
-      ValidateParam(onStopped);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnStopped = onStopped;
+            bp.OnStopped = onStopped?.Build() ?? Constants.Empty.Actions;
           });
     }
 

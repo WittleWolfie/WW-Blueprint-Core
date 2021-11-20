@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
@@ -575,18 +576,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(FakePartyRest))]
     public static ActionsBuilder FakePartyRest(
         this ActionsBuilder builder,
-        ActionList actionsOnRestEnd,
         bool immediate = default,
         bool ignoreCorruption = default,
-        bool restWithCraft = default)
+        bool restWithCraft = default,
+        ActionsBuilder actionsOnRestEnd = null)
     {
-      builder.Validate(actionsOnRestEnd);
-    
       var element = ElementTool.Create<FakePartyRest>();
       element.m_Immediate = immediate;
       element.m_IgnoreCorruption = ignoreCorruption;
       element.m_RestWithCraft = restWithCraft;
-      element.m_ActionsOnRestEnd = actionsOnRestEnd;
+      element.m_ActionsOnRestEnd = actionsOnRestEnd?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -765,14 +764,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(PartyUnits))]
     public static ActionsBuilder PartyUnits(
         this ActionsBuilder builder,
-        ActionList actions,
-        Player.CharactersList unitsList = default)
+        Player.CharactersList unitsList = default,
+        ActionsBuilder actions = null)
     {
-      builder.Validate(actions);
-    
       var element = ElementTool.Create<PartyUnits>();
       element.m_UnitsList = unitsList;
-      element.Actions = actions;
+      element.Actions = actions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -869,23 +866,20 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(RollPartySkillCheck))]
     public static ActionsBuilder RollPartySkillCheck(
         this ActionsBuilder builder,
-        ActionList onSuccess,
-        ActionList onFailure,
         StatType stat = default,
         int dC = default,
         bool logSuccess = default,
-        bool logFailure = default)
+        bool logFailure = default,
+        ActionsBuilder onSuccess = null,
+        ActionsBuilder onFailure = null)
     {
-      builder.Validate(onSuccess);
-      builder.Validate(onFailure);
-    
       var element = ElementTool.Create<RollPartySkillCheck>();
       element.Stat = stat;
       element.DC = dC;
       element.LogSuccess = logSuccess;
       element.LogFailure = logFailure;
-      element.OnSuccess = onSuccess;
-      element.OnFailure = onFailure;
+      element.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;
+      element.OnFailure = onFailure?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -897,18 +891,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder RollSkillCheck(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        ActionList onSuccess,
-        ActionList onFailure,
         StatType stat = default,
         int dC = default,
         bool logSuccess = default,
         bool logFailure = default,
         bool voice = default,
-        bool forbidPartyHelpInCamp = default)
+        bool forbidPartyHelpInCamp = default,
+        ActionsBuilder onSuccess = null,
+        ActionsBuilder onFailure = null)
     {
       builder.Validate(unit);
-      builder.Validate(onSuccess);
-      builder.Validate(onFailure);
     
       var element = ElementTool.Create<RollSkillCheck>();
       element.Stat = stat;
@@ -918,8 +910,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.LogFailure = logFailure;
       element.Voice = voice;
       element.ForbidPartyHelpInCamp = forbidPartyHelpInCamp;
-      element.OnSuccess = onSuccess;
-      element.OnFailure = onFailure;
+      element.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;
+      element.OnFailure = onFailure?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -952,15 +944,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(Spawn))]
     public static ActionsBuilder Spawn(
         this ActionsBuilder builder,
-        ActionList actionsOnSpawn,
-        EntityReference[] spawners = null)
+        EntityReference[] spawners = null,
+        ActionsBuilder actionsOnSpawn = null)
     {
       builder.Validate(spawners);
-      builder.Validate(actionsOnSpawn);
     
       var element = ElementTool.Create<Spawn>();
       element.Spawners = spawners;
-      element.ActionsOnSpawn = actionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -973,14 +964,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(SpawnBySummonPool))]
     public static ActionsBuilder SpawnBySummonPool(
         this ActionsBuilder builder,
-        ActionList actionsOnSpawn,
-        string pool = null)
+        string pool = null,
+        ActionsBuilder actionsOnSpawn = null)
     {
-      builder.Validate(actionsOnSpawn);
-    
       var element = ElementTool.Create<SpawnBySummonPool>();
       element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
-      element.ActionsOnSpawn = actionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -992,14 +981,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder SpawnByUnitGroup(
         this ActionsBuilder builder,
         EntityReference group,
-        ActionList actionsOnSpawn)
+        ActionsBuilder actionsOnSpawn = null)
     {
       builder.Validate(group);
-      builder.Validate(actionsOnSpawn);
     
       var element = ElementTool.Create<SpawnByUnitGroup>();
       element.Group = group;
-      element.ActionsOnSpawn = actionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -1035,13 +1023,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         TransformEvaluator transform,
         Vector3 offset,
-        ActionList onSummmon,
         string unit = null,
         string summonPool = null,
-        bool groupBySummonPool = default)
+        bool groupBySummonPool = default,
+        ActionsBuilder onSummmon = null)
     {
       builder.Validate(transform);
-      builder.Validate(onSummmon);
     
       var element = ElementTool.Create<Summon>();
       element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -1049,7 +1036,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.GroupBySummonPool = groupBySummonPool;
       element.Transform = transform;
       element.Offset = offset;
-      element.OnSummmon = onSummmon;
+      element.OnSummmon = onSummmon?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -1062,16 +1049,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(SummonPoolUnits))]
     public static ActionsBuilder SummonPoolUnits(
         this ActionsBuilder builder,
-        ActionList actions,
         string summonPool = null,
-        ConditionsBuilder conditions = null)
+        ConditionsBuilder conditions = null,
+        ActionsBuilder actions = null)
     {
-      builder.Validate(actions);
-    
       var element = ElementTool.Create<SummonPoolUnits>();
       element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-      element.Actions = actions;
+      element.Actions = actions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -1087,14 +1072,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator copyFrom,
         LocatorEvaluator locator,
-        ActionList onSummon,
         string copyBlueprint = null,
         string summonPool = null,
-        bool doNotCreateItems = default)
+        bool doNotCreateItems = default,
+        ActionsBuilder onSummon = null)
     {
       builder.Validate(copyFrom);
       builder.Validate(locator);
-      builder.Validate(onSummon);
     
       var element = ElementTool.Create<SummonUnitCopy>();
       element.CopyFrom = copyFrom;
@@ -1102,7 +1086,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(copyBlueprint);
       element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.DoNotCreateItems = doNotCreateItems;
-      element.OnSummon = onSummon;
+      element.OnSummon = onSummon?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -1152,14 +1136,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder UnitsFromSpawnersInUnitGroup(
         this ActionsBuilder builder,
         EntityReference group,
-        ActionList actions)
+        ActionsBuilder actions = null)
     {
       builder.Validate(group);
-      builder.Validate(actions);
     
       var element = ElementTool.Create<UnitsFromSpawnersInUnitGroup>();
       element.m_Group = group;
-      element.Actions = actions;
+      element.Actions = actions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
   }

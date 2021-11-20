@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -1381,19 +1382,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionMakeRoll))]
     public static ActionsBuilder KingdomActionMakeRoll(
         this ActionsBuilder builder,
-        ActionList onSuccess,
-        ActionList onFailure,
         KingdomStats.Type stat = default,
-        int dC = default)
+        int dC = default,
+        ActionsBuilder onSuccess = null,
+        ActionsBuilder onFailure = null)
     {
-      builder.Validate(onSuccess);
-      builder.Validate(onFailure);
-    
       var element = ElementTool.Create<KingdomActionMakeRoll>();
       element.Stat = stat;
       element.DC = dC;
-      element.OnSuccess = onSuccess;
-      element.OnFailure = onFailure;
+      element.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;
+      element.OnFailure = onFailure?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -1936,14 +1934,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(EnterKingdomInterface))]
     public static ActionsBuilder EnterKingdomInterface(
         this ActionsBuilder builder,
-        ActionList triggerAfterAuto,
-        string returnPoint = null)
+        string returnPoint = null,
+        ActionsBuilder triggerAfterAuto = null)
     {
-      builder.Validate(triggerAfterAuto);
-    
       var element = ElementTool.Create<EnterKingdomInterface>();
       element.m_ReturnPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(returnPoint);
-      element.TriggerAfterAuto = triggerAfterAuto;
+      element.TriggerAfterAuto = triggerAfterAuto?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 

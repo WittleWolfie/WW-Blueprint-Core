@@ -181,91 +181,91 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
 
-        /// <summary>
-        /// Adds <see cref="AddEffectFastHealing"/>
-        /// </summary>
-        [Implements(typeof(AddEffectFastHealing))]
-        public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
-        {
-          var fastHealing = new AddEffectFastHealing
-          {
-            Heal = baseValue,
-            Bonus = bonusValue ?? 0
-          };
-          return AddComponent(fastHealing);
-        }
+    /// <summary>
+    /// Adds <see cref="AddEffectFastHealing"/>
+    /// </summary>
+    [Implements(typeof(AddEffectFastHealing))]
+    public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
+    {
+      var fastHealing = new AddEffectFastHealing
+      {
+        Heal = baseValue,
+        Bonus = bonusValue ?? 0
+      };
+      return AddComponent(fastHealing);
+    }
 
-        /// <summary>
-        /// Adds <see cref="RemoveWhenCombatEnded"/>
-        /// </summary>
-        [Implements(typeof(RemoveWhenCombatEnded))]
-        public BuffConfigurator RemoveWhenCombatEnds()
-        {
-          return AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
-        }
+    /// <summary>
+    /// Adds <see cref="RemoveWhenCombatEnded"/>
+    /// </summary>
+    [Implements(typeof(RemoveWhenCombatEnded))]
+    public BuffConfigurator RemoveWhenCombatEnds()
+    {
+      return AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
+    }
 
-        /// <summary>
-        /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
-        /// </summary>
-        [Implements(typeof(BuffSleeping))]
-        public BuffConfigurator BuffSleeping(
-            int? wakeupPerceptionDC = null,
-            ComponentMerge mergeBehavior = ComponentMerge.Replace,
-            Action<BlueprintComponent, BlueprintComponent> merge = null)
-        {
-          var sleeping = new BuffSleeping();
-          if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }
-          return AddUniqueComponent(sleeping, mergeBehavior, merge);
-        }
+    /// <summary>
+    /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
+    /// </summary>
+    [Implements(typeof(BuffSleeping))]
+    public BuffConfigurator BuffSleeping(
+        int? wakeupPerceptionDC = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> merge = null)
+    {
+      var sleeping = new BuffSleeping();
+      if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }
+      return AddUniqueComponent(sleeping, mergeBehavior, merge);
+    }
 
-        /// <summary>
-        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-        /// </summary>
-        /// 
-        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-        [Implements(typeof(ContextRankConfig))]
-        public BuffConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-        {
-          return AddComponent(rankConfig);
-        }
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public BuffConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
 
-        /// <summary>
-        /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public BuffConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
-        }
+    /// <summary>
+    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public BuffConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null)
-          {
-            component = new SpellDescriptorComponent();
-            bp.AddComponents(component);
-          }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null)
+      {
+        component = new SpellDescriptorComponent();
+        bp.AddComponents(component);
+      }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
+    }
 
-        /// <summary>
-        /// Modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public BuffConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
-        }
+    /// <summary>
+    /// Modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public BuffConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null) { return; }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null) { return; }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
+    }
 
     /// <summary>
     /// Adds <see cref="CorruptionProtection"/> (Auto Generated)
@@ -679,13 +679,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddRestTrigger))]
     public BuffConfigurator AddRestTrigger(
-        ActionList action,
+        ActionsBuilder action = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(action);
-    
       var component = new AddRestTrigger();
-      component.Action = action;
+      component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1188,16 +1186,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddDispelMagicFailedTrigger))]
     public BuffConfigurator AddDispelMagicFailedTrigger(
-        ActionList actionOnOwner,
-        ActionList actionOnCaster,
+        ActionsBuilder actionOnOwner = null,
+        ActionsBuilder actionOnCaster = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actionOnOwner);
-      ValidateParam(actionOnCaster);
-    
       var component = new AddDispelMagicFailedTrigger();
-      component.ActionOnOwner = actionOnOwner;
-      component.ActionOnCaster = actionOnCaster;
+      component.ActionOnOwner = actionOnOwner?.Build() ?? Constants.Empty.Actions;
+      component.ActionOnCaster = actionOnCaster?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1386,15 +1381,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(SetBuffOnsetDelay))]
     public BuffConfigurator AddSetBuffOnsetDelay(
         ContextDurationValue delay,
-        ActionList onStart,
+        ActionsBuilder onStart = null,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(delay);
-      ValidateParam(onStart);
     
       var component = new SetBuffOnsetDelay();
       component.Delay = delay;
-      component.OnStart = onStart;
+      component.OnStart = onStart?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1688,15 +1682,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(TacticalCombatConfusion))]
     public BuffConfigurator AddTacticalCombatConfusion(
-        ActionList harmSelfAction,
         string aiAttackNearestAction = null,
+        ActionsBuilder harmSelfAction = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(harmSelfAction);
-    
       var component = new TacticalCombatConfusion();
       component.m_AiAttackNearestAction = BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(aiAttackNearestAction);
-      component.m_HarmSelfAction = harmSelfAction;
+      component.m_HarmSelfAction = harmSelfAction?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1746,15 +1738,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ActionsOnBuffApply))]
     public BuffConfigurator AddActionsOnBuffApply(
-        ActionList actions,
         string gainedFact = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new ActionsOnBuffApply();
       component.m_GainedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(gainedFact);
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -2489,22 +2479,19 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(BuffSaveEachRound))]
     public BuffConfigurator AddBuffSaveEachRound(
-        ActionList actionsOnPass,
-        ActionList actionsOnFail,
         SavingThrowType saveType = default,
         int saveDC = default,
         int increaseDC = default,
+        ActionsBuilder actionsOnPass = null,
+        ActionsBuilder actionsOnFail = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actionsOnPass);
-      ValidateParam(actionsOnFail);
-    
       var component = new BuffSaveEachRound();
       component.SaveType = saveType;
       component.SaveDC = saveDC;
       component.IncreaseDC = increaseDC;
-      component.ActionsOnPass = actionsOnPass;
-      component.ActionsOnFail = actionsOnFail;
+      component.ActionsOnPass = actionsOnPass?.Build() ?? Constants.Empty.Actions;
+      component.ActionsOnFail = actionsOnFail?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

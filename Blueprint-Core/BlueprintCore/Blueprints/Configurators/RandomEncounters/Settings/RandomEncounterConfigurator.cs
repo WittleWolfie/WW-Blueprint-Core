@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -191,14 +192,12 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.OnEnter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetOnEnter(ActionList onEnter)
+    public RandomEncounterConfigurator SetOnEnter(ActionsBuilder onEnter)
     {
-      ValidateParam(onEnter);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnEnter = onEnter;
+            bp.OnEnter = onEnter?.Build() ?? Constants.Empty.Actions;
           });
     }
 

@@ -150,54 +150,54 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
 
-        /// <summary>
-        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-        /// </summary>
-        /// 
-        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-        [Implements(typeof(ContextRankConfig))]
-        public AbilityAreaEffectConfigurator ContextRankConfig(ContextRankConfig rankConfig)
-        {
-          return AddComponent(rankConfig);
-        }
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public AbilityAreaEffectConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
 
-        /// <summary>
-        /// Adds or modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public AbilityAreaEffectConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
-        }
+    /// <summary>
+    /// Adds or modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public AbilityAreaEffectConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null)
-          {
-            component = new SpellDescriptorComponent();
-            bp.AddComponents(component);
-          }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null)
+      {
+        component = new SpellDescriptorComponent();
+        bp.AddComponents(component);
+      }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
+    }
 
-        /// <summary>
-        /// Modifies <see cref="SpellDescriptorComponent"/>
-        /// </summary>
-        [Implements(typeof(SpellDescriptorComponent))]
-        public AbilityAreaEffectConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
-        {
-          return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
-        }
+    /// <summary>
+    /// Modifies <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    [Implements(typeof(SpellDescriptorComponent))]
+    public AbilityAreaEffectConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
+    {
+      return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
+    }
 
-        [Implements(typeof(SpellDescriptorComponent))]
-        private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
-        {
-          var component = bp.GetComponent<SpellDescriptorComponent>();
-          if (component is null) { return; }
-          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
-        }
+    [Implements(typeof(SpellDescriptorComponent))]
+    private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+    {
+      var component = bp.GetComponent<SpellDescriptorComponent>();
+      if (component is null) { return; }
+      descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
+    }
 
     /// <summary>
     /// Adds <see cref="AreaEffectSpawnLogic"/> (Auto Generated)
@@ -388,22 +388,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityAreaEffectRunAction))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectRunAction(
-        ActionList unitEnter,
-        ActionList unitExit,
-        ActionList unitMove,
-        ActionList round,
+        ActionsBuilder unitEnter = null,
+        ActionsBuilder unitExit = null,
+        ActionsBuilder unitMove = null,
+        ActionsBuilder round = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(unitEnter);
-      ValidateParam(unitExit);
-      ValidateParam(unitMove);
-      ValidateParam(round);
-    
       var component = new AbilityAreaEffectRunAction();
-      component.UnitEnter = unitEnter;
-      component.UnitExit = unitExit;
-      component.UnitMove = unitMove;
-      component.Round = round;
+      component.UnitEnter = unitEnter?.Build() ?? Constants.Empty.Actions;
+      component.UnitExit = unitExit?.Build() ?? Constants.Empty.Actions;
+      component.UnitMove = unitMove?.Build() ?? Constants.Empty.Actions;
+      component.Round = round?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -462,10 +457,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AreaEffectPit))]
     public AbilityAreaEffectConfigurator AddAreaEffectPit(
         ContextValue climbDC,
-        ActionList onFallAction,
-        ActionList everyRoundAction,
-        ActionList onEndedActionForUnitsInside,
         string visualSettings = null,
+        ActionsBuilder onFallAction = null,
+        ActionsBuilder everyRoundAction = null,
+        ActionsBuilder onEndedActionForUnitsInside = null,
         string unitOnEdgeBuff = null,
         Size maxUnitSize = default,
         bool disableClimb = default,
@@ -474,16 +469,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(climbDC);
-      ValidateParam(onFallAction);
-      ValidateParam(everyRoundAction);
-      ValidateParam(onEndedActionForUnitsInside);
     
       var component = new AreaEffectPit();
       component.m_VisualSettings = BlueprintTool.GetRef<BlueprintAreaEffectPitVisualSettingsReference>(visualSettings);
       component.ClimbDC = climbDC;
-      component.OnFallAction = onFallAction;
-      component.EveryRoundAction = everyRoundAction;
-      component.OnEndedActionForUnitsInside = onEndedActionForUnitsInside;
+      component.OnFallAction = onFallAction?.Build() ?? Constants.Empty.Actions;
+      component.EveryRoundAction = everyRoundAction?.Build() ?? Constants.Empty.Actions;
+      component.OnEndedActionForUnitsInside = onEndedActionForUnitsInside?.Build() ?? Constants.Empty.Actions;
       component.UnitOnEdgeBuff = BlueprintTool.GetRef<BlueprintBuffReference>(unitOnEdgeBuff);
       component.MaxUnitSize = maxUnitSize;
       component.DisableClimb = disableClimb;

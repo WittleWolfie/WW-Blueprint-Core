@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -519,15 +520,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public EtudeConfigurator AddBirthdayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -538,16 +537,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public EtudeConfigurator AddEveryDayTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipDays = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryDayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipDays = skipDays;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -559,16 +556,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public EtudeConfigurator AddEveryWeekTrigger(
-        ActionList actions,
         ConditionsBuilder condition = null,
+        ActionsBuilder actions = null,
         int skipWeeks = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EveryWeekTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipWeeks = skipWeeks;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -580,13 +575,11 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeCompleteTrigger))]
     public EtudeConfigurator AddEtudeCompleteTrigger(
-        ActionList actions,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EtudeCompleteTrigger();
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -597,15 +590,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeInvokeActionsDelayed))]
     public EtudeConfigurator AddEtudeInvokeActionsDelayed(
-        ActionList actionList,
         int days = default,
+        ActionsBuilder actionList = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actionList);
-    
       var component = new EtudeInvokeActionsDelayed();
       component.m_Days = days;
-      component.m_ActionList = actionList;
+      component.m_ActionList = actionList?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -616,17 +607,15 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudePlayTrigger))]
     public EtudeConfigurator AddEtudePlayTrigger(
-        ActionList actions,
         bool once = default,
         ConditionsBuilder conditions = null,
+        ActionsBuilder actions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EtudePlayTrigger();
       component.m_Once = once;
       component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -685,14 +674,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketCampingAction))]
     public EtudeConfigurator AddEtudeBracketCampingAction(
-        ActionList actions,
+        ActionsBuilder actions = null,
         bool skipRest = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new EtudeBracketCampingAction();
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.SkipRest = skipRest;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -829,15 +816,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketIgnoreGameover))]
     public EtudeConfigurator AddEtudeBracketIgnoreGameover(
-        ActionList actionList,
         EtudeBracketGameModeWaiter gameModeWaiter,
+        ActionsBuilder actionList = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actionList);
       ValidateParam(gameModeWaiter);
     
       var component = new EtudeBracketIgnoreGameover();
-      component.ActionList = actionList;
+      component.ActionList = actionList?.Build() ?? Constants.Empty.Actions;
       component.m_GameModeWaiter = gameModeWaiter;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -904,16 +890,15 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Implements(typeof(EtudeBracketOverrideActionsOnClick))]
     public EtudeConfigurator AddEtudeBracketOverrideActionsOnClick(
         UnitEvaluator unit,
-        ActionList actions,
+        ActionsBuilder actions = null,
         float distance = default,
         BlueprintComponent.Flags flags = default)
     {
       ValidateParam(unit);
-      ValidateParam(actions);
     
       var component = new EtudeBracketOverrideActionsOnClick();
       component.Unit = unit;
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Distance = distance;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1064,25 +1049,22 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketRestPhase))]
     public EtudeConfigurator AddEtudeBracketRestPhase(
-        ActionList onStart,
-        ActionList onStop,
         bool multiplePhases = default,
         RestPhase phase = default,
         RestPhase firstPhase = default,
         RestPhase lastPhase = default,
+        ActionsBuilder onStart = null,
+        ActionsBuilder onStop = null,
         bool hasStarted = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onStart);
-      ValidateParam(onStop);
-    
       var component = new EtudeBracketRestPhase();
       component.MultiplePhases = multiplePhases;
       component.Phase = phase;
       component.FirstPhase = firstPhase;
       component.LastPhase = lastPhase;
-      component.OnStart = onStart;
-      component.OnStop = onStop;
+      component.OnStart = onStart?.Build() ?? Constants.Empty.Actions;
+      component.OnStop = onStop?.Build() ?? Constants.Empty.Actions;
       component.HasStarted = hasStarted;
       component.m_Flags = flags;
       return AddComponent(component);
@@ -1156,16 +1138,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeBracketTriggerAction))]
     public EtudeConfigurator AddEtudeBracketTriggerAction(
-        ActionList onActivated,
-        ActionList onDeactivated,
+        ActionsBuilder onActivated = null,
+        ActionsBuilder onDeactivated = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onActivated);
-      ValidateParam(onDeactivated);
-    
       var component = new EtudeBracketTriggerAction();
-      component.OnActivated = onActivated;
-      component.OnDeactivated = onDeactivated;
+      component.OnActivated = onActivated?.Build() ?? Constants.Empty.Actions;
+      component.OnDeactivated = onDeactivated?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }
@@ -1176,13 +1155,11 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(EtudeGameOverTrigger))]
     public EtudeConfigurator AddEtudeGameOverTrigger(
-        ActionList onGameOver,
+        ActionsBuilder onGameOver = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onGameOver);
-    
       var component = new EtudeGameOverTrigger();
-      component.OnGameOver = onGameOver;
+      component.OnGameOver = onGameOver?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

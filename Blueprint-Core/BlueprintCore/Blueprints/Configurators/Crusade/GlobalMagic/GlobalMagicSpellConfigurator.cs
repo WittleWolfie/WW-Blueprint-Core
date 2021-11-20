@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade.GlobalMagic;
@@ -131,14 +132,12 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSpellActions(ActionList spellActions)
+    public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder spellActions)
     {
-      ValidateParam(spellActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_SpellActions = spellActions;
+            bp.m_SpellActions = spellActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

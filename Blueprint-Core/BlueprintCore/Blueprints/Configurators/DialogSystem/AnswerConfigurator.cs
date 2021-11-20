@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -208,14 +209,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.OnSelect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetOnSelect(ActionList onSelect)
+    public AnswerConfigurator SetOnSelect(ActionsBuilder onSelect)
     {
-      ValidateParam(onSelect);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnSelect = onSelect;
+            bp.OnSelect = onSelect?.Build() ?? Constants.Empty.Actions;
           });
     }
 

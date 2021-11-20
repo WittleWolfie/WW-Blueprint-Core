@@ -2,7 +2,9 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.RandomEncounters.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,6 +169,21 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           {
             bp.HoverIcon = hoverIcon;
           });
+    }
+
+    /// <summary>
+    /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AllowOnZoneSettings))]
+    public AreaEnterPointConfigurator AddAllowOnZoneSettings(
+        GlobalMapZone[] allowedNaturalSettings = null,
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new AllowOnZoneSettings();
+      component.m_AllowedNaturalSettings = allowedNaturalSettings;
+      component.m_Flags = flags;
+      return AddComponent(component);
     }
   }
 }

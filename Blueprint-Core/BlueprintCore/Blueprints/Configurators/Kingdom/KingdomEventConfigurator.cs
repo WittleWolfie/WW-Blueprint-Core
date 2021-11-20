@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -112,14 +113,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEvent.OnTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetOnTrigger(ActionList onTrigger)
+    public KingdomEventConfigurator SetOnTrigger(ActionsBuilder onTrigger)
     {
-      ValidateParam(onTrigger);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnTrigger = onTrigger;
+            bp.OnTrigger = onTrigger?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -157,21 +156,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(EventRecurrence))]
     public KingdomEventConfigurator AddEventRecurrence(
-        ActionList onRecurrence,
         KingdomStats.Changes statsOnRecurrence,
         int recurrencePeriod = default,
         bool tickOnStart = default,
+        ActionsBuilder onRecurrence = null,
         LocalizedString description = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(onRecurrence);
       ValidateParam(statsOnRecurrence);
       ValidateParam(description);
     
       var component = new EventRecurrence();
       component.RecurrencePeriod = recurrencePeriod;
       component.TickOnStart = tickOnStart;
-      component.OnRecurrence = onRecurrence;
+      component.OnRecurrence = onRecurrence?.Build() ?? Constants.Empty.Actions;
       component.StatsOnRecurrence = statsOnRecurrence;
       component.Description = description ?? Constants.Empty.String;
       component.m_Flags = flags;

@@ -132,16 +132,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
           });
     }
 
-        /// <summary>
-        /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
-        /// </summary>
-        /// 
-        /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-        [Implements(typeof(ContextRankConfig))]
-        public TBuilder ContextRankConfig(ContextRankConfig rankConfig)
-        {
-          return AddComponent(rankConfig);
-        }
+    /// <summary>
+    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
+    /// </summary>
+    /// 
+    /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
+    [Implements(typeof(ContextRankConfig))]
+    public TBuilder AddContextRankConfig(ContextRankConfig rankConfig)
+    {
+      return AddComponent(rankConfig);
+    }
 
     /// <summary>
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)

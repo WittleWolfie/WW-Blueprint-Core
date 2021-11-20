@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -65,14 +66,12 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintCampingEncounter.EncounterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetEncounterActions(ActionList encounterActions)
+    public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder encounterActions)
     {
-      ValidateParam(encounterActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.EncounterActions = encounterActions;
+            bp.EncounterActions = encounterActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

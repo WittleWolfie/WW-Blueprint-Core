@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
@@ -476,14 +477,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder ScripZoneUnits(
         this ActionsBuilder builder,
         EntityReference scriptZone,
-        ActionList actions)
+        ActionsBuilder actions = null)
     {
       builder.Validate(scriptZone);
-      builder.Validate(actions);
     
       var element = ElementTool.Create<ScripZoneUnits>();
       element.ScriptZone = scriptZone;
-      element.Actions = actions;
+      element.Actions = actions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -605,18 +605,16 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     [Implements(typeof(TeleportParty))]
     public static ActionsBuilder TeleportParty(
         this ActionsBuilder builder,
-        ActionList afterTeleport,
         string exitPositon = null,
         AutoSaveMode autoSaveMode = default,
-        bool forcePauseAfterTeleport = default)
+        bool forcePauseAfterTeleport = default,
+        ActionsBuilder afterTeleport = null)
     {
-      builder.Validate(afterTeleport);
-    
       var element = ElementTool.Create<TeleportParty>();
       element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(exitPositon);
       element.AutoSaveMode = autoSaveMode;
       element.ForcePauseAfterTeleport = forcePauseAfterTeleport;
-      element.AfterTeleport = afterTeleport;
+      element.AfterTeleport = afterTeleport?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 

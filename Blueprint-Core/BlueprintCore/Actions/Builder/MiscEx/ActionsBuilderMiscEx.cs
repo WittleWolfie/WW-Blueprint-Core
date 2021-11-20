@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
@@ -148,18 +149,16 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(AddPremiumReward))]
     public static ActionsBuilder AddPremiumReward(
         this ActionsBuilder builder,
-        ActionList additionalActions,
         string dlcReward = null,
         string[] items = null,
-        string[] playerFeatures = null)
+        string[] playerFeatures = null,
+        ActionsBuilder additionalActions = null)
     {
-      builder.Validate(additionalActions);
-    
       var element = ElementTool.Create<AddPremiumReward>();
       element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
       element.Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToList();
       element.PlayerFeatures = playerFeatures.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToList();
-      element.AdditionalActions = additionalActions;
+      element.AdditionalActions = additionalActions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -253,17 +252,14 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(OpenSelectMythicUI))]
     public static ActionsBuilder OpenSelectMythicUI(
         this ActionsBuilder builder,
-        ActionList afterCommitActions,
-        ActionList afterStopActions,
-        bool lockStopChargen = default)
+        ActionsBuilder afterCommitActions = null,
+        bool lockStopChargen = default,
+        ActionsBuilder afterStopActions = null)
     {
-      builder.Validate(afterCommitActions);
-      builder.Validate(afterStopActions);
-    
       var element = ElementTool.Create<OpenSelectMythicUI>();
-      element.m_AfterCommitActions = afterCommitActions;
+      element.m_AfterCommitActions = afterCommitActions?.Build() ?? Constants.Empty.Actions;
       element.m_LockStopChargen = lockStopChargen;
-      element.m_AfterStopActions = afterStopActions;
+      element.m_AfterStopActions = afterStopActions?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -413,15 +409,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(ShowPartySelection))]
     public static ActionsBuilder ShowPartySelection(
         this ActionsBuilder builder,
-        ActionList actionsAfterPartySelection,
-        ActionList actionsIfCanceled)
+        ActionsBuilder actionsAfterPartySelection = null,
+        ActionsBuilder actionsIfCanceled = null)
     {
-      builder.Validate(actionsAfterPartySelection);
-      builder.Validate(actionsIfCanceled);
-    
       var element = ElementTool.Create<ShowPartySelection>();
-      element.ActionsAfterPartySelection = actionsAfterPartySelection;
-      element.ActionsIfCanceled = actionsIfCanceled;
+      element.ActionsAfterPartySelection = actionsAfterPartySelection?.Build() ?? Constants.Empty.Actions;
+      element.ActionsIfCanceled = actionsIfCanceled?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 

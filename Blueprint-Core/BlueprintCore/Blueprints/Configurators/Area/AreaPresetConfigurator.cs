@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -355,14 +356,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPreset.StartGameActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetStartGameActions(ActionList startGameActions)
+    public TBuilder SetStartGameActions(ActionsBuilder startGameActions)
     {
-      ValidateParam(startGameActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.StartGameActions = startGameActions;
+            bp.StartGameActions = startGameActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -1427,14 +1426,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPreset.StartGameActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPresetConfigurator SetStartGameActions(ActionList startGameActions)
+    public AreaPresetConfigurator SetStartGameActions(ActionsBuilder startGameActions)
     {
-      ValidateParam(startGameActions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.StartGameActions = startGameActions;
+            bp.StartGameActions = startGameActions?.Build() ?? Constants.Empty.Actions;
           });
     }
 

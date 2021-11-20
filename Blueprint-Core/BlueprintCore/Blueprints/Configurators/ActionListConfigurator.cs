@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -37,14 +38,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintActionList.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActionListConfigurator SetActions(ActionList actions)
+    public ActionListConfigurator SetActions(ActionsBuilder actions)
     {
-      ValidateParam(actions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_Actions = actions;
+            bp.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
           });
     }
   }

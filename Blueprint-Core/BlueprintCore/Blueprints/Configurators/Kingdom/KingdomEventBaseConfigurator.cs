@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -253,19 +254,17 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(EventAISolution))]
     public TBuilder AddEventAISolution(
-        ActionList additionalActions,
         ConditionsBuilder condition = null,
         string dialog = null,
         string[] answers = null,
+        ActionsBuilder additionalActions = null,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(additionalActions);
-    
       var component = new EventAISolution();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
       component.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
-      component.AdditionalActions = additionalActions;
+      component.AdditionalActions = additionalActions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
       return AddComponent(component);
     }

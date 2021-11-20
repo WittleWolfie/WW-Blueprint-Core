@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
@@ -394,18 +395,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(PartyMembersDetach))]
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
-        ActionList afterDetach,
         string[] detachAllExcept = null,
         bool restrictPartySize = default,
-        int partySize = default)
+        int partySize = default,
+        ActionsBuilder afterDetach = null)
     {
-      builder.Validate(afterDetach);
-    
       var element = ElementTool.Create<PartyMembersDetach>();
       element.m_DetachAllExcept = detachAllExcept.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
       element.m_RestrictPartySize = restrictPartySize;
       element.m_PartySize = partySize;
-      element.AfterDetach = afterDetach;
+      element.AfterDetach = afterDetach?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -416,17 +415,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(PartyMembersDetachEvaluated))]
     public static ActionsBuilder PartyMembersDetachEvaluated(
         this ActionsBuilder builder,
-        ActionList afterDetach,
         UnitEvaluator[] detachThese = null,
+        ActionsBuilder afterDetach = null,
         bool restrictPartySize = default,
         int partySize = default)
     {
       builder.Validate(detachThese);
-      builder.Validate(afterDetach);
     
       var element = ElementTool.Create<PartyMembersDetachEvaluated>();
       element.DetachThese = detachThese;
-      element.AfterDetach = afterDetach;
+      element.AfterDetach = afterDetach?.Build() ?? Constants.Empty.Actions;
       element.m_RestrictPartySize = restrictPartySize;
       element.m_PartySize = partySize;
       return builder.Add(element);
@@ -449,22 +447,20 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(Recruit))]
     public static ActionsBuilder Recruit(
         this ActionsBuilder builder,
-        ActionList onRecruit,
-        ActionList onRecruitImmediate,
         Recruit.RecruitData[] recruited = null,
         bool addToParty = default,
-        bool matchPlayerXpExactly = default)
+        bool matchPlayerXpExactly = default,
+        ActionsBuilder onRecruit = null,
+        ActionsBuilder onRecruitImmediate = null)
     {
       builder.Validate(recruited);
-      builder.Validate(onRecruit);
-      builder.Validate(onRecruitImmediate);
     
       var element = ElementTool.Create<Recruit>();
       element.Recruited = recruited;
       element.AddToParty = addToParty;
       element.MatchPlayerXpExactly = matchPlayerXpExactly;
-      element.OnRecruit = onRecruit;
-      element.OnRecruitImmediate = onRecruitImmediate;
+      element.OnRecruit = onRecruit?.Build() ?? Constants.Empty.Actions;
+      element.OnRecruitImmediate = onRecruitImmediate?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -477,14 +473,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(RecruitInactive))]
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
-        ActionList onRecruit,
-        string companionBlueprint = null)
+        string companionBlueprint = null,
+        ActionsBuilder onRecruit = null)
     {
-      builder.Validate(onRecruit);
-    
       var element = ElementTool.Create<RecruitInactive>();
       element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
-      element.OnRecruit = onRecruit;
+      element.OnRecruit = onRecruit?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -744,20 +738,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
         ParametrizedContextSetter parameters,
-        ActionList onAccept,
-        ActionList onCancel,
-        LocalizedString text = null)
+        LocalizedString text = null,
+        ActionsBuilder onAccept = null,
+        ActionsBuilder onCancel = null)
     {
       builder.Validate(text);
       builder.Validate(parameters);
-      builder.Validate(onAccept);
-      builder.Validate(onCancel);
     
       var element = ElementTool.Create<ShowDialogBox>();
       element.Text = text ?? Constants.Empty.String;
       element.Parameters = parameters;
-      element.OnAccept = onAccept;
-      element.OnCancel = onCancel;
+      element.OnAccept = onAccept?.Build() ?? Constants.Empty.Actions;
+      element.OnCancel = onCancel?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 
@@ -768,16 +760,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(ShowMessageBox))]
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
-        ActionList onClose,
         LocalizedString text = null,
+        ActionsBuilder onClose = null,
         int waitTime = default)
     {
       builder.Validate(text);
-      builder.Validate(onClose);
     
       var element = ElementTool.Create<ShowMessageBox>();
       element.Text = text ?? Constants.Empty.String;
-      element.OnClose = onClose;
+      element.OnClose = onClose?.Build() ?? Constants.Empty.Actions;
       element.WaitTime = waitTime;
       return builder.Add(element);
     }
@@ -1178,14 +1169,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(Unrecruit))]
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
-        ActionList onUnrecruit,
-        string companionBlueprint = null)
+        string companionBlueprint = null,
+        ActionsBuilder onUnrecruit = null)
     {
-      builder.Validate(onUnrecruit);
-    
       var element = ElementTool.Create<Unrecruit>();
       element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
-      element.OnUnrecruit = onUnrecruit;
+      element.OnUnrecruit = onUnrecruit?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }
 

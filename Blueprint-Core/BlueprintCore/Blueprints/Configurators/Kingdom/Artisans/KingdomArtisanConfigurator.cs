@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -192,14 +193,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="BlueprintKingdomArtisan.OnProductionStarted"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnProductionStarted(ActionList onProductionStarted)
+    public KingdomArtisanConfigurator SetOnProductionStarted(ActionsBuilder onProductionStarted)
     {
-      ValidateParam(onProductionStarted);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnProductionStarted = onProductionStarted;
+            bp.OnProductionStarted = onProductionStarted?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -207,14 +206,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftReady"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnGiftReady(ActionList onGiftReady)
+    public KingdomArtisanConfigurator SetOnGiftReady(ActionsBuilder onGiftReady)
     {
-      ValidateParam(onGiftReady);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnGiftReady = onGiftReady;
+            bp.OnGiftReady = onGiftReady?.Build() ?? Constants.Empty.Actions;
           });
     }
 
@@ -222,14 +219,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftCollected"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomArtisanConfigurator SetOnGiftCollected(ActionList onGiftCollected)
+    public KingdomArtisanConfigurator SetOnGiftCollected(ActionsBuilder onGiftCollected)
     {
-      ValidateParam(onGiftCollected);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.OnGiftCollected = onGiftCollected;
+            bp.OnGiftCollected = onGiftCollected?.Build() ?? Constants.Empty.Actions;
           });
     }
 

@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -26,17 +27,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(DamageToMapObjectTrigger))]
     public TBuilder AddDamageToMapObjectTrigger(
-        ActionList actions,
+        ActionsBuilder actions = null,
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,
         PhysicalDamageForm physicalDamageForm = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new DamageToMapObjectTrigger();
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.CheckEnergyType = checkEnergyType;
       component.EnergyType = energyType;
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm;
@@ -81,17 +80,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(DamageToMapObjectTrigger))]
     public LogicConnectorConfigurator AddDamageToMapObjectTrigger(
-        ActionList actions,
+        ActionsBuilder actions = null,
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,
         PhysicalDamageForm physicalDamageForm = default,
         BlueprintComponent.Flags flags = default)
     {
-      ValidateParam(actions);
-    
       var component = new DamageToMapObjectTrigger();
-      component.Actions = actions;
+      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.CheckEnergyType = checkEnergyType;
       component.EnergyType = energyType;
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm;

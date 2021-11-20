@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -67,14 +68,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetActions(ActionList actions)
+    public MultiEntranceEntryConfigurator SetActions(ActionsBuilder actions)
     {
-      ValidateParam(actions);
-    
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_Actions = actions;
+            bp.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
           });
     }
   }
