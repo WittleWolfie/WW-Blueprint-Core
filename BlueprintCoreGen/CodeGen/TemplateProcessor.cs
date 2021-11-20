@@ -215,18 +215,35 @@ namespace BlueprintCoreGen.CodeGen
 
     private static List<Type> GetAllowedBlueprintTypes(Type componentType)
     {
+      if (componentType == typeof(AddFacts))
+      {
+        var name = componentType.Name;
+      }
       if (AllowedBlueprintTypesOverride.ContainsKey(componentType))
       {
         return AllowedBlueprintTypesOverride[componentType];
       }
 
-      Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
-      List<Type> allowedOn =
-          attrs
-              .Where(attr => attr is AllowedOnAttribute)
-              .Select(attr => attr as AllowedOnAttribute)
-              .Select(attr => attr.Type)
-              .ToList();
+      // Take the youngest descendant's types only, essentially overriding inheritance. This is counter to the
+      // documentation but I haven't found counterexamples.
+      List<Type> allowedOn = new();
+      Type current = componentType;
+
+      if (componentType == typeof(ContextCalculateAbilityParams))
+      {
+        var name = componentType.Name;
+      }
+      while (current != typeof(BlueprintComponent))
+      {
+        Attribute[] attrs = Attribute.GetCustomAttributes(current, inherit: false);
+        allowedOn.AddRange(
+            attrs
+                .Where(attr => attr is AllowedOnAttribute)
+                .Select(attr => attr as AllowedOnAttribute)
+                .Select(attr => attr.Type));
+        if (allowedOn.Any()) { break; }
+        current = current.BaseType;
+      }
 
       if (!allowedOn.Any())
       {
@@ -235,11 +252,10 @@ namespace BlueprintCoreGen.CodeGen
         return allowedOn;
       }
 
-      // Keep only the strictest subset of allowed types. i.e. If BlueprintFeature and BlueprintUnitFact are allowed,
-      // keep only BlueprintFeature. The assumption is that the more specific type overrides the less specific type.
-      // This ensures the API only exposes supported components although it may not expose all of them.
-      allowedOn.RemoveAll(parentType => allowedOn.Exists(childType => childType.IsSubclassOf(parentType)));
-      return allowedOn.Distinct().ToList();
+      // Ensure there are no duplicate methods defined. Some components will declare both a parent and child type, even
+      // though the parent declaration is sufficient.
+      allowedOn.RemoveAll(type => allowedOn.Exists(parent => type.IsSubclassOf(parent)));
+      return allowedOn;
     }
 
     private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
