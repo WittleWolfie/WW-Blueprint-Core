@@ -1,9 +1,7 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Localization;
-using System;
 using System.Linq;
 using UnityEngine;
 

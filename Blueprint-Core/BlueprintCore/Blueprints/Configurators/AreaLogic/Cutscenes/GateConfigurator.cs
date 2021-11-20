@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.ElementsSystem;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

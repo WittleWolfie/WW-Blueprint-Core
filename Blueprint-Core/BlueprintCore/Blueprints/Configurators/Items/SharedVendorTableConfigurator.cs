@@ -1,7 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.Loot;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {

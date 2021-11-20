@@ -1,4 +1,3 @@
-using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
@@ -7,7 +6,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Buffs.Conditions;
-using System;
 namespace BlueprintCore.Conditions.Builder.BasicEx
 {
   /// <summary>

@@ -8,7 +8,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using Kingmaker.View.Animation;
-using System;
 
 namespace BlueprintCore.Conditions.Builder.ContextEx
 {

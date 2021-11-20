@@ -1,9 +1,7 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom

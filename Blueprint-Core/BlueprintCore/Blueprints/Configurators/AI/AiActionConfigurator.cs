@@ -1,10 +1,8 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI

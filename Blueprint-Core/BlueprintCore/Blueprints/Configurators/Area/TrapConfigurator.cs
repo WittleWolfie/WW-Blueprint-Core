@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -7,7 +6,6 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Visual.Animation.Kingmaker;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {

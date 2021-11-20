@@ -1,9 +1,7 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.Blueprints;
 using Kingmaker.QA.Arbiter;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
 {

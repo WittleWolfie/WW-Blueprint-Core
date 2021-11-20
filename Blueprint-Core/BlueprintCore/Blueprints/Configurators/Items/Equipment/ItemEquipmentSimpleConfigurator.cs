@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment

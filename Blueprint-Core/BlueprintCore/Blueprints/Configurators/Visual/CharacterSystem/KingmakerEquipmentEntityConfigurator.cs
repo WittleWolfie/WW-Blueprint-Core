@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem

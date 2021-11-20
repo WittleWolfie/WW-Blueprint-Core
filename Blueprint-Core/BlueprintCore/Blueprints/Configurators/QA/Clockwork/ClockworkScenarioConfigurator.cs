@@ -1,11 +1,9 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
 using Kingmaker.Settings.Difficulty;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

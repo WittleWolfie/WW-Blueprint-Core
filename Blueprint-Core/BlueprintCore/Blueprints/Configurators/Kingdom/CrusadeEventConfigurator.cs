@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;

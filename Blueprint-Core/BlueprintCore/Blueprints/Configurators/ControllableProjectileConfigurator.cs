@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
-using System;
 using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators

@@ -1,7 +1,5 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization

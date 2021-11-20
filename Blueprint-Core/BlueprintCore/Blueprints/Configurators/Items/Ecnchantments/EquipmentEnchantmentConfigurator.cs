@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
@@ -6,7 +5,6 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {

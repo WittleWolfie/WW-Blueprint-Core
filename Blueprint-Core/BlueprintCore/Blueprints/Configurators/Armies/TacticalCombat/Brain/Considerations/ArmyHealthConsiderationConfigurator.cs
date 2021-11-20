@@ -1,7 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.AI.Considerations;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
 {

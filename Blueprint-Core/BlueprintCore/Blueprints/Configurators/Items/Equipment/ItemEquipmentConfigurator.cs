@@ -1,11 +1,9 @@
-using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Alignments;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment

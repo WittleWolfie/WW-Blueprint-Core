@@ -1,7 +1,5 @@
-using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 

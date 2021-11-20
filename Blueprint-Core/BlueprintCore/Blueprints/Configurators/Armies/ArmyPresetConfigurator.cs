@@ -1,8 +1,6 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies

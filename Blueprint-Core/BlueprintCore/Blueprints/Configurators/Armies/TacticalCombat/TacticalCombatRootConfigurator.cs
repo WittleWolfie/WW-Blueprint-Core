@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Brain;
@@ -6,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Owlcat.Runtime.Core.Math;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

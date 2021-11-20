@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -7,10 +6,8 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Localization;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

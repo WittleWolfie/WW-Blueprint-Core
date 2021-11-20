@@ -1,10 +1,7 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.ElementsSystem;
 using Kingmaker.RandomEncounters.Settings;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {

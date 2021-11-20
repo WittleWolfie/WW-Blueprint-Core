@@ -6,7 +6,6 @@ using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Class.Kineticist;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons

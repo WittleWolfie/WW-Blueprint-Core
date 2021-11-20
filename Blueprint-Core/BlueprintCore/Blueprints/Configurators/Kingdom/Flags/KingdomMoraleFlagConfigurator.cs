@@ -2,7 +2,6 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Localization;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {

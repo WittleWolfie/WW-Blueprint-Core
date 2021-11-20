@@ -1,9 +1,7 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.BarkBanters

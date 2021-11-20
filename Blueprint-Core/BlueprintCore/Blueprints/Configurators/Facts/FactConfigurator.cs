@@ -1,16 +1,10 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Settings;
 using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
-using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {

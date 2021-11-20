@@ -1,11 +1,8 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
-using System;
-using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {

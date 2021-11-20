@@ -1,6 +1,5 @@
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;

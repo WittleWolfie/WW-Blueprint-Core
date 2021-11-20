@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
@@ -20,7 +19,6 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.BasicEx

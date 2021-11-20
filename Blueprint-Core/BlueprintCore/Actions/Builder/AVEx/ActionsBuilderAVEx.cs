@@ -10,7 +10,6 @@ using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
-using System;
 using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.AVEx

@@ -1,5 +1,4 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.Blueprints;
@@ -8,7 +7,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Corruption;
 using Kingmaker.Craft;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Interaction;
 using Kingmaker.RazerChroma;
 using Kingmaker.ResourceLinks;
@@ -17,7 +15,6 @@ using Kingmaker.Settings.Difficulty;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Sound;
-using System;
 using System.Linq;
 using UnityEngine;
 

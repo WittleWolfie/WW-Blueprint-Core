@@ -1,11 +1,9 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Localization;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {

@@ -6,7 +6,6 @@ using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade.GlobalMagic;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Blueprints;
@@ -14,8 +13,6 @@ using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
 using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 

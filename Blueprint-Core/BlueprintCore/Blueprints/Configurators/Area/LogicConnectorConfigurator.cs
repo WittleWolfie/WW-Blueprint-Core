@@ -4,9 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {

@@ -1,12 +1,9 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Cutscenes.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
-using Kingmaker.ElementsSystem;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes

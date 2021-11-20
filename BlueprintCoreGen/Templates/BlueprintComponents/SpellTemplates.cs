@@ -1,9 +1,7 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.Blueprints.Configurators;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
 

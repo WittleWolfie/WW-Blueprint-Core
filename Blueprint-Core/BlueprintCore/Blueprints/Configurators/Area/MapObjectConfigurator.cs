@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using UnityEngine;

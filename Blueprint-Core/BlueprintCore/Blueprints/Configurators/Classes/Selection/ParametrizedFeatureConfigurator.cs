@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -7,7 +6,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection

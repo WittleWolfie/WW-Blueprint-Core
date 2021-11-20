@@ -1,11 +1,9 @@
-using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Enums;
 using Kingmaker.View.Animation;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes

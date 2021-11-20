@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
 using Kingmaker.Visual.LightSelector;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
-using System;
 using System.Linq;
 using UnityEngine;
 

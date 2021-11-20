@@ -7,7 +7,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using System;
 namespace BlueprintCore.Conditions.Builder.MiscEx
 {
   /// <summary>

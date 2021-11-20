@@ -1,7 +1,5 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Formations;
-using System;
 using System.Linq;
 using UnityEngine;
 

@@ -28,7 +28,6 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Components.Fixers;
 using Kingmaker.Utility;
 using Kingmaker.View.MapObjects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

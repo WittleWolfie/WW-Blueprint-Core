@@ -1,11 +1,8 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade.GlobalMagic;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
-using System;
 using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic

@@ -1,10 +1,8 @@
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.HitSystem;
-using System;
 using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators

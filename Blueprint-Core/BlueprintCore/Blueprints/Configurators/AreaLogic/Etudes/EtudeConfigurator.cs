@@ -19,8 +19,6 @@ using Kingmaker.Sound;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes

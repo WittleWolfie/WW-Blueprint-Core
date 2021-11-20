@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Encyclopedia;
 

@@ -8,8 +8,6 @@ using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests

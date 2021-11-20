@@ -1,7 +1,5 @@
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning;
 
 namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versioning
