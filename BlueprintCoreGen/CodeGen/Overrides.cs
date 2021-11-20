@@ -2,11 +2,14 @@
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Class.Kineticist;
@@ -86,15 +89,13 @@ namespace BlueprintCoreGen.CodeGen
             { typeof(string), "string" },
           };
 
-    public static readonly List<string> IgnoredFieldNames =
+    public static readonly List<(Type type, List<string> fieldNames)> IgnoredFieldNamesByType =
         new()
         {
-          "m_PrototypeLink",
-          "m_HasIsAllyEffectRunConditions",
-          "m_NextObjectivesProxy",
-          "m_AddendumsProxy",
-          "m_AreasProxy",
-          "name"
+          (typeof(Element), new() { "name" }),
+          (typeof(BlueprintComponent), new() { "m_Flags", "name", "m_PrototypeLink" }),
+          (typeof(BlueprintQuestObjective), new() { "m_AreasProxy", "m_AddendumsProxy", "m_NextObjectivesProxy" }),
+          (typeof(AbilityDeliverEffect), new() { "m_HasIsAllyEffectRunConditions" })
         };
 
     public static readonly Dictionary<string, string> FriendlyNameOverrides =

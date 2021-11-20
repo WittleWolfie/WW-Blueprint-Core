@@ -91,9 +91,9 @@ namespace BlueprintCoreGen.CodeGen
 
   public static class FieldFactory
   {
-    public static IField Create(FieldInfo info, bool forConditionsBuilder = false)
+    public static IField Create(FieldInfo info, Type sourceType)
     {
-      if (IsIgnoredField(info)) { return null; }
+      if (IsIgnoredField(info, sourceType)) { return null; }
 
       if (DefaultEmptyField.TypeToEmptyConstant.ContainsKey(info.FieldType))
       {
@@ -121,7 +121,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         return new BuilderField(info, BuilderField.BuilderType.Conditions);
       }
-      if (forConditionsBuilder && info.Name == "Not")
+      if (sourceType.IsSubclassOf(typeof(Condition)) && info.Name == "Not")
       {
         return new NegateConditionField();
       }
@@ -134,10 +134,17 @@ namespace BlueprintCoreGen.CodeGen
       return UniqueComponentFields;
     }
 
-    private static bool IsIgnoredField(FieldInfo field)
+    private static bool IsIgnoredField(FieldInfo field, Type sourceType)
     {
+      foreach (var (type, fieldNames) in Overrides.IgnoredFieldNamesByType)
+      {
+        if (sourceType.IsSubclassOf(type) || sourceType == type)
+        {
+          if (fieldNames.Contains(field.Name)) { return true; }
+        }
+      }
+
       return field.Name.Contains("__BackingField") // Compiler generated field
-          || Overrides.IgnoredFieldNames.Contains(field.Name)
           // Skip constant, static, and read-only
           || field.IsLiteral
           || field.IsStatic

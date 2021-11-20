@@ -328,7 +328,7 @@ namespace BlueprintCoreGen.CodeGen
       var fields =
           configurator.BlueprintType.GetFields()
               .Where(field => field.DeclaringType == configurator.BlueprintType)
-              .Select(field => FieldFactory.Create(field))
+              .Select(field => FieldFactory.Create(field, configurator.BlueprintType))
               .Where(field => field is not null)
               .ToList();
       fields.ForEach(

@@ -73,7 +73,7 @@ namespace BlueprintCoreGen.CodeGen
       var elementTypeName = TypeTool.GetName(elementType);
       var fields =
           elementType.GetFields()
-              .Select(field => FieldFactory.Create(field, builderType == BuilderType.ConditionsBuilder))
+              .Select(field => FieldFactory.Create(field, elementType))
               .Where(field => field is not null)
               .ToList();
 
@@ -138,7 +138,7 @@ namespace BlueprintCoreGen.CodeGen
       var componentTypeName = TypeTool.GetName(componentType);
       var fields =
           componentType.GetFields()
-              .Select(field => FieldFactory.Create(field))
+              .Select(field => FieldFactory.Create(field, componentType))
               .Where(field => field is not null)
               .ToList();
 
