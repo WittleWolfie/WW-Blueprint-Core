@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -50,12 +51,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(FeatureTagsComponent))]
     public TBuilder AddFeatureTagsComponent(
         FeatureTag featureTags = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new FeatureTagsComponent();
       component.FeatureTags = featureTags;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -64,11 +67,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(HideFeatureInInspect))]
     public TBuilder AddHideFeatureInInspect(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new HideFeatureInInspect();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

@@ -17,6 +17,7 @@ using Kingmaker.UI.Kingdom;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
@@ -317,13 +318,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerAbilityDamage(
         bool drain = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerAbilityDamage();
       component.Drain = drain;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -334,13 +337,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerAffectedByAreaEffect(
         SpellDescriptorWrapper spellDescriptors,
         bool needAllDescriptors = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerAffectedByAreaEffect();
       component.SpellDescriptors = spellDescriptors;
       component.NeedAllDescriptors = needAllDescriptors;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -350,12 +355,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerArcaneSpellFailure))]
     public TutorialConfigurator AddTutorialTriggerArcaneSpellFailure(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerArcaneSpellFailure();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -368,13 +375,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerAreaLoaded(
         string area = null,
         ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerAreaLoaded();
       component.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -385,13 +394,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerArmorCheckPenalty(
         float penaltyTriggerPercent = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerArmorCheckPenalty();
       component.PenaltyTriggerPercent = penaltyTriggerPercent;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -400,11 +411,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerArmorDexBonusLimiter))]
     public TutorialConfigurator AddTutorialTriggerArmorDexBonusLimiter(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerArmorDexBonusLimiter();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -414,12 +427,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerAttackFlatFootedTarget))]
     public TutorialConfigurator AddTutorialTriggerAttackFlatFootedTarget(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerAttackFlatFootedTarget();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -429,12 +444,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerAttackOfOpportunity))]
     public TutorialConfigurator AddTutorialTriggerAttackOfOpportunity(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerAttackOfOpportunity();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -449,7 +466,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool needAllDescriptors = default,
         bool fromList = default,
         string[] buffs = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerBuffAttached();
       component.TriggerDescriptors = triggerDescriptors;
@@ -457,7 +476,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.FromList = fromList;
       component.Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -473,7 +492,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         string ability = null,
         bool checkTankStat = default,
         bool allowItemsWithSpell = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerCanBuffAlly();
       component.m_TriggerAreas = triggerAreas.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray();
@@ -481,7 +502,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_CheckTankStat = checkTankStat;
       component.m_AllowItemsWithSpell = allowItemsWithSpell;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -493,12 +514,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerCanReadScrollByNPC))]
     public TutorialConfigurator AddTutorialTriggerCanReadScrollByNPC(
         string[] scrolls = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerCanReadScrollByNPC();
       component.m_Scrolls = scrolls.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -507,11 +530,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerConditionImmunity))]
     public TutorialConfigurator AddTutorialTriggerConditionImmunity(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerConditionImmunity();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -521,12 +546,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerCriticalHit))]
     public TutorialConfigurator AddTutorialTriggerCriticalHit(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerCriticalHit();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -539,13 +566,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerDamageAllyWithSpell(
         string[] spells = null,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerDamageAllyWithSpell();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -559,7 +588,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool allowFlatfootedTarget = default,
         bool allowACTouchAttack = default,
         bool showAfterCombat = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(savedContext);
     
@@ -570,7 +601,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_ShowAfterCombat = showAfterCombat;
       component.m_SavedContext = savedContext;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -581,13 +612,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerDamageReduction(
         bool absoluteDR = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerDamageReduction();
       component.AbsoluteDR = absoluteDR;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -596,11 +629,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerDeathDoor))]
     public TutorialConfigurator AddTutorialTriggerDeathDoor(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerDeathDoor();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -609,11 +644,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerDialogMythicAnswer))]
     public TutorialConfigurator AddTutorialTriggerDialogMythicAnswer(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerDialogMythicAnswer();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -622,11 +659,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEmptySkillSlotOnRest))]
     public TutorialConfigurator AddTutorialTriggerEmptySkillSlotOnRest(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEmptySkillSlotOnRest();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -638,12 +677,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerEnemyHasAnyFact))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasAnyFact(
         string[] enemyFacts = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnemyHasAnyFact();
       component.m_EnemyFacts = enemyFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -657,7 +698,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         UnitEntityData unit,
         Buff partyBuff,
         string[] buffs = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(unit);
       ValidateParam(partyBuff);
@@ -667,7 +710,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_PartyBuff = partyBuff;
       component.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -702,11 +745,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerEnemyHasRegeneration))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasRegeneration(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnemyHasRegeneration();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -716,12 +761,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerEnemyHasVulnerability))]
     public TutorialConfigurator AddTutorialTriggerEnemyHasVulnerability(
         string descriptor,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnemyHasVulnerability();
       component.m_Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -731,12 +778,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerEnergyDrain))]
     public TutorialConfigurator AddTutorialTriggerEnergyDrain(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnergyDrain();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -747,13 +796,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerEnergyImmunity(
         bool fromSpell = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnergyImmunity();
       component.FromSpell = fromSpell;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -764,13 +815,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerEnergyResistance(
         bool fromSpell = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerEnergyResistance();
       component.FromSpell = fromSpell;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -782,7 +835,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         UnitEntityData triggerUnit,
         int startPrimaryAttackCount = default,
         int startSecondaryAttackCount = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(triggerUnit);
     
@@ -791,7 +846,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_StartPrimaryAttackCount = startPrimaryAttackCount;
       component.m_StartSecondaryAttackCount = startSecondaryAttackCount;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -804,7 +859,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         int tanksCount = default,
         float minTankDistance = default,
         GameDifficultyOption maxGameDifficulty = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerFormationChangedBadly();
       component.m_PartyWasChanged = partyWasChanged;
@@ -812,7 +869,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.MinTankDistance = minTankDistance;
       component.MaxGameDifficulty = maxGameDifficulty;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -822,12 +879,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerHaveBetterEquipment))]
     public TutorialConfigurator AddTutorialTriggerHaveBetterEquipment(
         int minGradeDiff = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerHaveBetterEquipment();
       component.MinGradeDiff = minGradeDiff;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -840,13 +899,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerHealEnemyWithSpell(
         string[] spells = null,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerHealEnemyWithSpell();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -856,12 +917,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerHealingScroll))]
     public TutorialConfigurator AddTutorialTriggerHealingScroll(
         float unitLeftHealthPercent = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerHealingScroll();
       component.UnitLeftHealthPercent = unitLeftHealthPercent;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -870,11 +933,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerItemIdentificationFailed))]
     public TutorialConfigurator AddTutorialTriggerItemIdentificationFailed(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerItemIdentificationFailed();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -883,11 +948,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerKingdomManagementOpened))]
     public TutorialConfigurator AddTutorialTriggerKingdomManagementOpened(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerKingdomManagementOpened();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -897,12 +964,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerKingdomTabSelected))]
     public TutorialConfigurator AddTutorialTriggerKingdomTabSelected(
         KingdomNavigationType type = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerKingdomTabSelected();
       component.m_Type = type;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -913,13 +982,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerLowGroupHealth(
         float healSkillsLeftPercent = default,
         float averageGroupHealthPercent = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerLowGroupHealth();
       component.HealSkillsLeftPercent = healSkillsLeftPercent;
       component.AverageGroupHealthPercent = averageGroupHealthPercent;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -929,12 +1000,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerLowHitPoints))]
     public TutorialConfigurator AddTutorialTriggerLowHitPoints(
         float threshold = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerLowHitPoints();
       component.Threshold = threshold;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -946,12 +1019,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerMemorizeSpontaneousSpell))]
     public TutorialConfigurator AddTutorialTriggerMemorizeSpontaneousSpell(
         string characterClass = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerMemorizeSpontaneousSpell();
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -961,12 +1036,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerMissingPreciseShot))]
     public TutorialConfigurator AddTutorialTriggerMissingPreciseShot(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerMissingPreciseShot();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -975,11 +1052,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerMissingTwoWeaponFighting))]
     public TutorialConfigurator AddTutorialTriggerMissingTwoWeaponFighting(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerMissingTwoWeaponFighting();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -988,11 +1067,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerMountAnimal))]
     public TutorialConfigurator AddTutorialTriggerMountAnimal(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerMountAnimal();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1004,14 +1085,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         UnitCondition triggerCondition = default,
         int minimumUnitsCount = default,
         bool allowOnGlobalMap = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerMultipleUnitsCondition();
       component.TriggerCondition = triggerCondition;
       component.MinimumUnitsCount = minimumUnitsCount;
       component.AllowOnGlobalMap = allowOnGlobalMap;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1021,12 +1104,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerNewCrusaderArmy))]
     public TutorialConfigurator AddTutorialTriggerNewCrusaderArmy(
         int minimumNumberOfArmies = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewCrusaderArmy();
       component.m_MinimumNumberOfArmies = minimumNumberOfArmies;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1038,12 +1123,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerNewItemWithEnchantment))]
     public TutorialConfigurator AddTutorialTriggerNewItemWithEnchantment(
         string enchantment = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewItemWithEnchantment();
       component.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchantment);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1052,11 +1139,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNewNotLearnedScroll))]
     public TutorialConfigurator AddTutorialTriggerNewNotLearnedScroll(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewNotLearnedScroll();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1065,11 +1154,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNewRecipe))]
     public TutorialConfigurator AddTutorialTriggerNewRecipe(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewRecipe();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1079,12 +1170,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerNewRodItem))]
     public TutorialConfigurator AddTutorialTriggerNewRodItem(
         Metamagic triggerMetamagic = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewRodItem();
       component.TriggerMetamagic = triggerMetamagic;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1093,11 +1186,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNewSpellWithoutRequiredMaterial))]
     public TutorialConfigurator AddTutorialTriggerNewSpellWithoutRequiredMaterial(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewSpellWithoutRequiredMaterial();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1109,12 +1204,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerNewWand))]
     public TutorialConfigurator AddTutorialTriggerNewWand(
         string[] spells = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNewWand();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1128,13 +1225,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerNoAutocastSpell(
         string[] recommendedAbilities = null,
         string[] companions = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNoAutocastSpell();
       component.m_RecommendedAbilities = recommendedAbilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.m_Companions = companions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1143,11 +1242,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerNonStackBonus))]
     public TutorialConfigurator AddTutorialTriggerNonStackBonus(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerNonStackBonus();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1156,11 +1257,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerOpenArmyRecruit))]
     public TutorialConfigurator AddTutorialTriggerOpenArmyRecruit(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerOpenArmyRecruit();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1169,11 +1272,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerOpenRestUI))]
     public TutorialConfigurator AddTutorialTriggerOpenRestUI(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerOpenRestUI();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1183,12 +1288,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerPartyEncumbrance))]
     public TutorialConfigurator AddTutorialTriggerPartyEncumbrance(
         Encumbrance minTriggerEncumbrance = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerPartyEncumbrance();
       component.MinTriggerEncumbrance = minTriggerEncumbrance;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1197,11 +1304,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerSavingThrow))]
     public TutorialConfigurator AddTutorialTriggerSavingThrow(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerSavingThrow();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1214,7 +1323,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool skillRestriction = default,
         StatType skill = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerSkillCheck();
       component.m_TriggerOnResult = triggerOnResult;
@@ -1222,7 +1333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.Skill = skill;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1232,12 +1343,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerSneakAttack))]
     public TutorialConfigurator AddTutorialTriggerSneakAttack(
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerSneakAttack();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1250,7 +1363,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         TutorialTriggerSpellResistance.Target triggerTarget = default,
         bool needAllDescriptors = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerSpellResistance();
       component.TriggerTarget = triggerTarget;
@@ -1258,7 +1373,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.NeedAllDescriptors = needAllDescriptors;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1269,13 +1384,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialTriggerTacticalCombatEnd(
         bool demonsWon = default,
         bool onlyGarrison = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerTacticalCombatEnd();
       component.m_DemonsWon = demonsWon;
       component.m_OnlyGarrison = onlyGarrison;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1290,7 +1407,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool specifyEnemyUnits = default,
         bool playerShouldHaveLeader = default,
         string[] enemyUnits = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerTacticalCombatStart();
       component.m_EnemyShouldHaveLeader = enemyShouldHaveLeader;
@@ -1298,7 +1417,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_PlayerShouldHaveLeader = playerShouldHaveLeader;
       component.m_EnemyUnits = enemyUnits.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1307,11 +1426,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerTargetRestriction))]
     public TutorialConfigurator AddTutorialTriggerTargetRestriction(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerTargetRestriction();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1323,14 +1444,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         int touchACDifference = default,
         int missesInRow = default,
         DirectlyControllableUnitRequirement directlyControllableRequirement = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerTouchAC();
       component.TouchACDifference = touchACDifference;
       component.MissesInRow = missesInRow;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1339,11 +1462,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerTurnBaseModeActivated))]
     public TutorialConfigurator AddTutorialTriggerTurnBaseModeActivated(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerTurnBaseModeActivated();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1353,12 +1478,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerUIEvent))]
     public TutorialConfigurator AddTutorialTriggerUIEvent(
         UIEventType uIEvent = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUIEvent();
       component.UIEvent = uIEvent;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1368,12 +1495,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerUnitCondition))]
     public TutorialConfigurator AddTutorialTriggerUnitCondition(
         UnitCondition triggerCondition = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitCondition();
       component.TriggerCondition = triggerCondition;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1383,12 +1512,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerUnitDeath))]
     public TutorialConfigurator AddTutorialTriggerUnitDeath(
         bool isPet = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitDeath();
       component.IsPet = isPet;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1400,12 +1531,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerUnitDiedWithoutBardPerformance))]
     public TutorialConfigurator AddTutorialTriggerUnitDiedWithoutBardPerformance(
         string[] performances = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitDiedWithoutBardPerformance();
       component.m_Performances = performances.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1415,12 +1548,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Implements(typeof(TutorialTriggerUnitEncumbrance))]
     public TutorialConfigurator AddTutorialTriggerUnitEncumbrance(
         Encumbrance minTriggerEncumbrance = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitEncumbrance();
       component.MinTriggerEncumbrance = minTriggerEncumbrance;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1429,11 +1564,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUnitLostAlignmentFeature))]
     public TutorialConfigurator AddTutorialTriggerUnitLostAlignmentFeature(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitLostAlignmentFeature();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1442,11 +1579,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialTriggerUnitWithSneakAttackJoinParty))]
     public TutorialConfigurator AddTutorialTriggerUnitWithSneakAttackJoinParty(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialTriggerUnitWithSneakAttackJoinParty();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1455,11 +1594,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialSolverAllFromTrigger))]
     public TutorialConfigurator AddTutorialSolverAllFromTrigger(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverAllFromTrigger();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1473,14 +1614,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool checkRegeneration = default,
         bool checkEnchantment = default,
         string[] enchantments = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverBestWeaponAgainstTarget();
       component.CheckRegeneration = checkRegeneration;
       component.CheckEnchantment = checkEnchantment;
       component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1489,11 +1632,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     [Generated]
     [Implements(typeof(TutorialSolverItemFromTrigger))]
     public TutorialConfigurator AddTutorialSolverItemFromTrigger(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverItemFromTrigger();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1506,13 +1651,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator AddTutorialSolverSpellFromList(
         string[] spells = null,
         bool allowItems = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverSpellFromList();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.AllowItems = allowItems;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1532,7 +1679,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool needAllDescriptors = default,
         string[] ignoredSpells = null,
         bool allowItems = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverSpellWithDamage();
       component.CheckRegeneration = checkRegeneration;
@@ -1545,7 +1694,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.IgnoredSpells = ignoredSpells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList();
       component.AllowItems = allowItems;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1558,7 +1707,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool needAllDescriptors = default,
         bool excludeOnlySelfTarget = default,
         bool allowItems = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TutorialSolverSpellWithDescriptor();
       component.SpellDescriptors = spellDescriptors;
@@ -1566,7 +1717,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.ExcludeOnlySelfTarget = excludeOnlySelfTarget;
       component.AllowItems = allowItems;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

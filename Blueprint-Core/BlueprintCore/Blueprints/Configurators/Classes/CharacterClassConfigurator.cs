@@ -1334,12 +1334,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(DeityDependencyClass))]
     public CharacterClassConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1348,11 +1350,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(HideClassIfPrerequisitesRequiredComponent))]
     public CharacterClassConfigurator AddHideClassIfPrerequisitesRequiredComponent(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new HideClassIfPrerequisitesRequiredComponent();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1372,7 +1376,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         SpriteLink abilityFrame,
         SpriteLink emblem,
         string[] portraits = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(selectorPortrait);
       ValidateParam(selectorPortraitLineart);
@@ -1394,7 +1400,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.m_Emblem = emblem;
       component.m_Portraits = portraits.Select(name => BlueprintTool.GetRef<BlueprintPortraitReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1404,12 +1410,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(MythicClassLockComponent))]
     public CharacterClassConfigurator AddMythicClassLockComponent(
         Mythic[] locks = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MythicClassLockComponent();
       component.Locks = locks;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1419,12 +1427,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(SkipLevelsForSpellProgression))]
     public CharacterClassConfigurator AddSkipLevelsForSpellProgression(
         int[] levels = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SkipLevelsForSpellProgression();
       component.Levels = levels;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

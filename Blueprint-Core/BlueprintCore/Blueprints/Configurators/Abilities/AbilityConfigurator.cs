@@ -686,11 +686,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(InPowerDismemberComponent))]
     public AbilityConfigurator AddInPowerDismemberComponent(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new InPowerDismemberComponent();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -699,11 +701,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(SplitDismemberComponent))]
     public AbilityConfigurator AddSplitDismemberComponent(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SplitDismemberComponent();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -715,14 +719,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int priority = default,
         ConditionsBuilder autoFillConditions = null,
         ConditionsBuilder autoCastConditions = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ActionPanelLogic();
       component.Priority = priority;
       component.AutoFillConditions = autoFillConditions?.Build() ?? Constants.Empty.Conditions;
       component.AutoCastConditions = autoCastConditions?.Build() ?? Constants.Empty.Conditions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -734,14 +740,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         CraftSpellType spellType = default,
         CraftSavingThrow savingThrow = default,
         CraftAOE aOEType = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CraftInfoComponent();
       component.SpellType = spellType;
       component.SavingThrow = savingThrow;
       component.AOEType = aOEType;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -751,12 +759,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityIsFullRoundInTurnBased))]
     public AbilityConfigurator AddAbilityIsFullRoundInTurnBased(
         bool fullRoundIfTurnBased = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityIsFullRoundInTurnBased();
       component.FullRoundIfTurnBased = fullRoundIfTurnBased;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -766,14 +776,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(LevelUpRecommendation))]
     public AbilityConfigurator AddLevelUpRecommendation(
         ClassesPriority[] classPriorities = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(classPriorities);
     
       var component = new LevelUpRecommendation();
       component.ClassPriorities = classPriorities;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -796,12 +808,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(PretendSpellLevel))]
     public AbilityConfigurator AddPretendSpellLevel(
         int spellLevel = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PretendSpellLevel();
       component.SpellLevel = spellLevel;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -830,12 +844,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(SpellTypeOverride))]
     public AbilityConfigurator AddSpellTypeOverride(
         SpellSource type = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SpellTypeOverride();
       component.Type = type;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -858,12 +874,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityAcceptBurnOnCast))]
     public AbilityConfigurator AddAbilityAcceptBurnOnCast(
         int burnValue = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAcceptBurnOnCast();
       component.BurnValue = burnValue;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -888,7 +906,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int amount = default,
         string[] resourceCostIncreasingFacts = null,
         string[] resourceCostDecreasingFacts = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityKineticist();
       component.BlastBurnCost = blastBurnCost;
@@ -903,7 +923,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.ResourceCostIncreasingFacts = resourceCostIncreasingFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.ResourceCostDecreasingFacts = resourceCostDecreasingFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -922,7 +942,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -937,7 +959,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.ReplaceSpellLevel = replaceSpellLevel;
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -951,14 +973,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool useKineticistMainStat = default,
         StatType statType = default,
         string characterClass = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -993,7 +1017,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue casterLevel = null,
         ContextValue concentration = null,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -1007,7 +1033,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.Concentration = concentration ?? ContextValues.Constant(0);
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1033,7 +1059,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string casterAppearProjectile = null,
         string sideDisappearProjectile = null,
         string sideAppearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1056,7 +1084,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1066,12 +1094,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityOnInBattleUnits))]
     public AbilityConfigurator AddAbilityOnInBattleUnits(
         AbilityOnInBattleUnits.AllyState factionType = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityOnInBattleUnits();
       component.m_FactionType = factionType;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1084,7 +1114,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool vertical = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAffectLineOnGrid();
       component.m_Vertical = vertical;
@@ -1092,7 +1124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_SpreadSpeed = spreadSpeed;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1105,7 +1137,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         bool canBeUsedInTacticalCombat = default,
         int diameterInCells = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAoERadius();
       component.m_Radius = radius;
@@ -1113,7 +1147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_CanBeUsedInTacticalCombat = canBeUsedInTacticalCombat;
       component.m_DiameterInCells = diameterInCells;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1128,7 +1162,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AbilityApplyFact.FactRestriction restriction = default,
         string[] facts = null,
         bool hasDuration = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(duration);
     
@@ -1138,7 +1174,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_HasDuration = hasDuration;
       component.m_Duration = duration;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1150,12 +1186,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityConvertSpellLevelToResource))]
     public AbilityConfigurator AddAbilityConvertSpellLevelToResource(
         string resource = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityConvertSpellLevelToResource();
       component.m_Resource = BlueprintTool.GetRef<AnyBlueprintReference>(resource);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1166,7 +1204,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityCustomAnimationByBuff(
         UnitAnimationActionClip defaultAnimation,
         AbilityCustomAnimationByBuff.Entry[] variants = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(defaultAnimation);
       ValidateParam(variants);
@@ -1175,7 +1215,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.DefaultAnimation = defaultAnimation;
       component.Variants = variants;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1184,11 +1224,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomAttack))]
     public AbilityConfigurator AddAbilityCustomAttack(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomAttack();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1197,11 +1239,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomCharge))]
     public AbilityConfigurator AddAbilityCustomCharge(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomCharge();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1213,12 +1257,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomCleave))]
     public AbilityConfigurator AddAbilityCustomCleave(
         string greaterFeature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomCleave();
       component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(greaterFeature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1244,7 +1290,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string casterAppearProjectile = null,
         string sideDisappearProjectile = null,
         string sideAppearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1267,7 +1315,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1285,7 +1333,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject appearFx,
         string disappearProjectile = null,
         string appearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(disappearFx);
@@ -1299,7 +1349,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(disappearProjectile);
       component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(appearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1326,7 +1376,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string casterAppearProjectile = null,
         string sideDisappearProjectile = null,
         string sideAppearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(targets);
       ValidateParam(portalFromPrefab);
@@ -1351,7 +1403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1377,7 +1429,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string casterAppearProjectile = null,
         string sideDisappearProjectile = null,
         string sideAppearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1400,7 +1454,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1428,7 +1482,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string casterAppearProjectile = null,
         string sideDisappearProjectile = null,
         string sideAppearProjectile = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1452,7 +1508,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1468,7 +1524,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float flyUpTime = default,
         float takeoffTime = default,
         float landTime = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(animation);
       ValidateParam(takeOff);
@@ -1483,7 +1541,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.TakeOff = takeOff;
       component.Landing = landing;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1499,7 +1557,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int vitalStrikeMod = default,
         string mythicBlueprint = null,
         string rowdyFeature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomMeleeAttack();
       component.m_Type = type;
@@ -1507,7 +1567,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(mythicBlueprint);
       component.m_RowdyFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(rowdyFeature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1516,11 +1576,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomMove))]
     public AbilityConfigurator AddAbilityCustomMove(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomMove();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1538,7 +1600,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool autoSuccess = default,
         bool stopOnCorpulence = default,
         ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomOverrun();
       component.m_AddBuffWhileRunning = BlueprintTool.GetRef<BlueprintBuffReference>(addBuffWhileRunning);
@@ -1549,7 +1613,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.StopOnCorpulence = stopOnCorpulence;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1565,7 +1629,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string projectile = null,
         float disappearDuration = default,
         float appearDuration = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
@@ -1577,7 +1643,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.AppearFx = appearFx;
       component.AppearDuration = appearDuration;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1593,7 +1659,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float tongueStickSpeed = default,
         float tongueReturnSpeed = default,
         bool returnTargetAbility = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(animationAction);
       ValidateParam(stickCurve);
@@ -1608,7 +1676,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.PullDistance = pullDistance;
       component.m_ReturnTargetAbility = returnTargetAbility;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1623,14 +1691,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int vitalStrikeMod = default,
         string mythicBlueprint = null,
         string rowdyFeature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCustomVitalStrike();
       component.VitalStrikeMod = vitalStrikeMod;
       component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(mythicBlueprint);
       component.m_RowdyFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(rowdyFeature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1639,11 +1709,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDeliverAttackWithWeapon))]
     public AbilityConfigurator AddAbilityDeliverAttackWithWeapon(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverAttackWithWeapon();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1662,7 +1734,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool targetDead = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(targetsCount);
     
@@ -1675,7 +1749,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_TargetType = targetType;
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1693,7 +1767,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool ignoreConcealment = default,
         bool needAttackRoll = default,
         string weapon = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverClashingRocks();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
@@ -1703,7 +1779,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.NeedAttackRoll = needAttackRoll;
       component.m_Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1713,12 +1789,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityDeliverDelay))]
     public AbilityConfigurator AddAbilityDeliverDelay(
         float delaySeconds = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverDelay();
       component.DelaySeconds = delaySeconds;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1744,7 +1822,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AbilityRankType maxProjectilesCountRank = default,
         float delayBetweenProjectiles = default,
         string controlledProjectileHolderBuff = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverProjectile();
       component.m_Projectiles = projectiles.Select(name => BlueprintTool.GetRef<BlueprintProjectileReference>(name)).ToArray();
@@ -1761,7 +1841,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.DelayBetweenProjectiles = delayBetweenProjectiles;
       component.m_ControlledProjectileHolderBuff = BlueprintTool.GetRef<BlueprintBuffReference>(controlledProjectileHolderBuff);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1789,7 +1869,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AbilityRankType maxProjectilesCountRank = default,
         float delayBetweenProjectiles = default,
         string controlledProjectileHolderBuff = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverProjectileOnGrid();
       component.LaunchProjectileOnGridLine = launchProjectileOnGridLine;
@@ -1808,7 +1890,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.DelayBetweenProjectiles = delayBetweenProjectiles;
       component.m_ControlledProjectileHolderBuff = BlueprintTool.GetRef<BlueprintBuffReference>(controlledProjectileHolderBuff);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1820,12 +1902,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityDeliverTouch))]
     public AbilityConfigurator AddAbilityDeliverTouch(
         string touchWeapon = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDeliverTouch();
       component.m_TouchWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(touchWeapon);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1834,11 +1918,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDemonCharge))]
     public AbilityConfigurator AddAbilityDemonCharge(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDemonCharge();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1847,11 +1933,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public AbilityConfigurator AddAbilityDifficultyLimitDC(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1861,12 +1949,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityEffectRunActionOnClickedPoint))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedPoint(
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedPoint();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1876,12 +1966,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityEffectRunActionOnClickedTarget))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedTarget(
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedTarget();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1891,12 +1983,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityEffectRunActionOnClickedUnit))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedUnit(
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedUnit();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1908,12 +2002,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityEffectStickyTouch))]
     public AbilityConfigurator AddAbilityEffectStickyTouch(
         string touchDeliveryAbility = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityEffectStickyTouch();
       component.m_TouchDeliveryAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(touchDeliveryAbility);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1922,11 +2018,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityIsBomb))]
     public AbilityConfigurator AddAbilityIsBomb(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityIsBomb();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1935,11 +2033,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityKineticBlade))]
     public AbilityConfigurator AddAbilityKineticBlade(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityKineticBlade();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1951,12 +2051,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityMagusSpellRecallCostCalculator))]
     public AbilityConfigurator AddAbilityMagusSpellRecallCostCalculator(
         string improvedFeature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityMagusSpellRecallCostCalculator();
       component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(improvedFeature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1965,11 +2067,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityRequirementCanMove))]
     public AbilityConfigurator AddAbilityRequirementCanMove(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityRequirementCanMove();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1981,14 +2085,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool not = default,
         UnitCondition[] conditions = null,
         List<UnitCondition> conditionsCache = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityRequirementHasCondition();
       component.Not = not;
       component.Conditions = conditions;
       component.m_ConditionsCache = conditionsCache;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1998,12 +2104,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityRequirementHasItemInHands))]
     public AbilityConfigurator AddAbilityRequirementHasItemInHands(
         AbilityRequirementHasItemInHands.RequirementType type = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityRequirementHasItemInHands();
       component.m_Type = type;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2022,7 +2130,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int amount = default,
         string[] resourceCostIncreasingFacts = null,
         string[] resourceCostDecreasingFacts = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityResourceLogic();
       component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(requiredResource);
@@ -2032,7 +2142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.ResourceCostIncreasingFacts = resourceCostIncreasingFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.ResourceCostDecreasingFacts = resourceCostDecreasingFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2043,13 +2153,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityRestoreSpellSlot(
         bool anySpellLevel = default,
         int spellLevel = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityRestoreSpellSlot();
       component.AnySpellLevel = anySpellLevel;
       component.SpellLevel = spellLevel;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2060,13 +2172,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityRestoreSpontaneousSpell(
         bool anySpellLevel = default,
         int spellLevel = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityRestoreSpontaneousSpell();
       component.AnySpellLevel = anySpellLevel;
       component.SpellLevel = spellLevel;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2082,7 +2196,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string factor = null,
         int maxSpellLevel = default,
         string spellList = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityShadowSpell();
       component.School = school;
@@ -2090,7 +2206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.MaxSpellLevel = maxSpellLevel;
       component.SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(spellList);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2103,13 +2219,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityShowIfCasterHasFact(
         string unitFact = null,
         bool not = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityShowIfCasterHasFact();
       component.m_UnitFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(unitFact);
       component.Not = not;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2119,14 +2237,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilitySillyFeed))]
     public AbilityConfigurator AddAbilitySillyFeed(
         UnitAnimationActionClip animation,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(animation);
     
       var component = new AbilitySillyFeed();
       component.m_Animation = animation;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2145,7 +2265,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string disappearProjectile = null,
         string appearProjectile = null,
         float appearDelay = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(portalPrefab);
       ValidateParam(disappearFx);
@@ -2160,7 +2282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(appearProjectile);
       component.AppearDelay = appearDelay;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2174,7 +2296,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         bool includeDead = default,
         ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetsAround();
       component.m_Radius = radius;
@@ -2183,7 +2307,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_SpreadSpeed = spreadSpeed;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2197,7 +2321,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         bool includeDead = default,
         ConditionsBuilder condition = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetsAroundOnGrid();
       component.m_DiameterInCells = diameterInCells;
@@ -2206,7 +2332,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.m_SpreadSpeed = spreadSpeed;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2220,7 +2346,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool addCasterLevel = default,
         bool multiplyByCasterLevel = default,
         int maxCasterLevel = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityUseOnRest();
       component.Type = type;
@@ -2229,7 +2357,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.MultiplyByCasterLevel = multiplyByCasterLevel;
       component.MaxCasterLevel = maxCasterLevel;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2238,11 +2366,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilitySwtichDualCompanionChecker))]
     public AbilityConfigurator AddAbilitySwtichDualCompanionChecker(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilitySwtichDualCompanionChecker();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2252,12 +2382,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetAlignment))]
     public AbilityConfigurator AddAbilityTargetAlignment(
         AlignmentMaskType alignment = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetAlignment();
       component.Alignment = alignment;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2271,13 +2403,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetBreathOfLife(
         string recentlyDeadBuff = null,
         string undeadFact = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetBreathOfLife();
       component.m_RecentlyDeadBuff = BlueprintTool.GetRef<BlueprintBuffReference>(recentlyDeadBuff);
       component.m_UndeadFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(undeadFact);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2305,7 +2439,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool factionDependent = default,
         bool onlyEmptyCells = default,
         int diameter = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetCellsRestriction();
       component.m_AllowedColumns = allowedColumns;
@@ -2313,7 +2449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_OnlyEmptyCells = onlyEmptyCells;
       component.m_Diameter = diameter;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2386,14 +2522,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool not = default,
         UnitCondition condition = default,
         string[] buffs = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetHasConditionOrBuff();
       component.Not = not;
       component.Condition = condition;
       component.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2421,11 +2559,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetHasMeleeWeaponInPrimaryHand))]
     public AbilityConfigurator AddAbilityTargetHasMeleeWeaponInPrimaryHand(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetHasMeleeWeaponInPrimaryHand();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2458,7 +2598,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool needHPCondition = default,
         int currentHPLessThan = default,
         bool invertedHP = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetHasOneOfConditionsOrHP();
       component.Condition = condition;
@@ -2466,7 +2608,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.CurrentHPLessThan = currentHPLessThan;
       component.InvertedHP = invertedHP;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2491,12 +2633,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsAnimalCompanion))]
     public AbilityConfigurator AddAbilityTargetIsAnimalCompanion(
         bool not = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsAnimalCompanion();
       component.Not = not;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2505,11 +2649,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsAreaEffectFromCaster))]
     public AbilityConfigurator AddAbilityTargetIsAreaEffectFromCaster(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsAreaEffectFromCaster();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2518,11 +2664,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsDeadAnimalCompanion))]
     public AbilityConfigurator AddAbilityTargetIsDeadAnimalCompanion(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsDeadAnimalCompanion();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2531,11 +2679,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsDeadCompanion))]
     public AbilityConfigurator AddAbilityTargetIsDeadCompanion(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsDeadCompanion();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2557,11 +2707,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsNotDevoured))]
     public AbilityConfigurator AddAbilityTargetIsNotDevoured(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsNotDevoured();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2585,11 +2737,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsSuitableMount))]
     public AbilityConfigurator AddAbilityTargetIsSuitableMount(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsSuitableMount();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2598,11 +2752,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetIsSuitableMountSize))]
     public AbilityConfigurator AddAbilityTargetIsSuitableMountSize(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetIsSuitableMountSize();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2626,11 +2782,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetNotSelf))]
     public AbilityConfigurator AddAbilityTargetNotSelf(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetNotSelf();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2641,13 +2799,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetRangeRestriction(
         Feet distance,
         CompareOperation.Type compareType = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetRangeRestriction();
       component.Distance = distance;
       component.CompareType = compareType;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2676,12 +2836,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetStoneToFlesh))]
     public AbilityConfigurator AddAbilityTargetStoneToFlesh(
         bool canBeNotPetrified = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityTargetStoneToFlesh();
       component.CanBeNotPetrified = canBeNotPetrified;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2690,11 +2852,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(DimensionDoorRestrictionIgnorance))]
     public AbilityConfigurator AddDimensionDoorRestrictionIgnorance(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DimensionDoorRestrictionIgnorance();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2703,11 +2867,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(LineOfSightIgnorance))]
     public AbilityConfigurator AddLineOfSightIgnorance(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LineOfSightIgnorance();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2757,11 +2923,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCasterNotPolymorphed))]
     public AbilityConfigurator AddAbilityCasterNotPolymorphed(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityCasterNotPolymorphed();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2770,11 +2938,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityMaxSquadsRestriction))]
     public AbilityConfigurator AddAbilityMaxSquadsRestriction(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityMaxSquadsRestriction();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2819,7 +2989,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AnimationCurve pullCurve,
         float pullSpeed = default,
         int pullDistanceInCells = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(pullCurve);
     
@@ -2828,7 +3000,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.PullCurve = pullCurve;
       component.PullDistanceInCells = pullDistanceInCells;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2840,14 +3012,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         List<Vector2Int> affectedCells = null,
         bool ignoreObstaclesAndUnits = default,
         bool spawnFxInEveryCell = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CustomAreaOnGrid();
       component.AffectedCells = affectedCells;
       component.IgnoreObstaclesAndUnits = ignoreObstaclesAndUnits;
       component.SpawnFxInEveryCell = spawnFxInEveryCell;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2856,11 +3030,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(TacticalCombatDefenseAbility))]
     public AbilityConfigurator AddTacticalCombatDefenseAbility(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TacticalCombatDefenseAbility();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2869,11 +3045,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(TacticalCombatResurrection))]
     public AbilityConfigurator AddTacticalCombatResurrection(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TacticalCombatResurrection();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2883,12 +3061,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(PureRecommendation))]
     public AbilityConfigurator AddPureRecommendation(
         RecommendationPriority priority = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PureRecommendation();
       component.Priority = priority;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2912,13 +3092,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddRecommendationBaseAttackPart(
         float minPart = default,
         bool notRecommendIfHigher = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationBaseAttackPart();
       component.MinPart = minPart;
       component.NotRecommendIfHigher = notRecommendIfHigher;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2982,11 +3164,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(RecommendationRequiresSpellbook))]
     public AbilityConfigurator AddRecommendationRequiresSpellbook(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbook();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -2998,14 +3182,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool arcane = default,
         bool divine = default,
         bool alchemist = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbookSource();
       component.Arcane = arcane;
       component.Divine = divine;
       component.Alchemist = alchemist;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -3017,14 +3203,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         StatType higherStat = default,
         StatType lowerStat = default,
         int diff = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationStatComparison();
       component.HigherStat = higherStat;
       component.LowerStat = lowerStat;
       component.Diff = diff;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -3073,13 +3261,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddRecommendationWeaponTypeFocus(
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = weaponRangeType;
       component.HasFocus = hasFocus;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

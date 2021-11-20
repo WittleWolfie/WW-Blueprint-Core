@@ -8,6 +8,7 @@ using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -201,12 +202,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(AddFactOnLeaderUnit))]
     public LeaderSkillConfigurator AddFactOnLeaderUnit(
         string[] facts = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddFactOnLeaderUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -262,14 +265,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         int bonusPercent = default,
         int levelForBonusSkills = default,
         string bonusSkills = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LeaderExpBonus();
       component.m_BonusPercent = bonusPercent;
       component.m_LevelForBonusSkills = levelForBonusSkills;
       component.m_BonusSkills = BlueprintTool.GetRef<BlueprintLeaderSkillsList.Reference>(bonusSkills);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -279,14 +284,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(LeaderPercentAttributeBonus))]
     public LeaderSkillConfigurator AddLeaderPercentAttributeBonus(
         LeaderAttributes percentBonuses,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(percentBonuses);
     
       var component = new LeaderPercentAttributeBonus();
       component.m_PercentBonuses = percentBonuses;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -296,12 +303,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(MaxArmySquadsBonusLeaderComponent))]
     public LeaderSkillConfigurator AddMaxArmySquadsBonusLeaderComponent(
         int armySizeBonus = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MaxArmySquadsBonusLeaderComponent();
       component.m_ArmySizeBonus = armySizeBonus;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -378,12 +387,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     [Implements(typeof(TacticalLeaderRitualComponent))]
     public LeaderSkillConfigurator AddTacticalLeaderRitualComponent(
         string ability = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TacticalLeaderRitualComponent();
       component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -394,13 +405,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddArmyLeaderAddResourcesOnBattleEnd(
         KingdomResourcesAmount resourcesAmount,
         bool onlyOnVictory = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmyLeaderAddResourcesOnBattleEnd();
       component.m_ResourcesAmount = resourcesAmount;
       component.OnlyOnVictory = onlyOnVictory;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

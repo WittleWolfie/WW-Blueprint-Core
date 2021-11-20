@@ -9,6 +9,7 @@ using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -399,7 +400,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         string goodAvoidanceEnterPoint = null,
         GlobalMapZone[] allowedNaturalSettings = null,
         CombatRandomEncounterAreaSettings.Formation[] formations = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(formations);
     
@@ -409,7 +412,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.AllowedNaturalSettings = allowedNaturalSettings;
       component.Formations = formations;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -421,12 +424,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Implements(typeof(AreaSettlementLink))]
     public TBuilder AddAreaSettlementLink(
         string settlementRef = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AreaSettlementLink();
       component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -437,13 +442,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder AddOverrideCampingAction(
         ActionsBuilder onRestActions = null,
         bool skipRest = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new OverrideCampingAction();
       component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
       component.SkipRest = skipRest;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -514,14 +521,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         string aIBuildListVillage = null,
         string aIBuildListTown = null,
         string aIBuildListCity = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);
       component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListTown);
       component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListCity);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 
@@ -926,7 +935,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         string goodAvoidanceEnterPoint = null,
         GlobalMapZone[] allowedNaturalSettings = null,
         CombatRandomEncounterAreaSettings.Formation[] formations = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(formations);
     
@@ -936,7 +947,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.AllowedNaturalSettings = allowedNaturalSettings;
       component.Formations = formations;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -948,12 +959,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Implements(typeof(AreaSettlementLink))]
     public AreaConfigurator AddAreaSettlementLink(
         string settlementRef = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AreaSettlementLink();
       component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -964,13 +977,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaConfigurator AddOverrideCampingAction(
         ActionsBuilder onRestActions = null,
         bool skipRest = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new OverrideCampingAction();
       component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
       component.SkipRest = skipRest;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1041,14 +1056,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         string aIBuildListVillage = null,
         string aIBuildListTown = null,
         string aIBuildListCity = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);
       component.m_AIBuildListTown = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListTown);
       component.m_AIBuildListCity = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListCity);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

@@ -6,6 +6,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -363,11 +364,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(AddParametrizedClassSkill))]
     public ParametrizedFeatureConfigurator AddParametrizedClassSkill(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddParametrizedClassSkill();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -378,7 +381,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator AddParametrizedStatBonus(
         ContextValue value = null,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(value);
     
@@ -386,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -396,12 +401,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(AbilityFocusParametrized))]
     public ParametrizedFeatureConfigurator AddAbilityFocusParametrized(
         bool spellsOnly = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityFocusParametrized();
       component.SpellsOnly = spellsOnly;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -410,11 +417,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(AddFeatureParametrized))]
     public ParametrizedFeatureConfigurator AddFeatureParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddFeatureParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -424,12 +433,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(AddFeatureToPetParametrized))]
     public ParametrizedFeatureConfigurator AddFeatureToPetParametrized(
         PetType petType = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddFeatureToPetParametrized();
       component.PetType = petType;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -438,11 +449,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(ExpandedArsenalMagicSchools))]
     public ParametrizedFeatureConfigurator AddExpandedArsenalMagicSchools(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ExpandedArsenalMagicSchools();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -466,7 +479,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         string improvedCritical = null,
         string weaponMastery = null,
         string greaterFeature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new FullWeaponMasterySkeletonParametrized();
       component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
@@ -477,7 +492,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.m_WeaponMastery = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(weaponMastery);
       component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(greaterFeature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -486,11 +501,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(ImprovedCriticalEdgeParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalEdgeParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ImprovedCriticalEdgeParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -499,11 +516,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(ImprovedCriticalMythicParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalMythicParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ImprovedCriticalMythicParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -512,11 +531,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(ImprovedCriticalParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ImprovedCriticalParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -528,12 +549,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(KensaiChosenWeapon))]
     public ParametrizedFeatureConfigurator AddKensaiChosenWeapon(
         string focus = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KensaiChosenWeapon();
       component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -550,7 +573,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bool specificSpellLevel = default,
         int spellLevelPenalty = default,
         int spellLevel = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LearnSpellParametrized();
       component.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(spellcasterClass);
@@ -559,7 +584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.SpellLevelPenalty = spellLevelPenalty;
       component.SpellLevel = spellLevel;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -568,11 +593,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(SavesFixerParamSpellSchool))]
     public ParametrizedFeatureConfigurator AddSavesFixerParamSpellSchool(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SavesFixerParamSpellSchool();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -581,11 +608,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(SchoolMasteryParametrized))]
     public ParametrizedFeatureConfigurator AddSchoolMasteryParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SchoolMasteryParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -600,7 +629,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         ModifierDescriptor descriptor = default,
         string mythicFocus = null,
         bool spellsOnly = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SpellFocusParametrized();
       component.BonusDC = bonusDC;
@@ -608,7 +639,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(mythicFocus);
       component.SpellsOnly = spellsOnly;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -617,11 +648,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(SpellSpecializationParametrized))]
     public ParametrizedFeatureConfigurator AddSpellSpecializationParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SpellSpecializationParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -634,13 +667,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator AddWeaponFocusParametrized(
         string mythicFocus = null,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponFocusParametrized();
       component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(mythicFocus);
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -649,11 +684,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(WeaponMasteryParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponMasteryParametrized(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponMasteryParametrized();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -663,12 +700,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(WeaponSpecializationParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponSpecializationParametrized(
         bool mythic = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponSpecializationParametrized();
       component.Mythic = mythic;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

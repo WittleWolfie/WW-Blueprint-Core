@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -177,12 +178,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Implements(typeof(AllowOnZoneSettings))]
     public AreaEnterPointConfigurator AddAllowOnZoneSettings(
         GlobalMapZone[] allowedNaturalSettings = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AllowOnZoneSettings();
       component.m_AllowedNaturalSettings = allowedNaturalSettings;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

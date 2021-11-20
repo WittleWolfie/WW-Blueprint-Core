@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -111,13 +112,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
         bool anyFeatureFromSelection = default,
         string[] features = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = anyFeatureFromSelection;
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

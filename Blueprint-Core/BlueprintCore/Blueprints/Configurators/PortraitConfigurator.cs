@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -72,13 +73,15 @@ namespace BlueprintCore.Blueprints.Configurators
     public PortraitConfigurator AddPortraitDollSettings(
         Gender gender = default,
         string race = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PortraitDollSettings();
       component.Gender = gender;
       component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -87,11 +90,13 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(PortraitPremiumSetting))]
     public PortraitConfigurator AddPortraitPremiumSetting(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new PortraitPremiumSetting();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

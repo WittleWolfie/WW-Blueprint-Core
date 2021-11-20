@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
@@ -42,12 +43,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(ArmorEnhancementBonus))]
     public ArmorEnchantmentConfigurator AddArmorEnhancementBonus(
         int enhancementValue = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmorEnhancementBonus();
       component.EnhancementValue = enhancementValue;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -76,14 +79,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int maxDexBonusShift = default,
         int armorCheckPenaltyShift = default,
         int arcaneSpellFailureShift = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AdvanceArmorStats();
       component.MaxDexBonusShift = maxDexBonusShift;
       component.ArmorCheckPenaltyShift = armorCheckPenaltyShift;
       component.ArcaneSpellFailureShift = arcaneSpellFailureShift;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

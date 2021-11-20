@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -159,7 +160,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool tickOnStart = default,
         ActionsBuilder onRecurrence = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(statsOnRecurrence);
       ValidateParam(description);
@@ -171,7 +174,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.StatsOnRecurrence = statsOnRecurrence;
       component.Description = description ?? Constants.Empty.String;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

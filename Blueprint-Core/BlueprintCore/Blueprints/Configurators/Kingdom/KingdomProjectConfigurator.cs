@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -148,13 +149,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder AddEventItemCost(
         string[] items = null,
         int amount = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EventItemCost();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
       component.Amount = amount;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -166,12 +169,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(ExclusiveProjects))]
     public TBuilder AddExclusiveProjects(
         string[] projects = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ExclusiveProjects();
       component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -183,12 +188,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public TBuilder AddFinishObjectiveOnTrigger(
         string objective = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new FinishObjectiveOnTrigger();
       component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -197,11 +204,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(MarkAsCrusadeProject))]
     public TBuilder AddMarkAsCrusadeProject(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MarkAsCrusadeProject();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 
@@ -363,13 +372,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomProjectConfigurator AddEventItemCost(
         string[] items = null,
         int amount = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EventItemCost();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
       component.Amount = amount;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -381,12 +392,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(ExclusiveProjects))]
     public KingdomProjectConfigurator AddExclusiveProjects(
         string[] projects = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ExclusiveProjects();
       component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -398,12 +411,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public KingdomProjectConfigurator AddFinishObjectiveOnTrigger(
         string objective = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new FinishObjectiveOnTrigger();
       component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -412,11 +427,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(MarkAsCrusadeProject))]
     public KingdomProjectConfigurator AddMarkAsCrusadeProject(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MarkAsCrusadeProject();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

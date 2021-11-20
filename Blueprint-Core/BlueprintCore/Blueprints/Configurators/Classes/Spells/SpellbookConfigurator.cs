@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
@@ -327,11 +328,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Generated]
     [Implements(typeof(IsAlchemistSpellbook))]
     public SpellbookConfigurator AddIsAlchemistSpellbook(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IsAlchemistSpellbook();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -340,11 +343,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Generated]
     [Implements(typeof(IsSinMagicSpecialistSpellbook))]
     public SpellbookConfigurator AddIsSinMagicSpecialistSpellbook(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new IsSinMagicSpecialistSpellbook();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

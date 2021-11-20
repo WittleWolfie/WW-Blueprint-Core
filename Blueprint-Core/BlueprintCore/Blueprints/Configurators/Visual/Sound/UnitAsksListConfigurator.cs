@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {
@@ -80,7 +81,9 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
         UnitAsksComponent.Bark currentlyActiveBark,
         string[] soundBanks = null,
         UnitAsksComponent.AnimationBark[] animationBarks = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(aggro);
       ValidateParam(pain);
@@ -131,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
       component.m_Unit = unit;
       component.m_CurrentlyActiveBark = currentlyActiveBark;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

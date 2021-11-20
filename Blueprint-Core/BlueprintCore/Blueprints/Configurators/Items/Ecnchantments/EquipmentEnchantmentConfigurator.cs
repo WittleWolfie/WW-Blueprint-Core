@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
@@ -47,7 +48,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         bool requiresFinesse = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = stat;
@@ -55,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.Category = category;
       component.RequiresFinesse = requiresFinesse;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -67,14 +70,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancement = default,
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentWeaponTypeEnhancement();
       component.Enhancement = enhancement;
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -84,12 +89,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(NaturalDamageStatReplacement))]
     public TBuilder AddNaturalDamageStatReplacement(
         StatType stat = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -101,14 +108,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupAttackBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -119,13 +128,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddWeaponGroupDamageBonusEquipment(
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -137,14 +148,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponRangeType rangeType = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponRangeTypeAttackBonusEquipment();
       component.RangeType = rangeType;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 
@@ -204,7 +217,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         bool requiresFinesse = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = stat;
@@ -212,7 +227,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.Category = category;
       component.RequiresFinesse = requiresFinesse;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -224,14 +239,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancement = default,
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentWeaponTypeEnhancement();
       component.Enhancement = enhancement;
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed;
       component.Category = category;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -241,12 +258,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(NaturalDamageStatReplacement))]
     public EquipmentEnchantmentConfigurator AddNaturalDamageStatReplacement(
         StatType stat = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -258,14 +277,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupAttackBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -276,13 +297,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public EquipmentEnchantmentConfigurator AddWeaponGroupDamageBonusEquipment(
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -294,14 +317,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponRangeType rangeType = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponRangeTypeAttackBonusEquipment();
       component.RangeType = rangeType;
       component.AttackBonus = attackBonus;
       component.Descriptor = descriptor;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

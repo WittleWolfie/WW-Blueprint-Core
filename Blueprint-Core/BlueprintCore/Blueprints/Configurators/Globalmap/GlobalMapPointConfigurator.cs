@@ -10,6 +10,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
@@ -734,13 +735,15 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator AddLocationRadiusBuff(
         float radius = default,
         string buff = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRadiusBuff();
       component.Radius = radius;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -755,7 +758,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder allowedCondition = null,
         string[] requiredCompanions = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(description);
     
@@ -765,7 +770,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       component.RequiredCompanions = requiredCompanions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
       component.Description = description ?? Constants.Empty.String;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -776,13 +781,15 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator AddLocationRevealedTrigger(
         bool onlyOnce = default,
         ActionsBuilder onReveal = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRevealedTrigger();
       component.OnlyOnce = onlyOnce;
       component.OnReveal = onReveal?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

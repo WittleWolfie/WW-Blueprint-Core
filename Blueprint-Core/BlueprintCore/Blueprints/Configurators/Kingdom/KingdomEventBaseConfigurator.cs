@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -234,13 +235,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder AddEventDynamicCostFeast(
         KingdomResourcesAmount costPerUse,
         string blueprint = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EventDynamicCostFeast();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(blueprint);
       component.CostPerUse = costPerUse;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -274,14 +277,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(EventFinalResults))]
     public TBuilder AddEventFinalResults(
         EventResult[] results = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(results);
     
       var component = new EventFinalResults();
       component.Results = results;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
@@ -182,7 +183,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder allowedCondition = null,
         string[] requiredCompanions = null,
         LocalizedString description = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(description);
     
@@ -192,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       component.RequiredCompanions = requiredCompanions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToList();
       component.Description = description ?? Constants.Empty.String;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

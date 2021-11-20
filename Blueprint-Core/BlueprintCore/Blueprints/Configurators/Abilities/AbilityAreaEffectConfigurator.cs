@@ -16,6 +16,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -199,11 +200,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AreaEffectSpawnLogic))]
     public AbilityAreaEffectConfigurator AddAreaEffectSpawnLogic(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AreaEffectSpawnLogic();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -215,12 +218,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(UniqueAreaEffect))]
     public AbilityAreaEffectConfigurator AddUniqueAreaEffect(
         string feature = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new UniqueAreaEffect();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -239,7 +244,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue casterLevel = null,
         bool replaceSpellLevel = default,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -254,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.ReplaceSpellLevel = replaceSpellLevel;
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -268,14 +275,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool useKineticistMainStat = default,
         StatType statType = default,
         string characterClass = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -310,7 +319,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ContextValue casterLevel = null,
         ContextValue concentration = null,
         ContextValue spellLevel = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -324,7 +335,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.Concentration = concentration ?? ContextValues.Constant(0);
       component.SpellLevel = spellLevel ?? ContextValues.Constant(0);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -333,11 +344,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public AbilityAreaEffectConfigurator AddAbilityDifficultyLimitDC(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -351,14 +364,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ConditionsBuilder condition = null,
         bool checkConditionEveryRound = default,
         string buff = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAreaEffectBuff();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.CheckConditionEveryRound = checkConditionEveryRound;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -368,12 +383,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityAreaEffectMovement))]
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectMovement(
         Feet distancePerRound,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAreaEffectMovement();
       component.DistancePerRound = distancePerRound;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -386,7 +403,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ActionsBuilder unitExit = null,
         ActionsBuilder unitMove = null,
         ActionsBuilder round = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AbilityAreaEffectRunAction();
       component.UnitEnter = unitEnter?.Build() ?? Constants.Empty.Actions;
@@ -394,7 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.UnitMove = unitMove?.Build() ?? Constants.Empty.Actions;
       component.Round = round?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -409,7 +428,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         SpecialBehaviour behaviour = default,
         string buff = null,
         int count = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(buffFact);
     
@@ -419,7 +440,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_BuffFact = buffFact;
       component.m_Count = count;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -429,14 +450,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbillityAreaEffectRoundFX))]
     public AbilityAreaEffectConfigurator AddAbillityAreaEffectRoundFX(
         PrefabLink prefabLink = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(prefabLink);
     
       var component = new AbillityAreaEffectRoundFX();
       component.PrefabLink = prefabLink ?? Constants.Empty.PrefabLink;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -460,7 +483,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool disableClimb = default,
         string[] effectsImmunityFacts = null,
         string[] evadingImmunityFacts = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(climbDC);
     
@@ -476,7 +501,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.m_EffectsImmunityFacts = effectsImmunityFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_EvadingImmunityFacts = evadingImmunityFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -488,14 +513,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         List<Vector2Int> affectedCells = null,
         bool ignoreObstaclesAndUnits = default,
         bool spawnFxInEveryCell = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new CustomAreaOnGrid();
       component.AffectedCells = affectedCells;
       component.IgnoreObstaclesAndUnits = ignoreObstaclesAndUnits;
       component.SpawnFxInEveryCell = spawnFxInEveryCell;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

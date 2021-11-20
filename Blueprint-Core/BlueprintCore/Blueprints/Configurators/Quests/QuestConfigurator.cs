@@ -8,6 +8,7 @@ using Kingmaker.Blueprints.Quests.Logic.CrusadeQuests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
@@ -197,12 +198,14 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     [Implements(typeof(QuestRelatesToCompanionStory))]
     public QuestConfigurator AddQuestRelatesToCompanionStory(
         string companion = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new QuestRelatesToCompanionStory();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -335,7 +338,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(count);
     
@@ -346,7 +351,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.Count = count;
       component.Dummy = dummy;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

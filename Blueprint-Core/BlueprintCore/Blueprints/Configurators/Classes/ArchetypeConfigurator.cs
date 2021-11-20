@@ -593,12 +593,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(DeityDependencyClass))]
     public ArchetypeConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -434,14 +435,16 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
         string beginnerMythic = null,
         string earlyMythic = null,
         string lateMythic = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MythicLevelUpPlan();
       component.BeginnerMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(beginnerMythic);
       component.EarlyMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(earlyMythic);
       component.LateMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(lateMythic);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

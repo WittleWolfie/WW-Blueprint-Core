@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
 using Kingmaker.Visual.LightSelector;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -335,13 +336,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder AddTimeOfDaySettingsOverride(
         string settings = null,
         string overrideValue = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TimeOfDaySettingsOverride();
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);
       component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(overrideValue);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 
@@ -687,13 +690,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator AddTimeOfDaySettingsOverride(
         string settings = null,
         string overrideValue = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TimeOfDaySettingsOverride();
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);
       component.m_Override = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(overrideValue);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

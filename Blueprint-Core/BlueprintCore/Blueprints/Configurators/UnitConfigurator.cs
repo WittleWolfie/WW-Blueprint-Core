@@ -29,6 +29,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Components.Fixers;
 using Kingmaker.Utility;
 using Kingmaker.View.MapObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -691,12 +692,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(UnitUpgraderComponent))]
     public UnitConfigurator AddUnitUpgraderComponent(
         string[] upgraders = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new UnitUpgraderComponent();
       component.m_Upgraders = upgraders.Select(name => BlueprintTool.GetRef<BlueprintUnitUpgrader.Reference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -730,7 +733,9 @@ namespace BlueprintCore.Blueprints.Configurators
         int extraRations = default,
         CampingSpecialCustomMechanics customMechanics = default,
         string dlcReward = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(name);
       ValidateParam(description);
@@ -753,7 +758,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.CustomMechanics = customMechanics;
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -765,12 +770,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(OverrideAnimationRaceComponent))]
     public UnitConfigurator AddOverrideAnimationRaceComponent(
         string blueprintRace = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new OverrideAnimationRaceComponent();
       component.BlueprintRace = BlueprintTool.GetRef<BlueprintRaceReference>(blueprintRace);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -782,12 +789,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(DualCompanionComponent))]
     public UnitConfigurator AddDualCompanionComponent(
         string pairCompanion = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DualCompanionComponent();
       component.m_PairCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(pairCompanion);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -796,11 +805,13 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(LockedCompanionComponent))]
     public UnitConfigurator AddLockedCompanionComponent(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LockedCompanionComponent();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -811,13 +822,15 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddUnitAggroFilter(
         ConditionsBuilder filterCondition = null,
         ActionsBuilder actionsOnAggro = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new UnitAggroFilter();
       component.FilterCondition = filterCondition?.Build() ?? Constants.Empty.Conditions;
       component.ActionsOnAggro = actionsOnAggro?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -826,11 +839,13 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DisableAllFx))]
     public UnitConfigurator AddDisableAllFx(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DisableAllFx();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -842,12 +857,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ReplaceUnitBlueprintForRespec))]
     public UnitConfigurator AddReplaceUnitBlueprintForRespec(
         string blueprint = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ReplaceUnitBlueprintForRespec();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -856,11 +873,13 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(UnitIsStoryCompanion))]
     public UnitConfigurator AddUnitIsStoryCompanion(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new UnitIsStoryCompanion();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -872,12 +891,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AddClassLevelsToPets))]
     public UnitConfigurator AddClassLevelsToPets(
         string blueprintPet = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddClassLevelsToPets();
       component.m_BlueprintPet = BlueprintTool.GetRef<BlueprintPet.Reference>(blueprintPet);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -887,12 +908,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ClassLevelLimit))]
     public UnitConfigurator AddClassLevelLimit(
         int levelLimit = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ClassLevelLimit();
       component.LevelLimit = levelLimit;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -902,12 +925,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(MythicLevelLimit))]
     public UnitConfigurator AddMythicLevelLimit(
         int levelLimit = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new MythicLevelLimit();
       component.LevelLimit = levelLimit;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -921,7 +946,9 @@ namespace BlueprintCore.Blueprints.Configurators
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(count);
     
@@ -932,7 +959,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.Count = count;
       component.Dummy = dummy;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -973,7 +1000,9 @@ namespace BlueprintCore.Blueprints.Configurators
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ActionsOnClick();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -983,7 +1012,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.TriggerOnParty = triggerOnParty;
       component.Cooldown = cooldown;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -999,7 +1028,9 @@ namespace BlueprintCore.Blueprints.Configurators
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(bark);
     
@@ -1012,7 +1043,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.TriggerOnParty = triggerOnParty;
       component.Cooldown = cooldown;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1030,7 +1061,9 @@ namespace BlueprintCore.Blueprints.Configurators
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DialogOnClick();
       component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
@@ -1041,7 +1074,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.TriggerOnParty = triggerOnParty;
       component.Cooldown = cooldown;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1068,12 +1101,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AddAmbushBehaviour))]
     public UnitConfigurator AddAmbushBehaviour(
         float joinCombatDisatnce = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddAmbushBehaviour();
       component.JoinCombatDisatnce = joinCombatDisatnce;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1117,12 +1152,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AddPostLoadActions))]
     public UnitConfigurator AddPostLoadActions(
         ActionsBuilder actions = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddPostLoadActions();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1134,12 +1171,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AddSharedVendor))]
     public UnitConfigurator AddSharedVendor(
         string m_Table = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddSharedVendor();
       component.m_m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1154,7 +1193,9 @@ namespace BlueprintCore.Blueprints.Configurators
         bool isCaster = default,
         AddTags.DifficultyRequirement difficultyRequirement = default,
         UnitTag[] tags = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddTags();
       component.UseInRandomEncounter = useInRandomEncounter;
@@ -1164,7 +1205,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.m_DifficultyRequirement = difficultyRequirement;
       component.Tags = tags;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1211,14 +1252,16 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(PregenDollSettings))]
     public UnitConfigurator AddPregenDollSettings(
         PregenDollSettings.Entry defaultValue,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(defaultValue);
     
       var component = new PregenDollSettings();
       component.Default = defaultValue;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1303,7 +1346,9 @@ namespace BlueprintCore.Blueprints.Configurators
         ContextValue chanceMultiplier = null,
         float critBonus = default,
         float critMultiplier = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(chanceBase);
       ValidateParam(chanceMultiplier);
@@ -1314,7 +1359,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.m_CritBonus = critBonus;
       component.m_CritMultiplier = critMultiplier;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1324,12 +1369,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ArmySwitchWeaponSlotInMelee))]
     public UnitConfigurator AddArmySwitchWeaponSlotInMelee(
         int slotIndexForMelee = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmySwitchWeaponSlotInMelee();
       component.m_SlotIndexForMelee = slotIndexForMelee;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1368,7 +1415,9 @@ namespace BlueprintCore.Blueprints.Configurators
         int maxExtraActions = default,
         int mercenariesBaseGrowths = default,
         ArmyProperties properties = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(icon);
       ValidateParam(description);
@@ -1384,7 +1433,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.MercenariesBaseGrowths = mercenariesBaseGrowths;
       component.Properties = properties;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1394,12 +1443,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ArmyUnitSpellPower))]
     public UnitConfigurator AddArmyUnitSpellPower(
         int spellPower = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ArmyUnitSpellPower();
       component.m_SpellPower = spellPower;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1441,12 +1492,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(AddEquipmentToPet))]
     public UnitConfigurator AddEquipmentToPet(
         string[] items = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new AddEquipmentToPet();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

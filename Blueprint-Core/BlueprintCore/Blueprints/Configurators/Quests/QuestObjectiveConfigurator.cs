@@ -12,6 +12,7 @@ using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
@@ -426,13 +427,15 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestObjectiveConfigurator AddQuestObjectiveCallback(
         ActionsBuilder onComplete = null,
         ActionsBuilder onFail = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new QuestObjectiveCallback();
       component.m_OnComplete = onComplete?.Build() ?? Constants.Empty.Actions;
       component.m_OnFail = onFail?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -443,13 +446,15 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestObjectiveConfigurator AddTimedObjectiveTrigger(
         int daysTillTrigger = default,
         ActionsBuilder action = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TimedObjectiveTrigger();
       component.DaysTillTrigger = daysTillTrigger;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -463,7 +468,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(count);
     
@@ -474,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.Count = count;
       component.Dummy = dummy;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -513,13 +520,15 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestObjectiveConfigurator AddGiveUnlockOnObjectiveTrigger(
         QuestObjectiveState objectiveState = default,
         string unlock = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new GiveUnlockOnObjectiveTrigger();
       component.objectiveState = objectiveState;
       component.m_unlock = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(unlock);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -533,14 +542,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         int count = default,
         SummonPoolCountTrigger.ObjectiveStatus setStatus = default,
         string summonPool = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new SummonPoolCountTrigger();
       component.count = count;
       component.setStatus = setStatus;
       component.m_summonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

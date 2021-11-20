@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Visual.Animation.Kingmaker;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -207,7 +208,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         int cR = default,
         float modifier = default,
         bool dummy = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       ValidateParam(count);
     
@@ -218,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.Count = count;
       component.Dummy = dummy;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

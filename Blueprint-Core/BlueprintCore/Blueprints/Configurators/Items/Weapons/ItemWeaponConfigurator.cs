@@ -6,6 +6,7 @@ using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Class.Kineticist;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
@@ -262,13 +263,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public ItemWeaponConfigurator AddWeaponKineticBlade(
         string activationAbility = null,
         string blast = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new WeaponKineticBlade();
       component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(activationAbility);
       component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(blast);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

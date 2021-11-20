@@ -14,6 +14,7 @@ using Kingmaker.Kingdom.Settlements.BuildingComponents;
 using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
@@ -240,13 +241,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator AddLocationRadiusBuff(
         float radius = default,
         string buff = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new LocationRadiusBuff();
       component.Radius = radius;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -302,11 +305,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(Aviary))]
     public SettlementBuildingConfigurator AddAviary(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new Aviary();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -414,12 +419,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(BuildingCountsAs))]
     public SettlementBuildingConfigurator AddBuildingCountsAs(
         string[] buildings = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new BuildingCountsAs();
       component.Buildings = buildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToList();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -761,11 +768,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Generated]
     [Implements(typeof(TeleportationCircle))]
     public SettlementBuildingConfigurator AddTeleportationCircle(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new TeleportationCircle();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -909,12 +918,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomAddMercenaryReroll))]
     public SettlementBuildingConfigurator AddKingdomAddMercenaryReroll(
         int freeRerollsToAdd = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenaryReroll();
       component.m_FreeRerollsToAdd = freeRerollsToAdd;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -924,12 +935,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     [Implements(typeof(KingdomAddMercenarySlot))]
     public SettlementBuildingConfigurator AddKingdomAddMercenarySlot(
         int slotsToAdd = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new KingdomAddMercenarySlot();
       component.m_SlotsToAdd = slotsToAdd;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

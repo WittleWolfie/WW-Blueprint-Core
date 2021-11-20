@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
@@ -306,13 +307,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
         bool not = default,
         string[] classes = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionHasAnyClassFromList();
       component.Not = not;
       component.m_Classes = classes.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -321,11 +324,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Generated]
     [Implements(typeof(EquipmentRestrictionMainPlayer))]
     public TBuilder AddEquipmentRestrictionMainPlayer(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionMainPlayer();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -337,12 +342,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Implements(typeof(EquipmentRestrictionSpecialUnit))]
     public TBuilder AddEquipmentRestrictionSpecialUnit(
         string blueprint = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EquipmentRestrictionSpecialUnit();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

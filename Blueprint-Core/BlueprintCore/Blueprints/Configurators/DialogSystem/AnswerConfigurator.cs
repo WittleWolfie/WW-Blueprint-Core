@@ -6,6 +6,7 @@ using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
@@ -283,12 +284,14 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     [Implements(typeof(ActingCompanion))]
     public AnswerConfigurator AddActingCompanion(
         string companion = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new ActingCompanion();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

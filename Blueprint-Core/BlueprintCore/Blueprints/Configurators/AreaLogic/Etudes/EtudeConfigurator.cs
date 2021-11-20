@@ -19,6 +19,7 @@ using Kingmaker.Sound;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
@@ -625,11 +626,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Generated]
     [Implements(typeof(DisableMountRiding))]
     public EtudeConfigurator AddDisableMountRiding(
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DisableMountRiding();
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1155,12 +1158,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Implements(typeof(EtudeGameOverTrigger))]
     public EtudeConfigurator AddEtudeGameOverTrigger(
         ActionsBuilder onGameOver = null,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new EtudeGameOverTrigger();
       component.OnGameOver = onGameOver?.Build() ?? Constants.Empty.Actions;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1209,12 +1214,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     [Implements(typeof(HideAllPets))]
     public EtudeConfigurator AddHideAllPets(
         bool leaveAzataDragon = default,
-        BlueprintComponent.Flags flags = default)
+        BlueprintComponent.Flags flags = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new HideAllPets();
       component.LeaveAzataDragon = leaveAzataDragon;
       component.m_Flags = flags;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
