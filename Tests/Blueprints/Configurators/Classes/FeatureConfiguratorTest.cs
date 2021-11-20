@@ -1,4 +1,5 @@
 using BlueprintCore.Blueprints.Configurators.Classes;
+using BlueprintCore.Blueprints.Components;
 using BlueprintCore.Test.Asserts;
 using BlueprintCore.Test.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
@@ -14,6 +15,9 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using Xunit;
 using static BlueprintCore.Test.TestData;
+using System;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using System.Linq;
 
 namespace BlueprintCore.Test.Blueprints.Configurators.Classes
 {
@@ -22,6 +26,44 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
       where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
     protected BaseFeatureConfiguratorTest() : base() { }
+
+    [Fact]
+    public void AddContextRankConfig()
+    {
+      var config = ContextRankConfigs.BaseAttack();
+
+      GetConfigurator(Guid)
+          .AddContextRankConfig(config)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var component = blueprint.GetComponent<ContextRankConfig>();
+      Assert.NotNull(component);
+      Assert.Equal(config, component);
+    }
+
+    [Fact]
+    public void AddContextRankConfig_MultipleWithoutConflict()
+    {
+      GetConfigurator(Guid)
+          .AddContextRankConfig(ContextRankConfigs.BaseAttack())
+          .AddContextRankConfig(ContextRankConfigs.BaseAttack(AbilityRankType.DamageBonus))
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(2, blueprint.GetComponents<ContextRankConfig>().Count());
+    }
+
+    [Fact]
+    public void AddContextRankConfig_WithConflictingTypes()
+    {
+      Assert.Throws<InvalidOperationException>(
+          () =>
+              GetConfigurator(Guid)
+                  .AddContextRankConfig(ContextRankConfigs.BaseAttack())
+                  .AddContextRankConfig(ContextRankConfigs.BaseStat(StatType.Strength))
+                  .Configure());
+    }
 
     [Fact]
     public void AddFeatureGroups()

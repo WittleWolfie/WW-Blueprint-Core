@@ -33,6 +33,16 @@ namespace BlueprintCore.Test.Blueprints.Configurators
     [Fact]
     public void EditComponent()
     {
+      // First pass
+      GetConfigurator(Guid).AddComponent<DlcCondition>(c => c.m_HideInstead = true).Configure();
+
+      GetConfigurator(Guid).EditComponent<DlcCondition>(c => c.m_HideInstead = false).Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var component = blueprint.GetComponent<DlcCondition>();
+      Assert.NotNull(component);
+
+      Assert.False(component.m_HideInstead);
     }
   }
 

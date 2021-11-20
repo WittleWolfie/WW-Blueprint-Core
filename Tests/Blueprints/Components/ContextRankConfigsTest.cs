@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
@@ -18,6 +19,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.BaseAttack, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void BaseAttack_WithCommonParams()
+    {
+      var config = ContextRankConfigs.BaseAttack(type: AbilityRankType.DamageBonus, max: 10, min: 1);
+
+      Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(10, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(1, config.m_Min);
     }
 
     [Fact]
@@ -30,6 +46,22 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(StatType.AC, config.m_Stat);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void BaseStat_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.BaseStat(StatType.AC, type: AbilityRankType.DamageDiceAlternative, max: 3, min: 3);
+
+      Assert.Equal(AbilityRankType.DamageDiceAlternative, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(3, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(3, config.m_Min);
     }
 
     [Fact]
@@ -43,6 +75,22 @@ namespace BlueprintCore.Test.Blueprints.Components
 
       Assert.Equal(StatType.Wisdom, config.m_Stat);
       Assert.Equal(ModifierDescriptor.None, config.m_SpecificModifier);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void StatBonus_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.StatBonus(StatType.Wisdom, type: AbilityRankType.ProjectilesCount, max: 4, min: 8);
+
+      Assert.Equal(AbilityRankType.ProjectilesCount, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(4, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(8, config.m_Min);
     }
 
     [Fact]
@@ -68,6 +116,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.CasterLevel, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void CasterLevel_WithCommonParams()
+    {
+      var config = ContextRankConfigs.CasterLevel(type: AbilityRankType.StatBonus, max: 1, min: 4);
+
+      Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(1, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(4, config.m_Min);
     }
 
     [Fact]
@@ -88,6 +151,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.CharacterLevel, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void CharacterLevel_WithCommonParams()
+    {
+      var config = ContextRankConfigs.CharacterLevel(type: AbilityRankType.SpeedBonus, max: 2, min: 2);
+
+      Assert.Equal(AbilityRankType.SpeedBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(2, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(2, config.m_Min);
     }
 
     [Fact]
@@ -98,6 +176,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.CasterCR, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void CasterCR_WithCommonParams()
+    {
+      var config = ContextRankConfigs.CasterCR(type: AbilityRankType.StatBonus, max: 8, min: 6);
+
+      Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(8, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(6, config.m_Min);
     }
 
     [Fact]
@@ -108,6 +201,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.DungeonStage, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void DungeonStage_WithCommonParams()
+    {
+      var config = ContextRankConfigs.DungeonStage(type: AbilityRankType.DamageBonus, max: 1, min: 1);
+
+      Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(1, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(1, config.m_Min);
     }
 
     [Fact]
@@ -120,12 +228,27 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(Property.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomProperty);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void CustomProperty_WithCommonParams()
+    {
+      var config = ContextRankConfigs.CustomProperty(PropertyGuid, type: AbilityRankType.StatBonus, max: 12, min: 3);
+
+      Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(12, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(3, config.m_Min);
     }
 
     [Fact]
     public void MaxCustomProperty()
     {
-      var config = ContextRankConfigs.MaxCustomProperty(PropertyGuid, ExtraPropertyGuid);
+      var config = ContextRankConfigs.MaxCustomProperty(new string[] { PropertyGuid, ExtraPropertyGuid });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MaxCustomProperty, config.m_BaseValueType);
@@ -136,6 +259,23 @@ namespace BlueprintCore.Test.Blueprints.Components
           Property.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomPropertyList);
       Assert.Contains(
           ExtraProperty.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomPropertyList);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void MaxCustomProperty_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.MaxCustomProperty(
+              new string[] { PropertyGuid, ExtraPropertyGuid }, type: AbilityRankType.DamageDice, max: 2, min: 3);
+
+      Assert.Equal(AbilityRankType.DamageDice, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(2, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(3, config.m_Min);
     }
 
     [Fact]
@@ -151,6 +291,23 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
       Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
       Assert.False(config.m_ExceptClasses);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void ClassLevel_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.ClassLevel(
+              new string[] { ClassGuid, ExtraClassGuid }, type: AbilityRankType.DamageBonus, max: 13, min: 10);
+
+      Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(13, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(10, config.m_Min);
     }
 
     [Fact]
@@ -192,6 +349,27 @@ namespace BlueprintCore.Test.Blueprints.Components
           Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
       Assert.Contains(
           ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void MaxClassLevelWithArchetype_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.MaxClassLevelWithArchetype(
+              new string[] { ClassGuid, ExtraClassGuid },
+              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              type: AbilityRankType.ProjectilesCount,
+              max: 16,
+              min: 11);
+
+      Assert.Equal(AbilityRankType.ProjectilesCount, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(16, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(11, config.m_Min);
     }
 
     [Fact]
@@ -241,6 +419,27 @@ namespace BlueprintCore.Test.Blueprints.Components
           Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
       Assert.Contains(
           ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void SumClassLevelWithArchetype_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.SumClassLevelWithArchetype(
+              new string[] { ClassGuid, ExtraClassGuid },
+              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              type: AbilityRankType.SpeedBonus,
+              max: 4,
+              min: 2);
+
+      Assert.Equal(AbilityRankType.SpeedBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(4, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(2, config.m_Min);
     }
 
     [Fact]
@@ -266,6 +465,9 @@ namespace BlueprintCore.Test.Blueprints.Components
           Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
       Assert.Contains(
           ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
     }
 
     [Fact]
@@ -346,6 +548,28 @@ namespace BlueprintCore.Test.Blueprints.Components
           Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
       Assert.Contains(
           ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void Bombs_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.Bombs(
+              FeatureGuid,
+              new string[] { ClassGuid, ExtraClassGuid },
+              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              type: AbilityRankType.StatBonus,
+              max: 7,
+              min: 6);
+
+      Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(7, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(6, config.m_Min);
     }
 
     [Fact]
@@ -386,6 +610,22 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void FeatureRank_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.FeatureRank(FeatureGuid, type: AbilityRankType.DamageBonus, max: 11, min: 5);
+
+      Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(11, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(5, config.m_Min);
     }
 
     [Fact]
@@ -412,6 +652,23 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(2, config.m_FeatureList.Length);
       Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
       Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void FeatureList_WithCommonParams()
+    {
+      var config =
+          ContextRankConfigs.FeatureList(
+              new string[] { FeatureGuid, ExtraFeatureGuid }, type: AbilityRankType.DamageDice, max: 14, min: 2);
+
+      Assert.Equal(AbilityRankType.DamageDice, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(14, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(2, config.m_Min);
     }
 
     [Fact]
@@ -438,6 +695,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MythicLevel, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void MythicLevel_WithCommonParams()
+    {
+      var config = ContextRankConfigs.MythicLevel(type: AbilityRankType.DamageDice, max: 10, min: 3);
+
+      Assert.Equal(AbilityRankType.DamageDice, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(10, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(3, config.m_Min);
     }
 
     [Fact]
@@ -460,6 +732,9 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), config.m_Buff);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
     }
 
     [Fact]
@@ -472,6 +747,21 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), config.m_Buff);
+
+      Assert.False(config.m_UseMax);
+      Assert.False(config.m_UseMin);
+    }
+
+    [Fact]
+    public void BuffRank_WithCommonParams()
+    {
+      var config = ContextRankConfigs.BuffRank(BuffGuid, type: AbilityRankType.DamageDiceAlternative, max: 5, min: 1);
+
+      Assert.Equal(AbilityRankType.DamageDiceAlternative, config.m_Type);
+      Assert.True(config.m_UseMax);
+      Assert.Equal(5, config.m_Max);
+      Assert.True(config.m_UseMin);
+      Assert.Equal(1, config.m_Min);
     }
 
     [Fact]
@@ -487,62 +777,24 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void OfType()
-    {
-      var initialConfig = ContextRankConfigs.CharacterLevel();
-      Assert.Equal(AbilityRankType.Default, initialConfig.m_Type);
-
-      var config = initialConfig.OfType(AbilityRankType.StatBonus);
-
-      Assert.Equal(initialConfig, config);
-      Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
-    }
-
-    [Fact]
-    public void Max()
-    {
-      var initialConfig = ContextRankConfigs.CharacterLevel();
-      Assert.False(initialConfig.m_UseMax);
-
-      var config = initialConfig.Max(2);
-
-      Assert.Equal(initialConfig, config);
-      Assert.True(config.m_UseMax);
-      Assert.Equal(2, config.m_Max);
-    }
-
-    [Fact]
-    public void Min()
-    {
-      var initialConfig = ContextRankConfigs.CharacterLevel();
-      Assert.False(initialConfig.m_UseMin);
-
-      var config = initialConfig.Min(5);
-
-      Assert.Equal(initialConfig, config);
-      Assert.True(config.m_UseMin);
-      Assert.Equal(5, config.m_Min);
-    }
-
-    [Fact]
-    public void DivideBy2()
+    public void WithDiv2Progression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideBy2();
+      var config = initialConfig.WithDiv2Progression();
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.Div2, config.m_Progression);
     }
 
     [Fact]
-    public void DivideBy2_WithBonus()
+    public void WithDiv2Progression_WithBonus()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideBy2(3);
+      var config = initialConfig.WithDiv2Progression(3);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.Div2PlusStep, config.m_Progression);
@@ -550,24 +802,24 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideBy2ThenAdd1()
+    public void WithOnePlusDiv2Progression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideBy2ThenAdd1();
+      var config = initialConfig.WithOnePlusDiv2Progression();
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.OnePlusDiv2, config.m_Progression);
     }
 
     [Fact]
-    public void DivideBy()
+    public void WithDivStepProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideBy(6);
+      var config = initialConfig.WithDivStepProgression(6);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.DivStep, config.m_Progression);
@@ -575,12 +827,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideByThenAdd1()
+    public void WithStartPlusDivStepProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideByThenAdd1(4);
+      var config = initialConfig.WithStartPlusDivStepProgression(4);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.StartPlusDivStep, config.m_Progression);
@@ -589,12 +841,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideByThenAdd1_WithStart()
+    public void WithStartPlusDivStepProgression_WithStart()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideByThenAdd1(2, start: 3);
+      var config = initialConfig.WithStartPlusDivStepProgression(2, start: 3);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.StartPlusDivStep, config.m_Progression);
@@ -603,12 +855,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideByThenAdd1_WithDelayStart()
+    public void WithStartPlusDivStepProgression_WithDelayStart()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideByThenAdd1(5, start: 3, delayStart: true);
+      var config = initialConfig.WithStartPlusDivStepProgression(5, start: 3, delayStart: true);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.DelayedStartPlusDivStep, config.m_Progression);
@@ -617,12 +869,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideByThenDoubleThenAdd1()
+    public void WithStartPlusDoubleDivStepProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideByThenDoubleThenAdd1(3);
+      var config = initialConfig.WithStartPlusDoubleDivStepProgression(3);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.StartPlusDoubleDivStep, config.m_Progression);
@@ -631,12 +883,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void DivideByThenDoubleThenAdd1_WithStart()
+    public void WithStartPlusDoubleDivStepProgression_WithStart()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.DivideByThenDoubleThenAdd1(5, start: 2);
+      var config = initialConfig.WithStartPlusDoubleDivStepProgression(5, start: 2);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.StartPlusDoubleDivStep, config.m_Progression);
@@ -645,12 +897,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void MultiplyBy()
+    public void WithMultiplyByModifierProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.MultiplyBy(3);
+      var config = initialConfig.WithMultiplyByModifierProgression(3);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.MultiplyByModifier, config.m_Progression);
@@ -658,12 +910,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void Add()
+    public void WithBonusValueProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.Add(5);
+      var config = initialConfig.WithBonusValueProgression(5);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.BonusValue, config.m_Progression);
@@ -671,12 +923,12 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void Add_DoubleBaseValue()
+    public void WithBonusValueProgression_DoubleBaseValue()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.Add(2, doubleBaseValue: true);
+      var config = initialConfig.WithBonusValueProgression(2, doubleBaseValue: true);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.DoublePlusBonusValue, config.m_Progression);
@@ -684,24 +936,24 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void AddHalf()
+    public void WithHalfMoreProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.AddHalf();
+      var config = initialConfig.WithHalfMoreProgression();
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.HalfMore, config.m_Progression);
     }
 
     [Fact]
-    public void CustomProgression()
+    public void WithCustomProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.CustomProgression((2, 2), (4, 6), (8, 12));
+      var config = initialConfig.WithCustomProgression((2, 2), (4, 6), (8, 12));
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
@@ -714,34 +966,14 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(8, config.m_CustomProgression[2].BaseValue);
       Assert.Equal(12, config.m_CustomProgression[2].ProgressionValue);
     }
-
-    [Fact]
-    public void CustomProgression_UsingProgessionEntry()
-    {
-      var initialConfig = ContextRankConfigs.CharacterLevel();
-      Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
-
-      var levelTwo = new ProgressionEntry(2, 2);
-      var levelFour = new ProgressionEntry(4, 6);
-      var levelEight = new ProgressionEntry(8, 12);
-      var config = initialConfig.CustomProgression(levelTwo, levelFour, levelEight);
-
-      Assert.Equal(initialConfig, config);
-      Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
-
-      Assert.Equal(3, config.m_CustomProgression.Length);
-      Assert.Equal(levelTwo, config.m_CustomProgression[0]);
-      Assert.Equal(levelFour, config.m_CustomProgression[1]);
-      Assert.Equal(levelEight, config.m_CustomProgression[2]);
-    }
     
     [Fact]
-    public void LinearProgression()
+    public void WithLinearProgression()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
-      var config = initialConfig.LinearProgression(2, 1);
+      var config = initialConfig.WithLinearProgression(2, 1);
 
       Assert.Equal(initialConfig, config);
       Assert.Equal(ContextRankProgression.Custom, config.m_Progression);
@@ -791,13 +1023,13 @@ namespace BlueprintCore.Test.Blueprints.Components
     }
 
     [Fact]
-    public void LinearProgression_WithOptionalValues()
+    public void WithLinearProgression_WithOptionalValues()
     {
       var initialConfig = ContextRankConfigs.CharacterLevel();
       Assert.Equal(ContextRankProgression.AsIs, initialConfig.m_Progression);
 
       var config =
-          initialConfig.LinearProgression(
+          initialConfig.WithLinearProgression(
               0.75f,
               0.25f,
               startingBaseValue: 4,

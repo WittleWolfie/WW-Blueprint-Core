@@ -13,27 +13,23 @@ namespace BlueprintCore.Blueprints.Components
   /// 
   /// <remarks>
   /// <para>
-  /// Functions are split into three groups:
+  /// Functions are split into two classes:
   /// </para>
   /// 
   /// <list type="bullet">
   /// <item>
   ///   <term>ContextRankConfigs</term>
   ///   <description>
-  ///   Base class which creates a config with a specific base value. You can only use a single type, so you should only
-  ///   call these functions once for a config.
+  ///   Base class which creates a config with a specific base value type. A context rank config can only have one type
+  ///   so you should only call one of these functions for a config.
   ///   </description>
   /// </item>
   /// <item>
   ///   <term><see cref="ProgressionExtensions"/></term>
   ///   <description>
-  ///   Extension class which exposes different progressions. Like the base value, you can only have a single
-  ///   progression type so you should only call one of these functions.
+  ///   Extension class which applies progressions. Like the base value, you can only have a single progression type so
+  ///   you should only call one of these functions for a config.
   ///   </description>
-  /// </item>
-  /// <item>
-  ///   <term><see cref="CommonExtensions"/></term>
-  ///   <description>Extension class which exposes common configurable values.</description>
   /// </item>
   /// </list>
   /// 
@@ -45,9 +41,9 @@ namespace BlueprintCore.Blueprints.Components
   /// </para>
   /// 
   /// <example>
-  /// Create a rank based on <see cref="StatType.Strength"/> with a bonus value of 2 and a max value of 30:
+  /// Create a rank based on <see cref="StatType.Strength"/> modifier with a bonus value of 2 and a max value of 30:
   /// <code>
-  ///   var rankConfig = ContextRankConfigs.BaseStat(StatType.Strength).Max(30).Add(2);
+  ///   var rankConfig = ContextRankConfigs.StatBonus(StatType.Strength, max: 30).WithBonusValueProgression(2);
   /// </code>
   /// </example>
   /// </remarks>
@@ -55,6 +51,9 @@ namespace BlueprintCore.Blueprints.Components
   {
     private static ContextRankConfig NewConfig(
         ContextRankBaseValueType valueType,
+        AbilityRankType type,
+        int? max,
+        int? min,
         string feature = null,
         string[] featureList = null,
         StatType stat = StatType.Unknown,
@@ -66,176 +65,340 @@ namespace BlueprintCore.Blueprints.Components
         string property = null,
         string[] propertyList = null)
     {
-      return new ContextRankConfig
+      var config =
+          new ContextRankConfig
+          {
+            m_Type = type,
+            m_BaseValueType = valueType,
+            m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature),
+            m_FeatureList =
+                featureList?
+                    .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
+                    .ToArray(),
+            m_Stat = stat,
+            m_SpecificModifier = modDescriptor,
+            m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff),
+            m_ExceptClasses = excludeClasses,
+            m_AdditionalArchetypes =
+                archetypes?
+                    .Select(archetype => BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype))
+                    .ToArray(),
+            m_Class =
+                classes?
+                    .Select(clazz => BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz))
+                    .ToArray(),
+            m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property),
+            m_CustomPropertyList =
+                propertyList?
+                    .Select(property => BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property))
+                    .ToArray(),
+            m_Progression = ContextRankProgression.AsIs
+          };
+      if (max is not null)
       {
-        m_Type = AbilityRankType.Default,
-        m_BaseValueType = valueType,
-        m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature),
-        m_FeatureList =
-            featureList?
-                .Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
-                .ToArray(),
-        m_Stat = stat,
-        m_SpecificModifier = modDescriptor,
-        m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff),
-        m_ExceptClasses = excludeClasses,
-        m_AdditionalArchetypes =
-            archetypes?
-                .Select(archetype => BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype))
-                .ToArray(),
-        m_Class =
-            classes?
-                .Select(clazz => BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz))
-                .ToArray(),
-        m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property),
-        m_CustomPropertyList =
-            propertyList?
-                .Select(property => BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property))
-                .ToArray(),
-        m_Progression = ContextRankProgression.AsIs
-      };
+        config.m_UseMax = true;
+        config.m_Max = max.Value;
+      }
+      if (min is not null)
+      {
+        config.m_UseMin = true;
+        config.m_Min = min.Value;
+      }
+      return config;
     }
 
-    public static ContextRankConfig BaseAttack()
+    /// <summary>Implements <see cref="ContextRankBaseValueType.BaseAttack"/></summary>
+    /// 
+    /// <param name="type">Type of config. Links the config to ContextValues with the same AbilityRankType.</param>
+    /// <param name="max">Sets the max resulting value.</param>
+    /// <param name="min">Sets the minimum resulting value.</param>
+    public static ContextRankConfig BaseAttack(
+        AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.BaseAttack);
+      return NewConfig(ContextRankBaseValueType.BaseAttack, type, max, min);
     }
 
-    public static ContextRankConfig BaseStat(StatType stat)
+    /// <summary>Implements <see cref="ContextRankBaseValueType.BaseStat"/></summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig BaseStat(
+        StatType stat, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.BaseStat, stat: stat);
+      return NewConfig(ContextRankBaseValueType.BaseStat, type, max, min, stat: stat);
     }
 
-    public static ContextRankConfig StatBonus(StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None)
+    /// <summary>Implements <see cref="ContextRankBaseValueType.StatBonus"/></summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig StatBonus(
+        StatType stat,
+        ModifierDescriptor modDescriptor = ModifierDescriptor.None,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.StatBonus, stat: stat, modDescriptor: modDescriptor);
+      return NewConfig(ContextRankBaseValueType.StatBonus, type, max, min, stat: stat, modDescriptor: modDescriptor);
     }
 
-    public static ContextRankConfig CasterLevel(bool useMax = false)
+    /// <summary>Implements <see cref="ContextRankBaseValueType.CasterLevel"/> and <see cref="ContextRankBaseValueType.MaxCasterLevel"/></summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig CasterLevel(
+        bool useMax = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(useMax ? ContextRankBaseValueType.MaxCasterLevel : ContextRankBaseValueType.CasterLevel);
+      return NewConfig(
+          useMax ? ContextRankBaseValueType.MaxCasterLevel : ContextRankBaseValueType.CasterLevel, type, max, min);
     }
 
-    public static ContextRankConfig CharacterLevel()
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.CharacterLevel"/>
+    /// </summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig CharacterLevel(
+        AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.CharacterLevel);
+      return NewConfig(ContextRankBaseValueType.CharacterLevel, type, max, min);
     }
 
-    public static ContextRankConfig CasterCR()
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.CasterCR"/>
+    /// </summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig CasterCR(
+        AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.CasterCR);
+      return NewConfig(ContextRankBaseValueType.CasterCR, type, max, min);
     }
 
-    public static ContextRankConfig DungeonStage()
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.DungeonStage"/>
+    /// </summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig DungeonStage(
+        AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.DungeonStage);
+      return NewConfig(ContextRankBaseValueType.DungeonStage, type, max, min);
     }
 
-    public static ContextRankConfig CustomProperty(string property)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.CustomProperty"/>
+    /// </summary>
+    /// 
+    /// <param name="property"><see cref="BlueprintPrintUnitProperty"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig CustomProperty(
+        string property, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.CustomProperty, property: property);
+      return NewConfig(ContextRankBaseValueType.CustomProperty, type, max, min, property: property);
     }
 
-    public static ContextRankConfig MaxCustomProperty(params string[] properties)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.MaxCustomProperty"/>
+    /// </summary>
+    /// 
+    /// <param name="properties"><see cref="BlueprintPrintUnitProperty"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig MaxCustomProperty(
+        string[] properties,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.MaxCustomProperty, propertyList: properties);
+      return NewConfig(ContextRankBaseValueType.MaxCustomProperty, type, max, min, propertyList: properties);
     }
 
-    public static ContextRankConfig ClassLevel(string[] classes, bool excludeClasses = false)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.ClassLevel"/>
+    /// </summary>
+    /// 
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig ClassLevel(
+        string[] classes,
+        bool excludeClasses = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
-      return NewConfig(ContextRankBaseValueType.ClassLevel, classes: classes, excludeClasses: excludeClasses);
+      return NewConfig(
+          ContextRankBaseValueType.ClassLevel, type, max, min, classes: classes, excludeClasses: excludeClasses);
     }
 
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.MaxClassLevelWithArchetype"/>
+    /// </summary>
+    /// 
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig MaxClassLevelWithArchetype(
-        string[] classes, string[] archetypes, bool excludeClasses = false)
+        string[] classes,
+        string[] archetypes,
+        bool excludeClasses = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
       return NewConfig(
           ContextRankBaseValueType.MaxClassLevelWithArchetype,
+          type,
+          max,
+          min,
           classes: classes,
           archetypes: archetypes,
           excludeClasses: excludeClasses);
     }
 
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.OwnerSummClassLevelWithArchetype"/> and
+    /// <see cref="ContextRankBaseValueType.SummClassLevelWithArchetype"/>
+    /// </summary>
+    /// 
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig SumClassLevelWithArchetype(
-        string[] classes, string[] archetypes, bool excludeClasses = false, bool useOwner = false)
+        string[] classes,
+        string[] archetypes,
+        bool excludeClasses = false,
+        bool useOwner = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
       return NewConfig(
           useOwner
               ? ContextRankBaseValueType.OwnerSummClassLevelWithArchetype
               : ContextRankBaseValueType.SummClassLevelWithArchetype,
+          type,
+          max,
+          min,
           classes: classes,
           archetypes: archetypes,
           excludeClasses: excludeClasses);
     }
 
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.Bombs"/>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig Bombs(
         string feature,
         string[] classes,
         string[] archetypes,
-        bool excludeClasses = false)
+        bool excludeClasses = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
       return NewConfig(
           ContextRankBaseValueType.Bombs,
+          type,
+          max,
+          min,
           feature: feature,
           classes: classes,
           archetypes: archetypes,
           excludeClasses: excludeClasses);
     }
 
-    public static ContextRankConfig FeatureRank(string feature, bool useMaster = false)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.FeatureRank"/> and
+    /// <see cref="ContextRankBaseValueType.MasterFeatureRank"/>
+    /// </summary>
+    /// 
+    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig FeatureRank(
+        string feature,
+        bool useMaster = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
       return NewConfig(
           useMaster ? ContextRankBaseValueType.MasterFeatureRank : ContextRankBaseValueType.FeatureRank,
+          type,
+          max,
+          min,
           feature: feature);
     }
 
-    public static ContextRankConfig FeatureList(string[] features, bool useRanks = false)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.FeatureList"/> and
+    /// <see cref="ContextRankBaseValueType.FeatureListRanks"/>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig FeatureList(
+        string[] features,
+        bool useRanks = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
       return NewConfig(
           useRanks ? ContextRankBaseValueType.FeatureListRanks : ContextRankBaseValueType.FeatureList,
+          type,
+          max,
+          min,
           featureList: features);
     }
 
-    public static ContextRankConfig MythicLevel(bool useMaster = false)
-    {
-      return NewConfig(useMaster ? ContextRankBaseValueType.MasterMythicLevel : ContextRankBaseValueType.MythicLevel);
-    }
-
-    public static ContextRankConfig MythicLevelPlusBuffRank(string buff)
-    {
-      return NewConfig(ContextRankBaseValueType.MythicLevelPlusBuffRank, buff: buff);
-    }
-
-    public static ContextRankConfig BuffRank(string buff, bool useTarget = false)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.MythicLevel"/> and
+    /// <see cref="ContextRankBaseValueType.MasterMythicLevel"/>
+    /// </summary>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig MythicLevel(
+        bool useMaster = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
       return NewConfig(
-          useTarget ? ContextRankBaseValueType.TargetBuffRank : ContextRankBaseValueType.CasterBuffRank, buff: buff);
-    }
-  }
-
-  /// <summary>
-  /// Common parameter extensions for <see cref="ContextRankConfig"/>.
-  /// </summary>
-  public static class CommonExtensions
-  {
-    public static ContextRankConfig OfType(this ContextRankConfig config, AbilityRankType rankType)
-    {
-      config.m_Type = rankType;
-      return config;
+          useMaster ? ContextRankBaseValueType.MasterMythicLevel : ContextRankBaseValueType.MythicLevel,
+          type,
+          max,
+          min);
     }
 
-    public static ContextRankConfig Max(this ContextRankConfig config, int max)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.MythicLevelPlusBuffRank"/>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig MythicLevelPlusBuffRank(
+        string buff, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
     {
-      config.m_UseMax = true;
-      config.m_Max = max;
-      return config;
+      return NewConfig(
+          ContextRankBaseValueType.MythicLevelPlusBuffRank,
+          type,
+          max,
+          min,
+          buff: buff);
     }
 
-    public static ContextRankConfig Min(this ContextRankConfig config, int min)
+    /// <summary>
+    /// Implements <see cref="ContextRankBaseValueType.CasterBuffRank"/> and
+    /// <see cref="ContextRankBaseValueType.TargetBuffRank"/>
+    /// </summary>
+    /// 
+    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
+    public static ContextRankConfig BuffRank(
+        string buff,
+        bool useTarget = false,
+        AbilityRankType type = AbilityRankType.Default,
+        int? max = null,
+        int? min = null)
     {
-      config.m_UseMin = true;
-      config.m_Min = min;
-      return config;
+      return NewConfig(
+          useTarget ? ContextRankBaseValueType.TargetBuffRank : ContextRankBaseValueType.CasterBuffRank,
+          type,
+          max,
+          min,
+          buff: buff);
     }
   }
 
@@ -267,7 +430,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.Div2"/> and <see cref="ContextRankProgression.Div2PlusStep"/>
     /// </remarks>
-    public static ContextRankConfig DivideBy2(this ContextRankConfig config, int bonus = 0)
+    public static ContextRankConfig WithDiv2Progression(this ContextRankConfig config, int bonus = 0)
     {
       if (bonus > 0)
       {
@@ -283,7 +446,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.OnePlusDiv2"/>
     /// </remarks>
-    public static ContextRankConfig DivideBy2ThenAdd1(this ContextRankConfig config)
+    public static ContextRankConfig WithOnePlusDiv2Progression(this ContextRankConfig config)
     {
       config.m_Progression = ContextRankProgression.OnePlusDiv2;
       return config;
@@ -294,7 +457,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.DivStep"/>
     /// </remarks>
-    public static ContextRankConfig DivideBy(this ContextRankConfig config, int divisor)
+    public static ContextRankConfig WithDivStepProgression(this ContextRankConfig config, int divisor)
     {
       config.m_Progression = ContextRankProgression.DivStep;
       config.m_StepLevel = divisor;
@@ -311,7 +474,7 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankProgression.StartPlusDivStep"/>,
     /// <see cref="ContextRankProgression.DelayedStartPlusDivStep"/>, and <see cref="ContextRankProgression.OnePlusDivStep"/>
     /// </remarks>
-    public static ContextRankConfig DivideByThenAdd1(
+    public static ContextRankConfig WithStartPlusDivStepProgression(
         this ContextRankConfig config, int divisor, int start = 0, bool delayStart = false)
     {
       config.m_Progression =
@@ -328,7 +491,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.StartPlusDoubleDivStep"/>
     /// </remarks>
-    public static ContextRankConfig DivideByThenDoubleThenAdd1(
+    public static ContextRankConfig WithStartPlusDoubleDivStepProgression(
         this ContextRankConfig config, int divisor, int start = 0)
     {
       config.m_Progression = ContextRankProgression.StartPlusDoubleDivStep;
@@ -344,7 +507,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.MultiplyByModifier"/>
     /// </remarks>
-    public static ContextRankConfig MultiplyBy(this ContextRankConfig config, int multiplier)
+    public static ContextRankConfig WithMultiplyByModifierProgression(this ContextRankConfig config, int multiplier)
     {
       config.m_Progression = ContextRankProgression.MultiplyByModifier;
       config.m_StepLevel = multiplier;
@@ -360,7 +523,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.BonusValue"/> and <see cref="ContextRankProgression.DoublePlusBonusValue"/>
     /// </remarks>
-    public static ContextRankConfig Add(
+    public static ContextRankConfig WithBonusValueProgression(
         this ContextRankConfig config, int bonus, bool doubleBaseValue = false)
     {
       config.m_Progression =
@@ -378,62 +541,9 @@ namespace BlueprintCore.Blueprints.Components
     /// <remarks>
     /// Implements <see cref="ContextRankProgression.HalfMore"/>
     /// </remarks>
-    public static ContextRankConfig AddHalf(this ContextRankConfig config)
+    public static ContextRankConfig WithHalfMoreProgression(this ContextRankConfig config)
     {
       config.m_Progression = ContextRankProgression.HalfMore;
-      return config;
-    }
-
-    /// <summary>Implements <see cref="ContextRankProgression.Custom"/></summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// Entries must be provided in ascending order by their BaseValue.
-    /// </para>
-    /// 
-    /// <para>
-    /// The result is the <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> of
-    /// the first entry where the config's BaseValue is less than or equal to the entry's
-    /// <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValue</see>. If the config's BaseValue is
-    /// greater than all entry <see cref="ContextRankConfig.CustomProgressionItem.BaseValue">BaseValues</see>, the last
-    /// entry's <see cref="ContextRankConfig.CustomProgressionItem.ProgressionValue">ProgressionValue</see> is returned.
-    /// </para>
-    /// 
-    /// <example>
-    /// <code>
-    ///   ContextRankConfigs.CharacterLevel()
-    ///       .CustomProgression(
-    ///           new ProgressionEntry(5, 1),
-    ///           new ProgressionEntry(10, 2),
-    ///           new ProgressionEntry(13, 4),
-    ///           new ProgressionEntry(18, 6));
-    /// </code>
-    /// <list type="bullet">
-    /// <item>
-    ///   <term>Levels 1-5</term>
-    ///   <description><c>Result = 1</c></description>
-    /// </item>
-    /// <item>
-    ///   <term>Levels 6-10</term>
-    ///   <description><c>Result = 2</c></description>
-    /// </item>
-    /// <item>
-    ///   <term>Levels 11-13</term>
-    ///   <description><c>Result = 4</c></description>
-    /// </item>
-    /// <item>
-    ///   <term>Levels 14+</term>
-    ///   <description><c>Result = 6</c></description>
-    /// </item>
-    /// </list>
-    /// </example>
-    /// </remarks>
-    [Obsolete("Use CustomProgression with anonymous tuples.")]
-    public static ContextRankConfig CustomProgression(
-        this ContextRankConfig config, params ProgressionEntry[] entries)
-    {
-      config.m_Progression = ContextRankProgression.Custom;
-      config.m_CustomProgression = entries;
       return config;
     }
 
@@ -476,7 +586,7 @@ namespace BlueprintCore.Blueprints.Components
     /// </list>
     /// </example>
     /// </remarks>
-    public static ContextRankConfig CustomProgression(
+    public static ContextRankConfig WithCustomProgression(
         this ContextRankConfig config, params (int Base, int Progression)[] progression)
     {
       config.m_Progression = ContextRankProgression.Custom;
@@ -529,7 +639,7 @@ namespace BlueprintCore.Blueprints.Components
     /// </code>
     /// </example>
     /// </remarks>
-    public static ContextRankConfig LinearProgression(
+    public static ContextRankConfig WithLinearProgression(
         this ContextRankConfig config,
         float a,
         float b,
@@ -560,7 +670,7 @@ namespace BlueprintCore.Blueprints.Components
       progression.Add((Base: startingBaseValue - 1, Progression: progressionValueBeforeStart));
 
       progression.Reverse();
-      return config.CustomProgression(progression.ToArray());
+      return config.WithCustomProgression(progression.ToArray());
     }
   }
 
