@@ -272,7 +272,7 @@ namespace BlueprintCoreGen.CodeGen
           {
             { typeof(PrefabLink), "Constants.Empty.PrefabLink" },
             { typeof(LocalizedString), "Constants.Empty.String" },
-            { typeof(ContextValues), "ContextValues.Constant(0)" },
+            { typeof(ContextValue), "ContextValues.Constant(0)" },
             { typeof(ContextDiceValue), "Constants.Empty.DiceValue" }
           };
       public DefaultEmptyField(FieldInfo info) : base(info)
