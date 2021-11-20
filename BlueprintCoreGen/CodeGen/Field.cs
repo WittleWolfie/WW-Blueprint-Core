@@ -271,12 +271,17 @@ namespace BlueprintCoreGen.CodeGen
           new()
           {
             { typeof(PrefabLink), "Constants.Empty.PrefabLink" },
-            { typeof(LocalizedString), "Constants.Empty.String" }
+            { typeof(LocalizedString), "Constants.Empty.String" },
+            { typeof(ContextValues), "ContextValues.Constant(0)" },
+            { typeof(ContextDiceValue), "Constants.Empty.DiceValue" }
           };
       public DefaultEmptyField(FieldInfo info) : base(info)
       {
         DefaultValue = "null";
         EmptyConstant = TypeToEmptyConstant[info.FieldType];
+
+        Imports.Add(typeof(Constants));
+        Imports.Add(typeof(ContextValues));
       }
 
       public override List<string> GetAssignment(string objectName)
