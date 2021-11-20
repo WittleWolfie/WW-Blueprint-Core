@@ -11,7 +11,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
   [Configures(typeof(BlueprintFeatureBase))]
   public abstract class FeatureBaseConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeatureBase
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : FeatureBaseConfigurator<T, TBuilder>
   {
     protected FeatureBaseConfigurator(string name) : base(name) { }
 

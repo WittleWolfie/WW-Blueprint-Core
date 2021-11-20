@@ -239,6 +239,7 @@ namespace BlueprintCoreGen.CodeGen
       configurator.AddImport(
           $"using {GetConfiguratorNamespace(GetRelativeConfiguratorNamespace(blueprintType.BaseType))};");
 
+      configurator.AddLine("");
       configurator.AddLine($"namespace {GetConfiguratorNamespace(relativeNamespace)}");
       configurator.AddLine($"{{");
 
@@ -274,7 +275,7 @@ namespace BlueprintCoreGen.CodeGen
       configurator.AddLine($"  public abstract class Base{className}<T, TBuilder>");
       configurator.AddLine($"      : Base{GetConfiguratorClassName(configurator.BlueprintType.BaseType)}<T, TBuilder>");
       configurator.AddLine($"      where T : {blueprintTypeName}");
-      configurator.AddLine($"      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>");
+      configurator.AddLine($"      where TBuilder : Base{className}<T, TBuilder>");
       configurator.AddLine($"  {{");
       configurator.AddLine($"    protected Base{className}(string name) : base(name) {{ }}");
 

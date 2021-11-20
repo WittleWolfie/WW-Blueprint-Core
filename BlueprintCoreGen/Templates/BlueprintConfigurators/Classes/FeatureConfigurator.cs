@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
   [Configures(typeof(BlueprintFeature))]
   public abstract class BaseFeatureConfigurator<T, TBuilder> : FeatureBaseConfigurator<T, TBuilder>
       where T : BlueprintFeature
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
     private FeatureTag EnableFeatureTags;
     private FeatureTag DisableFeatureTags;
