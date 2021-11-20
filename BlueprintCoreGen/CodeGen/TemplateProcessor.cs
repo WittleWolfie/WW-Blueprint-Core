@@ -1,8 +1,17 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.RandomEncounters.Settings;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
+using Kingmaker.UnitLogic.Class.Kineticist;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -89,7 +98,8 @@ namespace BlueprintCoreGen.CodeGen
         new()
         {
           typeof(QuestComponentDelegate<>),
-          typeof(QuestComponentDelegate)
+          typeof(QuestComponentDelegate),
+          typeof(UnlockableFlagComponent)
         };
     private static Dictionary<Type, List<IMethod>> GetComponentMethodsByBlueprintType(
         string templatesRoot, Type[] gameTypes)
@@ -235,22 +245,15 @@ namespace BlueprintCoreGen.CodeGen
     private static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypesOverride =
         new()
         {
-          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } }
+          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } },
+          { typeof(AbilityUseOnRest), new() { typeof(BlueprintAbility) } },
+          { typeof(AddFactContextActions), new() { typeof(BlueprintFact) } },
+          { typeof(AddBuffActions), new() { typeof(BlueprintFact) } },
+          { typeof(AllowOnZoneSettings), new() { typeof(BlueprintAreaEnterPoint) } },
+          { typeof(ComponentsList), new() { typeof(BlueprintFact) } },
+          { typeof(AddClassLevelsToPets), new() { typeof(BlueprintUnit) } },
+          { typeof(ChangeVendorPrices), new() { typeof(BlueprintUnit) } },
+          { typeof(AbilityAcceptBurnOnCast), new() { typeof(BlueprintAbility) } }
         };
-
-    private static readonly AllowedOnAttributeEqualityComparer AttrComparer = new();
-
-    private class AllowedOnAttributeEqualityComparer : IEqualityComparer<AllowedOnAttribute>
-    {
-      public bool Equals(AllowedOnAttribute x, AllowedOnAttribute y)
-      {
-        return x.Type == y.Type;
-      }
-
-      public int GetHashCode([DisallowNull] AllowedOnAttribute obj)
-      {
-        return obj.Type.GetHashCode();
-      }
-    }
   }
 }
