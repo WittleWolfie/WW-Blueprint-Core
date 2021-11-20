@@ -1,5 +1,6 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Abilities;
+using BlueprintCore.Blueprints.Configurators.Abilities;
+using BlueprintCore.Test.Blueprints.Configurators;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;

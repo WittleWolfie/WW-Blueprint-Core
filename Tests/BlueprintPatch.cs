@@ -1,4 +1,4 @@
-using BlueprintCore.Blueprints;
+using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;

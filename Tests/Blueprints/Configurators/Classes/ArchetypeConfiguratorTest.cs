@@ -1,10 +1,10 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Classes;
+using BlueprintCore.Blueprints.Configurators.Classes;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Localization;
 using Xunit;
 
-namespace BlueprintCore.Test.Blueprints.Classes
+namespace BlueprintCore.Test.Blueprints.Configurators.Classes
 {
   /**
    * Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with

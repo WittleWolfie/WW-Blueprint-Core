@@ -291,7 +291,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       if (component is null)
       {
         component = new AbilityVariants();
-        AddComponent(component);
+        bp.AddComponents(component);
       }
       var bpRef = bp.ToReference<BlueprintAbilityReference>();
       variants.ForEach(reference => reference.Get().m_Parent = bpRef);

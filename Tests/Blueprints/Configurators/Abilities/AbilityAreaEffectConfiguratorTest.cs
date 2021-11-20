@@ -1,10 +1,10 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Abilities;
+using BlueprintCore.Blueprints.Configurators.Abilities;
+using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Test.Blueprints.Abilities
+namespace BlueprintCore.Test.Blueprints.Configurators.Abilities
 {
   public class AbilityAreaEffectConfiguratorTest
       : BaseBlueprintConfiguratorTest<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>

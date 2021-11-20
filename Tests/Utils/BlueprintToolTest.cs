@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BlueprintCore.Blueprints;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.UnitLogic.Abilities.Blueprints;

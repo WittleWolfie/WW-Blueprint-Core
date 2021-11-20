@@ -4987,6 +4987,19 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="SuppressDismember"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SuppressDismember))]
+    public UnitConfigurator AddSuppressDismember(
+        BlueprintComponent.Flags flags = default)
+    {
+      var component = new SuppressDismember();
+      component.m_Flags = flags;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="SwarmAoeVulnerability"/> (Auto Generated)
     /// </summary>
     [Generated]

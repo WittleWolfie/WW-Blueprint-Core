@@ -1,7 +1,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Facts;
+using BlueprintCore.Blueprints.Configurators.Facts;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
@@ -13,14 +13,14 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Test.Blueprints.Facts
+namespace BlueprintCore.Test.Blueprints.Configurators.Facts
 {
-  public abstract class BlueprintUnitFactConfiguratorTest<T, TBuilder>
+  public abstract class BaseUnitFactConfiguratorTest<T, TBuilder>
       : BaseBlueprintConfiguratorTest<T, TBuilder>
       where T : BlueprintUnitFact
-      where TBuilder : BlueprintUnitFactConfigurator<T, TBuilder>
+      where TBuilder : BaseUnitFactConfigurator<T, TBuilder>
   {
-    protected BlueprintUnitFactConfiguratorTest() : base() { }
+    protected BaseUnitFactConfiguratorTest() : base() { }
 
     [Fact]
     public void SetDisplayName()

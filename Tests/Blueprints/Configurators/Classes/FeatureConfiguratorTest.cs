@@ -1,207 +1,245 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Test.Asserts;
+using BlueprintCore.Test.Blueprints.Configurators.Facts;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.DLC;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
-namespace BlueprintCore.Test.Blueprints
+namespace BlueprintCore.Test.Blueprints.Configurators.Classes
 {
-  [Collection("Harmony")]
-  public abstract class BaseBlueprintConfiguratorTest<T, TBuilder> : TestBase
-      where T : BlueprintScriptableObject
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+  public abstract class BaseFeatureConfiguratorTest<T, TBuilder> : BaseUnitFactConfiguratorTest<T, TBuilder>
+      where T : BlueprintFeature
+      where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
-    // Serves as the guid for the primary test blueprint. Concrete child classes must instantiate
-    // create and register a blueprint using this guid;
-    protected static readonly string Guid = "137f7548-e57f-4e4a-8d76-7f2d174c6d5d";
-
-    /**
-     * Wrapper which should be called when a function is exposed to blueprint types that do not
-     * support it.
-     * 
-     * For example, SpellDescriptors are only valid for Ability, AbilityAreaEffect, Buff, and
-     * Feature. Since BlueprintScriptableObject is the only type they share in common, the
-     * functionality is included in BaseBlueprintConfigurator. Those tests can call this function to
-     * validate that supported types work properly and unsupported types throw an exception.
-     */
-    protected void RunTest(Action test, params Type[] validTypes)
-    {
-      var currentType = typeof(T);
-      foreach (Type type in validTypes)
-      {
-        if (type.IsAssignableFrom(currentType))
-        {
-          test.Invoke();
-          return;
-        }
-      }
-      Assert.Throws<InvalidOperationException>(test);
-    }
-
-    /** Creates and returns a configurator of type TBuilder. */
-    protected abstract TBuilder GetConfigurator(string guid);
+    protected BaseFeatureConfiguratorTest() : base() { }
 
     [Fact]
-    public void AddComponent_WithInit()
-    {
-      GetConfigurator(Guid).AddComponent<DlcCondition>(c => c.m_HideInstead = true).Configure();
-
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      var component = blueprint.GetComponent<DlcCondition>();
-      Assert.NotNull(component);
-
-      Assert.True(component.m_HideInstead);
-    }
-
-    //----- Start: FactContextActions
-
-    [Fact]
-    public void FactContextActions()
+    public void AddFeatureGroups()
     {
       GetConfigurator(Guid)
-          .FactContextActions(
-              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
-              onDeactivated: ActionsBuilder.New().MeleeAttack(),
-              onNewRound: ActionsBuilder.New().BreakFree())
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      var contextActions = blueprint.GetComponent<AddFactContextActions>();
-      Assert.NotNull(contextActions);
-
-      Assert.Equal(2, contextActions.Activated.Actions.Length);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
-
-      Assert.Single(contextActions.Deactivated.Actions);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
-
-      Assert.Single(contextActions.NewRound.Actions);
-      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
+      Assert.Equal(2, blueprint.Groups.Length);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
     }
 
     [Fact]
-    public void FactContextActions_WithActivatedOnly()
-    {
-      GetConfigurator(Guid)
-          .FactContextActions(onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack())
-          .Configure();
-
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      var contextActions = blueprint.GetComponent<AddFactContextActions>();
-      Assert.NotNull(contextActions);
-
-      Assert.Equal(2, contextActions.Activated.Actions.Length);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
-
-      Assert.NotNull(contextActions.Deactivated.Actions);
-      Assert.NotNull(contextActions.NewRound.Actions);
-    }
-
-    [Fact]
-    public void FactContextActions_WithDeactivatedOnly()
-    {
-      GetConfigurator(Guid)
-          .FactContextActions(onDeactivated: ActionsBuilder.New().MeleeAttack())
-          .Configure();
-
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      var contextActions = blueprint.GetComponent<AddFactContextActions>();
-      Assert.NotNull(contextActions);
-
-      Assert.Single(contextActions.Deactivated.Actions);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
-
-      Assert.NotNull(contextActions.Activated.Actions);
-      Assert.NotNull(contextActions.NewRound.Actions);
-    }
-
-    [Fact]
-    public void FactContextActions_WithNewRoundOnly()
-    {
-      GetConfigurator(Guid)
-          .FactContextActions(onNewRound: ActionsBuilder.New().BreakFree())
-          .Configure();
-
-      T blueprint = BlueprintTool.Get<T>(Guid);
-      var contextActions = blueprint.GetComponent<AddFactContextActions>();
-      Assert.NotNull(contextActions);
-
-      Assert.Single(contextActions.NewRound.Actions);
-      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
-
-      Assert.NotNull(contextActions.Activated.Actions);
-      Assert.NotNull(contextActions.Deactivated.Actions);
-    }
-
-    [Fact]
-    public void FactContextActions_WithMerge()
+    public void AddFeatureGroups_WithExisting()
     {
       // First pass
       GetConfigurator(Guid)
-          .FactContextActions(
-              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
-              onDeactivated: ActionsBuilder.New().MeleeAttack(),
-              onNewRound: ActionsBuilder.New().BreakFree())
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       GetConfigurator(Guid)
-          .FactContextActions(
-              onActivated: ActionsBuilder.New().BreakFree(),
-              onDeactivated: ActionsBuilder.New().MeleeAttack(),
-              onNewRound: ActionsBuilder.New().MeleeAttack())
+          .AddFeatureGroups(FeatureGroup.Feat)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
-      var contextActions = blueprint.GetComponent<AddFactContextActions>();
-      Assert.NotNull(contextActions);
+      Assert.Equal(3, blueprint.Groups.Length);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Feat, blueprint.Groups);
+    }
 
-      Assert.Equal(3, contextActions.Activated.Actions.Length);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
-      Assert.IsType<ContextActionBreakFree>(contextActions.Activated.Actions[2]);
+    [Fact]
+    public void RemoveFeatureGroups()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .Configure();
 
-      Assert.Equal(2, contextActions.Deactivated.Actions.Length);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[1]);
+      GetConfigurator(Guid)
+          .RemoveFeatureGroups(FeatureGroup.Domain)
+          .Configure();
 
-      Assert.Equal(2, contextActions.NewRound.Actions.Length);
-      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
-      Assert.IsType<ContextActionMeleeAttack>(contextActions.NewRound.Actions[1]);
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Single(blueprint.Groups);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+    }
+
+    [Fact]
+    public void SetIsClassFeature()
+    {
+      GetConfigurator(Guid)
+          .SetIsClassFeature()
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.True(feature.IsClassFeature);
+    }
+
+    [Fact]
+    public void SetIsClassFeature_False()
+    {
+      GetConfigurator(Guid)
+          .SetIsClassFeature(false)
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.False(feature.IsClassFeature);
+    }
+
+    [Fact]
+    public void AddIsPrerequisiteFor()
+    {
+      GetConfigurator(Guid)
+          .AddIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(2, blueprint.IsPrerequisiteFor.Count);
+      Assert.Contains(
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+      Assert.Contains(
+          ExtraFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+    }
+
+    [Fact]
+    public void AddIsPrerequisiteFor_WithExisting()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddIsPrerequisiteFor(FeatureGuid)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .AddIsPrerequisiteFor(ExtraFeatureGuid)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(2, blueprint.IsPrerequisiteFor.Count);
+      Assert.Contains(
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+      Assert.Contains(
+          ExtraFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+    }
+
+    [Fact]
+    public void RemoveIsPrerequisiteFor()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .RemoveIsPrerequisiteFor(ExtraFeatureGuid)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Single(blueprint.IsPrerequisiteFor);
+      Assert.Contains(
+          TestFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+    }
+
+    [Fact]
+    public void SetRanks()
+    {
+      GetConfigurator(Guid)
+          .SetRanks(3)
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(3, feature.Ranks);
+    }
+
+    [Fact]
+    public void SetReapplyOnLevelUp()
+    {
+      GetConfigurator(Guid)
+          .SetReapplyOnLevelUp()
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.True(feature.ReapplyOnLevelUp);
+    }
+
+    [Fact]
+    public void SetReapplyOnLevelUp_False()
+    {
+      GetConfigurator(Guid)
+          .SetReapplyOnLevelUp(false)
+          .Configure();
+
+      var feature = BlueprintTool.Get<T>(Guid);
+      Assert.False(feature.ReapplyOnLevelUp);
+    }
+
+    [Fact]
+    public void AddFeatureTags()
+    {
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+    }
+
+    [Fact]
+    public void AddFeatureTags_WithExisting()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Teamwork)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Teamwork));
+    }
+
+    [Fact]
+    public void RemoveFeatureTags()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .Configure();
+
+      GetConfigurator(Guid)
+          .RemoveFeatureTags(FeatureTag.Defense)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.False(tags.FeatureTags.HasFlag(FeatureTag.Defense));
     }
 
     //----- Start: AddPrerequisiteAlignment
 
     [Fact]
     public void AddPrerequisiteAlignment()
-    {
-      RunTest(
-          AddPrerequisiteAlignment_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void AddPrerequisiteAlignment_Action()
     {
       GetConfigurator(Guid)
           .AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood, AlignmentMaskType.LawfulNeutral)
@@ -217,15 +255,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void AddPrerequisiteAlignment_WithExisting()
-    {
-      RunTest(
-          AddPrerequisiteAlignment_WithExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void AddPrerequisiteAlignment_WithExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -250,15 +279,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void RemovePrerequisiteAlignment()
     {
-      RunTest(
-          RemovePrerequisiteAlignment_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void RemovePrerequisiteAlignment_Action()
-    {
       // First pass
       GetConfigurator(Guid)
           .AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood, AlignmentMaskType.LawfulNeutral)
@@ -281,15 +301,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteArchetype()
     {
-      RunTest(
-          PrerequisiteArchetype_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteArchetype_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteArchetype(ClassGuid, ArchetypeGuid)
           .Configure();
@@ -305,15 +316,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteArchetype_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteArchetype_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteArchetype_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteArchetype(
@@ -336,15 +338,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteArchetype_WithLevel()
     {
-      RunTest(
-          PrerequisiteArchetype_WithLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteArchetype_WithLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteArchetype(ClassGuid, ArchetypeGuid, 5)
           .Configure();
@@ -363,15 +356,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteCasterType()
     {
-      RunTest(
-          PrerequisiteCasterType_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCasterType_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteCasterType(/* isArcane= */ true)
           .Configure();
@@ -385,15 +369,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCasterType_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteCasterType_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCasterType_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteCasterType(
@@ -412,15 +387,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCasterType_WithExisting()
-    {
-      RunTest(
-          PrerequisiteCasterType_WithExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCasterType_WithExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -443,15 +409,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteCasterTypeSpellLevel()
     {
-      RunTest(
-          PrerequisiteCasterTypeSpellLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCasterTypeSpellLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteCasterTypeSpellLevel(
               /* isArcane= */ true, /* onlySpontaneous= */ true, 3)
@@ -468,15 +425,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCasterTypeSpellLevel_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteCasterTypeSpellLevel_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCasterTypeSpellLevel_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteCasterTypeSpellLevel(
@@ -502,15 +450,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteCharacterLevel()
     {
-      RunTest(
-          PrerequisiteCharacterLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCharacterLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteCharacterLevel(6)
           .Configure();
@@ -524,15 +463,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCharacterLevel_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteCharacterLevel_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCharacterLevel_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteCharacterLevel(
@@ -551,15 +481,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCharacterLevel_WithExisting()
-    {
-      RunTest(
-          PrerequisiteCharacterLevel_WithExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCharacterLevel_WithExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -582,15 +503,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteClassLevel()
     {
-      RunTest(
-          PrerequisiteClassLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteClassLevel(ClassGuid, 2)
           .Configure();
@@ -606,15 +518,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteClassLevel_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteClassLevel_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassLevel_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -638,15 +541,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteClassLevel_WithCommonPrereqValues()
     {
-      RunTest(
-          PrerequisiteClassLevel_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassLevel_WithCommonPrereqValues_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteClassLevel(
               ClassGuid,
@@ -668,15 +562,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteClassLevel_Negated()
     {
-      RunTest(
-          PrerequisiteClassLevel_Negated_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassLevel_Negated_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteClassLevel(ClassGuid, 2, /* negate= */ true)
           .Configure();
@@ -693,15 +578,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteClassSpellLevel()
     {
-      RunTest(
-          PrerequisiteClassSpellLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassSpellLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteClassSpellLevel(ClassGuid, 3)
           .Configure();
@@ -716,15 +592,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteClassSpellLevel_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteClassSpellLevel_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassSpellLevel_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -745,15 +612,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteClassSpellLevel_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteClassSpellLevel_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteClassSpellLevel_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteClassSpellLevel(
@@ -777,15 +635,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteEtude()
     {
-      RunTest(
-          PrerequisiteEtude_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteEtude_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteEtude(EtudeGuid)
           .Configure();
@@ -800,15 +649,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteEtude_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteEtude_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteEtude_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteEtude(
@@ -829,15 +669,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteEtude_NotPlaying()
     {
-      RunTest(
-          PrerequisiteEtude_NotPlaying_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteEtude_NotPlaying_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteEtude(EtudeGuid, /* playing= */ false)
           .Configure();
@@ -855,15 +686,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteFeature()
     {
-      RunTest(
-          PrerequisiteFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteFeature(FeatureGuid)
           .Configure();
@@ -877,15 +699,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteFeature(
@@ -907,15 +720,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteFeaturesFromList()
     {
-      RunTest(
-          PrerequisiteFeaturesFromList_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteFeaturesFromList_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteFeaturesFromList(new string[] { FeatureGuid, ExtraFeatureGuid })
           .Configure();
@@ -932,15 +736,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteFeaturesFromList_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteFeaturesFromList_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteFeaturesFromList_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteFeaturesFromList(
@@ -963,15 +758,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteFeaturesFromList_WithRequiredNumber()
     {
-      RunTest(
-          PrerequisiteFeaturesFromList_WithRequiredNumber_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteFeaturesFromList_WithRequiredNumber_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteFeaturesFromList(new string[] { FeatureGuid, ExtraFeatureGuid }, 2)
           .Configure();
@@ -991,15 +777,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteIsPet()
     {
-      RunTest(
-          PrerequisiteIsPet_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteIsPet_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteIsPet()
           .Configure();
@@ -1013,15 +790,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteIsPet_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteIsPet_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteIsPet_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteIsPet(
@@ -1037,15 +805,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteIsPet_Negated()
-    {
-      RunTest(
-          PrerequisiteIsPet_Negated_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteIsPet_Negated_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteIsPet(/* negate= */ true)
@@ -1063,15 +822,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteMainCharacter()
     {
-      RunTest(
-          PrerequisiteMainCharacter_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMainCharacter_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteMainCharacter()
           .Configure();
@@ -1085,15 +835,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteMainCharacter_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteMainCharacter_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMainCharacter_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -1114,15 +855,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteMainCharacter_WithCommonPrereqValues()
     {
-      RunTest(
-          PrerequisiteMainCharacter_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMainCharacter_WithCommonPrereqValues_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteMainCharacter(
               group: Prerequisite.GroupType.Any, checkInProgression: true, hideInUI: true)
@@ -1140,15 +872,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteCompanion()
     {
-      RunTest(
-          PrerequisiteCompanion_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCompanion_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteCompanion()
           .Configure();
@@ -1162,15 +885,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteCompanion_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteCompanion_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCompanion_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -1191,15 +905,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteCompanion_WithCommonPrereqValues()
     {
-      RunTest(
-          PrerequisiteCompanion_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteCompanion_WithCommonPrereqValues_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteCompanion(
               group: Prerequisite.GroupType.Any, checkInProgression: true, hideInUI: true)
@@ -1217,15 +922,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteMythicLevel()
     {
-      RunTest(
-          PrerequisiteMythicLevel_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMythicLevel_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteMythicLevel(2)
           .Configure();
@@ -1239,15 +935,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteMythicLevel_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteMythicLevel_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMythicLevel_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -1267,15 +954,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteMythicLevel_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteMythicLevel_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteMythicLevel_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteMythicLevel(
@@ -1297,15 +975,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteNoArchetype()
     {
-      RunTest(
-          PrerequisiteNoArchetype_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoArchetype_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteNoArchetype(ClassGuid, ArchetypeGuid)
           .Configure();
@@ -1320,15 +989,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteNoArchetype_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteNoArchetype_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoArchetype_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteNoArchetype(
@@ -1352,15 +1012,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteNoClass()
     {
-      RunTest(
-          PrerequisiteNoClass_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoClass_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteNoClass(ClassGuid)
           .Configure();
@@ -1374,15 +1025,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteNoClass_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteNoClass_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoClass_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteNoClass(
@@ -1404,15 +1046,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteNoFeature()
     {
-      RunTest(
-          PrerequisiteNoFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteNoFeature(FeatureGuid)
           .Configure();
@@ -1426,15 +1059,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteNoFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteNoFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNoFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteNoFeature(
@@ -1455,15 +1079,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteNotProficient()
-    {
-      RunTest(
-          PrerequisiteNotProficient_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNotProficient_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteNotProficient(
@@ -1489,15 +1104,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteNotProficient_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteNotProficient_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNotProficient_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -1530,15 +1136,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteNotProficient_WithCommonPrereqValues()
     {
-      RunTest(
-          PrerequisiteNotProficient_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteNotProficient_WithCommonPrereqValues_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteNotProficient(
               new WeaponCategory[] { WeaponCategory.Longspear, WeaponCategory.Trident },
@@ -1569,15 +1166,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteParameterizedSpellFeature()
     {
-      RunTest(
-          PrerequisiteParameterizedSpellFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedSpellFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedSpellFeature(FeatureGuid, AbilityGuid)
           .Configure();
@@ -1594,15 +1182,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteParameterizedSpellFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteParameterizedSpellFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedSpellFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedSpellFeature(
@@ -1628,15 +1207,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteParameterizedWeaponFeature()
     {
-      RunTest(
-          PrerequisiteParameterizedWeaponFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedWeaponFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedWeaponFeature(FeatureGuid, WeaponCategory.Sling)
           .Configure();
@@ -1653,15 +1223,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteParameterizedWeaponFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteParameterizedWeaponFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedWeaponFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedWeaponFeature(
@@ -1687,15 +1248,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteParameterizedSpellSchoolFeature()
     {
-      RunTest(
-          PrerequisiteParameterizedSpellSchoolFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedSpellSchoolFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedSpellSchoolFeature(FeatureGuid, SpellSchool.Illusion)
           .Configure();
@@ -1712,15 +1264,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteParameterizedSpellSchoolFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteParameterizedSpellSchoolFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedSpellSchoolFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedSpellSchoolFeature(
@@ -1746,15 +1289,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteParameterizedWeaponSubcategory()
     {
-      RunTest(
-          PrerequisiteParameterizedWeaponSubcategory_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedWeaponSubcategory_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedWeaponSubcategory(FeatureGuid, WeaponSubCategory.Thrown)
           .Configure();
@@ -1770,15 +1304,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteParameterizedWeaponSubcategory_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteParameterizedWeaponSubcategory_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteParameterizedWeaponSubcategory_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteParameterizedWeaponSubcategory(
@@ -1803,15 +1328,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisitePet()
     {
-      RunTest(
-          PrerequisitePet_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisitePet_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisitePet(PetType.AzataHavocDragon)
           .Configure();
@@ -1827,15 +1343,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisitePet_Negated()
     {
-      RunTest(
-          PrerequisitePet_Negated_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisitePet_Negated_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisitePet(PetType.AzataHavocDragon, negate: true)
           .Configure();
@@ -1850,15 +1357,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisitePet_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisitePet_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisitePet_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisitePet(
@@ -1881,15 +1379,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisitePlayerHasFeature()
     {
-      RunTest(
-          PrerequisitePlayerHasFeature_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisitePlayerHasFeature_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisitePlayerHasFeature(FeatureGuid)
           .Configure();
@@ -1903,15 +1392,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisitePlayerHasFeature_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisitePlayerHasFeature_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisitePlayerHasFeature_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisitePlayerHasFeature(
@@ -1932,15 +1412,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteProficient()
-    {
-      RunTest(
-          PrerequisiteProficient_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteProficient_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteProficient(
@@ -1966,15 +1437,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteProficient_ReplaceExisting()
-    {
-      RunTest(
-          PrerequisiteProficient_ReplaceExisting_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteProficient_ReplaceExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -2007,15 +1469,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteProficient_WithCommonPrereqValues()
     {
-      RunTest(
-          PrerequisiteProficient_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteProficient_WithCommonPrereqValues_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteProficient(
               new WeaponCategory[] { WeaponCategory.Longspear, WeaponCategory.Trident },
@@ -2046,15 +1499,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void PrerequisiteStat()
     {
-      RunTest(
-          PrerequisiteStat_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteStat_Action()
-    {
       GetConfigurator(Guid)
           .PrerequisiteStat(StatType.SaveWill, 5)
           .Configure();
@@ -2069,15 +1513,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void PrerequisiteStat_WithCommonPrereqValues()
-    {
-      RunTest(
-          PrerequisiteStat_WithCommonPrereqValues_Action,
-          typeof(BlueprintArchetype),
-          typeof(BlueprintCharacterClass),
-          typeof(BlueprintFeature));
-    }
-
-    private void PrerequisiteStat_WithCommonPrereqValues_Action()
     {
       GetConfigurator(Guid)
           .PrerequisiteStat(
@@ -2101,16 +1536,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void AddSpellDescriptors()
     {
-      RunTest(
-          AddSpellDescriptors_Action,
-          typeof(BlueprintAbility),
-          typeof(BlueprintAbilityAreaEffect),
-          typeof(BlueprintFeature),
-          typeof(BlueprintBuff));
-    }
-
-    private void AddSpellDescriptors_Action()
-    {
       GetConfigurator(Guid)
           .AddSpellDescriptors(SpellDescriptor.Fire, SpellDescriptor.Evil)
           .Configure();
@@ -2125,16 +1550,6 @@ namespace BlueprintCore.Test.Blueprints
 
     [Fact]
     public void AddSpellDescriptors_WithExisting()
-    {
-      RunTest(
-          AddSpellDescriptors_WithExisting_Action,
-          typeof(BlueprintAbility),
-          typeof(BlueprintAbilityAreaEffect),
-          typeof(BlueprintFeature),
-          typeof(BlueprintBuff));
-    }
-
-    private void AddSpellDescriptors_WithExisting_Action()
     {
       // First pass
       GetConfigurator(Guid)
@@ -2159,16 +1574,6 @@ namespace BlueprintCore.Test.Blueprints
     [Fact]
     public void RemoveSpellDescriptors()
     {
-      RunTest(
-          RemoveSpellDescriptors_Action,
-          typeof(BlueprintAbility),
-          typeof(BlueprintAbilityAreaEffect),
-          typeof(BlueprintFeature),
-          typeof(BlueprintBuff));
-    }
-
-    private void RemoveSpellDescriptors_Action()
-    {
       // First pass
       GetConfigurator(Guid)
           .AddSpellDescriptors(SpellDescriptor.Fire, SpellDescriptor.Evil)
@@ -2184,6 +1589,23 @@ namespace BlueprintCore.Test.Blueprints
 
       Assert.False(descriptors.Descriptor.HasAnyFlag(SpellDescriptor.Fire));
       Assert.True(descriptors.Descriptor.HasAnyFlag(SpellDescriptor.Evil));
+    }
+  }
+
+  /// <summary>
+  /// Feature specific tests should go in CommonFeatureConfiguratorTest which is shared with
+  /// classes inheriting from BlueprintFeature.
+  /// </summary>
+  public class FeatureConfiguratorTest : BaseFeatureConfiguratorTest<BlueprintFeature, FeatureConfigurator>
+  {
+    public FeatureConfiguratorTest() : base()
+    {
+      BlueprintPatch.Create<BlueprintFeature>(Guid);
+    }
+
+    protected override FeatureConfigurator GetConfigurator(string guid)
+    {
+      return FeatureConfigurator.For(guid);
     }
   }
 }

@@ -1,6 +1,6 @@
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Buffs;
-using BlueprintCore.Test.Blueprints.Facts;
+using BlueprintCore.Blueprints.Configurators.Buffs;
+using BlueprintCore.Test.Blueprints.Configurators.Facts;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -11,7 +11,7 @@ using static BlueprintCore.Test.TestData;
 
 namespace BlueprintCore.Test.Blueprints.Buffs
 {
-  public class BuffConfiguratorTest : BlueprintUnitFactConfiguratorTest<BlueprintBuff, BuffConfigurator>
+  public class BuffConfiguratorTest : BaseUnitFactConfiguratorTest<BlueprintBuff, BuffConfigurator>
   {
     public BuffConfiguratorTest() : base()
     {

@@ -1,13 +1,13 @@
 using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
-using BlueprintCore.Blueprints;
-using BlueprintCore.Blueprints.Abilities;
+using BlueprintCore.Blueprints.Configurators.Abilities;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Conditions.New;
-using BlueprintCore.Test.Blueprints.Facts;
+using BlueprintCore.Test.Blueprints.Configurators.Facts;
+using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -34,7 +34,7 @@ using static BlueprintCore.Test.TestData;
 namespace BlueprintCore.Test.Blueprints.Abilities
 {
   public class AbilityConfiguratorTest
-      : BlueprintUnitFactConfiguratorTest<BlueprintAbility, AbilityConfigurator>
+      : BaseUnitFactConfiguratorTest<BlueprintAbility, AbilityConfigurator>
   {
     public AbilityConfiguratorTest() : base()
     {

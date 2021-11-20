@@ -270,8 +270,6 @@ namespace BlueprintCore.Blueprints.Configurators
       return Blueprint;
     }
 
-    // TODO: Add support for EditComponent<>
-
     /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</summary>
     /// 
     /// <remarks>
@@ -299,6 +297,21 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new C();
       init?.Invoke(component);
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Edits the first <see cref="BlueprintComponent"/> of the specified type in the blueprint.
+    /// </summary>
+    /// 
+    /// <param name="edit">Action invoked with the component as an input argument. Run when <see cref="Configure"/> is called.</param>
+    public TBuilder EditComponent<C>(Action<C> edit) where C : BlueprintComponent
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var component = bp.GetComponent<C>();
+            if (component is not null) { edit.Invoke(component); }
+          });
     }
 
     /// <summary>Executes the specified actions when <see cref="Configure"/> is called.</summary>

@@ -22,6 +22,7 @@ namespace BlueprintCore.Utils
     /// </remarks>
     public static T[] Append<T>(T[] array, params T[] values)
     {
+      if (array == null) { return values ?? new T[0]; }
       if (values == null) { return array; }
       var len = array.Length;
       var result = new T[len + values.Length];
