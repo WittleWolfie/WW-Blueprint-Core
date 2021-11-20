@@ -357,12 +357,13 @@ namespace BlueprintCoreGen.CodeGen
     {
       method.GetImports().ForEach(import => basicClass.AddImport(import));
 
+      var indent = method is RawMethod ? "" : "    ";
       basicClass.AddLine($"");
       method.GetText().ForEach(
           line =>
           {
-            if (returnTypeOverride is null) { basicClass.AddLine($"    {line}"); }
-            else { basicClass.AddLine($"    {line.Replace("TBuilder", returnTypeOverride)}"); }
+            if (returnTypeOverride is null) { basicClass.AddLine($"{indent}{line}"); }
+            else { basicClass.AddLine($"{indent}{line.Replace("TBuilder", returnTypeOverride)}"); }
           });
     }
 

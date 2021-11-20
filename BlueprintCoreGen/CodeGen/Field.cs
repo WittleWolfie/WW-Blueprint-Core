@@ -114,7 +114,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         return new BlueprintField(info, info.FieldType);
       }
-      if (info.FieldType == typeof(ActionsBuilder))
+      if (info.FieldType == typeof(ActionList))
       {
         return new BuilderField(info, BuilderField.BuilderType.Actions);
       }
