@@ -285,7 +285,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     }
 
     [Implements(typeof(AbilityVariants))]
-    private void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+    private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
     {
       var component = bp.GetComponent<AbilityVariants>();
       if (component is null)

@@ -7,7 +7,9 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Alignments;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCoreGen.Templates.BlueprintComponents
@@ -504,6 +506,44 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       prereq.Stat = type;
       prereq.Value = minValue;
       return AddComponent(prereq);
+    }
+
+    /// <summary>
+    /// Adds or modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
+    }
+
+    [Implements(typeof(PrerequisiteAlignment))]
+    private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
+    {
+      var component = bp.GetComponent<PrerequisiteAlignment>();
+      if (component is null)
+      {
+        component = new PrerequisiteAlignment();
+        bp.AddComponents(component);
+      }
+      alignments.ForEach(alignment => component.Alignment |= alignment);
+    }
+
+    /// <summary>
+    /// Modifies <see cref="PrerequisiteAlignment"/>
+    /// </summary>
+    [Implements(typeof(PrerequisiteAlignment))]
+    public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
+    {
+      return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
+    }
+
+    [Implements(typeof(PrerequisiteAlignment))]
+    private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
+    {
+      var component = bp.GetComponent<PrerequisiteAlignment>();
+      if (component is null) { return; }
+      alignments.ForEach(alignment => component.Alignment &= ~alignment);
     }
   }
 }

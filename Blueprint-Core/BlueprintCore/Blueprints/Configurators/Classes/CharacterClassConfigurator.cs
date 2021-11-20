@@ -15,6 +15,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -1294,8 +1295,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         [Implements(typeof(PrerequisiteAlignment))]
         public CharacterClassConfigurator AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
         {
-          foreach (AlignmentMaskType alignment in alignments) { EnablePrerequisiteAlignment |= alignment; }
-          return Self;
+          return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
+        }
+
+        [Implements(typeof(PrerequisiteAlignment))]
+        private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
+        {
+          var component = bp.GetComponent<PrerequisiteAlignment>();
+          if (component is null)
+          {
+            component = new PrerequisiteAlignment();
+            bp.AddComponents(component);
+          }
+          alignments.ForEach(alignment => component.Alignment |= alignment);
         }
 
         /// <summary>
@@ -1304,8 +1316,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         [Implements(typeof(PrerequisiteAlignment))]
         public CharacterClassConfigurator RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
         {
-          foreach (AlignmentMaskType alignment in alignments) { DisablePrerequisiteAlignment |= alignment; }
-          return Self;
+          return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
+        }
+
+        [Implements(typeof(PrerequisiteAlignment))]
+        private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
+        {
+          var component = bp.GetComponent<PrerequisiteAlignment>();
+          if (component is null) { return; }
+          alignments.ForEach(alignment => component.Alignment &= ~alignment);
         }
 
     /// <summary>

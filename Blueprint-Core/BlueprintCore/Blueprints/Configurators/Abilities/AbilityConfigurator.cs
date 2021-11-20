@@ -588,7 +588,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         }
 
         [Implements(typeof(AbilityVariants))]
-        private void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
+        private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
         {
           var component = bp.GetComponent<AbilityVariants>();
           if (component is null)
@@ -652,11 +652,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         [Implements(typeof(SpellDescriptorComponent))]
         public AbilityConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
         {
-          foreach (SpellDescriptor descriptor in descriptors)
+          return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
+        }
+
+        [Implements(typeof(SpellDescriptorComponent))]
+        private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+        {
+          var component = bp.GetComponent<SpellDescriptorComponent>();
+          if (component is null)
           {
-            EnableSpellDescriptors |= (long)descriptor;
+            component = new SpellDescriptorComponent();
+            bp.AddComponents(component);
           }
-          return Self;
+          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue |= (long)descriptor);
         }
 
         /// <summary>
@@ -665,11 +673,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         [Implements(typeof(SpellDescriptorComponent))]
         public AbilityConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
         {
-          foreach (SpellDescriptor descriptor in descriptors)
-          {
-            DisableSpellDescriptors |= (long)descriptor;
-          }
-          return Self;
+          return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
+        }
+
+        [Implements(typeof(SpellDescriptorComponent))]
+        private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
+        {
+          var component = bp.GetComponent<SpellDescriptorComponent>();
+          if (component is null) { return; }
+          descriptors.ForEach(descriptor => component.Descriptor.m_IntValue &= ~(long)descriptor);
         }
 
     /// <summary>
