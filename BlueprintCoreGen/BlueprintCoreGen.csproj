@@ -30,4 +30,9 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="UpdateCodeGen.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
