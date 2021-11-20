@@ -132,5 +132,123 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Facts
       Assert.IsType<ContextActionMeleeAttack>(onSkillCheck.Action.Actions[0]);
       Assert.IsType<ContextActionMeleeAttack>(onSkillCheck.Action.Actions[1]);
     }
+
+    //----- Start: FactContextActions
+
+    [Fact]
+    public void AddFactContextActions()
+    {
+      GetConfigurator(Guid)
+          .AddFactContextActions(
+              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().BreakFree())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var contextActions = blueprint.GetComponent<AddFactContextActions>();
+      Assert.NotNull(contextActions);
+
+      Assert.Equal(2, contextActions.Activated.Actions.Length);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
+
+      Assert.Single(contextActions.Deactivated.Actions);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
+
+      Assert.Single(contextActions.NewRound.Actions);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
+    }
+
+    [Fact]
+    public void AddFactContextActions_WithActivatedOnly()
+    {
+      GetConfigurator(Guid)
+          .AddFactContextActions(onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var contextActions = blueprint.GetComponent<AddFactContextActions>();
+      Assert.NotNull(contextActions);
+
+      Assert.Equal(2, contextActions.Activated.Actions.Length);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
+
+      Assert.NotNull(contextActions.Deactivated.Actions);
+      Assert.NotNull(contextActions.NewRound.Actions);
+    }
+
+    [Fact]
+    public void AddFactContextActions_WithDeactivatedOnly()
+    {
+      GetConfigurator(Guid)
+          .AddFactContextActions(onDeactivated: ActionsBuilder.New().MeleeAttack())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var contextActions = blueprint.GetComponent<AddFactContextActions>();
+      Assert.NotNull(contextActions);
+
+      Assert.Single(contextActions.Deactivated.Actions);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
+
+      Assert.NotNull(contextActions.Activated.Actions);
+      Assert.NotNull(contextActions.NewRound.Actions);
+    }
+
+    [Fact]
+    public void AddFactContextActions_WithNewRoundOnly()
+    {
+      GetConfigurator(Guid)
+          .AddFactContextActions(onNewRound: ActionsBuilder.New().BreakFree())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var contextActions = blueprint.GetComponent<AddFactContextActions>();
+      Assert.NotNull(contextActions);
+
+      Assert.Single(contextActions.NewRound.Actions);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
+
+      Assert.NotNull(contextActions.Activated.Actions);
+      Assert.NotNull(contextActions.Deactivated.Actions);
+    }
+
+    [Fact]
+    public void AddFactContextActions_WithMerge()
+    {
+      // First pass
+      GetConfigurator(Guid)
+          .AddFactContextActions(
+              onActivated: ActionsBuilder.New().MeleeAttack().MeleeAttack(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().BreakFree())
+          .Configure();
+
+      GetConfigurator(Guid)
+          .AddFactContextActions(
+              onActivated: ActionsBuilder.New().BreakFree(),
+              onDeactivated: ActionsBuilder.New().MeleeAttack(),
+              onNewRound: ActionsBuilder.New().MeleeAttack())
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var contextActions = blueprint.GetComponent<AddFactContextActions>();
+      Assert.NotNull(contextActions);
+
+      Assert.Equal(3, contextActions.Activated.Actions.Length);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Activated.Actions[1]);
+      Assert.IsType<ContextActionBreakFree>(contextActions.Activated.Actions[2]);
+
+      Assert.Equal(2, contextActions.Deactivated.Actions.Length);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.Deactivated.Actions[1]);
+
+      Assert.Equal(2, contextActions.NewRound.Actions.Length);
+      Assert.IsType<ContextActionBreakFree>(contextActions.NewRound.Actions[0]);
+      Assert.IsType<ContextActionMeleeAttack>(contextActions.NewRound.Actions[1]);
+    }
   }
 }
