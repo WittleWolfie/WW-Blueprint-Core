@@ -5,6 +5,7 @@ using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>
@@ -15,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   public abstract class BaseDlcRewardConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintDlcReward
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseDlcRewardConfigurator<T, TBuilder>
   {
     protected BaseDlcRewardConfigurator(string name) : base(name) { }
 

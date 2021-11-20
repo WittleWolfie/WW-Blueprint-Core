@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -25,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   public abstract class BaseAreaConfigurator<T, TBuilder>
       : BaseAreaPartConfigurator<T, TBuilder>
       where T : BlueprintArea
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseAreaConfigurator<T, TBuilder>
   {
     protected BaseAreaConfigurator(string name) : base(name) { }
 

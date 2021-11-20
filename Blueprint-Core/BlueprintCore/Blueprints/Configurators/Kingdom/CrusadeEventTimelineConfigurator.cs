@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>

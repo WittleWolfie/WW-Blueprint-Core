@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>
@@ -12,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
   public abstract class BaseSpawnableObjectConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintSpawnableObject
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseSpawnableObjectConfigurator<T, TBuilder>
   {
     protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
 

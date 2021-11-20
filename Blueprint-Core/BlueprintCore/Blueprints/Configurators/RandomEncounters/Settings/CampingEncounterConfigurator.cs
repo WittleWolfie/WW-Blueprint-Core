@@ -5,6 +5,7 @@ using BlueprintCore.Utils;
 using Kingmaker.ElementsSystem;
 using Kingmaker.RandomEncounters.Settings;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

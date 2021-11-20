@@ -4,6 +4,7 @@ using Kingmaker.Visual.HitSystem;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.HitSystem
 {
   /// <summary>

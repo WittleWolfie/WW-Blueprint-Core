@@ -8,6 +8,7 @@ using Kingmaker.Kingdom.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Console;
 using Kingmaker.Blueprints.Root;
 using Owlcat.Runtime.UI.ConsoleTools.GamepadInput;
+
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>

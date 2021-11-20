@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Encyclopedia;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Encyclopedia;
+
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>

@@ -6,6 +6,7 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.RuleSystem;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

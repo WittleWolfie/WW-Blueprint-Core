@@ -27,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
@@ -37,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   public abstract class BaseItemConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintItem
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseItemConfigurator<T, TBuilder>
   {
     protected BaseItemConfigurator(string name) : base(name) { }
 

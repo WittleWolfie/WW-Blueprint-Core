@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Enums;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
@@ -12,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   public abstract class BaseAnswerBaseConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintAnswerBase
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseAnswerBaseConfigurator<T, TBuilder>
   {
     protected BaseAnswerBaseConfigurator(string name) : base(name) { }
 

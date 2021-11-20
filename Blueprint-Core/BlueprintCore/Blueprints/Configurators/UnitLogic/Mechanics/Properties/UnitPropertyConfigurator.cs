@@ -8,6 +8,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
 {
   /// <summary>

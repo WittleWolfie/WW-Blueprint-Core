@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Root.Fx;
+
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
   /// <summary>

@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Enums;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>

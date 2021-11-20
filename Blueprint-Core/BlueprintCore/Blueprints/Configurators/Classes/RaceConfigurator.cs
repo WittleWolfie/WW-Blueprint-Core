@@ -7,6 +7,7 @@ using Kingmaker.Enums;
 using Kingmaker.View.Animation;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Localization;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
   /// <summary>

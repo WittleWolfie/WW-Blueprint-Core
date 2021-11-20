@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
   /// <summary>

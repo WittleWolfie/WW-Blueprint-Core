@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
+
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>

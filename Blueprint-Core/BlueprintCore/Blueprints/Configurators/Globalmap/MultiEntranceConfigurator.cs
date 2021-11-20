@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>

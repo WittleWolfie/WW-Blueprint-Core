@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>
@@ -17,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   public abstract class BaseEquipmentEnchantmentConfigurator<T, TBuilder>
       : BaseItemEnchantmentConfigurator<T, TBuilder>
       where T : BlueprintEquipmentEnchantment
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseEquipmentEnchantmentConfigurator<T, TBuilder>
   {
     protected BaseEquipmentEnchantmentConfigurator(string name) : base(name) { }
 

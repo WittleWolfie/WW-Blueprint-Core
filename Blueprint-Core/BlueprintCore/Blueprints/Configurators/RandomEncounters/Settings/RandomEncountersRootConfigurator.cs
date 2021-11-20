@@ -6,6 +6,7 @@ using Kingmaker.RandomEncounters.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

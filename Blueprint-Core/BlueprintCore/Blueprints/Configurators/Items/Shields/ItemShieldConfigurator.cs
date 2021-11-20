@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Shields;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields
 {
   /// <summary>

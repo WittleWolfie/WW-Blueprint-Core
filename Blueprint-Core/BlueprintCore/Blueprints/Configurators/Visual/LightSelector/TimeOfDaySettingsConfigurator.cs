@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Visual.LightSelector;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.LightSelector
 {
   /// <summary>

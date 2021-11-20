@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.UI;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.UI
 {
   /// <summary>

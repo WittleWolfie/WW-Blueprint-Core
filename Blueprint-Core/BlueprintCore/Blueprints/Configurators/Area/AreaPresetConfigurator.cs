@@ -11,6 +11,7 @@ using Kingmaker.Settings.Difficulty;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -21,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   public abstract class BaseAreaPresetConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintAreaPreset
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseAreaPresetConfigurator<T, TBuilder>
   {
     protected BaseAreaPresetConfigurator(string name) : base(name) { }
 

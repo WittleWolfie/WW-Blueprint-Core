@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Craft;
+
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>

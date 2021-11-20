@@ -4,6 +4,7 @@ using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>

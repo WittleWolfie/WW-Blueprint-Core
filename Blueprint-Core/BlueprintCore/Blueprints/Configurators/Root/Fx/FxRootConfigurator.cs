@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Root.Fx;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
   /// <summary>

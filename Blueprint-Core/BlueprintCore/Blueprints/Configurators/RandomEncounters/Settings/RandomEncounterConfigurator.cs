@@ -8,6 +8,7 @@ using Kingmaker.Globalmap.View;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

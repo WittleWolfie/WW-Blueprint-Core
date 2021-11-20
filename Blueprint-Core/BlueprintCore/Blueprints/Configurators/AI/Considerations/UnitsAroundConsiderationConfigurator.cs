@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>
@@ -13,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
   public abstract class BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
       : BaseConsiderationConfigurator<T, TBuilder>
       where T : UnitsAroundConsideration
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
   {
     protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
 

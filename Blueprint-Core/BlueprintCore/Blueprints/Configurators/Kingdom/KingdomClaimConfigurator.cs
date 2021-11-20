@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

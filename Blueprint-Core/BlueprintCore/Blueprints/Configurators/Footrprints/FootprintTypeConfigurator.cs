@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.Enums;
 using Kingmaker.Utility.EnumArrays;
+
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
   /// <summary>

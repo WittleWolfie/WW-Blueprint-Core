@@ -8,6 +8,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

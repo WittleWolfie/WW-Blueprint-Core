@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Items.Weapons;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -12,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   public abstract class BaseItemEquipmentHandConfigurator<T, TBuilder>
       : BaseItemEquipmentConfigurator<T, TBuilder>
       where T : BlueprintItemEquipmentHand
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseItemEquipmentHandConfigurator<T, TBuilder>
   {
     protected BaseItemEquipmentHandConfigurator(string name) : base(name) { }
 

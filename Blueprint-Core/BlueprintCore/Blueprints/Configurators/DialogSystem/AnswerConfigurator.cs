@@ -10,6 +10,7 @@ using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

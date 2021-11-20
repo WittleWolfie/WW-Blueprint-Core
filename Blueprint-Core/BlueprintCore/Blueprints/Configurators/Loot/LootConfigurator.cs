@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Loot;
 using Kingmaker.Enums;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>

@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>
@@ -15,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   public abstract class BaseUnitLootConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintUnitLoot
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseUnitLootConfigurator<T, TBuilder>
   {
     protected BaseUnitLootConfigurator(string name) : base(name) { }
 

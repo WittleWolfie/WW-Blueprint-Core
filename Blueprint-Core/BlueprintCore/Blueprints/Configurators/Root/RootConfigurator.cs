@@ -20,6 +20,7 @@ using Kingmaker.Visual.Sound;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
@@ -13,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   public abstract class BaseBrainConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintBrain
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseBrainConfigurator<T, TBuilder>
   {
     protected BaseBrainConfigurator(string name) : base(name) { }
 

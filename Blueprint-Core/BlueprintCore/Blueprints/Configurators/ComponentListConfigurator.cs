@@ -19,6 +19,7 @@ using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

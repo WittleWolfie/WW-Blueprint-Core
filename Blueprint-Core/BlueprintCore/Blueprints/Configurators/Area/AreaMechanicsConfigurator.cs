@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Sound;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

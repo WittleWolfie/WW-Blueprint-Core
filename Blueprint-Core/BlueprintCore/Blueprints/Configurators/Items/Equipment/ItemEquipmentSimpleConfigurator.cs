@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -14,7 +15,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   public abstract class BaseItemEquipmentSimpleConfigurator<T, TBuilder>
       : BaseItemEquipmentConfigurator<T, TBuilder>
       where T : BlueprintItemEquipmentSimple
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseItemEquipmentSimpleConfigurator<T, TBuilder>
   {
     protected BaseItemEquipmentSimpleConfigurator(string name) : base(name) { }
 

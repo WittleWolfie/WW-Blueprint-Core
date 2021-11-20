@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
 {
   /// <summary>

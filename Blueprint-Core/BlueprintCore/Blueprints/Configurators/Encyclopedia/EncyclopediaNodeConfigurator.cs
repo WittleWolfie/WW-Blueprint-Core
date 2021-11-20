@@ -6,6 +6,7 @@ using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>
@@ -16,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   public abstract class BaseEncyclopediaNodeConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintEncyclopediaNode
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseEncyclopediaNodeConfigurator<T, TBuilder>
   {
     protected BaseEncyclopediaNodeConfigurator(string name) : base(name) { }
 

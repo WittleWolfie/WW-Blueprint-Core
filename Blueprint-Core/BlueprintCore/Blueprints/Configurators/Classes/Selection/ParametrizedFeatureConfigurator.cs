@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
   /// <summary>

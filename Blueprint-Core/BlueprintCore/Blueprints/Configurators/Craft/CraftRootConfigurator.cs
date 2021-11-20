@@ -5,6 +5,7 @@ using Kingmaker.Craft;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>

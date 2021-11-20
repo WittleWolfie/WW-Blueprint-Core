@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Blueprints.Encyclopedia.Blocks;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>
@@ -15,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   public abstract class BaseEncyclopediaPageConfigurator<T, TBuilder>
       : BaseEncyclopediaNodeConfigurator<T, TBuilder>
       where T : BlueprintEncyclopediaPage
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseEncyclopediaPageConfigurator<T, TBuilder>
   {
     protected BaseEncyclopediaPageConfigurator(string name) : base(name) { }
 

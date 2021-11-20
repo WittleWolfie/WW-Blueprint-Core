@@ -7,6 +7,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

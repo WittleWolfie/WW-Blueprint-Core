@@ -12,6 +12,7 @@ using Kingmaker.Utility;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>

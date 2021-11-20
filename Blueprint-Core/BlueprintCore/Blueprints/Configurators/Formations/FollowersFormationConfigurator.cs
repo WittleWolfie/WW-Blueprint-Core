@@ -4,6 +4,7 @@ using Kingmaker.Formations;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
   /// <summary>

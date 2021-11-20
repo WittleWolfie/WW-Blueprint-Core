@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
   /// <summary>

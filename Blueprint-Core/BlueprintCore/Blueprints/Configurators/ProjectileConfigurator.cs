@@ -6,6 +6,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.HitSystem;
 using System;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

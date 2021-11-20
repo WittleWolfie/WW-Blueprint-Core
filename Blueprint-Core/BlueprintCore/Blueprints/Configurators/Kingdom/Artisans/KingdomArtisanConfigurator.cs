@@ -7,6 +7,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Artisans;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
   /// <summary>

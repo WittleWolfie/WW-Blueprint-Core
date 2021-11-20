@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Enums;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>

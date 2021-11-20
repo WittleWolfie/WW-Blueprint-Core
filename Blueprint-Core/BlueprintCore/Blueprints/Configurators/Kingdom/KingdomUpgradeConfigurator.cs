@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Kingdom;
 using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

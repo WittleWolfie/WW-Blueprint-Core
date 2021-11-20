@@ -3,6 +3,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

@@ -7,6 +7,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -17,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   public abstract class BaseLogicConnectorConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintLogicConnector
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseLogicConnectorConfigurator<T, TBuilder>
   {
     protected BaseLogicConnectorConfigurator(string name) : base(name) { }
 

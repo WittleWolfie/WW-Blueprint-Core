@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -12,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   public abstract class BaseMapObjectConfigurator<T, TBuilder>
       : BaseLogicConnectorConfigurator<T, TBuilder>
       where T : BlueprintMapObject
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseMapObjectConfigurator<T, TBuilder>
   {
     protected BaseMapObjectConfigurator(string name) : base(name) { }
 

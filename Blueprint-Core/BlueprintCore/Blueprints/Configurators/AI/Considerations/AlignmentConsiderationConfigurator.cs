@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Enums;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>

@@ -4,6 +4,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.ElementsSystem;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

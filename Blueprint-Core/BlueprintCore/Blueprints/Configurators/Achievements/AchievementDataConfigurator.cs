@@ -8,6 +8,7 @@ using Kingmaker.Settings.Difficulty;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Achievements
 {
   /// <summary>

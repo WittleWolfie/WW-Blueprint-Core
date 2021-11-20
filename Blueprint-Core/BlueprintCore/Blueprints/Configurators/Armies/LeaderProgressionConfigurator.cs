@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Localization;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>

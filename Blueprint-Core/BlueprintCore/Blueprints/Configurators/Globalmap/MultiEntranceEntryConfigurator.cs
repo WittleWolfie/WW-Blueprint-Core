@@ -5,6 +5,7 @@ using BlueprintCore.Utils;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>

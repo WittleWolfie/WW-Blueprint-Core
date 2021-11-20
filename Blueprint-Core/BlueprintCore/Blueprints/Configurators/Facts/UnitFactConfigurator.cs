@@ -27,9 +27,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
   /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintUnitFact))]
-  public abstract class BaseUnitFactConfigurator<T, TBuilder> : BaseBlueprintConfigurator<T, TBuilder>
+  public abstract class BaseUnitFactConfigurator<T, TBuilder> : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintUnitFact
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseUnitFactConfigurator<T, TBuilder>
   {
     protected BaseUnitFactConfigurator(string name) : base(name) { }
 

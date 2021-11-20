@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
   /// <summary>
@@ -18,12 +19,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
   /// </summary>
   /// <inheritdoc/>
   [Configures(typeof(BlueprintFact))]
-  public abstract class BaseFactConfigurator<T, TBuilder>
-      : BaseBlueprintConfigurator<T, TBuilder>
+  public abstract class BaseFactConfigurator<T, TBuilder> : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintFact
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseFactConfigurator<T, TBuilder>
   {
     protected BaseFactConfigurator(string name) : base(name) { }
+
 
     /// <summary>
     /// Adds <see cref="AddFactContextActions"/>

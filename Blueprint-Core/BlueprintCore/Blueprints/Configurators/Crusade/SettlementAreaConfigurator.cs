@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Crusade;
+
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
   /// <summary>

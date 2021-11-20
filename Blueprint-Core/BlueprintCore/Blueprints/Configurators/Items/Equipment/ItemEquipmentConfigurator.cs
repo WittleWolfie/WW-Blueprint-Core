@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
@@ -17,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   public abstract class BaseItemEquipmentConfigurator<T, TBuilder>
       : BaseItemConfigurator<T, TBuilder>
       where T : BlueprintItemEquipment
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseItemEquipmentConfigurator<T, TBuilder>
   {
     protected BaseItemEquipmentConfigurator(string name) : base(name) { }
 

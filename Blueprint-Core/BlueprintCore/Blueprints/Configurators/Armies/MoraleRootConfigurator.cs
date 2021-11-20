@@ -6,6 +6,7 @@ using Kingmaker.Localization;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>

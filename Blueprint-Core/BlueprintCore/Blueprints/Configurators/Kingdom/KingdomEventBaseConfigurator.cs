@@ -9,6 +9,7 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -19,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   public abstract class BaseKingdomEventBaseConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintKingdomEventBase
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseKingdomEventBaseConfigurator<T, TBuilder>
   {
     protected BaseKingdomEventBaseConfigurator(string name) : base(name) { }
 

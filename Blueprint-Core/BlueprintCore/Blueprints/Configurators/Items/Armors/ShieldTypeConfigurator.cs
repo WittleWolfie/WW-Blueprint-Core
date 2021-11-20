@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Items.Armors;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>

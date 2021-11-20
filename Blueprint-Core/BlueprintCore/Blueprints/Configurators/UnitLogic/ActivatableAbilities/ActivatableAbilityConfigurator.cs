@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
   /// <summary>

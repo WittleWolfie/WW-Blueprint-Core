@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
   /// <summary>

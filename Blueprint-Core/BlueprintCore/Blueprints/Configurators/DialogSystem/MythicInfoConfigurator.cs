@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Localization;
+
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

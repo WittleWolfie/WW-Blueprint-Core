@@ -19,6 +19,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>
@@ -29,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   public abstract class BaseItemEnchantmentConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintItemEnchantment
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseItemEnchantmentConfigurator<T, TBuilder>
   {
     protected BaseItemEnchantmentConfigurator(string name) : base(name) { }
 

@@ -6,6 +6,7 @@ using Kingmaker.Localization;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>
@@ -16,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   public abstract class BaseArmorTypeConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintArmorType
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseArmorTypeConfigurator<T, TBuilder>
   {
     protected BaseArmorTypeConfigurator(string name) : base(name) { }
 

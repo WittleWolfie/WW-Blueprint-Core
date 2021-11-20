@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>

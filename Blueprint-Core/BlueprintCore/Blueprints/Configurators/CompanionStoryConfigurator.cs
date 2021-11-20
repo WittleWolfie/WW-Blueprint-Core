@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

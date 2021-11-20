@@ -6,6 +6,7 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
@@ -16,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   public abstract class BaseKingdomProjectConfigurator<T, TBuilder>
       : BaseKingdomEventBaseConfigurator<T, TBuilder>
       where T : BlueprintKingdomProject
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseKingdomProjectConfigurator<T, TBuilder>
   {
     protected BaseKingdomProjectConfigurator(string name) : base(name) { }
 

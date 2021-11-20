@@ -21,6 +21,7 @@ using Kingmaker.UnitLogic.Buffs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
 {
   /// <summary>

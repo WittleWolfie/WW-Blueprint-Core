@@ -6,6 +6,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
@@ -16,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   public abstract class BaseAiActionConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintAiAction
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseAiActionConfigurator<T, TBuilder>
   {
     protected BaseAiActionConfigurator(string name) : base(name) { }
 

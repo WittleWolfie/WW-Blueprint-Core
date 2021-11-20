@@ -6,6 +6,7 @@ using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
 using System;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {
   /// <summary>

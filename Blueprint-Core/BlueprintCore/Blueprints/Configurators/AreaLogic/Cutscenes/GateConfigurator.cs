@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
   /// <summary>
@@ -16,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   public abstract class BaseGateConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : Gate
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseGateConfigurator<T, TBuilder>
   {
     protected BaseGateConfigurator(string name) : base(name) { }
 

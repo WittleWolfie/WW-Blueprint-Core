@@ -5,6 +5,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

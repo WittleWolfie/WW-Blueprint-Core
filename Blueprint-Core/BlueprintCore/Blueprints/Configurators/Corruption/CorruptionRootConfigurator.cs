@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Corruption;
 using System;
+
 namespace BlueprintCore.Blueprints.Configurators.Corruption
 {
   /// <summary>

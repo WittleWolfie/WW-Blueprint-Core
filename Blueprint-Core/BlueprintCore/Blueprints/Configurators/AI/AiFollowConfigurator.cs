@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Utility;
+
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>

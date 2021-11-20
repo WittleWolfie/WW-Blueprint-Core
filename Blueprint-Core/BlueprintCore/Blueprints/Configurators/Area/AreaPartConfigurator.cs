@@ -8,6 +8,7 @@ using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Linq;
 using UnityEngine;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
@@ -18,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   public abstract class BaseAreaPartConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintAreaPart
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+      where TBuilder : BaseAreaPartConfigurator<T, TBuilder>
   {
     protected BaseAreaPartConfigurator(string name) : base(name) { }
 

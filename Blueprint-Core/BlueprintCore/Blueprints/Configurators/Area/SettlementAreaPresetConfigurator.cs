@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Settlements;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

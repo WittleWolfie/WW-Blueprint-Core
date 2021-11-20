@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Quests;
 using System.Linq;
+
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
   /// <summary>
