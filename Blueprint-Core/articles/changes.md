@@ -30,6 +30,10 @@ A lot of codeode was moved around for consistency and a new DLL reference is req
     * Owlcat.Runtime.Visual.dll
     * Owlcat.Runtime.UI.dll
 * Auto-generated methods provide default values for primitives, nullable types, and specific game types
+* ContextRankConfigs API reworked
+    * CommonExtensions are now optional parameters on the core functions
+    * Adopted the names of the progression types
+    * Added param comments for blueprint types
 
 ## v0.6.0 Release
 
