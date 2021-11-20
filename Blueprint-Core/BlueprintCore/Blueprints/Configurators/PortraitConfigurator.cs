@@ -81,18 +81,5 @@ namespace BlueprintCore.Blueprints.Configurators
       component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
-
-    /// <summary>
-    /// Adds <see cref="PortraitPremiumSetting"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(PortraitPremiumSetting))]
-    public PortraitConfigurator AddPortraitPremiumSetting(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
-    {
-      var component = new PortraitPremiumSetting();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

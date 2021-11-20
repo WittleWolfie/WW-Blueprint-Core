@@ -12,7 +12,6 @@ using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Controllers.Rest.Special;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.TempMapCode.Ambush;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning;
@@ -1393,16 +1392,6 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new BuffOnEntityCreated();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="MobCaster"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(MobCaster))]
-    public UnitConfigurator AddMobCaster()
-    {
-      return AddComponent(new MobCaster());
     }
 
     /// <summary>

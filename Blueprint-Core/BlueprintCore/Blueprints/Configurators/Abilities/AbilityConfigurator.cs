@@ -834,16 +834,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="UniqueSpellComponent"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(UniqueSpellComponent))]
-    public AbilityConfigurator AddUniqueSpellComponent()
-    {
-      return AddComponent(new UniqueSpellComponent());
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityAcceptBurnOnCast"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -2661,19 +2651,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
     {
       var component = new DimensionDoorRestrictionIgnorance();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LineOfSightIgnorance"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(LineOfSightIgnorance))]
-    public AbilityConfigurator AddLineOfSightIgnorance(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
-    {
-      var component = new LineOfSightIgnorance();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

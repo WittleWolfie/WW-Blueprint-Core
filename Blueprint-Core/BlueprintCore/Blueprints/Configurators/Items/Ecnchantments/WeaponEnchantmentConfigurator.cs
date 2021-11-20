@@ -645,19 +645,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Adds <see cref="WeaponMagic"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponMagic))]
-    public WeaponEnchantmentConfigurator AddWeaponMagic(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
-    {
-      var component = new WeaponMagic();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="WeaponMasterwork"/> (Auto Generated)
     /// </summary>
     [Generated]

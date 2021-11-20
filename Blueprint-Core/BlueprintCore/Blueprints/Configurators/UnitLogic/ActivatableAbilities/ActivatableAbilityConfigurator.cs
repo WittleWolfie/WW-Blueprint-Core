@@ -357,19 +357,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Adds <see cref="ActivatableAbilityMount"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ActivatableAbilityMount))]
-    public ActivatableAbilityConfigurator AddActivatableAbilityMount(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
-    {
-      var component = new ActivatableAbilityMount();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="ActivatableAbilityResourceLogic"/> (Auto Generated)
     /// </summary>
     ///

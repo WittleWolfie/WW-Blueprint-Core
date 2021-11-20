@@ -1,16 +1,19 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.FactLogic;
@@ -55,7 +58,14 @@ namespace BlueprintCoreGen.CodeGen
         {
           typeof(QuestComponentDelegate<>),
           typeof(QuestComponentDelegate),
-          typeof(UnlockableFlagComponent)
+          typeof(UnlockableFlagComponent),
+          typeof(UniqueSpellComponent),
+          typeof(MobCaster),
+          typeof(PortraitPremiumSetting),
+          typeof(AreaEffectSpawnLogic),
+          typeof(ActivatableAbilityMount),
+          typeof(LineOfSightIgnorance),
+          typeof(WeaponMagic)
         };
 
     public static readonly Dictionary<Type, string> TypeNameOverrides =

@@ -195,19 +195,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="AreaEffectSpawnLogic"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AreaEffectSpawnLogic))]
-    public AbilityAreaEffectConfigurator AddAreaEffectSpawnLogic(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
-    {
-      var component = new AreaEffectSpawnLogic();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="UniqueAreaEffect"/> (Auto Generated)
     /// </summary>
     ///
