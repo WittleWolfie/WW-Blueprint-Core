@@ -24,6 +24,8 @@ Contributions are welcome!
         * `mklink /j docs Blueprint-Core\_site`
     * This is needed to update documentation when building changes
 
+**Note**: It is recommended to build using the Debug configuration. The Release configuration generates documentation which takes several minutes.
+
 ## Pull Request Requirements
 
 1. Change Description
@@ -42,7 +44,7 @@ Contributions are welcome!
     * Builder and configurator methods that modify or create game types or fields must declare the type or field in their comment summary
     * String arguments that are used to reference blueprints must declare the type of blueprint they represent
 5. No Patches
-    * Harmony patches are not allowed. Since multiple mods may include this library it would result in multiple copies of the patch being installed, potentially causing incompatibility issues.
+    * Harmony patches are not allowed since the library may be included in multiple mods.
 6. Before Committing
     * Rebuild the solution using the Release configuration to ensure documentation is updated
     * Run all unit tests
@@ -50,17 +52,14 @@ Contributions are welcome!
 
 ## Using BlueprintCoreGen
 
-TODO: Update w/ more info
+After making updates you can run the code generation directly in visual studio. Once it completes the output is in `bin/<Release|Debug>/net5.0/`:
 
-BlueprintCoreGen is configured to be run directly from Visual Studio and output files in `bin/<Release|Debug>/net5.0/`:
-
-* `Templates` folder is a copy of the project files
-* `missing_types.txt` lists game types detected but not implemented
-* `ActionsBuilder` folder contains the generated ActionsBuilder classes
+1. Run the powershell script `UpdateCodeGen.ps1` in the output to propagate changes to the `BlueprintCore` project
+2. Remove unused usings from the updated code in `BlueprintCore`
+    * In Visual Studio find an unused using, hit `Alt + Enter`, and select `Fix all occurrences in Solution`
+    ![Remove unused usings](images/remove_usings.png)
 
 ## What to Contribute
-
-**Note:** Do not submit a pull request which includes Harmony patches. Since BlueprintCore is distributed as source, patches would be run in every mod built using it. It is possible to create safe patches but I am not going to evaluate pull requests in that detail.
 
 ### Documentation
 
@@ -70,26 +69,33 @@ If you use and understand the in game classes, update the corresponding configur
 
 ### Template Blueprint Configurators
 
-Most configurators are generated automatically. There may be cases where the automated code is not ideal and hand-coded templates are preferable. When defining a new configurator:
+For blueprints with complex fields or field relationships, hand-written templates are preferable. They can also be used for custom validation code. When defining a new configurator:
 
-// TODO: Code gen attr / flag
-* Provide the appropriate `New()` and `For()` methods
 * Implement configurators following the blueprint's type inheritance
     * You *must* provide templates for all configurators in the inheritance tree up to [BlueprintConfigurator](xref:BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1). This is a limitation of code generation.
-* Implement support for all of the blueprint's fields (excluding inherited fields)
-* Do not include component methods directly; add them to one of BlueprintCoreGen's configurator template classes
+* Add a [Generated attribute](xref:BlueprintCore.Utils.GeneratedAttribute) indicating which blueprint type is implemented
+* Provide the appropriate `New()` and `For()` methods
+* Add methods for all fields defined in the blueprint, but not inherited fields
+* Do not include component methods
 
 ### Configurator and Builder Methods
 
-TODO: Update
+For components, actions, and conditions with complex parameters or parameter relationships, hand-written templates are preferable.
 
-* Methods should enforce proper usage
-    * Validate all required inputs are specified
-    * Provide sensible defaults for optional inputs
-    * Use multiple methods for a type whenever there are distinct valid configurations
+Configurator method templates are defined in the `BlueprintComponents` folder and grouped logically into classes. Only the method definition is used, the class declaration is used to group templates.
+
+Builder method templates are defined in the `ActionsBuilder` and `ConditionsBuilder` folders. They are defined directly in the output class.
+
+* Add a [Implements attribute](xref:BlueprintCore.Utils.ImplementsAttribute) to each method indicating which type is implemented
+    * Multiple methods can have the same implements attribute; they will be copied together into the relevant output class
+* Method declarations should enforce required and optional parameters while providing sensible defaults
+    * Parameters with an object type defined in game library should be checked with the validator
+    * Use multiple methods for a type if there are distinct valid configurations
         * Example: [DealDamage](xref:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealDamage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription,Kingmaker.UnitLogic.Mechanics.ContextDiceValue,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable{System.Int32},System.Nullable{Kingmaker.UnitLogic.Abilities.AbilitySharedValue},System.Nullable{Kingmaker.UnitLogic.Abilities.AbilitySharedValue})) and related methods
-* Indicate the game type or field created or modified in the method comment summary
+* When adding a builder method, remove the auto-generated comment attribute for types already represented
+* Document the implemented game type in the method comment, as well as any usage restrictions
 * Document the blueprint type of any string arguments used to reference blueprints
+* Document parameters with value or usage restrictions
 
 ### New Actions, Conditions, and Components
 

@@ -93,10 +93,12 @@ namespace BlueprintCore.Utils
     /// 
     /// <remarks>
     /// If you have already registered the Name and Guid using <see cref="AddGuidsByName"/> you can use
-    /// <see cref="Create{T}(string)"/> instead.
+    /// <see cref="Create{T}(string)"/> instead. If you have not this will register the name and associate it with the
+    /// Guid.
     /// </remarks>
     public static T Create<T>(string name, string guid) where T : SimpleBlueprint, new()
     {
+      AddGuidsByName((name, guid.ToString()));
       return Create<T>(name, Guid.Parse(guid));
     }
 

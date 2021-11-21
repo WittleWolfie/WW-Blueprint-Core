@@ -157,9 +157,7 @@ ActionsBuilder.New()
 
 ## Referencing Blueprints
 
-TODO: Update this after removing this requirement
-
-When a blueprint reference is required the API accepts a `string` argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using [BlueprintTool#AddGuidsByName()](xref:BlueprintCore.Utils.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary{System.String,System.String})).
+When a blueprint reference is required the API accepts a `string` argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using [BlueprintTool#AddGuidsByName()](xref:BlueprintCore.Utils.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary{System.String,System.String})). Blueprints created using [BlueprintTool#Create(string, string)](xref:BlueprintCore.Utils.BlueprintTool.Create``1(System.String,System.String)) automatically register the name to guid mapping.
 
 The parameter comment declares the type of blueprint reference expected.
 
