@@ -57,7 +57,7 @@ After making updates you can run the code generation directly in visual studio. 
 1. Run the powershell script `UpdateCodeGen.ps1` in the output to propagate changes to the `BlueprintCore` project
 2. Remove unused usings from the updated code in `BlueprintCore`
     * In Visual Studio find an unused using, hit `Alt + Enter`, and select `Fix all occurrences in Solution`
-    ![Remove unused usings](images/remove_usings.png)
+    ![Remove unused usings](~/images/remove_usings.png)
 
 ## What to Contribute
 

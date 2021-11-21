@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>BlueprintCore Tutorials </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="BlueprintCore Tutorials ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="blueprintcore-tutorials">BlueprintCore Tutorials</h1>
+
+<p>Tutorials explain how to modify the game using this library. They are a work in progress and more will be added.</p>
+<p>Tutorial names indicate what type of modification to the game they explain. For example, <a href="feat.html">Adding a Feat</a> explains how to use the library to create a new feat.</p>
+<p>You can do them in any order but the recommended order is:</p>
+<ol>
+<li>Pre-work</li>
+<li><a href="feat.html">Adding a Feat</a></li>
+<li>WIP</li>
+</ol>
+<h3 id="pre-work">Pre-work</h3>
+<p>Before going through any of these tutorials you should work through the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">OwlcatModdingWiki Beginner Guide</a>. The tutorials require:</p>
+<ul>
+<li>A C# project configured for installation using <a href="https://www.nexusmods.com/site/mods/21">Unity Mod Manager</a></li>
+<li>A <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">Public Assembly</a></li>
+</ul>
+<p>Once that's done, install the <a href="https://www.nuget.org/packages/WW-Blueprint-Core">BlueprintCore NuGet package</a>. In Visual Studio you can use the built-in NuGet Package Manager:</p>
+<ol>
+<li>Open the package manager
+<ul>
+<li><strong>Tools &gt; NuGet Package Manager &gt; Manage NuGet Packages</strong></li>
+</ul>
+</li>
+<li>Select <strong>Browse</strong> and search for &quot;WW-BlueprintCore&quot;</li>
+<li>Select and install the latest version
+<ul>
+<li>If you have multipe projects in your solution, make sure it is installed to the correct project
+<img src="../../images/install_with_nuget.PNG" alt="Search and install NuGet package"></li>
+</ul>
+</li>
+</ol>
+<p>Now you need to add two more references:</p>
+<ul>
+<li><code>Owlcat.Runtime.Visual.dll</code></li>
+<li><code>Owlcat.Runtime.UI.dll</code></li>
+</ul>
+<p>If you have defined the <code>WrathPath</code> environment variable add the following lines to your *.csproj file:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Reference Include=&quot;Owlcat.Runtime.UI&quot;&gt;
+    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.UI.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+  &lt;Reference Include=&quot;Owlcat.Runtime.Visual&quot;&gt;
+    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.Visual.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<p>Otherwise right-click <strong>References &gt; Add Reference</strong>, navigate to <code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/</code>, and select the files.</p>
+<p>Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/articles/tutorials/overview.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

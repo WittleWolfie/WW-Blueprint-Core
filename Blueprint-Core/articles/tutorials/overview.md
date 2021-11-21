@@ -24,7 +24,7 @@ Once that's done, install the [BlueprintCore NuGet package](https://www.nuget.or
 2. Select **Browse** and search for "WW-BlueprintCore"
 3. Select and install the latest version
     * If you have multipe projects in your solution, make sure it is installed to the correct project
-![Search and install NuGet package](../images/install_with_nuget.png)
+![Search and install NuGet package](~/images/install_with_nuget.png)
 
 Now you need to add two more references:
 
