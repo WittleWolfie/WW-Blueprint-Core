@@ -70,11 +70,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    public FeatureSelectionConfigurator SetFeatures(params string[] features)
+    {
+      return OnConfigureInternal(
+          blueprint =>
+              blueprint.m_AllFeatures =
+                  features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray());
+    }
+
+    /// <summary>
     /// Adds to <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
     /// </summary>
     /// 
     /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public FeatureSelectionConfigurator AddFeatures(params string[] features)
+    public FeatureSelectionConfigurator AddToFeatures(params string[] features)
     {
       return OnConfigureInternal(
           blueprint =>
@@ -91,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     /// 
     /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public FeatureSelectionConfigurator RemoveFeatures(params string[] features)
+    public FeatureSelectionConfigurator RemoveFromFeatures(params string[] features)
     {
       return OnConfigureInternal(
           blueprint =>

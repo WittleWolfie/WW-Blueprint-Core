@@ -66,10 +66,27 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     }
 
     [Fact]
+    public void SetFeatureGroups()
+    {
+      // First pass
+      GetConfigurator(Guid).SetFeatureGroups(FeatureGroup.AasimarHeritage).Configure();
+
+      GetConfigurator(Guid)
+          .SetFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Equal(2, blueprint.Groups.Length);
+      Assert.Contains(FeatureGroup.WizardFeat, blueprint.Groups);
+      Assert.Contains(FeatureGroup.Domain, blueprint.Groups);
+      Assert.DoesNotContain(FeatureGroup.AasimarHeritage, blueprint.Groups);
+    }
+
+    [Fact]
     public void AddFeatureGroups()
     {
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .AddToFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -83,11 +100,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .SetFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.Feat)
+          .AddToFeatureGroups(FeatureGroup.Feat)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -102,11 +119,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
+          .SetFeatureGroups(FeatureGroup.WizardFeat, FeatureGroup.Domain)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveFeatureGroups(FeatureGroup.Domain)
+          .RemoveFromFeatureGroups(FeatureGroup.Domain)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -137,10 +154,26 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     }
 
     [Fact]
+    public void SetIsPrerequisiteFor()
+    {
+      // First pass
+      GetConfigurator(Guid).SetIsPrerequisiteFor(FeatureGuid).Configure();
+
+      GetConfigurator(Guid)
+          .SetIsPrerequisiteFor(ExtraFeatureGuid)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      Assert.Single(blueprint.IsPrerequisiteFor);
+      Assert.Contains(
+          ExtraFeature.ToReference<BlueprintFeatureReference>(), blueprint.IsPrerequisiteFor);
+    }
+
+    [Fact]
     public void AddIsPrerequisiteFor()
     {
       GetConfigurator(Guid)
-          .AddIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
+          .AddToIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -156,11 +189,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddIsPrerequisiteFor(FeatureGuid)
+          .AddToIsPrerequisiteFor(FeatureGuid)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddIsPrerequisiteFor(ExtraFeatureGuid)
+          .AddToIsPrerequisiteFor(ExtraFeatureGuid)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -176,11 +209,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
+          .SetIsPrerequisiteFor(FeatureGuid, ExtraFeatureGuid)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveIsPrerequisiteFor(ExtraFeatureGuid)
+          .RemoveFromIsPrerequisiteFor(ExtraFeatureGuid)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -223,10 +256,29 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     }
 
     [Fact]
+    public void SetFeatureTags()
+    {
+      // First pass
+      GetConfigurator(Guid).SetFeatureTags(FeatureTag.Mounted, FeatureTag.Defense).Configure();
+
+      GetConfigurator(Guid)
+          .SetFeatureTags(FeatureTag.Teamwork)
+          .Configure();
+
+      T blueprint = BlueprintTool.Get<T>(Guid);
+      var tags = blueprint.GetComponent<FeatureTagsComponent>();
+      Assert.NotNull(tags);
+
+      Assert.False(tags.FeatureTags.HasFlag(FeatureTag.Mounted));
+      Assert.False(tags.FeatureTags.HasFlag(FeatureTag.Defense));
+      Assert.True(tags.FeatureTags.HasFlag(FeatureTag.Teamwork));
+    }
+
+    [Fact]
     public void AddFeatureTags()
     {
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .AddToFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -242,11 +294,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .AddToFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Teamwork)
+          .AddToFeatureTags(FeatureTag.Teamwork)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);
@@ -263,11 +315,11 @@ namespace BlueprintCore.Test.Blueprints.Configurators.Classes
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
+          .SetFeatureTags(FeatureTag.Mounted, FeatureTag.Defense)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveFeatureTags(FeatureTag.Defense)
+          .RemoveFromFeatureTags(FeatureTag.Defense)
           .Configure();
 
       T blueprint = BlueprintTool.Get<T>(Guid);

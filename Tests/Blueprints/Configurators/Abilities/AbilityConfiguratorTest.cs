@@ -352,10 +352,26 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     }
 
     [Fact]
+    public void SetMetamagics()
+    {
+      // First pass
+      GetConfigurator(Guid).SetMetamagics(Metamagic.Empower);
+
+      GetConfigurator(Guid)
+          .SetMetamagics(Metamagic.Extend, Metamagic.Heighten)
+          .Configure();
+
+      var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
+      Assert.True(ability.AvailableMetamagic.HasFlag(Metamagic.Extend));
+      Assert.True(ability.AvailableMetamagic.HasFlag(Metamagic.Heighten));
+      Assert.False(ability.AvailableMetamagic.HasFlag(Metamagic.Empower));
+    }
+
+    [Fact]
     public void AddMetamagics()
     {
       GetConfigurator(Guid)
-          .AddMetamagics(Metamagic.Empower, Metamagic.Heighten)
+          .AddToMetamagics(Metamagic.Empower, Metamagic.Heighten)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -368,11 +384,11 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       // First pass
       GetConfigurator(Guid)
-          .AddMetamagics(Metamagic.Empower, Metamagic.Heighten)
+          .SetMetamagics(Metamagic.Empower, Metamagic.Heighten)
           .Configure();
 
       AbilityConfigurator.For(Guid)
-          .AddMetamagics(Metamagic.Quicken)
+          .AddToMetamagics(Metamagic.Quicken)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -386,11 +402,11 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     {
       // First pass
       GetConfigurator(Guid)
-          .AddMetamagics(Metamagic.Empower, Metamagic.Heighten)
+          .SetMetamagics(Metamagic.Empower, Metamagic.Heighten)
           .Configure();
 
       AbilityConfigurator.For(Guid)
-          .RemoveMetamagics(Metamagic.Empower)
+          .RemoveFromMetamagics(Metamagic.Empower)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
@@ -987,18 +1003,15 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     [Fact]
     public void SetSpellSchool()
     {
-      // First pass
       GetConfigurator(Guid)
-          .AddMetamagics(Metamagic.Empower, Metamagic.Heighten)
-          .Configure();
-
-      AbilityConfigurator.For(Guid)
-          .RemoveMetamagics(Metamagic.Empower)
+          .SetType(AbilityType.SpellLike)
+          .SetSpellSchool(SpellSchool.Divination)
           .Configure();
 
       var ability = BlueprintTool.Get<BlueprintAbility>(Guid);
-      Assert.False(ability.AvailableMetamagic.HasFlag(Metamagic.Empower));
-      Assert.True(ability.AvailableMetamagic.HasFlag(Metamagic.Heighten));
+      var component = ability.GetComponent<SpellComponent>();
+      Assert.NotNull(component);
+      Assert.Equal(SpellSchool.Divination, component.School);
     }
 
     [Fact]

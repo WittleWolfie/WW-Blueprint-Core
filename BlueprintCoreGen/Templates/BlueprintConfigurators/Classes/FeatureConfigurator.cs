@@ -1,10 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCoreGen.Blueprints.Configurators.Classes
@@ -18,33 +15,30 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
       where T : BlueprintFeature
       where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
-    private FeatureTag EnableFeatureTags;
-    private FeatureTag DisableFeatureTags;
-
-    private readonly List<BlueprintFeatureReference> EnableIsPrerequisiteFor = new();
-    private readonly List<BlueprintFeatureReference> DisableIsPrerequisiteFor = new();
-
-    private readonly List<FeatureGroup> EnableGroups = new();
-    private readonly List<FeatureGroup> DisableGroups = new();
-
     protected BaseFeatureConfigurator(string name) : base(name) { }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// Sets <see cref="BlueprintFeature.Groups"/>
     /// </summary>
-    public TBuilder AddFeatureGroups(params FeatureGroup[] groups)
+    public TBuilder SetFeatureGroups(params FeatureGroup[] groups)
     {
-      EnableGroups.AddRange(groups);
-      return Self;
+      return OnConfigureInternal(blueprint => blueprint.Groups = groups);
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.Groups"/>
+    /// Adds to <see cref="BlueprintFeature.Groups"/>
     /// </summary>
-    public TBuilder RemoveFeatureGroups(params FeatureGroup[] groups)
+    public TBuilder AddToFeatureGroups(params FeatureGroup[] groups)
     {
-      DisableGroups.AddRange(groups);
-      return Self;
+      return OnConfigureInternal(bp => bp.Groups = CommonTool.Append(bp.Groups, groups));
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
+    public TBuilder RemoveFromFeatureGroups(params FeatureGroup[] groups)
+    {
+      return OnConfigureInternal(blueprint => blueprint.Groups = blueprint.Groups.Except(groups).ToArray()); ;
     }
 
     /// <summary>
@@ -56,30 +50,48 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// Sets <see cref="BlueprintFeature.IsPrerequisiteFor"/>
     /// </summary>
     /// 
     /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public TBuilder AddIsPrerequisiteFor(params string[] features)
+    public TBuilder SetIsPrerequisiteFor(params string[] features)
     {
-      EnableIsPrerequisiteFor.AddRange(
-          features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray());
-      return Self;
+      return OnConfigureInternal(
+          bp =>
+              bp.IsPrerequisiteFor = features.Select(f => BlueprintTool.GetRef<BlueprintFeatureReference>(f)).ToList());
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// Adds to <see cref="BlueprintFeature.IsPrerequisiteFor"/>
     /// </summary>
     /// 
     /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public TBuilder RemoveIsPrerequisiteFor(params string[] features)
+    public TBuilder AddToIsPrerequisiteFor(params string[] features)
     {
-      DisableIsPrerequisiteFor.AddRange(
-          features
-              .Select(
-                  feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature))
-              .ToArray());
-      return Self;
+      return OnConfigureInternal(
+          bp =>
+          {
+            if (bp.IsPrerequisiteFor is null) { bp.IsPrerequisiteFor = new(); }
+            bp.IsPrerequisiteFor.AddRange(features.Select(f => BlueprintTool.GetRef<BlueprintFeatureReference>(f)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    /// 
+    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    public TBuilder RemoveFromIsPrerequisiteFor(params string[] features)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            if (bp.IsPrerequisiteFor is null) { return; }
+            bp.IsPrerequisiteFor =
+                bp.IsPrerequisiteFor
+                    .Except(features.Select(f => BlueprintTool.GetRef<BlueprintFeatureReference>(f)))
+                    .ToList();
+          });
     }
 
     /// <summary>
@@ -98,38 +110,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
       return OnConfigureInternal(blueprint => blueprint.ReapplyOnLevelUp = reapply);
     }
 
-    /// <summary>
-    /// Adds or modifies <see cref="FeatureTagsComponent"/>
-    /// </summary>
-    public TBuilder AddFeatureTags(params FeatureTag[] tags)
-    {
-      foreach (FeatureTag tag in tags) { EnableFeatureTags |= tag; }
-      return Self;
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FeatureTagsComponent"/>
-    /// </summary>
-    public TBuilder RemoveFeatureTags(params FeatureTag[] tags)
-    {
-      foreach (FeatureTag tag in tags) { DisableFeatureTags |= tag; }
-      return Self;
-    }
-
     // [GenerateComponents]
-
-    protected override void ConfigureInternal()
-    {
-      base.ConfigureInternal();
-
-      if (EnableFeatureTags > 0 || DisableFeatureTags > 0) { ConfigureFeatureTags(); }
-
-      if (EnableIsPrerequisiteFor.Count > 0 || DisableIsPrerequisiteFor.Count > 0)
-      {
-        ConfigureIsPrerequisiteFor();
-      }
-      if (EnableGroups.Count > 0 || DisableGroups.Count > 0) { ConfigureFeatureGroups(); }
-    }
 
     protected override void ValidateInternal()
     {
@@ -139,42 +120,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
       {
         AddValidationWarning("Multiple FeatureTagsComponents present. Only the first is used.");
       }
-    }
-
-    private void ConfigureFeatureTags()
-    {
-      var component = Blueprint.GetComponent<FeatureTagsComponent>();
-      if (component == null)
-      {
-        // Don't create a component to disable tags
-        if (EnableFeatureTags == 0) { return; }
-
-        component = new FeatureTagsComponent();
-        AddComponent(component);
-      }
-      component.FeatureTags |= EnableFeatureTags;
-      component.FeatureTags &= ~DisableFeatureTags;
-    }
-
-    private void ConfigureIsPrerequisiteFor()
-    {
-      EnableIsPrerequisiteFor.AddRange(
-          Blueprint.IsPrerequisiteFor ?? new List<BlueprintFeatureReference>());
-      foreach (BlueprintFeatureReference disableRef in DisableIsPrerequisiteFor)
-      {
-        EnableIsPrerequisiteFor.Remove(disableRef);
-      }
-      Blueprint.IsPrerequisiteFor = EnableIsPrerequisiteFor;
-    }
-
-    private void ConfigureFeatureGroups()
-    {
-      EnableGroups.AddRange(Blueprint.Groups ?? Array.Empty<FeatureGroup>());
-      foreach (FeatureGroup disableGroup in DisableGroups)
-      {
-        EnableGroups.Remove(disableGroup);
-      }
-      Blueprint.Groups = EnableGroups.ToArray();
     }
   }
 

@@ -2,9 +2,11 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using System;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -45,18 +47,81 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
 
 
     /// <summary>
-    /// Adds <see cref="FeatureTagsComponent"/> (Auto Generated)
+    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
     /// </summary>
-    [Generated]
-    [Implements(typeof(FeatureTagsComponent))]
-    public TBuilder AddFeatureTagsComponent(
-        FeatureTag featureTags = default,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+    /// 
+    /// <remarks>
+    /// <para>
+    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+    /// This is useful when a character has access to different feature selections based on some criteria.
+    /// </para>
+    /// 
+    /// <para>
+    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
+    /// </para>
+    /// </remarks>
+    public TBuilder PrerequisiteSelectionPossible(
+        Prerequisite.GroupType group = Prerequisite.GroupType.All,
+        bool checkInProgression = false,
+        bool hideInUI = false)
     {
-      var component = new FeatureTagsComponent();
-      component.FeatureTags = featureTags;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
+      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
+      return AddComponent(selectionPossible);
+    }
+
+    /// <summary>
+    /// Sets the contents of <see cref="FeatureTagsComponent"/>
+    /// </summary>
+    [Implements(typeof(FeatureTagsComponent))]
+    public TBuilder SetFeatureTags(params FeatureTag[] tags)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var component = bp.GetComponent<FeatureTagsComponent>();
+            if (component == null)
+            {
+              component = new FeatureTagsComponent();
+              bp.AddComponents(component);
+            }
+            component.FeatureTags = 0;
+            tags.ToList().ForEach(t => component.FeatureTags |= t);
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="FeatureTagsComponent"/>
+    /// </summary>
+    [Implements(typeof(FeatureTagsComponent))]
+    public TBuilder AddToFeatureTags(params FeatureTag[] tags)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var component = bp.GetComponent<FeatureTagsComponent>();
+            if (component == null)
+            {
+              component = new FeatureTagsComponent();
+              bp.AddComponents(component);
+            }
+            tags.ToList().ForEach(t => component.FeatureTags |= t);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="FeatureTagsComponent"/>
+    /// </summary>
+    [Implements(typeof(FeatureTagsComponent))]
+    public TBuilder RemoveFromFeatureTags(params FeatureTag[] tags)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var component = bp.GetComponent<FeatureTagsComponent>();
+            if (component == null) { return; }
+            tags.ToList().ForEach(t => component.FeatureTags &= ~t);
+          });
     }
 
     /// <summary>

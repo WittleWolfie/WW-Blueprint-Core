@@ -52,10 +52,26 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     }
 
     [Fact]
+    public void SetFlags()
+    {
+      // First pass
+      GetConfigurator(Guid).SetFlags(BlueprintBuff.Flags.Harmful).Configure();
+
+      GetConfigurator(Guid)
+          .SetFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.RemoveOnRest)
+          .Configure();
+
+      var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
+      Assert.True(buff.m_Flags.HasFlag(BlueprintBuff.Flags.IsFromSpell));
+      Assert.True(buff.m_Flags.HasFlag(BlueprintBuff.Flags.RemoveOnRest));
+      Assert.False(buff.m_Flags.HasFlag(BlueprintBuff.Flags.Harmful));
+    }
+
+    [Fact]
     public void AddFlags()
     {
       GetConfigurator(Guid)
-          .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
+          .AddToFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
       var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
@@ -68,11 +84,11 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
+          .SetFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddFlags(BlueprintBuff.Flags.StayOnDeath)
+          .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .Configure();
 
       var buff = BlueprintTool.Get<BlueprintBuff>(Guid);
@@ -86,11 +102,11 @@ namespace BlueprintCore.Test.Blueprints.Buffs
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
+          .SetFlags(BlueprintBuff.Flags.IsFromSpell, BlueprintBuff.Flags.Harmful)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveFlags(BlueprintBuff.Flags.Harmful)
+          .RemoveFromFlags(BlueprintBuff.Flags.Harmful)
           .Configure();
 
       var buff = BlueprintTool.Get<BlueprintBuff>(Guid);

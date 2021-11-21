@@ -44,9 +44,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
   [Configures(typeof(BlueprintAbility))]
   public class AbilityConfigurator : BaseUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>
   {
-    private Metamagic EnableMetamagics;
-    private Metamagic DisableMetamagics;
-
     private AbilityConfigurator(string name) : base(name) { }
 
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
@@ -261,21 +258,29 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
+    public AbilityConfigurator SetMetamagics(params Metamagic[] metamagics)
+    {
+      Metamagic availableMetamagic = 0;
+      metamagics.ForEach(m => availableMetamagic |= m);
+      return OnConfigureInternal(bp => bp.AvailableMetamagic = availableMetamagic);
+    }
+
+    /// <summary>
     /// Adds to <see cref="BlueprintAbility.AvailableMetamagic"/>
     /// </summary>
-    public AbilityConfigurator AddMetamagics(params Metamagic[] metamagics)
+    public AbilityConfigurator AddToMetamagics(params Metamagic[] metamagics)
     {
-      foreach (Metamagic metamagic in metamagics) { EnableMetamagics |= metamagic; }
-      return this;
+      return OnConfigureInternal(bp => metamagics.ForEach(m => bp.AvailableMetamagic |= m));
     }
 
     /// <summary>
     /// Removes from <see cref="BlueprintAbility.AvailableMetamagic"/>
     /// </summary>
-    public AbilityConfigurator RemoveMetamagics(params Metamagic[] metamagics)
+    public AbilityConfigurator RemoveFromMetamagics(params Metamagic[] metamagics)
     {
-      foreach (Metamagic metamagic in metamagics) { DisableMetamagics |= metamagic; }
-      return this;
+      return OnConfigureInternal(bp => metamagics.ForEach(m => bp.AvailableMetamagic &= ~m));
     }
 
     /// <summary>
@@ -3016,14 +3021,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.Stat = stat;
       component.Recommended = recommended;
       return AddComponent(component);
-    }
-
-    protected override void ConfigureInternal()
-    {
-      base.ConfigureInternal();
-
-      if (EnableMetamagics > 0) { Blueprint.AvailableMetamagic |= EnableMetamagics; }
-      if (DisableMetamagics > 0) { Blueprint.AvailableMetamagic &= ~DisableMetamagics; }
     }
 
     protected override void ValidateInternal()

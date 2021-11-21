@@ -5,6 +5,7 @@ using Kingmaker.Controllers.Units;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.Utility;
 using System;
 
 namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
@@ -14,9 +15,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
   [Configures(typeof(BlueprintBuff))]
   public class BuffConfigurator : BaseUnitFactConfigurator<BlueprintBuff, BuffConfigurator>
   {
-    private BlueprintBuff.Flags EnableFlags;
-    private BlueprintBuff.Flags DisableFlags;
-
     private BuffConfigurator(string name) : base(name) { }
 
     /// <summary>Returns a configurator for the given blueprint.</summary>
@@ -59,27 +57,29 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
+    public BuffConfigurator SetFlags(params BlueprintBuff.Flags[] flags)
+    {
+      BlueprintBuff.Flags buffFlags = 0;
+      flags.ForEach(f => buffFlags |= f);
+      return OnConfigureInternal(bp => bp.m_Flags = buffFlags);
+    }
+
+    /// <summary>
     /// Adds to <see cref="BlueprintBuff.m_Flags"/>
     /// </summary>
-    public BuffConfigurator AddFlags(params BlueprintBuff.Flags[] flags)
+    public BuffConfigurator AddToFlags(params BlueprintBuff.Flags[] flags)
     {
-      foreach (BlueprintBuff.Flags flag in flags)
-      {
-        EnableFlags |= flag;
-      }
-      return this;
+      return OnConfigureInternal(blueprint => flags.ForEach(f => blueprint.m_Flags |= f));
     }
 
     /// <summary>
     /// Removes from <see cref="BlueprintBuff.m_Flags"/>
     /// </summary>
-    public BuffConfigurator RemoveFlags(params BlueprintBuff.Flags[] flags)
+    public BuffConfigurator RemoveFromFlags(params BlueprintBuff.Flags[] flags)
     {
-      foreach (BlueprintBuff.Flags flag in flags)
-      {
-        DisableFlags |= flag;
-      }
-      return this;
+      return OnConfigureInternal(blueprint => flags.ForEach(f => blueprint.m_Flags &= ~f));
     }
 
     /// <summary>
@@ -145,14 +145,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
     }
 
     // [GenerateComponents]
-
-    protected override void ConfigureInternal()
-    {
-      base.ConfigureInternal();
-
-      if (EnableFlags > 0) { Blueprint.m_Flags |= EnableFlags; }
-      if (DisableFlags > 0) { Blueprint.m_Flags &= ~DisableFlags; }
-    }
 
     protected override void ValidateInternal()
     {

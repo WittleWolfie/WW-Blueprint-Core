@@ -79,10 +79,24 @@ namespace BlueprintCore.Test.Blueprints.Classes.Features
     }
 
     [Fact]
+    public void SetFeatures()
+    {
+      // First pass
+      GetConfigurator(Guid).SetFeatures(FeatureGuid).Configure();
+
+      GetConfigurator(Guid).SetFeatures(ExtraFeatureGuid).Configure();
+
+      var selection = BlueprintTool.Get<BlueprintFeatureSelection>(Guid);
+
+      Assert.Single(selection.m_AllFeatures);
+      Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), selection.m_AllFeatures);
+    }
+
+    [Fact]
     public void AddFeatures()
     {
       GetConfigurator(Guid)
-          .AddFeatures(FeatureGuid, ExtraFeatureGuid)
+          .AddToFeatures(FeatureGuid, ExtraFeatureGuid)
           .Configure();
 
       var selection = BlueprintTool.Get<BlueprintFeatureSelection>(Guid);
@@ -97,11 +111,11 @@ namespace BlueprintCore.Test.Blueprints.Classes.Features
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatures(FeatureGuid)
+          .SetFeatures(FeatureGuid)
           .Configure();
 
       GetConfigurator(Guid)
-          .AddFeatures(ExtraFeatureGuid)
+          .AddToFeatures(ExtraFeatureGuid)
           .Configure();
 
       var selection = BlueprintTool.Get<BlueprintFeatureSelection>(Guid);
@@ -116,11 +130,11 @@ namespace BlueprintCore.Test.Blueprints.Classes.Features
     {
       // First pass
       GetConfigurator(Guid)
-          .AddFeatures(FeatureGuid, ExtraFeatureGuid)
+          .SetFeatures(FeatureGuid, ExtraFeatureGuid)
           .Configure();
 
       GetConfigurator(Guid)
-          .RemoveFeatures(FeatureGuid)
+          .RemoveFromFeatures(FeatureGuid)
           .Configure();
 
       var selection = BlueprintTool.Get<BlueprintFeatureSelection>(Guid);
