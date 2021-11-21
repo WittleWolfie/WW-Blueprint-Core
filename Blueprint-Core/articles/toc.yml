@@ -4,3 +4,9 @@
   href: contributing.md
 - name: Changelog
   href: changes.md
+- name: Tutorials
+  items:
+  - name: Overview
+    href: tutorials/overview.md
+  - name: Adding a Feat
+    href: tutorials/feat.md

@@ -95,7 +95,7 @@
 <li>Clean the project
 <ul>
 <li>This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp</li>
-<li>If you don't have Unity Mod Manager installed you also need to put</li>
+<li>If you don't have Unity Mod Manager installed you need to add a reference to a Harmony assembly</li>
 </ul>
 </li>
 <li>Configure Hard Links
@@ -111,6 +111,7 @@
 </ul>
 </li>
 </ol>
+<p><strong>Note</strong>: It is recommended to build using the Debug configuration. The Release configuration generates documentation which takes several minutes.</p>
 <h2 id="pull-request-requirements">Pull Request Requirements</h2>
 <ol>
 <li>Change Description
@@ -142,7 +143,7 @@
 </li>
 <li>No Patches
 <ul>
-<li>Harmony patches are not allowed. Since multiple mods may include this library it would result in multiple copies of the patch being installed, potentially causing incompatibility issues.</li>
+<li>Harmony patches are not allowed since the library may be included in multiple mods.</li>
 </ul>
 </li>
 <li>Before Committing
@@ -156,49 +157,66 @@
 </ul>
 </li>
 </ol>
+<h2 id="using-blueprintcoregen">Using BlueprintCoreGen</h2>
+<p>After making updates you can run the code generation directly in visual studio. Once it completes the output is in <code>bin/&lt;Release|Debug&gt;/net5.0/</code>:</p>
+<ol>
+<li>Run the powershell script <code>UpdateCodeGen.ps1</code> in the output to propagate changes to the <code>BlueprintCore</code> project</li>
+<li>Remove unused usings from the updated code in <code>BlueprintCore</code>
+<ul>
+<li>In Visual Studio find an unused using, hit <code>Alt + Enter</code>, and select <code>Fix all occurrences in Solution</code>
+<img src="images/remove_usings.png" alt="Remove unused usings"></li>
+</ul>
+</li>
+</ol>
 <h2 id="what-to-contribute">What to Contribute</h2>
 <h3 id="documentation">Documentation</h3>
 <p>This is likely the most helpful thing you can contribute. One of the biggest challenges to modding the game is understanding the behavior of game classes such as actions, conditions, and blueprint components.</p>
-<p>If you use and understand one of these classes, update the corresponding configurator or builder methods to explain the in-game effect and proper usage.</p>
-<h3 id="new-blueprint-configurators">New Blueprint Configurators</h3>
-<p>Once 1.0 is released all blueprint types will have configurators. It will take some time and new configurators will
-speed up the full release.</p>
+<p>If you use and understand the in game classes, update the corresponding configurator or builder method to explain the in-game effect and proper usage.</p>
+<h3 id="template-blueprint-configurators">Template Blueprint Configurators</h3>
+<p>For blueprints with complex fields or field relationships, hand-written templates are preferable. They can also be used for custom validation code. When defining a new configurator:</p>
 <ul>
-<li>Provide the appropriate <code>Create()</code> and <code>For()</code> methods</li>
-<li>Configurator inheritance should follow the blueprint class inheritance structure</li>
-<li>A new configurator should support all fields before submitting</li>
-<li>Component methods in configurators should only be exposed to blueprint types that support them</li>
+<li>Implement configurators following the blueprint's type inheritance
+<ul>
+<li>You <em>must</em> provide templates for all configurators in the inheritance tree up to <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>. This is a limitation of code generation.</li>
 </ul>
-<h3 id="new-configurator-and-builder-methods">New Configurator and Builder Methods</h3>
-<p>Once 1.0 is released all blueprint, action, and conditions types will have methods. It will take some time and any contributions speed up the full release.</p>
+</li>
+<li>Add a <a class="xref" href="../api/BlueprintCore.Utils.GeneratedAttribute.html">Generated attribute</a> indicating which blueprint type is implemented</li>
+<li>Provide the appropriate <code>New()</code> and <code>For()</code> methods</li>
+<li>Add methods for all fields defined in the blueprint, but not inherited fields</li>
+<li>Do not include component methods</li>
+</ul>
+<h3 id="configurator-and-builder-methods">Configurator and Builder Methods</h3>
+<p>For components, actions, and conditions with complex parameters or parameter relationships, hand-written templates are preferable.</p>
+<p>Configurator method templates are defined in the <code>BlueprintComponents</code> folder and grouped logically into classes. Only the method definition is used, the class declaration is used to group templates.</p>
+<p>Builder method templates are defined in the <code>ActionsBuilder</code> and <code>ConditionsBuilder</code> folders. They are defined directly in the output class.</p>
 <ul>
-<li>Methods should enforce proper usage
+<li>Add a <a class="xref" href="../api/BlueprintCore.Utils.ImplementsAttribute.html">Implements attribute</a> to each method indicating which type is implemented
 <ul>
-<li>Validate all required inputs are specified</li>
-<li>Provide sensible defaults for optional inputs</li>
-<li>Use multiple methods for a type whenever there are distinct valid configurations
+<li>Multiple methods can have the same implements attribute; they will be copied together into the relevant output class</li>
+</ul>
+</li>
+<li>Method declarations should enforce required and optional parameters while providing sensible defaults
+<ul>
+<li>Parameters with an object type defined in game library should be checked with the validator</li>
+<li>Use multiple methods for a type if there are distinct valid configurations
 <ul>
 <li>Example: <a class="xref" href="../api/BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html#BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DealDamage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__System_Nullable_Kingmaker_UnitLogic_Abilities_AbilitySharedValue__">DealDamage</a> and related methods</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Indicate the game type or field created or modified in the method comment summary</li>
+<li>When adding a builder method, remove the auto-generated comment attribute for types already represented</li>
+<li>Document the implemented game type in the method comment, as well as any usage restrictions</li>
 <li>Document the blueprint type of any string arguments used to reference blueprints</li>
-</ul>
-<h3 id="using-blueprintcoregen">Using BlueprintCoreGen</h3>
-<p>As of v0.6.0, the ActionsBuilder and ConditionsBuilder APIs are completed through auto-generated methods. If you want to make any changes to those classess, update the corresponding class in the BlueprintCoreGen project. Once your changes are done, run the project and copy the output files into Blueprint-Core.</p>
-<p>BlueprintCoreGen is configured to be run directly from Visual Studio and output files in <code>bin/&lt;Release|Debug&gt;/net5.0/</code>:</p>
-<ul>
-<li><code>Templates</code> folder is a copy of the project files</li>
-<li><code>missing_types.txt</code> lists game types detected but not implemented</li>
-<li><code>ActionsBuilder</code> folder contains the generated ActionsBuilder classes</li>
+<li>Document parameters with value or usage restrictions</li>
 </ul>
 <h3 id="new-actions-conditions-and-components">New Actions, Conditions, and Components</h3>
 <p>If you create new actions, conditions, or blueprint components that can be re-used, feel free to add them to the library.</p>
 <ul>
 <li>Implement the necessary configurator and builder methods to support them</li>
 </ul>
+<h3 id="new-utilities">New Utilities</h3>
+<p>If you have utilities that would help other modders, feel free to add them to the library.</p>
 </article>
           </div>
           

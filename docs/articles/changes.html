@@ -70,8 +70,7 @@
 <h1 id="changelog">Changelog</h1>
 
 <h2 id="v100-release">v1.0.0 Release</h2>
-<p>This release is a big enough change and complete enough to call it V1. There are a lot of breaking changes, especially
-from v0.5+.</p>
+<p>This release marks completion of the core functionality. There are a lot of breaking changes.</p>
 <ul>
 <li>Core functionality is <strong>complete</strong>:
 <ul>
@@ -85,12 +84,13 @@ from v0.5+.</p>
 <ul>
 <li>Generic Add w/ init for BlueprintComponent, Action, and Condition</li>
 <li>Blueprint configurators have an EditComponent method</li>
-<li>Generated enumerable field methods include Set, AddTo, and RemoveFrom. Hand written field methods have not been updated to include Set.</li>
+<li>Enumerable blueprint field methods include Set in addition to AddTo and RemoveFrom.</li>
 </ul>
 </li>
 <li>Generated code field types use primitive names when appropriate</li>
 <li>Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)</li>
 <li>Added validation check for duplicate AbilityRankType definitions in ContextRankConfig</li>
+<li>Generated code makes a best effort attempt to define optional parameters and provide safe default values for types which should not be null</li>
 </ul>
 <h3 id="breaking-changes">Breaking Changes</h3>
 <p>A lot of codeode was moved around for consistency and a new DLL reference is required.</p>

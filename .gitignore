@@ -338,3 +338,7 @@ Assemblies/
 publicize.bat
 Blueprint-Core/log.txt
 docs/manifest.json
+
+# Tutorial config
+Tutorials/packages.config
+Tutorials/BlueprintCore

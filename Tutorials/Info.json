@@ -1,0 +1,10 @@
+﻿{
+  "Id": "BlueprintCoreTutorial",
+  "DisplayName": "BlueprintCore Tutorial",
+  "Author": "WittleWolfie",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.21.3",
+  "Requirements": [],
+  "AssemblyName": "BlueprintCoreTutorial.dll",
+  "EntryMethod": "Tutorials.Main.Load"
+}

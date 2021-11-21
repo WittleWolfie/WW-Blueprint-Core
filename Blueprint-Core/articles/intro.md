@@ -9,7 +9,7 @@
 ```xml
 <PropertyGroup>
   <LangVersion>latest</LangVersion>
-  <TargetFramework>net472</TargetFramework>
+  <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
 </PropertyGroup>
 ```
 5. Add the necessary assembly references from the game install directory:

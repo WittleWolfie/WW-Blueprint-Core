@@ -85,7 +85,7 @@
 </ol>
 <pre><code class="lang-xml">&lt;PropertyGroup&gt;
   &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
-  &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
+  &lt;TargetFrameworkVersion&gt;v4.7.2&lt;/TargetFrameworkVersion&gt;
 &lt;/PropertyGroup&gt;
 </code></pre>
 <ol start="5">
@@ -110,7 +110,7 @@
 </ul>
 </li>
 <li>Modify the blueprint using the configurator methods</li>
-<li>Commit the configuration with <a href="xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator%602.Configure">Configure()</a>
+<li>Commit the configuration with <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Configure">Configure()</a>
 <ul>
 <li>Until this is called, no changes are made to the blueprint</li>
 <li>After commit the blueprint is validated and any errors are logged as a warning</li>
@@ -142,7 +142,7 @@ grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
 <li>Removes any components matching the supplied <code>Func&lt;BlueprintComponent, bool&gt;</code></li>
 </ul>
 </li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.EditComponent%601(System.Action%7B%601%7D)">EditComponent</a>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_EditComponent__1_System_Action___0__">EditComponent</a>
 <ul>
 <li>After configuring components, runs the provided <code>Action</code> on the first component matching the specified type</li>
 </ul>
@@ -156,23 +156,19 @@ grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
 <h3 id="modifying-fields">Modifying Fields</h3>
 <p>Each configurator exposes methods to set and modify fields. The comment summary for these methods links to the field they modify.</p>
 <p>Simple fields such as booleans and integers are usually controlled by methods of the form <code>SetX()</code> while more complex or correlated fields have methods enforcing implicit contracts. For example, fields representing flags are often modified using <code>AddX()</code> and <code>RemoveY()</code> methods.</p>
-<p>When a new configurator is added all fields should be exposed. If support for a field is missing either:</p>
-<ol>
-<li>The game code has been altered by a patch or modification</li>
-<li>The field is never actually used in-game</li>
-</ol>
+<p>All blueprint fields should be exposed in their configurator. Some fields are not exposed because they are unused or unnecessary.</p>
 <h3 id="adding-components">Adding Components</h3>
 <p>Each <code>BlueprintComponent</code> type exposes methods to create and add them to the blueprint. The comment summary for these methods links to the type of component they create, or in some cases modify.</p>
 <p>Within the game library you can add any component to any blueprint since they are all stored in a <code>BlueprintComponent</code> array. In reality, each component has restrictions on how it is used such as which type of blueprint and whether there can be more than one copy in a blueprint. See the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> article on the wiki for more details.</p>
-<p>The configurator API attempts to enforce these requirements through two mechanisms:</p>
+<p>The configurator API enforce these requirements through two mechanisms:</p>
 <ol>
-<li>Each component type is added to a blueprint through its own method(s) only exposed by supported blueprint types.</li>
-<li>Validation identifies and logs an error if any invalid component is present.</li>
+<li>Configurators expose methods for components that are flagged as compatible</li>
+<li>Validation identifies and logs an error if an invalid component is present</li>
 </ol>
-<p>Validation is required because the problem may already exist in the blueprint and because the configurator API uses an inheritance structure that mirrors the inheritance of blueprint types. Unfortunately, the component restrictions cannot be implemented with this type of inheritance. In other words: the configurator limits available components for a given blueprint type to the best of its ability but cannot guarantee that all exposed methods work.</p>
-<h3 id="example-ac-buff">Example: AC Buff</h3>
+<p>This ensures you can see conflicts or problems in existing blueprints as well as your own. However, just because a component is exposed on a configurator does not guarantee it will work. The existing component annotations are not always correct or complete and manual review of the 1000+ components is not feasible. If you detect any conflicts please report it so the API can be updated.</p>
+<h3 id="quick-example-fast-healing">Quick Example: Fast Healing</h3>
 <p>The following snippet creates a new <code>BlueprintBuff</code> that grants fast healing 1 until combat ends.</p>
-<pre><code class="lang-C#">BuffConfigurator.Create(Name, Guid)
+<pre><code class="lang-C#">BuffConfigurator.New(Name, Guid)
     .SetDisplayName(DisplayName)
     .SetDescription(Description)
     .SetIcon(Icon)
@@ -197,63 +193,63 @@ grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
 </ul>
 </li>
 </ol>
-<p>As with configurator methods, builder methods declare the game type they implement in their comment summary.</p>
+<p>Builder methods declare the game type they implement in their comment summary.</p>
 <h3 id="extensions">Extensions</h3>
-<p>Actions and conditions are not scoped to certain blueprint types the same way that <code>BlueprintComponent</code> types are. To limit the number of actions and conditions available when using <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a>, specific types are implemented in extension methods.</p>
-<p>The extension methods are logically grouped so for any given builder you most likely will only need to include a single extension namespace. The extension groups are the same for both builders:</p>
+<p>To limit the number of actions and conditions available when using <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a>, specific types are implemented in extension methods.</p>
+<p>Extension methods are logically grouped so most of the time you can include a single extension namespace. The extension groups are the same for both builders:</p>
 <ul>
 <li>AreaEx
 <ul>
-<li>Extensions involving the game map, dungeons, or locations.</li>
-<li>Types specifically related to the Kingdom and Crusade system are in KingdomEx.</li>
+<li>Extensions involving the game map, dungeons, or locations</li>
+<li>Types specifically related to the Kingdom and Crusade system are in KingdomEx</li>
 </ul>
 </li>
 <li>AVEx
 <ul>
-<li>Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.</li>
-<li><code>ActionsBuilder</code> only.</li>
+<li>Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds</li>
+<li><code>ActionsBuilder</code> only</li>
 </ul>
 </li>
 <li>BasicEx
 <ul>
-<li>Extensions for most game mechanics not included in ContextEx.</li>
+<li>Extensions for most game mechanics not included in ContextEx</li>
 </ul>
 </li>
 <li>ContextEx
 <ul>
-<li>Extensions for <code>ContextAction</code> and <code>ContextCondition</code> types.</li>
-<li>Some types are implemented in more specific extensions such as KingdomEx.</li>
+<li>Extensions for <code>ContextAction</code> and <code>ContextCondition</code> types</li>
+<li>Some types are implemented in more specific extensions such as KingdomEx</li>
 </ul>
 </li>
 <li>KingdomEx
 <ul>
-<li>Extensions for the Kingom and Crusade systems.</li>
+<li>Extensions for the Kingom and Crusade systems</li>
 </ul>
 </li>
 <li>MiscEx
 <ul>
-<li>Extensions that are not game mechanics related and don't fit into other categories.</li>
-<li>Examples include things like achievement related actions.</li>
+<li>Extensions that are not game mechanics related and don't fit into other categories</li>
+<li>Examples include things like achievement related actions</li>
 </ul>
 </li>
 <li>NewEx
 <ul>
-<li>Extensions for types provided by BlueprintCore.</li>
+<li>Extensions for types provided by BlueprintCore</li>
 </ul>
 </li>
 <li>StoryEx
 <ul>
-<li>Extensions related to the story such as companion stories, quests, and etudes.</li>
+<li>Extensions related to the story such as companion stories, quests, and etudes</li>
 </ul>
 </li>
 <li>UpgraderEx
 <ul>
-<li>Extensions for all <code>UpgraderOnlyActions</code> types.</li>
-<li><code>ActionsBuilder</code> only.</li>
+<li>Extensions for all <code>UpgraderOnlyActions</code> types</li>
+<li><code>ActionsBuilder</code> only</li>
 </ul>
 </li>
 </ul>
-<h3 id="example-melee-attack">Example: Melee Attack</h3>
+<h3 id="quick-example-melee-attack">Quick Example: Melee Attack</h3>
 <p>The following snippet creates a new <code>ActionList</code> that initiates a melee attack if the target is in melee range.</p>
 <pre><code>// Extension for MeleeAttack() which is a ContextAction
 using BlueprintCore.Actions.Builder.ContextEx;
@@ -267,25 +263,30 @@ ActionsBuilder.New()
     .Build();
 </code></pre>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
-<p>Whenever a method in the library needs to reference a blueprint it accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a href="xref:BlueprintCore.Blueprints.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary%7BSystem.String,System.String%7D)">BlueprintTool#AddGuidsByName()</a>.</p>
-<p>The method parameter comment for blueprint strings declare the type of blueprint expected.</p>
+<p>When a blueprint reference is required the API accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>. Blueprints created using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_Create__1_System_String_System_String_">BlueprintTool#Create(string, string)</a> automatically register the name to guid mapping.</p>
+<p>The parameter comment declares the type of blueprint reference expected.</p>
+<h2 id="generated-methods">Generated Methods</h2>
+<p>The majority of the API is implemented using generated code. These methods are identified by the <a href="BlueprintCore.Utils.GeneratedAttribute">GeneratedAttribute</a>.</p>
+<p>Generated methods have a parameter for every field in the object, essentially acting as a constructor. To minimize boilerplate generated methods declare most parameters as optional.</p>
+<p>This is not an indication of how the object should be used. Optional parameters in a generated method may be required for the object to function. In contrast, non-generated methods expose strict APIs that only declare parameters optional when they are not needed.</p>
+<p>If you identify methods in need of manual implementations please report them. This should be reserved for complex objects with a large number of fields or complex requirements for its fields.</p>
 <h2 id="logging-and-utils">Logging and Utils</h2>
 <h3 id="tools">Tools</h3>
 <p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
 <ul>
-<li><a href="xref:BlueprintCore.Blueprints.BlueprintTool">BlueprintTool</a>
+<li><a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a>
 <ul>
-<li>Use this to create, fetch, and provide a name to guid mapping for blueprints.</li>
+<li>Use this to create, fetch, and provide a name to guid mapping for blueprints</li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Utils.ElementTool.html">ElementTool</a>
 <ul>
-<li>Use this to create or initialize types inheriting from <code>Element</code>.</li>
+<li>Use this to create or initialize types inheriting from <code>Element</code></li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Utils.PrereqTool.html">PrereqTool</a>
 <ul>
-<li>Use this to create types inheriting from <code>Prerequisite</code>.</li>
+<li>Use this to create types inheriting from <code>Prerequisite</code></li>
 </ul>
 </li>
 </ul>
@@ -294,17 +295,17 @@ ActionsBuilder.New()
 <ul>
 <li><a class="xref" href="../api/BlueprintCore.Utils.ContextDuration.html">ContextDuration</a>
 <ul>
-<li>Utility for creating <code>ContextDurationValue</code>.</li>
+<li>Utility for creating <code>ContextDurationValue</code></li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Utils.ContextValues.html">ContextValues</a>
 <ul>
-<li>Utility for creating <code>ContextValue</code>.</li>
+<li>Utility for creating <code>ContextValue</code></li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
 <ul>
-<li>Utility for creating <code>ContextRankConfig</code>.</li>
+<li>Utility for creating <code>ContextRankConfig</code></li>
 </ul>
 </li>
 </ul>
