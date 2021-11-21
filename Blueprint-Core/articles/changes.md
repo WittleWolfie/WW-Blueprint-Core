@@ -2,8 +2,7 @@
 
 ## v1.0.0 Release
 
-This release is a big enough change and complete enough to call it V1. There are a lot of breaking changes, especially
-from v0.5+.
+This release marks completion of the core functionality. There are a lot of breaking changes.
 
 * Core functionality is **complete**:
     * All blueprint types (BlueprintScriptableObject) has its own configurator
@@ -13,10 +12,11 @@ from v0.5+.
 * Other new APIs:
     * Generic Add w/ init for BlueprintComponent, Action, and Condition
     * Blueprint configurators have an EditComponent method
-    * Generated enumerable field methods include Set, AddTo, and RemoveFrom. Hand written field methods have not been updated to include Set.
+    * Enumerable blueprint field methods include Set in addition to AddTo and RemoveFrom.
 * Generated code field types use primitive names when appropriate
 * Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
 * Added validation check for duplicate AbilityRankType definitions in ContextRankConfig
+* Generated code makes a best effort attempt to define optional parameters and provide safe default values for types which should not be null
 
 ### Breaking Changes
 

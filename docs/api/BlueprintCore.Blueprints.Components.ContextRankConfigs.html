@@ -113,15 +113,15 @@
   </div>
   <h5 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Functions are split into three groups:
+Functions are split into two classes:
 </p>
 <ul><li>ContextRankConfigs
-  Base class which creates a config with a specific base value. You can only use a single type, so you should only
-  call these functions once for a config.
+  Base class which creates a config with a specific base value type. A context rank config can only have one type
+  so you should only call one of these functions for a config.
 </li><li><a class="xref" href="BlueprintCore.Blueprints.Components.ProgressionExtensions.html">ProgressionExtensions</a>
-Extension class which exposes different progressions. Like the base value, you can only have a single
-progression type so you should only call one of these functions.
-</li><li><a class="xref" href="BlueprintCore.Blueprints.Components.CommonExtensions.html">CommonExtensions</a>Extension class which exposes common configurable values.</li></ul>
+Extension class which applies progressions. Like the base value, you can only have a single progression type so
+you should only call one of these functions for a config.
+</li></ul>
 <p>
 See <a href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/ContextRankConfig">ContextRankConfig</a>
 on the wiki for more details about the component and
@@ -129,27 +129,58 @@ on the wiki for more details about the component and
 for help determining which progression to use.
 </p>
 <example>
-Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.Strength</span> with a bonus value of 2 and a max value of 30:
-<pre><code>  var rankConfig = ContextRankConfigs.BaseStat(StatType.Strength).Max(30).Add(2);</code></pre>
+Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.Strength</span> modifier with a bonus value of 2 and a max value of 30:
+<pre><code>  var rankConfig = ContextRankConfigs.StatBonus(StatType.Strength, max: 30).WithBonusValueProgression(2);</code></pre>
 </example>
 </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack(Kingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L98">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L115">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack">BaseAttack()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseAttack_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseAttack(Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">BaseAttack(AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.BaseAttack</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseAttack()</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseAttack(AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Type of config. Links the config to ContextValues with the same AbilityRankType.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Sets the max resulting value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td><p>Sets the minimum resulting value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -167,18 +198,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L103">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L123">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType)">BaseStat(StatType)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BaseStat_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BaseStat(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">BaseStat(StatType, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.BaseStat</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseStat(StatType stat)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BaseStat(StatType stat, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -195,6 +227,21 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
         <td><span class="parametername">stat</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -214,18 +261,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String%2CSystem.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String%2CSystem.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L170">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L286">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String,System.String[],System.String[],System.Boolean)">Bombs(String, String[], String[], Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_Bombs_System_String_System_String___System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.Bombs(System.String,System.String[],System.String[],System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">Bombs(String, String[], String[], Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.Bombs</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig Bombs(string feature, string[] classes, string[] archetypes, bool excludeClasses = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig Bombs(string feature, string[] classes, string[] archetypes, bool excludeClasses = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -240,21 +288,39 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">feature</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintFeature"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">classes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintCharacterClass"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">archetypes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintArchetype"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -276,18 +342,20 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L208">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L389">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String,System.Boolean)">BuffRank(String, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_BuffRank_System_String_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.BuffRank(System.String,System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">BuffRank(String, Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.CasterBuffRank</span> and
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.TargetBuffRank</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig BuffRank(string buff, bool useTarget = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig BuffRank(string buff, bool useTarget = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -302,13 +370,29 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">buff</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintBuff"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">useTarget</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -328,19 +412,50 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR(Kingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L123">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L164">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR">CasterCR()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterCR_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterCR(Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">CasterCR(AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.CasterCR</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterCR()</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterCR(AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Type of config. Links the config to ContextValues with the same AbilityRankType.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Sets the max resulting value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td><p>Sets the minimum resulting value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -358,18 +473,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L113">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L143">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean)">CasterLevel(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CasterLevel_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CasterLevel(System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">CasterLevel(Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.CasterLevel</span> and <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MaxCasterLevel</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterLevel(bool useMax = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CasterLevel(bool useMax = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -386,6 +502,21 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
         <td><span class="parametername">useMax</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -405,19 +536,50 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel(Kingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L118">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L154">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel">CharacterLevel()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CharacterLevel_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CharacterLevel(Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">CharacterLevel(AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.CharacterLevel</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CharacterLevel()</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CharacterLevel(AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Type of config. Links the config to ContextValues with the same AbilityRankType.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Sets the max resulting value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td><p>Sets the minimum resulting value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -435,18 +597,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String%5B%5D%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L143">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L213">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String[],System.Boolean)">ClassLevel(String[], Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_ClassLevel_System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.ClassLevel(System.String[],System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">ClassLevel(String[], Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.ClassLevel</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig ClassLevel(string[] classes, bool excludeClasses = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig ClassLevel(string[] classes, bool excludeClasses = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -461,11 +624,27 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">classes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintCharacterClass"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -487,18 +666,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L133">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L186">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String)">CustomProperty(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_CustomProperty_System_String_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.CustomProperty(System.String,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">CustomProperty(String, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.CustomProperty</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProperty(string property)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProperty(string property, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -513,6 +693,22 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">property</span></td>
+        <td><p><see cref="!:BlueprintPrintUnitProperty"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -534,19 +730,50 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage(Kingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L128">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L174">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage">DungeonStage()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_DungeonStage_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.DungeonStage(Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">DungeonStage(AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.DungeonStage</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DungeonStage()</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig DungeonStage(AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Type of config. Links the config to ContextValues with the same AbilityRankType.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td><p>Sets the max resulting value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td><p>Sets the minimum resulting value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -564,18 +791,20 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String%5B%5D%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L191">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L335">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String[],System.Boolean)">FeatureList(String[], Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureList_System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureList(System.String[],System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">FeatureList(String[], Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.FeatureList</span> and
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.FeatureListRanks</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureList(string[] features, bool useRanks = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureList(string[] features, bool useRanks = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -590,11 +819,27 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">features</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintFeature"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">useRanks</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -616,18 +861,20 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L184">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L313">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String,System.Boolean)">FeatureRank(String, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_FeatureRank_System_String_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.FeatureRank(System.String,System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">FeatureRank(String, Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.FeatureRank</span> and
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MasterFeatureRank</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureRank(string feature, bool useMaster = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig FeatureRank(string feature, bool useMaster = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -642,11 +889,27 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">feature</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintFeature"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">useMaster</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -668,18 +931,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L148">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L231">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String[],System.String[],System.Boolean)">MaxClassLevelWithArchetype(String[], String[], Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxClassLevelWithArchetype_System_String___System_String___System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxClassLevelWithArchetype(System.String[],System.String[],System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">MaxClassLevelWithArchetype(String[], String[], Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MaxClassLevelWithArchetype</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -694,16 +958,33 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">classes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintCharacterClass"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">archetypes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintArchetype"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">excludeClasses</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -725,18 +1006,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String%5B%5D%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L138">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L198">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String[])">MaxCustomProperty(String[])</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MaxCustomProperty_System_String___Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MaxCustomProperty(System.String[],Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">MaxCustomProperty(String[], AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MaxCustomProperty</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxCustomProperty(params string[] properties)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MaxCustomProperty(string[] properties, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -751,6 +1033,22 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">properties</span></td>
+        <td><p><see cref="!:BlueprintPrintUnitProperty"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -772,18 +1070,20 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L198">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L355">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean)">MythicLevel(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevel_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevel(System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">MythicLevel(Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MythicLevel</span> and
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MasterMythicLevel</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevel(bool useMaster = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevel(bool useMaster = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -800,6 +1100,21 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
         <td><span class="parametername">useMaster</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -819,18 +1134,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L203">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L371">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String)">MythicLevelPlusBuffRank(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_MythicLevelPlusBuffRank_System_String_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.MythicLevelPlusBuffRank(System.String,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">MythicLevelPlusBuffRank(String, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.MythicLevelPlusBuffRank</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevelPlusBuffRank(string buff)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig MythicLevelPlusBuffRank(string buff, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -845,6 +1161,22 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">buff</span></td>
+        <td><p><see cref="!:BlueprintBuff"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -866,18 +1198,19 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.Enums.ModifierDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.Enums.ModifierDescriptor%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L108">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L131">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.ModifierDescriptor)">StatBonus(StatType, ModifierDescriptor)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_StatBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.ModifierDescriptor,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">StatBonus(StatType, ModifierDescriptor, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.StatBonus</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig StatBonus(StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig StatBonus(StatType stat, ModifierDescriptor modDescriptor = ModifierDescriptor.None, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -899,6 +1232,21 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
         <td><span class="parametername">modDescriptor</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -918,18 +1266,20 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String%5B%5D%2CSystem.String%5B%5D%2CSystem.Boolean%2CSystem.Boolean%2CKingmaker.Enums.AbilityRankType%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L158">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L257">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String[],System.String[],System.Boolean,System.Boolean)">SumClassLevelWithArchetype(String[], String[], Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Blueprints_Components_ContextRankConfigs_SumClassLevelWithArchetype_System_String___System_String___System_Boolean_System_Boolean_Kingmaker_Enums_AbilityRankType_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ContextRankConfigs.SumClassLevelWithArchetype(System.String[],System.String[],System.Boolean,System.Boolean,Kingmaker.Enums.AbilityRankType,System.Nullable{System.Int32},System.Nullable{System.Int32})">SumClassLevelWithArchetype(String[], String[], Boolean, Boolean, AbilityRankType, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.OwnerSummClassLevelWithArchetype</span> and
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankBaseValueType.SummClassLevelWithArchetype</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig SumClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false, bool useOwner = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig SumClassLevelWithArchetype(string[] classes, string[] archetypes, bool excludeClasses = false, bool useOwner = false, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -944,12 +1294,14 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">classes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintCharacterClass"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">archetypes</span></td>
-        <td></td>
+        <td><p><see cref="!:BlueprintArchetype"></see></p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
@@ -959,6 +1311,21 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">useOwner</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.AbilityRankType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -989,7 +1356,7 @@ Create a rank based on <span class="xref">Kingmaker.EntitySystem.Stats.StatType.
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ContextRankConfigs.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ContextRankConfigs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L53" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L50" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

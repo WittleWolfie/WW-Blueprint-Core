@@ -69,6 +69,54 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v100-release">v1.0.0 Release</h2>
+<p>This release is a big enough change and complete enough to call it V1. There are a lot of breaking changes, especially
+from v0.5+.</p>
+<ul>
+<li>Core functionality is <strong>complete</strong>:
+<ul>
+<li>All blueprint types (BlueprintScriptableObject) has its own configurator</li>
+<li>All Blueprint Components have constructor methods in the supported configurators</li>
+<li>All Actions have builder methods</li>
+<li>All Conditions have builder methods</li>
+</ul>
+</li>
+<li>Other new APIs:
+<ul>
+<li>Generic Add w/ init for BlueprintComponent, Action, and Condition</li>
+<li>Blueprint configurators have an EditComponent method</li>
+<li>Generated enumerable field methods include Set, AddTo, and RemoveFrom. Hand written field methods have not been updated to include Set.</li>
+</ul>
+</li>
+<li>Generated code field types use primitive names when appropriate</li>
+<li>Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)</li>
+<li>Added validation check for duplicate AbilityRankType definitions in ContextRankConfig</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<p>A lot of codeode was moved around for consistency and a new DLL reference is required.</p>
+<ul>
+<li>BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils</li>
+<li>All BlueprintConfigurators were moved from BlueprintCore.Blueprints to BlueprintCore.Configurators</li>
+<li>Blueprint components are now only exposed in supported configurators
+<ul>
+<li>i.e. If you don't see a component method in a configurator it means that component is not expected to work with that blueprint type. There's no guarantee since this is based on Owlcat's validation with additional checks added manually to correct issues as they are found.</li>
+</ul>
+</li>
+<li>New assembly references are required:
+<ul>
+<li>Owlcat.Runtime.Visual.dll</li>
+<li>Owlcat.Runtime.UI.dll</li>
+</ul>
+</li>
+<li>Auto-generated methods provide default values for primitives, nullable types, and specific game types</li>
+<li>ContextRankConfigs API reworked
+<ul>
+<li>CommonExtensions are now optional parameters on the core functions</li>
+<li>Adopted the names of the progression types</li>
+<li>Added param comments for blueprint types</li>
+</ul>
+</li>
+</ul>
 <h2 id="v060-release">v0.6.0 Release</h2>
 <ul>
 <li>Completed ConditionsBuilder API using auto-generated methods</li>

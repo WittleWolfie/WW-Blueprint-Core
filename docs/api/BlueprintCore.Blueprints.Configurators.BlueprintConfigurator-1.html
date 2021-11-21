@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BlueprintConfigurator&lt;T&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BlueprintConfigurator&lt;T&gt;
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1" class="text-break">Class BlueprintConfigurator&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Configurator for any blueprint inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html">BaseBlueprintConfigurator</a>&lt;T, <a class="xref" href="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>&lt;T&gt;&gt;</div>
+    <div class="level2"><span class="xref">BlueprintConfigurator&lt;T&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Logger">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Self">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Name">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Blueprint">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.Blueprint</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_Configure">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.Configure()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddComponent(BlueprintComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddComponent__1_System_Action___0__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_EditComponent__1_System_Action___0__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.EditComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_OnConfigure_System_Action__0____">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.OnConfigure(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_OnConfigureInternal_System_Action__0____">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddUniqueComponent(BlueprintComponent, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_System_String_System_Boolean_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDlcCondition(String, Boolean, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcStoreCheat_System_Boolean_System_Boolean_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDlcStoreCheat(Boolean, Boolean, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcStoreEpic_System_String_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDlcStoreEpic(String, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcStoreGog_System_UInt64_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDlcStoreGog(UInt64, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcStoreSteam_System_UInt32_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDlcStoreSteam(UInt32, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBuffOnCorruptionClear_System_String_System_Int32_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddBuffOnCorruptionClear(String, Int32, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerLeaveCombatTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddPlayerLeaveCombatTrigger(ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddReplaceDamageDice_System_String_Kingmaker_UnitLogic_FactLogic_ReplaceDamageDice_Progression___BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddReplaceDamageDice(String, ReplaceDamageDice.Progression[], BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUnitPropertyComponent_System_String_Kingmaker_UnitLogic_Mechanics_Properties_PropertySettings_System_Int32_Kingmaker_UnitLogic_Mechanics_Properties_UnitPropertyComponent_ExternalProperty___System_String___">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddUnitPropertyComponent(String, PropertySettings, Int32, UnitPropertyComponent.ExternalProperty[], String[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackRollTrigger_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_Kingmaker_Enums_WeaponCategory_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddInitiatorAttackRollTrigger(Boolean, Boolean, Boolean, Boolean, Boolean, WeaponCategory, Boolean, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackWithWeaponTrigger_Kingmaker_Utility_Feet_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_System_Boolean_Kingmaker_Enums_WeaponCategory_System_Boolean_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup_System_Boolean_Kingmaker_Enums_WeaponRangeType_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddInitiatorAttackWithWeaponTrigger(Feet, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, String, Boolean, WeaponCategory, Boolean, WeaponFighterGroup, Boolean, WeaponRangeType, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetAttackRollTrigger_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_Kingmaker_Enums_WeaponCategory___System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddTargetAttackRollTrigger(Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, WeaponCategory[], Boolean, ActionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetBeforeAttackRollTrigger_Kingmaker_Blueprints_Classes_Spells_SpellDescriptorWrapper_System_Boolean_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddTargetBeforeAttackRollTrigger(SpellDescriptorWrapper, Boolean, Boolean, Boolean, ActionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalDiceOnAttack_Kingmaker_Utility_Feet_Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_System_Boolean_Kingmaker_Enums_WeaponCategory_System_Boolean_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup_System_Boolean_Kingmaker_Enums_WeaponRangeType_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_System_Collections_Generic_List_Kingmaker_UnitLogic_Mechanics_Components_AdditionalDiceOnAttack_DamageEntry__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AdditionalDiceOnAttack(Feet, DamageTypeDescription, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, String, Boolean, WeaponCategory, Boolean, WeaponFighterGroup, Boolean, WeaponRangeType, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, ConditionsBuilder, ConditionsBuilder, Boolean, ContextDiceValue, List&lt;AdditionalDiceOnAttack.DamageEntry&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalStatBonusOnAttackDamage_Kingmaker_Designers_Mechanics_Enums_ConditionEnum_Kingmaker_Designers_Mechanics_Enums_ConditionEnum_System_Boolean_Kingmaker_Enums_WeaponCategory_System_Boolean_System_Single_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AdditionalStatBonusOnAttackDamage(ConditionEnum, ConditionEnum, Boolean, WeaponCategory, Boolean, Single)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAllAttacksEnhancement_System_Int32_Kingmaker_Enums_ModifierDescriptor_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddAllAttacksEnhancement(Int32, ModifierDescriptor)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBashingFinish">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddBashingFinish()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDestructiveShockwave">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDestructiveShockwave()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddShieldMaster">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddShieldMaster()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyBattleResultsTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Kingdom_Blueprints_RegionId_System_Boolean_System_String___Kingmaker_Armies_Blueprints_ArmyType_System_Boolean_System_String_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddArmyBattleResultsTrigger(ActionsBuilder, ActionsBuilder, RegionId, Boolean, String[], ArmyType, Boolean, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddKingdomRegionClaimedTrigger_System_String___BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddKingdomRegionClaimedTrigger(String[], ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSettlementSiegeTrigger_System_Boolean_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSettlementSiegeTrigger(Boolean, String, ActionsBuilder, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyUnitRecruitedTrigger_Kingmaker_Kingdom_Armies_MercenariesIncludeOption_System_Boolean_Kingmaker_Armies_Components_ArmyProperties_System_Boolean_System_String___System_Int32_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddArmyUnitRecruitedTrigger(MercenariesIncludeOption, Boolean, ArmyProperties, Boolean, String[], Int32, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddLeaderRecruitedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddLeaderRecruitedTrigger(ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonUnitsAfterArmyBattle_Kingmaker_Kingdom_Buffs_SummonUnitsAfterArmyBattle_SummonGroup___BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSummonUnitsAfterArmyBattle(SummonUnitsAfterArmyBattle.SummonGroup[], BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyAbilityTags_Kingmaker_Armies_Components_ArmyProperties_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddArmyAbilityTags(ArmyProperties, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGarrisonDefeatedTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddGarrisonDefeatedTrigger(String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerVisitGlobalMapLocationTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddPlayerVisitGlobalMapLocationTrigger(String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateEnterTrigger_Kingmaker_ElementsSystem_IsleEvaluator_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddOnIsleStateEnterTrigger(IsleEvaluator, String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateExitTrigger_Kingmaker_ElementsSystem_IsleEvaluator_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddOnIsleStateExitTrigger(IsleEvaluator, String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddActivateTrigger_System_Boolean_System_Boolean_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddActivateTrigger(Boolean, Boolean, ConditionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAreaDidLoadTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddAreaDidLoadTrigger(ActionsBuilder, ConditionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddCompanionRecruitTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddCompanionRecruitTrigger(String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddCompanionUnrecruitTrigger_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddCompanionUnrecruitTrigger(String, Boolean, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddCustomEventTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddCustomEventTrigger(String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDamageTypeTrigger_Kingmaker_ElementsSystem_UnitEvaluator_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_Kingmaker_Enums_Damage_DamageEnergyType_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDamageTypeTrigger(UnitEvaluator, ActionsBuilder, Boolean, DamageEnergyType)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeactivateTrigger_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDeactivateTrigger(ConditionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeviceInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddDeviceInteractionTrigger(ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitCombatTrigger_Kingmaker_ElementsSystem_UnitEvaluator_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddEvaluatedUnitCombatTrigger(UnitEvaluator, ActionsBuilder, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitDeathTrigger_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddEvaluatedUnitDeathTrigger(UnitEvaluator, Boolean, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitHealthTrigger_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_System_Int32_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddEvaluatedUnitHealthTrigger(UnitEvaluator, Boolean, Int32, Boolean, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddExperienceTrigger_System_Int32_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddExperienceTrigger(Int32, ConditionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGenericInteractionTrigger_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddGenericInteractionTrigger(EntityReference, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddItemInContainerTrigger_Kingmaker_ElementsSystem_MapObjectEvaluator_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddItemInContainerTrigger(MapObjectEvaluator, String, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddMapObjectDestroyTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddMapObjectDestroyTrigger(ActionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddMapObjectPerceptionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddMapObjectPerceptionTrigger(ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPartyInventoryTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddPartyInventoryTrigger(String, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPerceptionTrigger_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddPerceptionTrigger(UnitEvaluator, MapObjectEvaluator, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerOpenItemDescriptionFirstTimeTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddPlayerOpenItemDescriptionFirstTimeTrigger(String, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddRestTrigger_System_Boolean_Kingmaker_Controllers_Rest_RestResult_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddRestTrigger(Boolean, RestResult, ConditionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddScriptZoneTrigger_Kingmaker_Blueprints_EntityReference_System_String_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddScriptZoneTrigger(EntityReference, String, ConditionsBuilder, ActionsBuilder, ConditionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSkillCheckInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSkillCheckInteractionTrigger(ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpawnUnitTrigger_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSpawnUnitTrigger(String, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpellCastTrigger_Kingmaker_Blueprints_EntityReference_System_String___BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSpellCastTrigger(EntityReference, String[], ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonPoolTrigger_System_Int32_Kingmaker_Designers_EventConditionActionSystem_Events_SummonPoolTrigger_ChangeTypes_System_String_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddSummonPoolTrigger(Int32, SummonPoolTrigger.ChangeTypes, String, ConditionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTimeOfDayChangedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddTimeOfDayChangedTrigger(ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUIEventTrigger_Kingmaker_PubSubSystem_UIEventType_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddUIEventTrigger(UIEventType, ConditionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUnitHealthTrigger_System_String_System_Int32_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddUnitHealthTrigger(String, Int32, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTrapTrigger_Kingmaker_ElementsSystem_MapObjectEvaluator_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddTrapTrigger(MapObjectEvaluator, ActionsBuilder, ActionsBuilder, BaseBlueprintConfigurator.ComponentMerge&lt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_ConfigureInternal">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.ConfigureInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_ValidateInternal">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.ValidateInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddValidationWarning_System_String_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.AddValidationWarning(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_ValidateParam_System_Object_">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.ValidateParam(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_ValidateParam__1_System_Collections_Generic_IEnumerable___0__">BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt;.ValidateParam&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Configurators.html">BlueprintCore.Blueprints.Configurators</a></h6>
+  <h6><strong>Assembly</strong>: Blueprint-Core.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Configures(typeof(BlueprintScriptableObject))]
+public class BlueprintConfigurator&lt;T&gt; : BaseBlueprintConfigurator&lt;T, BlueprintConfigurator&lt;T&gt;&gt; where T : BlueprintScriptableObject, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Prefer using the explicit configurator implementations wherever available.
+</p>
+<p>
+BlueprintConfigurator is useful for types not supported by the library. Because it is generically typed it will
+not expose functions for all supported component types or functions for fields. Instead you can use
+<a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent(BlueprintComponent)</a>,
+<a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">AddUniqueComponent(BlueprintComponent, BaseBlueprintConfigurator&lt;T, TBuilder&gt;.ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>,
+and <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure(Action&lt;T&gt;[])</a>. This enables the
+configurator API without a specific type implementation and ensures your blueprints are validated.
+</p>
+<example>
+<pre><code>BlueprintConfigurator&lt;BlueprintDlc>.New(DlcGuid)
+    .OnConfigure(dlc => dlc.Description = LocalizedDlcDescription)
+    .Configure();</code></pre>
+</example>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_For_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601.For(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Configurators/BlueprintConfigurator.cs/#L1756">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_For_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.For*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_For_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.For(System.String)">For(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a configurator for the given blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BlueprintConfigurator&lt;T&gt; For(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_For_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this function if the blueprint exists in the game library. If you're using
+<a href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModifiationTemplate</a> your
+JSON blueprints should already exist.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601.New(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Configurators/BlueprintConfigurator.cs/#L1762">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.New(System.String)">New(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a blueprint and returns its configurator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BlueprintConfigurator&lt;T&gt; New(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this function to create a new blueprint if you provided a mapping with
+<a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>. Otherwise use <a class="xref" href="BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator.html#BlueprintCore_Blueprints_Configurators_Buffs_BuffConfigurator_New_System_String_System_String_">New(String, String)</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601.New(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Configurators/BlueprintConfigurator.cs/#L1769">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1_New_System_String_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1.New(System.String,System.String)">New(String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a blueprint and returns its configurator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BlueprintConfigurator&lt;T&gt; New(string name, string assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BlueprintConfigurator_1.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Configurators/BlueprintConfigurator.cs/#L1749" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

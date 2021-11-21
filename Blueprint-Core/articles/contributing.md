@@ -16,7 +16,7 @@ Contributions are welcome!
         * Usually this is `C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure`
 3. Clean the project
     * This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp
-    * If you don't have Unity Mod Manager installed you also need to put 
+    * If you don't have Unity Mod Manager installed you need to add a reference to a Harmony assembly
 4. Configure Hard Links
     * Delete the `docs` folder in the root directory and `index.md` in the root of the Blueprint-Core project
     * Open an admin command promt, navigate to the solution's directory, and run the following commands:
@@ -48,27 +48,40 @@ Contributions are welcome!
     * Run all unit tests
         * Note: If tests throw exceptions when adding blueprints from TestData just re-run them. There is an issue with static data sticking around that I have not been able to resolve.
 
+## Using BlueprintCoreGen
+
+TODO: Update w/ more info
+
+BlueprintCoreGen is configured to be run directly from Visual Studio and output files in `bin/<Release|Debug>/net5.0/`:
+
+* `Templates` folder is a copy of the project files
+* `missing_types.txt` lists game types detected but not implemented
+* `ActionsBuilder` folder contains the generated ActionsBuilder classes
+
 ## What to Contribute
+
+**Note:** Do not submit a pull request which includes Harmony patches. Since BlueprintCore is distributed as source, patches would be run in every mod built using it. It is possible to create safe patches but I am not going to evaluate pull requests in that detail.
 
 ### Documentation
 
 This is likely the most helpful thing you can contribute. One of the biggest challenges to modding the game is understanding the behavior of game classes such as actions, conditions, and blueprint components.
 
-If you use and understand one of these classes, update the corresponding configurator or builder methods to explain the in-game effect and proper usage.
+If you use and understand the in game classes, update the corresponding configurator or builder method to explain the in-game effect and proper usage.
 
-### New Blueprint Configurators
+### Template Blueprint Configurators
 
-Once 1.0 is released all blueprint types will have configurators. It will take some time and new configurators will 
- speed up the full release.
+Most configurators are generated automatically. There may be cases where the automated code is not ideal and hand-coded templates are preferable. When defining a new configurator:
 
-* Provide the appropriate `Create()` and `For()` methods
-* Configurator inheritance should follow the blueprint class inheritance structure
-* A new configurator should support all fields before submitting
-* Component methods in configurators should only be exposed to blueprint types that support them
+// TODO: Code gen attr / flag
+* Provide the appropriate `New()` and `For()` methods
+* Implement configurators following the blueprint's type inheritance
+    * You *must* provide templates for all configurators in the inheritance tree up to [BlueprintConfigurator](xref:BlueprintCore.Blueprints.Configurators.BlueprintConfigurator`1). This is a limitation of code generation.
+* Implement support for all of the blueprint's fields (excluding inherited fields)
+* Do not include component methods directly; add them to one of BlueprintCoreGen's configurator template classes
 
-### New Configurator and Builder Methods
+### Configurator and Builder Methods
 
-Once 1.0 is released all blueprint, action, and conditions types will have methods. It will take some time and any contributions speed up the full release.
+TODO: Update
 
 * Methods should enforce proper usage
     * Validate all required inputs are specified
@@ -78,18 +91,12 @@ Once 1.0 is released all blueprint, action, and conditions types will have metho
 * Indicate the game type or field created or modified in the method comment summary
 * Document the blueprint type of any string arguments used to reference blueprints
 
-### Using BlueprintCoreGen
-
-As of v0.6.0, the ActionsBuilder and ConditionsBuilder APIs are completed through auto-generated methods. If you want to make any changes to those classess, update the corresponding class in the BlueprintCoreGen project. Once your changes are done, run the project and copy the output files into Blueprint-Core.
-
-BlueprintCoreGen is configured to be run directly from Visual Studio and output files in `bin/<Release|Debug>/net5.0/`:
-
-* `Templates` folder is a copy of the project files
-* `missing_types.txt` lists game types detected but not implemented
-* `ActionsBuilder` folder contains the generated ActionsBuilder classes
-
 ### New Actions, Conditions, and Components
 
 If you create new actions, conditions, or blueprint components that can be re-used, feel free to add them to the library.
 
 * Implement the necessary configurator and builder methods to support them
+
+### New Utilities
+
+If you have utilities that would help other modders, feel free to add them to the library.

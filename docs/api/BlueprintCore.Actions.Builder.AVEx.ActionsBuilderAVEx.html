@@ -126,7 +126,7 @@ Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.h
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
 </p>
 <table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
     Actions involving the game map, dungeons, or locations. See also
@@ -171,7 +171,7 @@ ActionsBuilder.New()
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddDialogNotification_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddDialogNotification(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L54">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L52">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddDialogNotification_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddDialogNotification*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddDialogNotification_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddDialogNotification(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Localization.LocalizedString)">AddDialogNotification(ActionsBuilder, LocalizedString)</h4>
@@ -223,883 +223,10 @@ public static ActionsBuilder AddDialogNotification(this ActionsBuilder builder, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddOverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L138">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddOverrideRainIntesity_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddOverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddOverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)">AddOverrideRainIntesity(ActionsBuilder, Single, Single)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.OverrideRainIntesity</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(OverrideRainIntesity))]
-public static ActionsBuilder AddOverrideRainIntesity(this ActionsBuilder builder, float RainIntensity, float Duration)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">RainIntensity</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">Duration</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L157">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay2DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)">AddPlay2DSound(ActionsBuilder, String, Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.Play2DSound</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(Play2DSound))]
-public static ActionsBuilder AddPlay2DSound(this ActionsBuilder builder, string SoundName, bool SetSex, bool SetRace)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">SoundName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SetSex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SetRace</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.Blueprints.EntityReference%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L182">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay3DSound_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlay3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlay3DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Blueprints.EntityReference,System.Boolean,System.Boolean,System.Boolean)">AddPlay3DSound(ActionsBuilder, String, EntityReference, Boolean, Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.Play3DSound</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(Play3DSound))]
-public static ActionsBuilder AddPlay3DSound(this ActionsBuilder builder, string SoundName, EntityReference SoundSourceObject, bool SetSex, bool SetRace, bool SetCurrentSpeaker)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">SoundName</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Blueprints.EntityReference</span></td>
-        <td><span class="parametername">SoundSourceObject</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SetSex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SetRace</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SetCurrentSpeaker</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Visual.Animation.AnimationClipWrapper%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L213">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayAnimationOneShot_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Visual.Animation.AnimationClipWrapper,Kingmaker.ElementsSystem.UnitEvaluator,System.Single,System.Single)">AddPlayAnimationOneShot(ActionsBuilder, AnimationClipWrapper, UnitEvaluator, Single, Single)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayAnimationOneShot))]
-public static ActionsBuilder AddPlayAnimationOneShot(this ActionsBuilder builder, AnimationClipWrapper m_ClipWrapper, UnitEvaluator Unit, float TransitionIn, float TransitionOut)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Visual.Animation.AnimationClipWrapper</span></td>
-        <td><span class="parametername">m_ClipWrapper</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Unit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">TransitionIn</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">TransitionOut</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L238">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCustomMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">AddPlayCustomMusic(ActionsBuilder, String, String)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCustomMusic</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayCustomMusic))]
-public static ActionsBuilder AddPlayCustomMusic(this ActionsBuilder builder, string MusicEventStart, string MusicEventStop)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">MusicEventStart</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">MusicEventStop</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean%2CKingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L265">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCutscene_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddPlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddPlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean,Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter)">AddPlayCutscene(ActionsBuilder, String, Boolean, Boolean, ParametrizedContextSetter)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCutscene</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayCutscene))]
-public static ActionsBuilder AddPlayCutscene(this ActionsBuilder builder, string m_Cutscene, bool PutInQueue, bool CheckExistence, ParametrizedContextSetter Parameters)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Cutscene</span></td>
-        <td><p><see cref="!:Cutscene"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">PutInQueue</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">CheckExistence</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter</span></td>
-        <td><span class="parametername">Parameters</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddReloadMechanic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddReloadMechanic(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L289">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddReloadMechanic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddReloadMechanic*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddReloadMechanic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddReloadMechanic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">AddReloadMechanic(ActionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ReloadMechanic</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ReloadMechanic))]
-public static ActionsBuilder AddReloadMechanic(this ActionsBuilder builder, string Desc, bool ClearFx)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">Desc</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">ClearFx</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSetSoundState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Sound_AkStateReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSetSoundState(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Sound.AkStateReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L311">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSetSoundState_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSetSoundState*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSetSoundState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Sound_AkStateReference_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSetSoundState(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Sound.AkStateReference)">AddSetSoundState(ActionsBuilder, AkStateReference)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SetSoundState</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(SetSoundState))]
-public static ActionsBuilder AddSetSoundState(this ActionsBuilder builder, AkStateReference m_State)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Sound.AkStateReference</span></td>
-        <td><span class="parametername">m_State</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddShowBark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_Kingmaker_Localization_SharedStringAsset_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddShowBark(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Localization.LocalizedString%2CKingmaker.Localization.SharedStringAsset%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.MapObjectEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L327">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddShowBark_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddShowBark*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddShowBark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_Kingmaker_Localization_SharedStringAsset_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddShowBark(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Localization.LocalizedString,Kingmaker.Localization.SharedStringAsset,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.MapObjectEvaluator)">AddShowBark(ActionsBuilder, LocalizedString, SharedStringAsset, Boolean, UnitEvaluator, MapObjectEvaluator)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ShowBark</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowBark))]
-public static ActionsBuilder AddShowBark(this ActionsBuilder builder, LocalizedString WhatToBark, SharedStringAsset WhatToBarkShared, bool BarkDurationByText, UnitEvaluator TargetUnit, MapObjectEvaluator TargetMapObject)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
-        <td><span class="parametername">WhatToBark</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Localization.SharedStringAsset</span></td>
-        <td><span class="parametername">WhatToBarkShared</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">BarkDurationByText</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">TargetUnit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
-        <td><span class="parametername">TargetMapObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.TransformEvaluator%2CUnityEngine.GameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L355">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSpawnFx_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSpawnFx*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddSpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_GameObject_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddSpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.TransformEvaluator,UnityEngine.GameObject)">AddSpawnFx(ActionsBuilder, TransformEvaluator, GameObject)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_PrefabLink_">SpawnFx(ActionsBuilder, PrefabLink)</a> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(SpawnFx))]
-public static ActionsBuilder AddSpawnFx(this ActionsBuilder builder, TransformEvaluator Target, GameObject FxPrefab)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.TransformEvaluator</span></td>
-        <td><span class="parametername">Target</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">UnityEngine.GameObject</span></td>
-        <td><span class="parametername">FxPrefab</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L374">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCustomMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCustomMusic*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder)">AddStopCustomMusic(ActionsBuilder)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.StopCustomMusic</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(StopCustomMusic))]
-public static ActionsBuilder AddStopCustomMusic(this ActionsBuilder builder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_StopCutscene_UnitCheckType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCutscene(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L386">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCutscene_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCutscene*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddStopCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_StopCutscene_UnitCheckType_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddStopCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType)">AddStopCutscene(ActionsBuilder, String, UnitEvaluator, StopCutscene.UnitCheckType)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(StopCutscene))]
-public static ActionsBuilder AddStopCutscene(this ActionsBuilder builder, string m_Cutscene, UnitEvaluator WithUnit, StopCutscene.UnitCheckType m_CheckType)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Cutscene</span></td>
-        <td><p><see cref="!:Cutscene"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">WithUnit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType</span></td>
-        <td><span class="parametername">m_CheckType</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectFx(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L407">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectFx_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectFx*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectFx(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">AddToggleObjectFx(ActionsBuilder, MapObjectEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectFx</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ToggleObjectFx))]
-public static ActionsBuilder AddToggleObjectFx(this ActionsBuilder builder, MapObjectEvaluator Target, bool ToggleOn)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
-        <td><span class="parametername">Target</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">ToggleOn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectMusic_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectMusic(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L426">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectMusic*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_AddToggleObjectMusic_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.AddToggleObjectMusic(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">AddToggleObjectMusic(ActionsBuilder, MapObjectEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectMusic</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ToggleObjectMusic))]
-public static ActionsBuilder AddToggleObjectMusic(this ActionsBuilder builder, MapObjectEvaluator Target, bool ToggleOn)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
-        <td><span class="parametername">Target</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">ToggleOn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Bark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Bark(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Localization.LocalizedString%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L93">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L91">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Bark_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Bark*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Bark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_LocalizedString_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Bark(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Localization.LocalizedString,System.Boolean,System.Boolean)">Bark(ActionsBuilder, LocalizedString, Boolean, Boolean)</h4>
@@ -1163,7 +290,7 @@ public static ActionsBuilder Bark(this ActionsBuilder builder, LocalizedString b
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ChangeBookImage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_SpriteLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ChangeBookImage(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ResourceLinks.SpriteLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L29">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L27">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ChangeBookImage_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ChangeBookImage*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ChangeBookImage_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_SpriteLink_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ChangeBookImage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ResourceLinks.SpriteLink)">ChangeBookImage(ActionsBuilder, SpriteLink)</h4>
@@ -1217,7 +344,7 @@ public static ActionsBuilder ChangeBookImage(this ActionsBuilder builder, Sprite
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ClearBlood_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ClearBlood(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L65">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L63">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ClearBlood_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ClearBlood*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ClearBlood_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ClearBlood(BlueprintCore.Actions.Builder.ActionsBuilder)">ClearBlood(ActionsBuilder)</h4>
@@ -1266,7 +393,7 @@ public static ActionsBuilder ClearBlood(this ActionsBuilder builder)</code></pre
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_MoveCamera_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_PositionEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.MoveCamera(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.PositionEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L40">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L38">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_MoveCamera_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.MoveCamera*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_MoveCamera_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_PositionEvaluator_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.MoveCamera(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.PositionEvaluator)">MoveCamera(ActionsBuilder, PositionEvaluator)</h4>
@@ -1317,10 +444,405 @@ public static ActionsBuilder MoveCamera(this ActionsBuilder builder, PositionEva
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_OverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.OverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L134">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_OverrideRainIntesity_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.OverrideRainIntesity*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_OverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.OverrideRainIntesity(BlueprintCore.Actions.Builder.ActionsBuilder,System.Single,System.Single)">OverrideRainIntesity(ActionsBuilder, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_OverrideRainIntesity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Single_System_Single_">OverrideRainIntesity(ActionsBuilder, Single, Single)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(OverrideRainIntesity))]
+public static ActionsBuilder OverrideRainIntesity(this ActionsBuilder builder, float rainIntensity = 0F, float duration = 0F)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">rainIntensity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">duration</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play2DSound(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L150">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play2DSound_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play2DSound*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play2DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,System.Boolean)">Play2DSound(ActionsBuilder, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play2DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_System_Boolean_">Play2DSound(ActionsBuilder, String, Boolean, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(Play2DSound))]
+public static ActionsBuilder Play2DSound(this ActionsBuilder builder, string soundName, bool setSex = false, bool setRace = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">soundName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">setSex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">setRace</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play3DSound(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.Blueprints.EntityReference%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L168">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play3DSound_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play3DSound*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.Play3DSound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Blueprints.EntityReference,System.Boolean,System.Boolean,System.Boolean)">Play3DSound(ActionsBuilder, String, EntityReference, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_Play3DSound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Blueprints_EntityReference_System_Boolean_System_Boolean_System_Boolean_">Play3DSound(ActionsBuilder, String, EntityReference, Boolean, Boolean, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(Play3DSound))]
+public static ActionsBuilder Play3DSound(this ActionsBuilder builder, string soundName, EntityReference soundSourceObject, bool setSex = false, bool setRace = false, bool setCurrentSpeaker = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">soundName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.EntityReference</span></td>
+        <td><span class="parametername">soundSourceObject</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">setSex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">setRace</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">setCurrentSpeaker</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Visual.Animation.AnimationClipWrapper%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L192">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayAnimationOneShot_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayAnimationOneShot*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayAnimationOneShot(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Visual.Animation.AnimationClipWrapper,Kingmaker.ElementsSystem.UnitEvaluator,System.Single,System.Single)">PlayAnimationOneShot(ActionsBuilder, AnimationClipWrapper, UnitEvaluator, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_ElementsSystem_UnitEvaluator_System_Single_System_Single_">PlayAnimationOneShot(ActionsBuilder, AnimationClipWrapper, UnitEvaluator, Single, Single)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayAnimationOneShot))]
+public static ActionsBuilder PlayAnimationOneShot(this ActionsBuilder builder, AnimationClipWrapper clipWrapper, UnitEvaluator unit, float transitionIn = 0F, float transitionOut = 0F)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Visual.Animation.AnimationClipWrapper</span></td>
+        <td><span class="parametername">clipWrapper</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">transitionIn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">transitionOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L215">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCustomMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCustomMusic*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String)">PlayCustomMusic(ActionsBuilder, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String_">PlayCustomMusic(ActionsBuilder, String, String)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayCustomMusic))]
+public static ActionsBuilder PlayCustomMusic(this ActionsBuilder builder, string musicEventStart, string musicEventStop)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">musicEventStart</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">musicEventStop</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L233">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCutscene_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCutscene*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_System_String_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlayCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter,System.String,System.Boolean,System.Boolean)">PlayCutscene(ActionsBuilder, ParametrizedContextSetter, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_NamedParameters_ParametrizedContextSetter_System_String_System_Boolean_System_Boolean_">PlayCutscene(ActionsBuilder, ParametrizedContextSetter, String, Boolean, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(PlayCutscene))]
+public static ActionsBuilder PlayCutscene(this ActionsBuilder builder, ParametrizedContextSetter parameters, string cutscene = null, bool putInQueue = false, bool checkExistence = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.NamedParameters.ParametrizedContextSetter</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">cutscene</span></td>
+        <td><p><see cref="!:Cutscene"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">putInQueue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkExistence</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlaySound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlaySound(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L123">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L121">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlaySound_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlaySound*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlaySound_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.PlaySound(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">PlaySound(ActionsBuilder, String)</h4>
@@ -1371,10 +893,69 @@ public static ActionsBuilder PlaySound(this ActionsBuilder builder, string sound
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ReloadMechanic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ReloadMechanic(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L255">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ReloadMechanic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ReloadMechanic*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ReloadMechanic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ReloadMechanic(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">ReloadMechanic(ActionsBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ReloadMechanic_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_">ReloadMechanic(ActionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ReloadMechanic))]
+public static ActionsBuilder ReloadMechanic(this ActionsBuilder builder, string desc, bool clearFx = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">desc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clearFx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_RunAnimationClip_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_Visual_Animation_Actions_ExecutionMode_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.RunAnimationClip(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Visual.Animation.AnimationClipWrapper%2CKingmaker.Visual.Animation.Actions.ExecutionMode%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L74">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L72">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_RunAnimationClip_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.RunAnimationClip*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_RunAnimationClip_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Visual_Animation_AnimationClipWrapper_Kingmaker_Visual_Animation_Actions_ExecutionMode_System_Single_System_Single_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.RunAnimationClip(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Visual.Animation.AnimationClipWrapper,Kingmaker.Visual.Animation.Actions.ExecutionMode,System.Single,System.Single)">RunAnimationClip(ActionsBuilder, AnimationClipWrapper, ExecutionMode, Single, Single)</h4>
@@ -1440,10 +1021,197 @@ public static ActionsBuilder RunAnimationClip(this ActionsBuilder builder, Anima
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SetSoundState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Sound_AkStateReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SetSoundState(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Sound.AkStateReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L271">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SetSoundState_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SetSoundState*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SetSoundState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Sound_AkStateReference_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SetSoundState(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Sound.AkStateReference)">SetSoundState(ActionsBuilder, AkStateReference)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SetSoundState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Sound_AkStateReference_">SetSoundState(ActionsBuilder, AkStateReference)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(SetSoundState))]
+public static ActionsBuilder SetSoundState(this ActionsBuilder builder, AkStateReference state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Sound.AkStateReference</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ShowBark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_SharedStringAsset_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_Localization_LocalizedString_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ShowBark(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Localization.SharedStringAsset%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CKingmaker.Localization.LocalizedString%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L287">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ShowBark_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ShowBark*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ShowBark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_SharedStringAsset_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_Localization_LocalizedString_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ShowBark(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Localization.SharedStringAsset,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.MapObjectEvaluator,Kingmaker.Localization.LocalizedString,System.Boolean)">ShowBark(ActionsBuilder, SharedStringAsset, UnitEvaluator, MapObjectEvaluator, LocalizedString, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ShowBark_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Localization_SharedStringAsset_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_Localization_LocalizedString_System_Boolean_">ShowBark(ActionsBuilder, SharedStringAsset, UnitEvaluator, MapObjectEvaluator, LocalizedString, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowBark))]
+public static ActionsBuilder ShowBark(this ActionsBuilder builder, SharedStringAsset whatToBarkShared, UnitEvaluator targetUnit, MapObjectEvaluator targetMapObject, LocalizedString whatToBark = null, bool barkDurationByText = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.SharedStringAsset</span></td>
+        <td><span class="parametername">whatToBarkShared</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">targetUnit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
+        <td><span class="parametername">targetMapObject</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">whatToBark</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">barkDurationByText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_GameObject_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.TransformEvaluator%2CUnityEngine.GameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L314">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_GameObject_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.TransformEvaluator,UnityEngine.GameObject)">SpawnFx(ActionsBuilder, TransformEvaluator, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_PrefabLink_">SpawnFx(ActionsBuilder, PrefabLink)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(SpawnFx))]
+public static ActionsBuilder SpawnFx(this ActionsBuilder builder, TransformEvaluator target, GameObject fxPrefab)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.TransformEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">UnityEngine.GameObject</span></td>
+        <td><span class="parametername">fxPrefab</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_PrefabLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ResourceLinks.PrefabLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L110">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L108">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ResourceLinks_PrefabLink_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.SpawnFx(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ResourceLinks.PrefabLink)">SpawnFx(ActionsBuilder, PrefabLink)</h4>
@@ -1492,6 +1260,238 @@ public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink pre
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L333">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCustomMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCustomMusic*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCustomMusic(BlueprintCore.Actions.Builder.ActionsBuilder)">StopCustomMusic(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder_">StopCustomMusic(ActionsBuilder)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(StopCustomMusic))]
+public static ActionsBuilder StopCustomMusic(this ActionsBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_Kingmaker_Designers_EventConditionActionSystem_Actions_StopCutscene_UnitCheckType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCutscene(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String%2CKingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L345">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCutscene_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCutscene*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_Kingmaker_Designers_EventConditionActionSystem_Actions_StopCutscene_UnitCheckType_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.StopCutscene(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String,Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType)">StopCutscene(ActionsBuilder, UnitEvaluator, String, StopCutscene.UnitCheckType)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCutscene_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_Kingmaker_Designers_EventConditionActionSystem_Actions_StopCutscene_UnitCheckType_">StopCutscene(ActionsBuilder, UnitEvaluator, String, StopCutscene.UnitCheckType)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(StopCutscene))]
+public static ActionsBuilder StopCutscene(this ActionsBuilder builder, UnitEvaluator withUnit, string cutscene = null, StopCutscene.UnitCheckType checkType = StopCutscene.UnitCheckType.Params)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">withUnit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">cutscene</span></td>
+        <td><p><see cref="!:Cutscene"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene.UnitCheckType</span></td>
+        <td><span class="parametername">checkType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectFx(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L365">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectFx_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectFx*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectFx(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">ToggleObjectFx(ActionsBuilder, MapObjectEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">ToggleObjectFx(ActionsBuilder, MapObjectEvaluator, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ToggleObjectFx))]
+public static ActionsBuilder ToggleObjectFx(this ActionsBuilder builder, MapObjectEvaluator target, bool toggleOn = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">toggleOn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectMusic_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectMusic(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L383">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectMusic_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectMusic*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectMusic_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.ToggleObjectMusic(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">ToggleObjectMusic(ActionsBuilder, MapObjectEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html#BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectMusic_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">ToggleObjectMusic(ActionsBuilder, MapObjectEvaluator, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ToggleObjectMusic))]
+public static ActionsBuilder ToggleObjectMusic(this ActionsBuilder builder, MapObjectEvaluator target, bool toggleOn = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">toggleOn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -1503,7 +1503,7 @@ public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink pre
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/AVEx/ActionsBuilderAVEx.cs/#L22" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

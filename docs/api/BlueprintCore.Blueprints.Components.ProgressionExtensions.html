@@ -129,13 +129,13 @@ enum each function comment explains the progression formula and which enums are 
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_Add_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.Add(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithBonusValueProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithBonusValueProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L362">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L526">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_Add_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.Add*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_Add_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.Add(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Boolean)">Add(ContextRankConfig, Int32, Boolean)</h4>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithBonusValueProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithBonusValueProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithBonusValueProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithBonusValueProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Boolean)">WithBonusValueProgression(ContextRankConfig, Int32, Boolean)</h4>
   <div class="markdown level1 summary"><p><code>Result = BaseValue + Bonus</code><br>
 OR<br>
 <code>OR = 2*BaseValue + Bonus</code>, if <code>doubleBaseValue</code> is <code>true</code></p>
@@ -143,7 +143,7 @@ OR<br>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig Add(this ContextRankConfig config, int bonus, bool doubleBaseValue = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithBonusValueProgression(this ContextRankConfig config, int bonus, bool doubleBaseValue = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,150 +187,24 @@ OR<br>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_Add_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithBonusValueProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.BonusValue</span> and <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.DoublePlusBonusValue</span></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_AddHalf_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.AddHalf(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithCustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithCustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.ValueTuple%7BSystem.Int32%2CSystem.Int32%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L380">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L589">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_AddHalf_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.AddHalf*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_AddHalf_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.AddHalf(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)">AddHalf(ContextRankConfig)</h4>
-  <div class="markdown level1 summary"><p><code>Result = BaseValue + BaseValue / 2</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig AddHalf(this ContextRankConfig config)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td><span class="parametername">config</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_AddHalf_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.HalfMore</span></p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_BlueprintCore_Blueprints_Components_ProgressionEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CBlueprintCore.Blueprints.Components.ProgressionEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L430">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_BlueprintCore_Blueprints_Components_ProgressionEntry___" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,BlueprintCore.Blueprints.Components.ProgressionEntry[])">CustomProgression(ContextRankConfig, ProgressionEntry[])</h4>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithCustomProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithCustomProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithCustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithCustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.ValueTuple{System.Int32,System.Int32}[])">WithCustomProgression(ContextRankConfig, (Int32 Base, Int32 Progression)[])</h4>
   <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.Custom</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use CustomProgression with anonymous tuples.&quot;)]
-public static ContextRankConfig CustomProgression(this ContextRankConfig config, params ProgressionEntry[] entries)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td><span class="parametername">config</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Blueprints.Components.ProgressionEntry.html">ProgressionEntry</a>[]</td>
-        <td><span class="parametername">entries</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_BlueprintCore_Blueprints_Components_ProgressionEntry____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-Entries must be provided in ascending order by their BaseValue.
-</p>
-<p>
-The result is the <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.ProgressionValue</span> of
-the first entry where the config&apos;s BaseValue is less than or equal to the entry&apos;s
-<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.BaseValue</span>. If the config&apos;s BaseValue is
-greater than all entry <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.BaseValue</span>, the last
-entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig.CustomProgressionItem.ProgressionValue</span> is returned.
-</p>
-<example>
-<pre><code>  ContextRankConfigs.CharacterLevel()
-      .CustomProgression(
-          new ProgressionEntry(5, 1),
-          new ProgressionEntry(10, 2),
-          new ProgressionEntry(13, 4),
-          new ProgressionEntry(18, 6));</code></pre>
-<ul><li>Levels 1-5<code>Result = 1</code></li><li>Levels 6-10<code>Result = 2</code></li><li>Levels 11-13<code>Result = 4</code></li><li>Levels 14+<code>Result = 6</code></li></ul>
-</example>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.ValueTuple%7BSystem.Int32%2CSystem.Int32%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L478">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32____" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.CustomProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.ValueTuple{System.Int32,System.Int32}[])">CustomProgression(ContextRankConfig, (Int32 Base, Int32 Progression)[])</h4>
-  <div class="markdown level1 summary"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.Custom</span></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig CustomProgression(this ContextRankConfig config, params (int Base, int Progression)[] progression)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithCustomProgression(this ContextRankConfig config, params (int Base, int Progression)[] progression)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -369,7 +243,7 @@ entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.Context
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_CustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32_____remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithCustomProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_ValueTuple_System_Int32_System_Int32_____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 Entries must be provided in ascending order by their Base.
 </p>
@@ -387,75 +261,19 @@ entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.Context
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDiv2Progression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L296">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L433">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">DivideBy(ContextRankConfig, Int32)</h4>
-  <div class="markdown level1 summary"><p><code>Result = BaseValue / Divisor</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DivideBy(this ContextRankConfig config, int divisor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td><span class="parametername">config</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">divisor</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.DivStep</span></p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L269">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">DivideBy2(ContextRankConfig, Int32)</h4>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDiv2Progression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDiv2Progression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDiv2Progression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">WithDiv2Progression(ContextRankConfig, Int32)</h4>
   <div class="markdown level1 summary"><p><code>Result = BaseValue / 2 + Bonus</code></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DivideBy2(this ContextRankConfig config, int bonus = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithDiv2Progression(this ContextRankConfig config, int bonus = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -494,77 +312,24 @@ entry&apos;s <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.Context
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.Div2</span> and <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.Div2PlusStep</span></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2ThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2ThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L285">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L460">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2ThenAdd1_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2ThenAdd1*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2ThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideBy2ThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)">DivideBy2ThenAdd1(ContextRankConfig)</h4>
-  <div class="markdown level1 summary"><p><code>Result = 1 + (BaseValue - 1) / 2</code></p>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDivStepProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDivStepProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">WithDivStepProgression(ContextRankConfig, Int32)</h4>
+  <div class="markdown level1 summary"><p><code>Result = BaseValue / Divisor</code></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DivideBy2ThenAdd1(this ContextRankConfig config)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td><span class="parametername">config</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideBy2ThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.OnePlusDiv2</span></p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L313">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenAdd1_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenAdd1*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Int32,System.Boolean)">DivideByThenAdd1(ContextRankConfig, Int32, Int32, Boolean)</h4>
-  <div class="markdown level1 summary"><p><code>Result = 1 + Max((BaseValue - Start) / Divisor, 0)</code><br>
-OR<br>
-<code>Result = 0</code>, if <code>delayStart</code> is <code>true</code> and <code>BaseValue &lt; Start</code></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DivideByThenAdd1(this ContextRankConfig config, int divisor, int start = 0, bool delayStart = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithDivStepProgression(this ContextRankConfig config, int divisor)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -586,16 +351,6 @@ OR<br>
         <td><span class="parametername">divisor</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">start</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">delayStart</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -613,25 +368,24 @@ OR<br>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.StartPlusDivStep</span>,
-<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.DelayedStartPlusDivStep</span>, and <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.OnePlusDivStep</span></p>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.DivStep</span></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenDoubleThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenDoubleThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithHalfMoreProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithHalfMoreProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L330">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L544">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenDoubleThenAdd1_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenDoubleThenAdd1*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenDoubleThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.DivideByThenDoubleThenAdd1(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Int32)">DivideByThenDoubleThenAdd1(ContextRankConfig, Int32, Int32)</h4>
-  <div class="markdown level1 summary"><p><code>Result = 1 + 2 * Max((BaseValue - Start) / Divisor, 0)</code></p>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithHalfMoreProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithHalfMoreProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithHalfMoreProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithHalfMoreProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)">WithHalfMoreProgression(ContextRankConfig)</h4>
+  <div class="markdown level1 summary"><p><code>Result = BaseValue + BaseValue / 2</code></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig DivideByThenDoubleThenAdd1(this ContextRankConfig config, int divisor, int start = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithHalfMoreProgression(this ContextRankConfig config)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -648,16 +402,6 @@ OR<br>
         <td><span class="parametername">config</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">divisor</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">start</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -675,24 +419,24 @@ OR<br>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_DivideByThenDoubleThenAdd1_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.StartPlusDoubleDivStep</span></p>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithHalfMoreProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.HalfMore</span></p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Single%2CSystem.Single%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithLinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithLinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Single%2CSystem.Single%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L531">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L642">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.LinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">LinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithLinearProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithLinearProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithLinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithLinearProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">WithLinearProgression(ContextRankConfig, Single, Single, Int32, Int32, Int32, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a linear custom progression: <code>ProgressionValue = a * BaseValue + b</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig LinearProgression(this ContextRankConfig config, float a, float b, int startingBaseValue = 1, int maxBaseValue = 40, int progressionValueBeforeStart = 0, int? minProgressionValue = null, int? maxProgressionValue = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithLinearProgression(this ContextRankConfig config, float a, float b, int startingBaseValue = 1, int maxBaseValue = 40, int progressionValueBeforeStart = 0, int? minProgressionValue = null, int? maxProgressionValue = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -761,7 +505,7 @@ OR<br>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_LinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithLinearProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Nullable_System_Int32__System_Nullable_System_Int32___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 When <code>BaseValue</code> is less than <code data-dev-comment-type="paramref" class="paramref">startingBaseValue</code> the result is
 <code data-dev-comment-type="paramref" class="paramref">progressionValueBeforeStart</code>.
@@ -787,19 +531,19 @@ The following config returns 0 until <code>CharacterLevel</code> is 4, then <cod
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_MultiplyBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.MultiplyBy(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithMultiplyByModifierProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithMultiplyByModifierProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L346">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L510">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_MultiplyBy_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.MultiplyBy*"></a>
-  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_MultiplyBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.MultiplyBy(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">MultiplyBy(ContextRankConfig, Int32)</h4>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithMultiplyByModifierProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithMultiplyByModifierProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithMultiplyByModifierProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithMultiplyByModifierProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32)">WithMultiplyByModifierProgression(ContextRankConfig, Int32)</h4>
   <div class="markdown level1 summary"><p><code>Result = BaseValue * Multiplier</code></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextRankConfig MultiplyBy(this ContextRankConfig config, int multiplier)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithMultiplyByModifierProgression(this ContextRankConfig config, int multiplier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -838,8 +582,189 @@ The following config returns 0 until <code>CharacterLevel</code> is 4, then <cod
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_MultiplyBy_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithMultiplyByModifierProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.MultiplyByModifier</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithOnePlusDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithOnePlusDiv2Progression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L449">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithOnePlusDiv2Progression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithOnePlusDiv2Progression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithOnePlusDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithOnePlusDiv2Progression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig)">WithOnePlusDiv2Progression(ContextRankConfig)</h4>
+  <div class="markdown level1 summary"><p><code>Result = 1 + (BaseValue - 1) / 2</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithOnePlusDiv2Progression(this ContextRankConfig config)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithOnePlusDiv2Progression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.OnePlusDiv2</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L477">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDivStepProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDivStepProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Int32,System.Boolean)">WithStartPlusDivStepProgression(ContextRankConfig, Int32, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p><code>Result = 1 + Max((BaseValue - Start) / Divisor, 0)</code><br>
+OR<br>
+<code>Result = 0</code>, if <code>delayStart</code> is <code>true</code> and <code>BaseValue &lt; Start</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithStartPlusDivStepProgression(this ContextRankConfig config, int divisor, int start = 0, bool delayStart = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">start</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">delayStart</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.StartPlusDivStep</span>,
+<span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.DelayedStartPlusDivStep</span>, and <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.OnePlusDivStep</span></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDoubleDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDoubleDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L494">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDoubleDivStepProgression_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDoubleDivStepProgression*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDoubleDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32_" data-uid="BlueprintCore.Blueprints.Components.ProgressionExtensions.WithStartPlusDoubleDivStepProgression(Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig,System.Int32,System.Int32)">WithStartPlusDoubleDivStepProgression(ContextRankConfig, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p><code>Result = 1 + 2 * Max((BaseValue - Start) / Divisor, 0)</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextRankConfig WithStartPlusDoubleDivStepProgression(this ContextRankConfig config, int divisor, int start = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">start</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Components_ProgressionExtensions_WithStartPlusDoubleDivStepProgression_Kingmaker_UnitLogic_Mechanics_Components_ContextRankConfig_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankProgression.StartPlusDoubleDivStep</span></p>
 </div>
 </article>
           </div>
@@ -852,7 +777,7 @@ The following config returns 0 until <code>CharacterLevel</code> is 4, then <cod
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_ProgressionExtensions.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.ProgressionExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L262" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Blueprints/Components/ContextRankConfigs.cs/#L426" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

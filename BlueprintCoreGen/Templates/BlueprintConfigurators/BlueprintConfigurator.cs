@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+// TODO: Add "Set" methods for configurator template fields
 namespace BlueprintCoreGen.Blueprints.Configurators
 {
   /// <summary>Fluent API for creating and modifying blueprints.</summary>

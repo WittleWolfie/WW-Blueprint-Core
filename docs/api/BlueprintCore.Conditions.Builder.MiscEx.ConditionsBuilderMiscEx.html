@@ -126,7 +126,7 @@ Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBui
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
 </p>
 <table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">ConditionsBuilderAreaEx</a></td><td>
     Conditions involving the game map, dungeons, or locations. See also
@@ -145,7 +145,7 @@ specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Build
   Conditions without a better extension container such as game difficulty.
 </td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">ConditionsBuilderNewEx</a></td><td>
   Conditions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><see cref="!:StoryEx.ConditionsBuilderStoryEx">StoryEx</see></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">ConditionsBuilderStoryEx</a></td><td>
   Conditions related to the story such as companion stories, quests, name changes, and etudes.
 </td></tr></tbody></table>
 <example>
@@ -166,20 +166,20 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_System_Boolean_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddContextConditionDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CKingmaker.Settings.Difficulty.DifficultyPresetAsset%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_ContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.ContextConditionDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Settings.Difficulty.DifficultyPresetAsset%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L28">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L24">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddContextConditionDifficultyHigherThan_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddContextConditionDifficultyHigherThan*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Boolean_System_Boolean_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddContextConditionDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,System.Boolean,System.Boolean,Kingmaker.Settings.Difficulty.DifficultyPresetAsset,System.Boolean)">AddContextConditionDifficultyHigherThan(ConditionsBuilder, Boolean, Boolean, Boolean, DifficultyPresetAsset, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDifficultyHigherThan</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_ContextConditionDifficultyHigherThan_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.ContextConditionDifficultyHigherThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_ContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.ContextConditionDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Settings.Difficulty.DifficultyPresetAsset,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">ContextConditionDifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_ContextConditionDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">ContextConditionDifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean, Boolean, Boolean, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(ContextConditionDifficultyHigherThan))]
-public static ConditionsBuilder AddContextConditionDifficultyHigherThan(this ConditionsBuilder builder, bool Less, bool Reverse, bool CheckOnlyForMonster, DifficultyPresetAsset m_Difficulty, bool negate = false)</code></pre>
+public static ConditionsBuilder ContextConditionDifficultyHigherThan(this ConditionsBuilder builder, DifficultyPresetAsset difficulty, bool less = false, bool reverse = false, bool checkOnlyForMonster = false, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,23 +197,23 @@ public static ConditionsBuilder AddContextConditionDifficultyHigherThan(this Con
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Less</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Reverse</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">CheckOnlyForMonster</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">Kingmaker.Settings.Difficulty.DifficultyPresetAsset</span></td>
-        <td><span class="parametername">m_Difficulty</span></td>
+        <td><span class="parametername">difficulty</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">less</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">reverse</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">checkOnlyForMonster</span></td>
         <td></td>
       </tr>
       <tr>
@@ -240,20 +240,20 @@ public static ConditionsBuilder AddContextConditionDifficultyHigherThan(this Con
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Settings.Difficulty.DifficultyPresetAsset%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_DifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.DifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Settings.Difficulty.DifficultyPresetAsset%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L55">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L48">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddDifficultyHigherThan_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddDifficultyHigherThan*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddDifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddDifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Settings.Difficulty.DifficultyPresetAsset,System.Boolean)">AddDifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.DifficultyHigherThan</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_DifficultyHigherThan_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.DifficultyHigherThan*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_DifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.DifficultyHigherThan(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Settings.Difficulty.DifficultyPresetAsset,System.Boolean)">DifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_DifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean_">DifficultyHigherThan(ConditionsBuilder, DifficultyPresetAsset, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(DifficultyHigherThan))]
-public static ConditionsBuilder AddDifficultyHigherThan(this ConditionsBuilder builder, DifficultyPresetAsset m_Difficulty, bool negate = false)</code></pre>
+public static ConditionsBuilder DifficultyHigherThan(this ConditionsBuilder builder, DifficultyPresetAsset difficulty, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -272,7 +272,7 @@ public static ConditionsBuilder AddDifficultyHigherThan(this ConditionsBuilder b
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.Settings.Difficulty.DifficultyPresetAsset</span></td>
-        <td><span class="parametername">m_Difficulty</span></td>
+        <td><span class="parametername">difficulty</span></td>
         <td></td>
       </tr>
       <tr>
@@ -299,20 +299,20 @@ public static ConditionsBuilder AddDifficultyHigherThan(this ConditionsBuilder b
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddEnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddEnlargedEncountersCapacity(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_EnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.EnlargedEncountersCapacity(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L73">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L66">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddEnlargedEncountersCapacity_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddEnlargedEncountersCapacity*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddEnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddEnlargedEncountersCapacity(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddEnlargedEncountersCapacity(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.EnlargedEncountersCapacity</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_EnlargedEncountersCapacity_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.EnlargedEncountersCapacity*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_EnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.EnlargedEncountersCapacity(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">EnlargedEncountersCapacity(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_EnlargedEncountersCapacity_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">EnlargedEncountersCapacity(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(EnlargedEncountersCapacity))]
-public static ConditionsBuilder AddEnlargedEncountersCapacity(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder EnlargedEncountersCapacity(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -353,20 +353,20 @@ public static ConditionsBuilder AddEnlargedEncountersCapacity(this ConditionsBui
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddGameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddGameModeActive(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.GameModes.GameModeType.Enum%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_GameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.GameModeActive(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.GameModes.GameModeType.Enum%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L103">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L94">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddGameModeActive_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddGameModeActive*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddGameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddGameModeActive(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.GameModes.GameModeType.Enum,System.Boolean)">AddGameModeActive(ConditionsBuilder, GameModeType.Enum, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.GameModeActive</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_GameModeActive_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.GameModeActive*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_GameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.GameModeActive(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.GameModes.GameModeType.Enum,System.Boolean)">GameModeActive(ConditionsBuilder, GameModeType.Enum, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_GameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_GameModes_GameModeType_Enum_System_Boolean_">GameModeActive(ConditionsBuilder, GameModeType.Enum, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(GameModeActive))]
-public static ConditionsBuilder AddGameModeActive(this ConditionsBuilder builder, GameModeType.Enum m_GameMode, bool negate = false)</code></pre>
+public static ConditionsBuilder GameModeActive(this ConditionsBuilder builder, GameModeType.Enum gameMode = GameModeType.Enum.None, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -385,7 +385,7 @@ public static ConditionsBuilder AddGameModeActive(this ConditionsBuilder builder
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.GameModes.GameModeType.Enum</span></td>
-        <td><span class="parametername">m_GameMode</span></td>
+        <td><span class="parametername">gameMode</span></td>
         <td></td>
       </tr>
       <tr>
@@ -412,20 +412,20 @@ public static ConditionsBuilder AddGameModeActive(this ConditionsBuilder builder
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L121">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L110">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForCustomCompanion_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForCustomCompanion*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddHasEnoughMoneyForCustomCompanion(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForCustomCompanion_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForCustomCompanion*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">HasEnoughMoneyForCustomCompanion(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">HasEnoughMoneyForCustomCompanion(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(HasEnoughMoneyForCustomCompanion))]
-public static ConditionsBuilder AddHasEnoughMoneyForCustomCompanion(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder HasEnoughMoneyForCustomCompanion(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -466,20 +466,20 @@ public static ConditionsBuilder AddHasEnoughMoneyForCustomCompanion(this Conditi
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForRespec(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForRespec(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L136">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L124">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForRespec_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForRespec*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddHasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddHasEnoughMoneyForRespec(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddHasEnoughMoneyForRespec(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForRespec</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForRespec_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForRespec*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.HasEnoughMoneyForRespec(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">HasEnoughMoneyForRespec(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_HasEnoughMoneyForRespec_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">HasEnoughMoneyForRespec(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(HasEnoughMoneyForRespec))]
-public static ConditionsBuilder AddHasEnoughMoneyForRespec(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder HasEnoughMoneyForRespec(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -520,20 +520,20 @@ public static ConditionsBuilder AddHasEnoughMoneyForRespec(this ConditionsBuilde
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsDLCEnabled(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsDLCEnabled(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L153">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L140">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsDLCEnabled_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsDLCEnabled*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsDLCEnabled(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.String,System.Boolean)">AddIsDLCEnabled(ConditionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsDLCEnabled_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsDLCEnabled*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsDLCEnabled(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.String,System.Boolean)">IsDLCEnabled(ConditionsBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">IsDLCEnabled(ConditionsBuilder, String, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(IsDLCEnabled))]
-public static ConditionsBuilder AddIsDLCEnabled(this ConditionsBuilder builder, string m_BlueprintDlcReward, bool negate = false)</code></pre>
+public static ConditionsBuilder IsDLCEnabled(this ConditionsBuilder builder, string blueprintDlcReward = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -552,7 +552,7 @@ public static ConditionsBuilder AddIsDLCEnabled(this ConditionsBuilder builder, 
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_BlueprintDlcReward</span></td>
+        <td><span class="parametername">blueprintDlcReward</span></td>
         <td><p><see cref="!:BlueprintDlcReward"></see></p>
 </td>
       </tr>
@@ -580,20 +580,20 @@ public static ConditionsBuilder AddIsDLCEnabled(this ConditionsBuilder builder, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsleStateCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.IsleEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsleStateCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.IsleEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L240">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L224">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsleStateCondition_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsleStateCondition*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsleStateCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.String,System.Boolean)">AddIsleStateCondition(ConditionsBuilder, IsleEvaluator, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.ElementsSystem.IsleStateCondition</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsleStateCondition_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsleStateCondition*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsleStateCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.IsleEvaluator,System.String,System.Boolean)">IsleStateCondition(ConditionsBuilder, IsleEvaluator, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsleStateCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_String_System_Boolean_">IsleStateCondition(ConditionsBuilder, IsleEvaluator, String, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(IsleStateCondition))]
-public static ConditionsBuilder AddIsleStateCondition(this ConditionsBuilder builder, IsleEvaluator m_Isle, string m_State, bool negate = false)</code></pre>
+public static ConditionsBuilder IsleStateCondition(this ConditionsBuilder builder, IsleEvaluator isle, string state, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -612,12 +612,12 @@ public static ConditionsBuilder AddIsleStateCondition(this ConditionsBuilder bui
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.ElementsSystem.IsleEvaluator</span></td>
-        <td><span class="parametername">m_Isle</span></td>
+        <td><span class="parametername">isle</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_State</span></td>
+        <td><span class="parametername">state</span></td>
         <td></td>
       </tr>
       <tr>
@@ -644,20 +644,20 @@ public static ConditionsBuilder AddIsleStateCondition(this ConditionsBuilder bui
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsListContainsItem(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.ItemEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsListContainsItem(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.ItemEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L172">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L158">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsListContainsItem_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsListContainsItem*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsListContainsItem(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.ItemEvaluator,System.String,System.Boolean)">AddIsListContainsItem(ConditionsBuilder, ItemEvaluator, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsListContainsItem</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsListContainsItem_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsListContainsItem*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsListContainsItem(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.ItemEvaluator,System.String,System.Boolean)">IsListContainsItem(ConditionsBuilder, ItemEvaluator, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsListContainsItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemEvaluator_System_String_System_Boolean_">IsListContainsItem(ConditionsBuilder, ItemEvaluator, String, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(IsListContainsItem))]
-public static ConditionsBuilder AddIsListContainsItem(this ConditionsBuilder builder, ItemEvaluator Item, string List, bool negate = false)</code></pre>
+public static ConditionsBuilder IsListContainsItem(this ConditionsBuilder builder, ItemEvaluator item, string list = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -676,12 +676,12 @@ public static ConditionsBuilder AddIsListContainsItem(this ConditionsBuilder bui
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.ElementsSystem.ItemEvaluator</span></td>
-        <td><span class="parametername">Item</span></td>
+        <td><span class="parametername">item</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">List</span></td>
+        <td><span class="parametername">list</span></td>
         <td><p><span class="xref">Kingmaker.Blueprints.Items.BlueprintItemsList</span></p>
 </td>
       </tr>
@@ -709,20 +709,20 @@ public static ConditionsBuilder AddIsListContainsItem(this ConditionsBuilder bui
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsRespecAllowed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsRespecAllowed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L192">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L178">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsRespecAllowed_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsRespecAllowed*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsRespecAllowed(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddIsRespecAllowed(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsRespecAllowed</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsRespecAllowed_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsRespecAllowed*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsRespecAllowed(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">IsRespecAllowed(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsRespecAllowed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">IsRespecAllowed(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(IsRespecAllowed))]
-public static ConditionsBuilder AddIsRespecAllowed(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder IsRespecAllowed(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -763,20 +763,20 @@ public static ConditionsBuilder AddIsRespecAllowed(this ConditionsBuilder builde
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsUnitCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsUnitCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L207">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L192">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsUnitCustomCompanion_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsUnitCustomCompanion*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddIsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddIsUnitCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">AddIsUnitCustomCompanion(ConditionsBuilder, UnitEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsUnitCustomCompanion_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsUnitCustomCompanion*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.IsUnitCustomCompanion(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">IsUnitCustomCompanion(ConditionsBuilder, UnitEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsUnitCustomCompanion_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">IsUnitCustomCompanion(ConditionsBuilder, UnitEvaluator, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(IsUnitCustomCompanion))]
-public static ConditionsBuilder AddIsUnitCustomCompanion(this ConditionsBuilder builder, UnitEvaluator Unit, bool negate = false)</code></pre>
+public static ConditionsBuilder IsUnitCustomCompanion(this ConditionsBuilder builder, UnitEvaluator unit, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -795,7 +795,7 @@ public static ConditionsBuilder AddIsUnitCustomCompanion(this ConditionsBuilder 
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Unit</span></td>
+        <td><span class="parametername">unit</span></td>
         <td></td>
       </tr>
       <tr>
@@ -822,20 +822,20 @@ public static ConditionsBuilder AddIsUnitCustomCompanion(this ConditionsBuilder 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddPaused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddPaused(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_Paused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.Paused(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L88">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L80">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddPaused_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddPaused*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddPaused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddPaused(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddPaused(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_Paused_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.Paused*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_Paused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.Paused(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">Paused(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_Paused_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">Paused(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(Paused))]
-public static ConditionsBuilder AddPaused(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder Paused(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -876,20 +876,20 @@ public static ConditionsBuilder AddPaused(this ConditionsBuilder builder, bool n
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddRespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddRespecIsFree(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_RespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.RespecIsFree(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L225">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L210">View Source</a>
   </span>
-  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddRespecIsFree_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddRespecIsFree*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_AddRespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.AddRespecIsFree(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">AddRespecIsFree(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_RespecIsFree_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.RespecIsFree*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_RespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.RespecIsFree(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">RespecIsFree(ConditionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html#BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_RespecIsFree_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">RespecIsFree(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(RespecIsFree))]
-public static ConditionsBuilder AddRespecIsFree(this ConditionsBuilder builder, bool negate = false)</code></pre>
+public static ConditionsBuilder RespecIsFree(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -939,7 +939,7 @@ public static ConditionsBuilder AddRespecIsFree(this ConditionsBuilder builder, 
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L19" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Conditions/Builder/MiscEx/ConditionsBuilderMiscEx.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

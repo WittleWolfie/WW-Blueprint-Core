@@ -89,51 +89,67 @@
 &lt;/PropertyGroup&gt;
 </code></pre>
 <ol start="5">
+<li>Add the necessary assembly references from the game install directory:
+<ul>
+<li><code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll</code></li>
+<li><code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/Owlcat.Runtime.UI.dll</code></li>
+</ul>
+</li>
 <li>You're ready to go!</li>
 </ol>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
 <h2 id="blueprint-configurators">Blueprint Configurators</h2>
-<p>Every supported concrete blueprint type has a corresponding configurator. e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.Buffs.BuffConfigurator.html">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
-<p>For blueprint types not supported by the library you can use <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintConfigurator-1.html">BlueprintConfigurator</a>. This won't expose all fields and supported components for the type but allows use of the configurator API and validation with any blueprint type.</p>
-<p>Basic usage of all configurators is the same:</p>
+<p>All blueprint types inheriting from BlueprintScriptableObject have a corresponding configurator. e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator.html">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
+<p>If you write a custom blueprint or use one from a mod you can use <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>. This won't expose fields and supported components for the type but allows use of the basic configurator API and validation with any blueprint type:</p>
+<p>To use a configurator:</p>
 <ol>
-<li>Instantiate a configurator using <code>For()</code> or <code>Create()</code>
+<li>Instantiate a configurator using <code>For()</code> or <code>New()</code>
 <ul>
 <li><code>For()</code> creates a configurator for an existing blueprint</li>
-<li><code>Create()</code> creates and registers a new blueprint</li>
+<li><code>New()</code> creates and registers a new blueprint</li>
 </ul>
 </li>
 <li>Modify the blueprint using the configurator methods</li>
-<li>Commit the configuration with <a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_Configure">Configure()</a>
+<li>Commit the configuration with <a href="xref:BlueprintCore.Blueprints.BaseBlueprintConfigurator%602.Configure">Configure()</a>
 <ul>
 <li>Until this is called, no changes are made to the blueprint</li>
 <li>After commit the blueprint is validated and any errors are logged as a warning</li>
 </ul>
 </li>
 </ol>
+<pre><code class="lang-C#">BuffConfigurator.New(MyBuffName, MyBuffGuid).AddStatBonus(stat: StatType.Strength, value: 2).Configure();
+</code></pre>
+<p>This code will create a new <code>BlueprintBuff</code> using the provided name and GUID. When the buff is applied to a unit it
+grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
 <h3 id="common-methods">Common Methods</h3>
 <ul>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent</a>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent</a>
 <ul>
-<li>Used internally by all configurator methods that add a new component.</li>
-<li>Adds a <code>BlueprintComponent</code> of any type. Prefer using configurator methods whenever possible.</li>
-<li>Eventually the configurators will support all in-game components, at which point this should only be used for components implemented in your project.</li>
+<li>Adds a <code>BlueprintComponent</code> of any type</li>
+<li>Used internally by all configurator methods that add a new component</li>
+<li>Use this for custom components in your modification</li>
+<li>All component types in the base game are supported by type specific methods. e.g. <code>AddStatBonus</code></li>
 </ul>
 </li>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">AddUniqueComponent</a>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator__0__1__ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">AddUniqueComponent</a>
 <ul>
-<li>Similar to <code>AddComponent</code>, but for components for which only one can exist in a blueprint.</li>
-<li>Supports user defined conflict resolution if multiple components are present. See <a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.ComponentMerge.html">ComponentMerge</a>.</li>
+<li>Similar to <code>AddComponent</code>, but for components for which only one can exist in a blueprint</li>
+<li>Supports user defined conflict resolution if multiple components are present. See <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.ComponentMerge.html">ComponentMerge</a>.</li>
 </ul>
 </li>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RemoveComponents</a>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RemoveComponents</a>
 <ul>
-<li>Removes any components matching the supplied <code>Func&lt;BlueprintComponent, bool&gt;</code>.</li>
+<li>Removes any components matching the supplied <code>Func&lt;BlueprintComponent, bool&gt;</code></li>
 </ul>
 </li>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_BaseBlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure</a>
+<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.EditComponent%601(System.Action%7B%601%7D)">EditComponent</a>
 <ul>
-<li>Executes an <code>Action</code> on the blueprint as the last step in configuration.</li>
+<li>After configuring components, runs the provided <code>Action</code> on the first component matching the specified type</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_OnConfigure_System_Action__0____">OnConfigure</a>
+<ul>
+<li>Executes an <code>Action</code> on the blueprint as the last step in configuration</li>
 </ul>
 </li>
 </ul>
@@ -251,13 +267,13 @@ ActionsBuilder.New()
     .Build();
 </code></pre>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
-<p>Whenever a method in the library needs to reference a blueprint it accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>.</p>
+<p>Whenever a method in the library needs to reference a blueprint it accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a href="xref:BlueprintCore.Blueprints.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary%7BSystem.String,System.String%7D)">BlueprintTool#AddGuidsByName()</a>.</p>
 <p>The method parameter comment for blueprint strings declare the type of blueprint expected.</p>
 <h2 id="logging-and-utils">Logging and Utils</h2>
 <h3 id="tools">Tools</h3>
 <p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
 <ul>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.BlueprintTool.html">BlueprintTool</a>
+<li><a href="xref:BlueprintCore.Blueprints.BlueprintTool">BlueprintTool</a>
 <ul>
 <li>Use this to create, fetch, and provide a name to guid mapping for blueprints.</li>
 </ul>

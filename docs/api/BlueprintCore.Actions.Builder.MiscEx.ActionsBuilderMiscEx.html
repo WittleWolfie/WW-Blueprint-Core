@@ -126,7 +126,7 @@ Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.h
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Blueprints.BlueprintTool.html#BlueprintCore_Blueprints_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
 </p>
 <table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
     Actions involving the game map, dungeons, or locations. See also
@@ -168,20 +168,20 @@ ActionsBuilder.New()
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%5B%5D%2CSystem.String%5B%5D%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.String%5B%5D%2CSystem.String%5B%5D%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L155">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L146">View Source</a>
   </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddPremiumReward_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String[],System.String[],BlueprintCore.Actions.Builder.ActionsBuilder)">AddAddPremiumReward(ActionsBuilder, String, String[], String[], ActionsBuilder)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.AddPremiumReward</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.String[],System.String[],BlueprintCore.Actions.Builder.ActionsBuilder)">AddPremiumReward(ActionsBuilder, String, String[], String[], ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_String___System_String___BlueprintCore_Actions_Builder_ActionsBuilder_">AddPremiumReward(ActionsBuilder, String, String[], String[], ActionsBuilder)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(AddPremiumReward))]
-public static ActionsBuilder AddAddPremiumReward(this ActionsBuilder builder, string m_DlcReward, string[] Items, string[] PlayerFeatures, ActionsBuilder AdditionalActions)</code></pre>
+public static ActionsBuilder AddPremiumReward(this ActionsBuilder builder, string dlcReward = null, string[] items = null, string[] playerFeatures = null, ActionsBuilder additionalActions = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -200,25 +200,25 @@ public static ActionsBuilder AddAddPremiumReward(this ActionsBuilder builder, st
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_DlcReward</span></td>
+        <td><span class="parametername">dlcReward</span></td>
         <td><p><see cref="!:BlueprintDlcReward"></see></p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">Items</span></td>
+        <td><span class="parametername">items</span></td>
         <td><p><see cref="!:BlueprintItem"></see></p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">PlayerFeatures</span></td>
+        <td><span class="parametername">playerFeatures</span></td>
         <td><p><see cref="!:BlueprintFeature"></see></p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">AdditionalActions</span></td>
+        <td><span class="parametername">additionalActions</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -240,20 +240,20 @@ public static ActionsBuilder AddAddPremiumReward(this ActionsBuilder builder, st
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.VendorEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.VendorEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L116">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L108">View Source</a>
   </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddAddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddAddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,System.String)">AddAddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.FactLogic.AddVendorItemsAction</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,System.String)">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_System_String_">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, String)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(AddVendorItemsAction))]
-public static ActionsBuilder AddAddVendorItemsAction(this ActionsBuilder builder, VendorEvaluator m_VendorEvaluator, string m_VendorTable)</code></pre>
+public static ActionsBuilder AddVendorItemsAction(this ActionsBuilder builder, VendorEvaluator vendorEvaluator, string vendorTable = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -272,12 +272,12 @@ public static ActionsBuilder AddAddVendorItemsAction(this ActionsBuilder builder
       </tr>
       <tr>
         <td><span class="xref">Kingmaker.ElementsSystem.VendorEvaluator</span></td>
-        <td><span class="parametername">m_VendorEvaluator</span></td>
+        <td><span class="parametername">vendorEvaluator</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_VendorTable</span></td>
+        <td><span class="parametername">vendorTable</span></td>
         <td><p><span class="xref">Kingmaker.Blueprints.Loot.BlueprintUnitLoot</span></p>
 </td>
       </tr>
@@ -300,20 +300,20 @@ public static ActionsBuilder AddAddVendorItemsAction(this ActionsBuilder builder
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L136">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L128">View Source</a>
   </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddClearVendorTable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">AddClearVendorTable(ActionsBuilder, String)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.FactLogic.ClearVendorTable</span> (Auto Generated)</p>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">ClearVendorTable(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">ClearVendorTable(ActionsBuilder, String)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(ClearVendorTable))]
-public static ActionsBuilder AddClearVendorTable(this ActionsBuilder builder, string m_Table)</code></pre>
+public static ActionsBuilder ClearVendorTable(this ActionsBuilder builder, string table = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -332,1113 +332,9 @@ public static ActionsBuilder AddClearVendorTable(this ActionsBuilder builder, st
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Table</span></td>
+        <td><span class="parametername">table</span></td>
         <td><p><see cref="!:BlueprintSharedVendorTable"></see></p>
 </td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddDebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L176">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddDebugLog_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddDebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddDebugLog(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">AddDebugLog(ActionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DebugLog</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(DebugLog))]
-public static ActionsBuilder AddDebugLog(this ActionsBuilder builder, string Log, bool Break)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">Log</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Break</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddGameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Player.GameOverReasonType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L198">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddGameOver_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddGameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddGameOver(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Player.GameOverReasonType)">AddGameOver(ActionsBuilder, Player.GameOverReasonType)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(GameOver))]
-public static ActionsBuilder AddGameOver(this ActionsBuilder builder, Player.GameOverReasonType Reason)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Player.GameOverReasonType</span></td>
-        <td><span class="parametername">Reason</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeAutoSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeAutoSave(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L214">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeAutoSave_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeAutoSave*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeAutoSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeAutoSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean)">AddMakeAutoSave(ActionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MakeAutoSave</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(MakeAutoSave))]
-public static ActionsBuilder AddMakeAutoSave(this ActionsBuilder builder, bool SaveForImport)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">SaveForImport</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L232">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeItemNonRemovable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeItemNonRemovable*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">AddMakeItemNonRemovable(ActionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MakeItemNonRemovable</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(MakeItemNonRemovable))]
-public static ActionsBuilder AddMakeItemNonRemovable(this ActionsBuilder builder, string m_Item, bool NonRemovable)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Item</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">NonRemovable</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMovePartyItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_ItemType_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_LeaveSettings_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMovePartyItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CKingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L250">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMovePartyItemsAction_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMovePartyItemsAction*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddMovePartyItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_ItemType_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_LeaveSettings_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddMovePartyItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings)">AddMovePartyItemsAction(ActionsBuilder, MovePartyItemsAction.ItemType, ItemsCollectionEvaluator, MovePartyItemsAction.LeaveSettings)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(MovePartyItemsAction))]
-public static ActionsBuilder AddMovePartyItemsAction(this ActionsBuilder builder, MovePartyItemsAction.ItemType PickupTypes, ItemsCollectionEvaluator TargetCollection, MovePartyItemsAction.LeaveSettings m_LeaveEquipmentOf)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType</span></td>
-        <td><span class="parametername">PickupTypes</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
-        <td><span class="parametername">TargetCollection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings</span></td>
-        <td><span class="parametername">m_LeaveEquipmentOf</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddOpenSelectMythicUI_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddOpenSelectMythicUI(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L272">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddOpenSelectMythicUI_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddOpenSelectMythicUI*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddOpenSelectMythicUI_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddOpenSelectMythicUI(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">AddOpenSelectMythicUI(ActionsBuilder, ActionsBuilder, Boolean, ActionsBuilder)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.OpenSelectMythicUI</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(OpenSelectMythicUI))]
-public static ActionsBuilder AddOpenSelectMythicUI(this ActionsBuilder builder, ActionsBuilder m_AfterCommitActions, bool m_LockStopChargen, ActionsBuilder m_AfterStopActions)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">m_AfterCommitActions</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">m_LockStopChargen</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">m_AfterStopActions</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveDuplicateItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveDuplicateItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L348">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveDuplicateItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveDuplicateItems*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveDuplicateItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveDuplicateItems(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String)">AddRemoveDuplicateItems(ActionsBuilder, UnitEvaluator, String)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDuplicateItems</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveDuplicateItems))]
-public static ActionsBuilder AddRemoveDuplicateItems(this ActionsBuilder builder, UnitEvaluator Unit, string m_Blueprint)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Unit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Blueprint</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_String_System_Boolean_System_Int32_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CSystem.Boolean%2CSystem.String%2CSystem.Boolean%2CSystem.Int32%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L294">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemFromPlayer_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemFromPlayer*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_String_System_Boolean_System_Int32_System_Single_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,System.String,System.Boolean,System.Int32,System.Single)">AddRemoveItemFromPlayer(ActionsBuilder, Boolean, Boolean, String, Boolean, Int32, Single)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemFromPlayer</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveItemFromPlayer))]
-public static ActionsBuilder AddRemoveItemFromPlayer(this ActionsBuilder builder, bool Money, bool RemoveAll, string m_ItemToRemove, bool m_Silent, int Quantity, float Percentage)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Money</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">RemoveAll</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_ItemToRemove</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">m_Silent</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">Quantity</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">Percentage</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemsFromCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemsFromCollection(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Collections.Generic.List%7BKingmaker.Blueprints.Loot.LootEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L324">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemsFromCollection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemsFromCollection*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRemoveItemsFromCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRemoveItemsFromCollection(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Collections.Generic.List{Kingmaker.Blueprints.Loot.LootEntry})">AddRemoveItemsFromCollection(ActionsBuilder, ItemsCollectionEvaluator, List&lt;LootEntry&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemsFromCollection</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveItemsFromCollection))]
-public static ActionsBuilder AddRemoveItemsFromCollection(this ActionsBuilder builder, ItemsCollectionEvaluator Collection, List&lt;LootEntry&gt; Loot)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
-        <td><span class="parametername">Collection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Kingmaker.Blueprints.Loot.LootEntry</span>&gt;</td>
-        <td><span class="parametername">Loot</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRestoreItemsCountInCollection_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRestoreItemsCountInCollection(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L368">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRestoreItemsCountInCollection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRestoreItemsCountInCollection*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddRestoreItemsCountInCollection_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddRestoreItemsCountInCollection(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">AddRestoreItemsCountInCollection(ActionsBuilder, String, ItemsCollectionEvaluator, IntEvaluator)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.RestoreItemsCountInCollection</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(RestoreItemsCountInCollection))]
-public static ActionsBuilder AddRestoreItemsCountInCollection(this ActionsBuilder builder, string m_Item, ItemsCollectionEvaluator Collection, IntEvaluator Count)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Item</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
-        <td><span class="parametername">Collection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
-        <td><span class="parametername">Count</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L391">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSellCollectibleItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSellCollectibleItems*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">AddSellCollectibleItems(ActionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SellCollectibleItems</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(SellCollectibleItems))]
-public static ActionsBuilder AddSellCollectibleItems(this ActionsBuilder builder, string m_ItemToSell, bool HalfPrice)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_ItemToSell</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">HalfPrice</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetStartDate_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetStartDate(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L409">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetStartDate_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetStartDate*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetStartDate_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetStartDate(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">AddSetStartDate(ActionsBuilder, String)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(SetStartDate))]
-public static ActionsBuilder AddSetStartDate(this ActionsBuilder builder, string Date)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">Date</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetVendorPriceModifier_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_SetVendorPriceModifier_Entry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetVendorPriceModifier(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L428">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetVendorPriceModifier_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetVendorPriceModifier*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddSetVendorPriceModifier_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_SetVendorPriceModifier_Entry___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddSetVendorPriceModifier(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry[])">AddSetVendorPriceModifier(ActionsBuilder, UnitEvaluator, SetVendorPriceModifier.Entry[])</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(SetVendorPriceModifier))]
-public static ActionsBuilder AddSetVendorPriceModifier(this ActionsBuilder builder, UnitEvaluator VendorUnit, SetVendorPriceModifier.Entry[] m_Entries)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">VendorUnit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry</span>[]</td>
-        <td><span class="parametername">m_Entries</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.Tutorial.Actions.TutorialContextDataEvaluator%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L93">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])">AddShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Tutorial.Actions.ShowNewTutorial</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowNewTutorial))]
-public static ActionsBuilder AddShowNewTutorial(this ActionsBuilder builder, string m_Tutorial, TutorialContextDataEvaluator[] Evaluators)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Tutorial</span></td>
-        <td><p><span class="xref">Kingmaker.Tutorial.BlueprintTutorial</span></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator</span>[]</td>
-        <td><span class="parametername">Evaluators</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowPartySelection_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowPartySelection(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L450">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowPartySelection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowPartySelection*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddShowPartySelection_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddShowPartySelection(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">AddShowPartySelection(ActionsBuilder, ActionsBuilder, ActionsBuilder)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.ShowPartySelection</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowPartySelection))]
-public static ActionsBuilder AddShowPartySelection(this ActionsBuilder builder, ActionsBuilder ActionsAfterPartySelection, ActionsBuilder ActionsIfCanceled)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">ActionsAfterPartySelection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">ActionsIfCanceled</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddStartTrade_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddStartTrade(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L467">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddStartTrade_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddStartTrade*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddStartTrade_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddStartTrade(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)">AddStartTrade(ActionsBuilder, UnitEvaluator)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(StartTrade))]
-public static ActionsBuilder AddStartTrade(this ActionsBuilder builder, UnitEvaluator Vendor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Vendor</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipAllItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipAllItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L483">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipAllItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipAllItems*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipAllItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipAllItems(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean)">AddUnequipAllItems(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipAllItems</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(UnequipAllItems))]
-public static ActionsBuilder AddUnequipAllItems(this ActionsBuilder builder, UnitEvaluator Target, ItemsCollectionEvaluator DestinationContainer, bool Silent)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Target</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
-        <td><span class="parametername">DestinationContainer</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Silent</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L507">View Source</a>
-  </span>
-  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipItem_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipItem*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddUnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddUnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean,System.String,System.Boolean)">AddUnequipItem(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipItem</span> (Auto Generated)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(UnequipItem))]
-public static ActionsBuilder AddUnequipItem(this ActionsBuilder builder, UnitEvaluator Unit, ItemsCollectionEvaluator DestinationContainer, bool Silent, string m_Item, bool All)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">Unit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
-        <td><span class="parametername">DestinationContainer</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">Silent</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">m_Item</span></td>
-        <td><p><see cref="!:BlueprintItem"></see></p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">All</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1462,7 +358,7 @@ public static ActionsBuilder AddUnequipItem(this ActionsBuilder builder, UnitEva
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CreateCustomCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CreateCustomCompanion(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L59">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L56">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CreateCustomCompanion_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CreateCustomCompanion*"></a>
   <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CreateCustomCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CreateCustomCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">CreateCustomCompanion(ActionsBuilder, Boolean, Boolean, ActionsBuilder)</h4>
@@ -1526,7 +422,7 @@ public static ActionsBuilder CreateCustomCompanion(this ActionsBuilder builder, 
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CustomEvent(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L76">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L73">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CustomEvent_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CustomEvent*"></a>
   <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_CustomEvent_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.CustomEvent(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">CustomEvent(ActionsBuilder, String)</h4>
@@ -1577,10 +473,123 @@ public static ActionsBuilder CustomEvent(this ActionsBuilder builder, string eve
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_DebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.DebugLog(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L166">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_DebugLog_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.DebugLog*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_DebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.DebugLog(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">DebugLog(ActionsBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_DebugLog_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_">DebugLog(ActionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(DebugLog))]
+public static ActionsBuilder DebugLog(this ActionsBuilder builder, string log, bool breakValue = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">log</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">breakValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_GameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.GameOver(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Player.GameOverReasonType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L182">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_GameOver_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.GameOver*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_GameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.GameOver(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Player.GameOverReasonType)">GameOver(ActionsBuilder, Player.GameOverReasonType)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_GameOver_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Player_GameOverReasonType_">GameOver(ActionsBuilder, Player.GameOverReasonType)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(GameOver))]
+public static ActionsBuilder GameOver(this ActionsBuilder builder, Player.GameOverReasonType reason = Player.GameOverReasonType.PartyIsDefeated)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Player.GameOverReasonType</span></td>
+        <td><span class="parametername">reason</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.IncrementAchievement(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L33">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L30">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_IncrementAchievement_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.IncrementAchievement*"></a>
   <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_IncrementAchievement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.IncrementAchievement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">IncrementAchievement(ActionsBuilder, String)</h4>
@@ -1632,10 +641,1001 @@ public static ActionsBuilder IncrementAchievement(this ActionsBuilder builder, s
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeAutoSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeAutoSave(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L196">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeAutoSave_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeAutoSave*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeAutoSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeAutoSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean)">MakeAutoSave(ActionsBuilder, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeAutoSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_">MakeAutoSave(ActionsBuilder, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(MakeAutoSave))]
+public static ActionsBuilder MakeAutoSave(this ActionsBuilder builder, bool saveForImport = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">saveForImport</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L212">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">MakeItemNonRemovable(ActionsBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_">MakeItemNonRemovable(ActionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(MakeItemNonRemovable))]
+public static ActionsBuilder MakeItemNonRemovable(this ActionsBuilder builder, string item = null, bool nonRemovable = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">nonRemovable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MovePartyItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_LeaveSettings_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_ItemType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MovePartyItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CKingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings%2CKingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L228">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MovePartyItemsAction_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MovePartyItemsAction*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MovePartyItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_LeaveSettings_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_ItemType_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MovePartyItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings,Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType)">MovePartyItemsAction(ActionsBuilder, ItemsCollectionEvaluator, MovePartyItemsAction.LeaveSettings, MovePartyItemsAction.ItemType)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MovePartyItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_LeaveSettings_Kingmaker_Designers_EventConditionActionSystem_Actions_MovePartyItemsAction_ItemType_">MovePartyItemsAction(ActionsBuilder, ItemsCollectionEvaluator, MovePartyItemsAction.LeaveSettings, MovePartyItemsAction.ItemType)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(MovePartyItemsAction))]
+public static ActionsBuilder MovePartyItemsAction(this ActionsBuilder builder, ItemsCollectionEvaluator targetCollection, MovePartyItemsAction.LeaveSettings leaveEquipmentOf, MovePartyItemsAction.ItemType pickupTypes = (MovePartyItemsAction.ItemType)0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">targetCollection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.LeaveSettings</span></td>
+        <td><span class="parametername">leaveEquipmentOf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction.ItemType</span></td>
+        <td><span class="parametername">pickupTypes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_OpenSelectMythicUI_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.OpenSelectMythicUI(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L249">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_OpenSelectMythicUI_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.OpenSelectMythicUI*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_OpenSelectMythicUI_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.OpenSelectMythicUI(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">OpenSelectMythicUI(ActionsBuilder, ActionsBuilder, Boolean, ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_OpenSelectMythicUI_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">OpenSelectMythicUI(ActionsBuilder, ActionsBuilder, Boolean, ActionsBuilder)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(OpenSelectMythicUI))]
+public static ActionsBuilder OpenSelectMythicUI(this ActionsBuilder builder, ActionsBuilder afterCommitActions = null, bool lockStopChargen = false, ActionsBuilder afterStopActions = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">afterCommitActions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">lockStopChargen</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">afterStopActions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveDuplicateItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveDuplicateItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L314">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveDuplicateItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveDuplicateItems*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveDuplicateItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveDuplicateItems(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String)">RemoveDuplicateItems(ActionsBuilder, UnitEvaluator, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveDuplicateItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_">RemoveDuplicateItems(ActionsBuilder, UnitEvaluator, String)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveDuplicateItems))]
+public static ActionsBuilder RemoveDuplicateItems(this ActionsBuilder builder, UnitEvaluator unit, string blueprint = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">blueprint</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_String_System_Boolean_System_Int32_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CSystem.Boolean%2CSystem.String%2CSystem.Boolean%2CSystem.Int32%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L269">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_String_System_Boolean_System_Int32_System_Single_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,System.String,System.Boolean,System.Int32,System.Single)">RemoveItemFromPlayer(ActionsBuilder, Boolean, Boolean, String, Boolean, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_String_System_Boolean_System_Int32_System_Single_">RemoveItemFromPlayer(ActionsBuilder, Boolean, Boolean, String, Boolean, Int32, Single)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveItemFromPlayer))]
+public static ActionsBuilder RemoveItemFromPlayer(this ActionsBuilder builder, bool money = false, bool removeAll = false, string itemToRemove = null, bool silent = false, int quantity = 0, float percentage = 0F)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">money</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">removeAll</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">itemToRemove</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">quantity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">percentage</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemsFromCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemsFromCollection(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Collections.Generic.List%7BKingmaker.Blueprints.Loot.LootEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L293">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemsFromCollection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemsFromCollection*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemsFromCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemsFromCollection(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Collections.Generic.List{Kingmaker.Blueprints.Loot.LootEntry})">RemoveItemsFromCollection(ActionsBuilder, ItemsCollectionEvaluator, List&lt;LootEntry&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemsFromCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Collections_Generic_List_Kingmaker_Blueprints_Loot_LootEntry__">RemoveItemsFromCollection(ActionsBuilder, ItemsCollectionEvaluator, List&lt;LootEntry&gt;)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(RemoveItemsFromCollection))]
+public static ActionsBuilder RemoveItemsFromCollection(this ActionsBuilder builder, ItemsCollectionEvaluator collection, List&lt;LootEntry&gt; loot = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">collection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Kingmaker.Blueprints.Loot.LootEntry</span>&gt;</td>
+        <td><span class="parametername">loot</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RestoreItemsCountInCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RestoreItemsCountInCollection(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L334">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RestoreItemsCountInCollection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RestoreItemsCountInCollection*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RestoreItemsCountInCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RestoreItemsCountInCollection(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,Kingmaker.ElementsSystem.IntEvaluator,System.String)">RestoreItemsCountInCollection(ActionsBuilder, ItemsCollectionEvaluator, IntEvaluator, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RestoreItemsCountInCollection_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_">RestoreItemsCountInCollection(ActionsBuilder, ItemsCollectionEvaluator, IntEvaluator, String)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(RestoreItemsCountInCollection))]
+public static ActionsBuilder RestoreItemsCountInCollection(this ActionsBuilder builder, ItemsCollectionEvaluator collection, IntEvaluator count, string item = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">collection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L357">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean)">SellCollectibleItems(ActionsBuilder, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_">SellCollectibleItems(ActionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(SellCollectibleItems))]
+public static ActionsBuilder SellCollectibleItems(this ActionsBuilder builder, string itemToSell = null, bool halfPrice = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">itemToSell</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">halfPrice</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetStartDate_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetStartDate(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L373">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetStartDate_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetStartDate*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetStartDate_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetStartDate(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">SetStartDate(ActionsBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetStartDate_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_">SetStartDate(ActionsBuilder, String)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(SetStartDate))]
+public static ActionsBuilder SetStartDate(this ActionsBuilder builder, string date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">date</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetVendorPriceModifier_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_SetVendorPriceModifier_Entry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetVendorPriceModifier(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L387">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetVendorPriceModifier_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetVendorPriceModifier*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetVendorPriceModifier_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_SetVendorPriceModifier_Entry___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SetVendorPriceModifier(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry[])">SetVendorPriceModifier(ActionsBuilder, UnitEvaluator, SetVendorPriceModifier.Entry[])</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SetVendorPriceModifier_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Designers_EventConditionActionSystem_Actions_SetVendorPriceModifier_Entry___">SetVendorPriceModifier(ActionsBuilder, UnitEvaluator, SetVendorPriceModifier.Entry[])</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(SetVendorPriceModifier))]
+public static ActionsBuilder SetVendorPriceModifier(this ActionsBuilder builder, UnitEvaluator vendorUnit, SetVendorPriceModifier.Entry[] entries = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">vendorUnit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier.Entry</span>[]</td>
+        <td><span class="parametername">entries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CKingmaker.Tutorial.Actions.TutorialContextDataEvaluator%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L88">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[])">ShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___">ShowNewTutorial(ActionsBuilder, String, TutorialContextDataEvaluator[])</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowNewTutorial))]
+public static ActionsBuilder ShowNewTutorial(this ActionsBuilder builder, string tutorial = null, TutorialContextDataEvaluator[] evaluators = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tutorial</span></td>
+        <td><p><span class="xref">Kingmaker.Tutorial.BlueprintTutorial</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator</span>[]</td>
+        <td><span class="parametername">evaluators</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowPartySelection_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowPartySelection(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L406">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowPartySelection_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowPartySelection*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowPartySelection_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowPartySelection(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">ShowPartySelection(ActionsBuilder, ActionsBuilder, ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowPartySelection_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">ShowPartySelection(ActionsBuilder, ActionsBuilder, ActionsBuilder)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(ShowPartySelection))]
+public static ActionsBuilder ShowPartySelection(this ActionsBuilder builder, ActionsBuilder actionsAfterPartySelection = null, ActionsBuilder actionsIfCanceled = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">actionsAfterPartySelection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">actionsIfCanceled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_StartTrade_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.StartTrade(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L422">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_StartTrade_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.StartTrade*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_StartTrade_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.StartTrade(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)">StartTrade(ActionsBuilder, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_StartTrade_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">StartTrade(ActionsBuilder, UnitEvaluator)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(StartTrade))]
+public static ActionsBuilder StartTrade(this ActionsBuilder builder, UnitEvaluator vendor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">vendor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipAllItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipAllItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L438">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipAllItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipAllItems*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipAllItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipAllItems(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean)">UnequipAllItems(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipAllItems_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_">UnequipAllItems(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(UnequipAllItems))]
+public static ActionsBuilder UnequipAllItems(this ActionsBuilder builder, UnitEvaluator target, ItemsCollectionEvaluator destinationContainer, bool silent = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">destinationContainer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CSystem.Boolean%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L461">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.ItemsCollectionEvaluator,System.Boolean,System.String,System.Boolean)">UnequipItem(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_System_String_System_Boolean_">UnequipItem(ActionsBuilder, UnitEvaluator, ItemsCollectionEvaluator, Boolean, String, Boolean)</a> (Auto Generated)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Implements(typeof(UnequipItem))]
+public static ActionsBuilder UnequipItem(this ActionsBuilder builder, UnitEvaluator unit, ItemsCollectionEvaluator destinationContainer, bool silent = false, string item = null, bool all = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ItemsCollectionEvaluator</span></td>
+        <td><span class="parametername">destinationContainer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">silent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p><see cref="!:BlueprintItem"></see></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">all</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnlockAchievement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnlockAchievement(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L46">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L43">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnlockAchievement_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnlockAchievement*"></a>
   <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnlockAchievement_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnlockAchievement(BlueprintCore.Actions.Builder.ActionsBuilder,System.String)">UnlockAchievement(ActionsBuilder, String)</h4>
@@ -1696,7 +1696,7 @@ public static ActionsBuilder UnlockAchievement(this ActionsBuilder builder, stri
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L21" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
