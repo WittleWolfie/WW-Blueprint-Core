@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items.Slots;
@@ -11,6 +12,7 @@ namespace BlueprintCore.Conditions.New
   /// <summary>
   /// Checks if the target is in melee range.
   /// </summary>
+  [TypeId("6CD26AF1-B735-401E-9527-0E3661C2715E")]
   public class TargetInMeleeRange : Condition
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetInMeleeRange");
