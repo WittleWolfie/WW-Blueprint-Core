@@ -49,7 +49,7 @@ We have successfully added the to the game! It has no effect and it wouldn't eve
 
 Selectable options like feats, deities, and backgrounds are grouped into lists stored in `BlueprintFeatureSelection`. If we want our feat to show up we'll need to add it to one of these. Luckily we already know there is a list called *BasicFeatSelection* which has all generally available feats. If you browse the game's blueprints you'll find feat lists that represent bonus feats granted by classes such as *FighterFeatSelect*. Eventually we might want to add our feat to some of those lists but right now we'll just add it to *BasicFeatSelection*.
 
-[!NOTE]
+[!TIP]
 One of the best ways to figure out how to make new content is to see how existing content is implemented. There are several tools at your disposal discussed on the [wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources). I highly recommend [BubblePrints](https://github.com/factubsio/BubblePrints) for exploring game content and [DataViewer](https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/9) for validating your changes in-game.
 
 In order to modify *BasicFeatSelect* we need to find its Guid. In the game data we can see it is `247a4068-296e-8be4-2890-143f451b4b45`. This allows us to create a [FeatureSelectionConfigurator](xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator) for it. For readability we'll store in a `static readonly` variable.
@@ -93,7 +93,7 @@ public static void PostFix()
 
 Build and install the mod, then start game and create a new character or level up an existing one.
 
-[!NOTE]
+[!TIP]
 It is very helpful when modding to use a tool such as [ToyBox](https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/8), which enables cheats in game. This way you can spawn enemies, level characters, and otherwise set the game state to whatever needed to test your mod.
 
 [!WARNING]
