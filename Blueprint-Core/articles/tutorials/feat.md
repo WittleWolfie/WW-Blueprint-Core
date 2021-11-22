@@ -103,7 +103,7 @@ Don't test mods on a real save file or you run the risk of breaking it.
 
 SCRATCH
 
-TODO: Add Remote Console setup as pre-work.
+TODO: Add Remote Console setup as pre-work because every time we load we should check for validation warnings.
 
 We'll worry about getting to show up later, for now let's add an effect.
 
