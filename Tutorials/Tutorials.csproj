@@ -359,6 +359,7 @@
     <Compile Include="BlueprintCore\Utils\Validator.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Feats\Stealthy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

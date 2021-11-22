@@ -46,4 +46,4 @@ If you have defined the `WrathPath` environment variable add the following lines
 
 Otherwise right-click **References > Add Reference**, navigate to `<WrathInstallDir>/Wrath_Data/Managed/`, and select the files.
 
-Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.
+Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).
