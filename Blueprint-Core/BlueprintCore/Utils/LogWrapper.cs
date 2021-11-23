@@ -8,10 +8,14 @@ namespace BlueprintCore.Utils
   /// </summary>
   /// 
   /// <remarks>
-  /// These log events print to the same output as Wrath's game log events. They can be viewed using
-  /// <see href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">RemoteConsole</see> or by appending
-  /// <c>logging</c> to the executable startup arguments. If you are not using the console, logs print to
+  /// These log events print to the same output as Wrath's game log events using the Mods channel. They can be viewed
+  /// using <see href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">RemoteConsole</see> or by appending
+  /// <c>logging</c> to the executable startup arguments and reading
   /// <c>AppData\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLog*.txt</c>.
+  /// </remarks>
+  /// 
+  /// <remarks>
+  /// BlueprintCore internal logs are prefixed with "BlueprintCore.AssemblyName".
   /// </remarks>
   public class LogWrapper
   {
@@ -25,28 +29,34 @@ namespace BlueprintCore.Utils
     /// </remarks>
     public static bool EnableVerboseLogs = false;
 
-    internal static string PrefixBase = $"BlueprintCore::{typeof(LogWrapper).Assembly.GetName().Name}";
+    internal static string PrefixRoot = $"BlueprintCore.{typeof(LogWrapper).Assembly.GetName().Name}";
 
     internal static LogWrapper GetInternal(string prefix)
     {
-      return Get($"{PrefixBase}::{prefix}");
+      return Get($"{PrefixRoot}.{prefix}");
     }
 
     /// <summary>
-    /// Returns a <see cref="LogWrapper"/> which prepends the given prefix to all log events.
+    /// Returns a <see cref="LogWrapper"/> which appends the prefix to all log events.
     /// </summary>
+    /// 
+    /// <remarks>Uses the Mods logging channel.</remarks>
+    /// 
+    /// <remarks>Output is in %APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt</remarks>
     public static LogWrapper Get(string prefix)
     {
-      LogChannel channel = LogChannelFactory.GetOrCreate(prefix);
-      channel.SetSeverity(LogSeverity.Message);
-      return new LogWrapper(channel);
+      LogChannel logChannel = LogChannelFactory.GetOrCreate("Mods");
+      logChannel.SetSeverity(LogSeverity.Message);
+      return new LogWrapper(logChannel, prefix);
     }
 
     private readonly LogChannel Logger;
+    private readonly string Prefix;
 
-    protected LogWrapper(LogChannel logger)
+    protected LogWrapper(LogChannel logger, string prefix)
     {
       Logger = logger;
+      Prefix = prefix;
     }
 
     /// <summary>
@@ -54,13 +64,13 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Error(string msg, Exception e = null)
     {
-      Logger.Error(msg);
+      Logger.Error($"{Prefix}.{msg}");
       if (e != null) { Logger.Exception(e); }
     }
     
     public virtual void Info(string msg)
     {
-      Logger.Log(msg);
+      Logger.Log($"{Prefix}.{msg}");
     }
 
     /// <summary>
@@ -68,7 +78,7 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Warn(string msg)
     {
-      Logger.Warning(msg);
+      Logger.Warning($"{Prefix}.{msg}");
     }
 
     /// <summary>
@@ -76,7 +86,7 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Verbose(string msg)
     {
-      if (EnableVerboseLogs) { Logger.Log(msg); }
+      if (EnableVerboseLogs) { Logger.Log($"{Prefix}.{msg}"); }
     }
   }
 }
