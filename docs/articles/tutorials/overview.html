@@ -81,7 +81,16 @@
 <p>Before going through any of these tutorials you should work through the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">OwlcatModdingWiki Beginner Guide</a>. The tutorials require:</p>
 <ul>
 <li>A C# project configured for installation using <a href="https://www.nexusmods.com/site/mods/21">Unity Mod Manager</a></li>
-<li>A <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">Public Assembly</a></li>
+<li>A <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">Public Assembly</a>
+<ul>
+<li>Be sure to configure the <code>WrathPath</code> environment variable</li>
+</ul>
+</li>
+<li>[Optional] Download <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">RemoteConsole</a>
+<ul>
+<li>This will show game log events making it easier to debug issues</li>
+</ul>
+</li>
 </ul>
 <p>Once that's done, install the <a href="https://www.nuget.org/packages/WW-Blueprint-Core">BlueprintCore NuGet package</a>. In Visual Studio you can use the built-in NuGet Package Manager:</p>
 <ol>
@@ -114,7 +123,7 @@
 &lt;/ItemGroup&gt;
 </code></pre>
 <p>Otherwise right-click <strong>References &gt; Add Reference</strong>, navigate to <code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/</code>, and select the files.</p>
-<p>Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.</p>
+<p>Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials">available on GitHub</a>.</p>
 </article>
           </div>
           
