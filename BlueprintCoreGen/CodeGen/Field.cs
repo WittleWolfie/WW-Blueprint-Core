@@ -35,6 +35,8 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Name of the field's method parameter.
     /// </summary>
+    /// 
+    /// <remarks>If this is null it should be assigned last, as it may rely on other fields being configured.</remarks>
     string ParamName { get; }
 
     /// <summary>
@@ -92,6 +94,14 @@ namespace BlueprintCoreGen.CodeGen
   public static class FieldFactory
   {
     public static IField Create(FieldInfo info, Type sourceType)
+    {
+      return CreateInternal(info, sourceType);
+      //IField field = CreateInternal(info, sourceType);
+      //if (field is null) { return null; }
+      //return FieldOverrides.GetFor(field, sourceType);
+    }
+
+    private static IField CreateInternal(FieldInfo info, Type sourceType)
     {
       if (IsIgnoredField(info, sourceType)) { return null; }
 

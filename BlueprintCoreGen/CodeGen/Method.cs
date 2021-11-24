@@ -118,12 +118,12 @@ namespace BlueprintCoreGen.CodeGen
     {
       List<string> declarations =
           fields
-              .Where(field => field.DefaultValue is null)
+              .Where(field => field.DefaultValue is null && field.ParamName is not null)
               .Select(field => $"{field.TypeName} {field.ParamName}")
               .Concat(
                   // Optional fields are last
                   fields
-                      .Where(field => field.DefaultValue is not null)
+                      .Where(field => field.DefaultValue is not null && field.ParamName is not null)
                       .Select(field => $"{field.TypeName} {field.ParamName} = {field.DefaultValue}"))
               .ToList();
       declarations.SkipLast(1).ToList().ForEach(decl => method.AddLine($"    {decl},"));
