@@ -1,5 +1,11 @@
-﻿using HarmonyLib;
+﻿using BlueprintCore.Utils;
+using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
+using Tutorials.Feats;
 using UnityModManagerNet;
 
 namespace Tutorials
@@ -7,10 +13,21 @@ namespace Tutorials
   public static class Main
   {
     public static bool Enabled;
+    private static LogWrapper Logger = LogWrapper.Get("MagicalAptitude");
 
     public static bool Load(UnityModManager.ModEntry modEntry)
     {
-      modEntry.OnToggle = OnToggle;
+      try
+      {
+        modEntry.OnToggle = OnToggle;
+        var harmony = new Harmony(modEntry.Info.Id);
+        harmony.PatchAll();
+        Logger.Info("Finished patching.");
+      }
+      catch (Exception e)
+      {
+        Logger.Error("Failed to patch", e);
+      }
       return true;
     }
 
@@ -20,12 +37,31 @@ namespace Tutorials
       return true;
     }
 
-    [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-    public static class BlueprintsCache_Init_Patch
+    [HarmonyPatch(typeof(BlueprintsCache))]
+    static class BlueprintsCaches_Patch
     {
-      public static void PostFix()
-      {
+      private static bool Initialized = false;
 
+      [HarmonyPriority(Priority.First)]
+      [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
+      static void Postfix()
+      {
+        try
+        {
+          if (Initialized)
+          {
+            Logger.Info("Already initialized blueprints cache.");
+            return;
+          }
+          Initialized = true;
+
+          //MagicalAptitude.Configure();
+          MagicalAptitudeSolution.Configure();
+        }
+        catch (Exception e)
+        {
+          Logger.Error("Failed to initialize.", e);
+        }
       }
     }
   }

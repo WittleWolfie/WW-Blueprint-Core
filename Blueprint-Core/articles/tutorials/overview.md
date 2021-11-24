@@ -16,6 +16,9 @@ Before going through any of these tutorials you should work through the [OwlcatM
 
 * A C# project configured for installation using [Unity Mod Manager](https://www.nexusmods.com/site/mods/21)
 * A [Public Assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies)
+    * Be sure to configure the `WrathPath` environment variable
+* [Optional] Download [RemoteConsole](https://github.com/OwlcatOpenSource/RemoteConsole/releases)
+    * This will show game log events making it easier to debug issues
 
 Once that's done, install the [BlueprintCore NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core). In Visual Studio you can use the built-in NuGet Package Manager:
 

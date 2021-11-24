@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -354,12 +355,14 @@
     <Compile Include="BlueprintCore\Utils\ContextDuration.cs" />
     <Compile Include="BlueprintCore\Utils\ContextValues.cs" />
     <Compile Include="BlueprintCore\Utils\ElementTool.cs" />
+    <Compile Include="BlueprintCore\Utils\LocalizationTool.cs" />
     <Compile Include="BlueprintCore\Utils\LogWrapper.cs" />
     <Compile Include="BlueprintCore\Utils\PrereqTool.cs" />
     <Compile Include="BlueprintCore\Utils\Validator.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Feats\Stealthy.cs" />
+    <Compile Include="Feats\MagicalAptitude.cs" />
+    <Compile Include="Solutions\Feats\MagicalAptitudeSolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -383,4 +386,12 @@
       <UserProperties info_1json__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
+  <ItemGroup>
+    <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
+    <ModConfig Include="$(OutputPath)\Info.json" />
+  </ItemGroup>
+  <Target Name="DeployMod" AfterTargets="Build">
+    <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+    <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+  </Target>
 </Project>
