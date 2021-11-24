@@ -1,9 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using Tutorials.Feats;
 using UnityModManagerNet;
