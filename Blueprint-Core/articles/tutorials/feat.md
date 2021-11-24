@@ -11,7 +11,7 @@ Since we are creating a `BlueprintFeature`, we can use [FeatureConfigurator](xre
 ```C#
 public class MagicalAptitude
 {
-  public static void Create()
+  public static void Configure()
   {
     // TODO: Create the feat!
   }
@@ -48,7 +48,7 @@ In order to modify *BasicFeatSelect* we need to find its Guid. In the game data 
 ```C#
 private static readonly string BasicFeatSelectionGuid = "247a4068-296e-8be4-2890-143f451b4b45";
 
-public static void Create()
+public static void Configure()
 {
   FeatureConfigurator.New(FeatName, FeatGuid).Configure();
 
@@ -60,20 +60,22 @@ To actually add our feat we can look at the contents of *BasicFeatSelection*:
 
 ![Basic feat selection contents](~/images/magical_aptitude/basic_feat_selection.png)
 
-Looks like the feats are stored in a field called `m_AllFeatures`. Since the field is an array, our configurator should have a method called `AddToAllFeatures`, but if you try that it will fail to compile. As it turns out, `BlueprintFeatureSelection` has an unused field inside called `m_Features`. The configurator is written to remove the ambiguity between `AllFeatures` and `Features`. Instead you can use [AddToFeatures](xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.AddToFeatures(System.String[])).
+Feats are stored in a field called `m_AllFeatures`. Since the field is an array the configurator should have a method called `AddToAllFeatures`, but in this case it does not. As it turns out, `BlueprintFeatureSelection` has an unused field inside called `m_Features`. To resolve the ambiguity between `AllFeatures` and `Features` the configurator defines only [AddToFeatures](xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.AddToFeatures(System.String[])) and ignores `m_Features`.
 
 > [!NOTE]
-> Sooner or later you are going to have to read the game code to figure things out. Pick your choice of [decompiler](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers) and open up `%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll`. It's not as scary as it may sound.
+> Sooner or later you are going to have to read the game code to figure things out. Pick your choice of [decompiler](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers) and open up `%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll`..
 
 ```C#
 FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
 ```
 
-Notice that the code snippet passes in `FeatName` rather than `FeatGuid`. Either would work here.
+Notice that the code snippet passes in `FeatName` rather than `FeatGuid`. Either works.
 
-When the library needs to reference a blueprint it accepts a string with a parameter comment indicating the type of blueprint expected. That string can be the blueprint's Guid or, if you provide a mapping from name to Guid, it can be the name. Usually you must specify the mapping using [BlueprintTool.AddGuidsByName](xref:BlueprintCore.Utils.BlueprintTool.AddGuidsByName(System.ValueTuple{System.String,System.String}[])), but when we created our feat using the `New(string name, string guid)` syntax the mapping was automatically registered.
+When the APi requires a blueprint reference it accepts a string with a parameter comment indicating the expected blueprint type. The string parameter can contain the blueprint's Guid or, if you provide a mapping from name to Guid, the blueprints' name.
 
-We only need one more change before we're ready to start testing. We need to actually call our method from our blueprints init patch. In case something goes wrong, we'll wrap the call with a try/catch block and log any exceptions:
+Usually you specify the mapping using [BlueprintTool.AddGuidsByName](xref:BlueprintCore.Utils.BlueprintTool.AddGuidsByName(System.ValueTuple{System.String,System.String}[])), but when we call `New(string name, string guid)` it automatically registers a mapping.
+
+One more change is needed to start testing. We need to call `Configure()` from our init patch. We'll wrap the call with a try/catch block and log any exceptions to generate logs in case it fails:
 
 ```C#
 [HarmonyPatch(typeof(BlueprintsCache))]
@@ -98,7 +100,7 @@ static class BlueprintsCaches_Patch
       }
       Initialized = true;
       
-      MagicalAptitude.Create();
+      MagicalAptitude.Configure();
     }
     catch (Exception e)
     {
@@ -134,7 +136,7 @@ private static readonly string Description =
     + " skills, the bonus increases to +4 for that skill.";
 private static readonly string DescriptionKey = "MagicalAptitudeDescription";
 
-public static void Create()
+public static void Configure()
 {
   FeatureConfigurator.New(FeatName, FeatGuid)
       .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
@@ -147,11 +149,11 @@ public static void Create()
 
 In game strings are represented using the class `LocalizedString`. Its key maps to different strings in different languages. [LocalizationTool](xref:BlueprintCore.Utils.LocalizationTool) creates the string but only for the current language. Support for better localization is on the roadmap.
 
-Now if you test the feat display with a name and description.
+Now when you test the feat displays with a name and description.
 
-At this point we will likely make changes, build, update, and test the mod. We can configure the project to automatically update the mod after building. To do this we'll add a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) to our project file.
+As we continue we'll frequently make changes, build, update, and test the mod. To make our life easier, let's configure the project to automatically update the mod when we build. We can do this by adding a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) to our project file.
 
-Open up your project file (<Name>.csproj) for text editing and add the following using your mod's name in place of `BlueprintCoreTutorial`:
+Open up your project file (<Name>.csproj) for text editing and add the following block, using your mod's name in place of `BlueprintCoreTutorial`:
 
 ```xml
 <ItemGroup>
@@ -164,9 +166,9 @@ Open up your project file (<Name>.csproj) for text editing and add the following
 </Target>
 ```
 
-Now after building the mod is automatically updated.
+Now the mod automatically updates every time we build.
 
-You may have noticed the feat icon was stylized letters "MAF". If you don't provide an icon the game automatically generates one using the name, in this case **M**agical**A**ptitude**F**eat. Since abilities often require multiple blueprints I append the mechanical type, i.e. Feat, to blueprint names. For Magical Aptitude we only need one blueprint so we can drop "Feat" to get the letters "MA": **M**agical**A**ptitude.
+You may have noticed the feat icon was stylized letters "MAF". If you don't provide an icon the game automatically generates one using the name, in this case **M**agical**A**ptitude**F**eat. Since abilities often require multiple blueprints I typically append the mechanical type, i.e. Feat, to blueprint names. For Magical Aptitude we only need one blueprint so we can drop "Feat" to get the letters "MA": **M**agical**A**ptitude.
 
 ```C#
 private static readonly string FeatName = "MagicalAptitude";

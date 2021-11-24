@@ -97,7 +97,7 @@
 </li>
 <li>You're ready to go!</li>
 </ol>
-<p>Take a look at the <a href="/tutorials/overview.md">Tutorials</a> for a walkthrough of usage. The sections below provide an overview of the main features.</p>
+<p>Take a look at the <a href="tutorials/overview.html">Tutorials</a> for a walkthrough of usage. The sections below provide an overview of the main features.</p>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
 <h2 id="blueprint-configurators">Blueprint Configurators</h2>
 <p>All blueprint types inheriting from BlueprintScriptableObject have a corresponding configurator. e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator.html">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
@@ -267,7 +267,7 @@ ActionsBuilder.New()
 <p>When a blueprint reference is required the API accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>. Blueprints created using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_Create__1_System_String_System_String_">BlueprintTool#Create(string, string)</a> automatically register the name to guid mapping.</p>
 <p>The parameter comment declares the type of blueprint reference expected.</p>
 <h2 id="generated-methods">Generated Methods</h2>
-<p>The majority of the API is implemented using generated code. These methods are identified by the <a href="BlueprintCore.Utils.GeneratedAttribute">GeneratedAttribute</a>.</p>
+<p>The majority of the API is implemented using generated code. These methods are identified by the <a class="xref" href="../api/BlueprintCore.Utils.GeneratedAttribute.html">GeneratedAttribute</a>.</p>
 <p>Generated methods have a parameter for every field in the object, essentially acting as a constructor. To minimize boilerplate generated methods declare most parameters as optional.</p>
 <p>This is not an indication of how the object should be used. Optional parameters in a generated method may be required for the object to function. In contrast, non-generated methods expose strict APIs that only declare parameters optional when they are not needed.</p>
 <p>If you identify methods in need of manual implementations please report them. This should be reserved for complex objects with a large number of fields or complex requirements for its fields.</p>

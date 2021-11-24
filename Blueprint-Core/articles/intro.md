@@ -17,7 +17,7 @@
     * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.UI.dll`
 6. You're ready to go!
 
-Take a look at the [Tutorials](/tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.
+Take a look at the [Tutorials](tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.
 
 If you're interested in contributing see [How to Contribute](contributing.md).
 
@@ -165,7 +165,7 @@ The parameter comment declares the type of blueprint reference expected.
 
 ## Generated Methods
 
-The majority of the API is implemented using generated code. These methods are identified by the [GeneratedAttribute](BlueprintCore.Utils.GeneratedAttribute).
+The majority of the API is implemented using generated code. These methods are identified by the [GeneratedAttribute](xref:BlueprintCore.Utils.GeneratedAttribute).
 
 Generated methods have a parameter for every field in the object, essentially acting as a constructor. To minimize boilerplate generated methods declare most parameters as optional.
 

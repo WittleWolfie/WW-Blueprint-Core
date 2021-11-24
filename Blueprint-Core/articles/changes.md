@@ -17,10 +17,11 @@ This release marks completion of the core functionality. There are a lot of brea
 * Fixed ConditionsBuilderStoryEx namespace (previously was MiscEx, now is correctly StoryEx)
 * Added validation check for duplicate AbilityRankType definitions in ContextRankConfig
 * Generated code makes a best effort attempt to define optional parameters and provide safe default values for types which should not be null
+* Added LocalizationTool for creating LocalizedStrings
 
 ### Breaking Changes
 
-A lot of codeode was moved around for consistency and a new DLL reference is required.
+A lot of codeode was moved around for consistency and new DLL references are required.
 
 * BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils
 * All BlueprintConfigurators were moved from BlueprintCore.Blueprints to BlueprintCore.Configurators

@@ -10,7 +10,7 @@ You can do them in any order but the recommended order is:
 2. [Adding a Feat](feat.md)
 3. WIP
 
-Code for the tutorials is available on [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials). You can reference this as you work through them. Each tutorial has a challenge not covered in the tutorial. Generally there are multiple possible solutions, but one solution to each challenge is available in the `Solutions` folder.
+All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials). Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the `Solutions` folder.
 
 ### Pre-work
 
