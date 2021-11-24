@@ -8,7 +8,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BuildDocFx Condition=" '$(Configuration)'=='Debug' ">false</BuildDocFx>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.6.0</Version>
+    <Version>1.0.0</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -42,6 +42,7 @@
       <PackagePath></PackagePath>
     </None>
     <None Include="articles\toc.yml" />
+    <None Include="filterConfig.yml" />
     <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup>
@@ -52,10 +53,10 @@
       <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>..\..\WW-Character-Options-Plus\Assets\PathfinderAssemblies\Owlcat.Runtime.UI.dll</HintPath>
+      <HintPath>..\Assemblies\Owlcat.Runtime.UI.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Visual">
-      <HintPath>..\..\WW-Character-Options-Plus\Assets\PathfinderAssemblies\Owlcat.Runtime.Visual.dll</HintPath>
+      <HintPath>..\Assemblies\Owlcat.Runtime.Visual.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\Assemblies\UnityEngine.dll</HintPath>
