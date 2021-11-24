@@ -1,7 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.Blueprints.Configurators;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using System.Linq;
@@ -13,31 +12,6 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       where TBuilder : FeatureTemplates<T, TBuilder>
   {
     private FeatureTemplates(string name) : base(name) { }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
-    /// This is useful when a character has access to different feature selections based on some criteria.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
-    /// </para>
-    /// </remarks>
-    [Implements(typeof(PrerequisiteSelectionPossible))]
-    public TBuilder PrerequisiteSelectionPossible(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
-      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
-      return AddComponent(selectionPossible);
-    }
 
     /// <summary>
     /// Sets the contents of <see cref="FeatureTagsComponent"/>

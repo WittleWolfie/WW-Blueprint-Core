@@ -17,6 +17,8 @@
     * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.UI.dll`
 6. You're ready to go!
 
+Take a look at the [Tutorials](/tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.
+
 If you're interested in contributing see [How to Contribute](contributing.md).
 
 ## Blueprint Configurators

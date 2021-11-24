@@ -141,31 +141,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
-    /// This is useful when a character has access to different feature selections based on some criteria.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
-    /// </para>
-    /// </remarks>
-    [Implements(typeof(PrerequisiteSelectionPossible))]
-    public FeatureSelectionConfigurator PrerequisiteSelectionPossible(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
-      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
-      return AddComponent(selectionPossible);
-    }
-
-    /// <summary>
     /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
     /// </summary>
     ///
