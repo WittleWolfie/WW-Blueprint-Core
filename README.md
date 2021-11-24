@@ -2,8 +2,6 @@
 
 [![NuGet](https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square)](https://www.nuget.org/packages/WW-Blueprint-Core)
 
-**NOTE:** V1.0 release of the library is imminent. Until it is released the documentation may not reflect the current state of the library.
-
 *What is BlueprintCore*: A library to simplify modifying Pathfinder: Wrath of the Righteous. At a glance it provides:
 
 * A fluent API for creating and modifying Blueprints, Actions, and Conditions
