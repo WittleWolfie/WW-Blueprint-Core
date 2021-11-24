@@ -52,8 +52,7 @@ namespace Tutorials
           }
           Initialized = true;
 
-          //MagicalAptitude.Configure();
-          MagicalAptitudeSolution.Configure();
+          MagicalAptitude.Configure();
         }
         catch (Exception e)
         {
