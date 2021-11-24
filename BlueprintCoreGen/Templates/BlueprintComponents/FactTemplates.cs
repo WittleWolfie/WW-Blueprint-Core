@@ -3,8 +3,10 @@ using BlueprintCore.Utils;
 using BlueprintCoreGen.Blueprints.Configurators;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.Settings;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
@@ -16,6 +18,29 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       where TBuilder : FactTemplates<T, TBuilder>
   {
     private FactTemplates(string name) : base(name) { }
+
+    /// <summary>
+    /// Adds <see cref="AddContextStatBonus"/>
+    /// </summary>
+    [Implements(typeof(AddContextStatBonus))]
+    public TBuilder AddContextStatBonus(
+        StatType stat,
+        ContextValue value,
+        ModifierDescriptor descriptor = default,
+        int multiplier = 1,
+        int? minimal = null)
+    {
+      ValidateParam(value);
+
+      var component = new AddContextStatBonus();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.Value = value ?? ContextValues.Constant(0);
+      component.HasMinimal = minimal is not null;
+      component.Minimal = minimal ?? 0;
+      return AddComponent(component);
+    }
 
     /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.FactLogic.AddFacts">AddFacts</see>

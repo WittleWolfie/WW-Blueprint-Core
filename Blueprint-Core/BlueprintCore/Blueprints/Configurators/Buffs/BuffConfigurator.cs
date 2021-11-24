@@ -210,6 +210,29 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="AddContextStatBonus"/>
+    /// </summary>
+    [Implements(typeof(AddContextStatBonus))]
+    public BuffConfigurator AddContextStatBonus(
+        StatType stat,
+        ContextValue value,
+        ModifierDescriptor descriptor = default,
+        int multiplier = 1,
+        int? minimal = null)
+    {
+      ValidateParam(value);
+
+      var component = new AddContextStatBonus();
+      component.Descriptor = descriptor;
+      component.Stat = stat;
+      component.Multiplier = multiplier;
+      component.Value = value ?? ContextValues.Constant(0);
+      component.HasMinimal = minimal is not null;
+      component.Minimal = minimal ?? 0;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
     /// </summary>
     /// 
@@ -271,31 +294,6 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       var component = new GlobalMapSpeedModifier();
       component.SpeedModifier = speedModifier;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddContextStatBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AddContextStatBonus))]
-    public BuffConfigurator AddContextStatBonus(
-        ModifierDescriptor descriptor = default,
-        StatType stat = default,
-        int multiplier = default,
-        ContextValue value = null,
-        bool hasMinimal = default,
-        int minimal = default)
-    {
-      ValidateParam(value);
-    
-      var component = new AddContextStatBonus();
-      component.Descriptor = descriptor;
-      component.Stat = stat;
-      component.Multiplier = multiplier;
-      component.Value = value ?? ContextValues.Constant(0);
-      component.HasMinimal = hasMinimal;
-      component.Minimal = minimal;
-      return AddComponent(component);
     }
 
     /// <summary>
