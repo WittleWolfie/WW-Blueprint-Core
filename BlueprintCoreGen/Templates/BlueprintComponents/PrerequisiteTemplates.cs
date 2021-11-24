@@ -34,6 +34,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
     /// </para>
     /// </remarks>
+    [Implements(typeof(PrerequisiteSelectionPossible))]
     public TBuilder PrerequisiteSelectionPossible(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
