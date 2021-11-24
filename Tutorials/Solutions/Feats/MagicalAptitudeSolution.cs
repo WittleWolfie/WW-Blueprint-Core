@@ -31,7 +31,6 @@ namespace Tutorials.Feats
     /// </remarks>
     public static void Configure()
     {
-      // TODO: Literally the BaseStat value is just not updating...
       FeatureConfigurator.New(FeatName, FeatGuid)
           // Most of the time you want to set this to true. It is used during respec to determine whether a feature
           // should be removed.
