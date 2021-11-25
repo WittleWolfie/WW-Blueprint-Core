@@ -4,14 +4,24 @@
 2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
 3. Install [WW-Blueprint-Core](https://www.nuget.org/packages/WW-Blueprint-Core/) using [NuGet](https://docs.microsoft.com/en-us/nuget/what-is-nuget).
     * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
+    * **Note**: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
+        * In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.
+    * Starting with v1.0.1 the [Release on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases) includes the BlueprintCore source folder as an alternative to NuGet.
 4. Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
     * In your .csproj file you should have the following properties:
-```xml
-<PropertyGroup>
-  <LangVersion>latest</LangVersion>
-  <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-</PropertyGroup>
-```
+    ```xml
+    <PropertyGroup>
+      <LangVersion>latest</LangVersion>
+      <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    </PropertyGroup>
+    ```
+    * If you are using an SDK style project the the syntax is:
+    ```xml
+    <PropertyGroup>
+      <LangVersion>latest</LangVersion>
+      <TargetFramework>net472</TargetFramework>
+    <PropertyGroup>
+    ```
 5. Add the necessary assembly references from the game install directory:
     * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll`
     * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.UI.dll`
@@ -191,11 +201,13 @@ Tool classes provide simple utility functions, usually related to a specific typ
 Utility classes are provided to simplify creating game objects.
 
 * [ContextDuration](xref:BlueprintCore.Utils.ContextDuration)
-    * Utility for creating `ContextDurationValue`
+    * Creates `ContextDurationValue`
 * [ContextValues](xref:BlueprintCore.Utils.ContextValues)
-    * Utility for creating `ContextValue`
+    * Creates `ContextValue`
 * [ContextRankConfigs](xref:BlueprintCore.Blueprints.Components.ContextRankConfigs)
-    * Utility for creating `ContextRankConfig`
+    * Creates `ContextRankConfig`
+* [ResourceAmountBuilder](xref:BlueprintCore.Blueprints.Configurators.Abilities.ResourceAmountBuilder)
+    * Creates `BlueprintAbilityResource.Amount`
     
 ### Logging
 

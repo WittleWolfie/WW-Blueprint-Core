@@ -75,20 +75,32 @@
 <li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.
 <ul>
 <li>The package contains a folder named <code>BlueprintCore</code> that contains the library source code which is included directly in your project.</li>
+<li><strong>Note</strong>: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
+<ul>
+<li>In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.</li>
+</ul>
+</li>
+<li>Starting with v1.0.1 the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">Release on GitHub</a> includes the BlueprintCore source folder as an alternative to NuGet.</li>
 </ul>
 </li>
 <li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
 <ul>
 <li>In your .csproj file you should have the following properties:</li>
 </ul>
-</li>
-</ol>
 <pre><code class="lang-xml">&lt;PropertyGroup&gt;
   &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
   &lt;TargetFrameworkVersion&gt;v4.7.2&lt;/TargetFrameworkVersion&gt;
 &lt;/PropertyGroup&gt;
 </code></pre>
-<ol start="5">
+<ul>
+<li>If you are using an SDK style project the the syntax is:</li>
+</ul>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+  &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
+  &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
+&lt;PropertyGroup&gt;
+</code></pre>
+</li>
 <li>Add the necessary assembly references from the game install directory:
 <ul>
 <li><code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll</code></li>
@@ -296,17 +308,22 @@ ActionsBuilder.New()
 <ul>
 <li><a class="xref" href="../api/BlueprintCore.Utils.ContextDuration.html">ContextDuration</a>
 <ul>
-<li>Utility for creating <code>ContextDurationValue</code></li>
+<li>Creates <code>ContextDurationValue</code></li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Utils.ContextValues.html">ContextValues</a>
 <ul>
-<li>Utility for creating <code>ContextValue</code></li>
+<li>Creates <code>ContextValue</code></li>
 </ul>
 </li>
 <li><a class="xref" href="../api/BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
 <ul>
-<li>Utility for creating <code>ContextRankConfig</code></li>
+<li>Creates <code>ContextRankConfig</code></li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.Abilities.ResourceAmountBuilder.html">ResourceAmountBuilder</a>
+<ul>
+<li>Creates <code>BlueprintAbilityResource.Amount</code></li>
 </ul>
 </li>
 </ul>

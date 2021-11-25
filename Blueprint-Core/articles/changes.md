@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## v1.0.1 Release
+
+* Bundled changelog, license, and readme into the package content files
+* Fixed validation for enumerable parameters in configurators
+* Updated documentation for SDK project configurations
+
 ## v1.0.0 Release
 
 This release marks completion of the core functionality. There are a lot of breaking changes.
