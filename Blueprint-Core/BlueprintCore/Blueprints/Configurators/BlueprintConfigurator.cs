@@ -1583,7 +1583,7 @@ namespace BlueprintCore.Blueprints.Configurators
 
     protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
 
-    protected void ValidateParam<T>(IEnumerable<T> objects)
+    protected void ValidateParam(IEnumerable<T> objects)
     {
       if (objects is null) { return; }
       foreach (var obj in objects) { ValidateParam(obj); }
