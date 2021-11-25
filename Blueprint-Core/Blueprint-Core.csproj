@@ -15,7 +15,7 @@
     <PackageReadmeFie>README.md</PackageReadmeFie>
     <PackageProjectUrl>https://wittlewolfie.github.io/WW-Blueprint-Core/</PackageProjectUrl>
     <PackageId>WW-Blueprint-Core</PackageId>
-    <Description>Fluent API library for creating, modifying, and validating Blueprints in Pathfinder: Wrath of the Righteous.</Description>
+    <Description>A library to simplify modifying Pathfinder: Wrath of the Righteous.</Description>
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
     <IncludeBuildOutput>false</IncludeBuildOutput>
