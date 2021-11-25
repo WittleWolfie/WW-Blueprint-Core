@@ -11,8 +11,8 @@
     <Version>1.0.0</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReadmeFie>README.md</PackageReadmeFie>
+    <PackageLicenseFile>content\BlueprintCore\LICENSE</PackageLicenseFile>
+    <PackageReadmeFie>content\BlueprintCore\README.md</PackageReadmeFie>
     <PackageProjectUrl>https://wittlewolfie.github.io/WW-Blueprint-Core/</PackageProjectUrl>
     <PackageId>WW-Blueprint-Core</PackageId>
     <Description>A library to simplify modifying Pathfinder: Wrath of the Righteous.</Description>
@@ -31,15 +31,15 @@
     <None Remove="log.txt" />
     <None Include="..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath>content\BlueprintCore</PackagePath>
     </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath>content\BlueprintCore</PackagePath>
     </None>
     <None Include="articles\changes.md">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath>content\BlueprintCore</PackagePath>
     </None>
     <None Include="articles\toc.yml" />
     <None Include="filterConfig.yml" />
