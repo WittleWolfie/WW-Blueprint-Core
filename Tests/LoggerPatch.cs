@@ -35,7 +35,7 @@ namespace BlueprintCore.Test
       ThrowOnWarn = true;
     }
 
-    public TestLogWrapper(LogChannel logger) : base(logger) { }
+    public TestLogWrapper(LogChannel logger) : base(logger, "Test") { }
 
     public override void Error(string msg, Exception e = null)
     {
