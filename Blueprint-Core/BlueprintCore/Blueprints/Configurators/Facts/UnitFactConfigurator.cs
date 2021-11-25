@@ -3890,6 +3890,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         DamageEnergyType energyType = default,
         bool applyToAreaEffectDamage = default,
         bool targetKilledByThisDamage = default,
+        bool ignoreDamageFromThisFact = default,
         string weaponType = null,
         string[] abilityList = null)
     {
@@ -3911,6 +3912,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.EnergyType = energyType;
       component.ApplyToAreaEffectDamage = applyToAreaEffectDamage;
       component.TargetKilledByThisDamage = targetKilledByThisDamage;
+      component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact;
       component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
       component.m_AbilityList = abilityList.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.SpellDescriptorsList = spellDescriptorsList;
