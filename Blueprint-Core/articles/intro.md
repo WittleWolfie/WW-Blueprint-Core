@@ -22,9 +22,13 @@
       <TargetFramework>net472</TargetFramework>
     <PropertyGroup>
     ```
-5. Add the necessary assembly references from the game install directory:
-    * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll`
-    * `<WrathInstallDir>/Wrath_Data/Managed/Owlcat.Runtime.UI.dll`
+5. Make sure you have the necessary assembly references:
+    * Publicized reference to `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll`
+    * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll`
+    * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll`
+    * `$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll`
+    * `$WrathPath%\Wrath_Data\Managed\UnityEngine.dll`
+    * `$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll`
 6. You're ready to go!
 
 Take a look at the [Tutorials](tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.

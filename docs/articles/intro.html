@@ -101,10 +101,14 @@
 &lt;PropertyGroup&gt;
 </code></pre>
 </li>
-<li>Add the necessary assembly references from the game install directory:
+<li>Make sure you have the necessary assembly references:
 <ul>
-<li><code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/Owlcat.Runtime.Visual.dll</code></li>
-<li><code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/Owlcat.Runtime.UI.dll</code></li>
+<li>Publicized reference to <code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</code></li>
+<li><code>$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</code></li>
+<li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.dll</code></li>
+<li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll</code></li>
 </ul>
 </li>
 <li>You're ready to go!</li>
