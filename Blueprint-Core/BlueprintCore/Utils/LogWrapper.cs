@@ -33,14 +33,14 @@ namespace BlueprintCore.Utils
 
     internal static LogWrapper GetInternal(string prefix)
     {
-      return Get($"{PrefixRoot}.{prefix}: ");
+      return Get($"{PrefixRoot}.{prefix}");
     }
 
     /// <summary>
     /// Returns a <see cref="LogWrapper"/> which appends the prefix to all log events.
     /// </summary>
     /// 
-    /// <remarks>Uses the Mods logging channel.</remarks>
+    /// <remarks>Uses the Mods logging channel which can be viewed in RemoteConsole.</remarks>
     /// 
     /// <remarks>Output is in %APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt</remarks>
     public static LogWrapper Get(string prefix)
@@ -64,13 +64,13 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Error(string msg, Exception e = null)
     {
-      Logger.Error($"{Prefix}.{msg}");
+      Logger.Error($"{Prefix}: {msg}");
       if (e != null) { Logger.Exception(e); }
     }
     
     public virtual void Info(string msg)
     {
-      Logger.Log($"{Prefix}.{msg}");
+      Logger.Log($"{Prefix}: {msg}");
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Warn(string msg)
     {
-      Logger.Warning($"{Prefix}.{msg}");
+      Logger.Warning($"{Prefix}: {msg}");
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ namespace BlueprintCore.Utils
     /// </summary>
     public virtual void Verbose(string msg)
     {
-      if (EnableVerboseLogs) { Logger.Log($"{Prefix}.{msg}"); }
+      if (EnableVerboseLogs) { Logger.Log($"{Prefix}: {msg}"); }
     }
   }
 }
