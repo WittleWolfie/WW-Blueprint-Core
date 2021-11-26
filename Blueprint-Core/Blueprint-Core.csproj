@@ -9,7 +9,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BuildDocFx Condition=" '$(Configuration)'=='Debug' ">false</BuildDocFx>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
     <PackageLicenseFile>content\BlueprintCore\LICENSE</PackageLicenseFile>
@@ -19,14 +19,13 @@
     <Description>A library to simplify modifying Pathfinder: Wrath of the Righteous.</Description>
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageReleaseNotes>Usable with any blueprint type but full API functionality is in progress.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>BlueprintCoreKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyName>BlueprintCore</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="**\*.cs" Exclude="obj\**" />
     <None Remove=".gitignore" />
     <None Remove="api\.gitignore" />
     <None Remove="_site\**" />
