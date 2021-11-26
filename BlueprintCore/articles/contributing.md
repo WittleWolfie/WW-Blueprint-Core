@@ -18,10 +18,10 @@ Contributions are welcome!
     * This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp
     * If you don't have Unity Mod Manager installed you need to add a reference to a Harmony assembly
 4. Configure Hard Links
-    * Delete the `docs` folder in the root directory and `index.md` in the root of the Blueprint-Core project
+    * Delete the `docs` folder in the root directory and `index.md` in the root of the BlueprintCore project
     * Open an admin command promt, navigate to the solution's directory, and run the following commands:
-        * `mklink /h Blueprint-Core\index.md README.md`
-        * `mklink /j docs Blueprint-Core\_site`
+        * `mklink /h BlueprintCore\index.md README.md`
+        * `mklink /j docs BlueprintCore\_site`
     * This is needed to update documentation when building changes
 
 **Note**: It is recommended to build using the Debug configuration. The Release configuration generates documentation which takes several minutes.
