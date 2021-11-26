@@ -31,20 +31,32 @@ Once that's done, install the [BlueprintCore NuGet package](https://www.nuget.or
     * If you have multipe projects in your solution, make sure it is installed to the correct project
 ![Search and install NuGet package](~/images/install_with_nuget.png)
 
-Now you need to add two more references:
+Now you need to add a few references:
 
+* `Owlcat.Runtime.Core.dll`
 * `Owlcat.Runtime.Visual.dll`
 * `Owlcat.Runtime.UI.dll`
+* `UnityEngine.dll`
+* `UnityEngine.CoreModule.dll`
 
 If you have defined the `WrathPath` environment variable add the following lines to your *.csproj file:
 
 ```xml
 <ItemGroup>
+  <Reference Include="Owlcat.Runtime.Core">
+    <HintPath>$(WrathPath)\Owlcat.Runtime.Core.dll</HintPath>
+  </Reference>
   <Reference Include="Owlcat.Runtime.UI">
     <HintPath>$(WrathPath)\Owlcat.Runtime.UI.dll</HintPath>
   </Reference>
   <Reference Include="Owlcat.Runtime.Visual">
     <HintPath>$(WrathPath)\Owlcat.Runtime.Visual.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine">
+    <HintPath>$(WrathPath)\UnityEngine.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.CoreModule">
+    <HintPath>$(WrathPath)\UnityEngine.CoreModule.dll</HintPath>
   </Reference>
 </ItemGroup>
 ```

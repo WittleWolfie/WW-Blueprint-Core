@@ -108,18 +108,30 @@
 </ul>
 </li>
 </ol>
-<p>Now you need to add two more references:</p>
+<p>Now you need to add a few references:</p>
 <ul>
+<li><code>Owlcat.Runtime.Core.dll</code></li>
 <li><code>Owlcat.Runtime.Visual.dll</code></li>
 <li><code>Owlcat.Runtime.UI.dll</code></li>
+<li><code>UnityEngine.dll</code></li>
+<li><code>UnityEngine.CoreModule.dll</code></li>
 </ul>
 <p>If you have defined the <code>WrathPath</code> environment variable add the following lines to your *.csproj file:</p>
 <pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Reference Include=&quot;Owlcat.Runtime.Core&quot;&gt;
+    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.Core.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
   &lt;Reference Include=&quot;Owlcat.Runtime.UI&quot;&gt;
     &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.UI.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
   &lt;Reference Include=&quot;Owlcat.Runtime.Visual&quot;&gt;
     &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.Visual.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+  &lt;Reference Include=&quot;UnityEngine&quot;&gt;
+    &lt;HintPath&gt;$(WrathPath)\UnityEngine.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+  &lt;Reference Include=&quot;UnityEngine.CoreModule&quot;&gt;
+    &lt;HintPath&gt;$(WrathPath)\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
 &lt;/ItemGroup&gt;
 </code></pre>

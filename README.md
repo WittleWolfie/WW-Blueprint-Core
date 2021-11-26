@@ -39,7 +39,7 @@ Utility classes provide additional functionality to simplify modifying the game 
 
 ## Usage
 
-BlueprintCore is available as a [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/) that includes the source in your modification. It requires a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
+As of v1.1.0 BlueprintCore is available as a DLL distributed in a [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/). If you prefer including the source directly you can download a zip from [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases).
 
 For more details see the [documentation](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
 

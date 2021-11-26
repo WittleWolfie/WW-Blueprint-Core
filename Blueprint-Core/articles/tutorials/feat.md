@@ -160,10 +160,12 @@ Open up your project file (<Name>.csproj) for text editing and add the following
 ```xml
 <ItemGroup>
   <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
+  <BlueprintCore Include="$(OutputPath)\BlueprintCore.dll" />
   <ModConfig Include="$(OutputPath)\Info.json" />
 </ItemGroup>
 <Target Name="DeployMod" AfterTargets="Build">
   <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+  <Copy SourceFiles="@(BlueprintCore)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
   <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
 </Target>
 ```

@@ -1,49 +1,60 @@
 # WW-Blueprint-Core
 
-Fluent API library for modifying Pathfinder: Wrath of the Righteous and validating Blueprint configurations.
-
 [![NuGet](https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square)](https://www.nuget.org/packages/WW-Blueprint-Core)
 
+*What is BlueprintCore*: A library to simplify modifying Pathfinder: Wrath of the Righteous. At a glance it provides:
+
+* A fluent API for creating and modifying Blueprints, Actions, and Conditions
+```C#
+BuffConfigurator.New(MyBuffName, MyBuffGuid).AddStatBonus(stat: StatType.Strength, value: 2).Configure();
+```
+* Exposed methods for finding all Blueprint, Action, Condition, and Blueprint Component types in the game
+* Restricted API for modifying Blueprints which exposes only Blueprint Components usable with the given Blueprint type
+* Runtime validation and warnings when potential problems are detected
+    * Uses custom logic along with validation checks provided in the game library
+
 If you're interested in contributing, see [How to Contribute](articles/contributing.md).
+
+For usage see [Getting Started](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
 
 ## Features
 
 ### Blueprint Configurators
 
-Each concrete blueprint class has a corresponding configurator, e.g. `BuffConfigurator`, which exposes a fluent API for modifying its fields and components. Once you call `Configure()` all of the changes are committed and validated. All validation errors are logged as a warning.
+Each Blueprint class has a corresponding configurator, e.g. `BuffConfigurator`, which exposes a fluent API for modifying its fields and components. Once you call `Configure()` all of the changes are committed and validation errors are logged as a warning.
 
-The API attempts to limit use of `BlueprintComponent` types to supported blueprints but it is not always possible. If a blueprint does contain an unsupported component it results in a validation error.
+This API exposes all supported Blueprint Component types available in the game library. When used with auto-complete it provides a quick and easy way to search for Blueprint Component types.
 
 ### ActionList and ConditionsChecker Builders
 
-`ActionsBuilder` is a builder API for `ActionList` and `ConditionsBuilder` is a builder API for `ConditionsChecker`. When a configurator or builder requires an `ActionList` or `ConditionsChecker` it takes the corresponding builder as an input.
+`ActionsBuilder` is a builder API for `ActionList` and `ConditionsBuilder` is a builder API for `ConditionsChecker`.
 
-Since there are a very large number of actions and conditions, each builder class is implemented across several extensions. This limits auto-complete to a subset of related actions. e.g. If you are adding a new ability you can include `ActionsBuilderContextEx` while ignoring extensions such as `ActionsBuilderKingdomEx` which only affects kingdom and crusade mechanics.
+The builders provide methods for creating all Action and Condition types, spread across extension classes which limit the scope of auto-complete. The extensions are logically grouped so most uses require only one set.
 
-Like configurators, builders log validation errors when `Build()` is called. This happens automatically when a builder is given as an argument to a configurator function.
+When `Build()` is called the corresponding game type is returned and validation errors are logged as a warning. Library methods accept builders directly and call `Build()` internally to minimize boilerplate.
 
-### Validation
+### Utils
 
-All objects builder or configured in the library are validated, along with some input objects. Validation uses the game's `ValidationContext` API as well as custom logic to validate implicit contracts not covered by the game's own validation.
+Utility classes provide additional functionality to simplify modifying the game as well as helping ensure correct use of game types.
 
 ## Usage
 
-BlueprintCore is available as [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/) that provides the source code for compilation into your modification. It requires a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
+As of v1.1.0 BlueprintCore is available as a DLL distributed in a [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/). If you prefer including the source directly you can download a zip from [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases).
 
-For more details check the [documentation](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
+For more details see the [documentation](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
 
 ### Example
 
-**Skald's Vigor**
-```C#
+**Partial Implementation of Skald's Vigor**
+```C# 
 BuffConfigurator.For(SkladsVigorBuff)
-    .ContextRankConfig(ContextRankConfigs.ClassLevel(new string[] { SkaldClass }).DivideByThenDoubleThenAdd1(8))
+    .ContextRankConfig(ContextRankConfigs.ClassLevel(new string[] { SkaldClass }).WithStartPlusDoubleDivStepProgression(8))
     .FastHealing(1, bonusValue: ContextValues.Rank(AbilityRankType.Default))
     .Configure();
 
 var applyBuff = ActionsBuilder.New().ApplyBuff(SkaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(RAGING_SONG_BUFF)
-    .FactContextActions(
+BuffConfigurator.For(RagingSongBuff)
+    .AddFactContextActions(
         onActivated:
             ActionsBuilder.New()
                 .Conditional(
