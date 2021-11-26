@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## v1.1.0 Release
+
+* BlueprintCore is now a signed DLL instead of a source package
+    * The BlueprintCore content folder contains the license, readme, and changelog
+    * You must include Blueprint-Core.dll with your mod
+    * There is no conflict if different mods refer to different versions of the DLL
+    * If you prefer including source you can download a source zip on [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases)
+* Fixed logging prefix to include colon and space for readability
+
 ## v1.0.1 Release
 
 * Bundled changelog, license, and readme into the package content files
