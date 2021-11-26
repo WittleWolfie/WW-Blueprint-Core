@@ -3,6 +3,7 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net472</TargetFramework>
+    <Nullable>enable</Nullable>
     <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -20,6 +21,9 @@
     <PackageTags>pathfinder;wrath</PackageTags>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageReleaseNotes>Usable with any blueprint type but full API functionality is in progress.</PackageReleaseNotes>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>BlueprintCoreKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="**\*.cs" Exclude="obj\**" />
