@@ -33,7 +33,7 @@ namespace BlueprintCore.Utils
 
     internal static LogWrapper GetInternal(string prefix)
     {
-      return Get($"{PrefixRoot}.{prefix}");
+      return Get($"{PrefixRoot}.{prefix}: ");
     }
 
     /// <summary>
