@@ -41,7 +41,7 @@
     <Reference Include="Assembly-CSharp-firstpass.dll">
       <HintPath>$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="BlueprintCore">
+    <Reference Include="BlueprintCore, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b3a43b961fa966af, processorArchitecture=MSIL">
       <HintPath>..\packages\WW-Blueprint-Core.1.1.0\lib\net472\BlueprintCore.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
