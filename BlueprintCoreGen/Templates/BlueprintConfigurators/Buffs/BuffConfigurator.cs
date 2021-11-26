@@ -32,19 +32,12 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
     /// <summary>Creates a blueprint and returns its configurator.</summary>
     /// 
     /// <remarks>
-    /// Use this function to create a new blueprint if you provided a mapping with
-    /// <see cref="BlueprintTool.AddGuidsByName"/>. Otherwise use <see cref="New(string, string)"/>.
+    /// When this is called the mapping from name to Guid is stored so you can reference it by name in other calls to
+    /// BlueprintCore. The mapping is equivalent to calling <see cref="BlueprintTool.AddGuidsByName"/>
     /// </remarks>
-    public static BuffConfigurator New(string name)
+    public static BuffConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintBuff>(name);
-      return For(name);
-    }
-
-    /// <summary>Creates a blueprint and returns its configurator.</summary>
-    public static BuffConfigurator New(string name, string assetId)
-    {
-      BlueprintTool.Create<BlueprintBuff>(name, assetId);
+      BlueprintTool.Create<BlueprintBuff>(name, guid);
       return For(name);
     }
 

@@ -20,17 +20,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes.Selection
       return new FeatureSelectionConfigurator(name);
     }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static FeatureSelectionConfigurator New(string name)
-    {
-      BlueprintTool.Create<BlueprintFeatureSelection>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FeatureSelectionConfigurator New(string name, string assetId)
+    public static FeatureSelectionConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintFeatureSelection>(name, assetId);
+      BlueprintTool.Create<BlueprintFeatureSelection>(name, guid);
       return For(name);
     }
 

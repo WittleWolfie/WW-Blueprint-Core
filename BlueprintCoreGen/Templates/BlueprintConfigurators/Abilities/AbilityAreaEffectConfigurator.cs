@@ -16,17 +16,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AbilityAreaEffectConfigurator For(string name) { return new AbilityAreaEffectConfigurator(name); }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static AbilityAreaEffectConfigurator New(string name)
-    {
-      BlueprintTool.Create<BlueprintAbilityAreaEffect>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AbilityAreaEffectConfigurator New(string name, string assetId)
+    public static AbilityAreaEffectConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintAbilityAreaEffect>(name, assetId);
+      BlueprintTool.Create<BlueprintAbilityAreaEffect>(name, guid);
       return For(name);
     }
 

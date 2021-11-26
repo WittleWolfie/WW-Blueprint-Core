@@ -17,17 +17,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
       return new ArchetypeConfigurator(name);
     }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static ArchetypeConfigurator New(string name)
-    {
-      BlueprintTool.Create<BlueprintArchetype>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static ArchetypeConfigurator New(string name, string assetId)
+    public static ArchetypeConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintArchetype>(name, assetId);
+      BlueprintTool.Create<BlueprintArchetype>(name, guid);
       return For(name);
     }
 

@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Validation;
@@ -513,17 +512,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       return new BlueprintConfigurator<T>(name);
     }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static BlueprintConfigurator<T> New(string name)
-    {
-      BlueprintTool.Create<T>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BlueprintConfigurator<T> New(string name, string assetId)
+    public static BlueprintConfigurator<T> New(string name, string guid)
     {
-      BlueprintTool.Create<T>(name, assetId);
+      BlueprintTool.Create<T>(name, guid);
       return For(name);
     }
   }

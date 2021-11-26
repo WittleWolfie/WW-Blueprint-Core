@@ -15,7 +15,7 @@ namespace BlueprintCoreGen
     {
       // Since the code doesn't reference assemblies, force load them for reflection
       var gameTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("Assembly-CSharp"));
-      Assembly.Load("Blueprint-Core");
+      Assembly.Load("BlueprintCore");
 
       TemplateProcessor.Run(gameTypes);
 
@@ -32,7 +32,7 @@ namespace BlueprintCoreGen
 
       File.WriteAllText("missing_types.txt", missingTypes.ToString());
 
-      TemplateProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClasstoFile(configuratorClass));
+      TemplateProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClassToFile(configuratorClass));
     }
 
     private static List<Type> ProcessActions(Type[] gameTypes)
@@ -40,7 +40,7 @@ namespace BlueprintCoreGen
       HashSet<Type> implementedActionTypes = new();
       foreach (IClass actionClass in TemplateProcessor.ActionClasses)
       {
-        WriteClasstoFile(actionClass);
+        WriteClassToFile(actionClass);
         implementedActionTypes.UnionWith(actionClass.GetImplementedTypes());
       }
       return TemplateProcessor.GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
@@ -51,13 +51,13 @@ namespace BlueprintCoreGen
       HashSet<Type> implementedConditionTypes = new();
       foreach (IClass conditionClass in TemplateProcessor.ConditionClasses)
       {
-        WriteClasstoFile(conditionClass);
+        WriteClassToFile(conditionClass);
         implementedConditionTypes.UnionWith(conditionClass.GetImplementedTypes());
       }
       return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
-    private static void WriteClasstoFile(IClass classtoWrite)
+    private static void WriteClassToFile(IClass classtoWrite)
     {
       // Create the directories if necessary
       FileInfo result = new FileInfo(classtoWrite.RelativePath);

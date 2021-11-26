@@ -303,18 +303,10 @@ namespace BlueprintCoreGen.CodeGen
       configurator.AddLine($"    }}");
 
       configurator.AddLine($"");
-      configurator.AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string)\"/>");
-      configurator.AddLine($"    public static {className} New(string name)");
-      configurator.AddLine($"    {{");
-      configurator.AddLine($"      BlueprintTool.Create<{blueprintTypeName}>(name);");
-      configurator.AddLine($"      return For(name);");
-      configurator.AddLine($"    }}");
-
-      configurator.AddLine($"");
       configurator.AddLine($"    /// <inheritdoc cref=\"Buffs.BuffConfigurator.New(string, string)\"/>");
-      configurator.AddLine($"    public static {className} For(string name, string assetId)");
+      configurator.AddLine($"    public static {className} New(string name, string guid)");
       configurator.AddLine($"    {{");
-      configurator.AddLine($"      BlueprintTool.Create<{blueprintTypeName}>(name, assetId);");
+      configurator.AddLine($"      BlueprintTool.Create<{blueprintTypeName}>(name, guid);");
       configurator.AddLine($"      return For(name);");
       configurator.AddLine($"    }}");
 

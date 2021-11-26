@@ -19,17 +19,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
     /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
     public static AbilityResourceConfigurator For(string name) { return new AbilityResourceConfigurator(name); }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static AbilityResourceConfigurator New(string name)
-    {
-      BlueprintTool.Create<BlueprintAbilityResource>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static AbilityResourceConfigurator New(string name, string assetId)
+    public static AbilityResourceConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintAbilityResource>(name, assetId);
+      BlueprintTool.Create<BlueprintAbilityResource>(name, guid);
       return For(name);
     }
 

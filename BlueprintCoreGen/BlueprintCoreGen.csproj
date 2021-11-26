@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blueprint-Core\Blueprint-Core.csproj" />
+    <ProjectReference Include="..\BlueprintCore\BlueprintCore.csproj" />
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
     </Reference>

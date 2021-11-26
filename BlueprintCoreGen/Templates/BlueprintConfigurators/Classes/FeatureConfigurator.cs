@@ -135,17 +135,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
       return new FeatureConfigurator(name);
     }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string)"/>
-    public static FeatureConfigurator New(string name)
-    {
-      BlueprintTool.Create<BlueprintFeature>(name);
-      return For(name);
-    }
-
     /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static FeatureConfigurator New(string name, string assetId)
+    public static FeatureConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintFeature>(name, assetId);
+      BlueprintTool.Create<BlueprintFeature>(name, guid);
       return For(name);
     }
   }
