@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## v1.2.1 Release
+
+* Fixes warnings in legacy projects
+    * SDK projects support `<Nullable>enabled</Nullable>` project config
+    * Legacy projects require per-file enable: `#nullable enable`
+
 ## v1.2.0 Release
 
 The experiment with release as a DLL was a fun but short-lived experiment. The game and Unity DLLs are unsigned which means that referencing them from a signed DLL is unsupported. Although initial testing was fine, it's likely that distributing as a signed DLL would surface hard to debug errors.
