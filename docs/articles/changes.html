@@ -69,6 +69,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v121-release">v1.2.1 Release</h2>
+<ul>
+<li>Fixes warnings in legacy projects
+<ul>
+<li>SDK projects support <code>&lt;Nullable&gt;enabled&lt;/Nullable&gt;</code> project config</li>
+<li>Legacy projects require per-file enable: <code>#nullable enable</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="v120-release">v1.2.0 Release</h2>
 <p>The experiment with release as a DLL was a fun but short-lived experiment. The game and Unity DLLs are unsigned which means that referencing them from a signed DLL is unsupported. Although initial testing was fine, it's likely that distributing as a signed DLL would surface hard to debug errors.</p>
 <ul>
