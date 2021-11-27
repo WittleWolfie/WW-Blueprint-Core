@@ -3,9 +3,12 @@
 1. Set up your project. If you haven't written mods for any Pathfinder game, start with the [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide) on the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
 2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
 3. Install [WW-Blueprint-Core](https://www.nuget.org/packages/WW-Blueprint-Core/) using [NuGet](https://docs.microsoft.com/en-us/nuget/what-is-nuget).
-    * As of v1.1.0 BlueprintCore is distributed as a signed DLL
-    * If you prefer including the source you can download a source zip in the corresponding [release on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases)
-    * If you installed an older version you should remove it before updating
+    * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
+        * BlueprintCore was briefly distributed as a DLL in v1.1.0. Due to technical limitations v1.2.0 reverts back to source.
+    * **Note**: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
+        * In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.
+    * Starting with v1.0.1 the [Release on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases) includes the BlueprintCore source folder as an alternative to NuGet.
+        * The relase also includes an unsigned DLL. If you use the DLL you should use a tool such as [ILRepack](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) instead of packaging the DLL with your mod.
 4. Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
     * In your .csproj file you should have the following properties:
     ```xml
@@ -28,8 +31,6 @@
     * `$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll`
-6. Be sure to include `BlueprintCore.dll` with your mod
-    * The other assembly references do not need to be included since they are packaged with the game
 6. You're ready to go!
 
 Take a look at the [Tutorials](tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.

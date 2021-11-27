@@ -2,8 +2,17 @@
 
 ## v1.2.0 Release
 
-* Fixes some bugs exposed by distributing as a DLL
-    * `LogWrapper.EnableVerboseLogs` is no longer static so
+The experiment with release as a DLL was a fun but short-lived experiment. The game and Unity DLLs are unsigned which means that referencing them from a signed DLL is unsupported. Although initial testing was fine, it's likely that distributing as a signed DLL would surface hard to debug errors.
+
+* Moving forward BlueprintCore will remain a source package
+    * I will include the DLL in a zip on [GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases)
+        * If you use the DLL you should use a tool such as [ILRepack](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) instead of packaging the DLL with your mod
+
+### Other Changes
+
+* Removed `*Configure.New(string name)` for clarity; just use the two parameter variant
+* Added `BlueprintTool.GetGuidsByName()` method which returns a copy of the internal mapping
+* Fixed warnings
 
 ## v1.1.0 Release
 
