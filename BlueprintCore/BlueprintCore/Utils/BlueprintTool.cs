@@ -13,6 +13,25 @@ namespace BlueprintCore.Utils
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintTool");
     private static readonly Dictionary<string, Guid> GuidsByName = new();
 
+    /// <summary>
+    /// Returns the stored mapping of blueprint name to Guid.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Useful if you want to debug or use this for configuration settings. At a minimum this will contain all
+    /// blueprints created by your mod, plus any existing blueprints you register a mapping for.
+    /// </remarks>
+    /// 
+    /// <remarks>
+    /// This is a copy of the internal mapping so any changes you make will not be reflected.
+    /// </remarks>
+    public static Dictionary<string, string> GetGuidsByName()
+    {
+      Dictionary<string, string> result = new();
+      GuidsByName.ToList().ForEach(pair => result.Add(pair.Key, pair.Value.ToString()));
+      return result;
+    }
+
     /// <summary>Adds the provided mapping from Name (key) to Guid (value).</summary>
     /// 
     /// <remarks>
