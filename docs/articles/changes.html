@@ -69,6 +69,25 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v120-release">v1.2.0 Release</h2>
+<p>The experiment with release as a DLL was a fun but short-lived experiment. The game and Unity DLLs are unsigned which means that referencing them from a signed DLL is unsupported. Although initial testing was fine, it's likely that distributing as a signed DLL would surface hard to debug errors.</p>
+<ul>
+<li>Moving forward BlueprintCore will remain a source package
+<ul>
+<li>I will include the DLL in a zip on <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">GitHub</a>
+<ul>
+<li>If you use the DLL you should use a tool such as <a href="https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task">ILRepack</a> instead of packaging the DLL with your mod</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="other-changes">Other Changes</h3>
+<ul>
+<li>Removed <code>*Configure.New(string name)</code> for clarity; just use the two parameter variant</li>
+<li>Added <code>BlueprintTool.GetGuidsByName()</code> method which returns a copy of the internal mapping</li>
+<li>Fixed warnings</li>
+</ul>
 <h2 id="v110-release">v1.1.0 Release</h2>
 <ul>
 <li>BlueprintCore is now a signed DLL instead of a source package
@@ -162,7 +181,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/articles/changes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/changes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

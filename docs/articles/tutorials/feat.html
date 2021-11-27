@@ -198,12 +198,10 @@ public static void Configure()
 <p>Open up your project file (<name>.csproj) for text editing and add the following block, using your mod's name in place of <code>BlueprintCoreTutorial</code>:<p>
 <pre><code class="lang-xml">&lt;ItemGroup&gt;
   &lt;Assembly Include=&quot;$(OutputPath)\BlueprintCoreTutorial.dll&quot; /&gt;
-  &lt;BlueprintCore Include=&quot;$(OutputPath)\BlueprintCore.dll&quot; /&gt;
   &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
 &lt;/ItemGroup&gt;
 &lt;Target Name=&quot;DeployMod&quot; AfterTargets=&quot;Build&quot;&gt;
   &lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\BlueprintCoreTutorial&quot; /&gt;
-  &lt;Copy SourceFiles=&quot;@(BlueprintCore)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\BlueprintCoreTutorial&quot; /&gt;
   &lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\BlueprintCoreTutorial&quot; /&gt;
 &lt;/Target&gt;
 </code></pre>
@@ -273,7 +271,7 @@ Consider using that utility or creating a config file to map your feats to feat 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/articles/tutorials/feat.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/feat.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

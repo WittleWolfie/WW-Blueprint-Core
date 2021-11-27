@@ -74,9 +74,21 @@
 <li>Create a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">public assembly</a>.</li>
 <li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.
 <ul>
-<li>As of v1.1.0 BlueprintCore is distributed as a signed DLL</li>
-<li>If you prefer including the source you can download a source zip in the corresponding <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">release on GitHub</a></li>
-<li>If you installed an older version you should remove it before updating</li>
+<li>The package contains a folder named <code>BlueprintCore</code> that contains the library source code which is included directly in your project.
+<ul>
+<li>BlueprintCore was briefly distributed as a DLL in v1.1.0. Due to technical limitations v1.2.0 reverts back to source.</li>
+</ul>
+</li>
+<li><strong>Note</strong>: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
+<ul>
+<li>In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.</li>
+</ul>
+</li>
+<li>Starting with v1.0.1 the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">Release on GitHub</a> includes the BlueprintCore source folder as an alternative to NuGet.
+<ul>
+<li>The relase also includes an unsigned DLL. If you use the DLL you should use a tool such as <a href="https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task">ILRepack</a> instead of packaging the DLL with your mod.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
@@ -105,11 +117,6 @@
 <li><code>$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll</code></li>
-</ul>
-</li>
-<li>Be sure to include <code>BlueprintCore.dll</code> with your mod
-<ul>
-<li>The other assembly references do not need to be included since they are packaged with the game</li>
 </ul>
 </li>
 <li>You're ready to go!</li>
@@ -344,7 +351,7 @@ ActionsBuilder.New()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/Blueprint-Core/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
