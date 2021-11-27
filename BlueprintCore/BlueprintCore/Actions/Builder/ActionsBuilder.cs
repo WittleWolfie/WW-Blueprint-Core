@@ -162,7 +162,7 @@ namespace BlueprintCore.Actions.Builder
     /// </summary>
     [Implements(typeof(Conditional))]
     public ActionsBuilder Conditional(
-        ConditionsBuilder conditions, ActionsBuilder ifTrue = null, ActionsBuilder ifFalse = null)
+        ConditionsBuilder conditions, ActionsBuilder? ifTrue = null, ActionsBuilder? ifFalse = null)
     {
       if (ifTrue == null && ifFalse == null)
       {
@@ -186,15 +186,15 @@ namespace BlueprintCore.Actions.Builder
     /// <see cref="Validator.Check(object)">Validator.Check()</see> directly.
     /// </remarks>
     /// <param name="obj"></param>
-    internal void Validate(object obj)
+    internal void Validate(object? obj)
     {
       Validator.Check(obj).ForEach(str => ValidationWarnings.AppendLine(str));
     }
 
-    internal void Validate<T>(IEnumerable<T> objects)
+    internal void Validate<T>(IEnumerable<T>? objects)
     {
       if (objects is null) { return; }
-      foreach (var obj in objects) { Validate(obj); }
+      foreach (var obj in objects) { Validate(obj!); }
     }
   }
 }

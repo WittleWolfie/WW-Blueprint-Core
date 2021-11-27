@@ -32,9 +32,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
-    public TBuilder SetParts(string[] parts)
+    public TBuilder SetParts(string[]? parts)
     {
       return OnConfigureInternal(
           bp =>
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     public TBuilder AddToParts(params string[] parts)
     {
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     public TBuilder RemoveFromParts(params string[] parts)
     {
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAreaName(LocalizedString areaName)
+    public TBuilder SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
     
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLoadingScreenSprites(List<Sprite> loadingScreenSprites)
+    public TBuilder SetLoadingScreenSprites(List<Sprite>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
     
@@ -274,9 +274,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_DefaultPreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultPreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="defaultPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
-    public TBuilder SetDefaultPreset(string defaultPreset)
+    public TBuilder SetDefaultPreset(string? defaultPreset)
     {
       return OnConfigureInternal(
           bp =>
@@ -341,9 +341,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public TBuilder SetHotAreas(string[] hotAreas)
+    public TBuilder SetHotAreas(string[]? hotAreas)
     {
       return OnConfigureInternal(
           bp =>
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public TBuilder AddToHotAreas(params string[] hotAreas)
     {
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public TBuilder RemoveFromHotAreas(params string[] hotAreas)
     {
@@ -391,17 +391,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    /// <param name="goodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="defaultEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
+    /// <param name="goodAvoidanceEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(CombatRandomEncounterAreaSettings))]
     public TBuilder AddCombatRandomEncounterAreaSettings(
-        string defaultEnterPoint = null,
-        string goodAvoidanceEnterPoint = null,
-        GlobalMapZone[] allowedNaturalSettings = null,
-        CombatRandomEncounterAreaSettings.Formation[] formations = null,
+        string? defaultEnterPoint = null,
+        string? goodAvoidanceEnterPoint = null,
+        GlobalMapZone[]? allowedNaturalSettings = null,
+        CombatRandomEncounterAreaSettings.Formation[]? formations = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(formations);
     
@@ -417,13 +417,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="AreaSettlementLink"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementRef"><see cref="BlueprintSettlement"/></param>
+    /// <param name="settlementRef"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(AreaSettlementLink))]
     public TBuilder AddAreaSettlementLink(
-        string settlementRef = null,
+        string? settlementRef = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AreaSettlementLink();
       component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
@@ -436,10 +436,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public TBuilder AddOverrideCampingAction(
-        ActionsBuilder onRestActions = null,
+        ActionsBuilder? onRestActions = null,
         bool skipRest = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new OverrideCampingAction();
       component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
@@ -453,8 +453,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public TBuilder AddBirthdayTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null)
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null)
     {
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
@@ -468,8 +468,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public TBuilder AddEveryDayTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null,
         int skipDays = default)
     {
       var component = new EveryDayTrigger();
@@ -485,8 +485,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public TBuilder AddEveryWeekTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null,
         int skipWeeks = default)
     {
       var component = new EveryWeekTrigger();
@@ -500,17 +500,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="SettlementAISettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="aIBuildListVillage"><see cref="SettlementBuildList"/></param>
-    /// <param name="aIBuildListTown"><see cref="SettlementBuildList"/></param>
-    /// <param name="aIBuildListCity"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListVillage"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
+    /// <param name="aIBuildListTown"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
+    /// <param name="aIBuildListCity"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     [Generated]
     [Implements(typeof(SettlementAISettings))]
     public TBuilder AddSettlementAISettings(
-        string aIBuildListVillage = null,
-        string aIBuildListTown = null,
-        string aIBuildListCity = null,
+        string? aIBuildListVillage = null,
+        string? aIBuildListTown = null,
+        string? aIBuildListCity = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);
@@ -546,9 +546,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
-    public AreaConfigurator SetParts(string[] parts)
+    public AreaConfigurator SetParts(string[]? parts)
     {
       return OnConfigureInternal(
           bp =>
@@ -561,7 +561,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     public AreaConfigurator AddToParts(params string[] parts)
     {
@@ -576,7 +576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.m_Parts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parts"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     public AreaConfigurator RemoveFromParts(params string[] parts)
     {
@@ -704,7 +704,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetAreaName(LocalizedString areaName)
+    public AreaConfigurator SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
     
@@ -745,7 +745,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetLoadingScreenSprites(List<Sprite> loadingScreenSprites)
+    public AreaConfigurator SetLoadingScreenSprites(List<Sprite>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
     
@@ -788,9 +788,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_DefaultPreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultPreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="defaultPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
-    public AreaConfigurator SetDefaultPreset(string defaultPreset)
+    public AreaConfigurator SetDefaultPreset(string? defaultPreset)
     {
       return OnConfigureInternal(
           bp =>
@@ -855,9 +855,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public AreaConfigurator SetHotAreas(string[] hotAreas)
+    public AreaConfigurator SetHotAreas(string[]? hotAreas)
     {
       return OnConfigureInternal(
           bp =>
@@ -870,7 +870,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public AreaConfigurator AddToHotAreas(params string[] hotAreas)
     {
@@ -885,7 +885,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.m_HotAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hotAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public AreaConfigurator RemoveFromHotAreas(params string[] hotAreas)
     {
@@ -905,17 +905,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="CombatRandomEncounterAreaSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
-    /// <param name="goodAvoidanceEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="defaultEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
+    /// <param name="goodAvoidanceEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(CombatRandomEncounterAreaSettings))]
     public AreaConfigurator AddCombatRandomEncounterAreaSettings(
-        string defaultEnterPoint = null,
-        string goodAvoidanceEnterPoint = null,
-        GlobalMapZone[] allowedNaturalSettings = null,
-        CombatRandomEncounterAreaSettings.Formation[] formations = null,
+        string? defaultEnterPoint = null,
+        string? goodAvoidanceEnterPoint = null,
+        GlobalMapZone[]? allowedNaturalSettings = null,
+        CombatRandomEncounterAreaSettings.Formation[]? formations = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(formations);
     
@@ -931,13 +931,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="AreaSettlementLink"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementRef"><see cref="BlueprintSettlement"/></param>
+    /// <param name="settlementRef"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(AreaSettlementLink))]
     public AreaConfigurator AddAreaSettlementLink(
-        string settlementRef = null,
+        string? settlementRef = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AreaSettlementLink();
       component.SettlementRef = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlementRef);
@@ -950,10 +950,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(OverrideCampingAction))]
     public AreaConfigurator AddOverrideCampingAction(
-        ActionsBuilder onRestActions = null,
+        ActionsBuilder? onRestActions = null,
         bool skipRest = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new OverrideCampingAction();
       component.OnRestActions = onRestActions?.Build() ?? Constants.Empty.Actions;
@@ -967,8 +967,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(BirthdayTrigger))]
     public AreaConfigurator AddBirthdayTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null)
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null)
     {
       var component = new BirthdayTrigger();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
@@ -982,8 +982,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryDayTrigger))]
     public AreaConfigurator AddEveryDayTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null,
         int skipDays = default)
     {
       var component = new EveryDayTrigger();
@@ -999,8 +999,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(EveryWeekTrigger))]
     public AreaConfigurator AddEveryWeekTrigger(
-        ConditionsBuilder condition = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? condition = null,
+        ActionsBuilder? actions = null,
         int skipWeeks = default)
     {
       var component = new EveryWeekTrigger();
@@ -1014,17 +1014,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="SettlementAISettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="aIBuildListVillage"><see cref="SettlementBuildList"/></param>
-    /// <param name="aIBuildListTown"><see cref="SettlementBuildList"/></param>
-    /// <param name="aIBuildListCity"><see cref="SettlementBuildList"/></param>
+    /// <param name="aIBuildListVillage"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
+    /// <param name="aIBuildListTown"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
+    /// <param name="aIBuildListCity"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     [Generated]
     [Implements(typeof(SettlementAISettings))]
     public AreaConfigurator AddSettlementAISettings(
-        string aIBuildListVillage = null,
-        string aIBuildListTown = null,
-        string aIBuildListCity = null,
+        string? aIBuildListVillage = null,
+        string? aIBuildListTown = null,
+        string? aIBuildListCity = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(aIBuildListVillage);

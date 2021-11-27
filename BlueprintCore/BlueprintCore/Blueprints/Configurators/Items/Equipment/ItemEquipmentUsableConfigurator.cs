@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink beltItemPrefab)
+    public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink? beltItemPrefab)
     {
       ValidateParam(beltItemPrefab);
     
@@ -86,9 +86,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public ItemEquipmentUsableConfigurator SetEnchantments(string[] enchantments)
+    public ItemEquipmentUsableConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds to <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public ItemEquipmentUsableConfigurator AddToEnchantments(params string[] enchantments)
     {
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Removes from <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public ItemEquipmentUsableConfigurator RemoveFromEnchantments(params string[] enchantments)
     {

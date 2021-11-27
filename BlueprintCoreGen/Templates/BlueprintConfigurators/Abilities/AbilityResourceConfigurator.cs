@@ -160,7 +160,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
     /// 
     /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     public ResourceAmountBuilder IncreaseByLevelStartPlusDivStep(
-        string[] classes = null,
+        string[]? classes = null,
         float otherClassLevelsMultiplier = 0f,
         int startingLevel = 0,
         int startingBonus = 0,

@@ -32,9 +32,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startSettlement"><see cref="BlueprintSettlement"/></param>
+    /// <param name="startSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
-    public SettlementAreaPresetConfigurator SetStartSettlement(string startSettlement)
+    public SettlementAreaPresetConfigurator SetStartSettlement(string? startSettlement)
     {
       return OnConfigureInternal(
           bp =>
@@ -47,9 +47,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementPoint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startSettlementPoint"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="startSettlementPoint"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public SettlementAreaPresetConfigurator SetStartSettlementPoint(string startSettlementPoint)
+    public SettlementAreaPresetConfigurator SetStartSettlementPoint(string? startSettlementPoint)
     {
       return OnConfigureInternal(
           bp =>

@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntranceEntry.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetName(LocalizedString name)
+    public MultiEntranceEntryConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Condition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder condition)
+    public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder? condition)
     {
       return OnConfigureInternal(
           bp =>
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceEntryConfigurator SetActions(ActionsBuilder actions)
+    public MultiEntranceEntryConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(
           bp =>

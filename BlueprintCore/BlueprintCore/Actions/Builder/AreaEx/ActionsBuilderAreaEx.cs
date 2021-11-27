@@ -145,12 +145,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="CapitalExit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="destination"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="destination"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(CapitalExit))]
     public static ActionsBuilder CapitalExit(
         this ActionsBuilder builder,
-        string destination = null,
+        string? destination = null,
         AutoSaveMode autoSaveMode = default)
     {
       var element = ElementTool.Create<CapitalExit>();
@@ -173,16 +173,16 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="AskPlayerForLocationName"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(AskPlayerForLocationName))]
     public static ActionsBuilder AskPlayerForLocationName(
         this ActionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool obligatory = default,
-        LocalizedString title = null,
-        LocalizedString hint = null,
-        LocalizedString defaultValue = null)
+        LocalizedString? title = null,
+        LocalizedString? hint = null,
+        LocalizedString? defaultValue = null)
     {
       builder.Validate(title);
       builder.Validate(hint);
@@ -266,12 +266,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="MarkLocationClosed"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(MarkLocationClosed))]
     public static ActionsBuilder MarkLocationClosed(
         this ActionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool closed = default)
     {
       var element = ElementTool.Create<MarkLocationClosed>();
@@ -284,12 +284,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="MarkLocationExplored"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(MarkLocationExplored))]
     public static ActionsBuilder MarkLocationExplored(
         this ActionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool explored = default)
     {
       var element = ElementTool.Create<MarkLocationExplored>();
@@ -336,12 +336,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="RemoveAllAreasFromSave"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="except"><see cref="BlueprintArea"/></param>
+    /// <param name="except"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     [Implements(typeof(RemoveAllAreasFromSave))]
     public static ActionsBuilder RemoveAllAreasFromSave(
         this ActionsBuilder builder,
-        string[] except = null)
+        string[]? except = null)
     {
       var element = ElementTool.Create<RemoveAllAreasFromSave>();
       element.m_Except = except.Select(name => BlueprintTool.GetRef<BlueprintAreaReference>(name)).ToArray();
@@ -370,14 +370,14 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="RemoveAreaFromSave"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
-    /// <param name="specificMechanic"><see cref="BlueprintAreaMechanics"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
+    /// <param name="specificMechanic"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
     [Generated]
     [Implements(typeof(RemoveAreaFromSave))]
     public static ActionsBuilder RemoveAreaFromSave(
         this ActionsBuilder builder,
-        string area = null,
-        string specificMechanic = null)
+        string? area = null,
+        string? specificMechanic = null)
     {
       var element = ElementTool.Create<RemoveAreaFromSave>();
       element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
@@ -389,12 +389,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="RemoveCampingEncounter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="encounter"><see cref="BlueprintCampingEncounter"/></param>
+    /// <param name="encounter"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter"/></param>
     [Generated]
     [Implements(typeof(RemoveCampingEncounter))]
     public static ActionsBuilder RemoveCampingEncounter(
         this ActionsBuilder builder,
-        string encounter = null)
+        string? encounter = null)
     {
       var element = ElementTool.Create<RemoveCampingEncounter>();
       element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(encounter);
@@ -405,12 +405,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="ResetLocationPerceptionCheck"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(ResetLocationPerceptionCheck))]
     public static ActionsBuilder ResetLocationPerceptionCheck(
         this ActionsBuilder builder,
-        string location = null)
+        string? location = null)
     {
       var element = ElementTool.Create<ResetLocationPerceptionCheck>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
@@ -421,12 +421,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="RevealGlobalMap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="points"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(RevealGlobalMap))]
     public static ActionsBuilder RevealGlobalMap(
         this ActionsBuilder builder,
-        string[] points = null,
+        string[]? points = null,
         bool revealEdges = default)
     {
       var element = ElementTool.Create<RevealGlobalMap>();
@@ -475,7 +475,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder ScripZoneUnits(
         this ActionsBuilder builder,
         EntityReference scriptZone,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       builder.Validate(scriptZone);
     
@@ -544,12 +544,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="ShowMultiEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="map"><see cref="BlueprintMultiEntrance"/></param>
+    /// <param name="map"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
     [Generated]
     [Implements(typeof(ShowMultiEntrance))]
     public static ActionsBuilder ShowMultiEntrance(
         this ActionsBuilder builder,
-        string map = null)
+        string? map = null)
     {
       var element = ElementTool.Create<ShowMultiEntrance>();
       element.m_Map = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(map);
@@ -598,15 +598,15 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="TeleportParty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="exitPositon"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="exitPositon"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(TeleportParty))]
     public static ActionsBuilder TeleportParty(
         this ActionsBuilder builder,
-        string exitPositon = null,
+        string? exitPositon = null,
         AutoSaveMode autoSaveMode = default,
         bool forcePauseAfterTeleport = default,
-        ActionsBuilder afterTeleport = null)
+        ActionsBuilder? afterTeleport = null)
     {
       var element = ElementTool.Create<TeleportParty>();
       element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(exitPositon);
@@ -667,7 +667,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="TrapCastSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TrapCastSpell))]
     public static ActionsBuilder TrapCastSpell(
@@ -676,7 +676,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator triggeringUnit,
         PositionEvaluator targetPoint,
         PositionEvaluator actorPosition,
-        string spell = null,
+        string? spell = null,
         bool disableBattleLog = default,
         bool overrideDC = default,
         int dC = default,
@@ -706,12 +706,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="UnlockCookingRecipe"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="recipe"><see cref="BlueprintCookingRecipe"/></param>
+    /// <param name="recipe"><see cref="Kingmaker.Controllers.Rest.Cooking.BlueprintCookingRecipe"/></param>
     [Generated]
     [Implements(typeof(UnlockCookingRecipe))]
     public static ActionsBuilder UnlockCookingRecipe(
         this ActionsBuilder builder,
-        string recipe = null)
+        string? recipe = null)
     {
       var element = ElementTool.Create<UnlockCookingRecipe>();
       element.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
@@ -722,12 +722,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="UnlockLocation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(UnlockLocation))]
     public static ActionsBuilder UnlockLocation(
         this ActionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool fakeDescription = default,
         bool hideInstead = default)
     {
@@ -742,12 +742,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// Adds <see cref="UnlockMapEdge"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="edge"><see cref="BlueprintGlobalMapEdge"/></param>
+    /// <param name="edge"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
     [Generated]
     [Implements(typeof(UnlockMapEdge))]
     public static ActionsBuilder UnlockMapEdge(
         this ActionsBuilder builder,
-        string edge = null,
+        string? edge = null,
         bool openEdges = default)
     {
       var element = ElementTool.Create<UnlockMapEdge>();

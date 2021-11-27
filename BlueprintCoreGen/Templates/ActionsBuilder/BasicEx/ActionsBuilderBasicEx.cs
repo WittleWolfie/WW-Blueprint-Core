@@ -133,7 +133,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
     public static ActionsBuilder DamageParty(
         this ActionsBuilder builder,
         DamageDescription damage,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool enableBattleLog = true)
     {
       var dmg = ElementTool.Create<DamageParty>();
@@ -157,7 +157,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator target,
         DamageDescription damage,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool enableBattleLog = true,
         bool enableFxAndSound = true)
     {
@@ -188,7 +188,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
         StatType type,
         DiceFormula damageDice,
         int damageBonus = 0,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool drain = false,
         bool enableBattleLog = true)
     {
@@ -309,7 +309,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         string equipment,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int count = 1,
         bool silent = false,
@@ -340,7 +340,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         string handItem,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int preferredHandSlot = 0,
         int count = 1,
@@ -366,7 +366,7 @@ namespace BlueprintCoreGen.Actions.Builder.BasicEx
         bool silent,
         bool identify,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int preferredHandSlot = 0)
     {

@@ -47,12 +47,12 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Optional parameter comment.
     /// </summary>
-    string Comment { get; }
+    string? Comment { get; }
 
     /// <summary>
     /// Optional default parameter value.
     /// </summary>
-    string DefaultValue { get; }
+    string? DefaultValue { get; }
 
     /// <summary>
     /// Indicates if a field can be validated.
@@ -93,7 +93,7 @@ namespace BlueprintCoreGen.CodeGen
 
   public static class FieldFactory
   {
-    public static IField Create(FieldInfo info, Type sourceType)
+    public static IField? Create(FieldInfo info, Type sourceType)
     {
       return CreateInternal(info, sourceType);
       //IField field = CreateInternal(info, sourceType);
@@ -101,7 +101,7 @@ namespace BlueprintCoreGen.CodeGen
       //return FieldOverrides.GetFor(field, sourceType);
     }
 
-    private static IField CreateInternal(FieldInfo info, Type sourceType)
+    private static IField? CreateInternal(FieldInfo info, Type sourceType)
     {
       if (IsIgnoredField(info, sourceType)) { return null; }
 
@@ -172,7 +172,7 @@ namespace BlueprintCoreGen.CodeGen
           || fieldType.IsSubclassOf(typeof(TagListBase));
     }
 
-    private static Type GetEnumerableType(Type type)
+    private static Type? GetEnumerableType(Type type)
     {
       return type.GetInterfaces()
           .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
@@ -185,15 +185,15 @@ namespace BlueprintCoreGen.CodeGen
       public string TypeName { get; protected set; }
       public string MethodName { get; private set; }
       public string ParamName { get; private set; }
-      public string Comment { get; protected set; }
-      public string DefaultValue { get; protected set; }
+      public string? Comment { get; protected set; }
+      public string? DefaultValue { get; protected set; }
       public bool ShouldValidate { get; protected set; }
       public HashSet<Type> Imports { get; private set; }
 
       public Field(FieldInfo info)
       {
         Name = info.Name;
-        TypeName = TypeTool.GetName(info.FieldType);
+        TypeName = IsNullable() ? $"{TypeTool.GetName(info.FieldType)}?" : TypeTool.GetName(info.FieldType);
         ParamName = GetFriendlyName(Name, lowercase: true);
         MethodName = GetFriendlyName(Name, lowercase: false);
 
@@ -208,6 +208,12 @@ namespace BlueprintCoreGen.CodeGen
       public virtual List<string> GetAssignment(string objectName)
       {
         return new() { $"{objectName}.{Name} = {ParamName};" };
+      }
+
+      // Flags items with null default values to address nullable warnings. Not necessary for nullable value types.
+      protected virtual bool IsNullable()
+      {
+        return false;
       }
 
       protected static bool GetShouldValidate(Type type)
@@ -241,7 +247,7 @@ namespace BlueprintCoreGen.CodeGen
         type.GetGenericArguments().ToList().ForEach(t => PopulateImports(t, imports));
       }
 
-      private static string GetDefaultValue(Type type)
+      private static string? GetDefaultValue(Type type)
       {
         if (type.IsPrimitive || type.IsEnum) { return "default"; }
         if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)) { return "null"; }
@@ -288,6 +294,11 @@ namespace BlueprintCoreGen.CodeGen
       {
         return new() { $"{objectName}.{Name} = {ParamName} ?? {EmptyConstant};" };
       }
+
+      protected override bool IsNullable()
+      {
+        return true;
+      }
     }
 
     private class NegateConditionField : IField
@@ -296,7 +307,7 @@ namespace BlueprintCoreGen.CodeGen
       public string TypeName => "bool";
       public string ParamName => "negate";
       public string MethodName => throw new NotImplementedException();
-      public string Comment => null;
+      public string? Comment => null;
       public string DefaultValue => "false";
       public bool ShouldValidate => false;
       public HashSet<Type> Imports => new();
@@ -309,11 +320,11 @@ namespace BlueprintCoreGen.CodeGen
 
     private class MergeBehaviorField : IField
     {
-      public string Name => null;
+      public string Name => null!;
       public virtual string TypeName => "ComponentMerge";
       public virtual string ParamName => "mergeBehavior";
-      public string MethodName => null;
-      public string Comment => null;
+      public string MethodName => null!;
+      public string? Comment => null;
       public virtual string DefaultValue => "ComponentMerge.Replace";
       public bool ShouldValidate => false;
       public HashSet<Type> Imports =>
@@ -327,7 +338,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private class MergeActionField : MergeBehaviorField
     {
-      public override string TypeName => "Action<BlueprintComponent, BlueprintComponent>";
+      public override string TypeName => "Action<BlueprintComponent, BlueprintComponent>?";
       public override string ParamName => "mergeAction";
       public override string DefaultValue => "null";
     }
@@ -344,7 +355,6 @@ namespace BlueprintCoreGen.CodeGen
       public BuilderField(FieldInfo info, BuilderType builderType) : base(info)
       {
         Type = builderType;
-        TypeName = GetBuilderTypeName(Type);
         DefaultValue = "null";
 
         ShouldValidate = false;
@@ -353,11 +363,11 @@ namespace BlueprintCoreGen.CodeGen
         switch (Type)
         {
           case BuilderType.Actions:
-            TypeName = "ActionsBuilder";
+            TypeName = "ActionsBuilder?";
             Imports.Add(typeof(ActionsBuilder));
             break;
           case BuilderType.Conditions:
-            TypeName = "ConditionsBuilder";
+            TypeName = "ConditionsBuilder?";
             Imports.Add(typeof(ConditionsBuilder));
             break;
           default:
@@ -369,20 +379,6 @@ namespace BlueprintCoreGen.CodeGen
       {
         return new() { $"{objectName}.{Name} = {ParamName}?.Build() ?? Constants.Empty.{Type};" };
       }
-
-      private static string GetBuilderTypeName(BuilderType type)
-      {
-        switch (type)
-        {
-          case BuilderType.Actions:
-            return "ActionsBuilder";
-          case BuilderType.Conditions:
-            return "ConditionsBuilder";
-          default:
-            break;
-        }
-        throw new InvalidOperationException("Unexpected builder type: " + type);
-      }
     }
 
     private class EnumerableField : Field, IEnumerableField
@@ -390,9 +386,11 @@ namespace BlueprintCoreGen.CodeGen
       public string EnumerableTypeName { get; private set; }
       private readonly bool IsArray;
       private readonly string ToEnumerable;
+      private readonly string InternalTypeName;
 
       public EnumerableField(FieldInfo info, Type enumerableType) : base(info)
       {
+        InternalTypeName = TypeTool.GetName(info.FieldType);
         EnumerableTypeName = TypeTool.GetName(enumerableType);
         IsArray = info.FieldType.IsArray;
         ToEnumerable = IsArray ? "ToArray()" : "ToList()";
@@ -405,6 +403,11 @@ namespace BlueprintCoreGen.CodeGen
         Imports.Add(typeof(CommonTool));
       }
 
+      protected override bool IsNullable()
+      {
+        return true;
+      }
+
       public List<string> GetAddTo(string objectName)
       {
         return
@@ -412,7 +415,7 @@ namespace BlueprintCoreGen.CodeGen
             {
               IsArray
                   ? $"{objectName}.{Name} = CommonTool.Append({objectName}.{Name}, {ParamName} ?? new {EnumerableTypeName}[0]);"
-                  : $"{objectName}.{Name}.AddRange({ParamName}.ToList() ?? new {TypeName}());"
+                  : $"{objectName}.{Name}.AddRange({ParamName}.ToList() ?? new {InternalTypeName}());"
             };
       }
 
@@ -432,11 +435,12 @@ namespace BlueprintCoreGen.CodeGen
 
       public BlueprintField(FieldInfo info, Type referenceType) : base(info)
       {
-        TypeName = "string";
+        TypeName = "string?";
         ReferenceTypeName = TypeTool.GetName(referenceType);
 
-        var blueprintTypeName = TypeTool.GetName(GetBlueprintTypeFromReferenceType(referenceType));
-        Comment = $"<param name=\"{ParamName}\"><see cref=\"{blueprintTypeName}\"/></param>";
+        var blueprintType = GetBlueprintTypeFromReferenceType(referenceType);
+        var blueprintTypeName = TypeTool.GetName(blueprintType);
+        Comment = $"<param name=\"{ParamName}\"><see cref=\"{blueprintType.Namespace}.{blueprintTypeName}\"/></param>";
 
         DefaultValue = "null";
 
@@ -452,7 +456,7 @@ namespace BlueprintCoreGen.CodeGen
       private static Type GetBlueprintTypeFromReferenceType(Type referenceType)
       {
         var refType = referenceType;
-        while (!(refType.IsGenericType && refType.GetGenericTypeDefinition() == typeof(BlueprintReference<>)))
+        while (!(refType!.IsGenericType && refType.GetGenericTypeDefinition() == typeof(BlueprintReference<>)))
         {
           refType = refType.BaseType;
         }
@@ -469,7 +473,7 @@ namespace BlueprintCoreGen.CodeGen
 
       public EnumerableBlueprintField(FieldInfo info, Type referenceType) : base(info, referenceType)
       {
-        TypeName = "string[]";
+        TypeName = "string[]?";
         EnumerableTypeName = "string";
 
         IsArray = info.FieldType.IsArray;

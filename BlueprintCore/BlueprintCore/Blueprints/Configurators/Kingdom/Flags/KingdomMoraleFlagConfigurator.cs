@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString displayName)
+    public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
     
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomMoraleFlagConfigurator SetDescription(LocalizedString description)
+    public KingdomMoraleFlagConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     

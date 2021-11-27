@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <param name="etude"><see cref="BlueprintEtude"/></param>
     [Implements(typeof(CompleteEtude))]
     public static ActionsBuilder CompleteEtude(
-        this ActionsBuilder builder, string etude, BlueprintEvaluator evaluator = null)
+        this ActionsBuilder builder, string etude, BlueprintEvaluator? evaluator = null)
     {
       var completeEtude = ElementTool.Create<CompleteEtude>();
       completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
@@ -145,12 +145,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="GiveObjective"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(GiveObjective))]
     public static ActionsBuilder GiveObjective(
         this ActionsBuilder builder,
-        string objective = null)
+        string? objective = null)
     {
       var element = ElementTool.Create<GiveObjective>();
       element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
@@ -199,13 +199,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="IncrementFlagValue"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(IncrementFlagValue))]
     public static ActionsBuilder IncrementFlagValue(
         this ActionsBuilder builder,
         IntEvaluator value,
-        string flag = null,
+        string? flag = null,
         bool unlockIfNot = default)
     {
       builder.Validate(value);
@@ -257,12 +257,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="LockFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(LockFlag))]
     public static ActionsBuilder LockFlag(
         this ActionsBuilder builder,
-        string flag = null)
+        string? flag = null)
     {
       var element = ElementTool.Create<LockFlag>();
       element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
@@ -273,12 +273,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="LockRomance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
+    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
     [Generated]
     [Implements(typeof(LockRomance))]
     public static ActionsBuilder LockRomance(
         this ActionsBuilder builder,
-        string romance = null)
+        string? romance = null)
     {
       var element = ElementTool.Create<LockRomance>();
       element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
@@ -289,12 +289,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MarkAnswersSelected"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     [Implements(typeof(MarkAnswersSelected))]
     public static ActionsBuilder MarkAnswersSelected(
         this ActionsBuilder builder,
-        string[] answers = null)
+        string[]? answers = null)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
       element.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
@@ -305,12 +305,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MarkCuesSeen"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     [Implements(typeof(MarkCuesSeen))]
     public static ActionsBuilder MarkCuesSeen(
         this ActionsBuilder builder,
-        string[] cues = null)
+        string[]? cues = null)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
       element.m_Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToArray();
@@ -321,14 +321,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MoveAzataIslandToLocation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(MoveAzataIslandToLocation))]
     public static ActionsBuilder MoveAzataIslandToLocation(
         this ActionsBuilder builder,
-        string globalMap = null,
-        string location = null)
+        string? globalMap = null,
+        string? location = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToLocation>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
@@ -340,12 +340,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MoveAzataIslandToNearestCrossroad"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     [Generated]
     [Implements(typeof(MoveAzataIslandToNearestCrossroad))]
     public static ActionsBuilder MoveAzataIslandToNearestCrossroad(
         this ActionsBuilder builder,
-        string globalMap = null)
+        string? globalMap = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
@@ -388,15 +388,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="PartyMembersDetach"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="detachAllExcept"><see cref="BlueprintUnit"/></param>
+    /// <param name="detachAllExcept"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(PartyMembersDetach))]
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
-        string[] detachAllExcept = null,
+        string[]? detachAllExcept = null,
         bool restrictPartySize = default,
         int partySize = default,
-        ActionsBuilder afterDetach = null)
+        ActionsBuilder? afterDetach = null)
     {
       var element = ElementTool.Create<PartyMembersDetach>();
       element.m_DetachAllExcept = detachAllExcept.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
@@ -413,8 +413,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(PartyMembersDetachEvaluated))]
     public static ActionsBuilder PartyMembersDetachEvaluated(
         this ActionsBuilder builder,
-        UnitEvaluator[] detachThese = null,
-        ActionsBuilder afterDetach = null,
+        UnitEvaluator[]? detachThese = null,
+        ActionsBuilder? afterDetach = null,
         bool restrictPartySize = default,
         int partySize = default)
     {
@@ -445,11 +445,11 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(Recruit))]
     public static ActionsBuilder Recruit(
         this ActionsBuilder builder,
-        Recruit.RecruitData[] recruited = null,
+        Recruit.RecruitData[]? recruited = null,
         bool addToParty = default,
         bool matchPlayerXpExactly = default,
-        ActionsBuilder onRecruit = null,
-        ActionsBuilder onRecruitImmediate = null)
+        ActionsBuilder? onRecruit = null,
+        ActionsBuilder? onRecruitImmediate = null)
     {
       builder.Validate(recruited);
     
@@ -466,13 +466,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="RecruitInactive"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(RecruitInactive))]
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
-        string companionBlueprint = null,
-        ActionsBuilder onRecruit = null)
+        string? companionBlueprint = null,
+        ActionsBuilder? onRecruit = null)
     {
       var element = ElementTool.Create<RecruitInactive>();
       element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
@@ -524,15 +524,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="ReplaceFeatureInProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="remove"><see cref="BlueprintFeature"/></param>
-    /// <param name="add"><see cref="BlueprintFeature"/></param>
+    /// <param name="remove"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="add"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ReplaceFeatureInProgression))]
     public static ActionsBuilder ReplaceFeatureInProgression(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        string remove = null,
-        string add = null)
+        string? remove = null,
+        string? add = null)
     {
       builder.Validate(unit);
     
@@ -547,16 +547,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="ResetQuest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="quest"><see cref="BlueprintQuest"/></param>
-    /// <param name="objectiveToStart"><see cref="BlueprintQuestObjective"/></param>
-    /// <param name="objectivesToReset"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="quest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
+    /// <param name="objectiveToStart"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
+    /// <param name="objectivesToReset"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(ResetQuest))]
     public static ActionsBuilder ResetQuest(
         this ActionsBuilder builder,
-        string quest = null,
-        string objectiveToStart = null,
-        string[] objectivesToReset = null)
+        string? quest = null,
+        string? objectiveToStart = null,
+        string[]? objectivesToReset = null)
     {
       var element = ElementTool.Create<ResetQuest>();
       element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(quest);
@@ -569,12 +569,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="ResetQuestObjective"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(ResetQuestObjective))]
     public static ActionsBuilder ResetQuestObjective(
         this ActionsBuilder builder,
-        string objective = null)
+        string? objective = null)
     {
       var element = ElementTool.Create<ResetQuestObjective>();
       element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
@@ -601,13 +601,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="RomanceSetMaximum"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
+    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
     [Generated]
     [Implements(typeof(RomanceSetMaximum))]
     public static ActionsBuilder RomanceSetMaximum(
         this ActionsBuilder builder,
         IntEvaluator valueEvaluator,
-        string romance = null)
+        string? romance = null)
     {
       builder.Validate(valueEvaluator);
     
@@ -621,13 +621,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="RomanceSetMinimum"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
+    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
     [Generated]
     [Implements(typeof(RomanceSetMinimum))]
     public static ActionsBuilder RomanceSetMinimum(
         this ActionsBuilder builder,
         IntEvaluator valueEvaluator,
-        string romance = null)
+        string? romance = null)
     {
       builder.Validate(valueEvaluator);
     
@@ -671,13 +671,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SetObjectiveStatus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(SetObjectiveStatus))]
     public static ActionsBuilder SetObjectiveStatus(
         this ActionsBuilder builder,
         SummonPoolCountTrigger.ObjectiveStatus status = default,
-        string objective = null,
+        string? objective = null,
         bool startObjectiveIfNone = default)
     {
       var element = ElementTool.Create<SetObjectiveStatus>();
@@ -691,13 +691,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SetPortrait"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="portrait"><see cref="BlueprintPortrait"/></param>
+    /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
     [Generated]
     [Implements(typeof(SetPortrait))]
     public static ActionsBuilder SetPortrait(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        string portrait = null)
+        string? portrait = null)
     {
       builder.Validate(unit);
     
@@ -736,9 +736,9 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
         ParametrizedContextSetter parameters,
-        LocalizedString text = null,
-        ActionsBuilder onAccept = null,
-        ActionsBuilder onCancel = null)
+        LocalizedString? text = null,
+        ActionsBuilder? onAccept = null,
+        ActionsBuilder? onCancel = null)
     {
       builder.Validate(text);
       builder.Validate(parameters);
@@ -758,8 +758,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(ShowMessageBox))]
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
-        LocalizedString text = null,
-        ActionsBuilder onClose = null,
+        LocalizedString? text = null,
+        ActionsBuilder? onClose = null,
         int waitTime = default)
     {
       builder.Validate(text);
@@ -779,7 +779,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder ShowUIWarning(
         this ActionsBuilder builder,
         WarningNotificationType type = default,
-        LocalizedString stringValue = null)
+        LocalizedString? stringValue = null)
     {
       builder.Validate(stringValue);
     
@@ -828,15 +828,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="StartDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialogue"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialogue"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(StartDialog))]
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
         UnitEvaluator dialogueOwner,
         BlueprintEvaluator dialogEvaluator,
-        string dialogue = null,
-        LocalizedString speakerName = null)
+        string? dialogue = null,
+        LocalizedString? speakerName = null)
     {
       builder.Validate(dialogueOwner);
       builder.Validate(dialogEvaluator);
@@ -854,12 +854,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="StartEncounter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="encounter"><see cref="BlueprintRandomEncounter"/></param>
+    /// <param name="encounter"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
     [Generated]
     [Implements(typeof(StartEncounter))]
     public static ActionsBuilder StartEncounter(
         this ActionsBuilder builder,
-        string encounter = null)
+        string? encounter = null)
     {
       var element = ElementTool.Create<StartEncounter>();
       element.m_Encounter = BlueprintTool.GetRef<BlueprintRandomEncounterReference>(encounter);
@@ -870,13 +870,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="StartEtude"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(StartEtude))]
     public static ActionsBuilder StartEtude(
         this ActionsBuilder builder,
         BlueprintEvaluator etudeEvaluator,
-        string etude = null,
+        string? etude = null,
         bool evaluate = default)
     {
       builder.Validate(etudeEvaluator);
@@ -892,12 +892,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SwitchAzataIsland"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     [Generated]
     [Implements(typeof(SwitchAzataIsland))]
     public static ActionsBuilder SwitchAzataIsland(
         this ActionsBuilder builder,
-        string globalMap = null,
+        string? globalMap = null,
         bool isOn = default)
     {
       var element = ElementTool.Create<SwitchAzataIsland>();
@@ -946,13 +946,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SwitchFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="faction"><see cref="BlueprintFaction"/></param>
+    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     [Implements(typeof(SwitchFaction))]
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
         UnitEvaluator target,
-        string faction = null,
+        string? faction = null,
         bool includeGroup = default,
         bool resetAllRelations = default)
     {
@@ -1008,13 +1008,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SwitchToEnemy"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="factionToAttack"><see cref="BlueprintFaction"/></param>
+    /// <param name="factionToAttack"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     [Implements(typeof(SwitchToEnemy))]
     public static ActionsBuilder SwitchToEnemy(
         this ActionsBuilder builder,
         UnitEvaluator target,
-        string factionToAttack = null)
+        string? factionToAttack = null)
     {
       builder.Validate(target);
     
@@ -1028,13 +1028,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SwitchToNeutral"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="faction"><see cref="BlueprintFaction"/></param>
+    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     [Implements(typeof(SwitchToNeutral))]
     public static ActionsBuilder SwitchToNeutral(
         this ActionsBuilder builder,
         UnitEvaluator target,
-        string faction = null,
+        string? faction = null,
         bool includeGroup = default)
     {
       builder.Validate(target);
@@ -1112,12 +1112,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UnlockCompanionStory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="story"><see cref="BlueprintCompanionStory"/></param>
+    /// <param name="story"><see cref="Kingmaker.Blueprints.BlueprintCompanionStory"/></param>
     [Generated]
     [Implements(typeof(UnlockCompanionStory))]
     public static ActionsBuilder UnlockCompanionStory(
         this ActionsBuilder builder,
-        string story = null)
+        string? story = null)
     {
       var element = ElementTool.Create<UnlockCompanionStory>();
       element.m_Story = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(story);
@@ -1128,12 +1128,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UnlockFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(UnlockFlag))]
     public static ActionsBuilder UnlockFlag(
         this ActionsBuilder builder,
-        string flag = null,
+        string? flag = null,
         int flagValue = default)
     {
       var element = ElementTool.Create<UnlockFlag>();
@@ -1146,12 +1146,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UnmarkAnswersSelected"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     [Implements(typeof(UnmarkAnswersSelected))]
     public static ActionsBuilder UnmarkAnswersSelected(
         this ActionsBuilder builder,
-        string[] answers = null)
+        string[]? answers = null)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
       element.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
@@ -1162,13 +1162,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="Unrecruit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(Unrecruit))]
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
-        string companionBlueprint = null,
-        ActionsBuilder onUnrecruit = null)
+        string? companionBlueprint = null,
+        ActionsBuilder? onUnrecruit = null)
     {
       var element = ElementTool.Create<Unrecruit>();
       element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
@@ -1180,13 +1180,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UpdateEtudeProgressBar"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(UpdateEtudeProgressBar))]
     public static ActionsBuilder UpdateEtudeProgressBar(
         this ActionsBuilder builder,
         IntEvaluator progress,
-        string etude = null)
+        string? etude = null)
     {
       builder.Validate(progress);
     

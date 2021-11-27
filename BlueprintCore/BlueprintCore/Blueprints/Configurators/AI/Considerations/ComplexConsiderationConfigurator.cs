@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ComplexConsideration.m_Considerations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="considerations"><see cref="Consideration"/></param>
+    /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
-    public ComplexConsiderationConfigurator SetConsiderations(string[] considerations)
+    public ComplexConsiderationConfigurator SetConsiderations(string[]? considerations)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Adds to <see cref="ComplexConsideration.m_Considerations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="considerations"><see cref="Consideration"/></param>
+    /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public ComplexConsiderationConfigurator AddToConsiderations(params string[] considerations)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Removes from <see cref="ComplexConsideration.m_Considerations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="considerations"><see cref="Consideration"/></param>
+    /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public ComplexConsiderationConfigurator RemoveFromConsiderations(params string[] considerations)
     {

@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaTransitionConfigurator SetActions(ConditionAction[] actions)
+    public AreaTransitionConfigurator SetActions(ConditionAction[]? actions)
     {
       ValidateParam(actions);
     

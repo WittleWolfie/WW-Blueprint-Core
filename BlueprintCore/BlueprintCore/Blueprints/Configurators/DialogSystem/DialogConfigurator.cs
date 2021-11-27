@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetConditions(ConditionsBuilder conditions)
+    public DialogConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.StartActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetStartActions(ActionsBuilder startActions)
+    public DialogConfigurator SetStartActions(ActionsBuilder? startActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.FinishActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetFinishActions(ActionsBuilder finishActions)
+    public DialogConfigurator SetFinishActions(ActionsBuilder? finishActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintDialog.ReplaceActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DialogConfigurator SetReplaceActions(ActionsBuilder replaceActions)
+    public DialogConfigurator SetReplaceActions(ActionsBuilder? replaceActions)
     {
       return OnConfigureInternal(
           bp =>

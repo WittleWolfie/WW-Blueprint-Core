@@ -37,9 +37,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaEnterPoint.m_Area"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public AreaEnterPointConfigurator SetArea(string area)
+    public AreaEnterPointConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
           bp =>
@@ -52,9 +52,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaEnterPoint.m_AreaPart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="areaPart"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="areaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
-    public AreaEnterPointConfigurator SetAreaPart(string areaPart)
+    public AreaEnterPointConfigurator SetAreaPart(string? areaPart)
     {
       return OnConfigureInternal(
           bp =>
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString> tooltipList)
+    public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString>? tooltipList)
     {
       ValidateParam(tooltipList);
     
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaEnterPoint.m_Tooltip"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEnterPointConfigurator SetTooltip(LocalizedString tooltip)
+    public AreaEnterPointConfigurator SetTooltip(LocalizedString? tooltip)
     {
       ValidateParam(tooltip);
     
@@ -170,9 +170,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(AllowOnZoneSettings))]
     public AreaEnterPointConfigurator AddAllowOnZoneSettings(
-        GlobalMapZone[] allowedNaturalSettings = null,
+        GlobalMapZone[]? allowedNaturalSettings = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AllowOnZoneSettings();
       component.m_AllowedNaturalSettings = allowedNaturalSettings;

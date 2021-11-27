@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestGroupsConfigurator SetGroups(QuestGroup[] groups)
+    public QuestGroupsConfigurator SetGroups(QuestGroup[]? groups)
     {
       ValidateParam(groups);
     

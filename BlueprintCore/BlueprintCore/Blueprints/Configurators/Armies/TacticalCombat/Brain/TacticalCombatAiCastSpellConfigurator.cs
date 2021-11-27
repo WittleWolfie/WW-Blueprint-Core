@@ -30,9 +30,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain
     /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_Ability"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public TacticalCombatAiCastSpellConfigurator SetAbility(string ability)
+    public TacticalCombatAiCastSpellConfigurator SetAbility(string? ability)
     {
       return OnConfigureInternal(
           bp =>

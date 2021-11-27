@@ -46,9 +46,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_DefaultPlayerCharacter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultPlayerCharacter"><see cref="BlueprintUnit"/></param>
+    /// <param name="defaultPlayerCharacter"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public RootConfigurator SetDefaultPlayerCharacter(string defaultPlayerCharacter)
+    public RootConfigurator SetDefaultPlayerCharacter(string? defaultPlayerCharacter)
     {
       return OnConfigureInternal(
           bp =>
@@ -61,9 +61,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="selectablePlayerCharacters"><see cref="BlueprintUnit"/></param>
+    /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public RootConfigurator SetSelectablePlayerCharacters(string[] selectablePlayerCharacters)
+    public RootConfigurator SetSelectablePlayerCharacters(string[]? selectablePlayerCharacters)
     {
       return OnConfigureInternal(
           bp =>
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Adds to <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="selectablePlayerCharacters"><see cref="BlueprintUnit"/></param>
+    /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public RootConfigurator AddToSelectablePlayerCharacters(params string[] selectablePlayerCharacters)
     {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Removes from <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="selectablePlayerCharacters"><see cref="BlueprintUnit"/></param>
+    /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public RootConfigurator RemoveFromSelectablePlayerCharacters(params string[] selectablePlayerCharacters)
     {
@@ -111,9 +111,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_PlayerFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="playerFaction"><see cref="BlueprintFaction"/></param>
+    /// <param name="playerFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public RootConfigurator SetPlayerFaction(string playerFaction)
+    public RootConfigurator SetPlayerFaction(string? playerFaction)
     {
       return OnConfigureInternal(
           bp =>
@@ -139,9 +139,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_KingFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="kingFlag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="kingFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
-    public RootConfigurator SetKingFlag(string kingFlag)
+    public RootConfigurator SetKingFlag(string? kingFlag)
     {
       return OnConfigureInternal(
           bp =>
@@ -195,9 +195,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_NewGamePreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="newGamePreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="newGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
-    public RootConfigurator SetNewGamePreset(string newGamePreset)
+    public RootConfigurator SetNewGamePreset(string? newGamePreset)
     {
       return OnConfigureInternal(
           bp =>
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.StartGameActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RootConfigurator SetStartGameActions(ActionsBuilder startGameActions)
+    public RootConfigurator SetStartGameActions(ActionsBuilder? startGameActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -253,9 +253,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_RE"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rE"><see cref="RandomEncountersRoot"/></param>
+    /// <param name="rE"><see cref="Kingmaker.RandomEncounters.Settings.RandomEncountersRoot"/></param>
     [Generated]
-    public RootConfigurator SetRE(string rE)
+    public RootConfigurator SetRE(string? rE)
     {
       return OnConfigureInternal(
           bp =>
@@ -493,9 +493,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_InvisibleKittenUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="invisibleKittenUnit"><see cref="BlueprintUnit"/></param>
+    /// <param name="invisibleKittenUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public RootConfigurator SetInvisibleKittenUnit(string invisibleKittenUnit)
+    public RootConfigurator SetInvisibleKittenUnit(string? invisibleKittenUnit)
     {
       return OnConfigureInternal(
           bp =>
@@ -508,7 +508,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.OptimizationDummyUnit"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RootConfigurator SetOptimizationDummyUnit(PrefabLink optimizationDummyUnit)
+    public RootConfigurator SetOptimizationDummyUnit(PrefabLink? optimizationDummyUnit)
     {
       ValidateParam(optimizationDummyUnit);
     
@@ -523,9 +523,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CoinItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="coinItem"><see cref="BlueprintItem"/></param>
+    /// <param name="coinItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public RootConfigurator SetCoinItem(string coinItem)
+    public RootConfigurator SetCoinItem(string? coinItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -673,9 +673,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CutscenesRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cutscenesRoot"><see cref="CutscenesRoot"/></param>
+    /// <param name="cutscenesRoot"><see cref="Kingmaker.Blueprints.Root.CutscenesRoot"/></param>
     [Generated]
-    public RootConfigurator SetCutscenesRoot(string cutscenesRoot)
+    public RootConfigurator SetCutscenesRoot(string? cutscenesRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -688,9 +688,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_Kingdom"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="kingdom"><see cref="KingdomRoot"/></param>
+    /// <param name="kingdom"><see cref="Kingmaker.Kingdom.Blueprints.KingdomRoot"/></param>
     [Generated]
-    public RootConfigurator SetKingdom(string kingdom)
+    public RootConfigurator SetKingdom(string? kingdom)
     {
       return OnConfigureInternal(
           bp =>
@@ -703,9 +703,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CorruptionRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="corruptionRoot"><see cref="BlueprintCorruptionRoot"/></param>
+    /// <param name="corruptionRoot"><see cref="Kingmaker.Corruption.BlueprintCorruptionRoot"/></param>
     [Generated]
-    public RootConfigurator SetCorruptionRoot(string corruptionRoot)
+    public RootConfigurator SetCorruptionRoot(string? corruptionRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -718,9 +718,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_ArmyRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armyRoot"><see cref="ArmyRoot"/></param>
+    /// <param name="armyRoot"><see cref="Kingmaker.Kingdom.Blueprints.ArmyRoot"/></param>
     [Generated]
-    public RootConfigurator SetArmyRoot(string armyRoot)
+    public RootConfigurator SetArmyRoot(string? armyRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -733,9 +733,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CraftRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="craftRoot"><see cref="CraftRoot"/></param>
+    /// <param name="craftRoot"><see cref="Kingmaker.Craft.CraftRoot"/></param>
     [Generated]
-    public RootConfigurator SetCraftRoot(string craftRoot)
+    public RootConfigurator SetCraftRoot(string? craftRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -748,9 +748,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_LeadersRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leadersRoot"><see cref="LeadersRoot"/></param>
+    /// <param name="leadersRoot"><see cref="Kingmaker.Kingdom.Blueprints.LeadersRoot"/></param>
     [Generated]
-    public RootConfigurator SetLeadersRoot(string leadersRoot)
+    public RootConfigurator SetLeadersRoot(string? leadersRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -763,9 +763,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_MoraleRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="moraleRoot"><see cref="MoraleRoot"/></param>
+    /// <param name="moraleRoot"><see cref="Kingmaker.Armies.Blueprints.MoraleRoot"/></param>
     [Generated]
-    public RootConfigurator SetMoraleRoot(string moraleRoot)
+    public RootConfigurator SetMoraleRoot(string? moraleRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -778,9 +778,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_TacticalCombat"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="tacticalCombat"><see cref="BlueprintTacticalCombatRoot"/></param>
+    /// <param name="tacticalCombat"><see cref="Kingmaker.Armies.TacticalCombat.Blueprints.BlueprintTacticalCombatRoot"/></param>
     [Generated]
-    public RootConfigurator SetTacticalCombat(string tacticalCombat)
+    public RootConfigurator SetTacticalCombat(string? tacticalCombat)
     {
       return OnConfigureInternal(
           bp =>
@@ -808,9 +808,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_Formations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="formations"><see cref="FormationsRoot"/></param>
+    /// <param name="formations"><see cref="Kingmaker.Blueprints.Root.FormationsRoot"/></param>
     [Generated]
-    public RootConfigurator SetFormations(string formations)
+    public RootConfigurator SetFormations(string? formations)
     {
       return OnConfigureInternal(
           bp =>
@@ -868,9 +868,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_FxRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fxRoot"><see cref="FxRoot"/></param>
+    /// <param name="fxRoot"><see cref="Kingmaker.Blueprints.Root.Fx.FxRoot"/></param>
     [Generated]
-    public RootConfigurator SetFxRoot(string fxRoot)
+    public RootConfigurator SetFxRoot(string? fxRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -883,9 +883,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_HitSystemRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="hitSystemRoot"><see cref="HitSystemRoot"/></param>
+    /// <param name="hitSystemRoot"><see cref="Kingmaker.Visual.HitSystem.HitSystemRoot"/></param>
     [Generated]
-    public RootConfigurator SetHitSystemRoot(string hitSystemRoot)
+    public RootConfigurator SetHitSystemRoot(string? hitSystemRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -898,9 +898,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_PlayerUpgradeActions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="playerUpgradeActions"><see cref="PlayerUpgradeActionsRoot"/></param>
+    /// <param name="playerUpgradeActions"><see cref="Kingmaker.Blueprints.Root.PlayerUpgradeActionsRoot"/></param>
     [Generated]
-    public RootConfigurator SetPlayerUpgradeActions(string playerUpgradeActions)
+    public RootConfigurator SetPlayerUpgradeActions(string? playerUpgradeActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -913,9 +913,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CustomCompanion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customCompanion"><see cref="BlueprintUnit"/></param>
+    /// <param name="customCompanion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public RootConfigurator SetCustomCompanion(string customCompanion)
+    public RootConfigurator SetCustomCompanion(string? customCompanion)
     {
       return OnConfigureInternal(
           bp =>
@@ -1010,9 +1010,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_UnitTypes"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unitTypes"><see cref="BlueprintUnitType"/></param>
+    /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
     [Generated]
-    public RootConfigurator SetUnitTypes(string[] unitTypes)
+    public RootConfigurator SetUnitTypes(string[]? unitTypes)
     {
       return OnConfigureInternal(
           bp =>
@@ -1025,7 +1025,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Adds to <see cref="BlueprintRoot.m_UnitTypes"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unitTypes"><see cref="BlueprintUnitType"/></param>
+    /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
     [Generated]
     public RootConfigurator AddToUnitTypes(params string[] unitTypes)
     {
@@ -1040,7 +1040,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Removes from <see cref="BlueprintRoot.m_UnitTypes"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unitTypes"><see cref="BlueprintUnitType"/></param>
+    /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
     [Generated]
     public RootConfigurator RemoveFromUnitTypes(params string[] unitTypes)
     {
@@ -1075,9 +1075,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_Dungeon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dungeon"><see cref="BlueprintDungeonRoot"/></param>
+    /// <param name="dungeon"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonRoot"/></param>
     [Generated]
-    public RootConfigurator SetDungeon(string dungeon)
+    public RootConfigurator SetDungeon(string? dungeon)
     {
       return OnConfigureInternal(
           bp =>
@@ -1090,9 +1090,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_ConsoleRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="consoleRoot"><see cref="ConsoleRoot"/></param>
+    /// <param name="consoleRoot"><see cref="Kingmaker.Blueprints.Root.ConsoleRoot"/></param>
     [Generated]
-    public RootConfigurator SetConsoleRoot(string consoleRoot)
+    public RootConfigurator SetConsoleRoot(string? consoleRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -1105,9 +1105,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_BlueprintTrapSettingsRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintTrapSettingsRoot"><see cref="BlueprintTrapSettingsRoot"/></param>
+    /// <param name="blueprintTrapSettingsRoot"><see cref="Kingmaker.Blueprints.BlueprintTrapSettingsRoot"/></param>
     [Generated]
-    public RootConfigurator SetBlueprintTrapSettingsRoot(string blueprintTrapSettingsRoot)
+    public RootConfigurator SetBlueprintTrapSettingsRoot(string? blueprintTrapSettingsRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -1120,9 +1120,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_InteractionRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="interactionRoot"><see cref="BlueprintInteractionRoot"/></param>
+    /// <param name="interactionRoot"><see cref="Kingmaker.Interaction.BlueprintInteractionRoot"/></param>
     [Generated]
-    public RootConfigurator SetInteractionRoot(string interactionRoot)
+    public RootConfigurator SetInteractionRoot(string? interactionRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -1135,9 +1135,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_BlueprintMythicsSettingsReference"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintMythicsSettingsReference"><see cref="BlueprintMythicsSettings"/></param>
+    /// <param name="blueprintMythicsSettingsReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicsSettings"/></param>
     [Generated]
-    public RootConfigurator SetBlueprintMythicsSettingsReference(string blueprintMythicsSettingsReference)
+    public RootConfigurator SetBlueprintMythicsSettingsReference(string? blueprintMythicsSettingsReference)
     {
       return OnConfigureInternal(
           bp =>
@@ -1150,9 +1150,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="BlueprintRoot.m_CustomAiConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customAiConsiderations"><see cref="CustomAiConsiderationsRoot"/></param>
+    /// <param name="customAiConsiderations"><see cref="Kingmaker.AI.Blueprints.CustomAiConsiderationsRoot"/></param>
     [Generated]
-    public RootConfigurator SetCustomAiConsiderations(string customAiConsiderations)
+    public RootConfigurator SetCustomAiConsiderations(string? customAiConsiderations)
     {
       return OnConfigureInternal(
           bp =>

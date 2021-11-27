@@ -44,9 +44,9 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     /// Sets <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
-    public BuffCollectionConfigurator SetBuffList(string[] buffList)
+    public BuffCollectionConfigurator SetBuffList(string[]? buffList)
     {
       return OnConfigureInternal(
           bp =>
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     /// Adds to <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public BuffCollectionConfigurator AddToBuffList(params string[] buffList)
     {
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
     /// Removes from <see cref="BuffCollection.m_BuffList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffList"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public BuffCollectionConfigurator RemoveFromBuffList(params string[] buffList)
     {

@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(DamageToMapObjectTrigger))]
     public TBuilder AddDamageToMapObjectTrigger(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     [Generated]
     [Implements(typeof(DamageToMapObjectTrigger))]
     public LogicConnectorConfigurator AddDamageToMapObjectTrigger(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         bool checkEnergyType = default,
         DamageEnergyType energyType = default,
         bool checkPhysicalDamageForm = default,

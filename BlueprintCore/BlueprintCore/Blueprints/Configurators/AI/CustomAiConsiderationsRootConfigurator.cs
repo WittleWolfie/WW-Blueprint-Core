@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
-    public CustomAiConsiderationsRootConfigurator SetTargetConsiderations(string[] targetConsiderations)
+    public CustomAiConsiderationsRootConfigurator SetTargetConsiderations(string[]? targetConsiderations)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
     public CustomAiConsiderationsRootConfigurator AddToTargetConsiderations(params string[] targetConsiderations)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
     public CustomAiConsiderationsRootConfigurator RemoveFromTargetConsiderations(params string[] targetConsiderations)
     {
@@ -81,9 +81,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
-    public CustomAiConsiderationsRootConfigurator SetActorConsiderations(string[] actorConsiderations)
+    public CustomAiConsiderationsRootConfigurator SetActorConsiderations(string[]? actorConsiderations)
     {
       return OnConfigureInternal(
           bp =>
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
     public CustomAiConsiderationsRootConfigurator AddToActorConsiderations(params string[] actorConsiderations)
     {
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="ConsiderationCustom"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
     [Generated]
     public CustomAiConsiderationsRootConfigurator RemoveFromActorConsiderations(params string[] actorConsiderations)
     {

@@ -271,7 +271,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         int? movePoints = null,
         float? speed = null,
         bool? applyRecruitIncrease = null)
@@ -310,7 +310,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         bool targetNearestEnemy = false,
         float? speed = null)
     {
@@ -335,8 +335,8 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         string army,
         string location,
         string targetLocation,
-        string onTargetReached = null,
-        string leader = null,
+        string? onTargetReached = null,
+        string? leader = null,
         int? daysToTarget = null)
     {
       return builder.Add(
@@ -355,9 +355,9 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         ArmyFaction faction,
         string army,
         string location,
-        string leader,
-        string targetLocation = null,
-        string onTargetReached = null,
+        string? leader,
+        string? targetLocation = null,
+        string? onTargetReached = null,
         int? daysToTarget = null,
         int? movePoints = null,
         float? speed = null,
@@ -385,9 +385,9 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         createArmy.WithLeader = true;
       }
       createArmy.m_TargetLocation =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(targetLocation);
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(targetLocation!);
       createArmy.m_CompleteActions =
-          BlueprintTool.GetRef<BlueprintActionList.Reference>(onTargetReached);
+          BlueprintTool.GetRef<BlueprintActionList.Reference>(onTargetReached!);
       return createArmy;
     }
 
@@ -403,7 +403,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         bool noReward = true)
     {
       var createGarrison = ElementTool.Create<CreateGarrison>();
@@ -491,14 +491,14 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string buff,
         int durationOverrideDays = 0,
-        string targetRegion = null,
+        string? targetRegion = null,
         bool applyToRegion = true,
         bool applyToAdjacentRegions = false)
     {
       var addBuff = ElementTool.Create<KingdomActionAddBuff>();
       addBuff.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(buff);
       addBuff.OverrideDuration = durationOverrideDays;
-      addBuff.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(targetRegion);
+      addBuff.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(targetRegion!);
       addBuff.ApplyToRegion = applyToRegion;
       addBuff.CopyToAdjacentRegions = applyToAdjacentRegions;
       return builder.Add(addBuff);
@@ -512,7 +512,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
     [Implements(typeof(KingdomActionAddFreeBuilding))]
     public static ActionsBuilder AddFreeBuilding(
-        this ActionsBuilder builder, string building, int count = 1, string settlement = null)
+        this ActionsBuilder builder, string building, int count = 1, string? settlement = null)
     {
       var addBuilding = ElementTool.Create<KingdomActionAddFreeBuilding>();
       addBuilding.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(building);
@@ -788,8 +788,8 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string unit,
         ContextValue count,
-        ActionsBuilder onSpawn = null,
-        string summonPool = null)
+        ActionsBuilder? onSpawn = null,
+        string? summonPool = null)
     {
       var summon = ElementTool.Create<ContextActionSummonTacticalSquad>();
       summon.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -810,7 +810,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         DamageTypeDescription type,
         DiceType diceType,
-        ContextValue diceRolls = null,
+        ContextValue? diceRolls = null,
         bool dealHalf = false,
         bool ignoreCrit = false,
         int? minHPAfterDmg = null)
@@ -837,7 +837,7 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     public static ActionsBuilder TacticalCombatHeal(
         this ActionsBuilder builder,
         DiceType diceType = DiceType.D6,
-        ContextValue diceRolls = null)
+        ContextValue? diceRolls = null)
     {
       var heal = ElementTool.Create<ContextActionTacticalCombatHealTarget>();
       heal.DiceType = diceType;

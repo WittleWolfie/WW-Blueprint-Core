@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonLocalizedStringsConfigurator SetStageNameParameterized(LocalizedString stageNameParameterized)
+    public DungeonLocalizedStringsConfigurator SetStageNameParameterized(LocalizedString? stageNameParameterized)
     {
       ValidateParam(stageNameParameterized);
     
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonLocalizedStringsConfigurator SetLeaderboardRecordValues(BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
+    public DungeonLocalizedStringsConfigurator SetLeaderboardRecordValues(BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[]? leaderboardRecordValues)
     {
       ValidateParam(leaderboardRecordValues);
     
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.LeaderboardCharacterValues"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonLocalizedStringsConfigurator SetLeaderboardCharacterValues(BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[] leaderboardCharacterValues)
+    public DungeonLocalizedStringsConfigurator SetLeaderboardCharacterValues(BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[]? leaderboardCharacterValues)
     {
       ValidateParam(leaderboardCharacterValues);
     

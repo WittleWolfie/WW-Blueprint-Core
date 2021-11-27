@@ -50,7 +50,7 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool free = false,
         bool matchPlayerXp = false,
-        ActionsBuilder onCreate = null)
+        ActionsBuilder? onCreate = null)
     {
       var createCompanion = ElementTool.Create<CreateCustomCompanion>();
       createCompanion.ForFree = free;

@@ -58,7 +58,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool free = false,
         bool matchPlayerXp = false,
-        ActionsBuilder onCreate = null)
+        ActionsBuilder? onCreate = null)
     {
       var createCompanion = ElementTool.Create<CreateCustomCompanion>();
       createCompanion.ForFree = free;
@@ -84,13 +84,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="ShowNewTutorial"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="tutorial"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorial"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
     [Generated]
     [Implements(typeof(ShowNewTutorial))]
     public static ActionsBuilder ShowNewTutorial(
         this ActionsBuilder builder,
-        string tutorial = null,
-        TutorialContextDataEvaluator[] evaluators = null)
+        string? tutorial = null,
+        TutorialContextDataEvaluator[]? evaluators = null)
     {
       builder.Validate(evaluators);
     
@@ -104,13 +104,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="AddVendorItemsAction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="vendorTable"><see cref="BlueprintUnitLoot"/></param>
+    /// <param name="vendorTable"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
     [Generated]
     [Implements(typeof(AddVendorItemsAction))]
     public static ActionsBuilder AddVendorItemsAction(
         this ActionsBuilder builder,
         VendorEvaluator vendorEvaluator,
-        string vendorTable = null)
+        string? vendorTable = null)
     {
       builder.Validate(vendorEvaluator);
     
@@ -124,12 +124,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="ClearVendorTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="table"><see cref="BlueprintSharedVendorTable"/></param>
+    /// <param name="table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
     [Generated]
     [Implements(typeof(ClearVendorTable))]
     public static ActionsBuilder ClearVendorTable(
         this ActionsBuilder builder,
-        string table = null)
+        string? table = null)
     {
       var element = ElementTool.Create<ClearVendorTable>();
       element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(table);
@@ -140,17 +140,17 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="AddPremiumReward"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
-    /// <param name="items"><see cref="BlueprintItem"/></param>
-    /// <param name="playerFeatures"><see cref="BlueprintFeature"/></param>
+    /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
+    /// <param name="playerFeatures"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddPremiumReward))]
     public static ActionsBuilder AddPremiumReward(
         this ActionsBuilder builder,
-        string dlcReward = null,
-        string[] items = null,
-        string[] playerFeatures = null,
-        ActionsBuilder additionalActions = null)
+        string? dlcReward = null,
+        string[]? items = null,
+        string[]? playerFeatures = null,
+        ActionsBuilder? additionalActions = null)
     {
       var element = ElementTool.Create<AddPremiumReward>();
       element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
@@ -208,12 +208,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="MakeItemNonRemovable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(MakeItemNonRemovable))]
     public static ActionsBuilder MakeItemNonRemovable(
         this ActionsBuilder builder,
-        string item = null,
+        string? item = null,
         bool nonRemovable = default)
     {
       var element = ElementTool.Create<MakeItemNonRemovable>();
@@ -250,9 +250,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(OpenSelectMythicUI))]
     public static ActionsBuilder OpenSelectMythicUI(
         this ActionsBuilder builder,
-        ActionsBuilder afterCommitActions = null,
+        ActionsBuilder? afterCommitActions = null,
         bool lockStopChargen = default,
-        ActionsBuilder afterStopActions = null)
+        ActionsBuilder? afterStopActions = null)
     {
       var element = ElementTool.Create<OpenSelectMythicUI>();
       element.m_AfterCommitActions = afterCommitActions?.Build() ?? Constants.Empty.Actions;
@@ -265,14 +265,14 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="RemoveItemFromPlayer"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="itemToRemove"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToRemove"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(RemoveItemFromPlayer))]
     public static ActionsBuilder RemoveItemFromPlayer(
         this ActionsBuilder builder,
         bool money = default,
         bool removeAll = default,
-        string itemToRemove = null,
+        string? itemToRemove = null,
         bool silent = default,
         int quantity = default,
         float percentage = default)
@@ -295,7 +295,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder RemoveItemsFromCollection(
         this ActionsBuilder builder,
         ItemsCollectionEvaluator collection,
-        List<LootEntry> loot = null)
+        List<LootEntry>? loot = null)
     {
       builder.Validate(collection);
       builder.Validate(loot);
@@ -310,13 +310,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="RemoveDuplicateItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintItem"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(RemoveDuplicateItems))]
     public static ActionsBuilder RemoveDuplicateItems(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        string blueprint = null)
+        string? blueprint = null)
     {
       builder.Validate(unit);
     
@@ -330,14 +330,14 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="RestoreItemsCountInCollection"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(RestoreItemsCountInCollection))]
     public static ActionsBuilder RestoreItemsCountInCollection(
         this ActionsBuilder builder,
         ItemsCollectionEvaluator collection,
         IntEvaluator count,
-        string item = null)
+        string? item = null)
     {
       builder.Validate(collection);
       builder.Validate(count);
@@ -353,12 +353,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="SellCollectibleItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="itemToSell"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToSell"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(SellCollectibleItems))]
     public static ActionsBuilder SellCollectibleItems(
         this ActionsBuilder builder,
-        string itemToSell = null,
+        string? itemToSell = null,
         bool halfPrice = default)
     {
       var element = ElementTool.Create<SellCollectibleItems>();
@@ -389,7 +389,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder SetVendorPriceModifier(
         this ActionsBuilder builder,
         UnitEvaluator vendorUnit,
-        SetVendorPriceModifier.Entry[] entries = null)
+        SetVendorPriceModifier.Entry[]? entries = null)
     {
       builder.Validate(vendorUnit);
       builder.Validate(entries);
@@ -407,8 +407,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(ShowPartySelection))]
     public static ActionsBuilder ShowPartySelection(
         this ActionsBuilder builder,
-        ActionsBuilder actionsAfterPartySelection = null,
-        ActionsBuilder actionsIfCanceled = null)
+        ActionsBuilder? actionsAfterPartySelection = null,
+        ActionsBuilder? actionsIfCanceled = null)
     {
       var element = ElementTool.Create<ShowPartySelection>();
       element.ActionsAfterPartySelection = actionsAfterPartySelection?.Build() ?? Constants.Empty.Actions;
@@ -457,7 +457,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Adds <see cref="UnequipItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(UnequipItem))]
     public static ActionsBuilder UnequipItem(
@@ -465,7 +465,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator unit,
         ItemsCollectionEvaluator destinationContainer,
         bool silent = default,
-        string item = null,
+        string? item = null,
         bool all = default)
     {
       builder.Validate(unit);

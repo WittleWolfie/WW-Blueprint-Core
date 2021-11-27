@@ -56,9 +56,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapEdge.m_Point1"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="point1"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="point1"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public GlobalMapEdgeConfigurator SetPoint1(string point1)
+    public GlobalMapEdgeConfigurator SetPoint1(string? point1)
     {
       return OnConfigureInternal(
           bp =>
@@ -71,9 +71,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapEdge.m_Point2"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="point2"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="point2"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public GlobalMapEdgeConfigurator SetPoint2(string point2)
+    public GlobalMapEdgeConfigurator SetPoint2(string? point2)
     {
       return OnConfigureInternal(
           bp =>
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapEdge.LockCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapEdgeConfigurator SetLockCondition(ConditionsBuilder lockCondition)
+    public GlobalMapEdgeConfigurator SetLockCondition(ConditionsBuilder? lockCondition)
     {
       return OnConfigureInternal(
           bp =>

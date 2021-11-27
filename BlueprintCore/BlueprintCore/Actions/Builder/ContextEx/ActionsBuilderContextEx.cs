@@ -80,7 +80,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         string buff,
         bool useDurationSeconds = false,
         float durationSeconds = 0f,
-        ContextDurationValue duration = null,
+        ContextDurationValue? duration = null,
         bool permanent = false,
         bool isFromSpell = false,
         bool dispellable = true,
@@ -350,8 +350,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         bool useCMB = false,
         bool useCMD = false,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFail = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFail = null)
     {
       var breakFree = ElementTool.Create<ContextActionBreakFree>();
       breakFree.UseCMB = useCMB;
@@ -396,8 +396,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         string spell,
         bool castByTarget = false,
-        ContextValue overrideDC = null,
-        ContextValue overrideLevel = null)
+        ContextValue? overrideDC = null,
+        ContextValue? overrideLevel = null)
     {
       var castSpell = ElementTool.Create<ContextActionCastSpell>();
       castSpell.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
@@ -470,9 +470,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder builder,
         AbilitySharedValue sharedValue,
         SharedValueChangeType type,
-        ContextValue add = null,
-        ContextValue set = null,
-        ContextValue multiply = null)
+        ContextValue? add = null,
+        ContextValue? set = null,
+        ContextValue? multiply = null)
     {
       var changeValue = ElementTool.Create<ContextActionChangeSharedValue>();
       changeValue.SharedValue = sharedValue;
@@ -538,8 +538,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder CustomCombatManeuver(
         this ActionsBuilder builder,
         CombatManeuver type,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFail = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFail = null)
     {
       var maneuver = ElementTool.Create<ContextActionCombatManeuverCustom>();
       maneuver.Type = type;
@@ -554,8 +554,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionConditionalSaved))]
     public static ActionsBuilder AfterSavingThrow(
         this ActionsBuilder builder,
-        ActionsBuilder ifPassed = null,
-        ActionsBuilder ifFailed = null)
+        ActionsBuilder? ifPassed = null,
+        ActionsBuilder? ifFailed = null)
     {
       var onSave = ElementTool.Create<ContextActionConditionalSaved>();
       onSave.Succeed = ifPassed?.Build() ?? Constants.Empty.Actions;
@@ -710,9 +710,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       bool alreadyHalved = false,
       bool isAOE = false,
       bool isDrain = false,
-      ContextDiceValue value = null,
-      DamageTypeDescription dmgType = null,
-      ContextDurationValue duration = null,
+      ContextDiceValue? value = null,
+      DamageTypeDescription? dmgType = null,
+      ContextDurationValue? duration = null,
       StatType? statType = null,
       EnergyDrainType? drainType = null,
       int? minHPAfterDmg = null,
@@ -834,14 +834,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool onlyDispelEnemyBuffs = false,
         bool removeOnlyOne = false,
         int bonus = 0,
-        ContextValue contextBonus = null,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFail = null,
-        SpellSchool[] limitToSchools = null,
+        ContextValue? contextBonus = null,
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFail = null,
+        SpellSchool[]? limitToSchools = null,
         SpellDescriptor? limitToDescriptor = null,
         bool checkEitherSchoolOrDescriptor = false,
         StatType skill = StatType.Unknown,
-        ContextValue maxCasterLevel = null)
+        ContextValue? maxCasterLevel = null)
     {
       var dispel = ElementTool.Create<ContextActionDispelMagic>();
       dispel.m_BuffType = type;
@@ -949,7 +949,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     [Implements(typeof(ContextActionGrapple))]
     public static ActionsBuilder Grapple(
-        this ActionsBuilder builder, string casterBuff = null, string targetBuff = null)
+        this ActionsBuilder builder, string? casterBuff = null, string? targetBuff = null)
     {
       var grapple = ElementTool.Create<ContextActionGrapple>();
       if (casterBuff != null) { grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff); }
@@ -982,7 +982,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextActionHealStatDamage.StatDamageHealType type,
         ContextActionHealStatDamage.StatClass statClass,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         bool healDrain = false,
         AbilitySharedValue? sharedResult = null)
     {
@@ -1051,7 +1051,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     [Implements(typeof(ContextActionMakeKnowledgeCheck))]
     public static ActionsBuilder KnowledgeCheck(
-        this ActionsBuilder builder, ActionsBuilder onSuccess = null, ActionsBuilder onFail = null)
+        this ActionsBuilder builder, ActionsBuilder? onSuccess = null, ActionsBuilder? onFail = null)
     {
       var knowledgeCheck = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
       knowledgeCheck.SuccessActions = onSuccess?.Build() ?? Constants.Empty.Actions;
@@ -1163,14 +1163,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         int radiusInFeet,
         int numTargets = 1,
         bool targetEnemies = true,
-        string ignoreFact = null)
+        string? ignoreFact = null)
     {
       var onUnit = ElementTool.Create<ContextActionOnRandomTargetsAround>();
       onUnit.Actions = actions.Build();
       onUnit.Radius = new Feet(radiusInFeet);
       onUnit.NumberOfTargets = numTargets;
       onUnit.OnEnemies = targetEnemies;
-      onUnit.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact);
+      onUnit.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact!);
       return builder.Add(onUnit);
     }
 
@@ -1431,24 +1431,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     [Implements(typeof(ContextActionResurrect))]
     public static ActionsBuilder Resurrect(
-        this ActionsBuilder builder, float healPercent, string resurrectBuff = null)
+        this ActionsBuilder builder, float healPercent, string? resurrectBuff = null)
     {
       return Resurrect(builder, resurrectBuff, healPercent, false);
     }
 
     /// <inheritdoc cref="Resurrect"/>
     [Implements(typeof(ContextActionResurrect))]
-    public static ActionsBuilder ResurrectAndFullRestore(this ActionsBuilder builder, string resurrectBuff = null)
+    public static ActionsBuilder ResurrectAndFullRestore(this ActionsBuilder builder, string? resurrectBuff = null)
     {
       return Resurrect(builder, resurrectBuff, 0.0f, true);
     }
 
     private static ActionsBuilder Resurrect(
-        ActionsBuilder builder, string resurrectBuff, float healPercent, bool fullRestore)
+        ActionsBuilder builder, string? resurrectBuff, float healPercent, bool fullRestore)
     {
       var resurrect = ElementTool.Create<ContextActionResurrect>();
       resurrect.m_CustomResurrectionBuff =
-          BlueprintTool.GetRef<BlueprintBuffReference>(resurrectBuff);
+          BlueprintTool.GetRef<BlueprintBuffReference>(resurrectBuff!);
       resurrect.ResultHealth = healPercent;
       resurrect.FullRestore = fullRestore;
       return builder.Add(resurrect);
@@ -1469,7 +1469,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         SavingThrowType type,
         ActionsBuilder onResult,
-        ContextValue customDC = null,
+        ContextValue? customDC = null,
         bool fromBuff = false,
         params (ConditionsBuilder conditions, ContextValue value)[] conditionalDCModifiers)
     {
@@ -1523,9 +1523,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder SkillCheck(
         this ActionsBuilder builder,
         StatType skill,
-        ContextValue customDC = null,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFail = null,
+        ContextValue? customDC = null,
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFail = null,
         params (ConditionsBuilder condition, ContextValue value)[] dcModifiers)
     {
       return SkillCheck(
@@ -1537,10 +1537,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder SkillCheckWithFailureDegrees(
         this ActionsBuilder builder,
         StatType skill,
-        ContextValue customDC = null,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFailBy5to10 = null,
-        ActionsBuilder onFailBy10orMore = null,
+        ContextValue? customDC = null,
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFailBy5to10 = null,
+        ActionsBuilder? onFailBy10orMore = null,
         params (ConditionsBuilder condition, ContextValue value)[] dcModifiers)
     {
       return SkillCheck(
@@ -1557,13 +1557,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     private static ActionsBuilder SkillCheck(
         ActionsBuilder builder,
         StatType skill,
-        ContextValue customDC,
+        ContextValue? customDC,
         bool calculateDCDiff,
-        ActionsBuilder onSuccess,
+        ActionsBuilder? onSuccess,
         (ConditionsBuilder condition, ContextValue value)[] dcModifiers,
-        ActionsBuilder onFail = null,
-        ActionsBuilder onFailBy5to10 = null,
-        ActionsBuilder onFailBy10orMore = null)
+        ActionsBuilder? onFail = null,
+        ActionsBuilder? onFailBy5to10 = null,
+        ActionsBuilder? onFailBy10orMore = null)
     {
       var skillCheck = ElementTool.Create<ContextActionSkillCheck>();
       skillCheck.Stat = skill;
@@ -1649,8 +1649,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         string monster,
         ContextDiceValue count,
         ContextDurationValue duration,
-        ActionsBuilder onSpawn = null,
-        ContextValue level = null,
+        ActionsBuilder? onSpawn = null,
+        ContextValue? level = null,
         bool controllable = false,
         bool linkToCaster = true)
     {
@@ -1675,8 +1675,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextDiceValue count,
         ContextDurationValue duration,
         bool useSummonPoolLimit = false,
-        ActionsBuilder onSpawn = null,
-        ContextValue level = null,
+        ActionsBuilder? onSpawn = null,
+        ContextValue? level = null,
         bool controllable = false,
         bool linkToCaster = true)
     {
@@ -1698,11 +1698,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         string monster,
         ContextDiceValue count,
         ContextDurationValue duration,
-        ActionsBuilder onSpawn,
-        ContextValue level,
+        ActionsBuilder? onSpawn,
+        ContextValue? level,
         bool controllable,
         bool linkToCaster,
-        string summonPool = null,
+        string? summonPool = null,
         bool useSummonPoolLimit = false)
     {
       var spawn = ElementTool.Create<ContextActionSpawnMonster>();
@@ -1761,7 +1761,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// 
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
     [Implements(typeof(ContextActionSwallowWhole))]
-    public static ActionsBuilder SwallowWhole(this ActionsBuilder builder, string buff = null)
+    public static ActionsBuilder SwallowWhole(this ActionsBuilder builder, string? buff = null)
     {
       var swallow = ElementTool.Create<ContextActionSwallowWhole>();
       swallow.m_TargetBuff =
@@ -1814,7 +1814,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
     [Implements(typeof(ContextRestoreResource))]
     public static ActionsBuilder RestoreResource(
-        this ActionsBuilder builder, string resource, ContextValue amount = null)
+        this ActionsBuilder builder, string resource, ContextValue? amount = null)
     {
       var restore = ElementTool.Create<ContextRestoreResource>();
       restore.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
@@ -1845,7 +1845,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
     [Implements(typeof(ContextSpendResource))]
     public static ActionsBuilder SpendResource(
-        this ActionsBuilder builder, string resource, ContextValue amount = null)
+        this ActionsBuilder builder, string resource, ContextValue? amount = null)
     {
       var spend = ElementTool.Create<ContextSpendResource>();
       spend.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
@@ -1878,7 +1878,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         string swordlordProwess = DisplayWeaponProwess,
         string shatterConfidenceFeature = ShatterConfidenceFeature,
         string shatterConfidenceBuff = ShatterConfidenceBuff,
-        ActionsBuilder tricksterRank3Actions = null)
+        ActionsBuilder? tricksterRank3Actions = null)
     {
       var demoralize = ElementTool.Create<Demoralize>();
       demoralize.Bonus = bonus;
@@ -2046,7 +2046,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionAcceptBurn))]
     public static ActionsBuilder ContextActionAcceptBurn(
         this ActionsBuilder builder,
-        ContextValue value = null)
+        ContextValue? value = null)
     {
       builder.Validate(value);
     
@@ -2062,7 +2062,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionHealBurn))]
     public static ActionsBuilder ContextActionHealBurn(
         this ActionsBuilder builder,
-        ContextValue value = null)
+        ContextValue? value = null)
     {
       builder.Validate(value);
     
@@ -2079,7 +2079,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder BuffActionAddStatBonus(
         this ActionsBuilder builder,
         StatType stat = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default)
     {
       builder.Validate(value);
@@ -2128,7 +2128,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     [Implements(typeof(ContextActionPrintHDRestrictionToCombatLog))]
     public static ActionsBuilder ContextActionPrintHDRestrictionToCombatLog(
         this ActionsBuilder builder,
-        ContextValue hitDice = null)
+        ContextValue? hitDice = null)
     {
       builder.Validate(hitDice);
     
@@ -2155,14 +2155,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// Adds <see cref="ContextActionRestoreAllSpellSlots"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="excludeSpellbooks"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="excludeSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(ContextActionRestoreAllSpellSlots))]
     public static ActionsBuilder ContextActionRestoreAllSpellSlots(
         this ActionsBuilder builder,
         UnitEvaluator target,
         int upToSpellLevel = default,
-        string[] excludeSpellbooks = null)
+        string[]? excludeSpellbooks = null)
     {
       builder.Validate(target);
     

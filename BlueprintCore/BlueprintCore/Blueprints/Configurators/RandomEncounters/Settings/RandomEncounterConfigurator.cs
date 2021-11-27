@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetName(LocalizedString name)
+    public RandomEncounterConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetDescription(LocalizedString description)
+    public RandomEncounterConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -129,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetConditions(ConditionsBuilder conditions)
+    public RandomEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -183,7 +183,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.OnEnter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncounterConfigurator SetOnEnter(ActionsBuilder onEnter)
+    public RandomEncounterConfigurator SetOnEnter(ActionsBuilder? onEnter)
     {
       return OnConfigureInternal(
           bp =>
@@ -209,9 +209,9 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.m_AreaEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="areaEntrance"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="areaEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public RandomEncounterConfigurator SetAreaEntrance(string areaEntrance)
+    public RandomEncounterConfigurator SetAreaEntrance(string? areaEntrance)
     {
       return OnConfigureInternal(
           bp =>
@@ -224,9 +224,9 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintRandomEncounter.m_BookEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bookEvent"><see cref="BlueprintDialog"/></param>
+    /// <param name="bookEvent"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
-    public RandomEncounterConfigurator SetBookEvent(string bookEvent)
+    public RandomEncounterConfigurator SetBookEvent(string? bookEvent)
     {
       return OnConfigureInternal(
           bp =>

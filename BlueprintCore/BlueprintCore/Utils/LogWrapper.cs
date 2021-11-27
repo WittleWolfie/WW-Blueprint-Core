@@ -76,7 +76,7 @@ namespace BlueprintCore.Utils
     /// <summary>
     /// Logs an error with a stack trace as well as an exception, if provided.
     /// </summary>
-    public virtual void Error(string msg, Exception e = null)
+    public virtual void Error(string msg, Exception? e = null)
     {
       Logger.Error($"{Prefix}: {msg}");
       if (e != null) { Logger.Exception(e); }

@@ -37,9 +37,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintItemWeapon.m_Type"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
-    public ItemWeaponConfigurator SetType(string type)
+    public ItemWeaponConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
           bp =>
@@ -65,9 +65,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
-    public ItemWeaponConfigurator SetEnchantments(string[] enchantments)
+    public ItemWeaponConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Adds to <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
     public ItemWeaponConfigurator AddToEnchantments(params string[] enchantments)
     {
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Removes from <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
     public ItemWeaponConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
@@ -182,9 +182,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintItemWeapon.m_SecondWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="secondWeapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="secondWeapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
-    public ItemWeaponConfigurator SetSecondWeapon(string secondWeapon)
+    public ItemWeaponConfigurator SetSecondWeapon(string? secondWeapon)
     {
       return OnConfigureInternal(
           bp =>
@@ -249,15 +249,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Adds <see cref="WeaponKineticBlade"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="activationAbility"><see cref="BlueprintAbility"/></param>
-    /// <param name="blast"><see cref="BlueprintAbility"/></param>
+    /// <param name="activationAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    /// <param name="blast"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(WeaponKineticBlade))]
     public ItemWeaponConfigurator AddWeaponKineticBlade(
-        string activationAbility = null,
-        string blast = null,
+        string? activationAbility = null,
+        string? blast = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponKineticBlade();
       component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(activationAbility);

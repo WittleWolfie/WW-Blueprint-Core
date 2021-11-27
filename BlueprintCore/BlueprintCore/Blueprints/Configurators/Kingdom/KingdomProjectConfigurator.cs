@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
+    public TBuilder SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
     
@@ -143,14 +143,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(EventItemCost))]
     public TBuilder AddEventItemCost(
-        string[] items = null,
+        string[]? items = null,
         int amount = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EventItemCost();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
@@ -162,13 +162,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projects"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="projects"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(ExclusiveProjects))]
     public TBuilder AddExclusiveProjects(
-        string[] projects = null,
+        string[]? projects = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ExclusiveProjects();
       component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
@@ -179,13 +179,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public TBuilder AddFinishObjectiveOnTrigger(
-        string objective = null,
+        string? objective = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new FinishObjectiveOnTrigger();
       component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(MarkAsCrusadeProject))]
     public TBuilder AddMarkAsCrusadeProject(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MarkAsCrusadeProject();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -258,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString mechanicalDescription)
+    public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
     
@@ -351,14 +351,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="EventItemCost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(EventItemCost))]
     public KingdomProjectConfigurator AddEventItemCost(
-        string[] items = null,
+        string[]? items = null,
         int amount = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EventItemCost();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
@@ -370,13 +370,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="ExclusiveProjects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projects"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="projects"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(ExclusiveProjects))]
     public KingdomProjectConfigurator AddExclusiveProjects(
-        string[] projects = null,
+        string[]? projects = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ExclusiveProjects();
       component.m_Projects = projects.Select(name => BlueprintTool.GetRef<BlueprintKingdomProjectReference>(name)).ToArray();
@@ -387,13 +387,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="FinishObjectiveOnTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(FinishObjectiveOnTrigger))]
     public KingdomProjectConfigurator AddFinishObjectiveOnTrigger(
-        string objective = null,
+        string? objective = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new FinishObjectiveOnTrigger();
       component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
@@ -407,7 +407,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Implements(typeof(MarkAsCrusadeProject))]
     public KingdomProjectConfigurator AddMarkAsCrusadeProject(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MarkAsCrusadeProject();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

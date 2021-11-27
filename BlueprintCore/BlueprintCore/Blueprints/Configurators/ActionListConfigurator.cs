@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintActionList.m_Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActionListConfigurator SetActions(ActionsBuilder actions)
+    public ActionListConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(
           bp =>

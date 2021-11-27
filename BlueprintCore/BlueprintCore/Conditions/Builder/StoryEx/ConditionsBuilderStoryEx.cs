@@ -47,12 +47,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="BarkBanterPlayed"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="banter"><see cref="BlueprintBarkBanter"/></param>
+    /// <param name="banter"><see cref="Kingmaker.BarkBanters.BlueprintBarkBanter"/></param>
     [Generated]
     [Implements(typeof(BarkBanterPlayed))]
     public static ConditionsBuilder BarkBanterPlayed(
         this ConditionsBuilder builder,
-        string banter = null,
+        string? banter = null,
         bool negate = false)
     {
       var element = ElementTool.Create<BarkBanterPlayed>();
@@ -65,12 +65,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="DialogSeen"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(DialogSeen))]
     public static ConditionsBuilder DialogSeen(
         this ConditionsBuilder builder,
-        string dialog = null,
+        string? dialog = null,
         bool negate = false)
     {
       var element = ElementTool.Create<DialogSeen>();
@@ -99,12 +99,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="AnotherEtudeOfGroupIsPlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="group"><see cref="BlueprintEtudeConflictingGroup"/></param>
+    /// <param name="group"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtudeConflictingGroup"/></param>
     [Generated]
     [Implements(typeof(AnotherEtudeOfGroupIsPlaying))]
     public static ConditionsBuilder AnotherEtudeOfGroupIsPlaying(
         this ConditionsBuilder builder,
-        string group = null,
+        string? group = null,
         bool negate = false)
     {
       var element = ElementTool.Create<AnotherEtudeOfGroupIsPlaying>();
@@ -117,12 +117,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="AnswerListShown"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answersList"><see cref="BlueprintAnswersList"/></param>
+    /// <param name="answersList"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswersList"/></param>
     [Generated]
     [Implements(typeof(AnswerListShown))]
     public static ConditionsBuilder AnswerListShown(
         this ConditionsBuilder builder,
-        string answersList = null,
+        string? answersList = null,
         bool currentDialog = default,
         bool negate = false)
     {
@@ -137,12 +137,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="AnswerSelected"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answer"><see cref="BlueprintAnswer"/></param>
+    /// <param name="answer"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     [Implements(typeof(AnswerSelected))]
     public static ConditionsBuilder AnswerSelected(
         this ConditionsBuilder builder,
-        string answer = null,
+        string? answer = null,
         bool currentDialog = default,
         bool negate = false)
     {
@@ -175,12 +175,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="CheckFailed"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="check"><see cref="BlueprintCheck"/></param>
+    /// <param name="check"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCheck"/></param>
     [Generated]
     [Implements(typeof(CheckFailed))]
     public static ConditionsBuilder CheckFailed(
         this ConditionsBuilder builder,
-        string check = null,
+        string? check = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CheckFailed>();
@@ -193,12 +193,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="CheckPassed"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="check"><see cref="BlueprintCheck"/></param>
+    /// <param name="check"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCheck"/></param>
     [Generated]
     [Implements(typeof(CheckPassed))]
     public static ConditionsBuilder CheckPassed(
         this ConditionsBuilder builder,
-        string check = null,
+        string? check = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CheckPassed>();
@@ -211,12 +211,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="CompanionStoryUnlocked"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionStory"><see cref="BlueprintCompanionStory"/></param>
+    /// <param name="companionStory"><see cref="Kingmaker.Blueprints.BlueprintCompanionStory"/></param>
     [Generated]
     [Implements(typeof(CompanionStoryUnlocked))]
     public static ConditionsBuilder CompanionStoryUnlocked(
         this ConditionsBuilder builder,
-        string companionStory = null,
+        string? companionStory = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionStoryUnlocked>();
@@ -229,12 +229,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="CueSeen"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cue"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cue"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     [Implements(typeof(CueSeen))]
     public static ConditionsBuilder CueSeen(
         this ConditionsBuilder builder,
-        string cue = null,
+        string? cue = null,
         bool currentDialog = default,
         bool negate = false)
     {
@@ -331,12 +331,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="EtudeStatus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(EtudeStatus))]
     public static ConditionsBuilder EtudeStatus(
         this ConditionsBuilder builder,
-        string etude = null,
+        string? etude = null,
         bool notStarted = default,
         bool started = default,
         bool playing = default,
@@ -359,12 +359,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="FlagInRange"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(FlagInRange))]
     public static ConditionsBuilder FlagInRange(
         this ConditionsBuilder builder,
-        string flag = null,
+        string? flag = null,
         int minValue = default,
         int maxValue = default,
         bool negate = false)
@@ -381,14 +381,14 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="FlagUnlocked"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="conditionFlag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="conditionFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(FlagUnlocked))]
     public static ConditionsBuilder FlagUnlocked(
         this ConditionsBuilder builder,
-        string conditionFlag = null,
+        string? conditionFlag = null,
         bool exceptSpecifiedValues = default,
-        List<int> specifiedValues = null,
+        List<int>? specifiedValues = null,
         bool negate = false)
     {
       var element = ElementTool.Create<FlagUnlocked>();
@@ -420,7 +420,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     [Implements(typeof(MonthFromList))]
     public static ConditionsBuilder MonthFromList(
         this ConditionsBuilder builder,
-        int[] months = null,
+        int[]? months = null,
         bool negate = false)
     {
       var element = ElementTool.Create<MonthFromList>();
@@ -433,12 +433,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="ObjectiveStatus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="questObjective"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="questObjective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     [Implements(typeof(ObjectiveStatus))]
     public static ConditionsBuilder ObjectiveStatus(
         this ConditionsBuilder builder,
-        string questObjective = null,
+        string? questObjective = null,
         QuestObjectiveState state = default,
         bool negate = false)
     {
@@ -497,15 +497,15 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="PlayerSignificantClassIs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="characterClassGroup"><see cref="BlueprintCharacterClassGroup"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="characterClassGroup"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClassGroup"/></param>
     [Generated]
     [Implements(typeof(PlayerSignificantClassIs))]
     public static ConditionsBuilder PlayerSignificantClassIs(
         this ConditionsBuilder builder,
         bool checkGroup = default,
-        string characterClass = null,
-        string characterClassGroup = null,
+        string? characterClass = null,
+        string? characterClassGroup = null,
         bool negate = false)
     {
       var element = ElementTool.Create<PlayerSignificantClassIs>();
@@ -520,15 +520,15 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="PlayerTopClassIs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="characterClassGroup"><see cref="BlueprintCharacterClassGroup"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="characterClassGroup"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClassGroup"/></param>
     [Generated]
     [Implements(typeof(PlayerTopClassIs))]
     public static ConditionsBuilder PlayerTopClassIs(
         this ConditionsBuilder builder,
         bool checkGroup = default,
-        string characterClass = null,
-        string characterClassGroup = null,
+        string? characterClass = null,
+        string? characterClassGroup = null,
         bool negate = false)
     {
       var element = ElementTool.Create<PlayerTopClassIs>();
@@ -543,12 +543,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="QuestStatus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="quest"><see cref="BlueprintQuest"/></param>
+    /// <param name="quest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
     [Generated]
     [Implements(typeof(QuestStatus))]
     public static ConditionsBuilder QuestStatus(
         this ConditionsBuilder builder,
-        string quest = null,
+        string? quest = null,
         QuestState state = default,
         bool negate = false)
     {
@@ -563,12 +563,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="RomanceLocked"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
+    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
     [Generated]
     [Implements(typeof(RomanceLocked))]
     public static ConditionsBuilder RomanceLocked(
         this ConditionsBuilder builder,
-        string romance = null,
+        string? romance = null,
         bool negate = false)
     {
       var element = ElementTool.Create<RomanceLocked>();

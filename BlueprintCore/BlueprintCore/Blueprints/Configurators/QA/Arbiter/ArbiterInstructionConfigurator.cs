@@ -31,14 +31,14 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     /// Adds <see cref="ArbiterAreaTest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
-    /// <param name="overrideAreaPreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
+    /// <param name="overrideAreaPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
     [Implements(typeof(ArbiterAreaTest))]
     public ArbiterInstructionConfigurator AddArbiterAreaTest(
         ArbiterElementList areaParts,
-        string area = null,
-        string overrideAreaPreset = null,
+        string? area = null,
+        string? overrideAreaPreset = null,
         bool overrideTimeOfDay = default,
         TimeOfDay timeOfDay = default,
         bool makeMapScreenshot = default)
@@ -59,11 +59,11 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
     /// Adds <see cref="ArbiterWeaponTest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(ArbiterWeaponTest))]
     public ArbiterInstructionConfigurator AddArbiterWeaponTest(
-        string weapon = null)
+        string? weapon = null)
     {
       var component = new ArbiterWeaponTest();
       component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);

@@ -166,9 +166,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
-    public TBuilder SetActorConsiderations(string[] actorConsiderations)
+    public TBuilder SetActorConsiderations(string[]? actorConsiderations)
     {
       return OnConfigureInternal(
           bp =>
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public TBuilder AddToActorConsiderations(params string[] actorConsiderations)
     {
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="BlueprintAiAction.m_ActorConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actorConsiderations"><see cref="Consideration"/></param>
+    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public TBuilder RemoveFromActorConsiderations(params string[] actorConsiderations)
     {
@@ -216,9 +216,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
-    public TBuilder SetTargetConsiderations(string[] targetConsiderations)
+    public TBuilder SetTargetConsiderations(string[]? targetConsiderations)
     {
       return OnConfigureInternal(
           bp =>
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public TBuilder AddToTargetConsiderations(params string[] targetConsiderations)
     {
@@ -246,7 +246,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="BlueprintAiAction.m_TargetConsiderations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetConsiderations"><see cref="Consideration"/></param>
+    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
     public TBuilder RemoveFromTargetConsiderations(params string[] targetConsiderations)
     {

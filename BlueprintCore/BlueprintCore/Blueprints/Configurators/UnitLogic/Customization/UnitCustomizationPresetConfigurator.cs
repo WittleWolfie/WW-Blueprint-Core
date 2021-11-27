@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.PresetObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetPresetObjects(List<PresetObject> presetObjects)
+    public UnitCustomizationPresetConfigurator SetPresetObjects(List<PresetObject>? presetObjects)
     {
       ValidateParam(presetObjects);
     
@@ -88,9 +88,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.m_Distribution"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="distribution"><see cref="RaceGenderDistribution"/></param>
+    /// <param name="distribution"><see cref="Kingmaker.UnitLogic.Customization.RaceGenderDistribution"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetDistribution(string distribution)
+    public UnitCustomizationPresetConfigurator SetDistribution(string? distribution)
     {
       return OnConfigureInternal(
           bp =>
@@ -103,9 +103,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    /// <param name="units"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetUnits(string[] units)
+    public UnitCustomizationPresetConfigurator SetUnits(string[]? units)
     {
       return OnConfigureInternal(
           bp =>
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Adds to <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    /// <param name="units"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator AddToUnits(params string[] units)
     {
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Removes from <see cref="UnitCustomizationPreset.m_Units"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="units"><see cref="BlueprintUnit"/></param>
+    /// <param name="units"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator RemoveFromUnits(params string[] units)
     {
@@ -153,7 +153,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.ClothesSelections"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetClothesSelections(ClothesSelection[] clothesSelections)
+    public UnitCustomizationPresetConfigurator SetClothesSelections(ClothesSelection[]? clothesSelections)
     {
       ValidateParam(clothesSelections);
     
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.UnitVariations"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetUnitVariations(List<UnitVariations> unitVariations)
+    public UnitCustomizationPresetConfigurator SetUnitVariations(List<UnitVariations>? unitVariations)
     {
       ValidateParam(unitVariations);
     
@@ -239,9 +239,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="maleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetMaleVoices(string[] maleVoices)
+    public UnitCustomizationPresetConfigurator SetMaleVoices(string[]? maleVoices)
     {
       return OnConfigureInternal(
           bp =>
@@ -254,7 +254,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Adds to <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="maleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator AddToMaleVoices(params string[] maleVoices)
     {
@@ -269,7 +269,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Removes from <see cref="UnitCustomizationPreset.MaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="maleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="maleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator RemoveFromMaleVoices(params string[] maleVoices)
     {
@@ -289,9 +289,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="femaleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetFemaleVoices(string[] femaleVoices)
+    public UnitCustomizationPresetConfigurator SetFemaleVoices(string[]? femaleVoices)
     {
       return OnConfigureInternal(
           bp =>
@@ -304,7 +304,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Adds to <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="femaleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator AddToFemaleVoices(params string[] femaleVoices)
     {
@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Removes from <see cref="UnitCustomizationPreset.FemaleVoices"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="femaleVoices"><see cref="BlueprintUnitAsksList"/></param>
+    /// <param name="femaleVoices"><see cref="Kingmaker.Visual.Sound.BlueprintUnitAsksList"/></param>
     [Generated]
     public UnitCustomizationPresetConfigurator RemoveFromFemaleVoices(params string[] femaleVoices)
     {
@@ -339,9 +339,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="UnitCustomizationPreset.randomParameters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="randomParameters"><see cref="RandomParameters"/></param>
+    /// <param name="randomParameters"><see cref="Kingmaker.UnitLogic.Customization.RandomParameters"/></param>
     [Generated]
-    public UnitCustomizationPresetConfigurator SetRandomParameters(string randomParameters)
+    public UnitCustomizationPresetConfigurator SetRandomParameters(string? randomParameters)
     {
       return OnConfigureInternal(
           bp =>

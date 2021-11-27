@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSpellName(LocalizedString spellName)
+    public GlobalMagicSpellConfigurator SetSpellName(LocalizedString? spellName)
     {
       ValidateParam(spellName);
     
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetDescription(LocalizedString description)
+    public GlobalMagicSpellConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_VFX"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetVFX(PrefabLink vFX)
+    public GlobalMagicSpellConfigurator SetVFX(PrefabLink? vFX)
     {
       ValidateParam(vFX);
     
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder spellActions)
+    public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder? spellActions)
     {
       return OnConfigureInternal(
           bp =>

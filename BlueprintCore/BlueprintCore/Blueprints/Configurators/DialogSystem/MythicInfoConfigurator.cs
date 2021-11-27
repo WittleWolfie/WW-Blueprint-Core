@@ -44,9 +44,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicInfo._etudeReference"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="_etudeReference"><see cref="BlueprintEtude"/></param>
+    /// <param name="_etudeReference"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
-    public MythicInfoConfigurator Set_etudeReference(string _etudeReference)
+    public MythicInfoConfigurator Set_etudeReference(string? _etudeReference)
     {
       return OnConfigureInternal(
           bp =>
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicInfo._mythicName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicInfoConfigurator Set_mythicName(LocalizedString _mythicName)
+    public MythicInfoConfigurator Set_mythicName(LocalizedString? _mythicName)
     {
       ValidateParam(_mythicName);
     

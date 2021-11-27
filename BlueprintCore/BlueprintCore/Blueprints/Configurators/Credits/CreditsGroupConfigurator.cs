@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.HeaderText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetHeaderText(LocalizedString headerText)
+    public CreditsGroupConfigurator SetHeaderText(LocalizedString? headerText)
     {
       ValidateParam(headerText);
     
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.LeftPageText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetLeftPageText(LocalizedString leftPageText)
+    public CreditsGroupConfigurator SetLeftPageText(LocalizedString? leftPageText)
     {
       ValidateParam(leftPageText);
     
@@ -94,9 +94,9 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.m_RolesData"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rolesData"><see cref="BlueprintCreditsRoles"/></param>
+    /// <param name="rolesData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsRoles"/></param>
     [Generated]
-    public CreditsGroupConfigurator SetRolesData(string rolesData)
+    public CreditsGroupConfigurator SetRolesData(string? rolesData)
     {
       return OnConfigureInternal(
           bp =>
@@ -109,9 +109,9 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.m_TeamsData"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="teamsData"><see cref="BlueprintCreditsTeams"/></param>
+    /// <param name="teamsData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsTeams"/></param>
     [Generated]
-    public CreditsGroupConfigurator SetTeamsData(string teamsData)
+    public CreditsGroupConfigurator SetTeamsData(string? teamsData)
     {
       return OnConfigureInternal(
           bp =>
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetOrderTeams(List<string> orderTeams)
+    public CreditsGroupConfigurator SetOrderTeams(List<string>? orderTeams)
     {
       return OnConfigureInternal(
           bp =>
@@ -163,7 +163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsGroupConfigurator SetPersones(List<CreditPerson> persones)
+    public CreditsGroupConfigurator SetPersones(List<CreditPerson>? persones)
     {
       ValidateParam(persones);
     

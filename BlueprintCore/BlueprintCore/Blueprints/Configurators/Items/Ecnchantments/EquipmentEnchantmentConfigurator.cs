@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponCategory category = default,
         bool requiresFinesse = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = stat;
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentWeaponTypeEnhancement();
       component.Enhancement = enhancement;
@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddNaturalDamageStatReplacement(
         StatType stat = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponGroupAttackBonusEquipment();
       component.WeaponGroup = weaponGroup;
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponRangeTypeAttackBonusEquipment();
       component.RangeType = rangeType;
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponCategory category = default,
         bool requiresFinesse = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentWeaponTypeDamageStatReplacement();
       component.Stat = stat;
@@ -215,7 +215,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool allNaturalAndUnarmed = default,
         WeaponCategory category = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentWeaponTypeEnhancement();
       component.Enhancement = enhancement;
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public EquipmentEnchantmentConfigurator AddNaturalDamageStatReplacement(
         StatType stat = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new NaturalDamageStatReplacement();
       component.Stat = stat;
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponGroupAttackBonusEquipment();
       component.WeaponGroup = weaponGroup;
@@ -267,7 +267,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         WeaponFighterGroup weaponGroup = default,
         int attackBonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponGroupDamageBonusEquipment();
       component.WeaponGroup = weaponGroup;
@@ -285,7 +285,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponRangeTypeAttackBonusEquipment();
       component.RangeType = rangeType;

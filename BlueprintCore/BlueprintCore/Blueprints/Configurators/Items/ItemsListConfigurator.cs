@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public ItemsListConfigurator SetItems(string[] items)
+    public ItemsListConfigurator SetItems(string[]? items)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds to <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public ItemsListConfigurator AddToItems(params string[] items)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Removes from <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public ItemsListConfigurator RemoveFromItems(params string[] items)
     {

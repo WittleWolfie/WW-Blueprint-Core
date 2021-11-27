@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintSettlement.m_DefaultSettlementName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementConfigurator SetDefaultSettlementName(LocalizedString defaultSettlementName)
+    public SettlementConfigurator SetDefaultSettlementName(LocalizedString? defaultSettlementName)
     {
       ValidateParam(defaultSettlementName);
     
@@ -87,9 +87,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintSettlement.m_SettlementBuildArea"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementBuildArea"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="settlementBuildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public SettlementConfigurator SettlementBuildArea(string settlementBuildArea)
+    public SettlementConfigurator SettlementBuildArea(string? settlementBuildArea)
     {
       return OnConfigureInternal(
           bp =>
@@ -102,9 +102,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintSettlement.m_SettlementBuildAreaWithWater"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementBuildAreaWithWater"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="settlementBuildAreaWithWater"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public SettlementConfigurator SettlementBuildAreaWithWater(string settlementBuildAreaWithWater)
+    public SettlementConfigurator SettlementBuildAreaWithWater(string? settlementBuildAreaWithWater)
     {
       return OnConfigureInternal(
           bp =>
@@ -143,9 +143,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintSettlement.m_SettlementEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementEntrance"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="settlementEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public SettlementConfigurator SettlementEntrance(string settlementEntrance)
+    public SettlementConfigurator SettlementEntrance(string? settlementEntrance)
     {
       return OnConfigureInternal(
           bp =>
@@ -158,9 +158,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintSettlement.m_SettlementEntrances"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementEntrances"><see cref="BlueprintMultiEntrance"/></param>
+    /// <param name="settlementEntrances"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
     [Generated]
-    public SettlementConfigurator SettlementEntrances(string settlementEntrances)
+    public SettlementConfigurator SettlementEntrances(string? settlementEntrances)
     {
       return OnConfigureInternal(
           bp =>

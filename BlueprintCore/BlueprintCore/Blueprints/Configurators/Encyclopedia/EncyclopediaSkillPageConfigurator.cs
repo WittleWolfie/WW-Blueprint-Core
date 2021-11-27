@@ -30,9 +30,9 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaSkillPage.m_Class"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
-    public EncyclopediaSkillPageConfigurator SetClass(string clazz)
+    public EncyclopediaSkillPageConfigurator SetClass(string? clazz)
     {
       return OnConfigureInternal(
           bp =>

@@ -55,13 +55,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CheckConditionsHolder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="conditionsHolder"><see cref="ConditionsHolder"/></param>
+    /// <param name="conditionsHolder"><see cref="Kingmaker.ElementsSystem.ConditionsHolder"/></param>
     [Generated]
     [Implements(typeof(CheckConditionsHolder))]
     public static ConditionsBuilder CheckConditionsHolder(
         this ConditionsBuilder builder,
         ParametrizedContextSetter parameters,
-        string conditionsHolder = null,
+        string? conditionsHolder = null,
         bool negate = false)
     {
       builder.Validate(parameters);
@@ -77,13 +77,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CheckItemCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetItem"><see cref="BlueprintItem"/></param>
+    /// <param name="targetItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(CheckItemCondition))]
     public static ConditionsBuilder CheckItemCondition(
         this ConditionsBuilder builder,
         UnitEvaluator unitEvaluator,
-        string targetItem = null,
+        string? targetItem = null,
         CheckItemCondition.RequiredState requiredState = default,
         bool negate = false)
     {
@@ -101,12 +101,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionInParty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionInParty))]
     public static ConditionsBuilder CompanionInParty(
         this ConditionsBuilder builder,
-        string companion = null,
+        string? companion = null,
         bool matchWhenActive = default,
         bool matchWhenDetached = default,
         bool matchWhenRemote = default,
@@ -129,12 +129,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionIsDead"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsDead))]
     public static ConditionsBuilder CompanionIsDead(
         this ConditionsBuilder builder,
-        string companion = null,
+        string? companion = null,
         bool anyCompanion = default,
         bool negate = false)
     {
@@ -149,12 +149,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionIsLost"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsLost))]
     public static ConditionsBuilder CompanionIsLost(
         this ConditionsBuilder builder,
-        string companion = null,
+        string? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsLost>();
@@ -167,12 +167,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="CompanionIsUnconscious"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionIsUnconscious))]
     public static ConditionsBuilder CompanionIsUnconscious(
         this ConditionsBuilder builder,
-        string companion = null,
+        string? companion = null,
         bool anyCompanion = default,
         bool negate = false)
     {
@@ -208,13 +208,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="HasBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(HasBuff))]
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
         UnitEvaluator target,
-        string buff = null,
+        string? buff = null,
         bool negate = false)
     {
       builder.Validate(target);
@@ -230,13 +230,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="HasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(HasFact))]
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
         UnitEvaluator unit,
-        string fact = null,
+        string? fact = null,
         bool negate = false)
     {
       builder.Validate(unit);
@@ -365,13 +365,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="ItemBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintItem"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemBlueprint))]
     public static ConditionsBuilder ItemBlueprint(
         this ConditionsBuilder builder,
         ItemEvaluator item,
-        string blueprint = null,
+        string? blueprint = null,
         bool negate = false)
     {
       builder.Validate(item);
@@ -392,7 +392,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         ItemsCollectionEvaluator items,
         bool any = default,
-        ConditionsBuilder condition = null,
+        ConditionsBuilder? condition = null,
         bool negate = false)
     {
       builder.Validate(items);
@@ -409,13 +409,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="ItemsEnough"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="itemToCheck"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToCheck"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemsEnough))]
     public static ConditionsBuilder ItemsEnough(
         this ConditionsBuilder builder,
         bool money = default,
-        string itemToCheck = null,
+        string? itemToCheck = null,
         int quantity = default,
         bool negate = false)
     {
@@ -455,7 +455,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     public static ConditionsBuilder PartyUnits(
         this ConditionsBuilder builder,
         bool any = default,
-        ConditionsBuilder conditions = null,
+        ConditionsBuilder? conditions = null,
         bool negate = false)
     {
       var element = ElementTool.Create<PartyUnits>();
@@ -513,12 +513,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="SummonPoolExistsAndEmpty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolExistsAndEmpty))]
     public static ConditionsBuilder SummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
-        string summonPool = null,
+        string? summonPool = null,
         bool negate = false)
     {
       var element = ElementTool.Create<SummonPoolExistsAndEmpty>();
@@ -567,13 +567,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(UnitBlueprint))]
     public static ConditionsBuilder UnitBlueprint(
         this ConditionsBuilder builder,
         UnitEvaluator unit,
-        string blueprint = null,
+        string? blueprint = null,
         bool negate = false)
     {
       builder.Validate(unit);
@@ -589,14 +589,14 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(UnitClass))]
     public static ConditionsBuilder UnitClass(
         this ConditionsBuilder builder,
         UnitEvaluator unit,
         IntEvaluator minLevel,
-        string clazz = null,
+        string? clazz = null,
         bool negate = false)
     {
       builder.Validate(unit);
@@ -653,13 +653,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// Adds <see cref="UnitFromSummonPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(UnitFromSummonPool))]
     public static ConditionsBuilder UnitFromSummonPool(
         this ConditionsBuilder builder,
         UnitEvaluator unit,
-        string summonPool = null,
+        string? summonPool = null,
         bool negate = false)
     {
       builder.Validate(unit);

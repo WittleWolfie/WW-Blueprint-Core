@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellList.SpellsByLevel"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellListConfigurator SetSpellsByLevel(SpellLevelList[] spellsByLevel)
+    public SpellListConfigurator SetSpellsByLevel(SpellLevelList[]? spellsByLevel)
     {
       ValidateParam(spellsByLevel);
     
@@ -87,9 +87,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellList.m_FilteredList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="filteredList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="filteredList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
-    public SpellListConfigurator SetFilteredList(string filteredList)
+    public SpellListConfigurator SetFilteredList(string? filteredList)
     {
       return OnConfigureInternal(
           bp =>

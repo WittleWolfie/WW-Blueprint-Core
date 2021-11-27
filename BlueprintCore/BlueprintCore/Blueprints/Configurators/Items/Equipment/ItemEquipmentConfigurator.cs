@@ -38,9 +38,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipment.m_Ability"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public TBuilder SetAbility(string ability)
+    public TBuilder SetAbility(string? ability)
     {
       return OnConfigureInternal(
           bp =>
@@ -53,9 +53,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipment.m_ActivatableAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="activatableAbility"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="activatableAbility"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
     [Generated]
-    public TBuilder SetActivatableAbility(string activatableAbility)
+    public TBuilder SetActivatableAbility(string? activatableAbility)
     {
       return OnConfigureInternal(
           bp =>
@@ -159,9 +159,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipment.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntity(string equipmentEntity)
+    public TBuilder SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
@@ -174,9 +174,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
           bp =>
@@ -189,7 +189,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds to <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -204,7 +204,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Removes from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -237,11 +237,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds <see cref="AddFactToEquipmentWielder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactToEquipmentWielder))]
     public TBuilder AddFactToEquipmentWielder(
-        string fact = null)
+        string? fact = null)
     {
       var component = new AddFactToEquipmentWielder();
       component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
@@ -275,11 +275,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds <see cref="EquipmentRestrictionClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionClass))]
     public TBuilder AddEquipmentRestrictionClass(
-        string clazz = null,
+        string? clazz = null,
         bool not = default)
     {
       var component = new EquipmentRestrictionClass();
@@ -292,14 +292,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds <see cref="EquipmentRestrictionHasAnyClassFromList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionHasAnyClassFromList))]
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
         bool not = default,
-        string[] classes = null,
+        string[]? classes = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentRestrictionHasAnyClassFromList();
       component.Not = not;
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     [Implements(typeof(EquipmentRestrictionMainPlayer))]
     public TBuilder AddEquipmentRestrictionMainPlayer(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentRestrictionMainPlayer();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -324,13 +324,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds <see cref="EquipmentRestrictionSpecialUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(EquipmentRestrictionSpecialUnit))]
     public TBuilder AddEquipmentRestrictionSpecialUnit(
-        string blueprint = null,
+        string? blueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EquipmentRestrictionSpecialUnit();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);

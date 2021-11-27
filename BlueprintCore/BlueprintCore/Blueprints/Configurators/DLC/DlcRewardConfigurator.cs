@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescription(LocalizedString description)
+    public TBuilder SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDlcs(List<BlueprintDlc> dlcs)
+    public TBuilder SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
     
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetDescription(LocalizedString description)
+    public DlcRewardConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetDlcs(List<BlueprintDlc> dlcs)
+    public DlcRewardConfigurator SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
     

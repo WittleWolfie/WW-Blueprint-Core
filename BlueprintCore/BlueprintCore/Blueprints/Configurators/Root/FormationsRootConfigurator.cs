@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="FormationsRoot.m_PredefinedFormations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="predefinedFormations"><see cref="BlueprintPartyFormation"/></param>
+    /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
     [Generated]
-    public FormationsRootConfigurator SetPredefinedFormations(string[] predefinedFormations)
+    public FormationsRootConfigurator SetPredefinedFormations(string[]? predefinedFormations)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Adds to <see cref="FormationsRoot.m_PredefinedFormations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="predefinedFormations"><see cref="BlueprintPartyFormation"/></param>
+    /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
     [Generated]
     public FormationsRootConfigurator AddToPredefinedFormations(params string[] predefinedFormations)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Removes from <see cref="FormationsRoot.m_PredefinedFormations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="predefinedFormations"><see cref="BlueprintPartyFormation"/></param>
+    /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
     [Generated]
     public FormationsRootConfigurator RemoveFromPredefinedFormations(params string[] predefinedFormations)
     {
@@ -81,9 +81,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="FormationsRoot.m_FollowersFormation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="followersFormation"><see cref="FollowersFormation"/></param>
+    /// <param name="followersFormation"><see cref="Kingmaker.Formations.FollowersFormation"/></param>
     [Generated]
-    public FormationsRootConfigurator SetFollowersFormation(string followersFormation)
+    public FormationsRootConfigurator SetFollowersFormation(string? followersFormation)
     {
       return OnConfigureInternal(
           bp =>

@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.Text"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetText(LocalizedString text)
+    public AnswerConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
     
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.ShowConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetShowConditions(ConditionsBuilder showConditions)
+    public AnswerConfigurator SetShowConditions(ConditionsBuilder? showConditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.SelectConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetSelectConditions(ConditionsBuilder selectConditions)
+    public AnswerConfigurator SetSelectConditions(ConditionsBuilder? selectConditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.OnSelect"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetOnSelect(ActionsBuilder onSelect)
+    public AnswerConfigurator SetOnSelect(ActionsBuilder? onSelect)
     {
       return OnConfigureInternal(
           bp =>
@@ -214,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswerConfigurator SetFakeChecks(CheckData[] fakeChecks)
+    public AnswerConfigurator SetFakeChecks(CheckData[]? fakeChecks)
     {
       ValidateParam(fakeChecks);
     
@@ -272,13 +272,13 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds <see cref="ActingCompanion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ActingCompanion))]
     public AnswerConfigurator AddActingCompanion(
-        string companion = null,
+        string? companion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActingCompanion();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);

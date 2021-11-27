@@ -56,9 +56,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
     [Generated]
-    public TrapSettingsRootConfigurator Settings(string[] settings)
+    public TrapSettingsRootConfigurator Settings(string[]? settings)
     {
       return OnConfigureInternal(
           bp =>
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
     [Generated]
     public TrapSettingsRootConfigurator AddToSettings(params string[] settings)
     {
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settings"><see cref="BlueprintTrapSettings"/></param>
+    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
     [Generated]
     public TrapSettingsRootConfigurator RemoveFromSettings(params string[] settings)
     {

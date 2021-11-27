@@ -42,7 +42,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         this ConditionsBuilder builder,
         bool checkInitiatorHP = default,
         CompareOperation.Type operation = default,
-        ContextValue referenceValue = null,
+        ContextValue? referenceValue = null,
         bool negate = false)
     {
       builder.Validate(referenceValue);
@@ -77,12 +77,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="ContextConditionGarrisonClear"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMapPoint"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="globalMapPoint"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(ContextConditionGarrisonClear))]
     public static ConditionsBuilder ContextConditionGarrisonClear(
         this ConditionsBuilder builder,
-        string globalMapPoint = null,
+        string? globalMapPoint = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionGarrisonClear>();
@@ -109,12 +109,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomMoraleFlagCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="flag"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomMoraleFlagCondition))]
     public static ConditionsBuilder KingdomMoraleFlagCondition(
         this ConditionsBuilder builder,
-        string flag = null,
+        string? flag = null,
         KingdomMoraleFlag.State state = default,
         bool negate = false)
     {
@@ -129,12 +129,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="ArmyInLocationDefeated"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(ArmyInLocationDefeated))]
     public static ConditionsBuilder ArmyInLocationDefeated(
         this ConditionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ArmyInLocationDefeated>();
@@ -161,12 +161,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="BuildingHasNeighbours"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="specificBuildings"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="specificBuildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
     [Implements(typeof(BuildingHasNeighbours))]
     public static ConditionsBuilder BuildingHasNeighbours(
         this ConditionsBuilder builder,
-        string[] specificBuildings = null,
+        string[]? specificBuildings = null,
         bool anywhereInTown = default,
         bool negate = false)
     {
@@ -233,12 +233,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomAllArmiesInRegionDefeated"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomAllArmiesInRegionDefeated))]
     public static ConditionsBuilder KingdomAllArmiesInRegionDefeated(
         this ConditionsBuilder builder,
-        string region = null,
+        string? region = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomAllArmiesInRegionDefeated>();
@@ -251,12 +251,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomArtisanState"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     [Implements(typeof(KingdomArtisanState))]
     public static ConditionsBuilder KingdomArtisanState(
         this ConditionsBuilder builder,
-        string artisan = null,
+        string? artisan = null,
         KingdomArtisanState.CheckType _Check = default,
         int tier = default,
         bool negate = false)
@@ -273,14 +273,14 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomBuffIsActive"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintKingdomBuff"/></param>
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomBuffIsActive))]
     public static ConditionsBuilder KingdomBuffIsActive(
         this ConditionsBuilder builder,
-        string blueprint = null,
-        string region = null,
+        string? blueprint = null,
+        string? region = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomBuffIsActive>();
@@ -328,14 +328,14 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomEventCanStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="BlueprintKingdomEvent"/></param>
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomEventCanStart))]
     public static ConditionsBuilder KingdomEventCanStart(
         this ConditionsBuilder builder,
-        string eventValue = null,
-        string region = null,
+        string? eventValue = null,
+        string? region = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventCanStart>();
@@ -349,12 +349,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomEventIsActive"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="BlueprintKingdomEvent"/></param>
+    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
     [Generated]
     [Implements(typeof(KingdomEventIsActive))]
     public static ConditionsBuilder KingdomEventIsActive(
         this ConditionsBuilder builder,
-        string eventValue = null,
+        string? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventIsActive>();
@@ -367,12 +367,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomEventIsBeingResolved"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="BlueprintKingdomEventBase"/></param>
+    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
     [Generated]
     [Implements(typeof(KingdomEventIsBeingResolved))]
     public static ConditionsBuilder KingdomEventIsBeingResolved(
         this ConditionsBuilder builder,
-        string eventValue = null,
+        string? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventIsBeingResolved>();
@@ -413,13 +413,13 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomHasUpgradeableSettlement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="specificSettlement"><see cref="BlueprintSettlement"/></param>
+    /// <param name="specificSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(KingdomHasUpgradeableSettlement))]
     public static ConditionsBuilder KingdomHasUpgradeableSettlement(
         this ConditionsBuilder builder,
         SettlementState.LevelType level = default,
-        string specificSettlement = null,
+        string? specificSettlement = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomHasUpgradeableSettlement>();
@@ -447,13 +447,13 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomLeaderIs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(KingdomLeaderIs))]
     public static ConditionsBuilder KingdomLeaderIs(
         this ConditionsBuilder builder,
         LeaderType leader = default,
-        string unit = null,
+        string? unit = null,
         bool allowCustomCompanions = default,
         bool negate = false)
     {
@@ -469,12 +469,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomProjectIsAvailable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="project"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="project"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(KingdomProjectIsAvailable))]
     public static ConditionsBuilder KingdomProjectIsAvailable(
         this ConditionsBuilder builder,
-        string project = null,
+        string? project = null,
         bool checkResources = default,
         bool checkLeader = default,
         bool finishableThisMonth = default,
@@ -493,12 +493,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomProjectIsDone"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="project"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="project"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(KingdomProjectIsDone))]
     public static ConditionsBuilder KingdomProjectIsDone(
         this ConditionsBuilder builder,
-        string project = null,
+        string? project = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomProjectIsDone>();
@@ -529,12 +529,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomRegionIsConquered"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomRegionIsConquered))]
     public static ConditionsBuilder KingdomRegionIsConquered(
         this ConditionsBuilder builder,
-        string region = null,
+        string? region = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomRegionIsConquered>();
@@ -547,14 +547,14 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomRegionIsUpgraded"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
-    /// <param name="eventValue"><see cref="BlueprintKingdomUpgrade"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
+    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade"/></param>
     [Generated]
     [Implements(typeof(KingdomRegionIsUpgraded))]
     public static ConditionsBuilder KingdomRegionIsUpgraded(
         this ConditionsBuilder builder,
-        string region = null,
-        string eventValue = null,
+        string? region = null,
+        string? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomRegionIsUpgraded>();
@@ -586,14 +586,14 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// Adds <see cref="KingdomSettlementHasBuilding"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
-    /// <param name="building"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="settlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
+    /// <param name="building"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
     [Implements(typeof(KingdomSettlementHasBuilding))]
     public static ConditionsBuilder KingdomSettlementHasBuilding(
         this ConditionsBuilder builder,
-        string settlement = null,
-        string building = null,
+        string? settlement = null,
+        string? building = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomSettlementHasBuilding>();
@@ -648,7 +648,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     [Implements(typeof(KingdomTaskResolvedBy))]
     public static ConditionsBuilder KingdomTaskResolvedBy(
         this ConditionsBuilder builder,
-        LeaderType[] leaders = null,
+        LeaderType[]? leaders = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomTaskResolvedBy>();

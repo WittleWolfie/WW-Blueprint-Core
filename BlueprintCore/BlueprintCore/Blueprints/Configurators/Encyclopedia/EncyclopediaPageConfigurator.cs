@@ -23,9 +23,9 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaPage.m_ParentAsset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parentAsset"><see cref="BlueprintEncyclopediaNode"/></param>
+    /// <param name="parentAsset"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaNode"/></param>
     [Generated]
-    public TBuilder SetParentAsset(string parentAsset)
+    public TBuilder SetParentAsset(string? parentAsset)
     {
       return OnConfigureInternal(
           bp =>
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock> blocks)
+    public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
     
@@ -104,9 +104,9 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaPage.m_ParentAsset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="parentAsset"><see cref="BlueprintEncyclopediaNode"/></param>
+    /// <param name="parentAsset"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaNode"/></param>
     [Generated]
-    public EncyclopediaPageConfigurator SetParentAsset(string parentAsset)
+    public EncyclopediaPageConfigurator SetParentAsset(string? parentAsset)
     {
       return OnConfigureInternal(
           bp =>
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public EncyclopediaPageConfigurator SetBlocks(List<BlueprintEncyclopediaBlock> blocks)
+    public EncyclopediaPageConfigurator SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
     

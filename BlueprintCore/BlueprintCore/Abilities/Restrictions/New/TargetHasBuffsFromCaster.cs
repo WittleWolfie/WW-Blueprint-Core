@@ -70,14 +70,14 @@ namespace BlueprintCore.Abilities.Restrictions.New
                     BlueprintBuff blueprintBuff = i.Get();
                     if (blueprintBuff == null) { return null; }
                     return blueprintBuff.Name;
-                  }).NotNull<string>());
+                  }).NotNull());
       return
           BlueprintRoot.Instance.LocalizedTexts.Reasons.TargetHasNoFact.ToString(
               delegate () { GameLogContext.Text = facts; });
     }
 
     [SerializeField]
-    public BlueprintBuffReference[] Buffs;
+    public BlueprintBuffReference[] Buffs = new BlueprintBuffReference[0];
 
     /// <summary>
     /// If set to true, all buffs must be present and applied by the caster. Otherwise the restriction passes as long as

@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ConsiderationCustom.Consideration"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="consideration"><see cref="Consideration"/></param>
+    /// <param name="consideration"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
     [Generated]
-    public ConsiderationCustomConfigurator SetConsideration(string consideration)
+    public ConsiderationCustomConfigurator SetConsideration(string? consideration)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ConsiderationCustom.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsiderationCustomConfigurator SetTitle(LocalizedString title)
+    public ConsiderationCustomConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
     
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ConsiderationCustom.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConsiderationCustomConfigurator SetDescription(LocalizedString description)
+    public ConsiderationCustomConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     

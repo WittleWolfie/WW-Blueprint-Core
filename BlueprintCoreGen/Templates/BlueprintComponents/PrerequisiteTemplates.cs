@@ -77,7 +77,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
@@ -113,7 +113,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
       prereq.Level = minLevel;
@@ -154,7 +154,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
@@ -242,7 +242,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       return AddUniqueComponent(prereq, behavior, merge);
@@ -257,7 +257,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       prereq.Companion = true;
@@ -274,7 +274,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
       prereq.Level = level;
@@ -346,7 +346,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
@@ -483,7 +483,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);

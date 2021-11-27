@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_TravelingArmiesByChapter"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyRootConfigurator SetTravelingArmiesByChapter(ArmyRoot.ChapterSpawnInfo[] travelingArmiesByChapter)
+    public ArmyRootConfigurator SetTravelingArmiesByChapter(ArmyRoot.ChapterSpawnInfo[]? travelingArmiesByChapter)
     {
       ValidateParam(travelingArmiesByChapter);
     
@@ -104,9 +104,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_NobilitySettlementsProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nobilitySettlementsProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="nobilitySettlementsProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetNobilitySettlementsProgression(string nobilitySettlementsProgression)
+    public ArmyRootConfigurator SetNobilitySettlementsProgression(string? nobilitySettlementsProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -119,9 +119,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_NobilityBuildingsProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nobilityBuildingsProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="nobilityBuildingsProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetNobilityBuildingsProgression(string nobilityBuildingsProgression)
+    public ArmyRootConfigurator SetNobilityBuildingsProgression(string? nobilityBuildingsProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -134,9 +134,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_NobilityIncomeProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nobilityIncomeProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="nobilityIncomeProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetNobilityIncomeProgression(string nobilityIncomeProgression)
+    public ArmyRootConfigurator SetNobilityIncomeProgression(string? nobilityIncomeProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -149,9 +149,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_NobilityArmyStrengthProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nobilityArmyStrengthProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="nobilityArmyStrengthProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetNobilityArmyStrengthProgression(string nobilityArmyStrengthProgression)
+    public ArmyRootConfigurator SetNobilityArmyStrengthProgression(string? nobilityArmyStrengthProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -164,9 +164,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_RoyalCourtLeadersProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="royalCourtLeadersProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="royalCourtLeadersProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetRoyalCourtLeadersProgression(string royalCourtLeadersProgression)
+    public ArmyRootConfigurator SetRoyalCourtLeadersProgression(string? royalCourtLeadersProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -179,9 +179,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_RoyalCourtRanksProgression"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="royalCourtRanksProgression"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="royalCourtRanksProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetRoyalCourtRanksProgression(string royalCourtRanksProgression)
+    public ArmyRootConfigurator SetRoyalCourtRanksProgression(string? royalCourtRanksProgression)
     {
       return OnConfigureInternal(
           bp =>
@@ -194,9 +194,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_RoyalCourtMissionProgressionChapter2"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="royalCourtMissionProgressionChapter2"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="royalCourtMissionProgressionChapter2"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter2(string royalCourtMissionProgressionChapter2)
+    public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter2(string? royalCourtMissionProgressionChapter2)
     {
       return OnConfigureInternal(
           bp =>
@@ -209,9 +209,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_RoyalCourtMissionProgressionChapter3"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="royalCourtMissionProgressionChapter3"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="royalCourtMissionProgressionChapter3"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter3(string royalCourtMissionProgressionChapter3)
+    public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter3(string? royalCourtMissionProgressionChapter3)
     {
       return OnConfigureInternal(
           bp =>
@@ -224,9 +224,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_NobilityPresetReward"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nobilityPresetReward"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="nobilityPresetReward"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     [Generated]
-    public ArmyRootConfigurator SetNobilityPresetReward(string nobilityPresetReward)
+    public ArmyRootConfigurator SetNobilityPresetReward(string? nobilityPresetReward)
     {
       return OnConfigureInternal(
           bp =>
@@ -239,9 +239,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="ArmyRoot.m_SummonArmiesMap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="summonArmiesMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="summonArmiesMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     [Generated]
-    public ArmyRootConfigurator SetSummonArmiesMap(string summonArmiesMap)
+    public ArmyRootConfigurator SetSummonArmiesMap(string? summonArmiesMap)
     {
       return OnConfigureInternal(
           bp =>

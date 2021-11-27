@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDisplayNameText(LocalizedString displayNameText)
+    public TBuilder SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
     
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
     
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetFlavorText(LocalizedString flavorText)
+    public TBuilder SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
     
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
+    public TBuilder SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
     
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
+    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
     
@@ -188,9 +188,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public TBuilder SetShardItem(string shardItem)
+    public TBuilder SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -255,7 +255,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTrashLootTypes(TrashLootType[] trashLootTypes)
+    public TBuilder SetTrashLootTypes(TrashLootType[]? trashLootTypes)
     {
       return OnConfigureInternal(
           bp =>
@@ -294,7 +294,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
+    public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
     
@@ -337,13 +337,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
-        string etude = null,
+        string? etude = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
@@ -357,9 +357,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(AddItemShowInfoCallback))]
     public TBuilder AddItemShowInfoCallback(
         bool once = default,
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddItemShowInfoCallback();
       component.Once = once;
@@ -375,7 +375,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddBuildPointsReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BuildPointsReplacement();
       component.Cost = cost;
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddConsumableEventBonusReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ConsumableEventBonusReplacement();
       component.Cost = cost;
@@ -401,13 +401,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyRecipe"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="recipe"><see cref="BlueprintCookingRecipe"/></param>
+    /// <param name="recipe"><see cref="Kingmaker.Controllers.Rest.Cooking.BlueprintCookingRecipe"/></param>
     [Generated]
     [Implements(typeof(CopyRecipe))]
     public TBuilder AddCopyRecipe(
-        string recipe = null,
+        string? recipe = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CopyRecipe();
       component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
@@ -418,13 +418,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyScroll"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customSpell"><see cref="BlueprintAbility"/></param>
+    /// <param name="customSpell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CopyScroll))]
     public TBuilder AddCopyScroll(
-        string customSpell = null,
+        string? customSpell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CopyScroll();
       component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
@@ -439,7 +439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IdentifySkillReplacement();
       component.m_SkillType = skillType;
@@ -450,15 +450,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialogReference"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialogReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(ItemDialog))]
     public TBuilder AddItemDialog(
-        ConditionsBuilder conditions = null,
-        LocalizedString itemName = null,
-        string dialogReference = null,
+        ConditionsBuilder? conditions = null,
+        LocalizedString? itemName = null,
+        string? dialogReference = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(itemName);
     
@@ -473,16 +473,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDlcRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
-    /// <param name="changeTo"><see cref="BlueprintItem"/></param>
+    /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
+    /// <param name="changeTo"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemDlcRestriction))]
     public TBuilder AddItemDlcRestriction(
-        string dlcReward = null,
-        string changeTo = null,
+        string? dlcReward = null,
+        string? changeTo = null,
         bool hideInVendors = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ItemDlcRestriction();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
@@ -495,13 +495,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemPolymorph"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
-    /// <param name="polymorphItems"><see cref="BlueprintItem"/></param>
+    /// <param name="flagToCheck"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
+    /// <param name="polymorphItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemPolymorph))]
     public TBuilder AddItemPolymorph(
-        string flagToCheck = null,
-        string[] polymorphItems = null)
+        string? flagToCheck = null,
+        string[]? polymorphItems = null)
     {
       var component = new ItemPolymorph();
       component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
@@ -517,7 +517,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddMoneyReplacement(
         long cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MoneyReplacement();
       component.Cost = cost;
@@ -530,9 +530,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
-        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
+        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
     
@@ -549,7 +549,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
@@ -560,11 +560,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponTypeAttackEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(WeaponTypeAttackEnchant))]
     public TBuilder AddWeaponTypeAttackEnchant(
-        string type = null,
+        string? type = null,
         int bonus = default,
         ModifierDescriptor descriptor = default)
     {
@@ -602,7 +602,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetDisplayNameText(LocalizedString displayNameText)
+    public ItemConfigurator SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
     
@@ -617,7 +617,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetDescriptionText(LocalizedString descriptionText)
+    public ItemConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
     
@@ -632,7 +632,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetFlavorText(LocalizedString flavorText)
+    public ItemConfigurator SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
     
@@ -647,7 +647,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
+    public ItemConfigurator SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
     
@@ -662,7 +662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
+    public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
     
@@ -757,9 +757,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public ItemConfigurator SetShardItem(string shardItem)
+    public ItemConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -824,7 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetTrashLootTypes(TrashLootType[] trashLootTypes)
+    public ItemConfigurator SetTrashLootTypes(TrashLootType[]? trashLootTypes)
     {
       return OnConfigureInternal(
           bp =>
@@ -863,7 +863,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ItemConfigurator SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
+    public ItemConfigurator SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
     
@@ -906,13 +906,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public ItemConfigurator AddItemEnchantmentEnableWhileEtudePlaying(
-        string etude = null,
+        string? etude = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
@@ -926,9 +926,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Implements(typeof(AddItemShowInfoCallback))]
     public ItemConfigurator AddItemShowInfoCallback(
         bool once = default,
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddItemShowInfoCallback();
       component.Once = once;
@@ -944,7 +944,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddBuildPointsReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BuildPointsReplacement();
       component.Cost = cost;
@@ -959,7 +959,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddConsumableEventBonusReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ConsumableEventBonusReplacement();
       component.Cost = cost;
@@ -970,13 +970,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyRecipe"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="recipe"><see cref="BlueprintCookingRecipe"/></param>
+    /// <param name="recipe"><see cref="Kingmaker.Controllers.Rest.Cooking.BlueprintCookingRecipe"/></param>
     [Generated]
     [Implements(typeof(CopyRecipe))]
     public ItemConfigurator AddCopyRecipe(
-        string recipe = null,
+        string? recipe = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CopyRecipe();
       component.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(recipe);
@@ -987,13 +987,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="CopyScroll"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customSpell"><see cref="BlueprintAbility"/></param>
+    /// <param name="customSpell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CopyScroll))]
     public ItemConfigurator AddCopyScroll(
-        string customSpell = null,
+        string? customSpell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CopyScroll();
       component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(customSpell);
@@ -1008,7 +1008,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IdentifySkillReplacement();
       component.m_SkillType = skillType;
@@ -1019,15 +1019,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDialog"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialogReference"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialogReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(ItemDialog))]
     public ItemConfigurator AddItemDialog(
-        ConditionsBuilder conditions = null,
-        LocalizedString itemName = null,
-        string dialogReference = null,
+        ConditionsBuilder? conditions = null,
+        LocalizedString? itemName = null,
+        string? dialogReference = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(itemName);
     
@@ -1042,16 +1042,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemDlcRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
-    /// <param name="changeTo"><see cref="BlueprintItem"/></param>
+    /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
+    /// <param name="changeTo"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemDlcRestriction))]
     public ItemConfigurator AddItemDlcRestriction(
-        string dlcReward = null,
-        string changeTo = null,
+        string? dlcReward = null,
+        string? changeTo = null,
         bool hideInVendors = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ItemDlcRestriction();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
@@ -1064,13 +1064,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="ItemPolymorph"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flagToCheck"><see cref="BlueprintUnlockableFlag"/></param>
-    /// <param name="polymorphItems"><see cref="BlueprintItem"/></param>
+    /// <param name="flagToCheck"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
+    /// <param name="polymorphItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemPolymorph))]
     public ItemConfigurator AddItemPolymorph(
-        string flagToCheck = null,
-        string[] polymorphItems = null)
+        string? flagToCheck = null,
+        string[]? polymorphItems = null)
     {
       var component = new ItemPolymorph();
       component.m_FlagToCheck = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flagToCheck);
@@ -1086,7 +1086,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddMoneyReplacement(
         long cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MoneyReplacement();
       component.Cost = cost;
@@ -1099,9 +1099,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     [Generated]
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public ItemConfigurator AddEnchantmentAddBuffWhileInStealth(
-        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
+        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
     
@@ -1118,7 +1118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
@@ -1129,11 +1129,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// Adds <see cref="WeaponTypeAttackEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(WeaponTypeAttackEnchant))]
     public ItemConfigurator AddWeaponTypeAttackEnchant(
-        string type = null,
+        string? type = null,
         int bonus = default,
         ModifierDescriptor descriptor = default)
     {

@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.Text"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetText(LocalizedString text)
+    public CueConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
     
@@ -104,9 +104,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.m_Listener"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="listener"><see cref="BlueprintUnit"/></param>
+    /// <param name="listener"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public CueConfigurator SetListener(string listener)
+    public CueConfigurator SetListener(string? listener)
     {
       return OnConfigureInternal(
           bp =>
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnShow(ActionsBuilder onShow)
+    public CueConfigurator SetOnShow(ActionsBuilder? onShow)
     {
       return OnConfigureInternal(
           bp =>
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.OnStop"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CueConfigurator SetOnStop(ActionsBuilder onStop)
+    public CueConfigurator SetOnStop(ActionsBuilder? onStop)
     {
       return OnConfigureInternal(
           bp =>
@@ -160,9 +160,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCue.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
-    public CueConfigurator SetAnswers(string[] answers)
+    public CueConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
           bp =>
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintCue.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public CueConfigurator AddToAnswers(params string[] answers)
     {
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintCue.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public CueConfigurator RemoveFromAnswers(params string[] answers)
     {

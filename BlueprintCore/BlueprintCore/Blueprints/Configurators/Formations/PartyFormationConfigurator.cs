@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// Sets <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator SetPositions(Vector2[] positions)
+    public PartyFormationConfigurator SetPositions(Vector2[]? positions)
     {
       return OnConfigureInternal(
           bp =>
@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// Sets <see cref="BlueprintPartyFormation.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public PartyFormationConfigurator SetName(LocalizedString name)
+    public PartyFormationConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     

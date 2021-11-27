@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlc.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcConfigurator SetDescription(LocalizedString description)
+    public DlcConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -47,9 +47,9 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
-    public DlcConfigurator SetRewardReferences(string[] rewardReferences)
+    public DlcConfigurator SetRewardReferences(string[]? rewardReferences)
     {
       return OnConfigureInternal(
           bp =>
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Adds to <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
     public DlcConfigurator AddToRewardReferences(params string[] rewardReferences)
     {
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Removes from <see cref="BlueprintDlc.RewardReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rewardReferences"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
     public DlcConfigurator RemoveFromRewardReferences(params string[] rewardReferences)
     {

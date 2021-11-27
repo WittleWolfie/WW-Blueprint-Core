@@ -21,9 +21,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
-    public TBuilder SetActions(string[] actions)
+    public TBuilder SetActions(string[]? actions)
     {
       return OnConfigureInternal(
           bp =>
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
     public TBuilder AddToActions(params string[] actions)
     {
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
     public TBuilder RemoveFromActions(params string[] actions)
     {
@@ -94,9 +94,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
-    public BrainConfigurator SetActions(string[] actions)
+    public BrainConfigurator SetActions(string[]? actions)
     {
       return OnConfigureInternal(
           bp =>
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
     public BrainConfigurator AddToActions(params string[] actions)
     {
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actions"><see cref="BlueprintAiAction"/></param>
+    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
     [Generated]
     public BrainConfigurator RemoveFromActions(params string[] actions)
     {

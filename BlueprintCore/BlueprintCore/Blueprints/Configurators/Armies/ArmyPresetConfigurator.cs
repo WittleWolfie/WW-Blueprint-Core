@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmyPresetConfigurator SetSquads(BlueprintArmyPreset.UnitAndCount[] squads)
+    public ArmyPresetConfigurator SetSquads(BlueprintArmyPreset.UnitAndCount[]? squads)
     {
       ValidateParam(squads);
     
@@ -87,9 +87,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintArmyPreset.m_Leader"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="leader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
-    public ArmyPresetConfigurator SetLeader(string leader)
+    public ArmyPresetConfigurator SetLeader(string? leader)
     {
       return OnConfigureInternal(
           bp =>

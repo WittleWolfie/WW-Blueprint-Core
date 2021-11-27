@@ -128,13 +128,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     [Implements(typeof(FixItemInInventory))]
     public static ActionsBuilder FixItemInInventory(
         this ActionsBuilder builder,
-        string addItem = null,
-        string removeItem = null,
+        string? addItem = null,
+        string? removeItem = null,
         bool equipItem = false)
     {
       var fix = ElementTool.Create<FixItemInInventory>();
-      fix.m_ToAdd = BlueprintTool.GetRef<BlueprintItemReference>(addItem);
-      fix.m_ToRemove = BlueprintTool.GetRef<BlueprintItemReference>(removeItem);
+      fix.m_ToAdd = BlueprintTool.GetRef<BlueprintItemReference>(addItem!);
+      fix.m_ToRemove = BlueprintTool.GetRef<BlueprintItemReference>(removeItem!);
       fix.m_TryEquip = equipItem;
       return builder.Add(fix);
     }
@@ -181,17 +181,17 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string feature,
         string progression,
         int level,
-        string archetype = null,
-        string selection = null,
-        string ignoreFeature = null)
+        string? archetype = null,
+        string? selection = null,
+        string? ignoreFeature = null)
     {
       var addFeature = ElementTool.Create<AddFeatureFromProgression>();
       addFeature.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       addFeature.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       addFeature.m_Level = level;
-      addFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
-      addFeature.m_Selection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(selection);
-      addFeature.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
+      addFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype!);
+      addFeature.m_Selection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(selection!);
+      addFeature.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature!);
       return builder.Add(addFeature);
     }
 
@@ -235,17 +235,17 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string feature,
         string progression,
         int level,
-        string archetype = null,
-        string ignoreFeature = null)
+        string? archetype = null,
+        string? ignoreFeature = null)
     {
       var removeFeature = ElementTool.Create<RemoveFeatureFromProgression>();
       removeFeature.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
       removeFeature.m_Progression =
           BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       removeFeature.m_Level = level;
-      removeFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
+      removeFeature.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype!);
       removeFeature.m_ExceptHasFeature =
-          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature!);
       return builder.Add(removeFeature);
     }
 
@@ -263,7 +263,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         string oldFeature,
         string newFeature,
         string progression,
-        string ignoreFeature = null)
+        string? ignoreFeature = null)
     {
       var replaceFeature = ElementTool.Create<ReplaceFeature>();
       replaceFeature.m_ToReplace = BlueprintTool.GetRef<BlueprintFeatureReference>(oldFeature);
@@ -271,7 +271,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       replaceFeature.m_FromProgression =
           BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       replaceFeature.m_ExceptHasFeature =
-          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature);
+          BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature!);
       return builder.Add(replaceFeature);
     }
 
@@ -344,14 +344,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// Adds <see cref="RemoveSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spell"><see cref="BlueprintAbility"/></param>
-    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(RemoveSpell))]
     public static ActionsBuilder RemoveSpell(
         this ActionsBuilder builder,
-        string spell = null,
-        string spellbook = null)
+        string? spell = null,
+        string? spellbook = null)
     {
       var element = ElementTool.Create<RemoveSpell>();
       element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
@@ -363,12 +363,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// Adds <see cref="RestoreClassFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(RestoreClassFeature))]
     public static ActionsBuilder RestoreClassFeature(
         this ActionsBuilder builder,
-        string feature = null)
+        string? feature = null)
     {
       var element = ElementTool.Create<RestoreClassFeature>();
       element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);

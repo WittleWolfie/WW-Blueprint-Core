@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsTeamsConfigurator SetTeams(List<CreditTeam> teams)
+    public CreditsTeamsConfigurator SetTeams(List<CreditTeam>? teams)
     {
       ValidateParam(teams);
     

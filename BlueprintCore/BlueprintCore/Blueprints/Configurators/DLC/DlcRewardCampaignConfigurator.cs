@@ -46,9 +46,9 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Sets <see cref="BlueprintDlcRewardCampaign.m_StartGamePreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startGamePreset"><see cref="BlueprintAreaPreset"/></param>
+    /// <param name="startGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
-    public DlcRewardCampaignConfigurator SetStartGamePreset(string startGamePreset)
+    public DlcRewardCampaignConfigurator SetStartGamePreset(string? startGamePreset)
     {
       return OnConfigureInternal(
           bp =>

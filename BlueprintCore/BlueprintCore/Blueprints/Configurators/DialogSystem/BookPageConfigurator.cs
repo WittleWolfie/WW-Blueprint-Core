@@ -34,9 +34,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
-    public BookPageConfigurator SetCues(string[] cues)
+    public BookPageConfigurator SetCues(string[]? cues)
     {
       return OnConfigureInternal(
           bp =>
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     public BookPageConfigurator AddToCues(params string[] cues)
     {
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     public BookPageConfigurator RemoveFromCues(params string[] cues)
     {
@@ -84,9 +84,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
-    public BookPageConfigurator SetAnswers(string[] answers)
+    public BookPageConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
           bp =>
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public BookPageConfigurator AddToAnswers(params string[] answers)
     {
@@ -114,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public BookPageConfigurator RemoveFromAnswers(params string[] answers)
     {
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.OnShow"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetOnShow(ActionsBuilder onShow)
+    public BookPageConfigurator SetOnShow(ActionsBuilder? onShow)
     {
       return OnConfigureInternal(
           bp =>
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintBookPage.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BookPageConfigurator SetTitle(LocalizedString title)
+    public BookPageConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
     

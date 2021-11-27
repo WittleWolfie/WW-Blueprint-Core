@@ -33,9 +33,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
+    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
     [Generated]
-    public MythicsSettingsConfigurator SetMythicsInfos(string[] mythicsInfos)
+    public MythicsSettingsConfigurator SetMythicsInfos(string[]? mythicsInfos)
     {
       return OnConfigureInternal(
           bp =>
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
+    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
     [Generated]
     public MythicsSettingsConfigurator AddToMythicsInfos(params string[] mythicsInfos)
     {
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicsInfos"><see cref="BlueprintMythicInfo"/></param>
+    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
     [Generated]
     public MythicsSettingsConfigurator RemoveFromMythicsInfos(params string[] mythicsInfos)
     {
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[] mythicAlignments)
+    public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[]? mythicAlignments)
     {
       ValidateParam(mythicAlignments);
     
@@ -126,9 +126,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicsSettings.m_TutorialChooseMythic"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="tutorialChooseMythic"><see cref="BlueprintTutorial"/></param>
+    /// <param name="tutorialChooseMythic"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
     [Generated]
-    public MythicsSettingsConfigurator SetTutorialChooseMythic(string tutorialChooseMythic)
+    public MythicsSettingsConfigurator SetTutorialChooseMythic(string? tutorialChooseMythic)
     {
       return OnConfigureInternal(
           bp =>
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MythicsSettingsConfigurator SetCharcaterLevelRestrictions(List<int> charcaterLevelRestrictions)
+    public MythicsSettingsConfigurator SetCharcaterLevelRestrictions(List<int>? charcaterLevelRestrictions)
     {
       return OnConfigureInternal(
           bp =>

@@ -43,12 +43,12 @@ namespace BlueprintCore.Utils
     /// </list>
     /// There are some special cases as well, such as <see cref="DealStatDamage"/>.
     /// </remarks>
-    public static List<string> Check(object obj)
+    public static List<string> Check(object? obj)
     {
       List<string> errors = new();
       if (obj == null) { return errors; }
 
-      var name = obj is Element ? (obj as Element).name : obj.GetType().ToString();
+      var name = obj is Element element ? element.name : obj.GetType().ToString();
       Check(obj, name);
 
       if (obj is Element && string.IsNullOrEmpty(name))
@@ -56,7 +56,7 @@ namespace BlueprintCore.Utils
         errors.Add(
             $"Element name missing: {obj.GetType()}. Create using ElementTool.Create().");
       }
-      else if (obj is BlueprintComponent) { (obj as BlueprintComponent).ApplyValidation(Context); }
+      else if (obj is BlueprintComponent component) { component.ApplyValidation(Context); }
 
       errors.AddRange(Context.Errors);
       Context.Clear();
@@ -67,14 +67,14 @@ namespace BlueprintCore.Utils
     {
       Context.ValidateFieldAttributes(obj, name);
 
-      if (obj is IValidated)
+      if (obj is IValidated validated)
       {
-        (obj as IValidated).Validate(Context, name ?? obj.GetType().ToString());
+        validated.Validate(Context, name ?? obj.GetType().ToString());
       }
-      else if (obj is DealStatDamage)
+      else if (obj is DealStatDamage damage)
       {
         // DealStatDamage implements Validate but not IValidated
-        (obj as DealStatDamage).Validate(Context, name ?? obj.GetType().ToString());
+        damage.Validate(Context, name ?? obj.GetType().ToString());
       }
     }
   }

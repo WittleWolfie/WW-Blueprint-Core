@@ -84,9 +84,9 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// Sets <see cref="BlueprintCorruptionRoot.m_GlobalMapBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMapBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="globalMapBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
-    public CorruptionRootConfigurator SetGlobalMapBuff(string globalMapBuff)
+    public CorruptionRootConfigurator SetGlobalMapBuff(string? globalMapBuff)
     {
       return OnConfigureInternal(
           bp =>

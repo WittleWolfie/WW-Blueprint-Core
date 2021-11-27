@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ConditionConsiderationConfigurator SetConditions(UnitCondition[] conditions)
+    public ConditionConsiderationConfigurator SetConditions(UnitCondition[]? conditions)
     {
       return OnConfigureInternal(
           bp =>

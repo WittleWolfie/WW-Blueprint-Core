@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     [Generated]
-    public ArmyPresetListConfigurator SetPresets(string[] presets)
+    public ArmyPresetListConfigurator SetPresets(string[]? presets)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     [Generated]
     public ArmyPresetListConfigurator AddToPresets(params string[] presets)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     [Generated]
     public ArmyPresetListConfigurator RemoveFromPresets(params string[] presets)
     {

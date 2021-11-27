@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// Sets <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CreditsRolesConfigurator SetRoles(List<CreditRole> roles)
+    public CreditsRolesConfigurator SetRoles(List<CreditRole>? roles)
     {
       ValidateParam(roles);
     

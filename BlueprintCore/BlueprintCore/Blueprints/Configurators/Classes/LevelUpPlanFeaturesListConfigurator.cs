@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
+    public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[]? features)
     {
       ValidateParam(features);
     

@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClassAdditionalVisualSettingsProgressionConfigurator SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
+    public ClassAdditionalVisualSettingsProgressionConfigurator SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[]? entries)
     {
       ValidateParam(entries);
     

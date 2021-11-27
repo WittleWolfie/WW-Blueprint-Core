@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintGenericPackLoot.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GenericPackLootConfigurator SetEntries(BlueprintGenericPackLoot.EntryType[] entries)
+    public GenericPackLootConfigurator SetEntries(BlueprintGenericPackLoot.EntryType[]? entries)
     {
       ValidateParam(entries);
     

@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonBoon.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonBoonConfigurator SetName(LocalizedString name)
+    public DungeonBoonConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonBoon.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonBoonConfigurator SetDescription(LocalizedString description)
+    public DungeonBoonConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         int step = default,
         int start = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BoonLogicExperience();
       component.Step = step;
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         int step = default,
         int start = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BoonLogicExperienceRate();
       component.Step = step;
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         int step = default,
         int start = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BoonLogicGold();
       component.Step = step;
@@ -162,12 +162,12 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     [Implements(typeof(BoonLogicItem))]
     public DungeonBoonConfigurator AddBoonLogicItem(
         bool isRandomItemOfType = default,
-        DungeonLootType[] type = null,
+        DungeonLootType[]? type = null,
         bool pack = default,
         int step = default,
         int start = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BoonLogicItem();
       component.IsRandomItemOfType = isRandomItemOfType;
@@ -182,18 +182,18 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Adds <see cref="BoonLogicPartyBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(BoonLogicPartyBuff))]
     public DungeonBoonConfigurator AddBoonLogicPartyBuff(
         DungeonBoonLogic.ProgressionType progression = default,
         bool mainCharacterOnly = default,
-        string buff = null,
+        string? buff = null,
         bool onlyRandomCharacterClass = default,
         int step = default,
         int start = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BoonLogicPartyBuff();
       component.m_Progression = progression;

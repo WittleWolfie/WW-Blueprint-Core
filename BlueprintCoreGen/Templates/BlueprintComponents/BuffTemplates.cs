@@ -18,7 +18,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// Adds <see cref="AddEffectFastHealing"/>
     /// </summary>
     [Implements(typeof(AddEffectFastHealing))]
-    public TBuilder FastHealing(int baseValue, ContextValue bonusValue = null)
+    public TBuilder FastHealing(int baseValue, ContextValue? bonusValue = null)
     {
       var fastHealing = new AddEffectFastHealing
       {
@@ -44,7 +44,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     public TBuilder BuffSleeping(
         int? wakeupPerceptionDC = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var sleeping = new BuffSleeping();
       if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }

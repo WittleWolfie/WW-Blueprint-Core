@@ -60,9 +60,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEvent.m_DependsOnQuest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dependsOnQuest"><see cref="BlueprintQuest"/></param>
+    /// <param name="dependsOnQuest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
     [Generated]
-    public KingdomEventConfigurator SetDependsOnQuest(string dependsOnQuest)
+    public KingdomEventConfigurator SetDependsOnQuest(string? dependsOnQuest)
     {
       return OnConfigureInternal(
           bp =>
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEvent.OnTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomEventConfigurator SetOnTrigger(ActionsBuilder onTrigger)
+    public KingdomEventConfigurator SetOnTrigger(ActionsBuilder? onTrigger)
     {
       return OnConfigureInternal(
           bp =>
@@ -151,10 +151,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         KingdomStats.Changes statsOnRecurrence,
         int recurrencePeriod = default,
         bool tickOnStart = default,
-        ActionsBuilder onRecurrence = null,
-        LocalizedString description = null,
+        ActionsBuilder? onRecurrence = null,
+        LocalizedString? description = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(statsOnRecurrence);
       ValidateParam(description);

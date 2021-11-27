@@ -33,9 +33,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.m_SingleHandCasts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="singleHandCasts"><see cref="CastsGroup"/></param>
+    /// <param name="singleHandCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
     [Generated]
-    public FxRootConfigurator SetSingleHandCasts(string singleHandCasts)
+    public FxRootConfigurator SetSingleHandCasts(string? singleHandCasts)
     {
       return OnConfigureInternal(
           bp =>
@@ -48,9 +48,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.m_DoubleHandCasts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doubleHandCasts"><see cref="CastsGroup"/></param>
+    /// <param name="doubleHandCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
     [Generated]
-    public FxRootConfigurator SetDoubleHandCasts(string doubleHandCasts)
+    public FxRootConfigurator SetDoubleHandCasts(string? doubleHandCasts)
     {
       return OnConfigureInternal(
           bp =>
@@ -63,9 +63,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.m_HeadCasts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="headCasts"><see cref="CastsGroup"/></param>
+    /// <param name="headCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
     [Generated]
-    public FxRootConfigurator SetHeadCasts(string headCasts)
+    public FxRootConfigurator SetHeadCasts(string? headCasts)
     {
       return OnConfigureInternal(
           bp =>
@@ -78,9 +78,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.m_TorsoCasts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="torsoCasts"><see cref="CastsGroup"/></param>
+    /// <param name="torsoCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
     [Generated]
-    public FxRootConfigurator SetTorsoCasts(string torsoCasts)
+    public FxRootConfigurator SetTorsoCasts(string? torsoCasts)
     {
       return OnConfigureInternal(
           bp =>
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.FallEventStrings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FxRootConfigurator SetFallEventStrings(string[] fallEventStrings)
+    public FxRootConfigurator SetFallEventStrings(string[]? fallEventStrings)
     {
       return OnConfigureInternal(
           bp =>
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.PoolEntries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FxRootConfigurator SetPoolEntries(PoolEntry[] poolEntries)
+    public FxRootConfigurator SetPoolEntries(PoolEntry[]? poolEntries)
     {
       ValidateParam(poolEntries);
     
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.OverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FxRootConfigurator SetOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[] overrideDeathPrefabsFromEnergy)
+    public FxRootConfigurator SetOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? overrideDeathPrefabsFromEnergy)
     {
       ValidateParam(overrideDeathPrefabsFromEnergy);
     
@@ -434,9 +434,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.FootprintsReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="footprintsReferences"><see cref="BlueprintFootprintType"/></param>
+    /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
     [Generated]
-    public FxRootConfigurator SetFootprintsReferences(string[] footprintsReferences)
+    public FxRootConfigurator SetFootprintsReferences(string[]? footprintsReferences)
     {
       return OnConfigureInternal(
           bp =>
@@ -449,7 +449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Adds to <see cref="FxRoot.FootprintsReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="footprintsReferences"><see cref="BlueprintFootprintType"/></param>
+    /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
     [Generated]
     public FxRootConfigurator AddToFootprintsReferences(params string[] footprintsReferences)
     {
@@ -464,7 +464,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Removes from <see cref="FxRoot.FootprintsReferences"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="footprintsReferences"><see cref="BlueprintFootprintType"/></param>
+    /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
     [Generated]
     public FxRootConfigurator RemoveFromFootprintsReferences(params string[] footprintsReferences)
     {
@@ -484,7 +484,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.FootprintsLocators"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FxRootConfigurator SetFootprintsLocators(FxRoot.FootprintLocators[] footprintsLocators)
+    public FxRootConfigurator SetFootprintsLocators(FxRoot.FootprintLocators[]? footprintsLocators)
     {
       ValidateParam(footprintsLocators);
     
@@ -540,7 +540,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// Sets <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FxRootConfigurator SetCachedOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
+    public FxRootConfigurator SetCachedOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? cachedOverrideDeathPrefabsFromEnergy)
     {
       ValidateParam(cachedOverrideDeathPrefabsFromEnergy);
     

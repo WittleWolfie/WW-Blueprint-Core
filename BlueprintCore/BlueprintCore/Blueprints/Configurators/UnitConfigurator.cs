@@ -61,9 +61,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_Type"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintUnitType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
     [Generated]
-    public UnitConfigurator SetType(string type)
+    public UnitConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
           bp =>
@@ -143,9 +143,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_Race"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="race"><see cref="BlueprintRace"/></param>
+    /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
     [Generated]
-    public UnitConfigurator SetRace(string race)
+    public UnitConfigurator SetRace(string? race)
     {
       return OnConfigureInternal(
           bp =>
@@ -171,9 +171,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_Portrait"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="portrait"><see cref="BlueprintPortrait"/></param>
+    /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
     [Generated]
-    public UnitConfigurator SetPortrait(string portrait)
+    public UnitConfigurator SetPortrait(string? portrait)
     {
       return OnConfigureInternal(
           bp =>
@@ -201,9 +201,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_CustomizationPreset"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customizationPreset"><see cref="UnitCustomizationPreset"/></param>
+    /// <param name="customizationPreset"><see cref="Kingmaker.UnitLogic.Customization.UnitCustomizationPreset"/></param>
     [Generated]
-    public UnitConfigurator SetCustomizationPreset(string customizationPreset)
+    public UnitConfigurator SetCustomizationPreset(string? customizationPreset)
     {
       return OnConfigureInternal(
           bp =>
@@ -216,9 +216,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_RandomParameters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="randomParameters"><see cref="RandomParameters"/></param>
+    /// <param name="randomParameters"><see cref="Kingmaker.UnitLogic.Customization.RandomParameters"/></param>
     [Generated]
-    public UnitConfigurator SetRandomParameters(string randomParameters)
+    public UnitConfigurator SetRandomParameters(string? randomParameters)
     {
       return OnConfigureInternal(
           bp =>
@@ -246,9 +246,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_Faction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="faction"><see cref="BlueprintFaction"/></param>
+    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public UnitConfigurator SetFaction(string faction)
+    public UnitConfigurator SetFaction(string? faction)
     {
       return OnConfigureInternal(
           bp =>
@@ -276,9 +276,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_StartingInventory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingInventory"><see cref="BlueprintItem"/></param>
+    /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public UnitConfigurator SetStartingInventory(string[] startingInventory)
+    public UnitConfigurator SetStartingInventory(string[]? startingInventory)
     {
       return OnConfigureInternal(
           bp =>
@@ -291,7 +291,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnit.m_StartingInventory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingInventory"><see cref="BlueprintItem"/></param>
+    /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public UnitConfigurator AddToStartingInventory(params string[] startingInventory)
     {
@@ -306,7 +306,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnit.m_StartingInventory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingInventory"><see cref="BlueprintItem"/></param>
+    /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public UnitConfigurator RemoveFromStartingInventory(params string[] startingInventory)
     {
@@ -326,9 +326,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_Brain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="brain"><see cref="BlueprintBrain"/></param>
+    /// <param name="brain"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
     [Generated]
-    public UnitConfigurator SetBrain(string brain)
+    public UnitConfigurator SetBrain(string? brain)
     {
       return OnConfigureInternal(
           bp =>
@@ -341,9 +341,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.AlternativeBrains"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="alternativeBrains"><see cref="BlueprintBrain"/></param>
+    /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
     [Generated]
-    public UnitConfigurator SetAlternativeBrains(string[] alternativeBrains)
+    public UnitConfigurator SetAlternativeBrains(string[]? alternativeBrains)
     {
       return OnConfigureInternal(
           bp =>
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnit.AlternativeBrains"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="alternativeBrains"><see cref="BlueprintBrain"/></param>
+    /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
     [Generated]
     public UnitConfigurator AddToAlternativeBrains(params string[] alternativeBrains)
     {
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnit.AlternativeBrains"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="alternativeBrains"><see cref="BlueprintBrain"/></param>
+    /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
     [Generated]
     public UnitConfigurator RemoveFromAlternativeBrains(params string[] alternativeBrains)
     {
@@ -538,9 +538,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_AdditionalTemplates"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="additionalTemplates"><see cref="BlueprintUnitTemplate"/></param>
+    /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
     [Generated]
-    public UnitConfigurator SetAdditionalTemplates(string[] additionalTemplates)
+    public UnitConfigurator SetAdditionalTemplates(string[]? additionalTemplates)
     {
       return OnConfigureInternal(
           bp =>
@@ -553,7 +553,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnit.m_AdditionalTemplates"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="additionalTemplates"><see cref="BlueprintUnitTemplate"/></param>
+    /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
     [Generated]
     public UnitConfigurator AddToAdditionalTemplates(params string[] additionalTemplates)
     {
@@ -568,7 +568,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnit.m_AdditionalTemplates"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="additionalTemplates"><see cref="BlueprintUnitTemplate"/></param>
+    /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
     [Generated]
     public UnitConfigurator RemoveFromAdditionalTemplates(params string[] additionalTemplates)
     {
@@ -588,9 +588,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnit.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public UnitConfigurator SetAddFacts(string[] addFacts)
+    public UnitConfigurator SetAddFacts(string[]? addFacts)
     {
       return OnConfigureInternal(
           bp =>
@@ -603,7 +603,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnit.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitConfigurator AddToAddFacts(params string[] addFacts)
     {
@@ -618,7 +618,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnit.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitConfigurator RemoveFromAddFacts(params string[] addFacts)
     {
@@ -679,13 +679,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="UnitUpgraderComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="upgraders"><see cref="BlueprintUnitUpgrader"/></param>
+    /// <param name="upgraders"><see cref="Kingmaker.EntitySystem.Persistence.Versioning.BlueprintUnitUpgrader"/></param>
     [Generated]
     [Implements(typeof(UnitUpgraderComponent))]
     public UnitConfigurator AddUnitUpgraderComponent(
-        string[] upgraders = null,
+        string[]? upgraders = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UnitUpgraderComponent();
       component.m_Upgraders = upgraders.Select(name => BlueprintTool.GetRef<BlueprintUnitUpgrader.Reference>(name)).ToArray();
@@ -696,35 +696,35 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="CampingSpecialAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="campCutscene"><see cref="Cutscene"/></param>
-    /// <param name="selfBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="partyBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="partyBuffDuringCamp"><see cref="BlueprintBuff"/></param>
-    /// <param name="selfBuffOnRandomEncounter"><see cref="BlueprintBuff"/></param>
-    /// <param name="partyBuffOnRandomEncounter"><see cref="BlueprintBuff"/></param>
-    /// <param name="enemiesBuffOnRandomEncounter"><see cref="BlueprintBuff"/></param>
-    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="campCutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
+    /// <param name="selfBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="partyBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="partyBuffDuringCamp"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="selfBuffOnRandomEncounter"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="partyBuffOnRandomEncounter"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="enemiesBuffOnRandomEncounter"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
     [Implements(typeof(CampingSpecialAbility))]
     public UnitConfigurator AddCampingSpecialAbility(
-        LocalizedString name = null,
-        LocalizedString description = null,
+        LocalizedString? name = null,
+        LocalizedString? description = null,
         CampPositionType campPositionType = default,
-        string campCutscene = null,
-        string selfBuff = null,
-        string partyBuff = null,
-        string partyBuffDuringCamp = null,
-        string selfBuffOnRandomEncounter = null,
-        string partyBuffOnRandomEncounter = null,
-        string enemiesBuffOnRandomEncounter = null,
+        string? campCutscene = null,
+        string? selfBuff = null,
+        string? partyBuff = null,
+        string? partyBuffDuringCamp = null,
+        string? selfBuffOnRandomEncounter = null,
+        string? partyBuffOnRandomEncounter = null,
+        string? enemiesBuffOnRandomEncounter = null,
         int minEnemyRandomEncounterBuffs = default,
         int maxEnemyRandomEncounterBuffs = default,
         float randomEncounterBuffsChance = default,
         int extraRations = default,
         CampingSpecialCustomMechanics customMechanics = default,
-        string dlcReward = null,
+        string? dlcReward = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(name);
       ValidateParam(description);
@@ -753,13 +753,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="OverrideAnimationRaceComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintRace"><see cref="BlueprintRace"/></param>
+    /// <param name="blueprintRace"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
     [Generated]
     [Implements(typeof(OverrideAnimationRaceComponent))]
     public UnitConfigurator AddOverrideAnimationRaceComponent(
-        string blueprintRace = null,
+        string? blueprintRace = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new OverrideAnimationRaceComponent();
       component.BlueprintRace = BlueprintTool.GetRef<BlueprintRaceReference>(blueprintRace);
@@ -770,13 +770,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="DualCompanionComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="pairCompanion"><see cref="BlueprintUnit"/></param>
+    /// <param name="pairCompanion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(DualCompanionComponent))]
     public UnitConfigurator AddDualCompanionComponent(
-        string pairCompanion = null,
+        string? pairCompanion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DualCompanionComponent();
       component.m_PairCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(pairCompanion);
@@ -790,7 +790,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(LockedCompanionComponent))]
     public UnitConfigurator AddLockedCompanionComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new LockedCompanionComponent();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -802,10 +802,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(UnitAggroFilter))]
     public UnitConfigurator AddUnitAggroFilter(
-        ConditionsBuilder filterCondition = null,
-        ActionsBuilder actionsOnAggro = null,
+        ConditionsBuilder? filterCondition = null,
+        ActionsBuilder? actionsOnAggro = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UnitAggroFilter();
       component.FilterCondition = filterCondition?.Build() ?? Constants.Empty.Conditions;
@@ -820,7 +820,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(DisableAllFx))]
     public UnitConfigurator AddDisableAllFx(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DisableAllFx();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -830,13 +830,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ReplaceUnitBlueprintForRespec"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ReplaceUnitBlueprintForRespec))]
     public UnitConfigurator AddReplaceUnitBlueprintForRespec(
-        string blueprint = null,
+        string? blueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ReplaceUnitBlueprintForRespec();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
@@ -850,7 +850,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(UnitIsStoryCompanion))]
     public UnitConfigurator AddUnitIsStoryCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UnitIsStoryCompanion();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -860,13 +860,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddClassLevelsToPets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintPet"><see cref="BlueprintPet"/></param>
+    /// <param name="blueprintPet"><see cref="Kingmaker.Blueprints.BlueprintPet"/></param>
     [Generated]
     [Implements(typeof(AddClassLevelsToPets))]
     public UnitConfigurator AddClassLevelsToPets(
-        string blueprintPet = null,
+        string? blueprintPet = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddClassLevelsToPets();
       component.m_BlueprintPet = BlueprintTool.GetRef<BlueprintPet.Reference>(blueprintPet);
@@ -881,7 +881,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddClassLevelLimit(
         int levelLimit = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ClassLevelLimit();
       component.LevelLimit = levelLimit;
@@ -896,7 +896,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddMythicLevelLimit(
         int levelLimit = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MythicLevelLimit();
       component.LevelLimit = levelLimit;
@@ -915,7 +915,7 @@ namespace BlueprintCore.Blueprints.Configurators
         float modifier = default,
         bool dummy = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
     
@@ -934,10 +934,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(PregenUnitComponent))]
     public UnitConfigurator AddPregenUnitComponent(
-        LocalizedString pregenName = null,
-        LocalizedString pregenDescription = null,
-        LocalizedString pregenClass = null,
-        LocalizedString pregenRole = null)
+        LocalizedString? pregenName = null,
+        LocalizedString? pregenDescription = null,
+        LocalizedString? pregenClass = null,
+        LocalizedString? pregenRole = null)
     {
       ValidateParam(pregenName);
       ValidateParam(pregenDescription);
@@ -958,14 +958,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ActionsOnClick))]
     public UnitConfigurator AddActionsOnClick(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         float overrideDistance = default,
-        ConditionsBuilder conditions = null,
+        ConditionsBuilder? conditions = null,
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActionsOnClick();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -983,15 +983,15 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(BarkOnClick))]
     public UnitConfigurator AddBarkOnClick(
-        LocalizedString bark = null,
+        LocalizedString? bark = null,
         bool showOnUser = default,
         float overrideDistance = default,
-        ConditionsBuilder conditions = null,
+        ConditionsBuilder? conditions = null,
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bark);
     
@@ -1010,19 +1010,19 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="DialogOnClick"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
+    /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
     [Implements(typeof(DialogOnClick))]
     public UnitConfigurator AddDialogOnClick(
-        string dialog = null,
-        ActionsBuilder noDialogActions = null,
+        string? dialog = null,
+        ActionsBuilder? noDialogActions = null,
         float overrideDistance = default,
-        ConditionsBuilder conditions = null,
+        ConditionsBuilder? conditions = null,
         bool triggerOnApproach = default,
         bool triggerOnParty = default,
         float cooldown = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DialogOnClick();
       component.m_Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
@@ -1039,11 +1039,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddAbilityToCharacterComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="abilities"><see cref="BlueprintAbility"/></param>
+    /// <param name="abilities"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddAbilityToCharacterComponent))]
     public UnitConfigurator AddAbilityToCharacterComponent(
-        string[] abilities = null)
+        string[]? abilities = null)
     {
       var component = new AddAbilityToCharacterComponent();
       component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
@@ -1058,7 +1058,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddAmbushBehaviour(
         float joinCombatDisatnce = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddAmbushBehaviour();
       component.JoinCombatDisatnce = joinCombatDisatnce;
@@ -1069,11 +1069,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddLoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="loot"><see cref="BlueprintUnitLoot"/></param>
+    /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
     [Generated]
     [Implements(typeof(AddLoot))]
     public UnitConfigurator AddLoot(
-        string loot = null)
+        string? loot = null)
     {
       var component = new AddLoot();
       component.m_Loot = BlueprintTool.GetRef<BlueprintUnitLootReference>(loot);
@@ -1084,11 +1084,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddLootToVendorTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="loot"><see cref="BlueprintUnitLoot"/></param>
+    /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
     [Generated]
     [Implements(typeof(AddLootToVendorTable))]
     public UnitConfigurator AddLootToVendorTable(
-        string loot = null)
+        string? loot = null)
     {
       var component = new AddLootToVendorTable();
       component.m_Loot = BlueprintTool.GetRef<BlueprintUnitLootReference>(loot);
@@ -1101,9 +1101,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AddPostLoadActions))]
     public UnitConfigurator AddPostLoadActions(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddPostLoadActions();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1114,13 +1114,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddSharedVendor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="m_Table"><see cref="BlueprintSharedVendorTable"/></param>
+    /// <param name="m_Table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
     [Generated]
     [Implements(typeof(AddSharedVendor))]
     public UnitConfigurator AddSharedVendor(
-        string m_Table = null,
+        string? m_Table = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddSharedVendor();
       component.m_m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(m_Table);
@@ -1138,9 +1138,9 @@ namespace BlueprintCore.Blueprints.Configurators
         bool isRanged = default,
         bool isCaster = default,
         AddTags.DifficultyRequirement difficultyRequirement = default,
-        UnitTag[] tags = null,
+        UnitTag[]? tags = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddTags();
       component.UseInRandomEncounter = useInRandomEncounter;
@@ -1156,11 +1156,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddVendorItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="loot"><see cref="BlueprintUnitLoot"/></param>
+    /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
     [Generated]
     [Implements(typeof(AddVendorItems))]
     public UnitConfigurator AddVendorItems(
-        string loot = null)
+        string? loot = null)
     {
       var component = new AddVendorItems();
       component.m_Loot = BlueprintTool.GetRef<BlueprintUnitLootReference>(loot);
@@ -1174,7 +1174,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ChangeVendorPrices))]
     public UnitConfigurator AddChangeVendorPrices(
         Dictionary<BlueprintItem,long> itemsToCosts,
-        ChangeVendorPrices.Entry[] priceOverrides = null)
+        ChangeVendorPrices.Entry[]? priceOverrides = null)
     {
       ValidateParam(priceOverrides);
       ValidateParam(itemsToCosts);
@@ -1193,7 +1193,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddPregenDollSettings(
         PregenDollSettings.Entry defaultValue,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(defaultValue);
     
@@ -1206,11 +1206,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddActivatableAbilityComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="activatableAbilities"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="activatableAbilities"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(AddActivatableAbilityComponent))]
     public UnitConfigurator AddActivatableAbilityComponent(
-        string[] activatableAbilities = null)
+        string[]? activatableAbilities = null)
     {
       var component = new AddActivatableAbilityComponent();
       component.m_ActivatableAbilities = activatableAbilities.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToArray();
@@ -1231,13 +1231,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="FixUnitOnPostLoad_AddNewFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="newFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="newFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FixUnitOnPostLoad_AddNewFact))]
     public UnitConfigurator AddFixUnitOnPostLoad_AddNewFact(
         string taskId,
         string comment,
-        string newFact = null)
+        string? newFact = null)
     {
       var component = new FixUnitOnPostLoad_AddNewFact();
       component.m_NewFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(newFact);
@@ -1250,13 +1250,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ReturnVendorTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="table"><see cref="BlueprintSharedVendorTable"/></param>
+    /// <param name="table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
     [Generated]
     [Implements(typeof(ReturnVendorTable))]
     public UnitConfigurator AddReturnVendorTable(
         string taskId,
         string comment,
-        string table = null)
+        string? table = null)
     {
       var component = new ReturnVendorTable();
       component.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(table);
@@ -1271,12 +1271,12 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ArmyCriticalDamage))]
     public UnitConfigurator AddArmyCriticalDamage(
-        ContextValue chanceBase = null,
-        ContextValue chanceMultiplier = null,
+        ContextValue? chanceBase = null,
+        ContextValue? chanceMultiplier = null,
         float critBonus = default,
         float critMultiplier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(chanceBase);
       ValidateParam(chanceMultiplier);
@@ -1297,7 +1297,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddArmySwitchWeaponSlotInMelee(
         int slotIndexForMelee = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmySwitchWeaponSlotInMelee();
       component.m_SlotIndexForMelee = slotIndexForMelee;
@@ -1332,14 +1332,14 @@ namespace BlueprintCore.Blueprints.Configurators
         Sprite icon,
         KingdomResourcesAmount recruitmentPrice,
         KingdomResourcesAmount supportPrice,
-        LocalizedString description = null,
+        LocalizedString? description = null,
         bool isHaveMorale = default,
         int startMorale = default,
         int maxExtraActions = default,
         int mercenariesBaseGrowths = default,
         ArmyProperties properties = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(icon);
       ValidateParam(description);
@@ -1365,7 +1365,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator AddArmyUnitSpellPower(
         int spellPower = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmyUnitSpellPower();
       component.m_SpellPower = spellPower;
@@ -1376,11 +1376,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="BuffOnEntityCreated"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(BuffOnEntityCreated))]
     public UnitConfigurator AddBuffOnEntityCreated(
-        string buff = null)
+        string? buff = null)
     {
       var component = new BuffOnEntityCreated();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -1391,13 +1391,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddEquipmentToPet"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="items"><see cref="BlueprintItem"/></param>
+    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(AddEquipmentToPet))]
     public UnitConfigurator AddEquipmentToPet(
-        string[] items = null,
+        string[]? items = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddEquipmentToPet();
       component.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();

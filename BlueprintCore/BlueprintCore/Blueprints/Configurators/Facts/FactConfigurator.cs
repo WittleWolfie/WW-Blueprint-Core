@@ -27,11 +27,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
     [Implements(typeof(AddFactContextActions))]
     public TBuilder AddFactContextActions(
-        ActionsBuilder onActivated = null,
-        ActionsBuilder onDeactivated = null,
-        ActionsBuilder onNewRound = null,
+        ActionsBuilder? onActivated = null,
+        ActionsBuilder? onDeactivated = null,
+        ActionsBuilder? onNewRound = null,
         ComponentMerge behavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       if (onActivated == null && onDeactivated == null && onNewRound == null)
       {
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var source = current as AddFactContextActions;
       var target = other as AddFactContextActions;
-      source.Activated.Actions = CommonTool.Append(source.Activated.Actions, target.Activated.Actions);
+      source!.Activated.Actions = CommonTool.Append(source.Activated.Actions, target!.Activated.Actions);
       source.Deactivated.Actions = CommonTool.Append(source.Deactivated.Actions, target.Deactivated.Actions);
       source.NewRound.Actions = CommonTool.Append(source.NewRound.Actions, target.NewRound.Actions);
     }
@@ -61,11 +61,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Adds <see cref="ComponentsList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="list"><see cref="BlueprintComponentList"/></param>
+    /// <param name="list"><see cref="Kingmaker.Blueprints.BlueprintComponentList"/></param>
     [Generated]
     [Implements(typeof(ComponentsList))]
     public TBuilder AddComponentsList(
-        string list = null)
+        string? list = null)
     {
       var component = new ComponentsList();
       component.m_List = BlueprintTool.GetRef<BlueprintComponentListReference>(list);
@@ -78,9 +78,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(AddBuffActions))]
     public TBuilder AddBuffActions(
-        ActionsBuilder activated = null,
-        ActionsBuilder deactivated = null,
-        ActionsBuilder newRound = null)
+        ActionsBuilder? activated = null,
+        ActionsBuilder? deactivated = null,
+        ActionsBuilder? newRound = null)
     {
       var component = new AddBuffActions();
       component.Activated = activated?.Build() ?? Constants.Empty.Actions;

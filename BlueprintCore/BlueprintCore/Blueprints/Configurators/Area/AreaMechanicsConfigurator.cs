@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaMechanics.Area"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public AreaMechanicsConfigurator SetArea(string area)
+    public AreaMechanicsConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
           bp =>

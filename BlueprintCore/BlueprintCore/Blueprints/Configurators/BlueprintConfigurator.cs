@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators
     private bool Configured = false;
     private readonly StringBuilder ValidationWarnings = new();
 
-    protected readonly TBuilder Self = null;
+    protected readonly TBuilder Self;
     protected readonly string Name;
     protected readonly T Blueprint;
 
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddUniqueComponent(
         BlueprintComponent component,
         ComponentMerge behavior = ComponentMerge.Fail,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       UniqueComponents.Add(new UniqueComponent(component, behavior, merge));
       return Self;
@@ -350,14 +350,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="DlcCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
     [Implements(typeof(DlcCondition))]
     public TBuilder AddDlcCondition(
-        string dlcReward = null,
+        string? dlcReward = null,
         bool hideInstead = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DlcCondition();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool isAvailableInEditor = default,
         bool isAvailableInDevBuild = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DlcStoreCheat();
       component.m_IsAvailableInEditor = isAvailableInEditor;
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreEpic(
         string epicId,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DlcStoreEpic();
       component.m_EpicId = epicId;
@@ -405,7 +405,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreGog(
         ulong gogId = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DlcStoreGog();
       component.m_GogId = gogId;
@@ -420,7 +420,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDlcStoreSteam(
         uint steamId = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DlcStoreSteam();
       component.m_SteamId = steamId;
@@ -431,14 +431,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddBuffOnCorruptionClear"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AddBuffOnCorruptionClear))]
     public TBuilder AddBuffOnCorruptionClear(
-        string buff = null,
+        string? buff = null,
         int targetBuffRank = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddBuffOnCorruptionClear();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -452,9 +452,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AddPlayerLeaveCombatTrigger))]
     public TBuilder AddPlayerLeaveCombatTrigger(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddPlayerLeaveCombatTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -465,14 +465,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ReplaceDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(ReplaceDamageDice))]
     public TBuilder AddReplaceDamageDice(
-        string weaponType = null,
-        ReplaceDamageDice.Progression[] progressions = null,
+        string? weaponType = null,
+        ReplaceDamageDice.Progression[]? progressions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(progressions);
     
@@ -491,8 +491,8 @@ namespace BlueprintCore.Blueprints.Configurators
         string name,
         PropertySettings settings,
         int baseValue = default,
-        UnitPropertyComponent.ExternalProperty[] addExternalProperties = null,
-        string[] addLocalProperties = null)
+        UnitPropertyComponent.ExternalProperty[]? addExternalProperties = null,
+        string[]? addLocalProperties = null)
     {
       ValidateParam(settings);
       ValidateParam(addExternalProperties);
@@ -519,7 +519,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool checkWeapon = default,
         WeaponCategory weaponCategory = default,
         bool affectFriendlyTouchSpells = default,
-        ActionsBuilder action = null)
+        ActionsBuilder? action = null)
     {
       var component = new AddInitiatorAttackRollTrigger();
       component.OnlyHit = onlyHit;
@@ -537,7 +537,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AddInitiatorAttackWithWeaponTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(AddInitiatorAttackWithWeaponTrigger))]
     public TBuilder AddInitiatorAttackWithWeaponTrigger(
@@ -553,7 +553,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool notCriticalHit = default,
         bool onlySneakAttack = default,
         bool notSneakAttack = default,
-        string weaponType = null,
+        string? weaponType = null,
         bool checkWeaponCategory = default,
         WeaponCategory category = default,
         bool checkWeaponGroup = default,
@@ -569,7 +569,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool notExtraAttack = default,
         bool onCharge = default,
         bool ignoreAutoHit = default,
-        ActionsBuilder action = null)
+        ActionsBuilder? action = null)
     {
       var component = new AddInitiatorAttackWithWeaponTrigger();
       component.WaitForAttackResolve = waitForAttackResolve;
@@ -616,12 +616,12 @@ namespace BlueprintCore.Blueprints.Configurators
         bool notReach = default,
         bool checkCategory = default,
         bool not = default,
-        WeaponCategory[] categories = null,
+        WeaponCategory[]? categories = null,
         bool affectFriendlyTouchSpells = default,
-        ActionsBuilder actionsOnAttacker = null,
-        ActionsBuilder actionOnSelf = null,
+        ActionsBuilder? actionsOnAttacker = null,
+        ActionsBuilder? actionOnSelf = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddTargetAttackRollTrigger();
       component.OnlyHit = onlyHit;
@@ -647,10 +647,10 @@ namespace BlueprintCore.Blueprints.Configurators
         bool onlyMelee = default,
         bool notReach = default,
         bool checkDescriptor = default,
-        ActionsBuilder actionsOnAttacker = null,
-        ActionsBuilder actionOnSelf = null,
+        ActionsBuilder? actionsOnAttacker = null,
+        ActionsBuilder? actionOnSelf = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddTargetBeforeAttackRollTrigger();
       component.OnlyMelee = onlyMelee;
@@ -666,7 +666,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="AdditionalDiceOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weaponType"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(AdditionalDiceOnAttack))]
     public TBuilder AdditionalDiceOnAttack(
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool notCriticalHit = default,
         bool onlySneakAttack = default,
         bool notSneakAttack = default,
-        string weaponType = null,
+        string? weaponType = null,
         bool checkWeaponCategory = default,
         WeaponCategory category = default,
         bool checkWeaponGroup = default,
@@ -694,11 +694,11 @@ namespace BlueprintCore.Blueprints.Configurators
         bool duelistWeapon = default,
         bool notExtraAttack = default,
         bool onCharge = default,
-        ConditionsBuilder initiatorConditions = null,
-        ConditionsBuilder targetConditions = null,
+        ConditionsBuilder? initiatorConditions = null,
+        ConditionsBuilder? targetConditions = null,
         bool randomizeDamage = default,
-        ContextDiceValue value = null,
-        List<AdditionalDiceOnAttack.DamageEntry> damageEntries = null)
+        ContextDiceValue? value = null,
+        List<AdditionalDiceOnAttack.DamageEntry>? damageEntries = null)
     {
       ValidateParam(value);
       ValidateParam(damageType);
@@ -809,19 +809,19 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ArmyBattleResultsTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="demonArmies"><see cref="BlueprintArmyPreset"/></param>
-    /// <param name="crusadeLeader"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="demonArmies"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
+    /// <param name="crusadeLeader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
     [Implements(typeof(ArmyBattleResultsTrigger))]
     public TBuilder AddArmyBattleResultsTrigger(
-        ActionsBuilder onCrusadersVictory = null,
-        ActionsBuilder onDemonsVictory = null,
+        ActionsBuilder? onCrusadersVictory = null,
+        ActionsBuilder? onDemonsVictory = null,
         RegionId assignedRegion = default,
         bool demonsFromList = default,
-        string[] demonArmies = null,
+        string[]? demonArmies = null,
         ArmyType demonsArmyType = default,
         bool specificCrusadeLeader = default,
-        string crusadeLeader = null)
+        string? crusadeLeader = null)
     {
       var component = new ArmyBattleResultsTrigger();
       component.OnCrusadersVictory = onCrusadersVictory?.Build() ?? Constants.Empty.Actions;
@@ -839,12 +839,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="KingdomRegionClaimedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="regions"><see cref="BlueprintRegion"/></param>
+    /// <param name="regions"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomRegionClaimedTrigger))]
     public TBuilder AddKingdomRegionClaimedTrigger(
-        string[] regions = null,
-        ActionsBuilder actions = null)
+        string[]? regions = null,
+        ActionsBuilder? actions = null)
     {
       var component = new KingdomRegionClaimedTrigger();
       component.m_Regions = regions.Select(name => BlueprintTool.GetRef<BlueprintRegionReference>(name)).ToArray();
@@ -856,15 +856,15 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SettlementSiegeTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settlementLocation"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="settlementLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(SettlementSiegeTrigger))]
     public TBuilder AddSettlementSiegeTrigger(
         bool specificLocation = default,
-        string settlementLocation = null,
-        ActionsBuilder onSiegeStart = null,
-        ActionsBuilder onSiegeEnd = null,
-        ActionsBuilder onSettlementDestroyed = null)
+        string? settlementLocation = null,
+        ActionsBuilder? onSiegeStart = null,
+        ActionsBuilder? onSiegeEnd = null,
+        ActionsBuilder? onSettlementDestroyed = null)
     {
       var component = new SettlementSiegeTrigger();
       component.m_SpecificLocation = specificLocation;
@@ -879,7 +879,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ArmyUnitRecruitedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armyUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="armyUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ArmyUnitRecruitedTrigger))]
     public TBuilder AddArmyUnitRecruitedTrigger(
@@ -887,11 +887,11 @@ namespace BlueprintCore.Blueprints.Configurators
         bool byTag = default,
         ArmyProperties armyTag = default,
         bool byUnits = default,
-        string[] armyUnits = null,
+        string[]? armyUnits = null,
         int minCount = default,
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmyUnitRecruitedTrigger();
       component.m_MercenariesFilter = mercenariesFilter;
@@ -910,9 +910,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(LeaderRecruitedTrigger))]
     public TBuilder AddLeaderRecruitedTrigger(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new LeaderRecruitedTrigger();
       component.m_Action = action?.Build() ?? Constants.Empty.Actions;
@@ -925,9 +925,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(SummonUnitsAfterArmyBattle))]
     public TBuilder AddSummonUnitsAfterArmyBattle(
-        SummonUnitsAfterArmyBattle.SummonGroup[] groups = null,
+        SummonUnitsAfterArmyBattle.SummonGroup[]? groups = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(groups);
     
@@ -944,7 +944,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddArmyAbilityTags(
         ArmyProperties properties = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmyAbilityTags();
       component.Properties = properties;
@@ -955,12 +955,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="GarrisonDefeatedTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(GarrisonDefeatedTrigger))]
     public TBuilder AddGarrisonDefeatedTrigger(
-        string location = null,
-        ActionsBuilder actions = null)
+        string? location = null,
+        ActionsBuilder? actions = null)
     {
       var component = new GarrisonDefeatedTrigger();
       component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
@@ -972,12 +972,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PlayerVisitGlobalMapLocationTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(PlayerVisitGlobalMapLocationTrigger))]
     public TBuilder AddPlayerVisitGlobalMapLocationTrigger(
-        string location = null,
-        ActionsBuilder actions = null)
+        string? location = null,
+        ActionsBuilder? actions = null)
     {
       var component = new PlayerVisitGlobalMapLocationTrigger();
       component.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
@@ -993,7 +993,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddOnIsleStateEnterTrigger(
         IsleEvaluator isleEvaluator,
         string targetState,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       ValidateParam(isleEvaluator);
     
@@ -1012,7 +1012,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddOnIsleStateExitTrigger(
         IsleEvaluator isleEvaluator,
         string targetState,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       ValidateParam(isleEvaluator);
     
@@ -1031,8 +1031,8 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddActivateTrigger(
         bool once = default,
         bool alsoOnAreaLoad = default,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null)
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null)
     {
       var component = new ActivateTrigger();
       component.m_Once = once;
@@ -1048,8 +1048,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(AreaDidLoadTrigger))]
     public TBuilder AddAreaDidLoadTrigger(
-        ActionsBuilder actions = null,
-        ConditionsBuilder conditions = null)
+        ActionsBuilder? actions = null,
+        ConditionsBuilder? conditions = null)
     {
       var component = new AreaDidLoadTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1061,12 +1061,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="CompanionRecruitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionRecruitTrigger))]
     public TBuilder AddCompanionRecruitTrigger(
-        string companionBlueprint = null,
-        ActionsBuilder actions = null)
+        string? companionBlueprint = null,
+        ActionsBuilder? actions = null)
     {
       var component = new CompanionRecruitTrigger();
       component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
@@ -1078,13 +1078,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="CompanionUnrecruitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="BlueprintUnit"/></param>
+    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(CompanionUnrecruitTrigger))]
     public TBuilder AddCompanionUnrecruitTrigger(
-        string companionBlueprint = null,
+        string? companionBlueprint = null,
         bool triggerOnDeath = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       var component = new CompanionUnrecruitTrigger();
       component.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
@@ -1100,7 +1100,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(CustomEventTrigger))]
     public TBuilder AddCustomEventTrigger(
         string id,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       var component = new CustomEventTrigger();
       component.Id = id;
@@ -1115,7 +1115,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(DamageTypeTrigger))]
     public TBuilder AddDamageTypeTrigger(
         UnitEvaluator unit,
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         bool anyDamageType = default,
         DamageEnergyType damageEType = default)
     {
@@ -1135,8 +1135,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DeactivateTrigger))]
     public TBuilder AddDeactivateTrigger(
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null)
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null)
     {
       var component = new DeactivateTrigger();
       component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
@@ -1150,8 +1150,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(DeviceInteractionTrigger))]
     public TBuilder AddDeviceInteractionTrigger(
-        ActionsBuilder actions = null,
-        ActionsBuilder restrictedActions = null)
+        ActionsBuilder? actions = null,
+        ActionsBuilder? restrictedActions = null)
     {
       var component = new DeviceInteractionTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1166,7 +1166,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(EvaluatedUnitCombatTrigger))]
     public TBuilder AddEvaluatedUnitCombatTrigger(
         UnitEvaluator unit,
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         bool triggerOnExit = default)
     {
       ValidateParam(unit);
@@ -1186,7 +1186,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEvaluatedUnitDeathTrigger(
         UnitEvaluator unit,
         bool anyUnit = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       ValidateParam(unit);
     
@@ -1207,7 +1207,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool once = default,
         int percentage = default,
         bool triggerOnAlreadyLowerHeath = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       ValidateParam(unit);
     
@@ -1227,10 +1227,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(ExperienceTrigger))]
     public TBuilder AddExperienceTrigger(
         int experience = default,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ExperienceTrigger();
       component.Experience = experience;
@@ -1246,8 +1246,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(GenericInteractionTrigger))]
     public TBuilder AddGenericInteractionTrigger(
         EntityReference mapObject,
-        ActionsBuilder actions = null,
-        ActionsBuilder restrictedActions = null)
+        ActionsBuilder? actions = null,
+        ActionsBuilder? restrictedActions = null)
     {
       ValidateParam(mapObject);
     
@@ -1262,14 +1262,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="ItemInContainerTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="itemToCheck"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToCheck"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemInContainerTrigger))]
     public TBuilder AddItemInContainerTrigger(
         MapObjectEvaluator mapObject,
-        string itemToCheck = null,
-        ActionsBuilder onAddActions = null,
-        ActionsBuilder onRemoveActions = null)
+        string? itemToCheck = null,
+        ActionsBuilder? onAddActions = null,
+        ActionsBuilder? onRemoveActions = null)
     {
       ValidateParam(mapObject);
     
@@ -1287,10 +1287,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(MapObjectDestroyTrigger))]
     public TBuilder AddMapObjectDestroyTrigger(
-        ActionsBuilder destroyedActions = null,
-        ActionsBuilder destructionFailedActions = null,
+        ActionsBuilder? destroyedActions = null,
+        ActionsBuilder? destructionFailedActions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MapObjectDestroyTrigger();
       component.DestroyedActions = destroyedActions?.Build() ?? Constants.Empty.Actions;
@@ -1304,9 +1304,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(MapObjectPerceptionTrigger))]
     public TBuilder AddMapObjectPerceptionTrigger(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MapObjectPerceptionTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1317,13 +1317,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PartyInventoryTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(PartyInventoryTrigger))]
     public TBuilder AddPartyInventoryTrigger(
-        string item = null,
-        ActionsBuilder onAddActions = null,
-        ActionsBuilder onRemoveActions = null)
+        string? item = null,
+        ActionsBuilder? onAddActions = null,
+        ActionsBuilder? onRemoveActions = null)
     {
       var component = new PartyInventoryTrigger();
       component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(item);
@@ -1340,7 +1340,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddPerceptionTrigger(
         UnitEvaluator unit,
         MapObjectEvaluator mapObject,
-        ActionsBuilder onSpotted = null)
+        ActionsBuilder? onSpotted = null)
     {
       ValidateParam(unit);
       ValidateParam(mapObject);
@@ -1356,14 +1356,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PlayerOpenItemDescriptionFirstTimeTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(PlayerOpenItemDescriptionFirstTimeTrigger))]
     public TBuilder AddPlayerOpenItemDescriptionFirstTimeTrigger(
-        string item = null,
-        ActionsBuilder action = null,
+        string? item = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PlayerOpenItemDescriptionFirstTimeTrigger();
       component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(item);
@@ -1379,10 +1379,10 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddRestTrigger(
         bool once = default,
         RestResult restResults = default,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestTrigger();
       component.Once = once;
@@ -1400,10 +1400,10 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddScriptZoneTrigger(
         EntityReference scriptZone,
         string unitRef,
-        ConditionsBuilder onEnterConditions = null,
-        ActionsBuilder onEnterActions = null,
-        ConditionsBuilder onExitConditions = null,
-        ActionsBuilder onExitActions = null)
+        ConditionsBuilder? onEnterConditions = null,
+        ActionsBuilder? onEnterActions = null,
+        ConditionsBuilder? onExitConditions = null,
+        ActionsBuilder? onExitActions = null)
     {
       ValidateParam(scriptZone);
     
@@ -1423,8 +1423,8 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(SkillCheckInteractionTrigger))]
     public TBuilder AddSkillCheckInteractionTrigger(
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFailure = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFailure = null)
     {
       var component = new SkillCheckInteractionTrigger();
       component.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;
@@ -1436,12 +1436,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SpawnUnitTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetUnit"><see cref="BlueprintUnit"/></param>
+    /// <param name="targetUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(SpawnUnitTrigger))]
     public TBuilder AddSpawnUnitTrigger(
-        string targetUnit = null,
-        ActionsBuilder actions = null)
+        string? targetUnit = null,
+        ActionsBuilder? actions = null)
     {
       var component = new SpawnUnitTrigger();
       component.m_TargetUnit = BlueprintTool.GetRef<BlueprintUnitReference>(targetUnit);
@@ -1453,13 +1453,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SpellCastTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(SpellCastTrigger))]
     public TBuilder AddSpellCastTrigger(
         EntityReference scriptZone,
-        string[] spells = null,
-        ActionsBuilder actions = null)
+        string[]? spells = null,
+        ActionsBuilder? actions = null)
     {
       ValidateParam(scriptZone);
     
@@ -1474,15 +1474,15 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="SummonPoolTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolTrigger))]
     public TBuilder AddSummonPoolTrigger(
         int count = default,
         SummonPoolTrigger.ChangeTypes changeType = default,
-        string summonPool = null,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null)
+        string? summonPool = null,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null)
     {
       var component = new SummonPoolTrigger();
       component.Count = count;
@@ -1499,9 +1499,9 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(TimeOfDayChangedTrigger))]
     public TBuilder AddTimeOfDayChangedTrigger(
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TimeOfDayChangedTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1515,10 +1515,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(UIEventTrigger))]
     public TBuilder AddUIEventTrigger(
         UIEventType eventType = default,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UIEventTrigger();
       component.EventType = eventType;
@@ -1531,13 +1531,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="UnitHealthTrigger"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(UnitHealthTrigger))]
     public TBuilder AddUnitHealthTrigger(
-        string unit = null,
+        string? unit = null,
         int percentage = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       var component = new UnitHealthTrigger();
       component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -1553,10 +1553,10 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(TrapTrigger))]
     public TBuilder AddTrapTrigger(
         MapObjectEvaluator trap,
-        ActionsBuilder onActivation = null,
-        ActionsBuilder onDisarm = null,
+        ActionsBuilder? onActivation = null,
+        ActionsBuilder? onDisarm = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(trap);
     
@@ -1581,9 +1581,9 @@ namespace BlueprintCore.Blueprints.Configurators
 
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
-    protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
+    protected void ValidateParam(object? obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
 
-    protected void ValidateParam<P>(IEnumerable<P> objects)
+    protected void ValidateParam<P>(IEnumerable<P>? objects)
     {
       if (objects is null) { return; }
       foreach (var obj in objects) { ValidateParam(obj); }
@@ -1614,7 +1614,9 @@ namespace BlueprintCore.Blueprints.Configurators
             Components.Add(component.Component);
             break;
           case ComponentMerge.Merge:
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             component.Merge(current, component.Component);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             break;
           case ComponentMerge.Fail:
           default:
@@ -1661,16 +1663,14 @@ namespace BlueprintCore.Blueprints.Configurators
         else { componentTypes.Add(componentType); }
 
         List<AllowedOnAttribute> allowedOn =
-            attrs
-                .Where(attr => attr is AllowedOnAttribute)
-                .Select(attr => attr as AllowedOnAttribute)
-                .ToList();
+            attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => (attr as AllowedOnAttribute)!).ToList();
         bool componentAllowed = false;
         var blueprintType = Blueprint.GetType();
-        foreach (AllowedOnAttribute attr in allowedOn)
+        foreach (AllowedOnAttribute? attr in allowedOn)
         {
+          var parent = attr.Type;
           // Need .NET 5.0 for IsAssignableTo()
-          if (IsAssignableTo(blueprintType, attr.Type))
+          if (blueprintType == parent || blueprintType.IsSubclassOf(parent))
           {
             componentAllowed = true;
             break;
@@ -1699,21 +1699,16 @@ namespace BlueprintCore.Blueprints.Configurators
       Context.Errors.ToList().ForEach(str => AddValidationWarning(str));
     }
 
-    private static bool IsAssignableTo(Type child, Type parent)
-    {
-      return child == parent || child.IsSubclassOf(parent);
-    }
-
     private struct UniqueComponent
     {
       public BlueprintComponent Component { get; }
       public ComponentMerge Behavior { get; }
-      public Action<BlueprintComponent, BlueprintComponent> Merge { get; }
+      public Action<BlueprintComponent, BlueprintComponent>? Merge { get; }
 
       public UniqueComponent(
           BlueprintComponent component,
           ComponentMerge behavior,
-          Action<BlueprintComponent, BlueprintComponent> merge)
+          Action<BlueprintComponent, BlueprintComponent>? merge)
       {
         Component = component;
         Behavior = behavior;

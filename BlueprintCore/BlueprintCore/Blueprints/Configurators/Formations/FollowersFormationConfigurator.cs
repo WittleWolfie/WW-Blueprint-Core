@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// Sets <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FollowersFormationConfigurator SetFormation(Vector2[] formation)
+    public FollowersFormationConfigurator SetFormation(Vector2[]? formation)
     {
       return OnConfigureInternal(
           bp =>

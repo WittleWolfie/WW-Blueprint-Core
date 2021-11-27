@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTracks(List<Track> tracks)
+    public TBuilder SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
     
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GateConfigurator SetTracks(List<Track> tracks)
+    public GateConfigurator SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
     

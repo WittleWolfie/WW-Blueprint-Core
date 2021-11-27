@@ -32,9 +32,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_ExpTable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="expTable"><see cref="BlueprintStatProgression"/></param>
+    /// <param name="expTable"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExpTable(string expTable)
+    public LeadersRootConfigurator SetExpTable(string? expTable)
     {
       return OnConfigureInternal(
           bp =>
@@ -47,9 +47,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="leaders"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
-    public LeadersRootConfigurator SetLeaders(string[] leaders)
+    public LeadersRootConfigurator SetLeaders(string[]? leaders)
     {
       return OnConfigureInternal(
           bp =>
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="leaders"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
     public LeadersRootConfigurator AddToLeaders(params string[] leaders)
     {
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="LeadersRoot.m_Leaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leaders"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="leaders"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
     public LeadersRootConfigurator RemoveFromLeaders(params string[] leaders)
     {
@@ -97,9 +97,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_AttackLeaderFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="attackLeaderFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="attackLeaderFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
-    public LeadersRootConfigurator SetAttackLeaderFeature(string attackLeaderFeature)
+    public LeadersRootConfigurator SetAttackLeaderFeature(string? attackLeaderFeature)
     {
       return OnConfigureInternal(
           bp =>
@@ -112,9 +112,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_DeffenceLeaderFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="deffenceLeaderFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="deffenceLeaderFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
-    public LeadersRootConfigurator SetDeffenceLeaderFeature(string deffenceLeaderFeature)
+    public LeadersRootConfigurator SetDeffenceLeaderFeature(string? deffenceLeaderFeature)
     {
       return OnConfigureInternal(
           bp =>
@@ -192,9 +192,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_CheaperLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cheaperLeadersProject"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="cheaperLeadersProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetCheaperLeadersProject(string cheaperLeadersProject)
+    public LeadersRootConfigurator SetCheaperLeadersProject(string? cheaperLeadersProject)
     {
       return OnConfigureInternal(
           bp =>
@@ -207,9 +207,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_TalentedLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="talentedLeadersProject"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="talentedLeadersProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetTalentedLeadersProject(string talentedLeadersProject)
+    public LeadersRootConfigurator SetTalentedLeadersProject(string? talentedLeadersProject)
     {
       return OnConfigureInternal(
           bp =>
@@ -222,9 +222,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_ExperiencedLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="experiencedLeadersProject"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="experiencedLeadersProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExperiencedLeadersProject(string experiencedLeadersProject)
+    public LeadersRootConfigurator SetExperiencedLeadersProject(string? experiencedLeadersProject)
     {
       return OnConfigureInternal(
           bp =>
@@ -237,9 +237,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.m_ExcellentLeadersProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="excellentLeadersProject"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="excellentLeadersProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public LeadersRootConfigurator SetExcellentLeadersProject(string excellentLeadersProject)
+    public LeadersRootConfigurator SetExcellentLeadersProject(string? excellentLeadersProject)
     {
       return OnConfigureInternal(
           bp =>
@@ -252,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.SkillsListName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetSkillsListName(LocalizedString skillsListName)
+    public LeadersRootConfigurator SetSkillsListName(LocalizedString? skillsListName)
     {
       ValidateParam(skillsListName);
     
@@ -267,7 +267,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.ManaName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetManaName(LocalizedString manaName)
+    public LeadersRootConfigurator SetManaName(LocalizedString? manaName)
     {
       ValidateParam(manaName);
     
@@ -282,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.AttackBonusName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetAttackBonusName(LocalizedString attackBonusName)
+    public LeadersRootConfigurator SetAttackBonusName(LocalizedString? attackBonusName)
     {
       ValidateParam(attackBonusName);
     
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.DeffBonusName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetDeffBonusName(LocalizedString deffBonusName)
+    public LeadersRootConfigurator SetDeffBonusName(LocalizedString? deffBonusName)
     {
       ValidateParam(deffBonusName);
     
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.SpellStrengthName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetSpellStrengthName(LocalizedString spellStrengthName)
+    public LeadersRootConfigurator SetSpellStrengthName(LocalizedString? spellStrengthName)
     {
       ValidateParam(spellStrengthName);
     
@@ -327,7 +327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="LeadersRoot.LeaderHireText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeadersRootConfigurator SetLeaderHireText(LocalizedString leaderHireText)
+    public LeadersRootConfigurator SetLeaderHireText(LocalizedString? leaderHireText)
     {
       ValidateParam(leaderHireText);
     

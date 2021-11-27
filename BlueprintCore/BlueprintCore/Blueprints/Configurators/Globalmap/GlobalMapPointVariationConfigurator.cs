@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetConditions(ConditionsBuilder conditions)
+    public GlobalMapPointVariationConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetName(LocalizedString name)
+    public GlobalMapPointVariationConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -63,9 +63,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.NameFromSettlement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="nameFromSettlement"><see cref="BlueprintSettlement"/></param>
+    /// <param name="nameFromSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetNameFromSettlement(string nameFromSettlement)
+    public GlobalMapPointVariationConfigurator SetNameFromSettlement(string? nameFromSettlement)
     {
       return OnConfigureInternal(
           bp =>
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetDescription(LocalizedString description)
+    public GlobalMapPointVariationConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.FakeName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetFakeName(LocalizedString fakeName)
+    public GlobalMapPointVariationConfigurator SetFakeName(LocalizedString? fakeName)
     {
       ValidateParam(fakeName);
     
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.FakeDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetFakeDescription(LocalizedString fakeDescription)
+    public GlobalMapPointVariationConfigurator SetFakeDescription(LocalizedString? fakeDescription)
     {
       ValidateParam(fakeDescription);
     
@@ -123,9 +123,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.m_AreaEntrance"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="areaEntrance"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="areaEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetAreaEntrance(string areaEntrance)
+    public GlobalMapPointVariationConfigurator SetAreaEntrance(string? areaEntrance)
     {
       return OnConfigureInternal(
           bp =>
@@ -138,9 +138,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.m_Entrances"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="entrances"><see cref="BlueprintMultiEntrance"/></param>
+    /// <param name="entrances"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetEntrances(string entrances)
+    public GlobalMapPointVariationConfigurator SetEntrances(string? entrances)
     {
       return OnConfigureInternal(
           bp =>
@@ -153,9 +153,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMapPointVariation.m_BookEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bookEvent"><see cref="BlueprintDialog"/></param>
+    /// <param name="bookEvent"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     [Generated]
-    public GlobalMapPointVariationConfigurator SetBookEvent(string bookEvent)
+    public GlobalMapPointVariationConfigurator SetBookEvent(string? bookEvent)
     {
       return OnConfigureInternal(
           bp =>
@@ -168,16 +168,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Adds <see cref="LocationRestriction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="requiredCompanions"><see cref="BlueprintUnit"/></param>
+    /// <param name="requiredCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(LocationRestriction))]
     public GlobalMapPointVariationConfigurator AddLocationRestriction(
-        ConditionsBuilder ignoreCondition = null,
-        ConditionsBuilder allowedCondition = null,
-        string[] requiredCompanions = null,
-        LocalizedString description = null,
+        ConditionsBuilder? ignoreCondition = null,
+        ConditionsBuilder? allowedCondition = null,
+        string[]? requiredCompanions = null,
+        LocalizedString? description = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(description);
     

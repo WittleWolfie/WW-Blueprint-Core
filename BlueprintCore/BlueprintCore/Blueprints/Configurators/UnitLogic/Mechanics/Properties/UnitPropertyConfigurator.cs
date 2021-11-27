@@ -48,13 +48,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="onlyOfType"><see cref="BlueprintUnitType"/></param>
+    /// <param name="onlyOfType"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
     [Generated]
     [Implements(typeof(CountCorpsesAroundPropertyGetter))]
     public UnitPropertyConfigurator AddCountCorpsesAroundPropertyGetter(
         Feet radius,
         PropertySettings settings,
-        string onlyOfType = null)
+        string? onlyOfType = null)
     {
       ValidateParam(settings);
     
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="BaseAttackPropertyWithFeatureList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(BaseAttackPropertyWithFeatureList))]
     public UnitPropertyConfigurator AddBaseAttackPropertyWithFeatureList(
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
         int baseValue = default,
         int baseAttackDiv = default,
         int baseAttackZero = default,
-        string[] features = null,
+        string[]? features = null,
         int featureBonus = default)
     {
       ValidateParam(settings);
@@ -126,14 +126,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FightingDefensivelyACBonusProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="duelingFeatures"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="duelingFeatures"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FightingDefensivelyACBonusProperty))]
     public UnitPropertyConfigurator AddFightingDefensivelyACBonusProperty(
         PropertySettings settings,
-        string[] features = null,
-        string[] duelingFeatures = null)
+        string[]? features = null,
+        string[]? duelingFeatures = null)
     {
       ValidateParam(settings);
     
@@ -148,16 +148,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FightingDefensivelyAttackPenaltyProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="duelingFeatures"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="halfBuff"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="duelingFeatures"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="halfBuff"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FightingDefensivelyAttackPenaltyProperty))]
     public UnitPropertyConfigurator AddFightingDefensivelyAttackPenaltyProperty(
         PropertySettings settings,
-        string[] features = null,
-        string[] duelingFeatures = null,
-        string halfBuff = null)
+        string[]? features = null,
+        string[]? duelingFeatures = null,
+        string? halfBuff = null)
     {
       ValidateParam(settings);
     
@@ -207,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="LevelBasedPropertyWithFeatureList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(LevelBasedPropertyWithFeatureList))]
     public UnitPropertyConfigurator AddLevelBasedPropertyWithFeatureList(
@@ -215,7 +215,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
         int baseValue = default,
         int levelDiv = default,
         int levelZero = default,
-        string[] features = null,
+        string[]? features = null,
         int featureBonus = default)
     {
       ValidateParam(settings);
@@ -234,14 +234,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="StatBonusIfHasFactProperty"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="requiredFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="requiredFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(StatBonusIfHasFactProperty))]
     public UnitPropertyConfigurator AddStatBonusIfHasFactProperty(
         PropertySettings settings,
         int multiplier = default,
         StatType stat = default,
-        string requiredFact = null)
+        string? requiredFact = null)
     {
       ValidateParam(settings);
     
@@ -295,12 +295,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="ClassLevelGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ClassLevelGetter))]
     public UnitPropertyConfigurator AddClassLevelGetter(
         PropertySettings settings,
-        string clazz = null)
+        string? clazz = null)
     {
       ValidateParam(settings);
     
@@ -314,12 +314,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="CustomPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="property"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="property"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(CustomPropertyGetter))]
     public UnitPropertyConfigurator AddCustomPropertyGetter(
         PropertySettings settings,
-        string property = null)
+        string? property = null)
     {
       ValidateParam(settings);
     
@@ -333,12 +333,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="FactRankGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(FactRankGetter))]
     public UnitPropertyConfigurator AddFactRankGetter(
         PropertySettings settings,
-        string fact = null)
+        string? fact = null)
     {
       ValidateParam(settings);
     
@@ -418,16 +418,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="SummClassLevelGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="archetype"><see cref="BlueprintArchetype"/></param>
-    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
+    /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
     [Generated]
     [Implements(typeof(SummClassLevelGetter))]
     public UnitPropertyConfigurator AddSummClassLevelGetter(
         PropertySettings settings,
-        string[] clazz = null,
-        string archetype = null,
-        string[] archetypes = null)
+        string[]? clazz = null,
+        string? archetype = null,
+        string[]? archetypes = null)
     {
       ValidateParam(settings);
     
@@ -458,12 +458,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="CastingAttributeGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(CastingAttributeGetter))]
     public UnitPropertyConfigurator AddCastingAttributeGetter(
         PropertySettings settings,
-        string clazz = null,
+        string? clazz = null,
         bool attributeBonus = default)
     {
       ValidateParam(settings);
@@ -523,12 +523,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
     /// Adds <see cref="MaxCastingAttributeGetter"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(MaxCastingAttributeGetter))]
     public UnitPropertyConfigurator AddMaxCastingAttributeGetter(
         PropertySettings settings,
-        string[] classes = null,
+        string[]? classes = null,
         bool attributeBonus = default,
         StatType defaultStat = default)
     {

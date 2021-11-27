@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Sets <see cref="BlueprintCookingRecipe.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetName(LocalizedString name)
+    public CookingRecipeConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Sets <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetIngredients(BlueprintCookingRecipe.ItemEntry[] ingredients)
+    public CookingRecipeConfigurator SetIngredients(BlueprintCookingRecipe.ItemEntry[]? ingredients)
     {
       ValidateParam(ingredients);
     
@@ -116,9 +116,9 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Sets <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
-    public CookingRecipeConfigurator SetPartyBuffs(string[] partyBuffs)
+    public CookingRecipeConfigurator SetPartyBuffs(string[]? partyBuffs)
     {
       return OnConfigureInternal(
           bp =>
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Adds to <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public CookingRecipeConfigurator AddToPartyBuffs(params string[] partyBuffs)
     {
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Removes from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="partyBuffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public CookingRecipeConfigurator RemoveFromPartyBuffs(params string[] partyBuffs)
     {
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
     /// Sets <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CookingRecipeConfigurator SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    public CookingRecipeConfigurator SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[]? unitBuffs)
     {
       ValidateParam(unitBuffs);
     

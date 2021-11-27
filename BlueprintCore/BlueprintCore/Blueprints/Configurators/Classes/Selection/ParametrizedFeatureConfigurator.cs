@@ -89,9 +89,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.m_SpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellList(string spellList)
+    public ParametrizedFeatureConfigurator SetSpellList(string? spellList)
     {
       return OnConfigureInternal(
           bp =>
@@ -104,9 +104,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellcasterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="spellcasterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetSpellcasterClass(string spellcasterClass)
+    public ParametrizedFeatureConfigurator SetSpellcasterClass(string? spellcasterClass)
     {
       return OnConfigureInternal(
           bp =>
@@ -171,9 +171,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.m_Prerequisite"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="prerequisite"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="prerequisite"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetPrerequisite(string prerequisite)
+    public ParametrizedFeatureConfigurator SetPrerequisite(string? prerequisite)
     {
       return OnConfigureInternal(
           bp =>
@@ -186,9 +186,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="customParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetCustomParameterVariants(string[] customParameterVariants)
+    public ParametrizedFeatureConfigurator SetCustomParameterVariants(string[]? customParameterVariants)
     {
       return OnConfigureInternal(
           bp =>
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds to <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="customParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
     public ParametrizedFeatureConfigurator AddToCustomParameterVariants(params string[] customParameterVariants)
     {
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Removes from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="customParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
     public ParametrizedFeatureConfigurator RemoveFromCustomParameterVariants(params string[] customParameterVariants)
     {
@@ -262,9 +262,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="blueprintParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
-    public ParametrizedFeatureConfigurator SetBlueprintParameterVariants(string[] blueprintParameterVariants)
+    public ParametrizedFeatureConfigurator SetBlueprintParameterVariants(string[]? blueprintParameterVariants)
     {
       return OnConfigureInternal(
           bp =>
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds to <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="blueprintParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
     public ParametrizedFeatureConfigurator AddToBlueprintParameterVariants(params string[] blueprintParameterVariants)
     {
@@ -292,7 +292,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Removes from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintParameterVariants"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="blueprintParameterVariants"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
     public ParametrizedFeatureConfigurator RemoveFromBlueprintParameterVariants(params string[] blueprintParameterVariants)
     {
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Sets <see cref="BlueprintParametrizedFeature.m_CachedItems"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ParametrizedFeatureConfigurator SetCachedItems(FeatureUIData[] cachedItems)
+    public ParametrizedFeatureConfigurator SetCachedItems(FeatureUIData[]? cachedItems)
     {
       ValidateParam(cachedItems);
     
@@ -358,7 +358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(AddParametrizedClassSkill))]
     public ParametrizedFeatureConfigurator AddParametrizedClassSkill(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddParametrizedClassSkill();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -370,10 +370,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Generated]
     [Implements(typeof(AddParametrizedStatBonus))]
     public ParametrizedFeatureConfigurator AddParametrizedStatBonus(
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -391,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator AddAbilityFocusParametrized(
         bool spellsOnly = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityFocusParametrized();
       component.SpellsOnly = spellsOnly;
@@ -405,7 +405,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(AddFeatureParametrized))]
     public ParametrizedFeatureConfigurator AddFeatureParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddFeatureParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -419,7 +419,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator AddFeatureToPetParametrized(
         PetType petType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddFeatureToPetParametrized();
       component.PetType = petType;
@@ -433,7 +433,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(ExpandedArsenalMagicSchools))]
     public ParametrizedFeatureConfigurator AddExpandedArsenalMagicSchools(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ExpandedArsenalMagicSchools();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -443,25 +443,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="FullWeaponMasterySkeletonParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="focus"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="specialization"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="greaterFocus"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="greaterSpecialization"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="improvedCritical"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="weaponMastery"><see cref="BlueprintParametrizedFeature"/></param>
-    /// <param name="greaterFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="focus"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="specialization"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterFocus"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterSpecialization"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="improvedCritical"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="weaponMastery"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
+    /// <param name="greaterFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(FullWeaponMasterySkeletonParametrized))]
     public ParametrizedFeatureConfigurator AddFullWeaponMasterySkeletonParametrized(
-        string focus = null,
-        string specialization = null,
-        string greaterFocus = null,
-        string greaterSpecialization = null,
-        string improvedCritical = null,
-        string weaponMastery = null,
-        string greaterFeature = null,
+        string? focus = null,
+        string? specialization = null,
+        string? greaterFocus = null,
+        string? greaterSpecialization = null,
+        string? improvedCritical = null,
+        string? weaponMastery = null,
+        string? greaterFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new FullWeaponMasterySkeletonParametrized();
       component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
@@ -481,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(ImprovedCriticalEdgeParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalEdgeParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ImprovedCriticalEdgeParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -494,7 +494,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(ImprovedCriticalMythicParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalMythicParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ImprovedCriticalMythicParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -507,7 +507,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(ImprovedCriticalParametrized))]
     public ParametrizedFeatureConfigurator AddImprovedCriticalParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ImprovedCriticalParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -517,13 +517,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="KensaiChosenWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="focus"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="focus"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
     [Generated]
     [Implements(typeof(KensaiChosenWeapon))]
     public ParametrizedFeatureConfigurator AddKensaiChosenWeapon(
-        string focus = null,
+        string? focus = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new KensaiChosenWeapon();
       component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(focus);
@@ -534,18 +534,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="LearnSpellParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellcasterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellcasterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(LearnSpellParametrized))]
     public ParametrizedFeatureConfigurator AddLearnSpellParametrized(
-        string spellcasterClass = null,
-        string spellList = null,
+        string? spellcasterClass = null,
+        string? spellList = null,
         bool specificSpellLevel = default,
         int spellLevelPenalty = default,
         int spellLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new LearnSpellParametrized();
       component.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(spellcasterClass);
@@ -563,7 +563,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(SavesFixerParamSpellSchool))]
     public ParametrizedFeatureConfigurator AddSavesFixerParamSpellSchool(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SavesFixerParamSpellSchool();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -576,7 +576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(SchoolMasteryParametrized))]
     public ParametrizedFeatureConfigurator AddSchoolMasteryParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SchoolMasteryParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -586,16 +586,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="SpellFocusParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicFocus"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="mythicFocus"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(SpellFocusParametrized))]
     public ParametrizedFeatureConfigurator AddSpellFocusParametrized(
         int bonusDC = default,
         ModifierDescriptor descriptor = default,
-        string mythicFocus = null,
+        string? mythicFocus = null,
         bool spellsOnly = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SpellFocusParametrized();
       component.BonusDC = bonusDC;
@@ -612,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(SpellSpecializationParametrized))]
     public ParametrizedFeatureConfigurator AddSpellSpecializationParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SpellSpecializationParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -622,14 +622,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="WeaponFocusParametrized"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicFocus"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="mythicFocus"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponFocusParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponFocusParametrized(
-        string mythicFocus = null,
+        string? mythicFocus = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponFocusParametrized();
       component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(mythicFocus);
@@ -644,7 +644,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     [Implements(typeof(WeaponMasteryParametrized))]
     public ParametrizedFeatureConfigurator AddWeaponMasteryParametrized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponMasteryParametrized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -658,7 +658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator AddWeaponSpecializationParametrized(
         bool mythic = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponSpecializationParametrized();
       component.Mythic = mythic;

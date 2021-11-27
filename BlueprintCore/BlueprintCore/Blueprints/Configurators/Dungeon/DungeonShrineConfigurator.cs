@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonShrine.UseCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="useCondition"><see cref="ConditionsHolder"/></param>
+    /// <param name="useCondition"><see cref="Kingmaker.ElementsSystem.ConditionsHolder"/></param>
     [Generated]
-    public DungeonShrineConfigurator SetUseCondition(string useCondition)
+    public DungeonShrineConfigurator SetUseCondition(string? useCondition)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,9 +46,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonShrine.CheckPassedActions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkPassedActions"><see cref="ActionsHolder"/></param>
+    /// <param name="checkPassedActions"><see cref="Kingmaker.ElementsSystem.ActionsHolder"/></param>
     [Generated]
-    public DungeonShrineConfigurator SetCheckPassedActions(string checkPassedActions)
+    public DungeonShrineConfigurator SetCheckPassedActions(string? checkPassedActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -61,9 +61,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonShrine.CheckFailedActions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkFailedActions"><see cref="ActionsHolder"/></param>
+    /// <param name="checkFailedActions"><see cref="Kingmaker.ElementsSystem.ActionsHolder"/></param>
     [Generated]
-    public DungeonShrineConfigurator SetCheckFailedActions(string checkFailedActions)
+    public DungeonShrineConfigurator SetCheckFailedActions(string? checkFailedActions)
     {
       return OnConfigureInternal(
           bp =>

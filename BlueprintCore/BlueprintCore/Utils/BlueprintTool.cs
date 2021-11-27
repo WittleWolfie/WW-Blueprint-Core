@@ -147,12 +147,12 @@ namespace BlueprintCore.Utils
     /// 
     /// <param name="nameOrGuid">Use Name if you have registered it using <see cref="AddGuidsByName"/> or Guid otherwise.</param>
     /// <returns>A blueprint reference of type T. If nameOrGuid it returns a non-null, empty reference.</returns>
-    public static TRef GetRef<TRef>(string nameOrGuid)
+    public static TRef GetRef<TRef>(string? nameOrGuid)
         where TRef : BlueprintReferenceBase, new()
     {
       if (string.IsNullOrEmpty(nameOrGuid)) { return BlueprintReferenceBase.CreateTyped<TRef>(null); }
 
-      if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid); }
+      if (!GuidsByName.TryGetValue(nameOrGuid!, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid); }
 
       // Copied from BlueprintReferenceBase to allow creating a reference w/o fetching a blueprint.This allows
       // referencing a blueprint before it is added to the cache.
@@ -172,7 +172,7 @@ namespace BlueprintCore.Utils
       {
         if (current.GetType() == component.GetType()) { return current; }
       }
-      return null;
+      return null!;
     }
 
     /// <summary> Adds all provided components to the blueprint. </summary>

@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
-    public CueSequenceConfigurator SetCues(string[] cues)
+    public CueSequenceConfigurator SetCues(string[]? cues)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     public CueSequenceConfigurator AddToCues(params string[] cues)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cues"><see cref="BlueprintCueBase"/></param>
+    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
     public CueSequenceConfigurator RemoveFromCues(params string[] cues)
     {
@@ -81,9 +81,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCueSequence.m_Exit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="exit"><see cref="BlueprintSequenceExit"/></param>
+    /// <param name="exit"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintSequenceExit"/></param>
     [Generated]
-    public CueSequenceConfigurator SetExit(string exit)
+    public CueSequenceConfigurator SetExit(string? exit)
     {
       return OnConfigureInternal(
           bp =>

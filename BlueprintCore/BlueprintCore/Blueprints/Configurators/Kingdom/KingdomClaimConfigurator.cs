@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.KnownCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetKnownCondition(ConditionsBuilder knownCondition)
+    public KingdomClaimConfigurator SetKnownCondition(ConditionsBuilder? knownCondition)
     {
       return OnConfigureInternal(
           bp =>
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.FailCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetFailCondition(ConditionsBuilder failCondition)
+    public KingdomClaimConfigurator SetFailCondition(ConditionsBuilder? failCondition)
     {
       return OnConfigureInternal(
           bp =>
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.UnknownDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetUnknownDescription(LocalizedString unknownDescription)
+    public KingdomClaimConfigurator SetUnknownDescription(LocalizedString? unknownDescription)
     {
       ValidateParam(unknownDescription);
     
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.KnownDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetKnownDescription(LocalizedString knownDescription)
+    public KingdomClaimConfigurator SetKnownDescription(LocalizedString? knownDescription)
     {
       ValidateParam(knownDescription);
     
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.FailedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetFailedDescription(LocalizedString failedDescription)
+    public KingdomClaimConfigurator SetFailedDescription(LocalizedString? failedDescription)
     {
       ValidateParam(failedDescription);
     
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomClaim.FulfilledDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomClaimConfigurator SetFulfilledDescription(LocalizedString fulfilledDescription)
+    public KingdomClaimConfigurator SetFulfilledDescription(LocalizedString? fulfilledDescription)
     {
       ValidateParam(fulfilledDescription);
     

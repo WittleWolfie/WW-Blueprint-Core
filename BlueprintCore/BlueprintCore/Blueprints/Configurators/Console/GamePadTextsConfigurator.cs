@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     /// Sets <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer> layers)
+    public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer>? layers)
     {
       ValidateParam(layers);
     

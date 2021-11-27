@@ -33,9 +33,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.m_StartLocation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startLocation"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="startLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public GlobalMapConfigurator SetStartLocation(string startLocation)
+    public GlobalMapConfigurator SetStartLocation(string? startLocation)
     {
       return OnConfigureInternal(
           bp =>
@@ -48,9 +48,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.m_GlobalMapEnterPoint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMapEnterPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="globalMapEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public GlobalMapConfigurator SetGlobalMapEnterPoint(string globalMapEnterPoint)
+    public GlobalMapConfigurator SetGlobalMapEnterPoint(string? globalMapEnterPoint)
     {
       return OnConfigureInternal(
           bp =>
@@ -169,9 +169,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="points"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public GlobalMapConfigurator SetPoints(string[] points)
+    public GlobalMapConfigurator SetPoints(string[]? points)
     {
       return OnConfigureInternal(
           bp =>
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Adds to <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="points"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     public GlobalMapConfigurator AddToPoints(params string[] points)
     {
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Removes from <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="points"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     public GlobalMapConfigurator RemoveFromPoints(params string[] points)
     {
@@ -219,9 +219,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="edges"><see cref="BlueprintGlobalMapEdge"/></param>
+    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
     [Generated]
-    public GlobalMapConfigurator SetEdges(string[] edges)
+    public GlobalMapConfigurator SetEdges(string[]? edges)
     {
       return OnConfigureInternal(
           bp =>
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Adds to <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="edges"><see cref="BlueprintGlobalMapEdge"/></param>
+    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
     [Generated]
     public GlobalMapConfigurator AddToEdges(params string[] edges)
     {
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Removes from <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="edges"><see cref="BlueprintGlobalMapEdge"/></param>
+    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
     [Generated]
     public GlobalMapConfigurator RemoveFromEdges(params string[] edges)
     {
@@ -269,7 +269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.EnterWarCampAction"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapConfigurator SetEnterWarCampAction(ActionsBuilder enterWarCampAction)
+    public GlobalMapConfigurator SetEnterWarCampAction(ActionsBuilder? enterWarCampAction)
     {
       return OnConfigureInternal(
           bp =>
@@ -282,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.EnterAzataIslandAction"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public GlobalMapConfigurator SetEnterAzataIslandAction(ActionsBuilder enterAzataIslandAction)
+    public GlobalMapConfigurator SetEnterAzataIslandAction(ActionsBuilder? enterAzataIslandAction)
     {
       return OnConfigureInternal(
           bp =>
@@ -308,9 +308,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintGlobalMap.CampLocation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="campLocation"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="campLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public GlobalMapConfigurator SetCampLocation(string campLocation)
+    public GlobalMapConfigurator SetCampLocation(string? campLocation)
     {
       return OnConfigureInternal(
           bp =>

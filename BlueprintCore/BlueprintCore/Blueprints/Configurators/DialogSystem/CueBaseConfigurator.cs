@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCueBase.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetConditions(ConditionsBuilder conditions)
+    public TBuilder SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>

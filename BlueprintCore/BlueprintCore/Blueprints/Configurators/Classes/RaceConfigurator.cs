@@ -86,9 +86,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintRace.m_Features"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
     [Generated]
-    public RaceConfigurator SetFeatures(string[] features)
+    public RaceConfigurator SetFeatures(string[]? features)
     {
       return OnConfigureInternal(
           bp =>
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds to <see cref="BlueprintRace.m_Features"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
     [Generated]
     public RaceConfigurator AddToFeatures(params string[] features)
     {
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Removes from <see cref="BlueprintRace.m_Features"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeatureBase"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
     [Generated]
     public RaceConfigurator RemoveFromFeatures(params string[] features)
     {
@@ -136,9 +136,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
     [Generated]
-    public RaceConfigurator SetPresets(string[] presets)
+    public RaceConfigurator SetPresets(string[]? presets)
     {
       return OnConfigureInternal(
           bp =>
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds to <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
     [Generated]
     public RaceConfigurator AddToPresets(params string[] presets)
     {
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Removes from <see cref="BlueprintRace.m_Presets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="presets"><see cref="BlueprintRaceVisualPreset"/></param>
+    /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
     [Generated]
     public RaceConfigurator RemoveFromPresets(params string[] presets)
     {
@@ -259,7 +259,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
+    public RaceConfigurator SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[]? specialDollTypes)
     {
       ValidateParam(specialDollTypes);
     

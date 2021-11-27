@@ -169,9 +169,9 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// Sets <see cref="AchievementData.SpecificDlc"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="specificDlc"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="specificDlc"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
-    public AchievementDataConfigurator SetSpecificDlc(string specificDlc)
+    public AchievementDataConfigurator SetSpecificDlc(string? specificDlc)
     {
       return OnConfigureInternal(
           bp =>
@@ -251,9 +251,9 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// Sets <see cref="AchievementData.m_FinishGameFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="finishGameFlag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="finishGameFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
-    public AchievementDataConfigurator SetFinishGameFlag(string finishGameFlag)
+    public AchievementDataConfigurator SetFinishGameFlag(string? finishGameFlag)
     {
       return OnConfigureInternal(
           bp =>
@@ -266,7 +266,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// Sets <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetFlags(AchievementData.UnlockableFlagsPack[] flags)
+    public AchievementDataConfigurator SetFlags(AchievementData.UnlockableFlagsPack[]? flags)
     {
       ValidateParam(flags);
     
@@ -309,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// Sets <see cref="AchievementData.Etudes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetEtudes(AchievementData.EtudesPack[] etudes)
+    public AchievementDataConfigurator SetEtudes(AchievementData.EtudesPack[]? etudes)
     {
       ValidateParam(etudes);
     

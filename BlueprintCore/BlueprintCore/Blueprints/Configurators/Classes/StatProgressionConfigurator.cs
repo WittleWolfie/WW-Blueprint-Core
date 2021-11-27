@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public StatProgressionConfigurator SetBonuses(int[] bonuses)
+    public StatProgressionConfigurator SetBonuses(int[]? bonuses)
     {
       return OnConfigureInternal(
           bp =>

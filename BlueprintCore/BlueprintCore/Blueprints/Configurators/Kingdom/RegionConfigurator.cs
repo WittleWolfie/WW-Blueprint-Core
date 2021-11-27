@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetLocalizedName(LocalizedString localizedName)
+    public RegionConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
     
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.ClaimedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetClaimedDescription(LocalizedString claimedDescription)
+    public RegionConfigurator SetClaimedDescription(LocalizedString? claimedDescription)
     {
       ValidateParam(claimedDescription);
     
@@ -77,9 +77,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
+    /// <param name="adjacent"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
-    public RegionConfigurator SetAdjacent(string[] adjacent)
+    public RegionConfigurator SetAdjacent(string[]? adjacent)
     {
       return OnConfigureInternal(
           bp =>
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
+    /// <param name="adjacent"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     public RegionConfigurator AddToAdjacent(params string[] adjacent)
     {
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="BlueprintRegion.m_Adjacent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="adjacent"><see cref="BlueprintRegion"/></param>
+    /// <param name="adjacent"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     public RegionConfigurator RemoveFromAdjacent(params string[] adjacent)
     {
@@ -127,9 +127,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.m_ClaimEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="claimEvent"><see cref="BlueprintKingdomClaim"/></param>
+    /// <param name="claimEvent"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomClaim"/></param>
     [Generated]
-    public RegionConfigurator SetClaimEvent(string claimEvent)
+    public RegionConfigurator SetClaimEvent(string? claimEvent)
     {
       return OnConfigureInternal(
           bp =>
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.UpgradeEvents"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RegionConfigurator SetUpgradeEvents(List<BlueprintRegion.UpgradeVariant> upgradeEvents)
+    public RegionConfigurator SetUpgradeEvents(List<BlueprintRegion.UpgradeVariant>? upgradeEvents)
     {
       ValidateParam(upgradeEvents);
     
@@ -200,9 +200,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisans"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
-    public RegionConfigurator SetArtisans(string[] artisans)
+    public RegionConfigurator SetArtisans(string[]? artisans)
     {
       return OnConfigureInternal(
           bp =>
@@ -215,7 +215,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisans"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     public RegionConfigurator AddToArtisans(params string[] artisans)
     {
@@ -230,7 +230,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="BlueprintRegion.Artisans"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisans"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisans"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     public RegionConfigurator RemoveFromArtisans(params string[] artisans)
     {
@@ -302,9 +302,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintRegion.m_GlobalMap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="BlueprintGlobalMap"/></param>
+    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     [Generated]
-    public RegionConfigurator SetGlobalMap(string globalMap)
+    public RegionConfigurator SetGlobalMap(string? globalMap)
     {
       return OnConfigureInternal(
           bp =>

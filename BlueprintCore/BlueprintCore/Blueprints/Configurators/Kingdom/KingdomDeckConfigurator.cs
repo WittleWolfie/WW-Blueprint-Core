@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomDeck.Events"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="events"><see cref="BlueprintKingdomEvent"/></param>
+    /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
     [Generated]
-    public KingdomDeckConfigurator SetEvents(string[] events)
+    public KingdomDeckConfigurator SetEvents(string[]? events)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="BlueprintKingdomDeck.Events"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="events"><see cref="BlueprintKingdomEvent"/></param>
+    /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
     [Generated]
     public KingdomDeckConfigurator AddToEvents(params string[] events)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="BlueprintKingdomDeck.Events"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="events"><see cref="BlueprintKingdomEvent"/></param>
+    /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
     [Generated]
     public KingdomDeckConfigurator RemoveFromEvents(params string[] events)
     {

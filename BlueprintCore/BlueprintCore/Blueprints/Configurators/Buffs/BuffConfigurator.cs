@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddEffectFastHealing"/>
     /// </summary>
     [Implements(typeof(AddEffectFastHealing))]
-    public BuffConfigurator FastHealing(int baseValue, ContextValue bonusValue = null)
+    public BuffConfigurator FastHealing(int baseValue, ContextValue? bonusValue = null)
     {
       var fastHealing = new AddEffectFastHealing
       {
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator BuffSleeping(
         int? wakeupPerceptionDC = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var sleeping = new BuffSleeping();
       if (wakeupPerceptionDC is not null) { sleeping.WakeupPerceptionDC = wakeupPerceptionDC.Value; }
@@ -282,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddGlobalMapSpeedModifier(
         float speedModifier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new GlobalMapSpeedModifier();
       component.SpeedModifier = speedModifier;
@@ -295,9 +295,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddForceMove))]
     public BuffConfigurator AddForceMove(
-        ContextValue feetPerRound = null,
+        ContextValue? feetPerRound = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(feetPerRound);
     
@@ -328,9 +328,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AddNocticulaBonus))]
     public BuffConfigurator AddNocticulaBonus(
         ModifierDescriptor descriptor = default,
-        ContextValue highestStatBonus = null,
+        ContextValue? highestStatBonus = null,
         StatType highestStat = default,
-        ContextValue secondHighestStatBonus = null,
+        ContextValue? secondHighestStatBonus = null,
         StatType secondHighestStat = default)
     {
       ValidateParam(highestStatBonus);
@@ -351,9 +351,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddRestTrigger))]
     public BuffConfigurator AddRestTrigger(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddRestTrigger();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -367,7 +367,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AddRunwayLogic))]
     public BuffConfigurator AddRunwayLogic(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddRunwayLogic();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -377,11 +377,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddTemporaryFeat"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feat"><see cref="BlueprintFeature"/></param>
+    /// <param name="feat"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddTemporaryFeat))]
     public BuffConfigurator AddTemporaryFeat(
-        string feat = null)
+        string? feat = null)
     {
       var component = new AddTemporaryFeat();
       component.m_Feat = BlueprintTool.GetRef<BlueprintFeatureReference>(feat);
@@ -422,11 +422,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="BuffEnchantAnyWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantmentBlueprint"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(BuffEnchantAnyWeapon))]
     public BuffConfigurator AddBuffEnchantAnyWeapon(
-        string enchantmentBlueprint = null,
+        string? enchantmentBlueprint = null,
         EquipSlotBase.SlotType slot = default)
     {
       var component = new BuffEnchantAnyWeapon();
@@ -439,15 +439,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="BuffEnchantSpecificWeaponWorn"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantmentBlueprint"><see cref="BlueprintItemEnchantment"/></param>
-    /// <param name="weaponBlueprint"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
+    /// <param name="weaponBlueprint"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(BuffEnchantSpecificWeaponWorn))]
     public BuffConfigurator AddBuffEnchantSpecificWeaponWorn(
-        string enchantmentBlueprint = null,
-        string weaponBlueprint = null,
+        string? enchantmentBlueprint = null,
+        string? weaponBlueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BuffEnchantSpecificWeaponWorn();
       component.m_EnchantmentBlueprint = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchantmentBlueprint);
@@ -459,11 +459,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="BuffEnchantWornItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantmentBlueprint"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(BuffEnchantWornItem))]
     public BuffConfigurator AddBuffEnchantWornItem(
-        string enchantmentBlueprint = null,
+        string? enchantmentBlueprint = null,
         bool allWeapons = default,
         EquipSlotBase.SlotType slot = default)
     {
@@ -481,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(Bugurt))]
     public BuffConfigurator AddBugurt(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new Bugurt();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -495,7 +495,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddDropLootAndDestroyOnDeactivate(
         IDisposable coroutine,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(coroutine);
     
@@ -511,7 +511,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(LimbsApartDismembermentRestricted))]
     public BuffConfigurator AddLimbsApartDismembermentRestricted(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new LimbsApartDismembermentRestricted();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -526,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MountedShield();
       component.Descriptor = descriptor;
@@ -541,7 +541,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(RemoveBuffIfPartyNotInCombat))]
     public BuffConfigurator AddRemoveBuffIfPartyNotInCombat(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemoveBuffIfPartyNotInCombat();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -555,7 +555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddSetMagusFeatureActive(
         SetMagusFeatureActive.FeatureType feature = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SetMagusFeatureActive();
       component.m_Feature = feature;
@@ -566,14 +566,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="ShroudOfWater"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="upgradeFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="upgradeFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ShroudOfWater))]
     public BuffConfigurator AddShroudOfWater(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        ContextValue baseValue = null,
-        string upgradeFeature = null)
+        ContextValue? baseValue = null,
+        string? upgradeFeature = null)
     {
       ValidateParam(baseValue);
     
@@ -592,7 +592,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(UniqueBuff))]
     public BuffConfigurator AddUniqueBuff(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UniqueBuff();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -602,13 +602,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddKineticistBlade"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blade"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="blade"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(AddKineticistBlade))]
     public BuffConfigurator AddKineticistBlade(
-        string blade = null,
+        string? blade = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddKineticistBlade();
       component.m_Blade = BlueprintTool.GetRef<BlueprintItemWeaponReference>(blade);
@@ -619,13 +619,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="Polymorph"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="replaceUnitForInspection"><see cref="BlueprintUnit"/></param>
-    /// <param name="portrait"><see cref="BlueprintPortrait"/></param>
-    /// <param name="mainHand"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="offHand"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="additionalLimbs"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="secondaryAdditionalLimbs"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="replaceUnitForInspection"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
+    /// <param name="mainHand"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="offHand"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="additionalLimbs"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="secondaryAdditionalLimbs"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(Polymorph))]
     public BuffConfigurator AddPolymorph(
@@ -635,22 +635,22 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Polymorph.VisualTransitionSettings exitTransition,
         PolymorphTransitionSettings transitionExternal,
         SpecialDollType specialDollType = default,
-        string replaceUnitForInspection = null,
-        string portrait = null,
+        string? replaceUnitForInspection = null,
+        string? portrait = null,
         bool keepSlots = default,
         Size size = default,
         int strengthBonus = default,
         int dexterityBonus = default,
         int constitutionBonus = default,
         int naturalArmor = default,
-        string mainHand = null,
-        string offHand = null,
-        string[] additionalLimbs = null,
-        string[] secondaryAdditionalLimbs = null,
-        string[] facts = null,
+        string? mainHand = null,
+        string? offHand = null,
+        string[]? additionalLimbs = null,
+        string[]? secondaryAdditionalLimbs = null,
+        string[]? facts = null,
         bool silentCaster = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(prefab);
       ValidateParam(prefabFemale);
@@ -690,7 +690,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddRemoveBuffOnLoad(
         bool onlyFromParty = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemoveBuffOnLoad();
       component.OnlyFromParty = onlyFromParty;
@@ -705,7 +705,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddRemoveBuffOnTurnOn(
         bool onlyFromParty = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemoveBuffOnTurnOn();
       component.OnlyFromParty = onlyFromParty;
@@ -716,13 +716,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddAreaEffect"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="areaEffect"><see cref="BlueprintAbilityAreaEffect"/></param>
+    /// <param name="areaEffect"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbilityAreaEffect"/></param>
     [Generated]
     [Implements(typeof(AddAreaEffect))]
     public BuffConfigurator AddAreaEffect(
-        string areaEffect = null,
+        string? areaEffect = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddAreaEffect();
       component.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(areaEffect);
@@ -737,7 +737,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddAttackBonus(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddAttackBonus();
       component.Bonus = bonus;
@@ -752,7 +752,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddCheatDamageBonus(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddCheatDamageBonus();
       component.Bonus = bonus;
@@ -765,10 +765,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddDispelMagicFailedTrigger))]
     public BuffConfigurator AddDispelMagicFailedTrigger(
-        ActionsBuilder actionOnOwner = null,
-        ActionsBuilder actionOnCaster = null,
+        ActionsBuilder? actionOnOwner = null,
+        ActionsBuilder? actionOnCaster = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddDispelMagicFailedTrigger();
       component.ActionOnOwner = actionOnOwner?.Build() ?? Constants.Empty.Actions;
@@ -782,9 +782,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddEffectContextFastHealing))]
     public BuffConfigurator AddEffectContextFastHealing(
-        ContextValue bonus = null,
+        ContextValue? bonus = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
     
@@ -802,7 +802,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         string element,
         int shieldCapacity = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddEffectProtectionFromElement();
       component.Element = element;
@@ -819,11 +819,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         int heal = default,
         bool unremovable = default,
         bool cancelByMagicWeapon = default,
-        DamageEnergyType[] cancelDamageEnergyTypes = null,
-        DamageAlignment[] cancelDamageAlignmentTypes = null,
-        PhysicalDamageMaterial[] cancelDamageMaterials = null,
+        DamageEnergyType[]? cancelDamageEnergyTypes = null,
+        DamageAlignment[]? cancelDamageAlignmentTypes = null,
+        PhysicalDamageMaterial[]? cancelDamageMaterials = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddEffectRegeneration();
       component.Heal = heal;
@@ -858,10 +858,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddMirrorImage))]
     public BuffConfigurator AddMirrorImage(
-        ContextDiceValue count = null,
+        ContextDiceValue? count = null,
         int maxCount = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
     
@@ -879,7 +879,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddSpellSchool(
         SpellSchool school = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddSpellSchool();
       component.School = school;
@@ -893,7 +893,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(IsPositiveEffect))]
     public BuffConfigurator AddIsPositiveEffect(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IsPositiveEffect();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -906,7 +906,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(NegativeLevelComponent))]
     public BuffConfigurator AddNegativeLevelComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new NegativeLevelComponent();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -920,7 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddRemoveBuffIfCasterIsMissing(
         bool removeOnCasterDeath = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemoveBuffIfCasterIsMissing();
       component.RemoveOnCasterDeath = removeOnCasterDeath;
@@ -938,7 +938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         float firstFxDelay = default,
         float secondFxDelay = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(firstFx);
       ValidateParam(secondFx);
@@ -958,9 +958,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(SetBuffOnsetDelay))]
     public BuffConfigurator AddSetBuffOnsetDelay(
         ContextDurationValue delay,
-        ActionsBuilder onStart = null,
+        ActionsBuilder? onStart = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(delay);
     
@@ -978,7 +978,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddSpecialAnimationState(
         UnitAnimationActionBuffState animation,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animation);
     
@@ -994,7 +994,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(SummonedUnitBuff))]
     public BuffConfigurator AddSummonedUnitBuff(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SummonedUnitBuff();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1009,9 +1009,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         WeaponRangeType type = default,
         int attackBonus = default,
         ModifierDescriptor descriptor = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1027,20 +1027,20 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public BuffConfigurator AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
-        string customProperty = null,
+        string? customProperty = null,
         bool replaceCasterLevel = default,
-        ContextValue casterLevel = null,
+        ContextValue? casterLevel = null,
         bool replaceSpellLevel = default,
-        ContextValue spellLevel = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -1061,15 +1061,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public BuffConfigurator AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
-        string characterClass = null,
+        string? characterClass = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
@@ -1085,7 +1085,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(ContextCalculateSharedValue))]
     public BuffConfigurator AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         double modifier = default)
     {
       ValidateParam(value);
@@ -1104,12 +1104,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(ContextSetAbilityParams))]
     public BuffConfigurator AddContextSetAbilityParams(
         bool add10ToDC = default,
-        ContextValue dC = null,
-        ContextValue casterLevel = null,
-        ContextValue concentration = null,
-        ContextValue spellLevel = null,
+        ContextValue? dC = null,
+        ContextValue? casterLevel = null,
+        ContextValue? concentration = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -1132,7 +1132,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public BuffConfigurator AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1145,10 +1145,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AttackBonusAgainstTacticalOwner))]
     public BuffConfigurator AddAttackBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
@@ -1167,10 +1167,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(AttackBonusAgainstTacticalTarget))]
     public BuffConfigurator AddAttackBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
@@ -1190,10 +1190,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddDamageBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         int bonusPercentValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
@@ -1214,10 +1214,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddDamageBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         int bonusPercentValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
@@ -1234,14 +1234,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="ReplaceSquadAbilities"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="newAbilities"><see cref="BlueprintAbility"/></param>
+    /// <param name="newAbilities"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(ReplaceSquadAbilities))]
     public BuffConfigurator AddReplaceSquadAbilities(
-        string[] newAbilities = null,
+        string[]? newAbilities = null,
         bool forOneTurn = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ReplaceSquadAbilities();
       component.m_NewAbilities = newAbilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList();
@@ -1253,14 +1253,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="TacticalCombatConfusion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="aiAttackNearestAction"><see cref="BlueprintTacticalCombatAiAction"/></param>
+    /// <param name="aiAttackNearestAction"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
     [Generated]
     [Implements(typeof(TacticalCombatConfusion))]
     public BuffConfigurator AddTacticalCombatConfusion(
-        string aiAttackNearestAction = null,
-        ActionsBuilder harmSelfAction = null,
+        string? aiAttackNearestAction = null,
+        ActionsBuilder? harmSelfAction = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TacticalCombatConfusion();
       component.m_AiAttackNearestAction = BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(aiAttackNearestAction);
@@ -1275,11 +1275,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(TacticalMoraleChanceModifier))]
     public BuffConfigurator AddTacticalMoraleChanceModifier(
         bool changePositiveMorale = default,
-        ContextValue positiveMoraleChancePercentDelta = null,
+        ContextValue? positiveMoraleChancePercentDelta = null,
         bool changeNegativeMorale = default,
-        ContextValue negativeMoraleChancePercentDelta = null,
+        ContextValue? negativeMoraleChancePercentDelta = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(positiveMoraleChancePercentDelta);
       ValidateParam(negativeMoraleChancePercentDelta);
@@ -1299,7 +1299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(TargetingBlind))]
     public BuffConfigurator AddTargetingBlind(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TargetingBlind();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1309,13 +1309,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="BodyguardACBonus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(BodyguardACBonus))]
     public BuffConfigurator AddBodyguardACBonus(
-        string checkBuff = null,
+        string? checkBuff = null,
         ModifierDescriptor descriptor = default,
-        ContextValue value = null)
+        ContextValue? value = null)
     {
       ValidateParam(value);
     
@@ -1330,15 +1330,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="BuffExtraEffects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="extraEffectBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="exceptionFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="extraEffectBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="exceptionFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(BuffExtraEffects))]
     public BuffConfigurator AddBuffExtraEffects(
-        string checkedBuff = null,
-        string extraEffectBuff = null,
-        string exceptionFact = null)
+        string? checkedBuff = null,
+        string? extraEffectBuff = null,
+        string? exceptionFact = null)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);
@@ -1351,13 +1351,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="InHarmsWay"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="cooldownBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(InHarmsWay))]
     public BuffConfigurator AddInHarmsWay(
-        string checkBuff = null,
-        string cooldownBuff = null)
+        string? checkBuff = null,
+        string? cooldownBuff = null)
     {
       var component = new InHarmsWay();
       component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkBuff);
@@ -1369,11 +1369,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="IndomitableMount"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cooldownBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(IndomitableMount))]
     public BuffConfigurator AddIndomitableMount(
-        string cooldownBuff = null)
+        string? cooldownBuff = null)
     {
       var component = new IndomitableMount();
       component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(cooldownBuff);
@@ -1390,7 +1390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         bool doNotRemove = default,
         bool sourcerousReflex = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MetamagicOnNextSpell();
       component.Metamagic = metamagic;
@@ -1403,15 +1403,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="MetamagicRodMechanics"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="rodAbility"><see cref="BlueprintActivatableAbility"/></param>
-    /// <param name="abilitiesWhiteList"><see cref="BlueprintAbility"/></param>
+    /// <param name="rodAbility"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
+    /// <param name="abilitiesWhiteList"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(MetamagicRodMechanics))]
     public BuffConfigurator AddMetamagicRodMechanics(
         Metamagic metamagic = default,
         int maxSpellLevel = default,
-        string rodAbility = null,
-        string[] abilitiesWhiteList = null)
+        string? rodAbility = null,
+        string[]? abilitiesWhiteList = null)
     {
       var component = new MetamagicRodMechanics();
       component.Metamagic = metamagic;
@@ -1425,11 +1425,11 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="MountedCombat"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cooldownBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(MountedCombat))]
     public BuffConfigurator AddMountedCombat(
-        string cooldownBuff = null)
+        string? cooldownBuff = null)
     {
       var component = new MountedCombat();
       component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(cooldownBuff);
@@ -1440,13 +1440,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="NeutralToFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="faction"><see cref="BlueprintFaction"/></param>
+    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     [Implements(typeof(NeutralToFaction))]
     public BuffConfigurator AddNeutralToFaction(
-        string faction = null,
+        string? faction = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new NeutralToFaction();
       component.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(faction);
@@ -1457,14 +1457,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="SpecificSpellDamageBonus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(SpecificSpellDamageBonus))]
     public BuffConfigurator AddSpecificSpellDamageBonus(
-        string[] spell = null,
+        string[]? spell = null,
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SpecificSpellDamageBonus();
       component.m_Spell = spell.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
@@ -1476,13 +1476,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="UnwillingShield"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="masterAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="masterAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(UnwillingShield))]
     public BuffConfigurator AddUnwillingShield(
-        string masterAbility = null,
+        string? masterAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UnwillingShield();
       component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(masterAbility);
@@ -1493,13 +1493,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="UnwillingShieldTarget"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="masterAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="masterAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(UnwillingShieldTarget))]
     public BuffConfigurator AddUnwillingShieldTarget(
-        string masterAbility = null,
+        string? masterAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new UnwillingShieldTarget();
       component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(masterAbility);
@@ -1512,10 +1512,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ACBonusAgainstCaster))]
     public BuffConfigurator AddACBonusAgainstCaster(
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1531,12 +1531,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(ACBonusAgainstTarget))]
     public BuffConfigurator AddACBonusAgainstTarget(
-        ContextValue value = null,
+        ContextValue? value = null,
         bool checkCaster = default,
         bool checkCasterFriend = default,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1552,15 +1552,15 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddAdditionalLimbIfHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddAdditionalLimbIfHasFact))]
     public BuffConfigurator AddAdditionalLimbIfHasFact(
-        string weapon = null,
-        string checkedFact = null,
+        string? weapon = null,
+        string? checkedFact = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddAdditionalLimbIfHasFact();
       component.m_Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
@@ -1576,7 +1576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddStatBonusAbilityValue(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        ContextValue value = null)
+        ContextValue? value = null)
     {
       ValidateParam(value);
     
@@ -1591,16 +1591,16 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="AddStatBonusIfHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddStatBonusIfHasFact))]
     public BuffConfigurator AddStatBonusIfHasFact(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         bool invertCondition = default,
         bool requireAllFacts = default,
-        string[] checkedFacts = null)
+        string[]? checkedFacts = null)
     {
       ValidateParam(value);
     
@@ -1662,14 +1662,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="ApplyBuffOnHit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(ApplyBuffOnHit))]
     public BuffConfigurator AddApplyBuffOnHit(
         Rounds time,
-        string buff = null,
+        string? buff = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ApplyBuffOnHit();
       component.m_buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -1683,10 +1683,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AttackBonusAgainstCaster))]
     public BuffConfigurator AddAttackBonusAgainstCaster(
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1702,14 +1702,14 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AttackBonusAgainstTarget))]
     public BuffConfigurator AddAttackBonusAgainstTarget(
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         bool checkCaster = default,
         bool checkCasterFriend = default,
         bool checkRangeType = default,
         WeaponRangeType rangeType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1732,9 +1732,9 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         bool notDispellAfterOffensiveAction = default,
         int stealthBonus = default,
         bool dispelWithAChance = default,
-        ContextValue chance = null,
+        ContextValue? chance = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(chance);
     
@@ -1781,10 +1781,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddBuffPoisonStatDamageContext(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        ContextDiceValue value = null,
-        ContextValue bonus = null,
-        ContextValue ticks = null,
-        ContextValue succesfullSaves = null,
+        ContextDiceValue? value = null,
+        ContextValue? bonus = null,
+        ContextValue? ticks = null,
+        ContextValue? succesfullSaves = null,
         SavingThrowType saveType = default,
         bool noEffectOnFirstTick = default)
     {
@@ -1812,7 +1812,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(ControlledProjectileHolder))]
     public BuffConfigurator AddControlledProjectileHolder(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ControlledProjectileHolder();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1824,12 +1824,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(DamageBonusAgainstTarget))]
     public BuffConfigurator AddDamageBonusAgainstTarget(
-        ContextValue value = null,
+        ContextValue? value = null,
         bool checkCaster = default,
         bool checkCasterFriend = default,
         bool applyToSpellDamage = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1848,7 +1848,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(EqualForce))]
     public BuffConfigurator AddEqualForce(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EqualForce();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1860,10 +1860,10 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(GreaterSnapShotBonus))]
     public BuffConfigurator AddGreaterSnapShotBonus(
-        ContextValue value = null,
+        ContextValue? value = null,
         ModifierDescriptor descriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -1882,7 +1882,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         bool checkCaster = default,
         bool checkCasterFriend = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreTargetDR();
       component.CheckCaster = checkCaster;
@@ -1898,7 +1898,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     public BuffConfigurator AddOverrideLocoMotion(
         UnitAnimationActionLocoMotion locoMotion,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(locoMotion);
     
@@ -1914,7 +1914,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Implements(typeof(RemovedByHeal))]
     public BuffConfigurator AddRemovedByHeal(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemovedByHeal();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

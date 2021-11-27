@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonArea.Rooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator SetRooms(DungeonRoomSettings[] rooms)
+    public DungeonAreaConfigurator SetRooms(DungeonRoomSettings[]? rooms)
     {
       ValidateParam(rooms);
     
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonArea.SecretRooms"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator SetSecretRooms(DungeonRoomSettings[] secretRooms)
+    public DungeonAreaConfigurator SetSecretRooms(DungeonRoomSettings[]? secretRooms)
     {
       ValidateParam(secretRooms);
     
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonArea.Traps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator SetTraps(DungeonTrapLocator[] traps)
+    public DungeonAreaConfigurator SetTraps(DungeonTrapLocator[]? traps)
     {
       ValidateParam(traps);
     
@@ -173,7 +173,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// Sets <see cref="BlueprintDungeonArea.ThemeLightScenes"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DungeonAreaConfigurator SetThemeLightScenes(BlueprintDungeonArea.ThemeScene[] themeLightScenes)
+    public DungeonAreaConfigurator SetThemeLightScenes(BlueprintDungeonArea.ThemeScene[]? themeLightScenes)
     {
       ValidateParam(themeLightScenes);
     

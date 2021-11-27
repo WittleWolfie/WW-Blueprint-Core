@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClasses"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
-    public CharacterClassGroupConfigurator SetCharacterClasses(string[] characterClasses)
+    public CharacterClassGroupConfigurator SetCharacterClasses(string[]? characterClasses)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds to <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClasses"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     public CharacterClassGroupConfigurator AddToCharacterClasses(params string[] characterClasses)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Removes from <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClasses"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     public CharacterClassGroupConfigurator RemoveFromCharacterClasses(params string[] characterClasses)
     {

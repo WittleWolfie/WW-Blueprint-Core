@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintCompanionStory.m_Companion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public CompanionStoryConfigurator SetCompanion(string companion)
+    public CompanionStoryConfigurator SetCompanion(string? companion)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintCompanionStory.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetTitle(LocalizedString title)
+    public CompanionStoryConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
     
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintCompanionStory.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetDescription(LocalizedString description)
+    public CompanionStoryConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     

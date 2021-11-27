@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
     /// Sets <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[] maleArray)
+    public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[]? maleArray)
     {
       ValidateParam(maleArray);
     
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
     /// Sets <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[] femaleArray)
+    public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[]? femaleArray)
     {
       ValidateParam(femaleArray);
     
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
     /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
+    public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[]? raceDependentArrays)
     {
       ValidateParam(raceDependentArrays);
     

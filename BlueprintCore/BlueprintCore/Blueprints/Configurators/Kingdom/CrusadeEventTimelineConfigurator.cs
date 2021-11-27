@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CrusadeEventTimelineConfigurator SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
+    public CrusadeEventTimelineConfigurator SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[]? chapters)
     {
       ValidateParam(chapters);
     

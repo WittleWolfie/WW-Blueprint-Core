@@ -203,8 +203,8 @@ namespace BlueprintCoreGen.CodeGen
       if (field is IEnumerableField)
       {
         var enumerableField = field as IEnumerableField;
-        methods.Add(GetModifyField(enumerableField, returnType, blueprintTypeName, addTo: true));
-        methods.Add(GetModifyField(enumerableField, returnType, blueprintTypeName));
+        methods.Add(GetModifyField(enumerableField!, returnType, blueprintTypeName, addTo: true));
+        methods.Add(GetModifyField(enumerableField!, returnType, blueprintTypeName));
       }
       return methods;
     }
@@ -274,7 +274,7 @@ namespace BlueprintCoreGen.CodeGen
       }
     }
 
-    private static void AddAttributes(Method method, string implementedType = null)
+    private static void AddAttributes(Method method, string? implementedType = null)
     {
       method.AddLine($"[Generated]");
       if (implementedType is not null)
@@ -346,7 +346,7 @@ namespace BlueprintCoreGen.CodeGen
         AddImport(import.Namespace);
       }
 
-      private void AddImport(string typeNamespace)
+      private void AddImport(string? typeNamespace)
       {
         // Skip type defined in the global namespace
         if (!string.IsNullOrEmpty(typeNamespace))

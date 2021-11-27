@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderSkill.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetLocalizedName(LocalizedString localizedName)
+    public LeaderSkillConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
     
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderSkill.LocalizedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString localizedDescription)
+    public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
     
@@ -140,9 +140,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="prerequisites"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
-    public LeaderSkillConfigurator SetPrerequisites(string[] prerequisites)
+    public LeaderSkillConfigurator SetPrerequisites(string[]? prerequisites)
     {
       return OnConfigureInternal(
           bp =>
@@ -155,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds to <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="prerequisites"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
     public LeaderSkillConfigurator AddToPrerequisites(params string[] prerequisites)
     {
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Removes from <see cref="BlueprintLeaderSkill.m_Prerequisites"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="prerequisites"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="prerequisites"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
     public LeaderSkillConfigurator RemoveFromPrerequisites(params string[] prerequisites)
     {
@@ -190,13 +190,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="AddFactOnLeaderUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactOnLeaderUnit))]
     public LeaderSkillConfigurator AddFactOnLeaderUnit(
-        string[] facts = null,
+        string[]? facts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddFactOnLeaderUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -207,12 +207,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="AddFactOnTacticalUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddFactOnTacticalUnit))]
     public LeaderSkillConfigurator AddFactOnTacticalUnit(
         TargetFilter targetController,
-        string[] facts = null)
+        string[]? facts = null)
     {
       ValidateParam(targetController);
     
@@ -226,13 +226,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="CastOnTacticalCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellToCast"><see cref="BlueprintAbility"/></param>
+    /// <param name="spellToCast"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(CastOnTacticalCombatStart))]
     public LeaderSkillConfigurator AddCastOnTacticalCombatStart(
-        string spellToCast = null,
+        string? spellToCast = null,
         bool targetCell = default,
-        List<int> allowedColumns = null)
+        List<int>? allowedColumns = null)
     {
       var component = new CastOnTacticalCombatStart();
       component.m_SpellToCast = BlueprintTool.GetRef<BlueprintAbilityReference>(spellToCast);
@@ -245,15 +245,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="LeaderExpBonus"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bonusSkills"><see cref="BlueprintLeaderSkillsList"/></param>
+    /// <param name="bonusSkills"><see cref="Kingmaker.Armies.BlueprintLeaderSkillsList"/></param>
     [Generated]
     [Implements(typeof(LeaderExpBonus))]
     public LeaderSkillConfigurator AddLeaderExpBonus(
         int bonusPercent = default,
         int levelForBonusSkills = default,
-        string bonusSkills = null,
+        string? bonusSkills = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new LeaderExpBonus();
       component.m_BonusPercent = bonusPercent;
@@ -270,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddLeaderPercentAttributeBonus(
         LeaderAttributes percentBonuses,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(percentBonuses);
     
@@ -287,7 +287,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator AddMaxArmySquadsBonusLeaderComponent(
         int armySizeBonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MaxArmySquadsBonusLeaderComponent();
       component.m_ArmySizeBonus = armySizeBonus;
@@ -298,12 +298,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="PlaceLeaderTrapOnCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="possibleTrapSkills"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="possibleTrapSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
     [Implements(typeof(PlaceLeaderTrapOnCombatStart))]
     public LeaderSkillConfigurator AddPlaceLeaderTrapOnCombatStart(
-        string[] possibleTrapSkills = null,
-        List<int> allowedColumns = null)
+        string[]? possibleTrapSkills = null,
+        List<int>? allowedColumns = null)
     {
       var component = new PlaceLeaderTrapOnCombatStart();
       component.m_PossibleTrapSkills = possibleTrapSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
@@ -315,12 +315,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="RemoveFactFromTacticalUnit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RemoveFactFromTacticalUnit))]
     public LeaderSkillConfigurator AddRemoveFactFromTacticalUnit(
         TargetFilter targetController,
-        string[] facts = null)
+        string[]? facts = null)
     {
       ValidateParam(targetController);
     
@@ -334,14 +334,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="SquadsActionOnTacticalCombatStart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bannedFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(SquadsActionOnTacticalCombatStart))]
     public LeaderSkillConfigurator AddSquadsActionOnTacticalCombatStart(
         TargetFilter filter,
-        string[] bannedFacts = null,
+        string[]? bannedFacts = null,
         int maxSquadsCount = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       ValidateParam(filter);
     
@@ -357,13 +357,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds <see cref="TacticalLeaderRitualComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(TacticalLeaderRitualComponent))]
     public LeaderSkillConfigurator AddTacticalLeaderRitualComponent(
-        string ability = null,
+        string? ability = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TacticalLeaderRitualComponent();
       component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
@@ -379,7 +379,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         KingdomResourcesAmount resourcesAmount,
         bool onlyOnVictory = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmyLeaderAddResourcesOnBattleEnd();
       component.m_ResourcesAmount = resourcesAmount;

@@ -23,7 +23,7 @@ namespace BlueprintCoreGen.Actions.Builder.StoryEx
     /// <param name="etude"><see cref="BlueprintEtude"/></param>
     [Implements(typeof(CompleteEtude))]
     public static ActionsBuilder CompleteEtude(
-        this ActionsBuilder builder, string etude, BlueprintEvaluator evaluator = null)
+        this ActionsBuilder builder, string etude, BlueprintEvaluator? evaluator = null)
     {
       var completeEtude = ElementTool.Create<CompleteEtude>();
       completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);

@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
+    public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[]? entries)
     {
       ValidateParam(entries);
     

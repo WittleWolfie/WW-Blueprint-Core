@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// Sets <see cref="BlueprintItemShield.m_WeaponComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="weaponComponent"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="weaponComponent"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
-    public ItemShieldConfigurator SetWeaponComponent(string weaponComponent)
+    public ItemShieldConfigurator SetWeaponComponent(string? weaponComponent)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,9 +46,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// Sets <see cref="BlueprintItemShield.m_ArmorComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armorComponent"><see cref="BlueprintItemArmor"/></param>
+    /// <param name="armorComponent"><see cref="Kingmaker.Blueprints.Items.Armors.BlueprintItemArmor"/></param>
     [Generated]
-    public ItemShieldConfigurator SetArmorComponent(string armorComponent)
+    public ItemShieldConfigurator SetArmorComponent(string? armorComponent)
     {
       return OnConfigureInternal(
           bp =>

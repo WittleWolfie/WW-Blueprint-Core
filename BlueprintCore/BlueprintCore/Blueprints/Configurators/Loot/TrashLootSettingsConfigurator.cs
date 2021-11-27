@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrashLootSettingsConfigurator SetCRToCost(int[] cRToCost)
+    public TrashLootSettingsConfigurator SetCRToCost(int[]? cRToCost)
     {
       return OnConfigureInternal(
           bp =>
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrashLootSettingsConfigurator SetChanceToIncreaseItemsCount(int[] chanceToIncreaseItemsCount)
+    public TrashLootSettingsConfigurator SetChanceToIncreaseItemsCount(int[]? chanceToIncreaseItemsCount)
     {
       return OnConfigureInternal(
           bp =>
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="TrashLootSettings.Types"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrashLootSettingsConfigurator SetTypes(List<TrashLootSettings.TypeSettings> types)
+    public TrashLootSettingsConfigurator SetTypes(List<TrashLootSettings.TypeSettings>? types)
     {
       ValidateParam(types);
     
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="TrashLootSettings.Table"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrashLootSettingsConfigurator SetTable(TrashLootSettings.TypeChance[] table)
+    public TrashLootSettingsConfigurator SetTable(TrashLootSettings.TypeChance[]? table)
     {
       ValidateParam(table);
     
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrashLootSettingsConfigurator SetSuperTrashLoot(TrashLootSettings.SettingAndItems[] superTrashLoot)
+    public TrashLootSettingsConfigurator SetSuperTrashLoot(TrashLootSettings.SettingAndItems[]? superTrashLoot)
     {
       ValidateParam(superTrashLoot);
     

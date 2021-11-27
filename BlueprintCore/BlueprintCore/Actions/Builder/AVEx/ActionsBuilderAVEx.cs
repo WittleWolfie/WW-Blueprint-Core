@@ -229,13 +229,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Adds <see cref="PlayCutscene"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cutscene"><see cref="Cutscene"/></param>
+    /// <param name="cutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
     [Generated]
     [Implements(typeof(PlayCutscene))]
     public static ActionsBuilder PlayCutscene(
         this ActionsBuilder builder,
         ParametrizedContextSetter parameters,
-        string cutscene = null,
+        string? cutscene = null,
         bool putInQueue = default,
         bool checkExistence = default)
     {
@@ -291,7 +291,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         SharedStringAsset whatToBarkShared,
         UnitEvaluator targetUnit,
         MapObjectEvaluator targetMapObject,
-        LocalizedString whatToBark = null,
+        LocalizedString? whatToBark = null,
         bool barkDurationByText = default)
     {
       builder.Validate(whatToBark);
@@ -341,13 +341,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Adds <see cref="StopCutscene"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cutscene"><see cref="Cutscene"/></param>
+    /// <param name="cutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
     [Generated]
     [Implements(typeof(StopCutscene))]
     public static ActionsBuilder StopCutscene(
         this ActionsBuilder builder,
         UnitEvaluator withUnit,
-        string cutscene = null,
+        string? cutscene = null,
         StopCutscene.UnitCheckType checkType = default)
     {
       builder.Validate(withUnit);

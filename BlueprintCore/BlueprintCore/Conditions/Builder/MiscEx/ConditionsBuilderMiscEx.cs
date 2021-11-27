@@ -136,12 +136,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// Adds <see cref="IsDLCEnabled"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintDlcReward"><see cref="BlueprintDlcReward"/></param>
+    /// <param name="blueprintDlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     [Generated]
     [Implements(typeof(IsDLCEnabled))]
     public static ConditionsBuilder IsDLCEnabled(
         this ConditionsBuilder builder,
-        string blueprintDlcReward = null,
+        string? blueprintDlcReward = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsDLCEnabled>();
@@ -154,13 +154,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// Adds <see cref="IsListContainsItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="list"><see cref="BlueprintItemsList"/></param>
+    /// <param name="list"><see cref="Kingmaker.Blueprints.Items.BlueprintItemsList"/></param>
     [Generated]
     [Implements(typeof(IsListContainsItem))]
     public static ConditionsBuilder IsListContainsItem(
         this ConditionsBuilder builder,
         ItemEvaluator item,
-        string list = null,
+        string? list = null,
         bool negate = false)
     {
       builder.Validate(item);

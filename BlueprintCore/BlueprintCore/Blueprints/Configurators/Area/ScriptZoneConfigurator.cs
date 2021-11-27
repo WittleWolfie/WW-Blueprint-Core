@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintScriptZone.TriggerConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ScriptZoneConfigurator SetTriggerConditions(ConditionsBuilder triggerConditions)
+    public ScriptZoneConfigurator SetTriggerConditions(ConditionsBuilder? triggerConditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintScriptZone.EnterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ScriptZoneConfigurator SetEnterActions(ActionsBuilder enterActions)
+    public ScriptZoneConfigurator SetEnterActions(ActionsBuilder? enterActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintScriptZone.ExitActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ScriptZoneConfigurator SetExitActions(ActionsBuilder exitActions)
+    public ScriptZoneConfigurator SetExitActions(ActionsBuilder? exitActions)
     {
       return OnConfigureInternal(
           bp =>

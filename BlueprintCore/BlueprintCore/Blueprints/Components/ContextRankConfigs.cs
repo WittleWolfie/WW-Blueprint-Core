@@ -54,16 +54,16 @@ namespace BlueprintCore.Blueprints.Components
         AbilityRankType type,
         int? max,
         int? min,
-        string feature = null,
-        string[] featureList = null,
+        string? feature = null,
+        string[]? featureList = null,
         StatType stat = StatType.Unknown,
         ModifierDescriptor modDescriptor = ModifierDescriptor.None,
-        string buff = null,
+        string? buff = null,
         bool excludeClasses = false,
-        string[] archetypes = null,
-        string[] classes = null,
-        string property = null,
-        string[] propertyList = null)
+        string[]? archetypes = null,
+        string[]? classes = null,
+        string? property = null,
+        string[]? propertyList = null)
     {
       var config =
           new ContextRankConfig
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.CustomProperty"/>
     /// </summary>
     /// 
-    /// <param name="property"><see cref="BlueprintPrintUnitProperty"/></param>
+    /// <param name="property"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig CustomProperty(
         string property, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
@@ -193,7 +193,7 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.MaxCustomProperty"/>
     /// </summary>
     /// 
-    /// <param name="properties"><see cref="BlueprintPrintUnitProperty"/></param>
+    /// <param name="properties"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig MaxCustomProperty(
         string[] properties,
@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.ClassLevel"/>
     /// </summary>
     /// 
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig ClassLevel(
         string[] classes,
@@ -225,8 +225,8 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.MaxClassLevelWithArchetype"/>
     /// </summary>
     /// 
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig MaxClassLevelWithArchetype(
         string[] classes,
@@ -251,8 +251,8 @@ namespace BlueprintCore.Blueprints.Components
     /// <see cref="ContextRankBaseValueType.SummClassLevelWithArchetype"/>
     /// </summary>
     /// 
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig SumClassLevelWithArchetype(
         string[] classes,
@@ -279,9 +279,9 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.Bombs"/>
     /// </summary>
     /// 
-    /// <param name="feature"><see cref="BlueprintFeature"/></param>
-    /// <param name="classes"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="archetypes"><see cref="BlueprintArchetype"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig Bombs(
         string feature,
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <see cref="ContextRankBaseValueType.MasterFeatureRank"/>
     /// </summary>
     /// 
-    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig FeatureRank(
         string feature,
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <see cref="ContextRankBaseValueType.FeatureListRanks"/>
     /// </summary>
     /// 
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig FeatureList(
         string[] features,
@@ -366,7 +366,7 @@ namespace BlueprintCore.Blueprints.Components
     /// Implements <see cref="ContextRankBaseValueType.MythicLevelPlusBuffRank"/>
     /// </summary>
     /// 
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig MythicLevelPlusBuffRank(
         string buff, AbilityRankType type = AbilityRankType.Default, int? max = null, int? min = null)
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Components
     /// <see cref="ContextRankBaseValueType.TargetBuffRank"/>
     /// </summary>
     /// 
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <inheritdoc cref="BaseAttack(AbilityRankType, int?, int?)"/>
     public static ContextRankConfig BuffRank(
         string buff,

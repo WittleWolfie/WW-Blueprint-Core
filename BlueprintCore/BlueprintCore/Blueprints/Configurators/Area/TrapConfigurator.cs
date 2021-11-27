@@ -127,9 +127,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.m_Actor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="actor"><see cref="BlueprintUnit"/></param>
+    /// <param name="actor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public TrapConfigurator SetActor(string actor)
+    public TrapConfigurator SetActor(string? actor)
     {
       return OnConfigureInternal(
           bp =>
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.TriggerConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetTriggerConditions(ConditionsBuilder triggerConditions)
+    public TrapConfigurator SetTriggerConditions(ConditionsBuilder? triggerConditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -155,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.DisableConditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableConditions(ConditionsBuilder disableConditions)
+    public TrapConfigurator SetDisableConditions(ConditionsBuilder? disableConditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.TrapActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetTrapActions(ActionsBuilder trapActions)
+    public TrapConfigurator SetTrapActions(ActionsBuilder? trapActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintTrap.DisableActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TrapConfigurator SetDisableActions(ActionsBuilder disableActions)
+    public TrapConfigurator SetDisableActions(ActionsBuilder? disableActions)
     {
       return OnConfigureInternal(
           bp =>
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         float modifier = default,
         bool dummy = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
     

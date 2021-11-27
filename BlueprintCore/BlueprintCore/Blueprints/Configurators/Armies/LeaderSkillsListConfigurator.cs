@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderSkillsList.m_Skills"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="skills"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
-    public LeaderSkillsListConfigurator SetSkills(string[] skills)
+    public LeaderSkillsListConfigurator SetSkills(string[]? skills)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds to <see cref="BlueprintLeaderSkillsList.m_Skills"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="skills"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
     public LeaderSkillsListConfigurator AddToSkills(params string[] skills)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Removes from <see cref="BlueprintLeaderSkillsList.m_Skills"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="skills"><see cref="BlueprintLeaderSkill"/></param>
+    /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     [Generated]
     public LeaderSkillsListConfigurator RemoveFromSkills(params string[] skills)
     {

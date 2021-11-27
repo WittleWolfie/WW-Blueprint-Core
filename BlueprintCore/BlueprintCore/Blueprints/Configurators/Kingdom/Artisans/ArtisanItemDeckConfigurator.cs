@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="ArtisanItemDeck.TypeName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArtisanItemDeckConfigurator SetTypeName(LocalizedString typeName)
+    public ArtisanItemDeckConfigurator SetTypeName(LocalizedString? typeName)
     {
       ValidateParam(typeName);
     
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// Sets <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArtisanItemDeckConfigurator SetTiers(ArtisanItemDeck.TierData[] tiers)
+    public ArtisanItemDeckConfigurator SetTiers(ArtisanItemDeck.TierData[]? tiers)
     {
       ValidateParam(tiers);
     

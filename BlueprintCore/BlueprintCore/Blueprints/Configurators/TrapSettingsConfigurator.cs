@@ -55,9 +55,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintTrapSettings.TrapActor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="trapActor"><see cref="BlueprintUnit"/></param>
+    /// <param name="trapActor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public TrapSettingsConfigurator SetTrapActor(string trapActor)
+    public TrapSettingsConfigurator SetTrapActor(string? trapActor)
     {
       return OnConfigureInternal(
           bp =>

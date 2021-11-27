@@ -142,7 +142,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder DamageParty(
         this ActionsBuilder builder,
         DamageDescription damage,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool enableBattleLog = true)
     {
       var dmg = ElementTool.Create<DamageParty>();
@@ -166,7 +166,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         UnitEvaluator target,
         DamageDescription damage,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool enableBattleLog = true,
         bool enableFxAndSound = true)
     {
@@ -197,7 +197,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         StatType type,
         DiceFormula damageDice,
         int damageBonus = 0,
-        UnitEvaluator source = null,
+        UnitEvaluator? source = null,
         bool drain = false,
         bool enableBattleLog = true)
     {
@@ -318,7 +318,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         string equipment,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int count = 1,
         bool silent = false,
@@ -349,7 +349,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         string handItem,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int preferredHandSlot = 0,
         int count = 1,
@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool silent,
         bool identify,
         bool equip = false,
-        UnitEvaluator equipOn = null,
+        UnitEvaluator? equipOn = null,
         bool errorIfDidNotEquip = true,
         int preferredHandSlot = 0)
     {
@@ -504,13 +504,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="DetachBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(DetachBuff))]
     public static ActionsBuilder DetachBuff(
         this ActionsBuilder builder,
         UnitEvaluator target,
-        string buff = null)
+        string? buff = null)
     {
       builder.Validate(target);
     
@@ -577,7 +577,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool immediate = default,
         bool ignoreCorruption = default,
         bool restWithCraft = default,
-        ActionsBuilder actionsOnRestEnd = null)
+        ActionsBuilder? actionsOnRestEnd = null)
     {
       var element = ElementTool.Create<FakePartyRest>();
       element.m_Immediate = immediate;
@@ -669,14 +669,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="ItemSetCharges"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="item"><see cref="BlueprintItem"/></param>
+    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ItemSetCharges))]
     public static ActionsBuilder ItemSetCharges(
         this ActionsBuilder builder,
         IntEvaluator charges,
         ItemsCollectionEvaluator collection,
-        string item = null)
+        string? item = null)
     {
       builder.Validate(charges);
       builder.Validate(collection);
@@ -763,7 +763,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder PartyUnits(
         this ActionsBuilder builder,
         Player.CharactersList unitsList = default,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<PartyUnits>();
       element.m_UnitsList = unitsList;
@@ -793,12 +793,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RaiseDead"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(RaiseDead))]
     public static ActionsBuilder RaiseDead(
         this ActionsBuilder builder,
-        string companion = null,
+        string? companion = null,
         bool riseAllCompanions = default)
     {
       var element = ElementTool.Create<RaiseDead>();
@@ -814,7 +814,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(RandomAction))]
     public static ActionsBuilder RandomAction(
         this ActionsBuilder builder,
-        ActionAndWeight[] actions = null)
+        ActionAndWeight[]? actions = null)
     {
       var element = ElementTool.Create<RandomAction>();
       element.Actions = actions;
@@ -841,13 +841,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RemoveFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RemoveFact))]
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        string fact = null)
+        string? fact = null)
     {
       builder.Validate(unit);
     
@@ -868,8 +868,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         int dC = default,
         bool logSuccess = default,
         bool logFailure = default,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFailure = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFailure = null)
     {
       var element = ElementTool.Create<RollPartySkillCheck>();
       element.Stat = stat;
@@ -895,8 +895,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool logFailure = default,
         bool voice = default,
         bool forbidPartyHelpInCamp = default,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFailure = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFailure = null)
     {
       builder.Validate(unit);
     
@@ -917,14 +917,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="RunActionHolder"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="holder"><see cref="ActionsHolder"/></param>
+    /// <param name="holder"><see cref="Kingmaker.ElementsSystem.ActionsHolder"/></param>
     [Generated]
     [Implements(typeof(RunActionHolder))]
     public static ActionsBuilder RunActionHolder(
         this ActionsBuilder builder,
         string comment,
         ParametrizedContextSetter parameters,
-        string holder = null)
+        string? holder = null)
     {
       builder.Validate(parameters);
     
@@ -942,8 +942,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(Spawn))]
     public static ActionsBuilder Spawn(
         this ActionsBuilder builder,
-        EntityReference[] spawners = null,
-        ActionsBuilder actionsOnSpawn = null)
+        EntityReference[]? spawners = null,
+        ActionsBuilder? actionsOnSpawn = null)
     {
       builder.Validate(spawners);
     
@@ -957,13 +957,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SpawnBySummonPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="pool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SpawnBySummonPool))]
     public static ActionsBuilder SpawnBySummonPool(
         this ActionsBuilder builder,
-        string pool = null,
-        ActionsBuilder actionsOnSpawn = null)
+        string? pool = null,
+        ActionsBuilder? actionsOnSpawn = null)
     {
       var element = ElementTool.Create<SpawnBySummonPool>();
       element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
@@ -979,7 +979,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder SpawnByUnitGroup(
         this ActionsBuilder builder,
         EntityReference group,
-        ActionsBuilder actionsOnSpawn = null)
+        ActionsBuilder? actionsOnSpawn = null)
     {
       builder.Validate(group);
     
@@ -1013,18 +1013,18 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="Summon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(Summon))]
     public static ActionsBuilder Summon(
         this ActionsBuilder builder,
         TransformEvaluator transform,
         Vector3 offset,
-        string unit = null,
-        string summonPool = null,
+        string? unit = null,
+        string? summonPool = null,
         bool groupBySummonPool = default,
-        ActionsBuilder onSummmon = null)
+        ActionsBuilder? onSummmon = null)
     {
       builder.Validate(transform);
     
@@ -1042,14 +1042,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SummonPoolUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonPoolUnits))]
     public static ActionsBuilder SummonPoolUnits(
         this ActionsBuilder builder,
-        string summonPool = null,
-        ConditionsBuilder conditions = null,
-        ActionsBuilder actions = null)
+        string? summonPool = null,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<SummonPoolUnits>();
       element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
@@ -1062,18 +1062,18 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SummonUnitCopy"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="copyBlueprint"><see cref="BlueprintUnit"/></param>
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
+    /// <param name="copyBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     [Generated]
     [Implements(typeof(SummonUnitCopy))]
     public static ActionsBuilder SummonUnitCopy(
         this ActionsBuilder builder,
         UnitEvaluator copyFrom,
         LocatorEvaluator locator,
-        string copyBlueprint = null,
-        string summonPool = null,
+        string? copyBlueprint = null,
+        string? summonPool = null,
         bool doNotCreateItems = default,
-        ActionsBuilder onSummon = null)
+        ActionsBuilder? onSummon = null)
     {
       builder.Validate(copyFrom);
       builder.Validate(locator);
@@ -1092,13 +1092,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// Adds <see cref="SwitchActivatableAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ability"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="ability"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(SwitchActivatableAbility))]
     public static ActionsBuilder SwitchActivatableAbility(
         this ActionsBuilder builder,
         UnitEvaluator unit,
-        string ability = null,
+        string? ability = null,
         bool isOn = default)
     {
       builder.Validate(unit);
@@ -1134,7 +1134,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder UnitsFromSpawnersInUnitGroup(
         this ActionsBuilder builder,
         EntityReference group,
-        ActionsBuilder actions = null)
+        ActionsBuilder? actions = null)
     {
       builder.Validate(group);
     

@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public ArmorEnchantmentConfigurator AddArmorEnhancementBonus(
         int enhancementValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ArmorEnhancementBonus();
       component.EnhancementValue = enhancementValue;
@@ -48,11 +48,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddSavesFixerArmorRecalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddSavesFixerArmorRecalculator))]
     public ArmorEnchantmentConfigurator AddSavesFixerArmorRecalculator(
-        string feature = null)
+        string? feature = null)
     {
       var component = new AddSavesFixerArmorRecalculator();
       component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int armorCheckPenaltyShift = default,
         int arcaneSpellFailureShift = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AdvanceArmorStats();
       component.MaxDexBonusShift = maxDexBonusShift;

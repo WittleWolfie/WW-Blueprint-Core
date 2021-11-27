@@ -33,9 +33,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// Sets <see cref="SettlementBuildList.m_BuildArea"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buildArea"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="buildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public SettlementBuildListConfigurator SetBuildArea(string buildArea)
+    public SettlementBuildListConfigurator SetBuildArea(string? buildArea)
     {
       return OnConfigureInternal(
           bp =>
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// Sets <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry> list)
+    public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry>? list)
     {
       ValidateParam(list);
     

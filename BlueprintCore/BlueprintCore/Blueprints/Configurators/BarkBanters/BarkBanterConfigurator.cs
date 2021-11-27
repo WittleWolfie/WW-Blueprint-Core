@@ -45,9 +45,9 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// Sets <see cref="BlueprintBarkBanter.m_Unit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public BarkBanterConfigurator SetUnit(string unit)
+    public BarkBanterConfigurator SetUnit(string? unit)
     {
       return OnConfigureInternal(
           bp =>
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// Sets <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BarkBanterConfigurator SetFirstPhrase(LocalizedString[] firstPhrase)
+    public BarkBanterConfigurator SetFirstPhrase(LocalizedString[]? firstPhrase)
     {
       ValidateParam(firstPhrase);
     
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// Sets <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public BarkBanterConfigurator SetResponses(BlueprintBarkBanter.BanterResponseEntry[] responses)
+    public BarkBanterConfigurator SetResponses(BlueprintBarkBanter.BanterResponseEntry[]? responses)
     {
       ValidateParam(responses);
     

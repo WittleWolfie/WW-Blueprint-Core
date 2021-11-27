@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="RandomEncountersRoot.m_Chapters"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncountersRootConfigurator SetChapters(RandomEncounterChapterSettings[] chapters)
+    public RandomEncountersRootConfigurator SetChapters(RandomEncounterChapterSettings[]? chapters)
     {
       ValidateParam(chapters);
     
@@ -129,9 +129,9 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="RandomEncountersRoot.m_TrashLootSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="trashLootSettings"><see cref="TrashLootSettings"/></param>
+    /// <param name="trashLootSettings"><see cref="Kingmaker.Blueprints.Loot.TrashLootSettings"/></param>
     [Generated]
-    public RandomEncountersRootConfigurator SetTrashLootSettings(string trashLootSettings)
+    public RandomEncountersRootConfigurator SetTrashLootSettings(string? trashLootSettings)
     {
       return OnConfigureInternal(
           bp =>
@@ -144,7 +144,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="RandomEncountersRoot.ZoneSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncountersRootConfigurator SetZoneSettings(ZoneCombatRandomEncounterSettings[] zoneSettings)
+    public RandomEncountersRootConfigurator SetZoneSettings(ZoneCombatRandomEncounterSettings[]? zoneSettings)
     {
       ValidateParam(zoneSettings);
     
@@ -187,9 +187,9 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="RandomEncountersRoot.m_Encounters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="encounters"><see cref="BlueprintRandomEncounter"/></param>
+    /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
     [Generated]
-    public RandomEncountersRootConfigurator SetEncounters(string[] encounters)
+    public RandomEncountersRootConfigurator SetEncounters(string[]? encounters)
     {
       return OnConfigureInternal(
           bp =>
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Adds to <see cref="RandomEncountersRoot.m_Encounters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="encounters"><see cref="BlueprintRandomEncounter"/></param>
+    /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
     [Generated]
     public RandomEncountersRootConfigurator AddToEncounters(params string[] encounters)
     {
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Removes from <see cref="RandomEncountersRoot.m_Encounters"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="encounters"><see cref="BlueprintRandomEncounter"/></param>
+    /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
     [Generated]
     public RandomEncountersRootConfigurator RemoveFromEncounters(params string[] encounters)
     {
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="RandomEncountersRoot.Armies"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RandomEncountersRootConfigurator SetArmies(ArmySettings[] armies)
+    public RandomEncountersRootConfigurator SetArmies(ArmySettings[]? armies)
     {
       ValidateParam(armies);
     

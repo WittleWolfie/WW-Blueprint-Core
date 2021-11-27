@@ -46,9 +46,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// Sets <see cref="ConsoleRoot.Texts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="texts"><see cref="GamePadTexts"/></param>
+    /// <param name="texts"><see cref="Kingmaker.Blueprints.Console.GamePadTexts"/></param>
     [Generated]
-    public ConsoleRootConfigurator SetTexts(string texts)
+    public ConsoleRootConfigurator SetTexts(string? texts)
     {
       return OnConfigureInternal(
           bp =>

@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintCampingEncounter.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetConditions(ConditionsBuilder conditions)
+    public CampingEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintCampingEncounter.EncounterActions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder encounterActions)
+    public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder? encounterActions)
     {
       return OnConfigureInternal(
           bp =>

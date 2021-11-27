@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootRandomItem))]
     public TBuilder AddLootRandomItem(
-        LootItemAndWeight[] items = null)
+        LootItemAndWeight[]? items = null)
     {
       ValidateParam(items);
     
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     [Generated]
     [Implements(typeof(LootRandomItem))]
     public UnitLootConfigurator AddLootRandomItem(
-        LootItemAndWeight[] items = null)
+        LootItemAndWeight[]? items = null)
     {
       ValidateParam(items);
     

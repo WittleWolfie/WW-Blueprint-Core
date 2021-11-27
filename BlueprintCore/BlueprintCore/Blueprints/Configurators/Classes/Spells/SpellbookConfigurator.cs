@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetName(LocalizedString name)
+    public SpellbookConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -61,9 +61,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_SpellsPerDay"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellsPerDay"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellsPerDay"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellsPerDay(string spellsPerDay)
+    public SpellbookConfigurator SetSpellsPerDay(string? spellsPerDay)
     {
       return OnConfigureInternal(
           bp =>
@@ -76,9 +76,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_SpellsKnown"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellsKnown"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellsKnown"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellsKnown(string spellsKnown)
+    public SpellbookConfigurator SetSpellsKnown(string? spellsKnown)
     {
       return OnConfigureInternal(
           bp =>
@@ -91,9 +91,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_SpellSlots"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellSlots"><see cref="BlueprintSpellsTable"/></param>
+    /// <param name="spellSlots"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellSlots(string spellSlots)
+    public SpellbookConfigurator SetSpellSlots(string? spellSlots)
     {
       return OnConfigureInternal(
           bp =>
@@ -106,9 +106,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_SpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
-    public SpellbookConfigurator SetSpellList(string spellList)
+    public SpellbookConfigurator SetSpellList(string? spellList)
     {
       return OnConfigureInternal(
           bp =>
@@ -121,9 +121,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_MythicSpellList"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicSpellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="mythicSpellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
-    public SpellbookConfigurator SetMythicSpellList(string mythicSpellList)
+    public SpellbookConfigurator SetMythicSpellList(string? mythicSpellList)
     {
       return OnConfigureInternal(
           bp =>
@@ -136,9 +136,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.m_CharacterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
-    public SpellbookConfigurator SetCharacterClass(string characterClass)
+    public SpellbookConfigurator SetCharacterClass(string? characterClass)
     {
       return OnConfigureInternal(
           bp =>
@@ -281,7 +281,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellbook.SpecialSpellListName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellbookConfigurator SetSpecialSpellListName(LocalizedString specialSpellListName)
+    public SpellbookConfigurator SetSpecialSpellListName(LocalizedString? specialSpellListName)
     {
       ValidateParam(specialSpellListName);
     
@@ -296,12 +296,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Adds <see cref="AddCustomSpells"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(AddCustomSpells))]
     public SpellbookConfigurator AddCustomSpells(
         int casterLevel = default,
-        string spellList = null,
+        string? spellList = null,
         int maxSpellLevel = default,
         int count = default)
     {
@@ -320,7 +320,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Implements(typeof(IsAlchemistSpellbook))]
     public SpellbookConfigurator AddIsAlchemistSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IsAlchemistSpellbook();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -333,7 +333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     [Implements(typeof(IsSinMagicSpecialistSpellbook))]
     public SpellbookConfigurator AddIsSinMagicSpecialistSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IsSinMagicSpecialistSpellbook();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

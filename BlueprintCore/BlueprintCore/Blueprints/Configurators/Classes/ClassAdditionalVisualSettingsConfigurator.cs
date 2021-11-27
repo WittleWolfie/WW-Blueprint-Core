@@ -32,9 +32,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="prerequisite"><see cref="BlueprintEtude"/></param>
+    /// <param name="prerequisite"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
-    public ClassAdditionalVisualSettingsConfigurator SetPrerequisite(string prerequisite)
+    public ClassAdditionalVisualSettingsConfigurator SetPrerequisite(string? prerequisite)
     {
       return OnConfigureInternal(
           bp =>
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClassAdditionalVisualSettingsConfigurator SetColorRamps(BlueprintClassAdditionalVisualSettings.ColorRamp[] colorRamps)
+    public ClassAdditionalVisualSettingsConfigurator SetColorRamps(BlueprintClassAdditionalVisualSettings.ColorRamp[]? colorRamps)
     {
       ValidateParam(colorRamps);
     

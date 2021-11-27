@@ -85,7 +85,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
       prereq.Level = minLevel;
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       return AddUniqueComponent(prereq, behavior, merge);
@@ -265,7 +265,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       prereq.Companion = true;
@@ -282,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
       prereq.Level = level;
@@ -354,7 +354,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
@@ -491,7 +491,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
@@ -563,7 +563,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ArchetypeConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
@@ -574,11 +574,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="PrerequisiteLoreMaster"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="loreMaster"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="loreMaster"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(PrerequisiteLoreMaster))]
     public ArchetypeConfigurator AddPrerequisiteLoreMaster(
-        string loreMaster = null,
+        string? loreMaster = null,
         int rating = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,

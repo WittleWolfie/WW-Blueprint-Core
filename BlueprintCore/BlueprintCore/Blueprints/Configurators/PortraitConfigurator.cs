@@ -45,9 +45,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintPortrait.m_BackupPortrait"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="backupPortrait"><see cref="BlueprintPortrait"/></param>
+    /// <param name="backupPortrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
     [Generated]
-    public PortraitConfigurator SetBackupPortrait(string backupPortrait)
+    public PortraitConfigurator SetBackupPortrait(string? backupPortrait)
     {
       return OnConfigureInternal(
           bp =>
@@ -60,14 +60,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds <see cref="PortraitDollSettings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="race"><see cref="BlueprintRace"/></param>
+    /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
     [Generated]
     [Implements(typeof(PortraitDollSettings))]
     public PortraitConfigurator AddPortraitDollSettings(
         Gender gender = default,
-        string race = null,
+        string? race = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PortraitDollSettings();
       component.Gender = gender;

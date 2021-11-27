@@ -175,7 +175,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private bool Configured = false;
     private readonly StringBuilder ValidationWarnings = new();
 
-    protected readonly TBuilder Self = null;
+    protected readonly TBuilder Self;
     protected readonly string Name;
     protected readonly T Blueprint;
 
@@ -304,7 +304,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     public TBuilder AddUniqueComponent(
         BlueprintComponent component,
         ComponentMerge behavior = ComponentMerge.Fail,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       UniqueComponents.Add(new UniqueComponent(component, behavior, merge));
       return Self;
@@ -335,9 +335,9 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
-    protected void ValidateParam(object obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
+    protected void ValidateParam(object? obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
 
-    protected void ValidateParam<P>(IEnumerable<P> objects)
+    protected void ValidateParam<P>(IEnumerable<P>? objects)
     {
       if (objects is null) { return; }
       foreach (var obj in objects) { ValidateParam(obj); }
@@ -368,7 +368,9 @@ namespace BlueprintCoreGen.Blueprints.Configurators
             Components.Add(component.Component);
             break;
           case ComponentMerge.Merge:
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             component.Merge(current, component.Component);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             break;
           case ComponentMerge.Fail:
           default:
@@ -415,16 +417,14 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         else { componentTypes.Add(componentType); }
 
         List<AllowedOnAttribute> allowedOn =
-            attrs
-                .Where(attr => attr is AllowedOnAttribute)
-                .Select(attr => attr as AllowedOnAttribute)
-                .ToList();
+            attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => (attr as AllowedOnAttribute)!).ToList();
         bool componentAllowed = false;
         var blueprintType = Blueprint.GetType();
-        foreach (AllowedOnAttribute attr in allowedOn)
+        foreach (AllowedOnAttribute? attr in allowedOn)
         {
+          var parent = attr.Type;
           // Need .NET 5.0 for IsAssignableTo()
-          if (IsAssignableTo(blueprintType, attr.Type))
+          if (blueprintType == parent || blueprintType.IsSubclassOf(parent))
           {
             componentAllowed = true;
             break;
@@ -453,21 +453,16 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       Context.Errors.ToList().ForEach(str => AddValidationWarning(str));
     }
 
-    private static bool IsAssignableTo(Type child, Type parent)
-    {
-      return child == parent || child.IsSubclassOf(parent);
-    }
-
     private struct UniqueComponent
     {
       public BlueprintComponent Component { get; }
       public ComponentMerge Behavior { get; }
-      public Action<BlueprintComponent, BlueprintComponent> Merge { get; }
+      public Action<BlueprintComponent, BlueprintComponent>? Merge { get; }
 
       public UniqueComponent(
           BlueprintComponent component,
           ComponentMerge behavior,
-          Action<BlueprintComponent, BlueprintComponent> merge)
+          Action<BlueprintComponent, BlueprintComponent>? merge)
       {
         Component = component;
         Behavior = behavior;

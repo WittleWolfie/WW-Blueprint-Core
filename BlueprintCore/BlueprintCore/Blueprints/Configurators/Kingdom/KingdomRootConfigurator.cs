@@ -35,9 +35,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_BlueprintRegionCapital"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprintRegionCapital"><see cref="BlueprintRegion"/></param>
+    /// <param name="blueprintRegionCapital"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
-    public KingdomRootConfigurator SetBlueprintRegionCapital(string blueprintRegionCapital)
+    public KingdomRootConfigurator SetBlueprintRegionCapital(string? blueprintRegionCapital)
     {
       return OnConfigureInternal(
           bp =>
@@ -50,9 +50,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_CapitalSettlement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="capitalSettlement"><see cref="BlueprintSettlement"/></param>
+    /// <param name="capitalSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
-    public KingdomRootConfigurator SetCapitalSettlement(string capitalSettlement)
+    public KingdomRootConfigurator SetCapitalSettlement(string? capitalSettlement)
     {
       return OnConfigureInternal(
           bp =>
@@ -65,9 +65,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_ThroneRoom"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="throneRoom"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="throneRoom"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public KingdomRootConfigurator SetThroneRoom(string throneRoom)
+    public KingdomRootConfigurator SetThroneRoom(string? throneRoom)
     {
       return OnConfigureInternal(
           bp =>
@@ -95,9 +95,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_StartingEventDecks"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingEventDecks"><see cref="BlueprintKingdomDeck"/></param>
+    /// <param name="startingEventDecks"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck"/></param>
     [Generated]
-    public KingdomRootConfigurator SetStartingEventDecks(string[] startingEventDecks)
+    public KingdomRootConfigurator SetStartingEventDecks(string[]? startingEventDecks)
     {
       return OnConfigureInternal(
           bp =>
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_StartingEventDecks"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingEventDecks"><see cref="BlueprintKingdomDeck"/></param>
+    /// <param name="startingEventDecks"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck"/></param>
     [Generated]
     public KingdomRootConfigurator AddToStartingEventDecks(params string[] startingEventDecks)
     {
@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_StartingEventDecks"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingEventDecks"><see cref="BlueprintKingdomDeck"/></param>
+    /// <param name="startingEventDecks"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromStartingEventDecks(params string[] startingEventDecks)
     {
@@ -145,9 +145,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_KingdomProjectEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="kingdomProjectEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="kingdomProjectEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public KingdomRootConfigurator SetKingdomProjectEvents(string[] kingdomProjectEvents)
+    public KingdomRootConfigurator SetKingdomProjectEvents(string[]? kingdomProjectEvents)
     {
       return OnConfigureInternal(
           bp =>
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_KingdomProjectEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="kingdomProjectEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="kingdomProjectEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     public KingdomRootConfigurator AddToKingdomProjectEvents(params string[] kingdomProjectEvents)
     {
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_KingdomProjectEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="kingdomProjectEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="kingdomProjectEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromKingdomProjectEvents(params string[] kingdomProjectEvents)
     {
@@ -195,9 +195,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_Buildings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buildings"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
-    public KingdomRootConfigurator SetBuildings(string[] buildings)
+    public KingdomRootConfigurator SetBuildings(string[]? buildings)
     {
       return OnConfigureInternal(
           bp =>
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_Buildings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buildings"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
     public KingdomRootConfigurator AddToBuildings(params string[] buildings)
     {
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_Buildings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buildings"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromBuildings(params string[] buildings)
     {
@@ -245,9 +245,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_UnrestPriorityDeck"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unrestPriorityDeck"><see cref="BlueprintKingdomDeck"/></param>
+    /// <param name="unrestPriorityDeck"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck"/></param>
     [Generated]
-    public KingdomRootConfigurator SetUnrestPriorityDeck(string unrestPriorityDeck)
+    public KingdomRootConfigurator SetUnrestPriorityDeck(string? unrestPriorityDeck)
     {
       return OnConfigureInternal(
           bp =>
@@ -273,9 +273,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_UnrestMitigationEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unrestMitigationEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="unrestMitigationEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
-    public KingdomRootConfigurator SetUnrestMitigationEvents(string[] unrestMitigationEvents)
+    public KingdomRootConfigurator SetUnrestMitigationEvents(string[]? unrestMitigationEvents)
     {
       return OnConfigureInternal(
           bp =>
@@ -288,7 +288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_UnrestMitigationEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unrestMitigationEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="unrestMitigationEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     public KingdomRootConfigurator AddToUnrestMitigationEvents(params string[] unrestMitigationEvents)
     {
@@ -303,7 +303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_UnrestMitigationEvents"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unrestMitigationEvents"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="unrestMitigationEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromUnrestMitigationEvents(params string[] unrestMitigationEvents)
     {
@@ -323,9 +323,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_UIRoot"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="uIRoot"><see cref="KingdomUIRoot"/></param>
+    /// <param name="uIRoot"><see cref="Kingmaker.Kingdom.KingdomUIRoot"/></param>
     [Generated]
-    public KingdomRootConfigurator SetUIRoot(string uIRoot)
+    public KingdomRootConfigurator SetUIRoot(string? uIRoot)
     {
       return OnConfigureInternal(
           bp =>
@@ -338,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.LeaderSlots"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetLeaderSlots(LeaderSlot[] leaderSlots)
+    public KingdomRootConfigurator SetLeaderSlots(LeaderSlot[]? leaderSlots)
     {
       ValidateParam(leaderSlots);
     
@@ -381,9 +381,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_StartingNPCLeaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingNPCLeaders"><see cref="BlueprintUnit"/></param>
+    /// <param name="startingNPCLeaders"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public KingdomRootConfigurator SetStartingNPCLeaders(string[] startingNPCLeaders)
+    public KingdomRootConfigurator SetStartingNPCLeaders(string[]? startingNPCLeaders)
     {
       return OnConfigureInternal(
           bp =>
@@ -396,7 +396,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_StartingNPCLeaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingNPCLeaders"><see cref="BlueprintUnit"/></param>
+    /// <param name="startingNPCLeaders"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public KingdomRootConfigurator AddToStartingNPCLeaders(params string[] startingNPCLeaders)
     {
@@ -411,7 +411,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_StartingNPCLeaders"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startingNPCLeaders"><see cref="BlueprintUnit"/></param>
+    /// <param name="startingNPCLeaders"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromStartingNPCLeaders(params string[] startingNPCLeaders)
     {
@@ -431,9 +431,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_Timeline"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="timeline"><see cref="BlueprintKingdomEventTimeline"/></param>
+    /// <param name="timeline"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventTimeline"/></param>
     [Generated]
-    public KingdomRootConfigurator SetTimeline(string timeline)
+    public KingdomRootConfigurator SetTimeline(string? timeline)
     {
       return OnConfigureInternal(
           bp =>
@@ -446,9 +446,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_CrusadeEventsTimeline"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="crusadeEventsTimeline"><see cref="BlueprintCrusadeEventTimeline"/></param>
+    /// <param name="crusadeEventsTimeline"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintCrusadeEventTimeline"/></param>
     [Generated]
-    public KingdomRootConfigurator SetCrusadeEventsTimeline(string crusadeEventsTimeline)
+    public KingdomRootConfigurator SetCrusadeEventsTimeline(string? crusadeEventsTimeline)
     {
       return OnConfigureInternal(
           bp =>
@@ -461,9 +461,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_RegionUpgradesAvailable"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="regionUpgradesAvailable"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="regionUpgradesAvailable"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
-    public KingdomRootConfigurator SetRegionUpgradesAvailable(string regionUpgradesAvailable)
+    public KingdomRootConfigurator SetRegionUpgradesAvailable(string? regionUpgradesAvailable)
     {
       return OnConfigureInternal(
           bp =>
@@ -476,9 +476,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_BpVendorItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bpVendorItem"><see cref="BlueprintItem"/></param>
+    /// <param name="bpVendorItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public KingdomRootConfigurator SetBpVendorItem(string bpVendorItem)
+    public KingdomRootConfigurator SetBpVendorItem(string? bpVendorItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -491,9 +491,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_ConsumableEventBonusVendorItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="consumableEventBonusVendorItem"><see cref="BlueprintItem"/></param>
+    /// <param name="consumableEventBonusVendorItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public KingdomRootConfigurator SetConsumableEventBonusVendorItem(string consumableEventBonusVendorItem)
+    public KingdomRootConfigurator SetConsumableEventBonusVendorItem(string? consumableEventBonusVendorItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -714,7 +714,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.DefaultName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetDefaultName(LocalizedString defaultName)
+    public KingdomRootConfigurator SetDefaultName(LocalizedString? defaultName)
     {
       ValidateParam(defaultName);
     
@@ -807,9 +807,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_StoryModeBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="storyModeBuff"><see cref="BlueprintKingdomBuff"/></param>
+    /// <param name="storyModeBuff"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
     [Generated]
-    public KingdomRootConfigurator SetStoryModeBuff(string storyModeBuff)
+    public KingdomRootConfigurator SetStoryModeBuff(string? storyModeBuff)
     {
       return OnConfigureInternal(
           bp =>
@@ -822,9 +822,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_CasualModeBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="casualModeBuff"><see cref="BlueprintKingdomBuff"/></param>
+    /// <param name="casualModeBuff"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
     [Generated]
-    public KingdomRootConfigurator SetCasualModeBuff(string casualModeBuff)
+    public KingdomRootConfigurator SetCasualModeBuff(string? casualModeBuff)
     {
       return OnConfigureInternal(
           bp =>
@@ -882,7 +882,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.Stats"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetStats(KingdomRoot.StatData[] stats)
+    public KingdomRootConfigurator SetStats(KingdomRoot.StatData[]? stats)
     {
       ValidateParam(stats);
     
@@ -925,9 +925,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_EntryPoint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="entryPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="entryPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
-    public KingdomRootConfigurator SetEntryPoint(string entryPoint)
+    public KingdomRootConfigurator SetEntryPoint(string? entryPoint)
     {
       return OnConfigureInternal(
           bp =>
@@ -940,9 +940,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_Regions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="regions"><see cref="BlueprintRegion"/></param>
+    /// <param name="regions"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
-    public KingdomRootConfigurator SetRegions(string[] regions)
+    public KingdomRootConfigurator SetRegions(string[]? regions)
     {
       return OnConfigureInternal(
           bp =>
@@ -955,7 +955,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_Regions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="regions"><see cref="BlueprintRegion"/></param>
+    /// <param name="regions"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     public KingdomRootConfigurator AddToRegions(params string[] regions)
     {
@@ -970,7 +970,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_Regions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="regions"><see cref="BlueprintRegion"/></param>
+    /// <param name="regions"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromRegions(params string[] regions)
     {
@@ -990,9 +990,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.m_Locations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
-    public KingdomRootConfigurator SetLocations(string[] locations)
+    public KingdomRootConfigurator SetLocations(string[]? locations)
     {
       return OnConfigureInternal(
           bp =>
@@ -1005,7 +1005,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds to <see cref="KingdomRoot.m_Locations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     public KingdomRootConfigurator AddToLocations(params string[] locations)
     {
@@ -1020,7 +1020,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Removes from <see cref="KingdomRoot.m_Locations"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     public KingdomRootConfigurator RemoveFromLocations(params string[] locations)
     {
@@ -1040,7 +1040,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.ArtisanTierChances"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetArtisanTierChances(int[] artisanTierChances)
+    public KingdomRootConfigurator SetArtisanTierChances(int[]? artisanTierChances)
     {
       return OnConfigureInternal(
           bp =>
@@ -1079,7 +1079,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.ArtisanTierChancesRequest"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetArtisanTierChancesRequest(int[] artisanTierChancesRequest)
+    public KingdomRootConfigurator SetArtisanTierChancesRequest(int[]? artisanTierChancesRequest)
     {
       return OnConfigureInternal(
           bp =>
@@ -1131,7 +1131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomRoot.DifficultyDCMod"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomRootConfigurator SetDifficultyDCMod(int[] difficultyDCMod)
+    public KingdomRootConfigurator SetDifficultyDCMod(int[]? difficultyDCMod)
     {
       return OnConfigureInternal(
           bp =>

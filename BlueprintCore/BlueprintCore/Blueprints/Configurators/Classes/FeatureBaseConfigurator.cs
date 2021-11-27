@@ -20,10 +20,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected FeatureBaseConfigurator(string name) : base(name) { }
 
+#pragma warning disable CS1574 // XML comment has cref attribute that could not be resolved
     /// <summary>
     /// Sets <see cref="BlueprintFeatureBase.HideInUi"/>
     /// </summary>
     public TBuilder SetHideInUi(bool hide = true)
+#pragma warning restore CS1574 // XML comment has cref attribute that could not be resolved
     {
       return OnConfigureInternal(blueprint => blueprint.HideInUI = hide);
     }
@@ -106,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(HideFeatureInInspect))]
     public TBuilder AddHideFeatureInInspect(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new HideFeatureInInspect();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

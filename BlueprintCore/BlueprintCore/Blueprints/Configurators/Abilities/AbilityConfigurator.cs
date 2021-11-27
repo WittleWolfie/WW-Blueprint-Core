@@ -328,7 +328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(AbilityCasterAlignment))]
-    public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
+    public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string? ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
       if (ignoreFact != null)
@@ -381,7 +381,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(AbilityCasterHasChosenWeapon))]
     public AbilityConfigurator RequireCasterHasChosenWeapon(
-        string parameterizedWeaponFeature, string ignoreFact = null)
+        string parameterizedWeaponFeature, string? ignoreFact = null)
     {
       var hasChosenWeapon = new AbilityCasterHasChosenWeapon
       {
@@ -420,7 +420,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
-    public AbilityConfigurator RequireCasterOnFavoredTerrain(string ignoreFeature = null)
+    public AbilityConfigurator RequireCasterOnFavoredTerrain(string? ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
       if (ignoreFeature != null)
@@ -476,7 +476,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var run = new AbilityEffectRunAction
       {
@@ -491,7 +491,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       var source = current as AbilityEffectRunAction;
       var target = other as AbilityEffectRunAction;
-      source.Actions.Actions = CommonTool.Append(source.Actions.Actions, target.Actions.Actions);
+      source!.Actions.Actions = CommonTool.Append(source.Actions.Actions, target!.Actions.Actions);
     }
 
     /// <summary>
@@ -504,7 +504,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         ActionsBuilder actions,
         bool useTargetSelector = true,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var onMiss = new AbilityEffectMiss
       {
@@ -519,14 +519,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       var source = current as AbilityEffectMiss;
       var target = other as AbilityEffectMiss;
-      source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
+      source!.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target!.MissAction.Actions);
     }
 
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
     [Implements(typeof(AbilityExecuteActionOnCast))]
-    public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
+    public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder? checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
       {
@@ -543,7 +543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var schoolComponent = new SpellComponent { School = school };
       return AddUniqueComponent(schoolComponent, mergeBehavior, merge);
@@ -615,7 +615,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       var component = bp.GetComponent<AbilityVariants>();
       if (component is null) { return; }
 
-      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null!);
       variants.ForEach(
           reference =>
           {
@@ -685,7 +685,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(InPowerDismemberComponent))]
     public AbilityConfigurator AddInPowerDismemberComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new InPowerDismemberComponent();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -698,7 +698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(SplitDismemberComponent))]
     public AbilityConfigurator AddSplitDismemberComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SplitDismemberComponent();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -711,10 +711,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(ActionPanelLogic))]
     public AbilityConfigurator AddActionPanelLogic(
         int priority = default,
-        ConditionsBuilder autoFillConditions = null,
-        ConditionsBuilder autoCastConditions = null,
+        ConditionsBuilder? autoFillConditions = null,
+        ConditionsBuilder? autoCastConditions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActionPanelLogic();
       component.Priority = priority;
@@ -733,7 +733,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         CraftSavingThrow savingThrow = default,
         CraftAOE aOEType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CraftInfoComponent();
       component.SpellType = spellType;
@@ -750,7 +750,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityIsFullRoundInTurnBased(
         bool fullRoundIfTurnBased = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityIsFullRoundInTurnBased();
       component.FullRoundIfTurnBased = fullRoundIfTurnBased;
@@ -763,9 +763,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(LevelUpRecommendation))]
     public AbilityConfigurator AddLevelUpRecommendation(
-        ClassesPriority[] classPriorities = null,
+        ClassesPriority[]? classPriorities = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(classPriorities);
     
@@ -792,7 +792,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddPretendSpellLevel(
         int spellLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PretendSpellLevel();
       component.SpellLevel = spellLevel;
@@ -803,11 +803,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="SpellListComponent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(SpellListComponent))]
     public AbilityConfigurator AddSpellListComponent(
-        string spellList = null,
+        string? spellList = null,
         int spellLevel = default)
     {
       var component = new SpellListComponent();
@@ -824,7 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddSpellTypeOverride(
         SpellSource type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SpellTypeOverride();
       component.Type = type;
@@ -839,7 +839,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityAcceptBurnOnCast(
         int burnValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityAcceptBurnOnCast();
       component.BurnValue = burnValue;
@@ -850,26 +850,26 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityKineticist"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="cachedDamageSource"><see cref="BlueprintScriptableObject"/></param>
-    /// <param name="requiredResource"><see cref="BlueprintAbilityResource"/></param>
-    /// <param name="resourceCostIncreasingFacts"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="resourceCostDecreasingFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="cachedDamageSource"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
+    /// <param name="requiredResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
+    /// <param name="resourceCostIncreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="resourceCostDecreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityKineticist))]
     public AbilityConfigurator AddAbilityKineticist(
         int blastBurnCost = default,
         int infusionBurnCost = default,
         int wildTalentBurnCost = default,
-        List<AbilityKineticist.DamageInfo> cachedDamageInfo = null,
-        string cachedDamageSource = null,
-        string requiredResource = null,
+        List<AbilityKineticist.DamageInfo>? cachedDamageInfo = null,
+        string? cachedDamageSource = null,
+        string? requiredResource = null,
         bool isSpendResource = default,
         bool costIsCustom = default,
         int amount = default,
-        string[] resourceCostIncreasingFacts = null,
-        string[] resourceCostDecreasingFacts = null,
+        string[]? resourceCostIncreasingFacts = null,
+        string[]? resourceCostDecreasingFacts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityKineticist();
       component.BlastBurnCost = blastBurnCost;
@@ -890,20 +890,20 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public AbilityConfigurator AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
-        string customProperty = null,
+        string? customProperty = null,
         bool replaceCasterLevel = default,
-        ContextValue casterLevel = null,
+        ContextValue? casterLevel = null,
         bool replaceSpellLevel = default,
-        ContextValue spellLevel = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -924,15 +924,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public AbilityConfigurator AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
-        string characterClass = null,
+        string? characterClass = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
@@ -948,7 +948,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(ContextCalculateSharedValue))]
     public AbilityConfigurator AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         double modifier = default)
     {
       ValidateParam(value);
@@ -967,12 +967,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(ContextSetAbilityParams))]
     public AbilityConfigurator AddContextSetAbilityParams(
         bool add10ToDC = default,
-        ContextValue dC = null,
-        ContextValue casterLevel = null,
-        ContextValue concentration = null,
-        ContextValue spellLevel = null,
+        ContextValue? dC = null,
+        ContextValue? casterLevel = null,
+        ContextValue? concentration = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -992,10 +992,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="ArmyAbilityTeleportation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="casterDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="casterAppearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideAppearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="casterDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(ArmyAbilityTeleportation))]
     public AbilityConfigurator AddArmyAbilityTeleportation(
@@ -1007,12 +1007,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject casterAppearFx,
         GameObject sideDisappearFx,
         GameObject sideAppearFx,
-        string casterDisappearProjectile = null,
-        string casterAppearProjectile = null,
-        string sideDisappearProjectile = null,
-        string sideAppearProjectile = null,
+        string? casterDisappearProjectile = null,
+        string? casterAppearProjectile = null,
+        string? sideDisappearProjectile = null,
+        string? sideAppearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1045,7 +1045,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityOnInBattleUnits(
         AbilityOnInBattleUnits.AllyState factionType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityOnInBattleUnits();
       component.m_FactionType = factionType;
@@ -1061,9 +1061,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet spreadSpeed,
         bool vertical = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
-        ConditionsBuilder condition = null,
+        ConditionsBuilder? condition = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityAffectLineOnGrid();
       component.m_Vertical = vertical;
@@ -1084,7 +1084,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool canBeUsedInTacticalCombat = default,
         int diameterInCells = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityAoERadius();
       component.m_Radius = radius;
@@ -1098,16 +1098,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityApplyFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityApplyFact))]
     public AbilityConfigurator AddAbilityApplyFact(
         ContextDurationValue duration,
         AbilityApplyFact.FactRestriction restriction = default,
-        string[] facts = null,
+        string[]? facts = null,
         bool hasDuration = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(duration);
     
@@ -1123,13 +1123,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityConvertSpellLevelToResource"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="resource"><see cref="BlueprintScriptableObject"/></param>
+    /// <param name="resource"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
     [Generated]
     [Implements(typeof(AbilityConvertSpellLevelToResource))]
     public AbilityConfigurator AddAbilityConvertSpellLevelToResource(
-        string resource = null,
+        string? resource = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityConvertSpellLevelToResource();
       component.m_Resource = BlueprintTool.GetRef<AnyBlueprintReference>(resource);
@@ -1143,9 +1143,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomAnimationByBuff))]
     public AbilityConfigurator AddAbilityCustomAnimationByBuff(
         UnitAnimationActionClip defaultAnimation,
-        AbilityCustomAnimationByBuff.Entry[] variants = null,
+        AbilityCustomAnimationByBuff.Entry[]? variants = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(defaultAnimation);
       ValidateParam(variants);
@@ -1163,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomAttack))]
     public AbilityConfigurator AddAbilityCustomAttack(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomAttack();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1176,7 +1176,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomCharge))]
     public AbilityConfigurator AddAbilityCustomCharge(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomCharge();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1186,13 +1186,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomCleave"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="greaterFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="greaterFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomCleave))]
     public AbilityConfigurator AddAbilityCustomCleave(
-        string greaterFeature = null,
+        string? greaterFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomCleave();
       component.m_GreaterFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(greaterFeature);
@@ -1203,10 +1203,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomDimensionDoor"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="casterDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="casterAppearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideAppearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="casterDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomDimensionDoor))]
     public AbilityConfigurator AddAbilityCustomDimensionDoor(
@@ -1218,12 +1218,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject casterAppearFx,
         GameObject sideDisappearFx,
         GameObject sideAppearFx,
-        string casterDisappearProjectile = null,
-        string casterAppearProjectile = null,
-        string sideDisappearProjectile = null,
-        string sideAppearProjectile = null,
+        string? casterDisappearProjectile = null,
+        string? casterAppearProjectile = null,
+        string? sideDisappearProjectile = null,
+        string? sideAppearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1252,8 +1252,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomDimensionDoorSwap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="disappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="appearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="disappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="appearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomDimensionDoorSwap))]
     public AbilityConfigurator AddAbilityCustomDimensionDoorSwap(
@@ -1261,10 +1261,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string portalBone,
         GameObject disappearFx,
         GameObject appearFx,
-        string disappearProjectile = null,
-        string appearProjectile = null,
+        string? disappearProjectile = null,
+        string? appearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(disappearFx);
@@ -1284,10 +1284,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomDimensionDoorTargets"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="casterDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="casterAppearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideAppearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="casterDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomDimensionDoorTargets))]
     public AbilityConfigurator AddAbilityCustomDimensionDoorTargets(
@@ -1299,13 +1299,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject casterAppearFx,
         GameObject sideDisappearFx,
         GameObject sideAppearFx,
-        UnitEvaluator[] targets = null,
-        string casterDisappearProjectile = null,
-        string casterAppearProjectile = null,
-        string sideDisappearProjectile = null,
-        string sideAppearProjectile = null,
+        UnitEvaluator[]? targets = null,
+        string? casterDisappearProjectile = null,
+        string? casterAppearProjectile = null,
+        string? sideDisappearProjectile = null,
+        string? sideAppearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targets);
       ValidateParam(portalFromPrefab);
@@ -1336,10 +1336,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomDweomerLeap"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="casterDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="casterAppearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideAppearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="casterDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomDweomerLeap))]
     public AbilityConfigurator AddAbilityCustomDweomerLeap(
@@ -1351,12 +1351,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject casterAppearFx,
         GameObject sideDisappearFx,
         GameObject sideAppearFx,
-        string casterDisappearProjectile = null,
-        string casterAppearProjectile = null,
-        string sideDisappearProjectile = null,
-        string sideAppearProjectile = null,
+        string? casterDisappearProjectile = null,
+        string? casterAppearProjectile = null,
+        string? sideDisappearProjectile = null,
+        string? sideAppearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1385,11 +1385,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomFlashStep"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flashShot"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="casterDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="casterAppearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideDisappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="sideAppearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="flashShot"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="casterDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomFlashStep))]
     public AbilityConfigurator AddAbilityCustomFlashStep(
@@ -1401,13 +1401,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         GameObject casterAppearFx,
         GameObject sideDisappearFx,
         GameObject sideAppearFx,
-        string flashShot = null,
-        string casterDisappearProjectile = null,
-        string casterAppearProjectile = null,
-        string sideDisappearProjectile = null,
-        string sideAppearProjectile = null,
+        string? flashShot = null,
+        string? casterDisappearProjectile = null,
+        string? casterAppearProjectile = null,
+        string? sideDisappearProjectile = null,
+        string? sideAppearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalFromPrefab);
       ValidateParam(portalToPrefab);
@@ -1447,7 +1447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float takeoffTime = default,
         float landTime = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animation);
       ValidateParam(takeOff);
@@ -1468,17 +1468,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomMeleeAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicBlueprint"><see cref="BlueprintFeature"/></param>
-    /// <param name="rowdyFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="mythicBlueprint"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="rowdyFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomMeleeAttack))]
     public AbilityConfigurator AddAbilityCustomMeleeAttack(
         AbilityCustomMeleeAttack.AttackType type = default,
         int vitalStrikeMod = default,
-        string mythicBlueprint = null,
-        string rowdyFeature = null,
+        string? mythicBlueprint = null,
+        string? rowdyFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomMeleeAttack();
       component.m_Type = type;
@@ -1495,7 +1495,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomMove))]
     public AbilityConfigurator AddAbilityCustomMove(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomMove();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1505,19 +1505,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomOverrun"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addBuffWhileRunning"><see cref="BlueprintBuff"/></param>
+    /// <param name="addBuffWhileRunning"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomOverrun))]
     public AbilityConfigurator AddAbilityCustomOverrun(
-        string addBuffWhileRunning = null,
+        string? addBuffWhileRunning = null,
         float delayBeforeStart = default,
         float delayAfterFinish = default,
         bool firstTargetOnly = default,
         bool autoSuccess = default,
         bool stopOnCorpulence = default,
-        ActionsBuilder actions = null,
+        ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomOverrun();
       component.m_AddBuffWhileRunning = BlueprintTool.GetRef<BlueprintBuffReference>(addBuffWhileRunning);
@@ -1534,17 +1534,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomTeleportation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomTeleportation))]
     public AbilityConfigurator AddAbilityCustomTeleportation(
         GameObject disappearFx,
         GameObject appearFx,
-        string projectile = null,
+        string? projectile = null,
         float disappearDuration = default,
         float appearDuration = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
@@ -1572,7 +1572,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float tongueReturnSpeed = default,
         bool returnTargetAbility = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animationAction);
       ValidateParam(stickCurve);
@@ -1593,16 +1593,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityCustomVitalStrike"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="mythicBlueprint"><see cref="BlueprintFeature"/></param>
-    /// <param name="rowdyFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="mythicBlueprint"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="rowdyFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AbilityCustomVitalStrike))]
     public AbilityConfigurator AddAbilityCustomVitalStrike(
         int vitalStrikeMod = default,
-        string mythicBlueprint = null,
-        string rowdyFeature = null,
+        string? mythicBlueprint = null,
+        string? rowdyFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCustomVitalStrike();
       component.VitalStrikeMod = vitalStrikeMod;
@@ -1618,7 +1618,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityDeliverAttackWithWeapon))]
     public AbilityConfigurator AddAbilityDeliverAttackWithWeapon(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverAttackWithWeapon();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1628,20 +1628,20 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliverChain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projectileFirst"><see cref="BlueprintProjectile"/></param>
-    /// <param name="projectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="projectileFirst"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilityDeliverChain))]
     public AbilityConfigurator AddAbilityDeliverChain(
         Feet radius,
-        string projectileFirst = null,
-        string projectile = null,
-        ContextValue targetsCount = null,
+        string? projectileFirst = null,
+        string? projectile = null,
+        ContextValue? targetsCount = null,
         bool targetDead = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
-        ConditionsBuilder condition = null,
+        ConditionsBuilder? condition = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetsCount);
     
@@ -1660,19 +1660,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliverClashingRocks"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(AbilityDeliverClashingRocks))]
     public AbilityConfigurator AddAbilityDeliverClashingRocks(
         Feet width,
         Feet distanceToTarget,
-        string projectile = null,
+        string? projectile = null,
         bool ignoreConcealment = default,
         bool needAttackRoll = default,
-        string weapon = null,
+        string? weapon = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverClashingRocks();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
@@ -1692,7 +1692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityDeliverDelay(
         float delaySeconds = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverDelay();
       component.DelaySeconds = delaySeconds;
@@ -1703,27 +1703,27 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliverProjectile"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projectiles"><see cref="BlueprintProjectile"/></param>
-    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="controlledProjectileHolderBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="projectiles"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="controlledProjectileHolderBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityDeliverProjectile))]
     public AbilityConfigurator AddAbilityDeliverProjectile(
         Feet length,
         Feet lineWidth,
-        string[] projectiles = null,
+        string[]? projectiles = null,
         AbilityProjectileType type = default,
         bool isHandOfTheApprentice = default,
         bool needAttackRoll = default,
-        string weapon = null,
+        string? weapon = null,
         bool replaceAttackRollBonusStat = default,
         StatType attackRollBonusStat = default,
         bool useMaxProjectilesCount = default,
         AbilityRankType maxProjectilesCountRank = default,
         float delayBetweenProjectiles = default,
-        string controlledProjectileHolderBuff = null,
+        string? controlledProjectileHolderBuff = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverProjectile();
       component.m_Projectiles = projectiles.Select(name => BlueprintTool.GetRef<BlueprintProjectileReference>(name)).ToArray();
@@ -1746,9 +1746,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliverProjectileOnGrid"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="projectiles"><see cref="BlueprintProjectile"/></param>
-    /// <param name="weapon"><see cref="BlueprintItemWeapon"/></param>
-    /// <param name="controlledProjectileHolderBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="projectiles"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
+    /// <param name="controlledProjectileHolderBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityDeliverProjectileOnGrid))]
     public AbilityConfigurator AddAbilityDeliverProjectileOnGrid(
@@ -1756,19 +1756,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet lineWidth,
         bool launchProjectileOnGridLine = default,
         int lengthInCells = default,
-        string[] projectiles = null,
+        string[]? projectiles = null,
         AbilityProjectileType type = default,
         bool isHandOfTheApprentice = default,
         bool needAttackRoll = default,
-        string weapon = null,
+        string? weapon = null,
         bool replaceAttackRollBonusStat = default,
         StatType attackRollBonusStat = default,
         bool useMaxProjectilesCount = default,
         AbilityRankType maxProjectilesCountRank = default,
         float delayBetweenProjectiles = default,
-        string controlledProjectileHolderBuff = null,
+        string? controlledProjectileHolderBuff = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverProjectileOnGrid();
       component.LaunchProjectileOnGridLine = launchProjectileOnGridLine;
@@ -1793,13 +1793,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliverTouch"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="touchWeapon"><see cref="BlueprintItemWeapon"/></param>
+    /// <param name="touchWeapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
     [Implements(typeof(AbilityDeliverTouch))]
     public AbilityConfigurator AddAbilityDeliverTouch(
-        string touchWeapon = null,
+        string? touchWeapon = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDeliverTouch();
       component.m_TouchWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(touchWeapon);
@@ -1813,7 +1813,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityDemonCharge))]
     public AbilityConfigurator AddAbilityDemonCharge(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDemonCharge();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1826,7 +1826,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public AbilityConfigurator AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1838,9 +1838,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedPoint))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedPoint(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedPoint();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -1853,9 +1853,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedTarget))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedTarget(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedTarget();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -1868,9 +1868,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityEffectRunActionOnClickedUnit))]
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedUnit(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityEffectRunActionOnClickedUnit();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -1881,13 +1881,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityEffectStickyTouch"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="touchDeliveryAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="touchDeliveryAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AbilityEffectStickyTouch))]
     public AbilityConfigurator AddAbilityEffectStickyTouch(
-        string touchDeliveryAbility = null,
+        string? touchDeliveryAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityEffectStickyTouch();
       component.m_TouchDeliveryAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(touchDeliveryAbility);
@@ -1901,7 +1901,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityIsBomb))]
     public AbilityConfigurator AddAbilityIsBomb(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityIsBomb();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1914,7 +1914,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityKineticBlade))]
     public AbilityConfigurator AddAbilityKineticBlade(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityKineticBlade();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1924,13 +1924,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="improvedFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="improvedFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AbilityMagusSpellRecallCostCalculator))]
     public AbilityConfigurator AddAbilityMagusSpellRecallCostCalculator(
-        string improvedFeature = null,
+        string? improvedFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityMagusSpellRecallCostCalculator();
       component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(improvedFeature);
@@ -1944,7 +1944,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityRequirementCanMove))]
     public AbilityConfigurator AddAbilityRequirementCanMove(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityRequirementCanMove();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1957,10 +1957,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityRequirementHasCondition))]
     public AbilityConfigurator AddAbilityRequirementHasCondition(
         bool not = default,
-        UnitCondition[] conditions = null,
-        List<UnitCondition> conditionsCache = null,
+        UnitCondition[]? conditions = null,
+        List<UnitCondition>? conditionsCache = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityRequirementHasCondition();
       component.Not = not;
@@ -1977,7 +1977,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityRequirementHasItemInHands(
         AbilityRequirementHasItemInHands.RequirementType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityRequirementHasItemInHands();
       component.m_Type = type;
@@ -1988,20 +1988,20 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityResourceLogic"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="requiredResource"><see cref="BlueprintAbilityResource"/></param>
-    /// <param name="resourceCostIncreasingFacts"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="resourceCostDecreasingFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="requiredResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
+    /// <param name="resourceCostIncreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="resourceCostDecreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityResourceLogic))]
     public AbilityConfigurator AddAbilityResourceLogic(
-        string requiredResource = null,
+        string? requiredResource = null,
         bool isSpendResource = default,
         bool costIsCustom = default,
         int amount = default,
-        string[] resourceCostIncreasingFacts = null,
-        string[] resourceCostDecreasingFacts = null,
+        string[]? resourceCostIncreasingFacts = null,
+        string[]? resourceCostDecreasingFacts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityResourceLogic();
       component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(requiredResource);
@@ -2022,7 +2022,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool anySpellLevel = default,
         int spellLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityRestoreSpellSlot();
       component.AnySpellLevel = anySpellLevel;
@@ -2039,7 +2039,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool anySpellLevel = default,
         int spellLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityRestoreSpontaneousSpell();
       component.AnySpellLevel = anySpellLevel;
@@ -2051,17 +2051,17 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityShadowSpell"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="factor"><see cref="BlueprintUnitProperty"/></param>
-    /// <param name="spellList"><see cref="BlueprintSpellList"/></param>
+    /// <param name="factor"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
+    /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     [Generated]
     [Implements(typeof(AbilityShadowSpell))]
     public AbilityConfigurator AddAbilityShadowSpell(
         SpellSchool school = default,
-        string factor = null,
+        string? factor = null,
         int maxSpellLevel = default,
-        string spellList = null,
+        string? spellList = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityShadowSpell();
       component.School = school;
@@ -2075,14 +2075,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityShowIfCasterHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unitFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="unitFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityShowIfCasterHasFact))]
     public AbilityConfigurator AddAbilityShowIfCasterHasFact(
-        string unitFact = null,
+        string? unitFact = null,
         bool not = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityShowIfCasterHasFact();
       component.m_UnitFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(unitFact);
@@ -2098,7 +2098,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilitySillyFeed(
         UnitAnimationActionClip animation,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animation);
     
@@ -2111,8 +2111,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilitySwitchDualCompanion"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="disappearProjectile"><see cref="BlueprintProjectile"/></param>
-    /// <param name="appearProjectile"><see cref="BlueprintProjectile"/></param>
+    /// <param name="disappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
+    /// <param name="appearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     [Generated]
     [Implements(typeof(AbilitySwitchDualCompanion))]
     public AbilityConfigurator AddAbilitySwitchDualCompanion(
@@ -2120,11 +2120,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         string portalBone,
         GameObject disappearFx,
         GameObject appearFx,
-        string disappearProjectile = null,
-        string appearProjectile = null,
+        string? disappearProjectile = null,
+        string? appearProjectile = null,
         float appearDelay = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(portalPrefab);
       ValidateParam(disappearFx);
@@ -2151,9 +2151,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet spreadSpeed,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         bool includeDead = default,
-        ConditionsBuilder condition = null,
+        ConditionsBuilder? condition = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetsAround();
       component.m_Radius = radius;
@@ -2174,9 +2174,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         int diameterInCells = default,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
         bool includeDead = default,
-        ConditionsBuilder condition = null,
+        ConditionsBuilder? condition = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetsAroundOnGrid();
       component.m_DiameterInCells = diameterInCells;
@@ -2199,7 +2199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool multiplyByCasterLevel = default,
         int maxCasterLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityUseOnRest();
       component.Type = type;
@@ -2217,7 +2217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilitySwtichDualCompanionChecker))]
     public AbilityConfigurator AddAbilitySwtichDualCompanionChecker(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilitySwtichDualCompanionChecker();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2231,7 +2231,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetAlignment(
         AlignmentMaskType alignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetAlignment();
       component.Alignment = alignment;
@@ -2242,15 +2242,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetBreathOfLife"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="recentlyDeadBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="undeadFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="recentlyDeadBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="undeadFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetBreathOfLife))]
     public AbilityConfigurator AddAbilityTargetBreathOfLife(
-        string recentlyDeadBuff = null,
-        string undeadFact = null,
+        string? recentlyDeadBuff = null,
+        string? undeadFact = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetBreathOfLife();
       component.m_RecentlyDeadBuff = BlueprintTool.GetRef<BlueprintBuffReference>(recentlyDeadBuff);
@@ -2277,12 +2277,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetCellsRestriction))]
     public AbilityConfigurator AddAbilityTargetCellsRestriction(
-        List<int> allowedColumns = null,
+        List<int>? allowedColumns = null,
         bool factionDependent = default,
         bool onlyEmptyCells = default,
         int diameter = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetCellsRestriction();
       component.m_AllowedColumns = allowedColumns;
@@ -2296,11 +2296,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetDivineTroth"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetDivineTroth))]
     public AbilityConfigurator AddAbilityTargetDivineTroth(
-        string checkBuff = null)
+        string? checkBuff = null)
     {
       var component = new AbilityTargetDivineTroth();
       component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkBuff);
@@ -2311,14 +2311,14 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetHPCondition"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="factToCheck"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="factToCheck"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetHPCondition))]
     public AbilityConfigurator AddAbilityTargetHPCondition(
         int currentHPLessThan = default,
         bool inverted = default,
         bool checkFact = default,
-        string factToCheck = null,
+        string? factToCheck = null,
         int overrideCurrentHPLessThan = default)
     {
       var component = new AbilityTargetHPCondition();
@@ -2349,15 +2349,15 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetHasConditionOrBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetHasConditionOrBuff))]
     public AbilityConfigurator AddAbilityTargetHasConditionOrBuff(
         bool not = default,
         UnitCondition condition = default,
-        string[] buffs = null,
+        string[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetHasConditionOrBuff();
       component.Not = not;
@@ -2370,11 +2370,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetHasFact))]
     public AbilityConfigurator AddAbilityTargetHasFact(
-        string[] checkedFacts = null,
+        string[]? checkedFacts = null,
         bool inverted = default)
     {
       var component = new AbilityTargetHasFact();
@@ -2390,7 +2390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetHasMeleeWeaponInPrimaryHand))]
     public AbilityConfigurator AddAbilityTargetHasMeleeWeaponInPrimaryHand(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetHasMeleeWeaponInPrimaryHand();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2400,13 +2400,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityTargetHasNoFactUnless"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFacts"><see cref="BlueprintUnitFact"/></param>
-    /// <param name="unlessFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    /// <param name="unlessFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AbilityTargetHasNoFactUnless))]
     public AbilityConfigurator AddAbilityTargetHasNoFactUnless(
-        string[] checkedFacts = null,
-        string unlessFact = null)
+        string[]? checkedFacts = null,
+        string? unlessFact = null)
     {
       var component = new AbilityTargetHasNoFactUnless();
       component.m_CheckedFacts = checkedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -2420,12 +2420,12 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityTargetHasOneOfConditionsOrHP))]
     public AbilityConfigurator AddAbilityTargetHasOneOfConditionsOrHP(
-        UnitCondition[] condition = null,
+        UnitCondition[]? condition = null,
         bool needHPCondition = default,
         int currentHPLessThan = default,
         bool invertedHP = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetHasOneOfConditionsOrHP();
       component.Condition = condition;
@@ -2456,7 +2456,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetIsAnimalCompanion(
         bool not = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsAnimalCompanion();
       component.Not = not;
@@ -2470,7 +2470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsAreaEffectFromCaster))]
     public AbilityConfigurator AddAbilityTargetIsAreaEffectFromCaster(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsAreaEffectFromCaster();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2483,7 +2483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsDeadAnimalCompanion))]
     public AbilityConfigurator AddAbilityTargetIsDeadAnimalCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsDeadAnimalCompanion();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2496,7 +2496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsDeadCompanion))]
     public AbilityConfigurator AddAbilityTargetIsDeadCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsDeadCompanion();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2519,7 +2519,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsNotDevoured))]
     public AbilityConfigurator AddAbilityTargetIsNotDevoured(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsNotDevoured();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2545,7 +2545,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsSuitableMount))]
     public AbilityConfigurator AddAbilityTargetIsSuitableMount(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsSuitableMount();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2558,7 +2558,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetIsSuitableMountSize))]
     public AbilityConfigurator AddAbilityTargetIsSuitableMountSize(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetIsSuitableMountSize();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2584,7 +2584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityTargetNotSelf))]
     public AbilityConfigurator AddAbilityTargetNotSelf(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetNotSelf();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2599,7 +2599,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Feet distance,
         CompareOperation.Type compareType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetRangeRestriction();
       component.Distance = distance;
@@ -2632,7 +2632,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddAbilityTargetStoneToFlesh(
         bool canBeNotPetrified = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityTargetStoneToFlesh();
       component.CanBeNotPetrified = canBeNotPetrified;
@@ -2646,7 +2646,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(DimensionDoorRestrictionIgnorance))]
     public AbilityConfigurator AddDimensionDoorRestrictionIgnorance(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DimensionDoorRestrictionIgnorance();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2658,7 +2658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCasterMainWeaponCheck))]
     public AbilityConfigurator AddAbilityCasterMainWeaponCheck(
-        WeaponCategory[] category = null)
+        WeaponCategory[]? category = null)
     {
       var component = new AbilityCasterMainWeaponCheck();
       component.Category = category;
@@ -2692,7 +2692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCasterNotPolymorphed))]
     public AbilityConfigurator AddAbilityCasterNotPolymorphed(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityCasterNotPolymorphed();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2705,7 +2705,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityMaxSquadsRestriction))]
     public AbilityConfigurator AddAbilityMaxSquadsRestriction(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityMaxSquadsRestriction();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2717,7 +2717,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilitySpawnFx))]
     public AbilityConfigurator AddAbilitySpawnFx(
-        PrefabLink prefabLink = null,
+        PrefabLink? prefabLink = null,
         AbilitySpawnFxTime time = default,
         AbilitySpawnFxAnchor anchor = default,
         AbilitySpawnFxWeaponTarget weaponTarget = default,
@@ -2752,7 +2752,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float pullSpeed = default,
         int pullDistanceInCells = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(pullCurve);
     
@@ -2769,11 +2769,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(CustomAreaOnGrid))]
     public AbilityConfigurator AddCustomAreaOnGrid(
-        List<Vector2Int> affectedCells = null,
+        List<Vector2Int>? affectedCells = null,
         bool ignoreObstaclesAndUnits = default,
         bool spawnFxInEveryCell = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CustomAreaOnGrid();
       component.AffectedCells = affectedCells;
@@ -2789,7 +2789,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(TacticalCombatDefenseAbility))]
     public AbilityConfigurator AddTacticalCombatDefenseAbility(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TacticalCombatDefenseAbility();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2802,7 +2802,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(TacticalCombatResurrection))]
     public AbilityConfigurator AddTacticalCombatResurrection(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TacticalCombatResurrection();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2816,7 +2816,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     public AbilityConfigurator AddPureRecommendation(
         RecommendationPriority priority = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PureRecommendation();
       component.Priority = priority;
@@ -2842,7 +2842,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         float minPart = default,
         bool notRecommendIfHigher = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationBaseAttackPart();
       component.MinPart = minPart;
@@ -2854,11 +2854,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="RecommendationCompanionBoon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionRank"><see cref="BlueprintFeature"/></param>
+    /// <param name="companionRank"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(RecommendationCompanionBoon))]
     public AbilityConfigurator AddRecommendationCompanionBoon(
-        string companionRank = null)
+        string? companionRank = null)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(companionRank);
@@ -2869,11 +2869,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="RecommendationHasFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationHasFeature))]
     public AbilityConfigurator AddRecommendationHasFeature(
-        string feature = null,
+        string? feature = null,
         bool mandatory = default)
     {
       var component = new RecommendationHasFeature();
@@ -2886,11 +2886,11 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="RecommendationNoFeatFromGroup"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationNoFeatFromGroup))]
     public AbilityConfigurator AddRecommendationNoFeatFromGroup(
-        string[] features = null,
+        string[]? features = null,
         bool goodIfNoFeature = default)
     {
       var component = new RecommendationNoFeatFromGroup();
@@ -2906,7 +2906,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(RecommendationRequiresSpellbook))]
     public AbilityConfigurator AddRecommendationRequiresSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbook();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2922,7 +2922,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         bool divine = default,
         bool alchemist = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbookSource();
       component.Arcane = arcane;
@@ -2941,7 +2941,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         StatType lowerStat = default,
         int diff = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationStatComparison();
       component.HigherStat = higherStat;
@@ -2993,7 +2993,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = weaponRangeType;

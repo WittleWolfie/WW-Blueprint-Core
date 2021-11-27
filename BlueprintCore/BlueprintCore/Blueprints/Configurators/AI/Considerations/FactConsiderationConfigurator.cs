@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="FactConsideration.m_Fact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public FactConsiderationConfigurator SetFact(string[] fact)
+    public FactConsiderationConfigurator SetFact(string[]? fact)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Adds to <see cref="FactConsideration.m_Fact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public FactConsiderationConfigurator AddToFact(params string[] fact)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Removes from <see cref="FactConsideration.m_Fact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public FactConsiderationConfigurator RemoveFromFact(params string[] fact)
     {

@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileTrajectoryConfigurator SetPlaneOffset(TrajectoryOffset[] planeOffset)
+    public ProjectileTrajectoryConfigurator SetPlaneOffset(TrajectoryOffset[]? planeOffset)
     {
       ValidateParam(planeOffset);
     
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileTrajectoryConfigurator SetUpOffset(TrajectoryOffset[] upOffset)
+    public ProjectileTrajectoryConfigurator SetUpOffset(TrajectoryOffset[]? upOffset)
     {
       ValidateParam(upOffset);
     

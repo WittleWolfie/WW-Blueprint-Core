@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator SetProgressionName(LocalizedString progressionName)
+    public LeaderProgressionConfigurator SetProgressionName(LocalizedString? progressionName)
     {
       ValidateParam(progressionName);
     
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LeaderProgressionConfigurator SetLevels(LeaderLevel[] levels)
+    public LeaderProgressionConfigurator SetLevels(LeaderLevel[]? levels)
     {
       ValidateParam(levels);
     

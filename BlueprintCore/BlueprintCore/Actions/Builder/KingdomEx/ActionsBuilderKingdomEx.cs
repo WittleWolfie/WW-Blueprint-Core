@@ -281,7 +281,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         int? movePoints = null,
         float? speed = null,
         bool? applyRecruitIncrease = null)
@@ -320,7 +320,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         bool targetNearestEnemy = false,
         float? speed = null)
     {
@@ -345,8 +345,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         string army,
         string location,
         string targetLocation,
-        string onTargetReached = null,
-        string leader = null,
+        string? onTargetReached = null,
+        string? leader = null,
         int? daysToTarget = null)
     {
       return builder.Add(
@@ -365,9 +365,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ArmyFaction faction,
         string army,
         string location,
-        string leader,
-        string targetLocation = null,
-        string onTargetReached = null,
+        string? leader,
+        string? targetLocation = null,
+        string? onTargetReached = null,
         int? daysToTarget = null,
         int? movePoints = null,
         float? speed = null,
@@ -395,9 +395,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         createArmy.WithLeader = true;
       }
       createArmy.m_TargetLocation =
-          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(targetLocation);
+          BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(targetLocation!);
       createArmy.m_CompleteActions =
-          BlueprintTool.GetRef<BlueprintActionList.Reference>(onTargetReached);
+          BlueprintTool.GetRef<BlueprintActionList.Reference>(onTargetReached!);
       return createArmy;
     }
 
@@ -413,7 +413,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string army,
         string location,
-        string leader = null,
+        string? leader = null,
         bool noReward = true)
     {
       var createGarrison = ElementTool.Create<CreateGarrison>();
@@ -501,14 +501,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string buff,
         int durationOverrideDays = 0,
-        string targetRegion = null,
+        string? targetRegion = null,
         bool applyToRegion = true,
         bool applyToAdjacentRegions = false)
     {
       var addBuff = ElementTool.Create<KingdomActionAddBuff>();
       addBuff.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(buff);
       addBuff.OverrideDuration = durationOverrideDays;
-      addBuff.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(targetRegion);
+      addBuff.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(targetRegion!);
       addBuff.ApplyToRegion = applyToRegion;
       addBuff.CopyToAdjacentRegions = applyToAdjacentRegions;
       return builder.Add(addBuff);
@@ -522,7 +522,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <param name="settlement"><see cref="BlueprintSettlement"/></param>
     [Implements(typeof(KingdomActionAddFreeBuilding))]
     public static ActionsBuilder AddFreeBuilding(
-        this ActionsBuilder builder, string building, int count = 1, string settlement = null)
+        this ActionsBuilder builder, string building, int count = 1, string? settlement = null)
     {
       var addBuilding = ElementTool.Create<KingdomActionAddFreeBuilding>();
       addBuilding.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(building);
@@ -798,8 +798,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         string unit,
         ContextValue count,
-        ActionsBuilder onSpawn = null,
-        string summonPool = null)
+        ActionsBuilder? onSpawn = null,
+        string? summonPool = null)
     {
       var summon = ElementTool.Create<ContextActionSummonTacticalSquad>();
       summon.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -820,7 +820,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         DamageTypeDescription type,
         DiceType diceType,
-        ContextValue diceRolls = null,
+        ContextValue? diceRolls = null,
         bool dealHalf = false,
         bool ignoreCrit = false,
         int? minHPAfterDmg = null)
@@ -847,7 +847,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder TacticalCombatHeal(
         this ActionsBuilder builder,
         DiceType diceType = DiceType.D6,
-        ContextValue diceRolls = null)
+        ContextValue? diceRolls = null)
     {
       var heal = ElementTool.Create<ContextActionTacticalCombatHealTarget>();
       heal.DiceType = diceType;
@@ -891,12 +891,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomAddMoraleFlags"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="newFlags"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="newFlags"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomAddMoraleFlags))]
     public static ActionsBuilder KingdomAddMoraleFlags(
         this ActionsBuilder builder,
-        string[] newFlags = null)
+        string[]? newFlags = null)
     {
       var element = ElementTool.Create<KingdomAddMoraleFlags>();
       element.m_NewFlags = newFlags.Select(name => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(name)).ToArray();
@@ -907,12 +907,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomFlagIncrement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="targetFlag"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomFlagIncrement))]
     public static ActionsBuilder KingdomFlagIncrement(
         this ActionsBuilder builder,
-        string targetFlag = null,
+        string? targetFlag = null,
         int increment = default)
     {
       var element = ElementTool.Create<KingdomFlagIncrement>();
@@ -925,12 +925,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomMoraleFlagUpdateIncome"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="targetFlag"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomMoraleFlagUpdateIncome))]
     public static ActionsBuilder KingdomMoraleFlagUpdateIncome(
         this ActionsBuilder builder,
-        string targetFlag = null)
+        string? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomMoraleFlagUpdateIncome>();
       element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(targetFlag);
@@ -951,12 +951,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomRemoveMoraleFlags"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="flagsToRemove"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="flagsToRemove"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomRemoveMoraleFlags))]
     public static ActionsBuilder KingdomRemoveMoraleFlags(
         this ActionsBuilder builder,
-        string[] flagsToRemove = null)
+        string[]? flagsToRemove = null)
     {
       var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
       element.m_FlagsToRemove = flagsToRemove.Select(name => BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(name)).ToArray();
@@ -967,12 +967,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomSetFlagState"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="targetFlag"><see cref="BlueprintKingdomMoraleFlag"/></param>
+    /// <param name="targetFlag"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
     [Generated]
     [Implements(typeof(KingdomSetFlagState))]
     public static ActionsBuilder KingdomSetFlagState(
         this ActionsBuilder builder,
-        string targetFlag = null,
+        string? targetFlag = null,
         KingdomMoraleFlag.State state = default,
         int maxDays = default)
     {
@@ -1015,12 +1015,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="AddMercenaryToPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(AddMercenaryToPool))]
     public static ActionsBuilder AddMercenaryToPool(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         float weight = default)
     {
       var element = ElementTool.Create<AddMercenaryToPool>();
@@ -1033,8 +1033,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="AddTacticalArmyFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armyUnits"><see cref="BlueprintUnit"/></param>
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <param name="armyUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddTacticalArmyFeature))]
     public static ActionsBuilder AddTacticalArmyFeature(
@@ -1043,8 +1043,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool byTag = default,
         ArmyProperties armyTag = default,
         bool byUnits = default,
-        string[] armyUnits = null,
-        string[] features = null,
+        string[]? armyUnits = null,
+        string[]? features = null,
         ArmyFaction faction = default)
     {
       var element = ElementTool.Create<AddTacticalArmyFeature>();
@@ -1062,12 +1062,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="ChangeMercenaryWeight"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ChangeMercenaryWeight))]
     public static ActionsBuilder ChangeMercenaryWeight(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         float weight = default)
     {
       var element = ElementTool.Create<ChangeMercenaryWeight>();
@@ -1080,12 +1080,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="DecreaseRecruitsGrowth"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(DecreaseRecruitsGrowth))]
     public static ActionsBuilder DecreaseRecruitsGrowth(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         int count = default)
     {
       var element = ElementTool.Create<DecreaseRecruitsGrowth>();
@@ -1098,12 +1098,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="DecreaseRecruitsPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(DecreaseRecruitsPool))]
     public static ActionsBuilder DecreaseRecruitsPool(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         int count = default)
     {
       var element = ElementTool.Create<DecreaseRecruitsPool>();
@@ -1116,8 +1116,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="ExchangeRecruits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="oldUnit"><see cref="BlueprintUnit"/></param>
-    /// <param name="newUnit"><see cref="BlueprintUnit"/></param>
+    /// <param name="oldUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    /// <param name="newUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ExchangeRecruits))]
     public static ActionsBuilder ExchangeRecruits(
@@ -1125,8 +1125,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int newGrowth = default,
         int oldGrowth = default,
         float convertCoefficient = default,
-        string oldUnit = null,
-        string newUnit = null)
+        string? oldUnit = null,
+        string? newUnit = null)
     {
       var element = ElementTool.Create<ExchangeRecruits>();
       element.NewGrowth = newGrowth;
@@ -1141,12 +1141,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="IncreaseRecruitsGrowth"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(IncreaseRecruitsGrowth))]
     public static ActionsBuilder IncreaseRecruitsGrowth(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         int count = default)
     {
       var element = ElementTool.Create<IncreaseRecruitsGrowth>();
@@ -1159,12 +1159,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="IncreaseRecruitsPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(IncreaseRecruitsPool))]
     public static ActionsBuilder IncreaseRecruitsPool(
         this ActionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         int count = default)
     {
       var element = ElementTool.Create<IncreaseRecruitsPool>();
@@ -1177,12 +1177,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveMercenaryFromPool"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(RemoveMercenaryFromPool))]
     public static ActionsBuilder RemoveMercenaryFromPool(
         this ActionsBuilder builder,
-        string unit = null)
+        string? unit = null)
     {
       var element = ElementTool.Create<RemoveMercenaryFromPool>();
       element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -1193,14 +1193,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="ReplaceBuildings"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="oldBuilding"><see cref="BlueprintSettlementBuilding"/></param>
-    /// <param name="newBuilding"><see cref="BlueprintSettlementBuilding"/></param>
+    /// <param name="oldBuilding"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
+    /// <param name="newBuilding"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     [Generated]
     [Implements(typeof(ReplaceBuildings))]
     public static ActionsBuilder ReplaceBuildings(
         this ActionsBuilder builder,
-        string oldBuilding = null,
-        string newBuilding = null)
+        string? oldBuilding = null,
+        string? newBuilding = null)
     {
       var element = ElementTool.Create<ReplaceBuildings>();
       element.m_OldBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(oldBuilding);
@@ -1212,12 +1212,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="SetRecruitPoint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="point"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="point"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(SetRecruitPoint))]
     public static ActionsBuilder SetRecruitPoint(
         this ActionsBuilder builder,
-        string point = null)
+        string? point = null)
     {
       var element = ElementTool.Create<SetRecruitPoint>();
       element.m_Point = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(point);
@@ -1228,12 +1228,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="UnlockUnitsGrowth"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(UnlockUnitsGrowth))]
     public static ActionsBuilder UnlockUnitsGrowth(
         this ActionsBuilder builder,
-        string unit = null)
+        string? unit = null)
     {
       var element = ElementTool.Create<UnlockUnitsGrowth>();
       element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
@@ -1244,12 +1244,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionGetArtisanGift"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     [Implements(typeof(KingdomActionGetArtisanGift))]
     public static ActionsBuilder KingdomActionGetArtisanGift(
         this ActionsBuilder builder,
-        string artisan = null)
+        string? artisan = null)
     {
       var element = ElementTool.Create<KingdomActionGetArtisanGift>();
       element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
@@ -1260,12 +1260,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionGetArtisanGiftWithCertainTier"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     [Implements(typeof(KingdomActionGetArtisanGiftWithCertainTier))]
     public static ActionsBuilder KingdomActionGetArtisanGiftWithCertainTier(
         this ActionsBuilder builder,
-        string artisan = null,
+        string? artisan = null,
         int tier = default)
     {
       var element = ElementTool.Create<KingdomActionGetArtisanGiftWithCertainTier>();
@@ -1331,7 +1331,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(KingdomActionGiveLoot))]
     public static ActionsBuilder KingdomActionGiveLoot(
         this ActionsBuilder builder,
-        LootEntry[] loot = null)
+        LootEntry[]? loot = null)
     {
       builder.Validate(loot);
     
@@ -1344,13 +1344,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionImproveSettlement"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="specificSettlement"><see cref="BlueprintSettlement"/></param>
+    /// <param name="specificSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
     [Generated]
     [Implements(typeof(KingdomActionImproveSettlement))]
     public static ActionsBuilder KingdomActionImproveSettlement(
         this ActionsBuilder builder,
         SettlementState.LevelType toLevel = default,
-        string specificSettlement = null)
+        string? specificSettlement = null)
     {
       var element = ElementTool.Create<KingdomActionImproveSettlement>();
       element.ToLevel = toLevel;
@@ -1381,8 +1381,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         this ActionsBuilder builder,
         KingdomStats.Type stat = default,
         int dC = default,
-        ActionsBuilder onSuccess = null,
-        ActionsBuilder onFailure = null)
+        ActionsBuilder? onSuccess = null,
+        ActionsBuilder? onFailure = null)
     {
       var element = ElementTool.Create<KingdomActionMakeRoll>();
       element.Stat = stat;
@@ -1564,15 +1564,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionRemoveBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintKingdomBuff"/></param>
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomActionRemoveBuff))]
     public static ActionsBuilder KingdomActionRemoveBuff(
         this ActionsBuilder builder,
-        string blueprint = null,
+        string? blueprint = null,
         bool applyToRegion = default,
-        string region = null,
+        string? region = null,
         bool allBuffs = default)
     {
       var element = ElementTool.Create<KingdomActionRemoveBuff>();
@@ -1587,12 +1587,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionRemoveEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventBlueprint"><see cref="BlueprintKingdomEventBase"/></param>
+    /// <param name="eventBlueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
     [Generated]
     [Implements(typeof(KingdomActionRemoveEvent))]
     public static ActionsBuilder KingdomActionRemoveEvent(
         this ActionsBuilder builder,
-        string eventBlueprint = null,
+        string? eventBlueprint = null,
         bool cancelIfInProgress = default,
         bool allIfMultiple = default)
     {
@@ -1607,12 +1607,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionRemoveEventDeck"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="deck"><see cref="BlueprintKingdomDeck"/></param>
+    /// <param name="deck"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomDeck"/></param>
     [Generated]
     [Implements(typeof(KingdomActionRemoveEventDeck))]
     public static ActionsBuilder KingdomActionRemoveEventDeck(
         this ActionsBuilder builder,
-        string deck = null)
+        string? deck = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveEventDeck>();
       element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(deck);
@@ -1623,14 +1623,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionRequestArtisanGift"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="BlueprintKingdomArtisan"/></param>
-    /// <param name="itemType"><see cref="ArtisanItemDeck"/></param>
+    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
+    /// <param name="itemType"><see cref="Kingmaker.Kingdom.Artisans.ArtisanItemDeck"/></param>
     [Generated]
     [Implements(typeof(KingdomActionRequestArtisanGift))]
     public static ActionsBuilder KingdomActionRequestArtisanGift(
         this ActionsBuilder builder,
-        string artisan = null,
-        string itemType = null)
+        string? artisan = null,
+        string? itemType = null)
     {
       var element = ElementTool.Create<KingdomActionRequestArtisanGift>();
       element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
@@ -1652,12 +1652,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionResolveCrusadeEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventBlueprint"><see cref="BlueprintCrusadeEvent"/></param>
+    /// <param name="eventBlueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintCrusadeEvent"/></param>
     [Generated]
     [Implements(typeof(KingdomActionResolveCrusadeEvent))]
     public static ActionsBuilder KingdomActionResolveCrusadeEvent(
         this ActionsBuilder builder,
-        string eventBlueprint = null,
+        string? eventBlueprint = null,
         int solutionIndex = default)
     {
       var element = ElementTool.Create<KingdomActionResolveCrusadeEvent>();
@@ -1670,12 +1670,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionResolveEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventBlueprint"><see cref="BlueprintKingdomEvent"/></param>
+    /// <param name="eventBlueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
     [Generated]
     [Implements(typeof(KingdomActionResolveEvent))]
     public static ActionsBuilder KingdomActionResolveEvent(
         this ActionsBuilder builder,
-        string eventBlueprint = null,
+        string? eventBlueprint = null,
         EventResult.MarginType result = default,
         Alignment alignment = default,
         bool finalResolve = default)
@@ -1692,12 +1692,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionResolveProject"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventBlueprint"><see cref="BlueprintKingdomProject"/></param>
+    /// <param name="eventBlueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
     [Generated]
     [Implements(typeof(KingdomActionResolveProject))]
     public static ActionsBuilder KingdomActionResolveProject(
         this ActionsBuilder builder,
-        string eventBlueprint = null)
+        string? eventBlueprint = null)
     {
       var element = ElementTool.Create<KingdomActionResolveProject>();
       element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(eventBlueprint);
@@ -1792,15 +1792,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionSpawnRandomArmy"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armies"><see cref="BlueprintArmyPreset"/></param>
-    /// <param name="locations"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="armies"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
+    /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(KingdomActionSpawnRandomArmy))]
     public static ActionsBuilder KingdomActionSpawnRandomArmy(
         this ActionsBuilder builder,
-        string[] armies = null,
+        string[]? armies = null,
         ArmyFaction faction = default,
-        string[] locations = null)
+        string[]? locations = null)
     {
       var element = ElementTool.Create<KingdomActionSpawnRandomArmy>();
       element.m_Armies = armies.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name)).ToList();
@@ -1813,14 +1813,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionStartEvent"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="BlueprintKingdomEventBase"/></param>
-    /// <param name="region"><see cref="BlueprintRegion"/></param>
+    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
+    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     [Generated]
     [Implements(typeof(KingdomActionStartEvent))]
     public static ActionsBuilder KingdomActionStartEvent(
         this ActionsBuilder builder,
-        string eventValue = null,
-        string region = null,
+        string? eventValue = null,
+        string? region = null,
         bool randomRegion = default,
         int delayDays = default,
         bool startNextMonth = default,
@@ -1842,12 +1842,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionUnlockArtisan"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="BlueprintKingdomArtisan"/></param>
+    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
     [Generated]
     [Implements(typeof(KingdomActionUnlockArtisan))]
     public static ActionsBuilder KingdomActionUnlockArtisan(
         this ActionsBuilder builder,
-        string artisan = null)
+        string? artisan = null)
     {
       var element = ElementTool.Create<KingdomActionUnlockArtisan>();
       element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
@@ -1891,7 +1891,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     [Implements(typeof(TacticalCombatRecoverLeaderMana))]
     public static ActionsBuilder TacticalCombatRecoverLeaderMana(
         this ActionsBuilder builder,
-        ContextValue value = null)
+        ContextValue? value = null)
     {
       builder.Validate(value);
     
@@ -1904,14 +1904,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="CreateArmyFromLosses"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(CreateArmyFromLosses))]
     public static ActionsBuilder CreateArmyFromLosses(
         this ActionsBuilder builder,
         int sumExperience = default,
         int squadsMaxCount = default,
-        string location = null,
+        string? location = null,
         bool applyRecruitIncrease = default)
     {
       var element = ElementTool.Create<CreateArmyFromLosses>();
@@ -1926,13 +1926,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="EnterKingdomInterface"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="returnPoint"><see cref="BlueprintAreaEnterPoint"/></param>
+    /// <param name="returnPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     [Generated]
     [Implements(typeof(EnterKingdomInterface))]
     public static ActionsBuilder EnterKingdomInterface(
         this ActionsBuilder builder,
-        string returnPoint = null,
-        ActionsBuilder triggerAfterAuto = null)
+        string? returnPoint = null,
+        ActionsBuilder? triggerAfterAuto = null)
     {
       var element = ElementTool.Create<EnterKingdomInterface>();
       element.m_ReturnPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(returnPoint);
@@ -1944,12 +1944,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RecruiteArmyLeader"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armyLeader"><see cref="BlueprintArmyLeader"/></param>
+    /// <param name="armyLeader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
     [Generated]
     [Implements(typeof(RecruiteArmyLeader))]
     public static ActionsBuilder RecruiteArmyLeader(
         this ActionsBuilder builder,
-        string armyLeader = null)
+        string? armyLeader = null)
     {
       var element = ElementTool.Create<RecruiteArmyLeader>();
       element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(armyLeader);
@@ -1960,12 +1960,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveDemonArmies"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="armyPreset"><see cref="BlueprintArmyPreset"/></param>
+    /// <param name="armyPreset"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     [Generated]
     [Implements(typeof(RemoveDemonArmies))]
     public static ActionsBuilder RemoveDemonArmies(
         this ActionsBuilder builder,
-        string armyPreset = null,
+        string? armyPreset = null,
         ArmyType armyType = default)
     {
       var element = ElementTool.Create<RemoveDemonArmies>();
@@ -1978,12 +1978,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveGarrison"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(RemoveGarrison))]
     public static ActionsBuilder RemoveGarrison(
         this ActionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool handleAsGarrisonDefeated = default)
     {
       var element = ElementTool.Create<RemoveGarrison>();
@@ -1996,7 +1996,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveUnitFromArmy"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unitToRemove"><see cref="BlueprintUnit"/></param>
+    /// <param name="unitToRemove"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(RemoveUnitFromArmy))]
     public static ActionsBuilder RemoveUnitFromArmy(
@@ -2005,13 +2005,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         RemoveUnitFromArmy.RemoveUnitFromArmyMode mode = default,
         bool removeCheapestUnit = default,
         bool removeSpecificUnit = default,
-        string unitToRemove = null,
+        string? unitToRemove = null,
         bool limitUnitExperienceMinimum = default,
         int unitExperienceMinimum = default,
         bool limitUnitExperienceMaximum = default,
         int unitExperienceMaximum = default,
-        UnitTag[] unitTagWhitelist = null,
-        UnitTag[] unitTagBlacklist = null,
+        UnitTag[]? unitTagWhitelist = null,
+        UnitTag[]? unitTagBlacklist = null,
         int experience = default,
         float percentage = default)
     {
@@ -2038,12 +2038,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="SetWarCampLocation"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(SetWarCampLocation))]
     public static ActionsBuilder SetWarCampLocation(
         this ActionsBuilder builder,
-        string location = null)
+        string? location = null)
     {
       var element = ElementTool.Create<SetWarCampLocation>();
       element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);

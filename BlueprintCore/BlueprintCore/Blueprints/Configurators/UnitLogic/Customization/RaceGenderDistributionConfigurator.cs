@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// Sets <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceGenderDistributionConfigurator SetRaces(RaceEntry[] races)
+    public RaceGenderDistributionConfigurator SetRaces(RaceEntry[]? races)
     {
       ValidateParam(races);
     

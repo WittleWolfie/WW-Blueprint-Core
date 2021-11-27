@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink onCreatureCastPrefab)
+    public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink? onCreatureCastPrefab)
     {
       ValidateParam(onCreatureCastPrefab);
     
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink onCreaturePrefab)
+    public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink? onCreaturePrefab)
     {
       ValidateParam(onCreaturePrefab);
     

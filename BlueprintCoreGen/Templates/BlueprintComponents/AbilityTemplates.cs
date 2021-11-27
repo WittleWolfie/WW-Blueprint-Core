@@ -31,7 +31,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(AbilityCasterAlignment))]
-    public TBuilder RequireCasterAlignment(AlignmentMaskType alignment, string ignoreFact = null)
+    public TBuilder RequireCasterAlignment(AlignmentMaskType alignment, string? ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
       if (ignoreFact != null)
@@ -84,7 +84,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
     [Implements(typeof(AbilityCasterHasChosenWeapon))]
     public TBuilder RequireCasterHasChosenWeapon(
-        string parameterizedWeaponFeature, string ignoreFact = null)
+        string parameterizedWeaponFeature, string? ignoreFact = null)
     {
       var hasChosenWeapon = new AbilityCasterHasChosenWeapon
       {
@@ -123,7 +123,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
-    public TBuilder RequireCasterOnFavoredTerrain(string ignoreFeature = null)
+    public TBuilder RequireCasterOnFavoredTerrain(string? ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
       if (ignoreFeature != null)
@@ -179,7 +179,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var run = new AbilityEffectRunAction
       {
@@ -194,7 +194,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     {
       var source = current as AbilityEffectRunAction;
       var target = other as AbilityEffectRunAction;
-      source.Actions.Actions = CommonTool.Append(source.Actions.Actions, target.Actions.Actions);
+      source!.Actions.Actions = CommonTool.Append(source.Actions.Actions, target!.Actions.Actions);
     }
 
     /// <summary>
@@ -207,7 +207,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         ActionsBuilder actions,
         bool useTargetSelector = true,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var onMiss = new AbilityEffectMiss
       {
@@ -222,14 +222,14 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     {
       var source = current as AbilityEffectMiss;
       var target = other as AbilityEffectMiss;
-      source.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target.MissAction.Actions);
+      source!.MissAction.Actions = CommonTool.Append(source.MissAction.Actions, target!.MissAction.Actions);
     }
 
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
     [Implements(typeof(AbilityExecuteActionOnCast))]
-    public TBuilder OnCast(ActionsBuilder actions, ConditionsBuilder checker = null)
+    public TBuilder OnCast(ActionsBuilder actions, ConditionsBuilder? checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
       {
@@ -246,7 +246,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     public TBuilder SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var schoolComponent = new SpellComponent { School = school };
       return AddUniqueComponent(schoolComponent, mergeBehavior, merge);
@@ -318,7 +318,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       var component = bp.GetComponent<AbilityVariants>();
       if (component is null) { return; }
 
-      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      var nullRef = BlueprintTool.GetRef<BlueprintAbilityReference>(null!);
       variants.ForEach(
           reference =>
           {

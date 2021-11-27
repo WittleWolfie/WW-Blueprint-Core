@@ -30,9 +30,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="removeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public UnitTemplateConfigurator SetRemoveFacts(string[] removeFacts)
+    public UnitTemplateConfigurator SetRemoveFacts(string[]? removeFacts)
     {
       return OnConfigureInternal(
           bp =>
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="removeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitTemplateConfigurator AddToRemoveFacts(params string[] removeFacts)
     {
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnitTemplate.m_RemoveFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="removeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="removeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitTemplateConfigurator RemoveFromRemoveFacts(params string[] removeFacts)
     {
@@ -80,9 +80,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public UnitTemplateConfigurator SetAddFacts(string[] addFacts)
+    public UnitTemplateConfigurator SetAddFacts(string[]? addFacts)
     {
       return OnConfigureInternal(
           bp =>
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitTemplateConfigurator AddToAddFacts(params string[] addFacts)
     {
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintUnitTemplate.m_AddFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="addFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public UnitTemplateConfigurator RemoveFromAddFacts(params string[] addFacts)
     {
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintUnitTemplate.StatAdjustments"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitTemplateConfigurator SetStatAdjustments(BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
+    public UnitTemplateConfigurator SetStatAdjustments(BlueprintUnitTemplate.StatAdjustment[]? statAdjustments)
     {
       ValidateParam(statAdjustments);
     

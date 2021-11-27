@@ -137,14 +137,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(NoSelectionIfAlreadyHasFeature))]
     public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
         bool anyFeatureFromSelection = default,
-        string[] features = null,
+        string[]? features = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = anyFeatureFromSelection;

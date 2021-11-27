@@ -30,9 +30,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="attackFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public FactionConfigurator SetAttackFactions(string[] attackFactions)
+    public FactionConfigurator SetAttackFactions(string[]? attackFactions)
     {
       return OnConfigureInternal(
           bp =>
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="attackFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     public FactionConfigurator AddToAttackFactions(params string[] attackFactions)
     {
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="attackFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     public FactionConfigurator RemoveFromAttackFactions(params string[] attackFactions)
     {
@@ -80,9 +80,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="allyFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public FactionConfigurator SetAllyFactions(string[] allyFactions)
+    public FactionConfigurator SetAllyFactions(string[]? allyFactions)
     {
       return OnConfigureInternal(
           bp =>
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Adds to <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="allyFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     public FactionConfigurator AddToAllyFactions(params string[] allyFactions)
     {
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Removes from <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="allyFactions"><see cref="BlueprintFaction"/></param>
+    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
     public FactionConfigurator RemoveFromAllyFactions(params string[] allyFactions)
     {

@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// Sets <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound> sounds)
+    public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound>? sounds)
     {
       ValidateParam(sounds);
     
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// Sets <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound> armyManagement)
+    public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound>? armyManagement)
     {
       ValidateParam(armyManagement);
     
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// Sets <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound> tooltip)
+    public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound>? tooltip)
     {
       ValidateParam(tooltip);
     

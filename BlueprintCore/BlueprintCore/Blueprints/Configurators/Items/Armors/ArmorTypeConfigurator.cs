@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTypeNameText(LocalizedString typeNameText)
+    public TBuilder SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
     
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDefaultNameText(LocalizedString defaultNameText)
+    public TBuilder SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
     
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
     
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetMagicDescriptionText(LocalizedString magicDescriptionText)
+    public TBuilder SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
     
@@ -230,9 +230,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntity(string equipmentEntity)
+    public TBuilder SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
@@ -245,9 +245,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public TBuilder SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
           bp =>
@@ -260,7 +260,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Adds to <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -275,7 +275,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Removes from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -295,9 +295,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
-    public TBuilder SetEnchantments(string[] enchantments)
+    public TBuilder SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -310,7 +310,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Adds to <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
     public TBuilder AddToEnchantments(params string[] enchantments)
     {
@@ -325,7 +325,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Removes from <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
     public TBuilder RemoveFromEnchantments(params string[] enchantments)
     {
@@ -371,9 +371,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public TBuilder SetShardItem(string shardItem)
+    public TBuilder SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -409,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetTypeNameText(LocalizedString typeNameText)
+    public ArmorTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
     
@@ -424,7 +424,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetDefaultNameText(LocalizedString defaultNameText)
+    public ArmorTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
     
@@ -439,7 +439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetDescriptionText(LocalizedString descriptionText)
+    public ArmorTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
     
@@ -454,7 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString magicDescriptionText)
+    public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
     
@@ -616,9 +616,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntity"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntity"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetEquipmentEntity(string equipmentEntity)
+    public ArmorTypeConfigurator SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
           bp =>
@@ -631,9 +631,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetEquipmentEntityAlternatives(string[] equipmentEntityAlternatives)
+    public ArmorTypeConfigurator SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
           bp =>
@@ -646,7 +646,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Adds to <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public ArmorTypeConfigurator AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -661,7 +661,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Removes from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="equipmentEntityAlternatives"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
     public ArmorTypeConfigurator RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
@@ -681,9 +681,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetEnchantments(string[] enchantments)
+    public ArmorTypeConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -696,7 +696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Adds to <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
     public ArmorTypeConfigurator AddToEnchantments(params string[] enchantments)
     {
@@ -711,7 +711,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Removes from <see cref="BlueprintArmorType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintArmorEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
     [Generated]
     public ArmorTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
@@ -757,9 +757,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintArmorType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public ArmorTypeConfigurator SetShardItem(string shardItem)
+    public ArmorTypeConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
           bp =>

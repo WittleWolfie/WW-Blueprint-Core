@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCasterType>(group, checkInProgression, hideInUI);
       prereq.IsArcane = isArcane;
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteCharacterLevel>(group, checkInProgression, hideInUI);
       prereq.Level = minLevel;
@@ -275,7 +275,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteClassSpellLevel>(group, checkInProgression, hideInUI);
       prereq.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
@@ -363,7 +363,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       return AddUniqueComponent(prereq, behavior, merge);
@@ -378,7 +378,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMainCharacter>(group, checkInProgression, hideInUI);
       prereq.Companion = true;
@@ -395,7 +395,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq = PrereqTool.Create<PrerequisiteMythicLevel>(group, checkInProgression, hideInUI);
       prereq.Level = level;
@@ -467,7 +467,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
@@ -604,7 +604,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool checkInProgression = false,
         bool hideInUI = false,
         ComponentMerge behavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> merge = null)
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
@@ -710,13 +710,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddGlobalMapSpellFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spell"><see cref="BlueprintGlobalMagicSpell"/></param>
+    /// <param name="spell"><see cref="Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell"/></param>
     [Generated]
     [Implements(typeof(AddGlobalMapSpellFeature))]
     public TBuilder AddGlobalMapSpellFeature(
-        string spell = null,
+        string? spell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddGlobalMapSpellFeature();
       component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(spell);
@@ -730,7 +730,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(FeatureSurvivesRespec))]
     public TBuilder AddFeatureSurvivesRespec(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new FeatureSurvivesRespec();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -742,9 +742,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(LevelUpRecommendation))]
     public TBuilder AddLevelUpRecommendation(
-        ClassesPriority[] classPriorities = null,
+        ClassesPriority[]? classPriorities = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(classPriorities);
     
@@ -757,11 +757,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="PrerequisiteLoreMaster"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="loreMaster"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="loreMaster"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(PrerequisiteLoreMaster))]
     public TBuilder AddPrerequisiteLoreMaster(
-        string loreMaster = null,
+        string? loreMaster = null,
         int rating = default,
         Prerequisite.GroupType group = default,
         bool checkInProgression = default,
@@ -780,12 +780,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddFeaturesFromSelectionToDescription"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="featureSelection"><see cref="BlueprintFeatureSelection"/></param>
+    /// <param name="featureSelection"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection"/></param>
     [Generated]
     [Implements(typeof(AddFeaturesFromSelectionToDescription))]
     public TBuilder AddFeaturesFromSelectionToDescription(
-        LocalizedString introduction = null,
-        string featureSelection = null,
+        LocalizedString? introduction = null,
+        string? featureSelection = null,
         bool onlyIfRequiresThisFeature = default)
     {
       ValidateParam(introduction);
@@ -820,7 +820,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddLocustSwarmMechanicPart(
         int swarmStartStrength = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddLocustSwarmMechanicPart();
       component.m_SwarmStartStrength = swarmStartStrength;
@@ -847,9 +847,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddNocticulaBonus))]
     public TBuilder AddNocticulaBonus(
         ModifierDescriptor descriptor = default,
-        ContextValue highestStatBonus = null,
+        ContextValue? highestStatBonus = null,
         StatType highestStat = default,
-        ContextValue secondHighestStatBonus = null,
+        ContextValue? secondHighestStatBonus = null,
         StatType secondHighestStat = default)
     {
       ValidateParam(highestStatBonus);
@@ -870,9 +870,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddRestTrigger))]
     public TBuilder AddRestTrigger(
-        ActionsBuilder action = null,
+        ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddRestTrigger();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -883,14 +883,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellsToDescription"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellLists"><see cref="BlueprintSpellList"/></param>
-    /// <param name="spells"><see cref="BlueprintAbility"/></param>
+    /// <param name="spellLists"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
+    /// <param name="spells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddSpellsToDescription))]
     public TBuilder AddSpellsToDescription(
-        LocalizedString introduction = null,
-        string[] spellLists = null,
-        string[] spells = null)
+        LocalizedString? introduction = null,
+        string[]? spellLists = null,
+        string[]? spells = null)
     {
       ValidateParam(introduction);
     
@@ -940,7 +940,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MountedShield();
       component.Descriptor = descriptor;
@@ -952,14 +952,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ShroudOfWater"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="upgradeFeature"><see cref="BlueprintFeature"/></param>
+    /// <param name="upgradeFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ShroudOfWater))]
     public TBuilder AddShroudOfWater(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
-        ContextValue baseValue = null,
-        string upgradeFeature = null)
+        ContextValue? baseValue = null,
+        string? upgradeFeature = null)
     {
       ValidateParam(baseValue);
     
@@ -975,20 +975,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public TBuilder AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
-        string customProperty = null,
+        string? customProperty = null,
         bool replaceCasterLevel = default,
-        ContextValue casterLevel = null,
+        ContextValue? casterLevel = null,
         bool replaceSpellLevel = default,
-        ContextValue spellLevel = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -1009,15 +1009,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
-        string characterClass = null,
+        string? characterClass = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
@@ -1033,7 +1033,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(ContextCalculateSharedValue))]
     public TBuilder AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         double modifier = default)
     {
       ValidateParam(value);
@@ -1052,12 +1052,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(ContextSetAbilityParams))]
     public TBuilder AddContextSetAbilityParams(
         bool add10ToDC = default,
-        ContextValue dC = null,
-        ContextValue casterLevel = null,
-        ContextValue concentration = null,
-        ContextValue spellLevel = null,
+        ContextValue? dC = null,
+        ContextValue? casterLevel = null,
+        ContextValue? concentration = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -1080,7 +1080,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public TBuilder AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1093,11 +1093,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(TacticalMoraleChanceModifier))]
     public TBuilder AddTacticalMoraleChanceModifier(
         bool changePositiveMorale = default,
-        ContextValue positiveMoraleChancePercentDelta = null,
+        ContextValue? positiveMoraleChancePercentDelta = null,
         bool changeNegativeMorale = default,
-        ContextValue negativeMoraleChancePercentDelta = null,
+        ContextValue? negativeMoraleChancePercentDelta = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(positiveMoraleChancePercentDelta);
       ValidateParam(negativeMoraleChancePercentDelta);
@@ -1118,7 +1118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddPureRecommendation(
         RecommendationPriority priority = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PureRecommendation();
       component.Priority = priority;
@@ -1144,7 +1144,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         float minPart = default,
         bool notRecommendIfHigher = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationBaseAttackPart();
       component.MinPart = minPart;
@@ -1156,11 +1156,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationCompanionBoon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companionRank"><see cref="BlueprintFeature"/></param>
+    /// <param name="companionRank"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(RecommendationCompanionBoon))]
     public TBuilder AddRecommendationCompanionBoon(
-        string companionRank = null)
+        string? companionRank = null)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(companionRank);
@@ -1171,11 +1171,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationHasFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationHasFeature))]
     public TBuilder AddRecommendationHasFeature(
-        string feature = null,
+        string? feature = null,
         bool mandatory = default)
     {
       var component = new RecommendationHasFeature();
@@ -1188,11 +1188,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="RecommendationNoFeatFromGroup"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="features"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RecommendationNoFeatFromGroup))]
     public TBuilder AddRecommendationNoFeatFromGroup(
-        string[] features = null,
+        string[]? features = null,
         bool goodIfNoFeature = default)
     {
       var component = new RecommendationNoFeatFromGroup();
@@ -1208,7 +1208,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(RecommendationRequiresSpellbook))]
     public TBuilder AddRecommendationRequiresSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbook();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1224,7 +1224,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool divine = default,
         bool alchemist = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationRequiresSpellbookSource();
       component.Arcane = arcane;
@@ -1243,7 +1243,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         StatType lowerStat = default,
         int diff = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationStatComparison();
       component.HigherStat = higherStat;
@@ -1295,7 +1295,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RecommendationWeaponTypeFocus();
       component.WeaponRangeType = weaponRangeType;
@@ -1343,11 +1343,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellbookFeature"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookFeature))]
     public TBuilder AddSpellbookFeature(
-        string spellbook = null,
+        string? spellbook = null,
         int casterLevel = default)
     {
       var component = new AddSpellbookFeature();
@@ -1360,11 +1360,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="AddSpellbookLevel"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookLevel))]
     public TBuilder AddSpellbookLevel(
-        string spellbook = null)
+        string? spellbook = null)
     {
       var component = new AddSpellbookLevel();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
@@ -1378,7 +1378,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Implements(typeof(AddSpellsPerDay))]
     public TBuilder AddSpellsPerDay(
         int amount = default,
-        int[] levels = null)
+        int[]? levels = null)
     {
       var component = new AddSpellsPerDay();
       component.Amount = amount;
@@ -1400,15 +1400,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Adds <see cref="BuffExtraEffects"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="extraEffectBuff"><see cref="BlueprintBuff"/></param>
-    /// <param name="exceptionFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="extraEffectBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    /// <param name="exceptionFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(BuffExtraEffects))]
     public TBuilder AddBuffExtraEffects(
-        string checkedBuff = null,
-        string extraEffectBuff = null,
-        string exceptionFact = null)
+        string? checkedBuff = null,
+        string? extraEffectBuff = null,
+        string? exceptionFact = null)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkedBuff);

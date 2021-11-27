@@ -83,9 +83,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiCastSpell.m_Ability"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="ability"><see cref="BlueprintAbility"/></param>
+    /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public AiCastSpellConfigurator SetAbility(string ability)
+    public AiCastSpellConfigurator SetAbility(string? ability)
     {
       return OnConfigureInternal(
           bp =>
@@ -137,9 +137,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiCastSpell.m_Variant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="variant"><see cref="BlueprintAbility"/></param>
+    /// <param name="variant"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public AiCastSpellConfigurator SetVariant(string variant)
+    public AiCastSpellConfigurator SetVariant(string? variant)
     {
       return OnConfigureInternal(
           bp =>
@@ -152,9 +152,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiCastSpell.m_VariantsSet"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="variantsSet"><see cref="BlueprintAbility"/></param>
+    /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public AiCastSpellConfigurator SetVariantsSet(string[] variantsSet)
+    public AiCastSpellConfigurator SetVariantsSet(string[]? variantsSet)
     {
       return OnConfigureInternal(
           bp =>
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Adds to <see cref="BlueprintAiCastSpell.m_VariantsSet"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="variantsSet"><see cref="BlueprintAbility"/></param>
+    /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     public AiCastSpellConfigurator AddToVariantsSet(params string[] variantsSet)
     {
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Removes from <see cref="BlueprintAiCastSpell.m_VariantsSet"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="variantsSet"><see cref="BlueprintAbility"/></param>
+    /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     public AiCastSpellConfigurator RemoveFromVariantsSet(params string[] variantsSet)
     {
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// Sets <see cref="BlueprintAiCastSpell.Locators"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AiCastSpellConfigurator SetLocators(EntityReference[] locators)
+    public AiCastSpellConfigurator SetLocators(EntityReference[]? locators)
     {
       ValidateParam(locators);
     

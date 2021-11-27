@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.Stats"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetStats(List<KingdomUIRoot.KingdomStatElement> stats)
+    public KingdomUIRootConfigurator SetStats(List<KingdomUIRoot.KingdomStatElement>? stats)
     {
       ValidateParam(stats);
     
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.Resources"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetResources(List<KingdomUIRoot.KingdomResourceElement> resources)
+    public KingdomUIRootConfigurator SetResources(List<KingdomUIRoot.KingdomResourceElement>? resources)
     {
       ValidateParam(resources);
     
@@ -163,7 +163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.LeaderDescriptions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetLeaderDescriptions(List<KingdomUIRoot.KingdomLeaderDescription> leaderDescriptions)
+    public KingdomUIRootConfigurator SetLeaderDescriptions(List<KingdomUIRoot.KingdomLeaderDescription>? leaderDescriptions)
     {
       ValidateParam(leaderDescriptions);
     
@@ -221,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.EventResultMarginDescriptions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetEventResultMarginDescriptions(List<KingdomUIRoot.EventResultMarginDescription> eventResultMarginDescriptions)
+    public KingdomUIRootConfigurator SetEventResultMarginDescriptions(List<KingdomUIRoot.EventResultMarginDescription>? eventResultMarginDescriptions)
     {
       ValidateParam(eventResultMarginDescriptions);
     
@@ -309,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.KingdomStatusChangeReasons"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetKingdomStatusChangeReasons(List<KingdomUIRoot.KingdomStatusChangeReasonEntity> kingdomStatusChangeReasons)
+    public KingdomUIRootConfigurator SetKingdomStatusChangeReasons(List<KingdomUIRoot.KingdomStatusChangeReasonEntity>? kingdomStatusChangeReasons)
     {
       ValidateParam(kingdomStatusChangeReasons);
     
@@ -380,7 +380,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="KingdomUIRoot.KingdomStautsDesriptions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public KingdomUIRootConfigurator SetKingdomStautsDesriptions(List<KingdomUIRoot.KingdomStatusDescription> kingdomStautsDesriptions)
+    public KingdomUIRootConfigurator SetKingdomStautsDesriptions(List<KingdomUIRoot.KingdomStatusDescription>? kingdomStautsDesriptions)
     {
       ValidateParam(kingdomStautsDesriptions);
     

@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)
+    public TBuilder SetAudioTimeOfDayVariants(SceneReference[]? audioTimeOfDayVariants)
     {
       ValidateParam(audioTimeOfDayVariants);
     
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSoundBankNames(string[] soundBankNames)
+    public TBuilder SetSoundBankNames(string[]? soundBankNames)
     {
       return OnConfigureInternal(
           bp =>
@@ -329,15 +329,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settings"><see cref="BlueprintTimeOfDaySettings"/></param>
-    /// <param name="overrideValue"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="settings"><see cref="Kingmaker.Visual.LightSelector.BlueprintTimeOfDaySettings"/></param>
+    /// <param name="overrideValue"><see cref="Kingmaker.Visual.LightSelector.BlueprintTimeOfDaySettings"/></param>
     [Generated]
     [Implements(typeof(TimeOfDaySettingsOverride))]
     public TBuilder AddTimeOfDaySettingsOverride(
-        string settings = null,
-        string overrideValue = null,
+        string? settings = null,
+        string? overrideValue = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TimeOfDaySettingsOverride();
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);
@@ -432,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)
+    public AreaPartConfigurator SetAudioTimeOfDayVariants(SceneReference[]? audioTimeOfDayVariants)
     {
       ValidateParam(audioTimeOfDayVariants);
     
@@ -475,7 +475,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.m_SoundBankNames"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetSoundBankNames(string[] soundBankNames)
+    public AreaPartConfigurator SetSoundBankNames(string[]? soundBankNames)
     {
       return OnConfigureInternal(
           bp =>
@@ -674,15 +674,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds <see cref="TimeOfDaySettingsOverride"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="settings"><see cref="BlueprintTimeOfDaySettings"/></param>
-    /// <param name="overrideValue"><see cref="BlueprintTimeOfDaySettings"/></param>
+    /// <param name="settings"><see cref="Kingmaker.Visual.LightSelector.BlueprintTimeOfDaySettings"/></param>
+    /// <param name="overrideValue"><see cref="Kingmaker.Visual.LightSelector.BlueprintTimeOfDaySettings"/></param>
     [Generated]
     [Implements(typeof(TimeOfDaySettingsOverride))]
     public AreaPartConfigurator AddTimeOfDaySettingsOverride(
-        string settings = null,
-        string overrideValue = null,
+        string? settings = null,
+        string? overrideValue = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TimeOfDaySettingsOverride();
       component.m_Settings = BlueprintTool.GetRef<BlueprintTimeOfDaySettingsReference>(settings);

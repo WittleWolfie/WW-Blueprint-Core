@@ -53,12 +53,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// Adds <see cref="AreaVisited"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     [Implements(typeof(AreaVisited))]
     public static ConditionsBuilder AreaVisited(
         this ConditionsBuilder builder,
-        string area = null,
+        string? area = null,
         bool negate = false)
     {
       var element = ElementTool.Create<AreaVisited>();
@@ -71,12 +71,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// Adds <see cref="CurrentAreaIs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     [Implements(typeof(CurrentAreaIs))]
     public static ConditionsBuilder CurrentAreaIs(
         this ConditionsBuilder builder,
-        string area = null,
+        string? area = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CurrentAreaIs>();
@@ -128,12 +128,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// Adds <see cref="LocationRevealed"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
+    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
     [Generated]
     [Implements(typeof(LocationRevealed))]
     public static ConditionsBuilder LocationRevealed(
         this ConditionsBuilder builder,
-        string location = null,
+        string? location = null,
         bool negate = false)
     {
       var element = ElementTool.Create<LocationRevealed>();
@@ -223,13 +223,13 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// Adds <see cref="UnitIsInAreaPart"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="areaPart"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="areaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     [Implements(typeof(UnitIsInAreaPart))]
     public static ConditionsBuilder UnitIsInAreaPart(
         this ConditionsBuilder builder,
         UnitEvaluator unit,
-        string areaPart = null,
+        string? areaPart = null,
         bool negate = false)
     {
       builder.Validate(unit);

@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Sets <see cref="CraftRoot.m_PotionRequirements"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CraftRootConfigurator SetPotionRequirements(CraftRequirements[] potionRequirements)
+    public CraftRootConfigurator SetPotionRequirements(CraftRequirements[]? potionRequirements)
     {
       ValidateParam(potionRequirements);
     
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Sets <see cref="CraftRoot.m_ScrollsRequirements"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CraftRootConfigurator SetScrollsRequirements(CraftRequirements[] scrollsRequirements)
+    public CraftRootConfigurator SetScrollsRequirements(CraftRequirements[]? scrollsRequirements)
     {
       ValidateParam(scrollsRequirements);
     
@@ -169,9 +169,9 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Sets <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="potionsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
-    public CraftRootConfigurator SetPotionsItems(string[] potionsItems)
+    public CraftRootConfigurator SetPotionsItems(string[]? potionsItems)
     {
       return OnConfigureInternal(
           bp =>
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Adds to <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="potionsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
     public CraftRootConfigurator AddToPotionsItems(params string[] potionsItems)
     {
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Removes from <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="potionsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
     public CraftRootConfigurator RemoveFromPotionsItems(params string[] potionsItems)
     {
@@ -219,9 +219,9 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Sets <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="scrollsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
-    public CraftRootConfigurator SetScrollsItems(string[] scrollsItems)
+    public CraftRootConfigurator SetScrollsItems(string[]? scrollsItems)
     {
       return OnConfigureInternal(
           bp =>
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Adds to <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="scrollsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
     public CraftRootConfigurator AddToScrollsItems(params string[] scrollsItems)
     {
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// Removes from <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="scrollsItems"><see cref="BlueprintItemEquipmentUsable"/></param>
+    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
     [Generated]
     public CraftRootConfigurator RemoveFromScrollsItems(params string[] scrollsItems)
     {

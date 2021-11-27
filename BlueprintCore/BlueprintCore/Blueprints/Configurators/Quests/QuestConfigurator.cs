@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuest.Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetDescription(LocalizedString description)
+    public QuestConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuest.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetTitle(LocalizedString title)
+    public QuestConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
     
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuest.CompletionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public QuestConfigurator SetCompletionText(LocalizedString completionText)
+    public QuestConfigurator SetCompletionText(LocalizedString? completionText)
     {
       ValidateParam(completionText);
     
@@ -136,9 +136,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Sets <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
-    public QuestConfigurator SetObjectives(string[] objectives)
+    public QuestConfigurator SetObjectives(string[]? objectives)
     {
       return OnConfigureInternal(
           bp =>
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds to <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     public QuestConfigurator AddToObjectives(params string[] objectives)
     {
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Removes from <see cref="BlueprintQuest.m_Objectives"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="objectives"><see cref="BlueprintQuestObjective"/></param>
+    /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     [Generated]
     public QuestConfigurator RemoveFromObjectives(params string[] objectives)
     {
@@ -186,13 +186,13 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// Adds <see cref="QuestRelatesToCompanionStory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="companion"><see cref="BlueprintUnit"/></param>
+    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(QuestRelatesToCompanionStory))]
     public QuestConfigurator AddQuestRelatesToCompanionStory(
-        string companion = null,
+        string? companion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new QuestRelatesToCompanionStory();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
@@ -304,7 +304,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         float modifier = default,
         bool dummy = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
     

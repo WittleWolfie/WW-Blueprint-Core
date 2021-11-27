@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(WeaponDamageReroll))]
     public WeaponEnchantmentConfigurator AddWeaponDamageReroll(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponDamageReroll();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(SuppressBane))]
     public WeaponEnchantmentConfigurator AddSuppressBane(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SuppressBane();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -100,10 +100,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(WeaponCriticalConfirmationBonus))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalConfirmationBonus(
-        ContextValue value = null,
+        ContextValue? value = null,
         int additionalBonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(WeaponCriticalEdgeIncrease))]
     public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeIncrease(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponCriticalEdgeIncrease();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeStackable(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponCriticalEdgeStackable();
       component.Bonus = bonus;
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponCriticalMultiplierIncrease(
         int additionalMultiplier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponCriticalMultiplierIncrease();
       component.AdditionalMultiplier = additionalMultiplier;
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         StatType stat = default,
         float multiplier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponDamageMultiplierStatReplacement();
       component.Stat = stat;
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         StatType stat = default,
         bool requiresFinesse = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponDamageStatReplacement();
       component.Stat = stat;
@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(WeaponOversized))]
     public WeaponEnchantmentConfigurator AddWeaponOversized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponOversized();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -207,14 +207,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="IgnoreConcealmentAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(IgnoreConcealmentAgainstFactOwner))]
     public WeaponEnchantmentConfigurator AddIgnoreConcealmentAgainstFactOwner(
-        string[] facts = null,
+        string[]? facts = null,
         bool not = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreConcealmentAgainstFactOwner();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -229,7 +229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(IgnoreTargetDREnchantment))]
     public WeaponEnchantmentConfigurator AddIgnoreTargetDREnchantment(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreTargetDREnchantment();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -239,13 +239,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="ImproveEnhancmentIfHasEnchantment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(ImproveEnhancmentIfHasEnchantment))]
     public WeaponEnchantmentConfigurator AddImproveEnhancmentIfHasEnchantment(
-        string[] enchantments = null,
+        string[]? enchantments = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ImproveEnhancmentIfHasEnchantment();
       component.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(name)).ToArray();
@@ -260,11 +260,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddModifyWeaponStatsConditional(
         ModifyWeaponStatsConditional.ModificationType type = default,
         DamageAlignment alignment = default,
-        ContextValue bonusDamage = null,
+        ContextValue? bonusDamage = null,
         AlignmentComponent wielderAlignmentRestriction = default,
         AlignmentComponent targetAlignmentRestriction = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonusDamage);
     
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(BrilliantEnergy))]
     public WeaponEnchantmentConfigurator AddBrilliantEnergy(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new BrilliantEnergy();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -294,14 +294,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="IncreaseWeaponDamageByBuffStack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedBuff"><see cref="BlueprintBuff"/></param>
+    /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(IncreaseWeaponDamageByBuffStack))]
     public WeaponEnchantmentConfigurator AddIncreaseWeaponDamageByBuffStack(
         int bonusPerStack = default,
-        string checkedBuff = null,
+        string? checkedBuff = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IncreaseWeaponDamageByBuffStack();
       component.BonusPerStack = bonusPerStack;
@@ -316,11 +316,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
     public WeaponEnchantmentConfigurator AddIncreaseWeaponEnhancementBonusOnTargetFocus(
         UnitReference focusingTarget,
-        ContextValue bonusIncrementValue = null,
-        ContextValue maximumTotalEnhancementBonus = null,
+        ContextValue? bonusIncrementValue = null,
+        ContextValue? maximumTotalEnhancementBonus = null,
         int currentEnhancementBonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonusIncrementValue);
       ValidateParam(maximumTotalEnhancementBonus);
@@ -337,13 +337,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="MissAgainstFactOwner"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(MissAgainstFactOwner))]
     public WeaponEnchantmentConfigurator AddMissAgainstFactOwner(
-        string[] facts = null,
+        string[]? facts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MissAgainstFactOwner();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -358,7 +358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponAlignment(
         DamageAlignment alignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponAlignment();
       component.Alignment = alignment;
@@ -369,15 +369,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponAngelDamageDice"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="maximizeFeature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="maximizeFeature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(WeaponAngelDamageDice))]
     public WeaponEnchantmentConfigurator AddWeaponAngelDamageDice(
         DiceFormula energyDamageDice,
         DamageEnergyType element = default,
-        string maximizeFeature = null,
+        string? maximizeFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponAngelDamageDice();
       component.EnergyDamageDice = energyDamageDice;
@@ -390,15 +390,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponBuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnAttack))]
     public WeaponEnchantmentConfigurator AddWeaponBuffOnAttack(
         Rounds duration,
-        string buff = null,
-        PrefabLink fx = null,
+        string? buff = null,
+        PrefabLink? fx = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
     
@@ -413,16 +413,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponBuffOnConfirmedCrit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponBuffOnConfirmedCrit))]
     public WeaponEnchantmentConfigurator AddWeaponBuffOnConfirmedCrit(
         Rounds duration,
-        string buff = null,
-        PrefabLink fx = null,
+        string? buff = null,
+        PrefabLink? fx = null,
         bool onlyNatural20 = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
     
@@ -443,9 +443,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         DamageDescription damage,
         bool checkWielder = default,
         bool isBane = default,
-        ConditionsBuilder conditions = null,
+        ConditionsBuilder? conditions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(damage);
     
@@ -466,7 +466,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancementBonus = default,
         bool checkWielder = default,
         bool isBane = default,
-        ConditionsBuilder conditions = null)
+        ConditionsBuilder? conditions = null)
     {
       var component = new WeaponConditionalEnhancementBonus();
       component.EnhancementBonus = enhancementBonus;
@@ -484,7 +484,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstAlignment(
         AlignmentComponent enemyAlignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponCritAutoconfirmAgainstAlignment();
       component.EnemyAlignment = enemyAlignment;
@@ -499,7 +499,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstSize(
         Size size = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponCritAutoconfirmAgainstSize();
       component.Size = size;
@@ -514,10 +514,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponDamageAgainstAlignment(
         AlignmentComponent enemyAlignment = default,
         DamageAlignment weaponAlignment = default,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         DamageEnergyType damageType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
     
@@ -533,17 +533,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponDebuffOnAttack"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(WeaponDebuffOnAttack))]
     public WeaponEnchantmentConfigurator AddWeaponDebuffOnAttack(
         Rounds duration,
-        string buff = null,
+        string? buff = null,
         SavingThrowType saveType = default,
         int dC = default,
-        PrefabLink fx = null,
+        PrefabLink? fx = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
     
@@ -565,7 +565,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         DamageEnergyType element = default,
         DiceType dice = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponEnergyBurst();
       component.Element = element;
@@ -582,7 +582,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         DiceFormula energyDamageDice,
         DamageEnergyType element = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponEnergyDamageDice();
       component.EnergyDamageDice = energyDamageDice;
@@ -599,7 +599,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int enhancementBonus = default,
         bool stack = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponEnhancementBonus();
       component.EnhancementBonus = enhancementBonus;
@@ -616,7 +616,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int number = default,
         bool haste = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponExtraAttack();
       component.Number = number;
@@ -631,7 +631,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(WeaponImprovised))]
     public WeaponEnchantmentConfigurator AddWeaponImprovised(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponImprovised();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -644,7 +644,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(WeaponMasterwork))]
     public WeaponEnchantmentConfigurator AddWeaponMasterwork(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponMasterwork();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -658,7 +658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponMaterial(
         PhysicalDamageMaterial material = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponMaterial();
       component.Material = material;
@@ -673,7 +673,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator AddWeaponReality(
         DamageRealityType reality = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponReality();
       component.Reality = reality;

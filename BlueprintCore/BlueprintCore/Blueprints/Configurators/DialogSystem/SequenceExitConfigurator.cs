@@ -32,9 +32,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintSequenceExit.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
-    public SequenceExitConfigurator SetAnswers(string[] answers)
+    public SequenceExitConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
           bp =>
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintSequenceExit.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public SequenceExitConfigurator AddToAnswers(params string[] answers)
     {
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintSequenceExit.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public SequenceExitConfigurator RemoveFromAnswers(params string[] answers)
     {

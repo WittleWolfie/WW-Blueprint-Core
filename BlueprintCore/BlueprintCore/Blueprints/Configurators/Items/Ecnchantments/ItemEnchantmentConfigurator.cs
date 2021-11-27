@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintItemEnchantment.m_EnchantName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetEnchantName(LocalizedString enchantName)
+    public TBuilder SetEnchantName(LocalizedString? enchantName)
     {
       ValidateParam(enchantName);
     
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintItemEnchantment.m_Description"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDescription(LocalizedString description)
+    public TBuilder SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
     
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintItemEnchantment.m_Prefix"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetPrefix(LocalizedString prefix)
+    public TBuilder SetPrefix(LocalizedString? prefix)
     {
       ValidateParam(prefix);
     
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintItemEnchantment.m_Suffix"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetSuffix(LocalizedString suffix)
+    public TBuilder SetSuffix(LocalizedString? suffix)
     {
       ValidateParam(suffix);
     
@@ -143,13 +143,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="ItemEnchantmentEnableWhileEtudePlaying"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
+    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
     [Generated]
     [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
-        string etude = null,
+        string? etude = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ItemEnchantmentEnableWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
@@ -160,20 +160,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="ContextCalculateAbilityParams"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="customProperty"><see cref="BlueprintUnitProperty"/></param>
+    /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParams))]
     public TBuilder AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
         bool statTypeFromCustomProperty = default,
-        string customProperty = null,
+        string? customProperty = null,
         bool replaceCasterLevel = default,
-        ContextValue casterLevel = null,
+        ContextValue? casterLevel = null,
         bool replaceSpellLevel = default,
-        ContextValue spellLevel = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
@@ -194,15 +194,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="ContextCalculateAbilityParamsBasedOnClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
-        string characterClass = null,
+        string? characterClass = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ContextCalculateAbilityParamsBasedOnClass();
       component.UseKineticistMainStat = useKineticistMainStat;
@@ -218,7 +218,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(ContextCalculateSharedValue))]
     public TBuilder AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
-        ContextDiceValue value = null,
+        ContextDiceValue? value = null,
         double modifier = default)
     {
       ValidateParam(value);
@@ -237,12 +237,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(ContextSetAbilityParams))]
     public TBuilder AddContextSetAbilityParams(
         bool add10ToDC = default,
-        ContextValue dC = null,
-        ContextValue casterLevel = null,
-        ContextValue concentration = null,
-        ContextValue spellLevel = null,
+        ContextValue? dC = null,
+        ContextValue? casterLevel = null,
+        ContextValue? concentration = null,
+        ContextValue? spellLevel = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(dC);
       ValidateParam(casterLevel);
@@ -265,7 +265,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Implements(typeof(AbilityDifficultyLimitDC))]
     public TBuilder AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityDifficultyLimitDC();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -275,11 +275,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="ACBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(ACBonusAgainstFactOwnerEquipment))]
     public TBuilder AddACBonusAgainstFactOwnerEquipment(
-        string checkedFact = null,
+        string? checkedFact = null,
         int bonus = default,
         ModifierDescriptor descriptor = default)
     {
@@ -294,11 +294,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddCasterLevelEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spell"><see cref="BlueprintAbility"/></param>
+    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
     [Implements(typeof(AddCasterLevelEquipment))]
     public TBuilder AddCasterLevelEquipment(
-        string spell = null,
+        string? spell = null,
         int bonus = default,
         ModifierDescriptor descriptor = default)
     {
@@ -326,11 +326,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddSpellbookEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="spellbook"><see cref="BlueprintSpellbook"/></param>
+    /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
     [Generated]
     [Implements(typeof(AddSpellbookEquipment))]
     public TBuilder AddSpellbookEquipment(
-        string spellbook = null,
+        string? spellbook = null,
         int casterLevel = default)
     {
       var component = new AddSpellbookEquipment();
@@ -360,14 +360,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddStatBonusEquipmentUnlessEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedEnchantment"><see cref="BlueprintItemEnchantment"/></param>
+    /// <param name="checkedEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
     [Generated]
     [Implements(typeof(AddStatBonusEquipmentUnlessEnchant))]
     public TBuilder AddStatBonusEquipmentUnlessEnchant(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
         int value = default,
-        string checkedEnchantment = null)
+        string? checkedEnchantment = null)
     {
       var component = new AddStatBonusEquipmentUnlessEnchant();
       component.Descriptor = descriptor;
@@ -381,11 +381,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddUnitFactEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(AddUnitFactEquipment))]
     public TBuilder AddUnitFactEquipment(
-        string blueprint = null)
+        string? blueprint = null)
     {
       var component = new AddUnitFactEquipment();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(blueprint);
@@ -396,11 +396,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AddUnitFeatureEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintFeature"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AddUnitFeatureEquipment))]
     public TBuilder AddUnitFeatureEquipment(
-        string feature = null)
+        string? feature = null)
     {
       var component = new AddUnitFeatureEquipment();
       component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
@@ -411,11 +411,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="AttackBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFact"><see cref="BlueprintFeature"/></param>
+    /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(AttackBonusAgainstFactOwnerEquipment))]
     public TBuilder AddAttackBonusAgainstFactOwnerEquipment(
-        string checkedFact = null,
+        string? checkedFact = null,
         int attackBonus = default,
         ModifierDescriptor descriptor = default)
     {
@@ -430,11 +430,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="DamageBonusAgainstFactOwnerEquipment"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(DamageBonusAgainstFactOwnerEquipment))]
     public TBuilder AddDamageBonusAgainstFactOwnerEquipment(
-        string checkedFact = null,
+        string? checkedFact = null,
         int damageBonus = default)
     {
       var component = new DamageBonusAgainstFactOwnerEquipment();
@@ -449,9 +449,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     [Generated]
     [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
-        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[] buffs = null,
+        EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
     
@@ -468,7 +468,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IgnoreResistanceForDamageFromEnchantment();
       component.m_Type = type;
@@ -483,7 +483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddIncreaseMaxStatEnchantment(
         int value = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new IncreaseMaxStatEnchantment();
       component.Value = value;
@@ -521,13 +521,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="PreventAbilityInterruption"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="abilities"><see cref="BlueprintActivatableAbility"/></param>
+    /// <param name="abilities"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
     [Generated]
     [Implements(typeof(PreventAbilityInterruption))]
     public TBuilder AddPreventAbilityInterruption(
-        string[] abilities = null,
+        string[]? abilities = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new PreventAbilityInterruption();
       component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(name)).ToList();
@@ -538,11 +538,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Adds <see cref="WeaponTypeAttackEnchant"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintWeaponType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
     [Generated]
     [Implements(typeof(WeaponTypeAttackEnchant))]
     public TBuilder AddWeaponTypeAttackEnchant(
-        string type = null,
+        string? type = null,
         int bonus = default,
         ModifierDescriptor descriptor = default)
     {

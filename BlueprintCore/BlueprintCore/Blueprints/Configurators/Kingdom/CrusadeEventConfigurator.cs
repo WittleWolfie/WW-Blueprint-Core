@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CrusadeEventConfigurator SetEventSolutions(EventSolution[] eventSolutions)
+    public CrusadeEventConfigurator SetEventSolutions(EventSolution[]? eventSolutions)
     {
       ValidateParam(eventSolutions);
     

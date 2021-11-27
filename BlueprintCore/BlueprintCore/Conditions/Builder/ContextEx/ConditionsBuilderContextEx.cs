@@ -142,13 +142,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionBuffRank"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(ContextConditionBuffRank))]
     public static ConditionsBuilder ContextConditionBuffRank(
         this ConditionsBuilder builder,
-        string buff = null,
-        ContextValue rankValue = null,
+        string? buff = null,
+        ContextValue? rankValue = null,
         bool negate = false)
     {
       builder.Validate(rankValue);
@@ -208,13 +208,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionCharacterClass"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="BlueprintCharacterClass"/></param>
+    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     [Generated]
     [Implements(typeof(ContextConditionCharacterClass))]
     public static ConditionsBuilder ContextConditionCharacterClass(
         this ConditionsBuilder builder,
         bool checkCaster = default,
-        string clazz = null,
+        string? clazz = null,
         int minLevel = default,
         bool negate = false)
     {
@@ -234,8 +234,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder ContextConditionCompare(
         this ConditionsBuilder builder,
         ContextConditionCompare.Type type = default,
-        ContextValue checkValue = null,
-        ContextValue targetValue = null,
+        ContextValue? checkValue = null,
+        ContextValue? targetValue = null,
         bool negate = false)
     {
       builder.Validate(checkValue);
@@ -257,7 +257,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder ContextConditionCompareCasterHP(
         this ConditionsBuilder builder,
         ContextConditionCompareCasterHP.CompareType compareType = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         bool negate = false)
     {
       builder.Validate(value);
@@ -277,7 +277,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     public static ConditionsBuilder ContextConditionCompareTargetHP(
         this ConditionsBuilder builder,
         ContextConditionCompareTargetHP.CompareType compareType = default,
-        ContextValue value = null,
+        ContextValue? value = null,
         bool negate = false)
     {
       builder.Validate(value);
@@ -323,12 +323,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionHasBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(ContextConditionHasBuff))]
     public static ConditionsBuilder ContextConditionHasBuff(
         this ConditionsBuilder builder,
-        string buff = null,
+        string? buff = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasBuff>();
@@ -357,13 +357,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionHasItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="itemToCheck"><see cref="BlueprintItem"/></param>
+    /// <param name="itemToCheck"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     [Implements(typeof(ContextConditionHasItem))]
     public static ConditionsBuilder ContextConditionHasItem(
         this ConditionsBuilder builder,
         bool money = default,
-        string itemToCheck = null,
+        string? itemToCheck = null,
         int quantity = default,
         bool negate = false)
     {
@@ -393,12 +393,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionHasUniqueBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     [Implements(typeof(ContextConditionHasUniqueBuff))]
     public static ConditionsBuilder ContextConditionHasUniqueBuff(
         this ConditionsBuilder builder,
-        string buff = null,
+        string? buff = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasUniqueBuff>();
@@ -843,12 +843,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// Adds <see cref="ContextConditionTargetIsBlueprint"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     [Implements(typeof(ContextConditionTargetIsBlueprint))]
     public static ConditionsBuilder ContextConditionTargetIsBlueprint(
         this ConditionsBuilder builder,
-        string unit = null,
+        string? unit = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionTargetIsBlueprint>();

@@ -84,9 +84,9 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="BlueprintLoot.m_Area"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public LootConfigurator SetArea(string area)
+    public LootConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
           bp =>
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// Sets <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public LootConfigurator SetItems(LootEntry[] items)
+    public LootConfigurator SetItems(LootEntry[]? items)
     {
       ValidateParam(items);
     

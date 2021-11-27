@@ -42,9 +42,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Sets <see cref="BlueprintActivatableAbility.m_Buff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buff"><see cref="BlueprintBuff"/></param>
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
-    public ActivatableAbilityConfigurator SetBuff(string buff)
+    public ActivatableAbilityConfigurator SetBuff(string? buff)
     {
       return OnConfigureInternal(
           bp =>
@@ -239,9 +239,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Sets <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="selectTargetAbility"><see cref="BlueprintAbility"/></param>
+    /// <param name="selectTargetAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     [Generated]
-    public ActivatableAbilityConfigurator SetSelectTargetAbility(string selectTargetAbility)
+    public ActivatableAbilityConfigurator SetSelectTargetAbility(string? selectTargetAbility)
     {
       return OnConfigureInternal(
           bp =>
@@ -254,7 +254,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Sets <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ActivatableAbilityConfigurator SetResourceAssetIds(string[] resourceAssetIds)
+    public ActivatableAbilityConfigurator SetResourceAssetIds(string[]? resourceAssetIds)
     {
       return OnConfigureInternal(
           bp =>
@@ -296,10 +296,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(ActionPanelLogic))]
     public ActivatableAbilityConfigurator AddActionPanelLogic(
         int priority = default,
-        ConditionsBuilder autoFillConditions = null,
-        ConditionsBuilder autoCastConditions = null,
+        ConditionsBuilder? autoFillConditions = null,
+        ConditionsBuilder? autoCastConditions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActionPanelLogic();
       component.Priority = priority;
@@ -316,7 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddAbilityActivateWithUnitCommandInTurnBased(
         UnitCommand.CommandType commandType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityActivateWithUnitCommandInTurnBased();
       component.CommandType = commandType;
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionCanGatherPower))]
     public ActivatableAbilityConfigurator AddRestrictionCanGatherPower(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionCanGatherPower();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -343,7 +343,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionCanUseKineticBlade))]
     public ActivatableAbilityConfigurator AddRestrictionCanUseKineticBlade(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionCanUseKineticBlade();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -353,17 +353,17 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="ActivatableAbilityResourceLogic"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="requiredResource"><see cref="BlueprintAbilityResource"/></param>
-    /// <param name="freeBlueprint"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="requiredResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
+    /// <param name="freeBlueprint"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(ActivatableAbilityResourceLogic))]
     public ActivatableAbilityConfigurator AddActivatableAbilityResourceLogic(
         ActivatableAbilityResourceLogic.ResourceSpendType spendType = default,
-        string requiredResource = null,
-        string freeBlueprint = null,
-        WeaponCategory[] categories = null,
+        string? requiredResource = null,
+        string? freeBlueprint = null,
+        WeaponCategory[]? categories = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActivatableAbilityResourceLogic();
       component.SpendType = spendType;
@@ -381,7 +381,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddActivatableAbilityUnitCommand(
         UnitCommand.CommandType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new ActivatableAbilityUnitCommand();
       component.Type = type;
@@ -395,7 +395,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(DeactivateImmediatelyIfNoAttacksThisRound))]
     public ActivatableAbilityConfigurator AddDeactivateImmediatelyIfNoAttacksThisRound(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DeactivateImmediatelyIfNoAttacksThisRound();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -409,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddTurnOffImmediatelyWithUnitCommand(
         UnitCommand.CommandType commandType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new TurnOffImmediatelyWithUnitCommand();
       component.CommandType = commandType;
@@ -420,14 +420,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionHasFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="feature"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RestrictionHasFact))]
     public ActivatableAbilityConfigurator AddRestrictionHasFact(
-        string feature = null,
+        string? feature = null,
         bool not = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionHasFact();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
@@ -454,15 +454,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionKensaiWeapon"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="characterClass"><see cref="BlueprintCharacterClass"/></param>
-    /// <param name="chosenWeaponBlueprint"><see cref="BlueprintParametrizedFeature"/></param>
+    /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
+    /// <param name="chosenWeaponBlueprint"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature"/></param>
     [Generated]
     [Implements(typeof(RestrictionKensaiWeapon))]
     public ActivatableAbilityConfigurator AddRestrictionKensaiWeapon(
-        string characterClass = null,
-        string chosenWeaponBlueprint = null,
+        string? characterClass = null,
+        string? chosenWeaponBlueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionKensaiWeapon();
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
@@ -477,7 +477,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionRangedWeapon))]
     public ActivatableAbilityConfigurator AddRestrictionRangedWeapon(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionRangedWeapon();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -487,12 +487,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionUnitConditionUnlessFact"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="checkedFact"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     [Implements(typeof(RestrictionUnitConditionUnlessFact))]
     public ActivatableAbilityConfigurator AddRestrictionUnitConditionUnlessFact(
         UnitCondition condition = default,
-        string checkedFact = null)
+        string? checkedFact = null)
     {
       var component = new RestrictionUnitConditionUnlessFact();
       component.Condition = condition;
@@ -504,14 +504,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Adds <see cref="RestrictionUnlockableFlag"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="neededFlag"><see cref="BlueprintUnlockableFlag"/></param>
+    /// <param name="neededFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     [Generated]
     [Implements(typeof(RestrictionUnlockableFlag))]
     public ActivatableAbilityConfigurator AddRestrictionUnlockableFlag(
-        string neededFlag = null,
+        string? neededFlag = null,
         bool invert = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionUnlockableFlag();
       component.m_NeededFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(neededFlag);
@@ -526,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(SwitchOffAtCombatEnd))]
     public ActivatableAbilityConfigurator AddSwitchOffAtCombatEnd(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new SwitchOffAtCombatEnd();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

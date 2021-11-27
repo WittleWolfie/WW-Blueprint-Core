@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetTypeNameText(LocalizedString typeNameText)
+    public WeaponTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
     
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDefaultNameText(LocalizedString defaultNameText)
+    public WeaponTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
     
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetDescriptionText(LocalizedString descriptionText)
+    public WeaponTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
     
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_MasterworkDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString masterworkDescriptionText)
+    public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString? masterworkDescriptionText)
     {
       ValidateParam(masterworkDescriptionText);
     
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString magicDescriptionText)
+    public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
     
@@ -354,9 +354,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
-    public WeaponTypeConfigurator SetEnchantments(string[] enchantments)
+    public WeaponTypeConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -369,7 +369,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Adds to <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
     public WeaponTypeConfigurator AddToEnchantments(params string[] enchantments)
     {
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Removes from <see cref="BlueprintWeaponType.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintWeaponEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
     [Generated]
     public WeaponTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
@@ -417,9 +417,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// Sets <see cref="BlueprintWeaponType.m_ShardItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="shardItem"><see cref="BlueprintItem"/></param>
+    /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public WeaponTypeConfigurator SetShardItem(string shardItem)
+    public WeaponTypeConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
           bp =>

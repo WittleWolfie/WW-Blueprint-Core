@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CheckConfigurator SetDCModifiers(DCModifier[] dCModifiers)
+    public CheckConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
     {
       ValidateParam(dCModifiers);
     
@@ -116,9 +116,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCheck.m_Success"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="success"><see cref="BlueprintCueBase"/></param>
+    /// <param name="success"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
-    public CheckConfigurator SetSuccess(string success)
+    public CheckConfigurator SetSuccess(string? success)
     {
       return OnConfigureInternal(
           bp =>
@@ -131,9 +131,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintCheck.m_Fail"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="fail"><see cref="BlueprintCueBase"/></param>
+    /// <param name="fail"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
     [Generated]
-    public CheckConfigurator SetFail(string fail)
+    public CheckConfigurator SetFail(string? fail)
     {
       return OnConfigureInternal(
           bp =>

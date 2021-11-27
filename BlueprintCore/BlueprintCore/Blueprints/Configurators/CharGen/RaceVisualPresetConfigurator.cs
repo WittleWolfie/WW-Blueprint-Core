@@ -74,9 +74,9 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     /// Sets <see cref="BlueprintRaceVisualPreset.m_Skin"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="skin"><see cref="KingmakerEquipmentEntity"/></param>
+    /// <param name="skin"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
     [Generated]
-    public RaceVisualPresetConfigurator SetSkin(string skin)
+    public RaceVisualPresetConfigurator SetSkin(string? skin)
     {
       return OnConfigureInternal(
           bp =>

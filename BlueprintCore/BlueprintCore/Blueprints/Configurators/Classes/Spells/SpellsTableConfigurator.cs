@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// Sets <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpellsTableConfigurator SetLevels(SpellsLevelEntry[] levels)
+    public SpellsTableConfigurator SetLevels(SpellsLevelEntry[]? levels)
     {
       ValidateParam(levels);
     

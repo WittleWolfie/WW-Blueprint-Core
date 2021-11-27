@@ -62,7 +62,7 @@ namespace BlueprintCoreGen.Conditions.Builder
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term><see cref="NewEx.ConditionsBuilderMiscEx">MiscEx</see></term>
+  ///   <term><see cref="MiscEx.ConditionsBuilderMiscEx">MiscEx</see></term>
   ///   <description>
   ///     Conditions without a better extension container such as game difficulty.
   ///   </description>
@@ -366,9 +366,15 @@ namespace BlueprintCoreGen.Conditions.Builder
     /// <see cref="Validator.Check(object)">Validator.Check()</see> directly.
     /// </remarks>
     /// <param name="obj"></param>
-    internal void Validate(object obj)
+    internal void Validate(object? obj)
     {
       ValidationWarnings.AddRange(Validator.Check(obj));
+    }
+
+    internal void Validate<T>(IEnumerable<T>? objects)
+    {
+      if (objects is null) { return; }
+      foreach (var obj in objects) { Validate(obj!); }
     }
   }
 }

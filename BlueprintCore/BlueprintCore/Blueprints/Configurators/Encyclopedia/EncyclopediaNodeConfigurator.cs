@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaNode.Title"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTitle(LocalizedString title)
+    public TBuilder SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
     
@@ -50,9 +50,9 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Sets <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
     [Generated]
-    public TBuilder SetChildPages(string[] childPages)
+    public TBuilder SetChildPages(string[]? childPages)
     {
       return OnConfigureInternal(
           bp =>
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Adds to <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
     [Generated]
     public TBuilder AddToChildPages(params string[] childPages)
     {
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// Removes from <see cref="BlueprintEncyclopediaNode.ChildPages"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="childPages"><see cref="BlueprintEncyclopediaPage"/></param>
+    /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
     [Generated]
     public TBuilder RemoveFromChildPages(params string[] childPages)
     {

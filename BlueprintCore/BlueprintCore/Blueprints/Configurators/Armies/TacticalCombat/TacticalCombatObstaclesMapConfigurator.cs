@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
+    public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[]? obstacles)
     {
       ValidateParam(obstacles);
     

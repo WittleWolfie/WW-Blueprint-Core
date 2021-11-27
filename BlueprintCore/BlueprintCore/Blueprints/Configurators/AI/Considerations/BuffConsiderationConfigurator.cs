@@ -31,9 +31,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
-    public BuffConsiderationConfigurator SetBuffs(string[] buffs)
+    public BuffConsiderationConfigurator SetBuffs(string[]? buffs)
     {
       return OnConfigureInternal(
           bp =>
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Adds to <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public BuffConsiderationConfigurator AddToBuffs(params string[] buffs)
     {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Removes from <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="buffs"><see cref="BlueprintBuff"/></param>
+    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     [Generated]
     public BuffConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
     {

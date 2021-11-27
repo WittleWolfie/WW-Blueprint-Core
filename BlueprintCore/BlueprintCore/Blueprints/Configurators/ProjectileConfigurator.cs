@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintProjectile.CastFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ProjectileConfigurator SetCastFx(PrefabLink castFx)
+    public ProjectileConfigurator SetCastFx(PrefabLink? castFx)
     {
       ValidateParam(castFx);
     
@@ -302,9 +302,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Sets <see cref="BlueprintProjectile.m_Trajectory"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="trajectory"><see cref="BlueprintProjectileTrajectory"/></param>
+    /// <param name="trajectory"><see cref="Kingmaker.Blueprints.BlueprintProjectileTrajectory"/></param>
     [Generated]
-    public ProjectileConfigurator SetTrajectory(string trajectory)
+    public ProjectileConfigurator SetTrajectory(string? trajectory)
     {
       return OnConfigureInternal(
           bp =>
@@ -363,7 +363,7 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(CannotSneakAttack))]
     public ProjectileConfigurator AddCannotSneakAttack(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new CannotSneakAttack();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

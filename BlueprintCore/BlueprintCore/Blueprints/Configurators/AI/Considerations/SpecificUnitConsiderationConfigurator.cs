@@ -30,9 +30,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
     /// Sets <see cref="SpecificUnitBlueprintConsideration.m_Unit"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="unit"><see cref="BlueprintUnit"/></param>
+    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public SpecificUnitConsiderationConfigurator SetUnit(string unit)
+    public SpecificUnitConsiderationConfigurator SetUnit(string? unit)
     {
       return OnConfigureInternal(
           bp =>

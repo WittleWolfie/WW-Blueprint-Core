@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versio
     /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitUpgraderConfigurator SetActions(ActionsBuilder actions)
+    public UnitUpgraderConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(
           bp =>

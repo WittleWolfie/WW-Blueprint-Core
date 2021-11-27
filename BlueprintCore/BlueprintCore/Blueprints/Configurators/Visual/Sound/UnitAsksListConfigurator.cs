@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
     /// Sets <see cref="BlueprintUnitAsksList.DisplayName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public UnitAsksListConfigurator SetDisplayName(LocalizedString displayName)
+    public UnitAsksListConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
     
@@ -72,10 +72,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
         UnitAsksComponent.Bark stormSnow,
         UnitEntityData unit,
         UnitAsksComponent.Bark currentlyActiveBark,
-        string[] soundBanks = null,
-        UnitAsksComponent.AnimationBark[] animationBarks = null,
+        string[]? soundBanks = null,
+        UnitAsksComponent.AnimationBark[]? animationBarks = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(aggro);
       ValidateParam(pain);

@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswersList.Conditions"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AnswersListConfigurator SetConditions(ConditionsBuilder conditions)
+    public AnswersListConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
           bp =>
@@ -58,9 +58,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Sets <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
-    public AnswersListConfigurator SetAnswers(string[] answers)
+    public AnswersListConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
           bp =>
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Adds to <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public AnswersListConfigurator AddToAnswers(params string[] answers)
     {
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Removes from <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="answers"><see cref="BlueprintAnswerBase"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
     [Generated]
     public AnswersListConfigurator RemoveFromAnswers(params string[] answers)
     {

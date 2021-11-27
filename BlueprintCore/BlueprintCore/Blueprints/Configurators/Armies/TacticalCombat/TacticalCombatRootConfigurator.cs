@@ -52,9 +52,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_CrusadersFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="crusadersFaction"><see cref="BlueprintFaction"/></param>
+    /// <param name="crusadersFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetCrusadersFaction(string crusadersFaction)
+    public TacticalCombatRootConfigurator SetCrusadersFaction(string? crusadersFaction)
     {
       return OnConfigureInternal(
           bp =>
@@ -67,9 +67,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DemonsFaction"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="demonsFaction"><see cref="BlueprintFaction"/></param>
+    /// <param name="demonsFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDemonsFaction(string demonsFaction)
+    public TacticalCombatRootConfigurator SetDemonsFaction(string? demonsFaction)
     {
       return OnConfigureInternal(
           bp =>
@@ -82,9 +82,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultBrain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultBrain"><see cref="BlueprintTacticalCombatBrain"/></param>
+    /// <param name="defaultBrain"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatBrain"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDefaultBrain(string defaultBrain)
+    public TacticalCombatRootConfigurator SetDefaultBrain(string? defaultBrain)
     {
       return OnConfigureInternal(
           bp =>
@@ -97,9 +97,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultLeaderBrain"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="defaultLeaderBrain"><see cref="BlueprintTacticalCombatBrain"/></param>
+    /// <param name="defaultLeaderBrain"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatBrain"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetDefaultLeaderBrain(string defaultLeaderBrain)
+    public TacticalCombatRootConfigurator SetDefaultLeaderBrain(string? defaultLeaderBrain)
     {
       return OnConfigureInternal(
           bp =>
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_BuffPrefix"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString buffPrefix)
+    public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString? buffPrefix)
     {
       ValidateParam(buffPrefix);
     
@@ -311,9 +311,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetBannedUnitFacts(string[] bannedUnitFacts)
+    public TacticalCombatRootConfigurator SetBannedUnitFacts(string[]? bannedUnitFacts)
     {
       return OnConfigureInternal(
           bp =>
@@ -326,7 +326,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Adds to <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public TacticalCombatRootConfigurator AddToBannedUnitFacts(params string[] bannedUnitFacts)
     {
@@ -341,7 +341,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Removes from <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="bannedUnitFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public TacticalCombatRootConfigurator RemoveFromBannedUnitFacts(params string[] bannedUnitFacts)
     {
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings> zoneSettings)
+    public TacticalCombatRootConfigurator SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings>? zoneSettings)
     {
       ValidateParam(zoneSettings);
     
@@ -417,9 +417,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_LeaderManaResource"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="leaderManaResource"><see cref="BlueprintAbilityResource"/></param>
+    /// <param name="leaderManaResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetLeaderManaResource(string leaderManaResource)
+    public TacticalCombatRootConfigurator SetLeaderManaResource(string? leaderManaResource)
     {
       return OnConfigureInternal(
           bp =>
@@ -432,9 +432,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_WinnerCutscene"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="winnerCutscene"><see cref="Cutscene"/></param>
+    /// <param name="winnerCutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
     [Generated]
-    public TacticalCombatRootConfigurator SetWinnerCutscene(string winnerCutscene)
+    public TacticalCombatRootConfigurator SetWinnerCutscene(string? winnerCutscene)
     {
       return OnConfigureInternal(
           bp =>
@@ -447,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_PositiveMoraleFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink positiveMoraleFx)
+    public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink? positiveMoraleFx)
     {
       ValidateParam(positiveMoraleFx);
     
@@ -462,7 +462,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_NegativeMoraleFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink negativeMoraleFx)
+    public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink? negativeMoraleFx)
     {
       ValidateParam(negativeMoraleFx);
     

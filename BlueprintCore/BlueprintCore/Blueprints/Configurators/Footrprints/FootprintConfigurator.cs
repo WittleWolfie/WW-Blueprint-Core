@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// Sets <see cref="BlueprintFootprint.LeftFootPrint"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FootprintConfigurator SetLeftFootPrint(PrefabLink leftFootPrint)
+    public FootprintConfigurator SetLeftFootPrint(PrefabLink? leftFootPrint)
     {
       ValidateParam(leftFootPrint);
     
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// Sets <see cref="BlueprintFootprint.RightFootPrint"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public FootprintConfigurator SetRightFootPrint(PrefabLink rightFootPrint)
+    public FootprintConfigurator SetRightFootPrint(PrefabLink? rightFootPrint)
     {
       ValidateParam(rightFootPrint);
     

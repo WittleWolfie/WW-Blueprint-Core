@@ -33,9 +33,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintItemArmor.m_Type"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="type"><see cref="BlueprintArmorType"/></param>
+    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Armors.BlueprintArmorType"/></param>
     [Generated]
-    public ItemArmorConfigurator SetType(string type)
+    public ItemArmorConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
           bp =>
@@ -76,9 +76,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Sets <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public ItemArmorConfigurator SetEnchantments(string[] enchantments)
+    public ItemArmorConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Adds to <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public ItemArmorConfigurator AddToEnchantments(params string[] enchantments)
     {
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// Removes from <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public ItemArmorConfigurator RemoveFromEnchantments(params string[] enchantments)
     {

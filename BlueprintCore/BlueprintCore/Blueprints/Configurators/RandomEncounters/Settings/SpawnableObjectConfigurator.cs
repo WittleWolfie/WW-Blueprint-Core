@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetPrefab(PrefabLink prefab)
+    public TBuilder SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);
     
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SpawnableObjectConfigurator SetPrefab(PrefabLink prefab)
+    public SpawnableObjectConfigurator SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);
     

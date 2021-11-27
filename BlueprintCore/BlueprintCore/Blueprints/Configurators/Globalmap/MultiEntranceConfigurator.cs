@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntrance.Name"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MultiEntranceConfigurator SetName(LocalizedString name)
+    public MultiEntranceConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
     
@@ -60,9 +60,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Sets <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="entries"><see cref="BlueprintMultiEntranceEntry"/></param>
+    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
     [Generated]
-    public MultiEntranceConfigurator SetEntries(string[] entries)
+    public MultiEntranceConfigurator SetEntries(string[]? entries)
     {
       return OnConfigureInternal(
           bp =>
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Adds to <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="entries"><see cref="BlueprintMultiEntranceEntry"/></param>
+    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
     [Generated]
     public MultiEntranceConfigurator AddToEntries(params string[] entries)
     {
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// Removes from <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="entries"><see cref="BlueprintMultiEntranceEntry"/></param>
+    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
     [Generated]
     public MultiEntranceConfigurator RemoveFromEntries(params string[] entries)
     {

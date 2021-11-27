@@ -21,9 +21,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Sets <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
-    public TBuilder SetEnchantments(string[] enchantments)
+    public TBuilder SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
           bp =>
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Adds to <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public TBuilder AddToEnchantments(params string[] enchantments)
     {
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Removes from <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="enchantments"><see cref="BlueprintEquipmentEnchantment"/></param>
+    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
     [Generated]
     public TBuilder RemoveFromEnchantments(params string[] enchantments)
     {

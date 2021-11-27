@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetAnchors(EntityReference[] anchors)
+    public CutsceneConfigurator SetAnchors(EntityReference[]? anchors)
     {
       ValidateParam(anchors);
     
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// Sets <see cref="Cutscene.OnStopped"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CutsceneConfigurator SetOnStopped(ActionsBuilder onStopped)
+    public CutsceneConfigurator SetOnStopped(ActionsBuilder? onStopped)
     {
       return OnConfigureInternal(
           bp =>
@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     [Implements(typeof(StopCutsceneWhenExitingArea))]
     public CutsceneConfigurator AddStopCutsceneWhenExitingArea(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new StopCutsceneWhenExitingArea();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -239,7 +239,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     [Implements(typeof(DestroyCutsceneOnLoad))]
     public CutsceneConfigurator AddDestroyCutsceneOnLoad(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new DestroyCutsceneOnLoad();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

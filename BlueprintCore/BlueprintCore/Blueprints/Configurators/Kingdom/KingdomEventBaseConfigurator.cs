@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedName"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    public TBuilder SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
     
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    public TBuilder SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
     
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEventBase.TriggerCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetTriggerCondition(ConditionsBuilder triggerCondition)
+    public TBuilder SetTriggerCondition(ConditionsBuilder? triggerCondition)
     {
       return OnConfigureInternal(
           bp =>
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionDescription"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetDefaultResolutionDescription(LocalizedString defaultResolutionDescription)
+    public TBuilder SetDefaultResolutionDescription(LocalizedString? defaultResolutionDescription)
     {
       ValidateParam(defaultResolutionDescription);
     
@@ -229,14 +229,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="EventDynamicCostFeast"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="BlueprintKingdomEventBase"/></param>
+    /// <param name="blueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
     [Generated]
     [Implements(typeof(EventDynamicCostFeast))]
     public TBuilder AddEventDynamicCostFeast(
         KingdomResourcesAmount costPerUse,
-        string blueprint = null,
+        string? blueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new EventDynamicCostFeast();
       component.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(blueprint);
@@ -248,15 +248,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// Adds <see cref="EventAISolution"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dialog"><see cref="BlueprintDialog"/></param>
-    /// <param name="answers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
+    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     [Implements(typeof(EventAISolution))]
     public TBuilder AddEventAISolution(
-        ConditionsBuilder condition = null,
-        string dialog = null,
-        string[] answers = null,
-        ActionsBuilder additionalActions = null)
+        ConditionsBuilder? condition = null,
+        string? dialog = null,
+        string[]? answers = null,
+        ActionsBuilder? additionalActions = null)
     {
       var component = new EventAISolution();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
@@ -272,9 +272,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     [Generated]
     [Implements(typeof(EventFinalResults))]
     public TBuilder AddEventFinalResults(
-        EventResult[] results = null,
+        EventResult[]? results = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(results);
     

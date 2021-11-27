@@ -72,9 +72,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
-    public MoraleRootConfigurator SetNegativeFacts(string[] negativeFacts)
+    public MoraleRootConfigurator SetNegativeFacts(string[]? negativeFacts)
     {
       return OnConfigureInternal(
           bp =>
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Adds to <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public MoraleRootConfigurator AddToNegativeFacts(params string[] negativeFacts)
     {
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Removes from <see cref="MoraleRoot.m_NegativeFacts"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="negativeFacts"><see cref="BlueprintUnitFact"/></param>
+    /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     [Generated]
     public MoraleRootConfigurator RemoveFromNegativeFacts(params string[] negativeFacts)
     {
@@ -122,9 +122,9 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.m_GlobalArmiesMoraleBuff"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="globalArmiesMoraleBuff"><see cref="BlueprintKingdomBuff"/></param>
+    /// <param name="globalArmiesMoraleBuff"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
     [Generated]
-    public MoraleRootConfigurator SetGlobalArmiesMoraleBuff(string globalArmiesMoraleBuff)
+    public MoraleRootConfigurator SetGlobalArmiesMoraleBuff(string? globalArmiesMoraleBuff)
     {
       return OnConfigureInternal(
           bp =>
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.BaseMoraleValue"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString baseMoraleValue)
+    public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString? baseMoraleValue)
     {
       ValidateParam(baseMoraleValue);
     
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.ArmyEffectOnSquad"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString armyEffectOnSquad)
+    public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString? armyEffectOnSquad)
     {
       ValidateParam(armyEffectOnSquad);
     
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Sets <see cref="MoraleRoot.UnitNotHaveMorale"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString unitNotHaveMorale)
+    public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString? unitNotHaveMorale)
     {
       ValidateParam(unitNotHaveMorale);
     

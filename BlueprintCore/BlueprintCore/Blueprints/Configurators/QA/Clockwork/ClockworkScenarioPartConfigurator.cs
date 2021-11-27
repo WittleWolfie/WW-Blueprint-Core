@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.RetrySkillChecks"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetRetrySkillChecks(List<EntityReference> retrySkillChecks)
+    public ClockworkScenarioPartConfigurator SetRetrySkillChecks(List<EntityReference>? retrySkillChecks)
     {
       ValidateParam(retrySkillChecks);
     
@@ -77,9 +77,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="highPriorityAnswers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="highPriorityAnswers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetHighPriorityAnswers(string[] highPriorityAnswers)
+    public ClockworkScenarioPartConfigurator SetHighPriorityAnswers(string[]? highPriorityAnswers)
     {
       return OnConfigureInternal(
           bp =>
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds to <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="highPriorityAnswers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="highPriorityAnswers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator AddToHighPriorityAnswers(params string[] highPriorityAnswers)
     {
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Removes from <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="highPriorityAnswers"><see cref="BlueprintAnswer"/></param>
+    /// <param name="highPriorityAnswers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator RemoveFromHighPriorityAnswers(params string[] highPriorityAnswers)
     {
@@ -127,9 +127,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotSellItems"><see cref="BlueprintItem"/></param>
+    /// <param name="doNotSellItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetDoNotSellItems(string[] doNotSellItems)
+    public ClockworkScenarioPartConfigurator SetDoNotSellItems(string[]? doNotSellItems)
     {
       return OnConfigureInternal(
           bp =>
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds to <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotSellItems"><see cref="BlueprintItem"/></param>
+    /// <param name="doNotSellItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator AddToDoNotSellItems(params string[] doNotSellItems)
     {
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Removes from <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotSellItems"><see cref="BlueprintItem"/></param>
+    /// <param name="doNotSellItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator RemoveFromDoNotSellItems(params string[] doNotSellItems)
     {
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.DoNotInterract"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetDoNotInterract(List<ClockworkEntityReference> doNotInterract)
+    public ClockworkScenarioPartConfigurator SetDoNotInterract(List<ClockworkEntityReference>? doNotInterract)
     {
       ValidateParam(doNotInterract);
     
@@ -220,9 +220,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotInterractUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="doNotInterractUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetDoNotInterractUnits(string[] doNotInterractUnits)
+    public ClockworkScenarioPartConfigurator SetDoNotInterractUnits(string[]? doNotInterractUnits)
     {
       return OnConfigureInternal(
           bp =>
@@ -235,7 +235,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds to <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotInterractUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="doNotInterractUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator AddToDoNotInterractUnits(params string[] doNotInterractUnits)
     {
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Removes from <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotInterractUnits"><see cref="BlueprintUnit"/></param>
+    /// <param name="doNotInterractUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator RemoveFromDoNotInterractUnits(params string[] doNotInterractUnits)
     {
@@ -270,9 +270,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotUseAnswer"><see cref="BlueprintAnswer"/></param>
+    /// <param name="doNotUseAnswer"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetDoNotUseAnswer(string[] doNotUseAnswer)
+    public ClockworkScenarioPartConfigurator SetDoNotUseAnswer(string[]? doNotUseAnswer)
     {
       return OnConfigureInternal(
           bp =>
@@ -285,7 +285,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds to <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotUseAnswer"><see cref="BlueprintAnswer"/></param>
+    /// <param name="doNotUseAnswer"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator AddToDoNotUseAnswer(params string[] doNotUseAnswer)
     {
@@ -300,7 +300,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Removes from <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotUseAnswer"><see cref="BlueprintAnswer"/></param>
+    /// <param name="doNotUseAnswer"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator RemoveFromDoNotUseAnswer(params string[] doNotUseAnswer)
     {
@@ -320,9 +320,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Sets <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotEnterAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="doNotEnterAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
-    public ClockworkScenarioPartConfigurator SetDoNotEnterAreas(string[] doNotEnterAreas)
+    public ClockworkScenarioPartConfigurator SetDoNotEnterAreas(string[]? doNotEnterAreas)
     {
       return OnConfigureInternal(
           bp =>
@@ -335,7 +335,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds to <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotEnterAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="doNotEnterAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator AddToDoNotEnterAreas(params string[] doNotEnterAreas)
     {
@@ -350,7 +350,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Removes from <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="doNotEnterAreas"><see cref="BlueprintArea"/></param>
+    /// <param name="doNotEnterAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     [Generated]
     public ClockworkScenarioPartConfigurator RemoveFromDoNotEnterAreas(params string[] doNotEnterAreas)
     {
@@ -370,15 +370,15 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds <see cref="AreaTest"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="area"><see cref="BlueprintArea"/></param>
-    /// <param name="areaPart"><see cref="BlueprintAreaPart"/></param>
+    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
+    /// <param name="areaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
     [Generated]
     [Implements(typeof(AreaTest))]
     public ClockworkScenarioPartConfigurator AddAreaTest(
         Condition condition,
         ClockworkCommandList commandList,
-        string area = null,
-        string areaPart = null,
+        string? area = null,
+        string? areaPart = null,
         bool everyVisit = default)
     {
       ValidateParam(condition);
@@ -415,17 +415,17 @@ namespace BlueprintCore.Blueprints.Configurators.QA.Clockwork
     /// Adds <see cref="MythicLevelUpPlan"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="beginnerMythic"><see cref="BlueprintFeature"/></param>
-    /// <param name="earlyMythic"><see cref="BlueprintFeature"/></param>
-    /// <param name="lateMythic"><see cref="BlueprintFeature"/></param>
+    /// <param name="beginnerMythic"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="earlyMythic"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="lateMythic"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(MythicLevelUpPlan))]
     public ClockworkScenarioPartConfigurator AddMythicLevelUpPlan(
-        string beginnerMythic = null,
-        string earlyMythic = null,
-        string lateMythic = null,
+        string? beginnerMythic = null,
+        string? earlyMythic = null,
+        string? lateMythic = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent> mergeAction = null)
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new MythicLevelUpPlan();
       component.BeginnerMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(beginnerMythic);

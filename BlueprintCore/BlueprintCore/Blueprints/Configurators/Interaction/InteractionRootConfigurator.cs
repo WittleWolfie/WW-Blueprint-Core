@@ -57,9 +57,9 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerItem"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="magicPowerItem"><see cref="BlueprintItem"/></param>
+    /// <param name="magicPowerItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
     [Generated]
-    public InteractionRootConfigurator SetMagicPowerItem(string magicPowerItem)
+    public InteractionRootConfigurator SetMagicPowerItem(string? magicPowerItem)
     {
       return OnConfigureInternal(
           bp =>
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// Sets <see cref="BlueprintInteractionRoot.m_DestructionFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public InteractionRootConfigurator SetDestructionFx(PrefabLink destructionFx)
+    public InteractionRootConfigurator SetDestructionFx(PrefabLink? destructionFx)
     {
       ValidateParam(destructionFx);
     
