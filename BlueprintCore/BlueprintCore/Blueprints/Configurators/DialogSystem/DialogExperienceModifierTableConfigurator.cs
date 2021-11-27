@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Localization;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>

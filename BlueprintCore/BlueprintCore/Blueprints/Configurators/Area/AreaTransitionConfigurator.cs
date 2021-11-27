@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

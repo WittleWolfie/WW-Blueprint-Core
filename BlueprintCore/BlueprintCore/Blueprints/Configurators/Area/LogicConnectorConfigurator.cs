@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.Enums.Damage;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

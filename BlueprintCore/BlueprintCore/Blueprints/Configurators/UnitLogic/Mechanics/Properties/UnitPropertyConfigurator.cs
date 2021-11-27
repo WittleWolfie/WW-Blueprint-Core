@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Mechanics.Properties
 {
   /// <summary>

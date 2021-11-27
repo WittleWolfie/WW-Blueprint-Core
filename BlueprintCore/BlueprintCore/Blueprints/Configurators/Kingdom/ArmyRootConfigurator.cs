@@ -5,6 +5,7 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.RuleSystem;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

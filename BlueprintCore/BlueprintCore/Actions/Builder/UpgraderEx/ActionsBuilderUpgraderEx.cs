@@ -6,6 +6,7 @@ using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.UpgraderEx
 {
   /// <summary>

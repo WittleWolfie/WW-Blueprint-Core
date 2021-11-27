@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Collections;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Designers.Mechanics.Collections
 {
   /// <summary>

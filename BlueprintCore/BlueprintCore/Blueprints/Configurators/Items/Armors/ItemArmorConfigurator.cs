@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Enums;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>

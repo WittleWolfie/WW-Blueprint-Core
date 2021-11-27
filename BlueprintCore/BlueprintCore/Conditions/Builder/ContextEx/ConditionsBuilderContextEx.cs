@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using Kingmaker.View.Animation;
 
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.ContextEx
 {
   /// <summary>

@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat.Brain.Considerations
 {
   /// <summary>

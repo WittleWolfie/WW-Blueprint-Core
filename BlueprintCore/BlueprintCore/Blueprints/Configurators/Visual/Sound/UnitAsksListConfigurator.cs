@@ -5,6 +5,7 @@ using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Visual.Sound
 {
   /// <summary>

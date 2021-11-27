@@ -35,6 +35,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Buffs
 {
   /// <summary>Configurator for <see cref="BlueprintBuff"/>.</summary>

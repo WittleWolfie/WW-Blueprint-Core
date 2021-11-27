@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   // TODO: Improve this tool. Consider using TTT's localization.

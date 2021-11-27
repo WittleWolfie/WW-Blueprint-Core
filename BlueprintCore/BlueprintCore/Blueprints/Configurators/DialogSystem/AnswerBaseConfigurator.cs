@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Enums;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

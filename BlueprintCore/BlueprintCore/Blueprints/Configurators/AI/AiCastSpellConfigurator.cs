@@ -3,6 +3,7 @@ using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>

@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Loot;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>

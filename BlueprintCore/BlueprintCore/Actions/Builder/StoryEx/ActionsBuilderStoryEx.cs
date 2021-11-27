@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.StoryEx
 {
   /// <summary>

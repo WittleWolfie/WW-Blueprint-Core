@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

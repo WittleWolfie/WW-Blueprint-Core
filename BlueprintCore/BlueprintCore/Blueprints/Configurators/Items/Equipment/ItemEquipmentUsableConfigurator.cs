@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.ResourceLinks;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>

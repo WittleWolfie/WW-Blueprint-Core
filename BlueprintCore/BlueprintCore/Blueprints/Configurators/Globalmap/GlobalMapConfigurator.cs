@@ -5,6 +5,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>

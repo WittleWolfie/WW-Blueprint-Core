@@ -7,6 +7,7 @@ using Kingmaker.Localization;
 using System;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>

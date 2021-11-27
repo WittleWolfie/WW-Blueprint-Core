@@ -4,6 +4,7 @@ using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

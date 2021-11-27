@@ -18,6 +18,7 @@ using Kingmaker.Visual.Sound;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>

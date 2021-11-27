@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

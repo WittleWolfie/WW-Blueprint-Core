@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Weapons;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>

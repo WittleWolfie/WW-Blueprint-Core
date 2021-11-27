@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

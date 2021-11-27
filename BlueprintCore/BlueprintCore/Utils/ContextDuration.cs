@@ -1,6 +1,7 @@
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Mechanics;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

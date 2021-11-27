@@ -1,3 +1,4 @@
+#nullable enable
 namespace BlueprintCore.Actions.Builder.NewEx
 {
   /// <summary>

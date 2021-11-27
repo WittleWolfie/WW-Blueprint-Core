@@ -15,6 +15,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>

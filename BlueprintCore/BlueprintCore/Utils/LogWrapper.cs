@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Owlcat.Runtime.Core.Logging;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

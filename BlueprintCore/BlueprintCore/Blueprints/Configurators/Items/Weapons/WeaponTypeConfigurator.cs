@@ -11,6 +11,7 @@ using Kingmaker.Utility;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>

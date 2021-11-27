@@ -1,6 +1,7 @@
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
 
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.NewEx
 {
   /// <summary>

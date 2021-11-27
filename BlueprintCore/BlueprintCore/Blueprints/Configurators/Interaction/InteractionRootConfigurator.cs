@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Interaction;
 using Kingmaker.ResourceLinks;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Interaction
 {
   /// <summary>

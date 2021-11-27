@@ -20,6 +20,7 @@ using Kingmaker.UnitLogic.Buffs;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
 {
   /// <summary>

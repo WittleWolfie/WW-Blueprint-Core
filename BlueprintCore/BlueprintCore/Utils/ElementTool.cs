@@ -1,5 +1,6 @@
 using Kingmaker.ElementsSystem;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

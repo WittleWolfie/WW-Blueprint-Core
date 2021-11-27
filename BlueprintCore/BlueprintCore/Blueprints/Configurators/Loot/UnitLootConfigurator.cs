@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>

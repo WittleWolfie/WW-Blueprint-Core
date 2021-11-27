@@ -5,6 +5,7 @@ using Kingmaker.Localization;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>

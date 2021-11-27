@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbilityAreaEffect"/>.</summary>

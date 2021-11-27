@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

@@ -11,6 +11,7 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
   /// <summary>

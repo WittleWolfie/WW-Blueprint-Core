@@ -7,6 +7,7 @@ using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
   /// <summary>

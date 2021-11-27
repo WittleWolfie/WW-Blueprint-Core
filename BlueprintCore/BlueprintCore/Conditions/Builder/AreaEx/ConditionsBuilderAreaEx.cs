@@ -6,6 +6,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.AreaEx
 {
   /// <summary>

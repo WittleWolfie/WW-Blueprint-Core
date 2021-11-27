@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>

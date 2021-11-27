@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Visual.CharacterSystem;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.CharGen
 {
   /// <summary>

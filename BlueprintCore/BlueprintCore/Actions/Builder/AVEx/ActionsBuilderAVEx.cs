@@ -12,6 +12,7 @@ using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>

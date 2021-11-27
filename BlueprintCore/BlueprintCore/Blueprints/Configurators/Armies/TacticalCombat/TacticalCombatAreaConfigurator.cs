@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies.TacticalCombat
 {
   /// <summary>

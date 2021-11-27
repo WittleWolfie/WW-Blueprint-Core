@@ -2,6 +2,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Globalmap.Blueprints;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>

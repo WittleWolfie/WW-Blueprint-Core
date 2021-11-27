@@ -3,6 +3,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

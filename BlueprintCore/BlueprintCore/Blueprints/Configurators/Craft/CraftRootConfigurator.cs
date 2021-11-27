@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Craft;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>

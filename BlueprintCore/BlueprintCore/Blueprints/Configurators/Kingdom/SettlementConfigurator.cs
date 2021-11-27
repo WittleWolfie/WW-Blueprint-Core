@@ -5,6 +5,7 @@ using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Localization;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

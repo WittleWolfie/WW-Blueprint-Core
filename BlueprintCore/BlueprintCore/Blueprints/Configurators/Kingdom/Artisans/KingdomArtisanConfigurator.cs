@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Artisans;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
 {
   /// <summary>

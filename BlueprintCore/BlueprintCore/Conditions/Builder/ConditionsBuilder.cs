@@ -4,6 +4,7 @@ using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 
+#nullable enable
 namespace BlueprintCore.Conditions.Builder
 {
   /// <summary>

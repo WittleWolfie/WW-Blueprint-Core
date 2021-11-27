@@ -4,6 +4,7 @@ using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.View.Roaming;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>

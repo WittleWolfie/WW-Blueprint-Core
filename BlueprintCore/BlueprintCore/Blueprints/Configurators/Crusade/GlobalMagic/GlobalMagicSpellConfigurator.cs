@@ -5,6 +5,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Crusade.GlobalMagic
 {
   /// <summary>

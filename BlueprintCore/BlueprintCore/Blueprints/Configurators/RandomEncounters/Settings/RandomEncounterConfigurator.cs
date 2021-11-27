@@ -6,6 +6,7 @@ using Kingmaker.Globalmap.View;
 using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

@@ -4,6 +4,7 @@ using Kingmaker.Localization;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>

@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Encyclopedia.Blocks;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>

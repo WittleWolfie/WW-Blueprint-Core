@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.KingdomEx
 {
   /// <summary>

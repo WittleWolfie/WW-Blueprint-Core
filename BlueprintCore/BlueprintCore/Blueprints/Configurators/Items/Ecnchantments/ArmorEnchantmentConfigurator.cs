@@ -5,6 +5,7 @@ using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>

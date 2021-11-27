@@ -4,6 +4,7 @@ using Kingmaker.UI.Kingdom;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

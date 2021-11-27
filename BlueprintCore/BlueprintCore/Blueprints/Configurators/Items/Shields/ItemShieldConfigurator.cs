@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Shields;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields
 {
   /// <summary>

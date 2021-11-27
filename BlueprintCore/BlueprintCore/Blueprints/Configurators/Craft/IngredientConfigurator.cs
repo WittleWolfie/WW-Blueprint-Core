@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Craft;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>

@@ -133,6 +133,7 @@ namespace BlueprintCoreGen.CodeGen
         if (Namespace.IsMatch(currentLine))
         {
           // Convert the namespace for BlueprintCore
+          builderClass.AddLine("#nullable enable");
           builderClass.AddLine(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
           continue;
         }
@@ -188,6 +189,7 @@ namespace BlueprintCoreGen.CodeGen
         if (Namespace.IsMatch(currentLine))
         {
           // Convert the namespace for BlueprintCore
+          configuratorClass.AddLine("#nullable enable");
           configuratorClass.AddLine(currentLine.Replace("BlueprintCoreGen", "BlueprintCore"));
           continue;
         }
@@ -240,6 +242,7 @@ namespace BlueprintCoreGen.CodeGen
           $"using {GetConfiguratorNamespace(GetRelativeConfiguratorNamespace(blueprintType.BaseType))};");
 
       configurator.AddLine("");
+      configurator.AddLine("#nullable enable");
       configurator.AddLine($"namespace {GetConfiguratorNamespace(relativeNamespace)}");
       configurator.AddLine($"{{");
 

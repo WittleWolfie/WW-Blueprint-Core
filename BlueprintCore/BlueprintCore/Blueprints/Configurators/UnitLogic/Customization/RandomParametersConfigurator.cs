@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
   /// <summary>

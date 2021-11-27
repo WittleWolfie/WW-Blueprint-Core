@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 
+#nullable enable
 namespace BlueprintCore.Conditions.New
 {
   /// <summary>

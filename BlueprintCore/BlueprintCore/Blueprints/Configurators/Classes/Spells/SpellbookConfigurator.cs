@@ -5,6 +5,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
   /// <summary>

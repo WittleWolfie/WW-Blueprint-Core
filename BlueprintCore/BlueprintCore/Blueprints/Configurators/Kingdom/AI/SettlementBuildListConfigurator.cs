@@ -5,6 +5,7 @@ using Kingmaker.UI.Settlement;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
   /// <summary>

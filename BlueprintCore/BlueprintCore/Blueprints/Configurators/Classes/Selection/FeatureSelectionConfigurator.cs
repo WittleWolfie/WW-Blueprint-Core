@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
   /// <summary>Configurator for <see cref="BlueprintFeatureSelection"/>.</summary>

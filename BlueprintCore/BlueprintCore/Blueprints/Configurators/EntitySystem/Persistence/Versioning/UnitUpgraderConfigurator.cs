@@ -2,6 +2,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.EntitySystem.Persistence.Versioning;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.EntitySystem.Persistence.Versioning
 {
   /// <summary>

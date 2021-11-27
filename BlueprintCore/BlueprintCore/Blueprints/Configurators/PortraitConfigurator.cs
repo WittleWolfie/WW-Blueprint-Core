@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>

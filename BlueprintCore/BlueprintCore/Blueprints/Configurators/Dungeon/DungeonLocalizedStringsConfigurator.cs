@@ -3,6 +3,7 @@ using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Localization;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
   /// <summary>

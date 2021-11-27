@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Class.Kineticist;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>

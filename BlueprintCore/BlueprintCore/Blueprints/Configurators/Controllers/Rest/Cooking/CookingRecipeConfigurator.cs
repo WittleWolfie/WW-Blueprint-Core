@@ -4,6 +4,7 @@ using Kingmaker.Controllers.Rest.Cooking;
 using Kingmaker.Localization;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Controllers.Rest.Cooking
 {
   /// <summary>

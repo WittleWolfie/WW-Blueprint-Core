@@ -7,6 +7,7 @@ using Kingmaker.Localization;
 using Kingmaker.UI.Kingdom;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>

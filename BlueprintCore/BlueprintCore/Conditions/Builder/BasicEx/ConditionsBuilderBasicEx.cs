@@ -6,6 +6,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Buffs.Conditions;
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.BasicEx
 {
   /// <summary>

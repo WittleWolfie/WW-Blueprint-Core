@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Localization;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {
   /// <summary>

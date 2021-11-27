@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

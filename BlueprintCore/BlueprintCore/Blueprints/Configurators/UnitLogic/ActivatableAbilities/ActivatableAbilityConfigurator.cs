@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Commands.Base;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
   /// <summary>

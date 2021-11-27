@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
   /// <summary>

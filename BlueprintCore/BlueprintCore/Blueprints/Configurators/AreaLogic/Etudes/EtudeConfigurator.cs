@@ -22,6 +22,7 @@ using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
   /// <summary>

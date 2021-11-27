@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /// <summary>

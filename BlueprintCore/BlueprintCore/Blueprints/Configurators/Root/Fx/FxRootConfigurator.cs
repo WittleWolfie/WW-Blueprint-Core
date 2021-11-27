@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Root.Fx;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
   /// <summary>

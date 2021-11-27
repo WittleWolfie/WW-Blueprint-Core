@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.UnitLogic.Commands.Base;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>

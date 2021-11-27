@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic.Customization;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
   /// <summary>

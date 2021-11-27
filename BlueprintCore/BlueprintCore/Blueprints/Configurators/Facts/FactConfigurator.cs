@@ -6,6 +6,7 @@ using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
   /// <summary>

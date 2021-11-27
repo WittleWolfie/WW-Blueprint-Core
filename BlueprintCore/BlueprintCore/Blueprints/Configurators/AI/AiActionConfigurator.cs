@@ -5,6 +5,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>

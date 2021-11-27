@@ -3,6 +3,7 @@ using Kingmaker.Visual.HitSystem;
 using System.Linq;
 using UnityEngine;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Visual.HitSystem
 {
   /// <summary>

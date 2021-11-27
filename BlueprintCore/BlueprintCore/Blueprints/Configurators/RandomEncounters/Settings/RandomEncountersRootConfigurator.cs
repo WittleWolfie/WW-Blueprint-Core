@@ -4,6 +4,7 @@ using Kingmaker.Globalmap.View;
 using Kingmaker.RandomEncounters.Settings;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

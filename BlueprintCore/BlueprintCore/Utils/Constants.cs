@@ -6,6 +6,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Mechanics;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   public static class Constants

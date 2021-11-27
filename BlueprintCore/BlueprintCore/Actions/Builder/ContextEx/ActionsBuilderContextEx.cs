@@ -24,6 +24,7 @@ using Kingmaker.Utility;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>

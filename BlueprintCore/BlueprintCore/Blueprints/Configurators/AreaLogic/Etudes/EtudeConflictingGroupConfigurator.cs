@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
   /// <summary>

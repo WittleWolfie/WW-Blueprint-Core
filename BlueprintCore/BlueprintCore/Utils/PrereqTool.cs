@@ -1,5 +1,6 @@
 using Kingmaker.Blueprints.Classes.Prerequisites;
 
+#nullable enable
 namespace BlueprintCore.Utils
 {
   /// <summary>

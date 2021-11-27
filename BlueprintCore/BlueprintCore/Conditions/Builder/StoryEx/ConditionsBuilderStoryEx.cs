@@ -11,6 +11,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Collections.Generic;
+#nullable enable
 namespace BlueprintCore.Conditions.Builder.StoryEx
 {
   /// <summary>

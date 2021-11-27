@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Items.Equipment;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>

@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Root;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
   /// <summary>

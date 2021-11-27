@@ -30,6 +30,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Actions.Builder.KingdomEx
 {
   /// <summary>

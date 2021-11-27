@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.ResourceLinks;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
   /// <summary>

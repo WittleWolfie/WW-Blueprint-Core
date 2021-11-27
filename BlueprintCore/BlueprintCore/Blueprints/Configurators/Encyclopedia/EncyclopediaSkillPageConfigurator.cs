@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
   /// <summary>

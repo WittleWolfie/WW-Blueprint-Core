@@ -3,6 +3,7 @@ using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI.Considerations
 {
   /// <summary>

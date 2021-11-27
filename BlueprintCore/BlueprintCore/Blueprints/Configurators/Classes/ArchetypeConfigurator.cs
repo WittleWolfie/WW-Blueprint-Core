@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintArchetype"/>.</summary>

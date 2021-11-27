@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>

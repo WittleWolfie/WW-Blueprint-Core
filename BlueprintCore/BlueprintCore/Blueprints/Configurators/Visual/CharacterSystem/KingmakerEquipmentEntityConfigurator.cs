@@ -3,6 +3,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Visual.CharacterSystem
 {
   /// <summary>

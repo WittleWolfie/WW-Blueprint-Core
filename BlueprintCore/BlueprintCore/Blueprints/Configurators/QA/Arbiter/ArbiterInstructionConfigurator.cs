@@ -3,6 +3,7 @@ using Kingmaker.AreaLogic;
 using Kingmaker.Blueprints;
 using Kingmaker.QA.Arbiter;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.QA.Arbiter
 {
   /// <summary>

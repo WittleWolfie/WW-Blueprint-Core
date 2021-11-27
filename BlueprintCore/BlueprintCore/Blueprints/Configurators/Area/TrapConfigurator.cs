@@ -8,6 +8,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Visual.Animation.Kingmaker;
 using System;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>

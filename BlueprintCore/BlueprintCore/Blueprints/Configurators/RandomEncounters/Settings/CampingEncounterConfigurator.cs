@@ -3,6 +3,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.RandomEncounters.Settings;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings
 {
   /// <summary>

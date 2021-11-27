@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Customization;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
   /// <summary>

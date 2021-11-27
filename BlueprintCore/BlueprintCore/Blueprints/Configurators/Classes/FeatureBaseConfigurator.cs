@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using System;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>

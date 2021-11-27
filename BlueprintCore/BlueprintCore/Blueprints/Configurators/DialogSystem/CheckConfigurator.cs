@@ -6,6 +6,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using System.Linq;
 
+#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
