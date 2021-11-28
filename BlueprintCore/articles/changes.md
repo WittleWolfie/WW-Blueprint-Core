@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v1.2.2 Release
+
+* Flatten namespace structure for configurators and remove "Configurator" from file names
+    * Long file paths were causing issues restoring the NuGet package
+
 ## v1.2.1 Release
 
 * Fixes warnings in legacy projects

@@ -10,5 +10,7 @@
     href: tutorials/overview.md
   - name: Adding a Feat
     href: tutorials/feat.md
+- name: Known Issues
+  href: issues.md
 - name: Roadmap
   href: roadmap.md

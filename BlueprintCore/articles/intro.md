@@ -35,6 +35,8 @@
 
 Take a look at the [Tutorials](tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.
 
+If you're having problems check [Known Issues](issues.md).
+
 If you're interested in contributing see [How to Contribute](contributing.md).
 
 ## Blueprint Configurators
