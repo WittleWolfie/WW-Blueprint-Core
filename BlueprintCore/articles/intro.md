@@ -22,7 +22,7 @@
     <PropertyGroup>
       <LangVersion>latest</LangVersion>
       <TargetFramework>net472</TargetFramework>
-    <PropertyGroup>
+    </PropertyGroup>
     ```
 5. Make sure you have the necessary assembly references:
     * Publicized reference to `%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll`
