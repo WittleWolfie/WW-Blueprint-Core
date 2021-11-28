@@ -378,7 +378,28 @@ namespace BlueprintCoreGen.CodeGen
     }
 
 
-    private static readonly List<string> IgnoredNamespacePackages = new() { "Kingmaker", "Blueprints" };
+    private static readonly List<string> IgnoredNamespacePackages =
+        new()
+        {
+          "Kingmaker",
+          "Blueprints",
+          "TacticalCombat",
+          "Considerations",
+          "Controllers",
+          "Rest",
+          "GlobalMagic",
+          "Designers",
+          "Mechanics",
+          "Persistence",
+          "Versioning",
+          "Arbiter",
+          "Clockwork",
+          "Settings",
+          "CharacterSystem",
+          "HitSystem",
+          "LightSelector",
+          "Sound"
+        };
     private static string GetRelativeConfiguratorNamespace(Type type)
     {
       return string.Join('.', type.Namespace.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));

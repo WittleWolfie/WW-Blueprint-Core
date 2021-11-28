@@ -1,4 +1,4 @@
-using BlueprintCore.Blueprints.Configurators.RandomEncounters.Settings;
+using BlueprintCore.Blueprints.Configurators.RandomEncounters;
 using BlueprintCore.Utils;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
