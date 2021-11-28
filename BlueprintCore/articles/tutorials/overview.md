@@ -63,4 +63,13 @@ If you have defined the `WrathPath` environment variable add the following lines
 
 Otherwise right-click **References > Add Reference**, navigate to `<WrathInstallDir>/Wrath_Data/Managed/`, and select the files.
 
+If you are using the DLL version of BlueprintCore or any other dependencies such as ModKit. Merge all your DLLs into a single DLL by simply installing [ILRepack](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) nuget package.
+You should get a packagereference like this.
+
+```xml
+<PackageReference Include="ILRepack.Lib.MSBuild" Version="2.1.17.1" PrivateAssets="All" />
+```
+
+This will automatically merge all the DLLs in your target directory into a single target DLL.
+
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).
