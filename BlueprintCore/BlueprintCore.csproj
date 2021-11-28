@@ -27,6 +27,10 @@
     <Content Include="**\*.cs" Exclude="obj\**" />
     <None Remove=".gitignore" />
     <None Remove="api\.gitignore" />
+    <Compile Remove="bin\**" />
+    <Content Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
     <None Remove="_site\**" />
     <None Remove="**\*.yml" />
     <None Remove="api\.manifest" />
