@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen
       var className = GetConfiguratorClassName(blueprintType);
       
       var configurator = new ConfiguratorClass(
-          $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{className}.cs");
+          $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs");
       configurator.SetBlueprintType(blueprintType);
       configurator.AddImport(blueprintType);
       configurator.AddImport(
