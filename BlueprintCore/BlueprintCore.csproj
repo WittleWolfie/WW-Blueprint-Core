@@ -75,9 +75,9 @@
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.0.0">
+    <PackageReference Include="AssemblyPublicizer" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
    <PackageReference Include="docfx.console" Version="2.58.4">
       <PrivateAssets>all</PrivateAssets>
@@ -93,7 +93,7 @@
     </ItemGroup>
     <RemoveDir Directories="..\Assemblies" />
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
-    <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="..\Assemblies\" PubliciseCompilerGenerated="true" />
+    <PublicizeTask InputAssemblies="@(PubliciseInputAssemblies)" OutputDir="..\Assemblies\" />
     <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(PrivateAssembly)" />
   </Target>
 </Project>
