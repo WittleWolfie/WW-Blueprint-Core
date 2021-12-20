@@ -1,40 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <!-- Language & Framework Config -->
     <LangVersion>latest</LangVersion>
     <TargetFramework>net472</TargetFramework>
     <Nullable>enable</Nullable>
-    <RootNamespace>BlueprintCore</RootNamespace>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <RootNamespace>BlueprintCore</RootNamespace>
+
+    <!-- Doc Config -->
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BuildDocFx Condition=" '$(Configuration)'=='Debug' ">false</BuildDocFx>
+
+    <!-- Package Config -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.2.2</Version>
+    <Version>1.3.0</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
+
     <PackageLicenseFile>content\BlueprintCore\LICENSE</PackageLicenseFile>
     <PackageReadmeFie>content\BlueprintCore\README.md</PackageReadmeFie>
     <PackageProjectUrl>https://wittlewolfie.github.io/WW-Blueprint-Core/</PackageProjectUrl>
     <PackageId>WW-Blueprint-Core</PackageId>
+
+    <AssemblyName>BlueprintCore</AssemblyName>
     <Description>A library to simplify modifying Pathfinder: Wrath of the Righteous.</Description>
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageTags>pathfinder;wrath</PackageTags>
-    <PackageReleaseNotes>Usable with any blueprint type but full API functionality is in progress.</PackageReleaseNotes>
-    <AssemblyName>BlueprintCore</AssemblyName>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Content Include="**\*.cs" Exclude="obj\**" />
+    <!-- Exclude Files -->
     <None Remove=".gitignore" />
     <None Remove="api\.gitignore" />
-    <Compile Remove="bin\**" />
-    <Content Remove="bin\**" />
-    <EmbeddedResource Remove="bin\**" />
     <None Remove="bin\**" />
     <None Remove="_site\**" />
     <None Remove="**\*.yml" />
     <None Remove="api\.manifest" />
     <None Remove="log.txt" />
+    
+    <!-- Content Files for Package -->
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>content\BlueprintCore</PackagePath>
@@ -47,10 +52,16 @@
       <Pack>True</Pack>
       <PackagePath>content\BlueprintCore</PackagePath>
     </None>
+    
+    <!-- Doc Files for Editing -->
     <None Include="articles\toc.yml" />
     <None Include="filterConfig.yml" />
     <None Include="toc.yml" />
+    
+    <!-- VS Config -->
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
+  
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
@@ -71,19 +82,22 @@
       <HintPath>..\Assemblies\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="AssemblyPublicizer" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-   <PackageReference Include="docfx.console" Version="2.58.4">
+    
+   <PackageReference Include="docfx.console" Version="2.58.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+
+    <!-- Dependency for NuGet Package -->
+   <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2" />
   </ItemGroup>
+  
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>
       <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll; $(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
@@ -91,6 +105,8 @@
       <PublicAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
       <PrivateAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
     </ItemGroup>
+    
+    <!-- Clean the assembly dir, copy, and publicize. Skipping remove was causing errors. -->
     <RemoveDir Directories="..\Assemblies" />
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
     <PublicizeTask InputAssemblies="@(PubliciseInputAssemblies)" OutputDir="..\Assemblies\" />
