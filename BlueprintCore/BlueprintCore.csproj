@@ -93,12 +93,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-
-    <!-- Dependency for NuGet Package -->
-   <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2" />
   </ItemGroup>
-  
-  <Target Name="Publicise" AfterTargets="Clean">
+
+  <Target Name="Publicize" AfterTargets="Clean">
     <ItemGroup>
       <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll; $(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
       <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
