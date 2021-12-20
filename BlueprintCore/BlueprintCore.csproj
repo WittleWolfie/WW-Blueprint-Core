@@ -65,6 +65,7 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
@@ -97,7 +98,7 @@
 
   <Target Name="Publicize" AfterTargets="Clean">
     <ItemGroup>
-      <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll; $(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll" />
+      <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll" />
       <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
       <PublicAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
       <PrivateAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
