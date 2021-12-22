@@ -1,5 +1,17 @@
 ﻿# Known Issues
 
+### Build Fails: ILRepack: Failed to load assembly
+
+Make sure the assembly listed is in the locations described. Usually this means that an assembly referenced by your assembly is not in the working directory for ILRepack. Thhe configuration suggested for BlueprintCore uses `OutputPath` as the working directory:
+
+```xml
+<ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
+```
+
+To make sure dependent assemblies are copied to `OutputPath` in Visual Studio open the assembly dependency properties and set `Copy Local` to `Yes`. Alternatively, remove `<Private>False</Private>` from the reference in your project file.
+
+If you do not want to copy assemblies to output you'll need to change the ILRepack configuration to use a working directory with all required assemblies.
+
 ### NuGet Package Restore Fails: Unable to find path for some files
 
 This is an issue with file path length limitations on Windows. By default the file path cannot exceed 260 characters. See [this thread](https://github.com/NuGet/Home/issues/3324#issuecomment-977921700) for more details.
