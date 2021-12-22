@@ -350,6 +350,29 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="PropertyWithFactRankGetter"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    [Generated]
+    [Implements(typeof(PropertyWithFactRankGetter))]
+    public UnitPropertyConfigurator AddPropertyWithFactRankGetter(
+        PropertySettings settings,
+        UnitProperty property = default,
+        string? fact = null,
+        int rankMultiplier = default)
+    {
+      ValidateParam(settings);
+    
+      var component = new PropertyWithFactRankGetter();
+      component.m_Property = property;
+      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      component.m_RankMultiplier = rankMultiplier;
+      component.Settings = settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="ShieldBonusGetter"/> (Auto Generated)
     /// </summary>
     [Generated]

@@ -2797,19 +2797,6 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="TacticalCombatResurrection"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalCombatResurrection))]
-    public AbilityConfigurator AddTacticalCombatResurrection(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new TacticalCombatResurrection();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="PureRecommendation"/> (Auto Generated)
     /// </summary>
     [Generated]

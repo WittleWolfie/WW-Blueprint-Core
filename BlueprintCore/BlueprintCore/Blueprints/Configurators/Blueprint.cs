@@ -987,6 +987,19 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="RecalculateFeatures"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RecalculateFeatures))]
+    public TBuilder AddRecalculateFeatures(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new RecalculateFeatures();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="OnIsleStateEnterTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
