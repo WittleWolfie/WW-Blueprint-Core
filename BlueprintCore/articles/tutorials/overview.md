@@ -63,7 +63,7 @@ If you have defined the `WrathPath` environment variable add the following lines
 
 Otherwise right-click **References > Add Reference**, navigate to `<WrathInstallDir>/Wrath_Data/Managed/`, and select the files.
 
-Next install [ILRepack.Lib.MSBuild.Task](https://www.nuget.org/packages/ILRepack.Lib.MSBuild.Task/) using NuGet and add the following to your *.csproj file, using your mod's assembly name in place of `BlueprintCoreTutorial`:
+Next install [ILRepack.MSBuild.Task](https://www.nuget.org/packages/ILRepack.MSBuild.Task/) using NuGet and add the following to your *.csproj file, using your mod's assembly name in place of `BlueprintCoreTutorial`:
 
 ```xml
 <!-- DLL Merging -->
