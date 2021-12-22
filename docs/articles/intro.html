@@ -8,7 +8,7 @@
     <title>Getting Started </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Getting Started ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -70,48 +70,27 @@
 <h1 id="getting-started">Getting Started</h1>
 
 <ol>
-<li>Set up your project. If you haven't written mods for any Pathfinder game, start with the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a> on the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">OwlcatModdingWiki</a>.</li>
-<li>Create a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">public assembly</a>.</li>
+<li>Set up your project. If you haven't written mods for any Pathfinder game, start with the wiki's <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a>.</li>
+<li>Create a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies">public assembly</a>.</li>
 <li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.
 <ul>
-<li>The package contains a folder named <code>BlueprintCore</code> that contains the library source code which is included directly in your project.
-<ul>
-<li>BlueprintCore was briefly distributed as a DLL in v1.1.0. Due to technical limitations v1.2.0 reverts back to source.</li>
+<li>For v1.3.0+ the package is a DLL that <strong>must be merged into your mod assembly</strong></li>
+<li>Prior to v1.3.0 the package included either a signed DLL or source code. The source code is still published as a <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">Release on GitHub</a> if you prefer including the source directly.</li>
 </ul>
 </li>
-<li><strong>Note</strong>: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
-<ul>
-<li>In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.</li>
-</ul>
-</li>
-<li>Starting with v1.0.1 the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">Release on GitHub</a> includes the BlueprintCore source folder as an alternative to NuGet.
-<ul>
-<li>The relase also includes an unsigned DLL. If you use the DLL you should use a tool such as <a href="https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task">ILRepack</a> instead of packaging the DLL with your mod.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
+<li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version
 <ul>
 <li>In your .csproj file you should have the following properties:</li>
 </ul>
 <pre><code class="lang-xml">&lt;PropertyGroup&gt;
   &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
-  &lt;TargetFrameworkVersion&gt;v4.7.2&lt;/TargetFrameworkVersion&gt;
+  &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
 &lt;/PropertyGroup&gt;
 </code></pre>
-<ul>
-<li>If you are using an SDK style project the the syntax is:</li>
-</ul>
-<pre><code class="lang-xml">&lt;PropertyGroup&gt;
-  &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
-  &lt;TargetFramework&gt;net472&lt;/TargetFramework&gt;
-&lt;PropertyGroup&gt;
-</code></pre>
 </li>
-<li>Make sure you have the necessary assembly references:
+<li>Add the required assembly references:
 <ul>
-<li>Publicized reference to <code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll</code></li>
+<li>Publicized copy of <code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</code></li>
@@ -119,9 +98,33 @@
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll</code></li>
 </ul>
 </li>
+<li>Configure DLL Merging:
+<ul>
+<li>Install <a href="https://www.nuget.org/packages/ILRepack.MSBuild.Task/">ILRepack.MSBuild.Task</a> using NuGet</li>
+<li>Add the following to your .csproj file, using your mod's assembly name in place of <code>MyAssemblyName</code>:</li>
+</ul>
+<pre><code class="lang-xml">&lt;!-- DLL Merging --&gt;
+&lt;Target Name=&quot;ILRepack&quot; AfterTargets=&quot;Build&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;InputAssemblies Include=&quot;BlueprintCore.dll&quot; /&gt;
+    &lt;InputAssemblies Include=&quot;MyAssemblyName.dll&quot; /&gt;
+    &lt;OutputAssembly Include=&quot;MyAssemblyName.dll&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;Message Text=&quot;Merging: @(InputAssemblies) into @(OutputAssembly)&quot; Importance=&quot;High&quot; /&gt;
+
+  &lt;ILRepack
+    OutputType=&quot;Dll&quot;
+    MainAssembly=&quot;MyAssemblyName.dll&quot;
+    OutputAssembly=&quot;@(OutputAssembly)&quot;
+    InputAssemblies=&quot;@(InputAssemblies)&quot;
+    WorkingDirectory=&quot;$(OutputPath)&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
+</li>
 <li>You're ready to go!</li>
 </ol>
-<p>Take a look at the <a href="tutorials/overview.html">Tutorials</a> for a walkthrough of usage. The sections below provide an overview of the main features.</p>
+<p><a href="tutorials/overview.html">Tutorials</a> explain how to mod the game using the library. The sections below provide an overview of the main features.</p>
 <p>If you're having problems check <a href="issues.html">Known Issues</a>.</p>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
 <h2 id="blueprint-configurators">Blueprint Configurators</h2>
@@ -352,7 +355,7 @@ ActionsBuilder.New()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/dllmerge/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
