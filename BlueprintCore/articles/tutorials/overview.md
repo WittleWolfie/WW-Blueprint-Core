@@ -44,19 +44,19 @@ If you have defined the `WrathPath` environment variable add the following lines
 ```xml
 <ItemGroup>
   <Reference Include="Owlcat.Runtime.Core">
-    <HintPath>$(WrathPath)\Owlcat.Runtime.Core.dll</HintPath>
+    <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
   </Reference>
   <Reference Include="Owlcat.Runtime.UI">
-    <HintPath>$(WrathPath)\Owlcat.Runtime.UI.dll</HintPath>
+    <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
   </Reference>
   <Reference Include="Owlcat.Runtime.Visual">
-    <HintPath>$(WrathPath)\Owlcat.Runtime.Visual.dll</HintPath>
+    <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</HintPath>
   </Reference>
   <Reference Include="UnityEngine">
-    <HintPath>$(WrathPath)\UnityEngine.dll</HintPath>
+    <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll</HintPath>
   </Reference>
   <Reference Include="UnityEngine.CoreModule">
-    <HintPath>$(WrathPath)\UnityEngine.CoreModule.dll</HintPath>
+    <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
   </Reference>
 </ItemGroup>
 ```
