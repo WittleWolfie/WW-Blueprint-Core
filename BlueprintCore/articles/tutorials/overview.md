@@ -17,7 +17,7 @@ All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Bl
 Before going through any of these tutorials you should work through the [OwlcatModdingWiki Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide). The tutorials require:
 
 * A C# project configured for installation using [Unity Mod Manager](https://www.nexusmods.com/site/mods/21)
-* A [Public Assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies)
+* A [Public Assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies)
     * Be sure to configure the `WrathPath` environment variable
 * [Optional] Download [RemoteConsole](https://github.com/OwlcatOpenSource/RemoteConsole/releases)
     * This will show game log events making it easier to debug issues
@@ -63,13 +63,28 @@ If you have defined the `WrathPath` environment variable add the following lines
 
 Otherwise right-click **References > Add Reference**, navigate to `<WrathInstallDir>/Wrath_Data/Managed/`, and select the files.
 
-If you are using the DLL version of BlueprintCore or any other dependencies such as ModKit. Merge all your DLLs into a single DLL by simply installing [ILRepack](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) nuget package.
-You should get a packagereference like this.
+Next install [ILRepack.Lib.MSBuild.Task](https://www.nuget.org/packages/ILRepack.Lib.MSBuild.Task/) using NuGet and add the following to your *.csproj file, using your mod's assembly name in place of `BlueprintCoreTutorial`:
 
 ```xml
-<PackageReference Include="ILRepack.Lib.MSBuild" Version="2.1.17.1" PrivateAssets="All" />
+<!-- DLL Merging -->
+<Target Name="ILRepack" AfterTargets="Build">
+  <ItemGroup>
+    <InputAssemblies Include="BlueprintCore.dll" />
+    <InputAssemblies Include="BlueprintCoreTutorial.dll" />
+    <OutputAssembly Include="BlueprintCoreTutorial.dll" />
+  </ItemGroup>
+    
+  <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
+
+  <ILRepack
+      OutputType="Dll"
+      MainAssembly="@(OutputAssembly)"
+      OutputAssembly="@(OutputAssembly)"
+      InputAssemblies="@(InputAssemblies)"
+      WorkingDirectory="$(OutputPath)" />
+</Target>
 ```
 
-This will automatically merge all the DLLs in your target directory into a single target DLL.
+This will merge all the assemblies you add to `InputAssemblies` into your mod's assembly, preventing conflicts from different mods using different assembly versions, and allowing you to release your mod as a single assembly. If you are using other assemblies such as [ModKit](https://github.com/cabarius/ToyBox/tree/master/ModKit) it is recommended to merge them as well.
 
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).

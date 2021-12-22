@@ -49,32 +49,30 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.18.2" />
+    <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" />
     <PackageReference Include="WW-Blueprint-Core" Version="1.3.0" />
   </ItemGroup>
 
   <!-- DLL Merging -->
-  <Target Name="ILRepacking" AfterTargets="Build">
+  <Target Name="ILRepack" AfterTargets="Build">
     <ItemGroup>
-      <InputAssemblies Include="$(OutputPath)\BlueprintCore.dll" />
-      <InputAssemblies Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
-      <OutputAssembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
+      <InputAssemblies Include="BlueprintCore.dll" />
+      <InputAssemblies Include="BlueprintCoreTutorial.dll" />
+      <OutputAssembly Include="BlueprintCoreTutorial.dll" />
     </ItemGroup>
     
     <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
 
     <ILRepack
-      Parallel="true"
-      DebugInfo="true"
-      AllowDuplicateResources="false"
-      InputAssemblies="@(InputAssemblies)"
-      TargetKind="Dll"
-      LibraryPath="$(OutputPath)"
-      OutputFile="@(OutputAssembly)" />
+        OutputType="Dll"
+        MainAssembly="@(OutputAssembly)"
+        OutputAssembly="@(OutputAssembly)"
+        InputAssemblies="@(InputAssemblies)"
+        WorkingDirectory="$(OutputPath)" />
   </Target>
 
   <!-- Automatic Deployment Setup -->
-  <Target Name="Deploy" AfterTargets="ILRepacking">
+  <Target Name="Deploy" AfterTargets="ILRepack">
     <ItemGroup>
       <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
       <ModConfig Include="$(OutputPath)\Info.json" />
