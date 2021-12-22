@@ -158,7 +158,7 @@ namespace BlueprintCore.Conditions.Builder
     /// <remarks>It is recommended to only call this when adding a condition type not supported by the builder.</remarks>
     /// 
     /// <param name="init">Optional initialization <see cref="Action"/> run on the condition.</param>
-    public ConditionsBuilder Add<C>(Action<C> init) where C : Condition, new()
+    public ConditionsBuilder Add<C>(Action<C>? init = null) where C : Condition, new()
     {
       var condition = ElementTool.Create<C>();
       init?.Invoke(condition);
