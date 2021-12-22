@@ -10,6 +10,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.Designers.Mechanics.Buffs.HalfOfPair;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -1918,6 +1919,27 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RemovedByHeal();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HalfOfPairComponent"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    [Generated]
+    [Implements(typeof(HalfOfPairComponent))]
+    public BuffConfigurator AddHalfOfPairComponent(
+        int distanceToActivateInFeet = default,
+        string? buff = null,
+        float? sqrDistance = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new HalfOfPairComponent();
+      component.m_DistanceToActivateInFeet = distanceToActivateInFeet;
+      component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      component.m_SqrDistance = sqrDistance;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

@@ -689,6 +689,25 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="AddCasterSpellFailureChance"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddCasterSpellFailureChance))]
+    public TBuilder AddCasterSpellFailureChance(
+        GameObject failFx,
+        int chance = default,
+        ConditionsBuilder? conditions = null)
+    {
+      ValidateParam(failFx);
+    
+      var component = new AddCasterSpellFailureChance();
+      component.Chance = chance;
+      component.FailFx = failFx;
+      component.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddClassSkill"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -3181,6 +3200,23 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="RecalculateOnOwnerFactUpdated"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    [Generated]
+    [Implements(typeof(RecalculateOnOwnerFactUpdated))]
+    public TBuilder AddRecalculateOnOwnerFactUpdated(
+        string? fact = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new RecalculateOnOwnerFactUpdated();
+      component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="RedirectDamageToPet"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -4593,6 +4629,19 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="TacticalCombatResurrection"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalCombatResurrection))]
+    public TBuilder AddTacticalCombatResurrection(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new TacticalCombatResurrection();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="TacticalCombatRider"/> (Auto Generated)
     /// </summary>
     ///
@@ -4623,6 +4672,19 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new TacticalCombatRoundTrigger();
       component.NewRoundActions = newRoundActions?.Build() ?? Constants.Empty.Actions;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TacticalCombatVisibleFeature"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(TacticalCombatVisibleFeature))]
+    public TBuilder AddTacticalCombatVisibleFeature(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new TacticalCombatVisibleFeature();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

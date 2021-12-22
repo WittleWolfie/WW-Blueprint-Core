@@ -1,39 +1,50 @@
 # Getting Started
 
-1. Set up your project. If you haven't written mods for any Pathfinder game, start with the [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide) on the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
-2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies).
+1. Set up your project. If you haven't written mods for any Pathfinder game, start with the wiki's [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide).
+2. Create a [public assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies).
 3. Install [WW-Blueprint-Core](https://www.nuget.org/packages/WW-Blueprint-Core/) using [NuGet](https://docs.microsoft.com/en-us/nuget/what-is-nuget).
-    * The package contains a folder named `BlueprintCore` that contains the library source code which is included directly in your project.
-        * BlueprintCore was briefly distributed as a DLL in v1.1.0. Due to technical limitations v1.2.0 reverts back to source.
-    * **Note**: If you use SDK style project with .NET Standard or .NET Core the NuGet package does not copy the files into your project. You need to do this manually.
-        * In the future I may add support for a DLL release to improve support for .NET Standard/Core projects.
-    * Starting with v1.0.1 the [Release on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases) includes the BlueprintCore source folder as an alternative to NuGet.
-        * The relase also includes an unsigned DLL. If you use the DLL you should use a tool such as [ILRepack](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) instead of packaging the DLL with your mod.
-4. Make sure your project is configured for .NET 4.7.2 and the latest C# language version.
+    * For v1.3.0+ the package is a DLL that **must be merged into your mod assembly**
+    * Prior to v1.3.0 the package included either a signed DLL or source code. The source code is still published as a [Release on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/releases) if you prefer including the source directly.
+4. Make sure your project is configured for .NET 4.7.2 and the latest C# language version
     * In your .csproj file you should have the following properties:
-    ```xml
-    <PropertyGroup>
-      <LangVersion>latest</LangVersion>
-      <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    </PropertyGroup>
-    ```
-    * If you are using an SDK style project the the syntax is:
     ```xml
     <PropertyGroup>
       <LangVersion>latest</LangVersion>
       <TargetFramework>net472</TargetFramework>
     </PropertyGroup>
     ```
-5. Make sure you have the necessary assembly references:
-    * Publicized reference to `%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll`
+5. Add the required assembly references:
+    * Publicized copy of `%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll`
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll`
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll`
     * `$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll`
+6. Configure DLL Merging:
+    * Install [ILRepack.MSBuild.Task](https://www.nuget.org/packages/ILRepack.MSBuild.Task/) using NuGet
+    * Add the following to your .csproj file, using your mod's assembly name in place of `MyAssemblyName`:
+    ```xml
+    <!-- DLL Merging -->
+    <Target Name="ILRepack" AfterTargets="Build">
+      <ItemGroup>
+        <InputAssemblies Include="BlueprintCore.dll" />
+        <InputAssemblies Include="MyAssemblyName.dll" />
+        <OutputAssembly Include="MyAssemblyName.dll" />
+      </ItemGroup>
+    
+      <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
+
+      <ILRepack
+        OutputType="Dll"
+        MainAssembly="MyAssemblyName.dll"
+        OutputAssembly="@(OutputAssembly)"
+        InputAssemblies="@(InputAssemblies)"
+        WorkingDirectory="$(OutputPath)" />
+    </Target>
+    ```
 6. You're ready to go!
 
-Take a look at the [Tutorials](tutorials/overview.md) for a walkthrough of usage. The sections below provide an overview of the main features.
+[Tutorials](tutorials/overview.md) explain how to mod the game using the library. The sections below provide an overview of the main features.
 
 If you're having problems check [Known Issues](issues.md).
 

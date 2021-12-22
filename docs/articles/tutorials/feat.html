@@ -8,7 +8,7 @@
     <title>Adding a Feat </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Adding a Feat ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,10 +69,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="adding-a-feat">Adding a Feat</h1>
 
-<p>The first feat is <a href="https://aonprd.com/FeatDisplay.aspx?ItemName=Magical%20Aptitude">Magical Aptitude</a>. Due to changes from the tabletop game we'll make it grant bonuses to Knowledge Arcana in place of Spellcraft.</p>
+<p>The first feat is <a href="https://aonprd.com/FeatDisplay.aspx?ItemName=Magical%20Aptitude">Magical Aptitude</a>. Due to changes from the tabletop rpg it will grant bonuses to Knowledge Arcana in place of Spellcraft.</p>
 <p>To keep the code organized, create a new folder called <code>Feats</code>. Inside the folder create a new class called <code>MagicalAptitude</code>. This class will create the feat.</p>
-<p>Mechanics in Wrath are often represented by Blueprints. The wiki page on <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> goes into a little more detail, but for now just know that feats are represented in game using <code>BlueprintFeature</code>. Since a feat is a <code>BlueprintFeature</code> we'll use <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a>.</p>
-<p>First define a method which creates the feat:</p>
+<p>Mechanics in Wrath are usually represented by Blueprints. The wiki page on <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> goes into more detail, but for now just know that a feat is a <code>BlueprintFeature</code>. To create a feat we'll we'll use <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a>.</p>
+<p>Define a method which creates the feat:</p>
 <pre><code class="lang-C#">public class MagicalAptitude
 {
   public static void Configure()
@@ -81,7 +81,7 @@
   }
 }
 </code></pre>
-<p>Creating a blueprint of any kind requires a Guid and a name. The Guid is a unique identifier and the name is a human readable identifier. For ease of reference and readability let's define them in <code>static readonly</code> fields.</p>
+<p>Creating a blueprint of any type requires a Guid and name. The Guid is a unique identifier and the name is a human readable identifier. For ease of use and readability define them in <code>static readonly</code> fields:</p>
 <pre><code class="lang-C#">public class MagicalAptitude
 {
   private static readonly string FeatName = &quot;MagicalAptitudeFeat&quot;;
@@ -92,17 +92,17 @@
 <h5>Tip</h5>
 <p>There are many tools to generate a Guid, use whichever you prefer. In Visual Studio you can generate one using <strong>Tools &gt; Create GUID</strong>. In C# you can generate them by calling <a href="https://docs.microsoft.com/en-us/dotnet/api/system.guid.newguid?view=net-6.0#System_Guid_NewGuid">Guid.NewGuid()</a>, but you'll need to save and store it for a stable identifier.</p>
 </div>
-<p>Now we create the feat:</p>
+<p>Now create the feat:</p>
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid).Configure();
 </code></pre>
-<p>Once this line executes, a new feature is added to the game library, but it has no effect and you can't select it. To fix this we need to add our feature to an appropriate <code>BlueprintFeatureSelection</code>. <code>BlueprintFeatureSelection</code> represents a list of features you can choose from during character creation or advancement, such as feats, deities, and backgrounds.</p>
-<p>If you look in the game data you'll find several feat lists such as <em>WizardFeatSelection</em>, <em>TeamworkFeat</em>, and <em>BasicFeatSelection</em>. When you add a new feat you might need to add it to several of these lists, but for now we'll use <em>BasicFeatSelection</em> which contains all generally available feats.</p>
+<p>Once this runs a new feature is added to the game library, but it has no effect and you can't select it. To fix this we need to add our feature to an appropriate <code>BlueprintFeatureSelection</code>. <code>BlueprintFeatureSelection</code> defines a list of features you can choose from during character creation or advancement, e.g. feats, deities, and backgrounds.</p>
+<p>In the game data there are several feat lists including <em>WizardFeatSelection</em>, <em>TeamworkFeat</em>, and <em>BasicFeatSelection</em>. A new feat might belong on multiple lists but for now just use <em>BasicFeatSelection</em> which defines all generally available feats.</p>
 <div class="TIP">
 <h5>Tip</h5>
-<p>One of the best ways to figure out how to make new content is to see how existing content is implemented. There are several tools at your disposal discussed on the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources">wiki</a>. I highly recommend <a href="https://github.com/factubsio/BubblePrints">BubblePrints</a> for exploring game content and <a href="https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/9">DataViewer</a> for validating your changes in-game.</p>
+<p>The first step to adding new content is understanding how existing content is implemented. There are several tools at your disposal discussed on the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources">wiki</a>. I recommend <a href="https://github.com/factubsio/BubblePrints">BubblePrints</a> for exploring game content and <a href="https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/9">DataViewer</a> for validating your changes in-game.</p>
 </div>
-<p>To add our feat we'll need to find the Guid for <em>BasicFeatSelection</em> we need to know its Guid: <code>247a4068-296e-8be4-2890-143f451b4b45</code>. You can find this using the tools in the tip above.</p>
-<p>Using this Guid, create a <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html">FeatureSelectionConfigurator</a>:</p>
+<p>To add the feat you need the Guid for <em>BasicFeatSelection</em>: <code>247a4068-296e-8be4-2890-143f451b4b45</code>. You can find this using the tools in the tip above.</p>
+<p>Create a <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html">FeatureSelectionConfigurator</a> to modify <em>BasicFeatSelection</em>:</p>
 <pre><code class="lang-C#">private static readonly string BasicFeatSelectionGuid = &quot;247a4068-296e-8be4-2890-143f451b4b45&quot;;
 
 public static void Configure()
@@ -112,19 +112,18 @@ public static void Configure()
   FeatureSelectionConfigurator.For(BasicFeatSelectionGuid);
 }
 </code></pre>
-<p>To actually add our feat we can look at the contents of <em>BasicFeatSelection</em>:</p>
+<p>To add the feat look at the contents of <em>BasicFeatSelection</em>:</p>
 <p><img src="../../images/magical_aptitude/basic_feat_selection.png" alt="Basic feat selection contents"></p>
-<p>The existing feats are stored in a field called <code>m_AllFeatures</code>. Since the field is an array the configurator should have a method called <code>AddToAllFeatures</code>, but in this case it does not. As it turns out, <code>BlueprintFeatureSelection</code> has an unused field called <code>m_Features</code>. To resolve the ambiguity between these fields the configurator defines a function <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Configurators_Classes_Selection_FeatureSelectionConfigurator_AddToFeatures_System_String___">AddToFeatures</a> and ignores the <code>m_Features</code> field.</p>
+<p>Feats are stored in a field called <code>m_AllFeatures</code>. Since the field is an array the configurator should have a method called <code>AddToAllFeatures</code>, but it doesn't exist. As it turns out, <code>BlueprintFeatureSelection</code> has an unused field called <code>m_Features</code>. To resolve the ambiguity between these fields the configurator defines a function <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Configurators_Classes_Selection_FeatureSelectionConfigurator_AddToFeatures_System_String___">AddToFeatures</a> and ignores the <code>m_Features</code> field.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Sooner or later you are going to have to read the game code to figure things out. Pick your choice of <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers">decompiler</a> and open up <code>%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll</code>..</p>
+<p>You will need to read the game code to figure things out. Pick your choice of <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers">decompiler</a> and open up <code>%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll</code>.</p>
 </div>
 <pre><code class="lang-C#">FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
 </code></pre>
-<p>Notice that we passed in <code>FeatName</code> rather than <code>FeatGuid</code>. In this scenario both will work.</p>
-<p>When the library requires a blueprint reference it takes a string as a parameter. The parameter will have a doc comment indicating the type of blueprint. When calling these methods you can pass in the blueprint Guid as a string or the name of the blueprint, but name only works if you provide a name to Guid mapping.</p>
+<p>Notice that <code>FeatName</code> is passed to <code>AddToFeatures</code> rather than <code>FeatGuid</code>. When the library requires a blueprint reference it takes a string parameter. The parameter will have a doc comment indicating the type of blueprint required. When calling these methods you can pass in the blueprint Guid as a string or the name of the blueprint, but name only works if you provide a name to Guid mapping.</p>
 <p>You can specify the name to Guid mapping using <a class="xref" href="../../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_ValueTuple_System_String_System_String____">BlueprintTool.AddGuidsByName</a> and its associated overrides. If you create a new blueprint using a configurator's <code>New(string name, string guid)</code> method the mapping is automatically created.</p>
-<p>Before testing you'll to call <code>Configure()</code> from the <code>BlueprintsCache</code> init patch. To catch and log any failures, call it within a try/catch block:</p>
+<p>Before testing you to call <code>MagicalAptitude.Configure()</code> from the <code>BlueprintsCache</code> init patch. Use a try/catch block to catch and log any errors:</p>
 <pre><code class="lang-C#">[HarmonyPatch(typeof(BlueprintsCache))]
 static class BlueprintsCaches_Patch
 {
@@ -160,7 +159,7 @@ static class BlueprintsCaches_Patch
 <h5>Note</h5>
 <p>You can also use UMM's log: <code>ModSettings.ModEntry.Logger</code>. This logs to the <code>Player.log</code> file in the same directory as Owlcat's logging.</p>
 </div>
-<p>Now you can build, install, and start a game to test. When you level or create a character you should see the feat in the selection UI.</p>
+<p>Now you can build, install, and start the game to test. When you level or create a character you should see the feat in the selection UI.</p>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>Don't test mods on a real save file or you run the risk of breaking it.</p>
@@ -172,9 +171,9 @@ static class BlueprintsCaches_Patch
 <p><img src="../../images/magical_aptitude/feat_displaying.PNG" alt="Magical Aptitude showing in feat selection"></p>
 <div class="TIP">
 <h5>Tip</h5>
-<p>If the feat doesn't appear, check the logs for any errors.</p>
+<p>If the feat doesn't appear check the logs for any errors.</p>
 </div>
-<p>If you click on it nothing works correctly and we should probably use a name other than <c>null</c>:</p>
+<p>If you click on it nothing works and it should probably use a name other than <c>null</c>:</p>
 <pre><code class="lang-C#">private static readonly string DisplayName = &quot;Magical Aptitude&quot;;
 private static readonly string DisplayNameKey = &quot;MagicalAptitudeName&quot;;
 private static readonly string Description =
@@ -193,23 +192,25 @@ public static void Configure()
 }
 </code></pre>
 <p>Game strings are represented using the class <code>LocalizedString</code>. A <code>LocalizedString</code> contains a key used to lookup the string value by language. <a class="xref" href="../../api/BlueprintCore.Utils.LocalizationTool.html">LocalizationTool</a> creates the string, but only for the current language. Support for better localization is on the roadmap.</p>
-<p>Now if you test again the feat should have a name and description.</p>
-<p>As you continue modding you'll frequently need to build, deploy, and test changes. To make simplify this you can configure the project to automatically update the mod after it builds. To do this you add a <a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022">Copy task</a> to the project file.</p>
-<p>Open up your project file (<name>.csproj) for text editing and add the following block, using your mod's name in place of <code>BlueprintCoreTutorial</code>:<p>
-<pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;Assembly Include=&quot;$(OutputPath)\BlueprintCoreTutorial.dll&quot; /&gt;
-  &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
-&lt;/ItemGroup&gt;
-&lt;Target Name=&quot;DeployMod&quot; AfterTargets=&quot;Build&quot;&gt;
+<p>Test again and the feat should have a name and description.</p>
+<p>Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically update the mod after it builds. This is accomplished by adding a <a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022">Copy task</a> to the project file.</p>
+<p>Open up your project file (<name>.csproj) and add the following block, using your mod's name in place of <code>BlueprintCoreTutorial</code>:<p>
+<pre><code class="lang-xml">&lt;!-- Automatic Deployment Setup --&gt;
+&lt;Target Name=&quot;DeployMod&quot; AfterTargets=&quot;ILRepack&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assembly Include=&quot;$(OutputPath)\BlueprintCoreTutorial.dll&quot; /&gt;
+    &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
   &lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\BlueprintCoreTutorial&quot; /&gt;
   &lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\BlueprintCoreTutorial&quot; /&gt;
 &lt;/Target&gt;
 </code></pre>
-<p>With that out of the way, any time you make changes you can just build and start the game.</p>
-<p>You may have noticed the feat icon was stylized letters &quot;MAF&quot;. If you don't provide an icon the game automatically generates one using the name, in this case <strong>M</strong>agical<strong>A</strong>ptitude<strong>F</strong>eat. Since abilities often require multiple blueprints I typically append the mechanical type, i.e. Feat, to blueprint names. Magical Aptitude only requires one blueprint so you can drop &quot;Feat&quot; to get the letters &quot;MA&quot;: <strong>M</strong>agical<strong>A</strong>ptitude.</p>
+<p>Now whenever you want to test changes just build and start the game.</p>
+<p>You may have noticed the feat icon was the stylized letters &quot;MAF&quot;. If you don't provide an icon the game generates one using the name, in this case <strong>M</strong>agical<strong>A</strong>ptitude<strong>F</strong>eat. Since abilities often require multiple blueprints it is recommended to append the mechanical type, i.e. Feat, to blueprint names. Magical Aptitude only requires one blueprint so you can drop &quot;Feat&quot; to get the letters &quot;MA&quot;: <strong>M</strong>agical<strong>A</strong>ptitude.</p>
 <pre><code class="lang-C#">private static readonly string FeatName = &quot;MagicalAptitude&quot;;
 </code></pre>
-<p>The final piece of the puzzle is the mechanical effect. There are several ways a feature can provide a bonus to skill checks. First try using auto-complete to search for a &quot;Skill&quot; component:</p>
+<p>Everything looks good but there is no mechanical effect. There are several ways a feature can provide a bonus to skill checks. First try using auto-complete to search for a &quot;Skill&quot; component:</p>
 <p><img src="../../images/magical_aptitude/skill_feature_autocomplete.png" alt="Feature autocomplete for Skill"></p>
 <p><a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Facts.BaseUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Facts_BaseUnitFactConfigurator_2_AddBuffSkillBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_System_Int32_">AddBuffSkillBonus</a> looks like a good fit so try it out:</p>
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
@@ -219,26 +220,26 @@ public static void Configure()
     .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, descriptor: ModifierDescriptor.Feat, value: 2)
     .Configure();
 </code></pre>
-<p>Note that the skill is defined in the <code>StatType</code> enum. Internally the game uses the <code>StatType</code> enum for most numeric characteristics. Instead of searching for &quot;Skill&quot; we could have searched for &quot;Stat&quot; to find different options, just be aware that not every use of <code>StatType</code> will function with every value.</p>
+<p>Note that the skill is defined in the <code>StatType</code> enum. Internally the game uses the <code>StatType</code> enum for most numeric characteristics. Instead of searching for &quot;Skill&quot; we could have searched for &quot;Stat&quot; to find different options, just be aware that not every use of <code>StatType</code> works with every type of stat.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>If you want more information on how stats are used, start by looking at the CharacterStats class constructor. The different stat classes, e.g. ModifiableValueAttributeStat, can impact whether a StatType is valid for a specific usage.</p>
+<p>For more information on how stats are used look at the CharacterStats class constructor. The different stat classes, e.g. ModifiableValueAttributeStat, impact whether a StatType is valid for a specific usage.</p>
 </div>
 <p>The <code>ModifierDescriptor</code> enum is used to resolve stacking for multiple bonuses. If you don't specify anything it stacks with all bonuses, otherwise it follows the rules for the specific enum type.</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>Look at ModifiableBonus.Add() to see how stacking behavior is implemented for a descriptor.</p>
 </div>
-<p>Now you can start the game, level a character, and get the Magical Aptitude feat. Afterwards you should see this on your character screen:</p>
+<p>Now start the game, level a character, and select the Magical Aptitude feat. Afterwards you should see this on your character screen:</p>
 <p><img src="../../images/magical_aptitude/feat_bonus.png" alt="Magical Aptitude feat bonus on character screen"></p>
-<p>Congratulations, you've added a feat! You're not done yet though, there are still three problems:</p>
+<p>Congratulations, you've added a feat! It's not done though, there are still three problems:</p>
 <ol>
 <li>The bonus is always +2, but it should increase to +4 for once that skill has 10 ranks</li>
 <li>No <code>FeatureGroup</code> is specified</li>
 <li>No <code>FeatureTag</code> is specified</li>
 </ol>
-<p>Numbers 2 and 3 are simple so let's fix those first. You're probably wondering what <code>FeatureGroup</code> and <code>FeatureTag</code> do and why we need them. The impact of <code>FeatureTag</code> is easy to see in game: if you hover over a feat in the selection UI, the tags are listed below the description box. You can use the search box to filter feats by tag.</p>
-<p><code>FeatureGroup</code> is less clear. It contains values like <code>CombatFeat</code> and <code>WizardFeat</code> which makes it seem as if this populates class specific feat selection lists. Unfortunately it does not. Instead it is used for UI treatments such as additional description text on teamwork feats and changing the order of displayed feats in the selection UI.</p>
+<p>Numbers 2 and 3 are simple so fix those first. You're probably wondering what <code>FeatureGroup</code> and <code>FeatureTag</code> do and why they're needed. The impact of <code>FeatureTag</code> is easy to see in game: if you hover over a feat in the selection UI, the tags are listed below the description box. You can use the search box to filter feats by tag.</p>
+<p><code>FeatureGroup</code> is less clear. It contains values like <code>CombatFeat</code> and <code>WizardFeat</code> which makes it seem as if this populates class specific feat selection lists. Unfortunately it does not. It is used for UI treatments such as additional description text on teamwork feats and changing the order of displayed feats in the selection UI.</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>BlueprintFeatureSelection has a field storing a FeatureGroup. <a href="https://github.com/Vek17/WrathMods-TabletopTweaks/">TabletopTweaks</a> uses this field to automatically add feats to the appropriate lists. See the FeatTool utility.
@@ -254,14 +255,14 @@ Consider using that utility or creating a config file to map your feats to feat 
     .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2)
     .Configure();
 </code></pre>
-<p>Notice that the congfigurator accepts a list of tags and groups, so you can add all that apply.</p>
-<p>With the UI configuration complete it's time to tackle the +4 bonus. How can you do it?</p>
+<p>The congfigurator accepts a list of tags and groups, so you can add all that apply.</p>
+<p>With the UI completed the only thing to fix is adding the +4 bonus. How can you do it?</p>
 <p>If you look at the input parameters for <code>BuffSkillBonus</code> and its decompiled code, it doesn't look good. The bonus is an <code>int</code> value that never changes, so you probably need another way to grant the +4 bonus.</p>
 <p>This step is left as an exercise. There are several ways to accomplish this and the &quot;Solutions&quot; folder in the tutorial project contains one solution. Once your feat is finished, or if you're stuck, take a look.</p>
 <p>Some tips:</p>
 <ul>
 <li>Look at existing game blueprints and see how they implement scaling bonuses</li>
-<li>The <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">Wrath Game Structure</a> section of the wiki has information that might be helpful</li>
+<li>The <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki">Wrath Game Structure</a> section of the wiki has information that is helpful</li>
 </ul>
 </name></article>
           </div>
@@ -271,7 +272,7 @@ Consider using that utility or creating a config file to map your feats to feat 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/feat.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/dllmerge/BlueprintCore/articles/tutorials/feat.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
