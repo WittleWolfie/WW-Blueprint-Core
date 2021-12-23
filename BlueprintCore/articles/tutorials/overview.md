@@ -88,3 +88,5 @@ Next install [ILRepack.MSBuild.Task](https://www.nuget.org/packages/ILRepack.MSB
 This will merge all the assemblies you add to `InputAssemblies` into your mod's assembly, preventing conflicts from different mods using different assembly versions, and allowing you to release your mod as a single assembly. If you are using other assemblies such as [ModKit](https://github.com/cabarius/ToyBox/tree/master/ModKit) it is recommended to merge them as well.
 
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).
+
+Be sure to check [known issues](~issues.md) if you run into any problems.

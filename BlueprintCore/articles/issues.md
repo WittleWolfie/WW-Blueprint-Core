@@ -12,6 +12,32 @@ To make sure dependent assemblies are copied to `OutputPath` in Visual Studio op
 
 If you do not want to copy assemblies to output you'll need to change the ILRepack configuration to use a working directory with all required assemblies.
 
+#### Fails to resolve assembly: Assembly-CSharp
+
+This specific failure is usually caused by the assembly publicizer. When the publicize task runs it creates `Assembly-CSharp_public.dll`, but ILRepack is looking for `Assembly-CSharp.dll`. You can fix this by updating your assembly reference and renaming the file after publicizing:
+
+```xml
+<ItemGroup>
+  <Reference Include="Assembly-CSharp">
+    <HintPath>$(SolutionDir)lib\Assembly-CSharp.dll</HintPath>
+  </Reference>
+</ItemGroup>
+
+<!-- Publicize Target -->
+<Target Name="Publicize" AfterTargets="Clean">
+  <ItemGroup>
+    <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+    <PublicAssembly Include="$(SolutionDir)\lib\Assembly-CSharp_public.dll" />
+    <RenamedAssembly Include="$(SolutionDir)\lib\Assembly-CSharp.dll" />
+  </ItemGroup>
+
+  <PublicizeTask InputAssemblies="@(Assemblies)" OutputDir="$(SolutionDir)lib/" />
+  <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
+</Target>
+```
+
+After updating your project file, rebuild your solution and it should work.
+
 ### NuGet Package Restore Fails: Unable to find path for some files
 
 This is an issue with file path length limitations on Windows. By default the file path cannot exceed 260 characters. See [this thread](https://github.com/NuGet/Home/issues/3324#issuecomment-977921700) for more details.

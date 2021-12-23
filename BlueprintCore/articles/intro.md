@@ -42,6 +42,26 @@
         WorkingDirectory="$(OutputPath)" />
     </Target>
     ```
+    * ILRepack requires your game assembly to have the file name `Assembly-CSharp.dll`. By default the publicizer creates `Assembly-CSharp_public.dll`. To resolve this update your assembly reference and publicize target in your project file:
+    ```xml
+    <ItemGroup>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>$(SolutionDir)lib\Assembly-CSharp.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <!-- Publicize Target -->
+    <Target Name="Publicize" AfterTargets="Clean">
+      <ItemGroup>
+        <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+        <PublicAssembly Include="$(SolutionDir)\lib\Assembly-CSharp_public.dll" />
+        <RenamedAssembly Include="$(SolutionDir)\lib\Assembly-CSharp.dll" />
+      </ItemGroup>
+
+      <PublicizeTask InputAssemblies="@(Assemblies)" OutputDir="$(SolutionDir)lib/" />
+      <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
+    </Target>
+    ```
 6. You're ready to go!
 
 [Tutorials](tutorials/overview.md) explain how to mod the game using the library. The sections below provide an overview of the main features.
