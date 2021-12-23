@@ -69,6 +69,33 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="known-issues">Known Issues</h1>
 
+<h3 id="build-fails-ilrepack-failed-to-load-assembly">Build Fails: ILRepack: Failed to load assembly</h3>
+<p>Make sure the assembly listed is in the locations described. Usually this means that an assembly referenced by your assembly is not in the working directory for ILRepack. Thhe configuration suggested for BlueprintCore uses <code>OutputPath</code> as the working directory:</p>
+<pre><code class="lang-xml">&lt;ILRepack OutputType=&quot;Dll&quot; MainAssembly=&quot;@(OutputAssembly)&quot; OutputAssembly=&quot;@(OutputAssembly)&quot; InputAssemblies=&quot;@(InputAssemblies)&quot; WorkingDirectory=&quot;$(OutputPath)&quot; /&gt;
+</code></pre>
+<p>To make sure dependent assemblies are copied to <code>OutputPath</code> in Visual Studio open the assembly dependency properties and set <code>Copy Local</code> to <code>Yes</code>. Alternatively, remove <code>&lt;Private&gt;False&lt;/Private&gt;</code> from the reference in your project file.</p>
+<p>If you do not want to copy assemblies to output you'll need to change the ILRepack configuration to use a working directory with all required assemblies.</p>
+<h4 id="fails-to-resolve-assembly-assembly-csharp">Fails to resolve assembly: Assembly-CSharp</h4>
+<p>This specific failure is usually caused by the assembly publicizer. When the publicize task runs it creates <code>Assembly-CSharp_public.dll</code>, but ILRepack is looking for <code>Assembly-CSharp.dll</code>. You can fix this by updating your assembly reference and renaming the file after publicizing:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Reference Include=&quot;Assembly-CSharp&quot;&gt;
+    &lt;HintPath&gt;$(SolutionDir)lib\Assembly-CSharp.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;
+
+&lt;!-- Publicize Target --&gt;
+&lt;Target Name=&quot;Publicize&quot; AfterTargets=&quot;Clean&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assemblies Include=&quot;$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll&quot; /&gt;
+    &lt;PublicAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp_public.dll&quot; /&gt;
+    &lt;RenamedAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp.dll&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;PublicizeTask InputAssemblies=&quot;@(Assemblies)&quot; OutputDir=&quot;$(SolutionDir)lib/&quot; /&gt;
+  &lt;Move SourceFiles=&quot;@(PublicAssembly)&quot; DestinationFiles=&quot;@(RenamedAssembly)&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
+<p>After updating your project file, rebuild your solution and it should work.</p>
 <h3 id="nuget-package-restore-fails-unable-to-find-path-for-some-files">NuGet Package Restore Fails: Unable to find path for some files</h3>
 <p>This is an issue with file path length limitations on Windows. By default the file path cannot exceed 260 characters. See <a href="https://github.com/NuGet/Home/issues/3324#issuecomment-977921700">this thread</a> for more details.</p>
 <p>You can either follow the workaround in the linked thread or you can move your project closer to the root of your filesystem. The longest path produced by NuGet is <code>packages\WW-Blueprint-Core.1.2.1\contentFiles/any/net472/BlueprintCore/Blueprints/Configurators/Armies/Brain/TacticalCombatCanAttackThisTurnConsiderationConfigurator.cs</code>, 156 characters. The path to your project's packages folder can be at most 104 characters.</p>
@@ -80,7 +107,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/dllmerge/BlueprintCore/articles/issues.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/issues.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

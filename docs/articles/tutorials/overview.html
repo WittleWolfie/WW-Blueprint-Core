@@ -119,19 +119,19 @@
 <p>If you have defined the <code>WrathPath</code> environment variable add the following lines to your *.csproj file:</p>
 <pre><code class="lang-xml">&lt;ItemGroup&gt;
   &lt;Reference Include=&quot;Owlcat.Runtime.Core&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.Core.dll&lt;/HintPath&gt;
+    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
   &lt;Reference Include=&quot;Owlcat.Runtime.UI&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.UI.dll&lt;/HintPath&gt;
+    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
   &lt;Reference Include=&quot;Owlcat.Runtime.Visual&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Owlcat.Runtime.Visual.dll&lt;/HintPath&gt;
+    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
   &lt;Reference Include=&quot;UnityEngine&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\UnityEngine.dll&lt;/HintPath&gt;
+    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
   &lt;Reference Include=&quot;UnityEngine.CoreModule&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
+    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
   &lt;/Reference&gt;
 &lt;/ItemGroup&gt;
 </code></pre>
@@ -157,6 +157,7 @@
 </code></pre>
 <p>This will merge all the assemblies you add to <code>InputAssemblies</code> into your mod's assembly, preventing conflicts from different mods using different assembly versions, and allowing you to release your mod as a single assembly. If you are using other assemblies such as <a href="https://github.com/cabarius/ToyBox/tree/master/ModKit">ModKit</a> it is recommended to merge them as well.</p>
 <p>Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials">available on GitHub</a>.</p>
+<p>Be sure to check <a href="%7Eissues.md">known issues</a> if you run into any problems.</p>
 </article>
           </div>
           
@@ -165,7 +166,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/dllmerge/BlueprintCore/articles/tutorials/overview.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/overview.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

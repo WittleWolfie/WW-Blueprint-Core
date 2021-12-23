@@ -121,6 +121,27 @@
     WorkingDirectory=&quot;$(OutputPath)&quot; /&gt;
 &lt;/Target&gt;
 </code></pre>
+<ul>
+<li>ILRepack requires your game assembly to have the file name <code>Assembly-CSharp.dll</code>. By default the publicizer creates <code>Assembly-CSharp_public.dll</code>. To resolve this update your assembly reference and publicize target in your project file:</li>
+</ul>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Reference Include=&quot;Assembly-CSharp&quot;&gt;
+    &lt;HintPath&gt;$(SolutionDir)lib\Assembly-CSharp.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;
+
+&lt;!-- Publicize Target --&gt;
+&lt;Target Name=&quot;Publicize&quot; AfterTargets=&quot;Clean&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assemblies Include=&quot;$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll&quot; /&gt;
+    &lt;PublicAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp_public.dll&quot; /&gt;
+    &lt;RenamedAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp.dll&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;PublicizeTask InputAssemblies=&quot;@(Assemblies)&quot; OutputDir=&quot;$(SolutionDir)lib/&quot; /&gt;
+  &lt;Move SourceFiles=&quot;@(PublicAssembly)&quot; DestinationFiles=&quot;@(RenamedAssembly)&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
 </li>
 <li>You're ready to go!</li>
 </ol>
@@ -355,7 +376,7 @@ ActionsBuilder.New()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/dllmerge/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
