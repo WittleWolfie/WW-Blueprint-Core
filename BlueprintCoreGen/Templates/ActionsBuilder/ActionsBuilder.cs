@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+#nullable enable
 namespace BlueprintCoreGen.Actions.Builder
 {
   /// <summary>
