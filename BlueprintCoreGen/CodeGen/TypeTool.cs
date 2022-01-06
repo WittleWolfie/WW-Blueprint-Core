@@ -36,6 +36,20 @@ namespace BlueprintCoreGen.CodeGen
       return typeName + "<" + typeArguments + ">";
     }
 
+    /// <summary>
+    /// Returns the complete using statement to import the given type or null if the type is defined in the global
+    /// namespace.
+    /// </summary>
+    public static string? GetImport(Type type)
+    {
+      // Skip type defined in the global namespace
+      if (!string.IsNullOrEmpty(type.Namespace))
+      {
+        return $"using {type.Namespace};";
+      }
+      return null;
+    }
+
     private static string GetSimpleTypeName(Type type)
     {
       //if (string.IsNullOrEmpty(type.Namespace))
