@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.Abilities;
 using BlueprintCore.Utils;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

@@ -2,6 +2,10 @@
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 
 namespace Tutorials.Feats
 {

@@ -1,5 +1,7 @@
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Localization;
 using Xunit;
 
 namespace BlueprintCore.Test.Blueprints.Configurators.Classes

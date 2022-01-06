@@ -1,6 +1,10 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.UpgraderEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Blueprints;
+using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
+using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
+using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using System.Linq;
 using Xunit;
 using static BlueprintCore.Test.TestData;

@@ -1,6 +1,9 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.MiscEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Achievements.Actions;
+using Kingmaker.Blueprints;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

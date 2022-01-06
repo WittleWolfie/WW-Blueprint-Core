@@ -2,6 +2,9 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Blueprints;
+using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.ElementsSystem;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
