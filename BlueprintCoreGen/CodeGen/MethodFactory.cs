@@ -8,7 +8,7 @@ namespace BlueprintCoreGen.CodeGen
 {
   public static class NewMethodFactory
   {
-    public static List<IMethod> CreateForBuilder(Type elementType)
+    public static List<INewMethod> CreateForBuilder(Type elementType)
     {
       return null;
     }
