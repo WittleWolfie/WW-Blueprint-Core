@@ -25,7 +25,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen.Builders
 {
@@ -35,9 +34,19 @@ namespace BlueprintCoreGen.CodeGen.Builders
   public interface IBuilderExtension
   {
     /// <summary>
+    /// Relative file path of the class, e.g. Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs.
+    /// </summary>
+    public string FilePath { get; }
+
+    /// <summary>
+    /// Namespace for the extension class, e.g. BlueprintCore.Actions.Builder.AreaEx
+    /// </summary>
+    public string Namespace { get; }
+
+    /// <summary>
     /// Name of the extension, e.g. AreaEx for ActionsBuilderAreaEx.
     /// </summary>
-    public string Name { get; }
+    public string ClassName { get; }
 
     /// <summary>
     /// Extension class summary comment.
@@ -45,36 +54,28 @@ namespace BlueprintCoreGen.CodeGen.Builders
     public string Summary { get; }
 
     /// <summary>
-    /// List of Action or Condition types implemented in the extension.
+    /// Type name for the parent class, e.g. ActionsBuilder
     /// </summary>
-    public List<Type> Types { get; }
+    public string ParentType { get; }
+
+    /// <summary>
+    /// List of Action or Condition types in the extension.
+    /// </summary>
+    public List<Type> ElementTypes { get; }
+  }
+
+  public enum BuilderType
+  {
+    Action,
+    Condition
   }
 
   public static class BuilderExtensions
   {
-    public enum BuilderType
-    {
-      Action,
-      Condition
-    }
-
     public static List<IBuilderExtension> Get(BuilderType type)
     {
       if (type == BuilderType.Action) { return ActionExtensions; }
       return ConditionExtensions;
-    }
-
-    private enum ExtensionType
-    {
-      AreaEx,
-      AVEx,
-      BasicEx,
-      ContextEx,
-      KingdomEx,
-      MiscEx,
-      NewEx,
-      StoryEx,
-      UpgraderEx,
     }
 
     private static readonly List<IBuilderExtension> ConditionExtensions = new();
@@ -82,9 +83,9 @@ namespace BlueprintCoreGen.CodeGen.Builders
     private static readonly List<IBuilderExtension> ActionExtensions =
       new()
       {
-        // Area
         new ExtensionImpl(
-          "AreaEx",
+          BuilderType.Action,
+          ExtensionType.AreaEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions involving the game map, dungeons, or locations."
               + " See also <see cref=\"KingdomEx.ActionsBuilderKingdomEx\">KingdomEx</see>.",
           new()
@@ -142,9 +143,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(GameActionSetIsleLock),
             typeof(GameActionSetIsleState)
           }),
-        // AV
+
         new ExtensionImpl(
-          "AVEx",
+          BuilderType.Action,
+          ExtensionType.AVEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions involving audiovisual effects such as dialogs,"
               + " camera, cutscenes, and sounds.",
           new()
@@ -175,9 +177,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(ToggleObjectFx),
             typeof(ToggleObjectMusic)
           }),
-        // Basic
+
         new ExtensionImpl(
-          "BasicEx",
+          BuilderType.Action,
+          ExtensionType.BasicEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for most game mechanics related actions not included in"
               + " <see cref=\"ContextEx.ActionsBuilderContextEx\">ContextEx</see>.",
           new()
@@ -217,7 +220,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(RaiseDead),
             typeof(RandomAction),
             typeof(RemoveDeathDoor),
-            typeof(RemoveFact),
+            typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact),
             typeof(RollPartySkillCheck),
             typeof(RollSkillCheck),
             typeof(RunActionHolder),
@@ -232,9 +235,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(SwitchDualCompanion),
             typeof(UnitsFromSpawnersInUnitGroup)
           }),
-        // Context
+
         new ExtensionImpl(
-          "ContextEx",
+          BuilderType.Action,
+          ExtensionType.ContextEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for most <see cref=\"ContextAction\"/> types. Some"
               + " <see cref=\"ContextAction\"/> types are in more specific extensions such as"
               + " <see cref=\"AVEx.ActionsBuilderAVEx\">AVEx</see> or"
@@ -350,9 +354,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(SwordlordAdaptiveTacticsAdd),
             typeof(SwordlordAdaptiveTacticsClear)
           }),
-        // Kingdom
+
         new ExtensionImpl(
-          "KingdomEx",
+          BuilderType.Action,
+          ExtensionType.KingdomEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions involving the Kingdom and Crusade system.",
           new()
           {
@@ -495,9 +500,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(ContextActionTacticalCombatDealDamage),
             typeof(ContextActionTacticalCombatHealTarget)
           }),
-        // Misc
+
         new ExtensionImpl(
-          "MiscEx",
+          BuilderType.Action,
+          ExtensionType.MiscEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions without a better extension container such as"
               + " achievements vendor actions, and CustomEvent.",
           new()
@@ -535,15 +541,17 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(AddVendorItemsAction),
             typeof(ClearVendorTable)
           }),
-        // New
+
         new ExtensionImpl(
-          "NewEx",
+          BuilderType.Action,
+          ExtensionType.NewEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions defined in BlueprintCore and not available in the"
               + " base game.",
           new()),
-        // Story
+
         new ExtensionImpl(
-          "StoryEx",
+          BuilderType.Action,
+          ExtensionType.StoryEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for actions related to the story such as companion stories,"
               + " quests, name changes, and etudes.",
           new()
@@ -613,9 +621,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
             typeof(UpdateEtudeProgressBar),
             typeof(UpdateEtudes)
           }),
-        // Upgrader
+
         new ExtensionImpl(
-          "UpgraderEx",
+          BuilderType.Action,
+          ExtensionType.UpgraderEx,
           "Extension to <see cref=\"ActionsBuilder\"/> for all UpgraderOnlyActions.",
           new()
           {
@@ -650,19 +659,54 @@ namespace BlueprintCoreGen.CodeGen.Builders
           }),
       };
 
+    // Used in class names and namespaces directly
+    private enum ExtensionType
+    {
+      AreaEx,
+      AVEx,
+      BasicEx,
+      ContextEx,
+      KingdomEx,
+      MiscEx,
+      NewEx,
+      StoryEx,
+      UpgraderEx,
+    }
+
     private class ExtensionImpl : IBuilderExtension
     {
-      public string Name { get; private set; }
+      public string FilePath { get; private set; }
+
+      public string Namespace { get; private set; }
+
+      public string ClassName { get; private set; }
 
       public string Summary { get; private set; }
 
-      public List<Type> Types { get; private set; }
+      public string ParentType { get; private set; }
 
-      public ExtensionImpl(string name, string summary, List<Type> types)
+      public List<Type> ElementTypes { get; private set; }
+
+      public ExtensionImpl(
+          BuilderType builderType, ExtensionType extensionType, string summary, List<Type> elementTypes)
       {
-        Name = name;
         Summary = summary;
-        Types = types;
+        ElementTypes = elementTypes;
+
+        if (builderType == BuilderType.Action)
+        {
+          ClassName = $"ActionsBuilder{extensionType}";
+          FilePath = $"Actions\\Builder\\{extensionType}\\{ClassName}.cs";
+          Namespace = $"BlueprintCore.Actions.Builder.{extensionType}";
+          ParentType = "ActionsBuilder";
+        }
+        else
+        {
+          ClassName = $"ConditionsBuilder{extensionType}";
+          FilePath = $"Conditions\\Builder\\{extensionType}\\{ClassName}.cs";
+          Namespace = $"BlueprintCore.Conditions.Builder.{extensionType}";
+          ParentType = "ConditionsBuilder";
+        }
       }
     }
   }
