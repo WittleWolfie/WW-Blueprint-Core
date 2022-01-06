@@ -70,6 +70,12 @@ namespace BlueprintCoreGen.CodeGen.Builders
     Condition
   }
 
+  /// <summary>
+  /// Contains configuration for the builder extension classes.
+  /// </summary>
+  /// 
+  /// Configuration in this context is everything defined in IBuilderExtension, so it will determine the class names,
+  /// file paths, class comment summary, which element types are implemented, etc.
   public static class BuilderExtensions
   {
     public static List<IBuilderExtension> Get(BuilderType type)
