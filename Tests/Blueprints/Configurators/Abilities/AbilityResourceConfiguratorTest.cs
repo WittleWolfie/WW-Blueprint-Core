@@ -1,9 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.Abilities;
 using BlueprintCore.Test.Blueprints.Configurators;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Localization;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

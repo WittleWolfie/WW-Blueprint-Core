@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Xunit;
 
 namespace BlueprintCore.Test.Blueprints

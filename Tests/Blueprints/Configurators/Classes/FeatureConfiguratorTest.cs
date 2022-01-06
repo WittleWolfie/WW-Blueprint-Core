@@ -3,20 +3,9 @@ using BlueprintCore.Blueprints.Components;
 using BlueprintCore.Test.Asserts;
 using BlueprintCore.Test.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Alignments;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 using System;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
 
 namespace BlueprintCore.Test.Blueprints.Configurators.Classes
