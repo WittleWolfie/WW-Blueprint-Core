@@ -827,7 +827,7 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
         RuleDispelMagic.CheckType checkType,
         ContextValue maxSpellLevel,
         bool onlyDispelEnemyBuffs = false,
-        bool removeOnlyOne = false,
+        ContextValue? countToRemove = null,
         int bonus = 0,
         ContextValue? contextBonus = null,
         ActionsBuilder? onSuccess = null,
@@ -843,7 +843,11 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       dispel.m_CheckType = checkType;
       dispel.m_MaxSpellLevel = maxSpellLevel;
       dispel.OnlyTargetEnemyBuffs = onlyDispelEnemyBuffs;
-      dispel.m_StopAfterFirstRemoved = removeOnlyOne;
+      if (countToRemove is not null)
+      {
+        dispel.m_StopAfterCountRemoved = true;
+        dispel.m_CountToRemove = countToRemove;
+      }
       dispel.CheckBonus = bonus;
       dispel.ContextBonus = contextBonus ?? 0;
       dispel.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;

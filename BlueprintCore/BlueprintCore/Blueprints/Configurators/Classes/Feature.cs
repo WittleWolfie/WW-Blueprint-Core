@@ -18,6 +18,7 @@ using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -970,6 +971,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.BaseValue = baseValue ?? ContextValues.Constant(0);
       component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddDispelMagicSuccessTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddDispelMagicSuccessTrigger))]
+    public TBuilder AddDispelMagicSuccessTrigger(
+        bool triggerOnAreaEffectsDispell = default,
+        ActionsBuilder? actionOnTarget = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new AddDispelMagicSuccessTrigger();
+      component.TriggerOnAreaEffectsDispell = triggerOnAreaEffectsDispell;
+      component.ActionOnTarget = actionOnTarget?.Build() ?? Constants.Empty.Actions;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
