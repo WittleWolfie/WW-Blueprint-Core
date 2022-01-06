@@ -24,6 +24,22 @@ namespace BlueprintCoreGen.CodeGen
   }
 
   /// <summary>
+  /// Represents a method for code generation.
+  /// </summary>
+  public interface INewMethod
+  {
+    /// <summary>
+    /// A list of types that need to be imported for the method.
+    /// </summary>
+    List<Type> GetImports();
+
+    /// <summary>
+    /// Returns the method implementation as lines of text.
+    /// </summary>
+    List<string> GetLines();
+  }
+
+  /// <summary>
   /// Represents a method constructed from text in a template file.
   /// </summary>
   public class RawMethod : IMethod
