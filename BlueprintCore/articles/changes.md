@@ -4,7 +4,7 @@
 
 ### New Features
 
-*
+* Updated for compatibility w/ 1.1.6
 
 ### Fixes 
 
