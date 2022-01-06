@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.View.Animation;
 using System.Linq;
@@ -184,15 +185,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintRace.LinkHairAndSkinColors"/> (Auto Generated)
+    /// Sets <see cref="BlueprintRace.LinkHairAndSkinColorsCondition"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public RaceConfigurator SetLinkHairAndSkinColors(bool linkHairAndSkinColors)
+    public RaceConfigurator SetLinkHairAndSkinColorsCondition(Condition linkHairAndSkinColorsCondition)
     {
+      ValidateParam(linkHairAndSkinColorsCondition);
+    
       return OnConfigureInternal(
           bp =>
           {
-            bp.LinkHairAndSkinColors = linkHairAndSkinColors;
+            bp.LinkHairAndSkinColorsCondition = linkHairAndSkinColorsCondition;
           });
     }
 
