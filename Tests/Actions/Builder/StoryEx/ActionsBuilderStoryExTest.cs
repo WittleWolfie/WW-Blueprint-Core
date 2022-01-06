@@ -2,6 +2,11 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.StoryEx;
 using BlueprintCore.Test.Asserts;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
+using Kingmaker.ElementsSystem;
+using Kingmaker.Localization;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

@@ -1,6 +1,11 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.AreaEx;
 using BlueprintCore.Test.Asserts;
+using Kingmaker.Blueprints;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Dungeon.Actions;
+using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Localization;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

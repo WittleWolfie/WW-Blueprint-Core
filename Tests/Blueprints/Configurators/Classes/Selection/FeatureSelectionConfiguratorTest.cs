@@ -1,6 +1,10 @@
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Test.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

@@ -1,3 +1,4 @@
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Xunit;
 
 namespace BlueprintCore.Test.Asserts

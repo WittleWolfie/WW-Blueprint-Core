@@ -1,4 +1,8 @@
 using BlueprintCore.Blueprints.Components;
+using Kingmaker.Blueprints;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
