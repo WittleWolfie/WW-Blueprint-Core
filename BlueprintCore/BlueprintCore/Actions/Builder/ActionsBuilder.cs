@@ -151,7 +151,7 @@ namespace BlueprintCore.Actions.Builder
     /// <remarks>It is recommended to only call this when adding an action type not supported by the builder.</remarks>
     /// 
     /// <param name="init">Optional initialization <see cref="Action"/> run on the action.</param>
-    public ActionsBuilder Add<A>(Action<A> init) where A : GameAction, new()
+    public ActionsBuilder Add<A>(Action<A>? init = null) where A : GameAction, new()
     {
       var action = ElementTool.Create<A>();
       init?.Invoke(action);

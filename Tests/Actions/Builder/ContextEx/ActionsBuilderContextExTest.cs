@@ -1294,7 +1294,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.False(dispel.m_UseMaxCasterLevel);
 
       Assert.False(dispel.OnlyTargetEnemyBuffs);
-      Assert.False(dispel.m_StopAfterFirstRemoved);
+      Assert.False(dispel.m_StopAfterCountRemoved);
 
       Assert.Equal(0, dispel.CheckBonus);
       Assert.Equal(0, dispel.ContextBonus.Value);
@@ -1316,7 +1316,7 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
                   RuleDispelMagic.CheckType.SkillDC,
                   6,
                   onlyDispelEnemyBuffs: true,
-                  removeOnlyOne: true,
+                  countToRemove: ContextValues.Constant(2),
                   bonus: 3,
                   contextBonus: 5,
                   onSuccess: ActionsBuilder.New().MeleeAttack(),
@@ -1342,7 +1342,8 @@ namespace BlueprintCore.Test.Actions.Builder.ContextEx
       Assert.Equal(20, dispel.m_MaxCasterLevel.Value);
 
       Assert.True(dispel.OnlyTargetEnemyBuffs);
-      Assert.True(dispel.m_StopAfterFirstRemoved);
+      Assert.True(dispel.m_StopAfterCountRemoved);
+      Assert.Equal(dispel.m_CountToRemove.Value, 2);
 
       Assert.Equal(3, dispel.CheckBonus);
       Assert.Equal(5, dispel.ContextBonus.Value);
