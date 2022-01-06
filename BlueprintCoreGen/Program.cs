@@ -57,13 +57,13 @@ namespace BlueprintCoreGen
       return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
-    private static void WriteClassToFile(IClass classtoWrite)
+    private static void WriteClassToFile(IClass classToWrite)
     {
       // Create the directories if necessary
-      FileInfo result = new FileInfo(classtoWrite.RelativePath);
+      FileInfo result = new FileInfo(classToWrite.FilePath);
       result.Directory.Create();
 
-      File.WriteAllText(classtoWrite.RelativePath, classtoWrite.GetText());
+      File.WriteAllText(classToWrite.FilePath, classToWrite.GetText());
     }
   }
 }

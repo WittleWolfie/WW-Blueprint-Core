@@ -12,9 +12,9 @@ namespace BlueprintCoreGen.CodeGen
   public interface IClass
   {
     /// <summary>
-    /// Relative directory for the output class
+    /// Relative file path for the output class
     /// </summary>
-    string RelativePath { get; }
+    string FilePath { get; }
 
     /// <summary>
     /// Returns the full class text
@@ -416,7 +416,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private class ClassImpl : IClass
     {
-      public string RelativePath { get; private set; }
+      public string FilePath { get; private set; }
 
       private readonly StringBuilder Text = new();
       private readonly HashSet<Type> ImplementedTypes = new();
@@ -425,7 +425,7 @@ namespace BlueprintCoreGen.CodeGen
 
       public ClassImpl(string filePath)
       {
-        RelativePath = filePath;
+        FilePath = filePath;
       }
 
       protected ClassImpl() { }
