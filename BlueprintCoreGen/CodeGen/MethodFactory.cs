@@ -1,16 +1,80 @@
-﻿using System;
+﻿using BlueprintCore.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Kingmaker.QA.Statistics.MoneyFlowStatistic;
 
 namespace BlueprintCoreGen.CodeGen
 {
   public static class NewMethodFactory
   {
-    public static List<INewMethod> CreateForBuilder(Type elementType)
+    public static List<INewMethod> CreateForBuilder(Type elementType, string builderType)
     {
-      return null;
+      var elementTypeName = TypeTool.GetName(elementType);
+      var fields = NewFieldFactory.CreateForType(elementType);
+
+      var method = new MethodImpl();
+      method.AddImport(elementType);
+      method.AddImport(typeof(ElementTool));
+      fields.ForEach(field => field.Imports.ForEach(import => method.AddImport(import)));
+
+      // Comments
+      method.AddLine($"/// <summary>");
+      method.AddLine($"/// Adds <see cref=\"{elementTypeName}\"/>");
+      method.AddLine($"/// </summary>");
+      // TODO: Remarks
+      var paramComments = fields.Select(field => field.Comment).Where(comment => comment is not null).ToList();
+      if (paramComments.Any())
+      {
+        method.AddLine($"///");
+        paramComments.ForEach(comment => method.AddLine($"/// {comment}"));
+      }
+
+      if (!fields.Any())
+      {
+        // Declaration w/ no params
+        method.AddLine($"public static {builderType} {elementTypeName}(this {builderType} builder)");
+        method.AddLine($"{{");
+        method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
+        method.AddLine($"}}");
+        return new() { method };
+      }
+
+      // Declaration
+      method.AddLine($"public static {builderType} {elementTypeName}(");
+      method.AddLine($"    this {builderType} builder,");
+
+      // TODO: Finish this!
+
+      return new() { method };
+    }
+
+    private class MethodImpl : INewMethod
+    {
+      private readonly List<Type> Imports = new();
+      private readonly List<string> Lines = new();
+
+      public List<Type> GetImports()
+      {
+        return Imports;
+      }
+
+      public List<string> GetLines()
+      {
+        return Lines;
+      }
+
+      public void AddImport(Type type)
+      {
+        Imports.Add(type);
+      }
+
+      public void AddLine(string line)
+      {
+        Lines.Add(line);
+      }
     }
   }
 }

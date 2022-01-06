@@ -71,6 +71,60 @@ namespace BlueprintCoreGen.CodeGen
     HashSet<Type> Imports { get; }
   }
 
+  /// <summary>
+  /// Represents a field modified in a generated method.
+  /// </summary>
+  public interface INewField
+  {
+    /// <summary>
+    /// Name of the field in source.
+    /// </summary>
+    string Name { get; }
+
+    /// <summary>
+    /// Processed type name.
+    /// </summary>
+    string TypeName { get; }
+
+    /// <summary>
+    /// Name of the field's method parameter.
+    /// </summary>
+    /// 
+    /// <remarks>If this is null it should be assigned last, as it may rely on other fields being configured.</remarks>
+    string ParamName { get; }
+
+    /// <summary>
+    /// Name of the field for use in method name.
+    /// </summary>
+    string MethodName { get; }
+
+    /// <summary>
+    /// Optional parameter comment.
+    /// </summary>
+    string? Comment { get; }
+
+    /// <summary>
+    /// Optional default parameter value.
+    /// </summary>
+    string? DefaultValue { get; }
+
+    /// <summary>
+    /// Indicates if a field can be validated.
+    /// </summary>
+    bool ShouldValidate { get; }
+
+    /// <summary>
+    /// Returns a complete statement which sets the field's contents.
+    /// </summary>
+    /// <param name="objectName">The variable name of the object containing the field.</param>
+    List<string> GetAssignment(string objectName);
+
+    /// <summary>
+    /// List of types to import.
+    /// </summary>
+    List<Type> Imports { get; }
+  }
+
   public interface IEnumerableField : IField
   {
     /// <summary>

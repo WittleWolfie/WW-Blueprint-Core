@@ -29,7 +29,7 @@ namespace BlueprintCoreGen.CodeGen
           type =>
           {
             extensionClass.AddImplementedType(type);
-            NewMethodFactory.CreateForBuilder(type).ForEach(
+            NewMethodFactory.CreateForBuilder(type, builderExtension.ParentType).ForEach(
                 method =>
                 {
                   method.GetImports().ForEach(import => extensionClass.AddImport(import));
