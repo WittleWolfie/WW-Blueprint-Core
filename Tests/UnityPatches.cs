@@ -1,9 +1,3 @@
-using HarmonyLib;
-using Kingmaker.Blueprints.Validation;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.DLC;
-using UnityEngine;
-
 namespace BlueprintCore.Test
 {
   /** Patches calls which require Unity Engine and cannot be called in unit tests. */

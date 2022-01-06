@@ -2,14 +2,6 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Localization;
-using Kingmaker.Settings;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 

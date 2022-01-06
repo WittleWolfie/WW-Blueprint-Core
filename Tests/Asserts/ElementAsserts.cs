@@ -1,4 +1,3 @@
-using Kingmaker.ElementsSystem;
 using Xunit;
 
 namespace BlueprintCore.Test.Asserts

@@ -1,7 +1,5 @@
 using System;
 using BlueprintCore.Utils;
-using HarmonyLib;
-using Owlcat.Runtime.Core.Logging;
 
 namespace BlueprintCore.Test
 {

@@ -1,8 +1,6 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Test.Asserts;
-using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Xunit;
 using static BlueprintCore.Test.TestData;
 
