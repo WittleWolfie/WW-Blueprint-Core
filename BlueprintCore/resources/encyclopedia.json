@@ -1,0 +1,242 @@
+[
+  {
+    "Entry": "Strength",
+    "Patterns": [ "Strength" ]
+  },
+  {
+    "Entry": "Dexterity",
+    "Patterns": [ "Dexterity" ]
+  },
+  {
+    "Entry": "Constitution",
+    "Patterns": [ "Constitution" ]
+  },
+  {
+    "Entry": "Intelligence",
+    "Patterns": [ "Intelligence" ]
+  },
+  {
+    "Entry": "Wisdom",
+    "Patterns": [ "Wisdom" ]
+  },
+  {
+    "Entry": "Charisma",
+    "Patterns": [ "Charisma" ]
+  },
+  {
+    "Entry": "Ability_Scores",
+    "Patterns": [ "Ability Scores?" ]
+  },
+  {
+    "Entry": "Athletics",
+    "Patterns": [ "Athletics" ]
+  },
+  {
+    "Entry": "Persuasion",
+    "Patterns": [ "Persuasion" ]
+  },
+  {
+    "Entry": "Knowledge_World",
+    "Patterns": [ "Knowledge \\\\(?World\\\\)?" ]
+  },
+  {
+    "Entry": "Knowledge_Arcana",
+    "Patterns": [ "Knowledge \\\\(?Arcana\\\\)?" ]
+  },
+  {
+    "Entry": "Lore_Nature",
+    "Patterns": [ "Lore \\\\(?Nature\\\\)?" ]
+  },
+  {
+    "Entry": "Lore_Religion",
+    "Patterns": [ "Lore \\\\(?Religion\\\\)?" ]
+  },
+  {
+    "Entry": "Mobility",
+    "Patterns": [ "Mobility" ]
+  },
+  {
+    "Entry": "Perception",
+    "Patterns": [ "Perception" ]
+  },
+  {
+    "Entry": "Stealth",
+    "Patterns": [ "Stealth" ]
+  },
+  {
+    "Entry": "Trickery",
+    "Patterns": [ "Trickery" ]
+  },
+  {
+    "Entry": "Use_Magic_Device",
+    "Patterns": [ "Use Magic Device", "UMD" ]
+  },
+  {
+    "Entry": "Race",
+    "Patterns": [ "Race" ]
+  },
+  {
+    "Entry": "Alignment",
+    "Patterns": [ "Alignment" ]
+  },
+  {
+    "Entry": "Caster_Level",
+    "Patterns": [ "Caster Level", "CL" ]
+  },
+  {
+    "Entry": "DC",
+    "Patterns": [ "DC" ]
+  },
+  {
+    "Entry": "Saving_Throw",
+    "Patterns": [ "Saving Throw", "Reflex Save", "Will Save", "Fortitude Save" ]
+  },
+  {
+    "Entry": "Spell_Resistance",
+    "Patterns": [ "Spell Resistance" ]
+  },
+  {
+    "Entry": "Spell_Fail_Chance",
+    "Patterns": [ "Arcane Spell Failure" ]
+  },
+  {
+    "Entry": "Concentration_Checks",
+    "Patterns": [ "Concentration Checks?" ]
+  },
+  {
+    "Entry": "Concealment",
+    "Patterns": [ "Concealment" ]
+  },
+  {
+    "Entry": "Bonus",
+    "Patterns": [ "Bonus(es)?" ]
+  },
+  {
+    "Entry": "Speed",
+    "Patterns": [ "Speed" ]
+  },
+  {
+    "Entry": "Flat_Footed_AC",
+    "Patterns": [ "Flat Footed AC", "Flat Footed Armor Class" ]
+  },
+  {
+    "Entry": "Flat_Footed",
+    "Patterns": [ "Flat Footed", "Flat-Footed" ]
+  },
+  {
+    "Entry": "Armor_Class",
+    "Patterns": [ "Armor Class", "AC" ]
+  },
+  {
+    "Entry": "Armor_Check_Penalty",
+    "Patterns": [ "Armor Check Penalty" ]
+  },
+  {
+    "Entry": "Damage_Reduction",
+    "Patterns": [ "DR" ]
+  },
+  {
+    "Entry": "Free_Action",
+    "Patterns": [ "Free Action" ]
+  },
+  {
+    "Entry": "Swift_Action",
+    "Patterns": [ "Swift Action" ]
+  },
+  {
+    "Entry": "Standard_Actions",
+    "Patterns": [ "Standard Action" ]
+  },
+  {
+    "Entry": "Full_Round_Action",
+    "Patterns": [ "Full Round Action" ]
+  },
+  {
+    "Entry": "Skills",
+    "Patterns": [ "Skills? Checks?", "Skills?" ]
+  },
+  {
+    "Entry": "Combat_Maneuvers",
+    "Patterns": [ "Combat Maneuvers?" ]
+  },
+  {
+    "Entry": "CMB",
+    "Patterns": [ "Combat Maneuver Bonus", "CMB" ]
+  },
+  {
+    "Entry": "CMD",
+    "Patterns": [ "Combat Maneuver Defense", "CMD" ]
+  },
+  {
+    "Entry": "BAB",
+    "Patterns": [ "Base Attack Bonus", "BAB" ]
+  },
+  {
+    "Entry": "Incorporeal_Touch_Attack",
+    "Patterns": [ "Incorporeal Touch Attacks?" ]
+  },
+  {
+    "Entry": "TouchAttack",
+    "Patterns": [ "Touch Attacks?" ]
+  },
+  {
+    "Entry": "NaturalAttack",
+    "Patterns": [ "Natural Attacks?", "Natural Weapons?" ]
+  },
+  {
+    "Entry": "Attack_Of_Opportunity",
+    "Patterns": [ "Attacks? Of Opportunity", "AoO" ]
+  },
+  {
+    "Entry": "Penalty",
+    "Patterns": [ "Penalty" ]
+  },
+  {
+    "Entry": "Check",
+    "Patterns": [ "Checks?" ]
+  },
+  {
+    "Entry": "Spells",
+    "Patterns": [ "Spells?" ]
+  },
+  {
+    "Entry": "Attack",
+    "Patterns": [ "Attacks?" ]
+  },
+  {
+    "Entry": "Feat",
+    "Patterns": [ "Feats?" ]
+  },
+  {
+    "Entry": "Charge",
+    "Patterns": [ "Charge" ]
+  },
+  {
+    "Entry": "Critical",
+    "Patterns": [ "Critical Hit" ]
+  },
+  {
+    "Entry": "Fast_Healing",
+    "Patterns": [ "Fast Healing" ]
+  },
+  {
+    "Entry": "Temporary_HP",
+    "Patterns": [ "Temporary HP" ]
+  },
+  {
+    "Entry": "Flanking",
+    "Patterns": [ "Flanking", "Flanked" ]
+  },
+  {
+    "Entry": "Magic_School",
+    "Patterns": [ "School of Magic" ]
+  },
+  {
+    "Entry": "Damage_Type",
+    "Patterns": [ "Bludgeoning", "Piercing", "Slashing" ]
+  },
+  {
+    "Entry": "Damage",
+    "Patterns": [ "damage", "damage rolls?" ]
+  }
+]
