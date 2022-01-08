@@ -94,11 +94,6 @@ namespace BlueprintCoreGen.CodeGen
     string ParamName { get; }
 
     /// <summary>
-    /// Name of the field for use in method name.
-    /// </summary>
-    string MethodName { get; }
-
-    /// <summary>
     /// Optional parameter comment.
     /// </summary>
     string? Comment { get; }
@@ -109,13 +104,16 @@ namespace BlueprintCoreGen.CodeGen
     string? DefaultValue { get; }
 
     /// <summary>
-    /// Indicates if a field can be validated.
+    /// Returns a complete statement which validates the field's contents.
     /// </summary>
-    bool ShouldValidate { get; }
+    /// 
+    /// <param name="validateFunction">The validate function to call.</param>
+    List<string> GetValidation(string validateFunction);
 
     /// <summary>
     /// Returns a complete statement which sets the field's contents.
     /// </summary>
+    /// 
     /// <param name="objectName">The variable name of the object containing the field.</param>
     List<string> GetAssignment(string objectName);
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen
@@ -48,6 +49,16 @@ namespace BlueprintCoreGen.CodeGen
         return $"using {type.Namespace};";
       }
       return null;
+    }
+
+    /// <summary>
+    /// Returns the type of enumerable represented, or null if it is not enumerable.
+    /// </summary>
+    public static Type? GetEnumerableType(Type type)
+    {
+      return type.GetInterfaces()
+          .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+          ?.GetGenericArguments()[0];
     }
 
     private static string GetSimpleTypeName(Type type)

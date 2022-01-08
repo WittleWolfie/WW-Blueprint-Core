@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Kingmaker.QA.Statistics.MoneyFlowStatistic;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -25,6 +22,7 @@ namespace BlueprintCoreGen.CodeGen
       method.AddLine($"/// Adds <see cref=\"{elementTypeName}\"/>");
       method.AddLine($"/// </summary>");
       // TODO: Remarks
+
       var paramComments = fields.Select(field => field.Comment).Where(comment => comment is not null).ToList();
       if (paramComments.Any())
       {
@@ -34,7 +32,6 @@ namespace BlueprintCoreGen.CodeGen
 
       if (!fields.Any())
       {
-        // Declaration w/ no params
         method.AddLine($"public static {builderType} {elementTypeName}(this {builderType} builder)");
         method.AddLine($"{{");
         method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
@@ -46,7 +43,31 @@ namespace BlueprintCoreGen.CodeGen
       method.AddLine($"public static {builderType} {elementTypeName}(");
       method.AddLine($"    this {builderType} builder,");
 
-      // TODO: Finish this!
+      var paramDeclarations =
+          fields
+              .Where(field => field.DefaultValue is null)
+              .Select(field => $"{field.TypeName} {field.ParamName}")
+              .Concat(
+                  // Optional params
+                  fields
+                      .Where(field => field.DefaultValue is not null)
+                      .Select(field => $"{field.TypeName} {field.ParamName} = {field.DefaultValue}"));
+      paramDeclarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
+      method.AddLine($"    {paramDeclarations.Last()})");
+      method.AddLine($"{{");
+
+      var paramValidations =
+          fields.Select(field => field.GetValidation("builder.Validate")).Where(validation => validation.Any());
+      paramValidations.ToList().ForEach(validation => validation.ForEach(line => method.AddLine($"  {validation}")));
+      if (paramValidations.Any()) { method.AddLine($""); }
+
+      // Constructor & assignment
+      method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
+      fields.ForEach(field => field.GetAssignment("element").ForEach(line => method.AddLine($"  {line}")));
+
+      // Return
+      method.AddLine($"  return builder.Add(element);");
+      method.AddLine($"}}");
 
       return new() { method };
     }
