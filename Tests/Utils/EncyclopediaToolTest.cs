@@ -32,7 +32,7 @@ public class EncyclopediaToolTest
   public void EncyclopediaEntriesLoad()
   {
     Assert.True(EncyclopediaTool.EncyclopediaEntries.Length > 0);
-    Assert.True(string.IsNullOrEmpty(EncyclopediaTool.EncyclopediaEntries[0].Entry));
+    Assert.True(!string.IsNullOrEmpty(EncyclopediaTool.EncyclopediaEntries[0].Entry));
     Assert.True(EncyclopediaTool.EncyclopediaEntries[0].Patterns.Count > 0);
   }
 
@@ -50,7 +50,7 @@ public class EncyclopediaToolTest
   {
     foreach (var (tagged, untagged) in Cases)
     {
-      Assert.Equal(untagged, EncyclopediaTool.UntagEncyclopediaEntry(tagged));
+      Assert.Equal(untagged, EncyclopediaTool.UntagEncyclopediaEntries(tagged));
     }
   }
 }

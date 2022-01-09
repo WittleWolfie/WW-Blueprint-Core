@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BlueprintCore.Utils;
-using BlueprintCore.BlueprintCore.Extensions;
+using BlueprintCore.BlueprintCore.Internal;
 
 namespace BlueprintCore.BlueprintCore.Utils;
 public static class EncyclopediaTool
@@ -43,7 +43,7 @@ public static class EncyclopediaTool
     return text;
   }
 
-  public static string UntagEncyclopediaEntry(string text)
+  public static string UntagEncyclopediaEntries(string text)
   {
     foreach (var entry in EncyclopediaEntries)
     {
@@ -63,7 +63,7 @@ public static class EncyclopediaTool
     {
       Entry = entry;
       Patterns = patterns;
-      EntryPattern = new Regex($@"{{g|Encyclopedia:{Entry}}}(?<text>.*?){{/g}}");
+      EntryPattern = new Regex($@"{{g\|Encyclopedia:{Entry}}}(?<text>.*?){{/g}}");
     }
 
     public string TagEntry(string text)
@@ -76,28 +76,19 @@ public static class EncyclopediaTool
         {
           if (match.Success)
           {
-            string preceding = text.Substring(0, match.Index);
-            string following = text.Substring(match.GetEnd());
+            var context = new MatchContext(match, text);
 
-            // TODO: break into seperate methods
-
-            // check if is standalone word
-            bool precedingOk = preceding.Length > 0 ? char.IsWhiteSpace(preceding.Last()) || char.IsPunctuation(preceding.Last()) : true;
-            bool followingOk = following.Length > 0 ? char.IsWhiteSpace(following.First()) || char.IsPunctuation(following.First()) : true;
-
-            if (!precedingOk || !followingOk)
+            if (!context.IsMatchStandaloneWord())
             {
               continue;
             }
 
-            // check if is already tagged
-            if (Regex.IsMatch(preceding, @"{g\|Encyclopedia:[\w_]*}?\Z") || following.StartsWith("{/g}"))
+            if (IsAlreadyTagged(context))
             {
               continue;
             }
 
-
-            text = preceding + this.WrapTextInEntryTag(match.Value) + following;
+            text = context.Preceding + this.WrapTextInEntryTag(match.Value) + context.Following;
             return text; // return after tagging first entry
           }
         }
@@ -108,17 +99,17 @@ public static class EncyclopediaTool
 
     public string UntagEntry(string text)
     {
-      foreach (var pattern in Patterns)
-      {
-        text = Regex.Replace(text, pattern, m => m.Groups["text"].Value);
-      }
-
-      return text;
+      return EntryPattern.Replace(text, m => m.Groups["text"].Value);
     }
 
     private string WrapTextInEntryTag(string text)
     {
       return $"{{g|Encyclopedia:{Entry}}}{text}{{/g}}";
+    }
+
+    public static bool IsAlreadyTagged(MatchContext context)
+    {
+      return Regex.IsMatch(context.Preceding, @"{g\|Encyclopedia:[\w_]*}?\Z") || context.Following.StartsWith("{/g}");
     }
   }
 }

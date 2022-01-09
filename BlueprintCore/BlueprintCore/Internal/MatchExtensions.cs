@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace BlueprintCore.BlueprintCore.Extensions;
+namespace BlueprintCore.BlueprintCore.Internal;
 
 internal static class MatchExtensions
 {
