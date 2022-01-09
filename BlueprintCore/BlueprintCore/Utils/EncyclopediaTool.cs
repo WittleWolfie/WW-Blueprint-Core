@@ -7,12 +7,15 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BlueprintCore.Utils;
+using BlueprintCore.BlueprintCore.Utils.Internal;
+using BlueprintCore.BlueprintCore.Utils.Internal.RegexNS;
 
 namespace BlueprintCore.BlueprintCore.Utils;
 public static class EncyclopediaTool
 {
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
 
+  // TODO: Add this file to NuGet Spec.
   private static Lazy<EncyclopediaEntry[]> encyclopediaEntries = new Lazy<EncyclopediaEntry[]>(() =>
   {
     try
@@ -47,8 +50,8 @@ public static class EncyclopediaTool
 
   internal class EncyclopediaEntry
   {
-    public string Entry { get; set; } = "";
-    public List<string> Patterns { get; set; } = new List<string>();
+    public string Entry { get; set; }
+    public List<string> Patterns { get; set; }
 
     public EncyclopediaEntry(string entry, List<string> patterns)
     {

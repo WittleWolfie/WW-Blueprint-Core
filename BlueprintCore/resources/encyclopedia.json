@@ -37,19 +37,19 @@
   },
   {
     "Entry": "Knowledge_World",
-    "Patterns": [ "Knowledge \\\\(?World\\\\)?" ]
+    "Patterns": [ "Knowledge \\(?World\\)?" ]
   },
   {
     "Entry": "Knowledge_Arcana",
-    "Patterns": [ "Knowledge \\\\(?Arcana\\\\)?" ]
+    "Patterns": [ "Knowledge \\(?Arcana\\)?" ]
   },
   {
     "Entry": "Lore_Nature",
-    "Patterns": [ "Lore \\\\(?Nature\\\\)?" ]
+    "Patterns": [ "Lore \\(?Nature\\)?" ]
   },
   {
     "Entry": "Lore_Religion",
-    "Patterns": [ "Lore \\\\(?Religion\\\\)?" ]
+    "Patterns": [ "Lore \\(?Religion\\)?" ]
   },
   {
     "Entry": "Mobility",
@@ -89,7 +89,7 @@
   },
   {
     "Entry": "Saving_Throw",
-    "Patterns": [ "Saving Throw", "Reflex Save", "Will Save", "Fortitude Save" ]
+    "Patterns": [ "(Will|Reflex|Fortitude)? Saving Throw", "Reflex Save", "Will Save", "Fortitude Save" ]
   },
   {
     "Entry": "Spell_Resistance",
@@ -148,6 +148,10 @@
     "Patterns": [ "Standard Action" ]
   },
   {
+    "Entry": "Combat_Round",
+    "Patterns": [ "rounds?" ]
+  },
+  {
     "Entry": "Full_Round_Action",
     "Patterns": [ "Full Round Action" ]
   },
@@ -201,7 +205,7 @@
   },
   {
     "Entry": "Attack",
-    "Patterns": [ "Attacks?" ]
+    "Patterns": [ "Attack rolls?", "Attacks?", "Attacking" ]
   },
   {
     "Entry": "Feat",
@@ -237,6 +241,10 @@
   },
   {
     "Entry": "Damage",
-    "Patterns": [ "damage", "damage rolls?" ]
+    "Patterns": [ "damage rolls?", "damage" ]
+  },
+  {
+    "Entry": "Dice",
+    "Patterns": [ "roll" ]
   }
 ]

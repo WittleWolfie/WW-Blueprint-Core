@@ -100,7 +100,7 @@
   
   <ItemGroup>
     <None Update="resources\encyclopedia.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
