@@ -17,7 +17,7 @@ public class EncyclopediaToolTest
 
   const string TaggedCase2 = "LocalizedString:22ff7210-9f57-43f0-a619-736449f9b8f7:These spiked gauntlets grant the wearer's animal companion (as well as Azata's dragon or Lich's skeletal champion) a +6 {g|Encyclopedia:Bonus}bonus{/g} to {g|Encyclopedia:Strength}Strength{/g} {g|Encyclopedia:Ability_Scores}ability score{/g}. At the beginning of the battle, the creature must pass a {g|Encyclopedia:Saving_Throw}Will saving throw{/g} ({g|Encyclopedia:DC}DC{/g} 17) or start {g|Encyclopedia:Attack}attacking{/g} party members. If the initial saving throw is failed, the creature can make new saving throws each {g|Encyclopedia:Combat_Round}round{/g} to stop the effect.";
 
-  const string TaggedCase3 = "LocalizedString:54f2985b-f688-431b-bd30-37296e0636a6:Every {g|Encyclopedia:Attack}attack{/g} during a combat entails the following calculations:\nFirst, the attacker makes an {g|Encyclopedia:Attack}attack roll{/g} and compares the result to the target's {g|Encyclopedia:Armor_Class}AC{/g} to see if the attack was a hit or a miss.\nIf the attack hits, the attackers make a {g|Encyclopedia:Damage}damage roll{/g} to see how much damage it deals.\nAttack is an attempt to harm an enemy during combat. To make an attack roll, you roll a d20, and then add various {g|Encyclopedia:Bonus}bonuses{/g} and {g|Encyclopedia:Penalty}penalties{/g}: from the equipped weapon, various abilities, active {g|Encyclopedia:Spell}spells{/g} and other factors. The sum of all these numbers make up the attack roll result that is then compared to the target's AC.\n{br}For example, in the last combat your character {t|SourceUnit} attacked the enemy {t|TargetUnit} and got {t|SourceRollPlusBonus}. Let's break down this result.\nRolling the d20 resulted in {t|SourceRoll}\n{t|SourceRollDetails}";
+  const string TaggedCase3 = "LocalizedString:54f2985b-f688-431b-bd30-37296e0636a6:Every {g|Encyclopedia:Attack}attack{/g} during a combat entails the following calculations:\nFirst, the attacker makes an attack {g|Encyclopedia:Dice}roll{/g} and compares the result to the target's {g|Encyclopedia:Armor_Class}AC{/g} to see if the attack was a hit or a miss.\nIf the attack hits, the attackers make a {g|Encyclopedia:Damage}damage roll{/g} to see how much damage it deals.\nAttack is an attempt to harm an enemy during combat. To make an attack roll, you roll a d20, and then add various {g|Encyclopedia:Bonus}bonuses{/g} and {g|Encyclopedia:Penalty}penalties{/g}: from the equipped weapon, various abilities, active {g|Encyclopedia:Spell}spells{/g} and other factors. The sum of all these numbers make up the attack roll result that is then compared to the target's AC.\n{br}For example, in the last combat your character {t|SourceUnit} attacked the enemy {t|TargetUnit} and got {t|SourceRollPlusBonus}. Let's break down this result.\nRolling the d20 resulted in {t|SourceRoll}\n{t|SourceRollDetails}";
 
   const string UntaggedCase1 = "LocalizedString:ac47105f-7964-47f5-bde2-c799cee6fe06:You get a +1 bonus on attack and damage rolls with ranged weapons at ranges of up to 30 feet.";
 
@@ -39,12 +39,18 @@ public class EncyclopediaToolTest
   [Fact]
   public void TaggingWorks()
   {
-    var nowTagged3 = EncyclopediaTool.TagEncyclopediaEntries(UntaggedCase3);
-    Assert.Equal(TaggedCase3, nowTagged3);
-
     foreach (var (tagged, untagged) in Cases)
     {
       Assert.Equal(tagged, EncyclopediaTool.TagEncyclopediaEntries(untagged));
+    }
+  }
+
+  [Fact]
+  public void UntaggingWorks()
+  {
+    foreach (var (tagged, untagged) in Cases)
+    {
+      Assert.Equal(untagged, EncyclopediaTool.UntagEncyclopediaEntry(tagged));
     }
   }
 }

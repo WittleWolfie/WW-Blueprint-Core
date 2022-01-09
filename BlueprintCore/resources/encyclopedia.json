@@ -132,6 +132,10 @@
     "Patterns": [ "Armor Check Penalty" ]
   },
   {
+    "Entry": "Penalty",
+    "Patterns": [ "Penalties", "Penalty" ]
+  },
+  {
     "Entry": "Damage_Reduction",
     "Patterns": [ "DR" ]
   },
@@ -200,12 +204,12 @@
     "Patterns": [ "Checks?" ]
   },
   {
-    "Entry": "Spells",
+    "Entry": "Spell",
     "Patterns": [ "Spells?" ]
   },
   {
     "Entry": "Attack",
-    "Patterns": [ "Attack rolls?", "Attacks?", "Attacking" ]
+    "Patterns": [ "Attacks?", "Attacking", "Attack rolls?" ]
   },
   {
     "Entry": "Feat",

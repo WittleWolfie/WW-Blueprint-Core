@@ -7,8 +7,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BlueprintCore.Utils;
-using BlueprintCore.BlueprintCore.Utils.Internal;
-using BlueprintCore.BlueprintCore.Utils.Internal.RegexNS;
+using BlueprintCore.BlueprintCore.Extensions;
 
 namespace BlueprintCore.BlueprintCore.Utils;
 public static class EncyclopediaTool
@@ -34,18 +33,24 @@ public static class EncyclopediaTool
   internal static EncyclopediaEntry[] EncyclopediaEntries => encyclopediaEntries.Value;
 
 
-  public static string TagEncyclopediaEntries(string description)
+  public static string TagEncyclopediaEntries(string text)
   {
-    var result = description;
-    result = result.StripHTML();
     foreach (var entry in EncyclopediaEntries)
     {
-      foreach (var pattern in entry.Patterns)
-      {
-        result = result.ApplyTags(pattern, entry);
-      }
+      text = entry.TagEntry(text);
     }
-    return result;
+
+    return text;
+  }
+
+  public static string UntagEncyclopediaEntry(string text)
+  {
+    foreach (var entry in EncyclopediaEntries)
+    {
+      text = entry.UntagEntry(text);
+    }
+
+    return text;
   }
 
   internal class EncyclopediaEntry
@@ -53,45 +58,67 @@ public static class EncyclopediaTool
     public string Entry { get; set; }
     public List<string> Patterns { get; set; }
 
+    public Regex EntryPattern { get; }
     public EncyclopediaEntry(string entry, List<string> patterns)
     {
       Entry = entry;
       Patterns = patterns;
+      EntryPattern = new Regex($@"{{g|Encyclopedia:{Entry}}}(?<text>.*?){{/g}}");
     }
 
-    public string Tag(string keyword)
+    public string TagEntry(string text)
     {
-      return $"{{g|Encyclopedia:{Entry}}}{keyword}{{/g}}";
-    }
-  }
+      foreach (var pattern in this.Patterns)
+      {
+        // Changed from Vek implementation because it seems that vanilla game only tags each entry once in a description
+        var matches = Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
+        foreach (Match match in matches)
+        {
+          if (match.Success)
+          {
+            string preceding = text.Substring(0, match.Index);
+            string following = text.Substring(match.GetEnd());
 
-  private static string ApplyTags(this string str, string from, EncyclopediaEntry entry)
-  {
-    var pattern = from.EnforceSolo().ExcludeTagged();
-    var matches = Regex.Matches(str, pattern, RegexOptions.IgnoreCase)
-        .OfType<Match>()
-        .Select(m => m.Value)
-        .Distinct();
-    foreach (string match in matches)
-    {
-      str = Regex.Replace(str, Regex.Escape(match).EnforceSolo().ExcludeTagged(), entry.Tag(match), RegexOptions.IgnoreCase);
+            // TODO: break into seperate methods
+
+            // check if is standalone word
+            bool precedingOk = preceding.Length > 0 ? char.IsWhiteSpace(preceding.Last()) || char.IsPunctuation(preceding.Last()) : true;
+            bool followingOk = following.Length > 0 ? char.IsWhiteSpace(following.First()) || char.IsPunctuation(following.First()) : true;
+
+            if (!precedingOk || !followingOk)
+            {
+              continue;
+            }
+
+            // check if is already tagged
+            if (Regex.IsMatch(preceding, @"{g\|Encyclopedia:[\w_]*}?\Z") || following.StartsWith("{/g}"))
+            {
+              continue;
+            }
+
+
+            text = preceding + this.WrapTextInEntryTag(match.Value) + following;
+            return text; // return after tagging first entry
+          }
+        }
+      }
+
+      return text;
     }
-    return str;
-  }
-  public static string StripHTML(this string str)
-  {
-    return Regex.Replace(str, "<.*?>", string.Empty);
-  }
-  public static string StripEncyclopediaTags(this string str)
-  {
-    return Regex.Replace(str, "{.*?}", string.Empty);
-  }
-  private static string ExcludeTagged(this string str)
-  {
-    return $"{@"(?<!{g\|Encyclopedia:\w+}[^}]*)"}{str}{@"(?![^{]*{\/g})"}";
-  }
-  private static string EnforceSolo(this string str)
-  {
-    return $"{@"(?<![\w>]+)"}{str}{@"(?![^\s\.,""'<)]+)"}";
+
+    public string UntagEntry(string text)
+    {
+      foreach (var pattern in Patterns)
+      {
+        text = Regex.Replace(text, pattern, m => m.Groups["text"].Value);
+      }
+
+      return text;
+    }
+
+    private string WrapTextInEntryTag(string text)
+    {
+      return $"{{g|Encyclopedia:{Entry}}}{text}{{/g}}";
+    }
   }
 }
