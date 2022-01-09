@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 using BlueprintCore.Utils;
 
 namespace BlueprintCore.BlueprintCore.Utils;
-
 public static class EncyclopediaTool
 {
-
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
 
   private static Lazy<EncyclopediaEntry[]> encyclopediaEntries = new Lazy<EncyclopediaEntry[]>(() =>
   {
     try
     {
-      using (FileStream stream = new FileStream("/resources/encyclopedia.json", FileMode.Open, FileAccess.Read))
+      using (FileStream stream = new FileStream("resources/encyclopedia.json", FileMode.Open, FileAccess.Read))
       {
         return JsonSerializer.Deserialize<EncyclopediaEntry[]>(stream)!;
       }
-
     }
     catch (FileNotFoundException ex)
     {
@@ -31,7 +28,8 @@ public static class EncyclopediaTool
       throw ex;
     }
   });
-  private static EncyclopediaEntry[] EncyclopediaEntries => encyclopediaEntries.Value;
+  internal static EncyclopediaEntry[] EncyclopediaEntries => encyclopediaEntries.Value;
+
 
   public static string TagEncyclopediaEntries(string description)
   {
@@ -47,10 +45,16 @@ public static class EncyclopediaTool
     return result;
   }
 
-  private class EncyclopediaEntry
+  internal class EncyclopediaEntry
   {
-    public string Entry = "";
-    public List<string> Patterns = new List<string>();
+    public string Entry { get; set; } = "";
+    public List<string> Patterns { get; set; } = new List<string>();
+
+    public EncyclopediaEntry(string entry, List<string> patterns)
+    {
+      Entry = entry;
+      Patterns = patterns;
+    }
 
     public string Tag(string keyword)
     {
