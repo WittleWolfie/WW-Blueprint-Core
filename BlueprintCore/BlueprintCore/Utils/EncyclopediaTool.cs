@@ -7,10 +7,10 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BlueprintCore.Utils;
-using BlueprintCore.BlueprintCore.Internal;
+using BlueprintCore.Internal;
 using System.Resources;
 
-namespace BlueprintCore.BlueprintCore.Utils;
+namespace BlueprintCore.Utils;
 public static class EncyclopediaTool
 {
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
