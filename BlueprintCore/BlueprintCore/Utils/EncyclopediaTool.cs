@@ -12,7 +12,8 @@ using System.Resources;
 
 namespace BlueprintCore.Utils;
 
-// Based on TabletopTweaks.Utilities.DescriptionTools by Vek17 - https://github.com/Vek17/WrathMods-TabletopTweaks/
+/// Tool for adding and removing encyclopedia entry tags from descriptions.
+/// Based on TabletopTweaks.Utilities.DescriptionTools by Vek17 - https://github.com/Vek17/WrathMods-TabletopTweaks/
 public static class EncyclopediaTool
 {
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
@@ -38,7 +39,10 @@ public static class EncyclopediaTool
   });
   internal static EncyclopediaEntry[] EncyclopediaEntries => encyclopediaEntries.Value;
 
-
+  /// <summary>
+  /// Adds encyclopedia entry tags to <c>text</c>.
+  /// For an example, see class <c>BlueprintCore.Test.UtilsEncyclopediaToolTest</c> in <b>Blueprint-Core-Gen</b> project.
+  /// <example>
   public static string TagEncyclopediaEntries(string text)
   {
     foreach (var entry in EncyclopediaEntries)
@@ -49,6 +53,10 @@ public static class EncyclopediaTool
     return text;
   }
 
+  /// <summary>
+  /// Removes encyclopedia entry tags from <c>text</c>.
+  /// For an example, see class <c>BlueprintCore.Test.UtilsEncyclopediaToolTest</c> in <b>Blueprint-Core-Gen</b> project.
+  /// </summary>
   public static string UntagEncyclopediaEntries(string text)
   {
     foreach (var entry in EncyclopediaEntries)
