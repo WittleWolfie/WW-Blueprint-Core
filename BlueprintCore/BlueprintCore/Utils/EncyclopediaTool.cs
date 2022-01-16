@@ -11,6 +11,8 @@ using BlueprintCore.Internal;
 using System.Resources;
 
 namespace BlueprintCore.Utils;
+
+// Based on TabletopTweaks.Utilities.DescriptionTools by Vek17 - https://github.com/Vek17/WrathMods-TabletopTweaks/
 public static class EncyclopediaTool
 {
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
