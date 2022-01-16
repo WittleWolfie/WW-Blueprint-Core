@@ -61,8 +61,8 @@ public static class EncyclopediaTool
 
   internal class EncyclopediaEntry
   {
-    public string Entry { get; set; }
-    public List<string> Patterns { get; set; }
+    public string Entry { get; }
+    public List<string> Patterns { get; }
 
     public Regex EntryPattern { get; }
     public EncyclopediaEntry(string entry, List<string> patterns)
@@ -84,12 +84,7 @@ public static class EncyclopediaTool
           {
             var context = new MatchContext(match, text);
 
-            if (!context.IsMatchStandaloneWord())
-            {
-              continue;
-            }
-
-            if (IsAlreadyTagged(context))
+            if (!context.IsMatchStandaloneWord() || IsAlreadyTagged(context))
             {
               continue;
             }
