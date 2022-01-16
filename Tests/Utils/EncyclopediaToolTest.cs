@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlueprintCore.BlueprintCore.Utils;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BlueprintCore.Test.Utils;
 
@@ -27,6 +28,7 @@ public class EncyclopediaToolTest
   #endregion
 
   (string Tagged, string Untagged)[] Cases = new[] { (TaggedCase1, UntaggedCase1), (TaggedCase2, UntaggedCase2), (TaggedCase3, UntaggedCase3) };
+
 
   [Fact]
   public void EncyclopediaEntriesLoad()

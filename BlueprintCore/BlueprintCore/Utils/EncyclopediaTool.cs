@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BlueprintCore.Utils;
 using BlueprintCore.BlueprintCore.Internal;
+using System.Resources;
 
 namespace BlueprintCore.BlueprintCore.Utils;
 public static class EncyclopediaTool
@@ -19,7 +20,11 @@ public static class EncyclopediaTool
   {
     try
     {
-      using (FileStream stream = new FileStream("resources/encyclopedia.json", FileMode.Open, FileAccess.Read))
+      var assembly = typeof(EncyclopediaTool).Assembly;
+      var resourceName = "BlueprintCore.resources.encyclopedia.json";
+
+      using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+      using (StreamReader reader = new StreamReader(stream))
       {
         return JsonSerializer.Deserialize<EncyclopediaEntry[]>(stream)!;
       }
