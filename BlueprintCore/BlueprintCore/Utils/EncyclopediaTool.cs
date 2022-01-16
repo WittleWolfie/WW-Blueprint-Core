@@ -17,7 +17,6 @@ public static class EncyclopediaTool
 {
   private static readonly LogWrapper Logger = LogWrapper.GetInternal("EncyclopediaTool");
 
-  // TODO: Add this file to NuGet Spec.
   private static Lazy<EncyclopediaEntry[]> encyclopediaEntries = new Lazy<EncyclopediaEntry[]>(() =>
   {
     try
