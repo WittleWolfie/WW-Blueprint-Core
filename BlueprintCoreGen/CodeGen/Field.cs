@@ -77,11 +77,6 @@ namespace BlueprintCoreGen.CodeGen
   public interface INewField
   {
     /// <summary>
-    /// Name of the field in source.
-    /// </summary>
-    string Name { get; }
-
-    /// <summary>
     /// Processed type name.
     /// </summary>
     string TypeName { get; }
