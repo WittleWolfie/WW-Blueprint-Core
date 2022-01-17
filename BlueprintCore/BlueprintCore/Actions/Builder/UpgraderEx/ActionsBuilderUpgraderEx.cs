@@ -342,6 +342,32 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
+    /// Adds <see cref="RefreshArmyLeadersBaseSkills"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RefreshArmyLeadersBaseSkills))]
+    public static ActionsBuilder RefreshArmyLeadersBaseSkills(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<RefreshArmyLeadersBaseSkills>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="RespawnNewUnit"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RespawnNewUnit))]
+    public static ActionsBuilder RespawnNewUnit(
+        this ActionsBuilder builder,
+        EntityReference spawner)
+    {
+      builder.Validate(spawner);
+    
+      var element = ElementTool.Create<RespawnNewUnit>();
+      element.Spawner = spawner;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveSpell"/> (Auto Generated)
     /// </summary>
     ///
@@ -373,6 +399,22 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     {
       var element = ElementTool.Create<RestoreClassFeature>();
       element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UpdateProgression"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="progression"><see cref="Kingmaker.Blueprints.Classes.BlueprintProgression"/></param>
+    [Generated]
+    [Implements(typeof(UpdateProgression))]
+    public static ActionsBuilder UpdateProgression(
+        this ActionsBuilder builder,
+        string? progression = null)
+    {
+      var element = ElementTool.Create<UpdateProgression>();
+      element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(progression);
       return builder.Add(element);
     }
   }

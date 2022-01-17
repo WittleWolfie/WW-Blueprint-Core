@@ -1902,6 +1902,20 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionByArmyLeader"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextActionByArmyLeader))]
+    public static ActionsBuilder ContextActionByArmyLeader(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null)
+    {
+      var element = ElementTool.Create<ContextActionByArmyLeader>();
+      element.Actions = actions?.Build() ?? Constants.Empty.Actions;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CreateArmyFromLosses"/> (Auto Generated)
     /// </summary>
     ///

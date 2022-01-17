@@ -81,6 +81,8 @@ namespace BlueprintCoreGen.Conditions.Builder.ContextEx
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionFavoredEnemy)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionGender)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuff)]
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromThisAreaEffect)]
+    // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffImmunityWithDescriptor)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithDescriptor)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasItem)]
     // [Generate(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasTouchSpellCharge)]
