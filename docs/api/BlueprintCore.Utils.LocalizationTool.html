@@ -94,19 +94,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.CreateString(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.CreateString(System.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L23">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L28">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_CreateString_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString*"></a>
-  <h4 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString(System.String,System.String)">CreateString(String, String)</h4>
-  <div class="markdown level1 summary"><p>Creates a localized string with the provided key and value.</p>
+  <h4 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString(System.String,System.String,System.Boolean)">CreateString(String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Returns a localized string with the provided <code>key</code> and <code>value</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LocalizedString CreateString(string key, string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LocalizedString CreateString(string key, string value, bool tagEncyclopediaEntries = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -128,6 +128,11 @@
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">tagEncyclopediaEntries</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -145,17 +150,21 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintCore_Utils_EncyclopediaTool_TagEncyclopediaEntries_System_String_">TagEncyclopediaEntries(String)</a> on <code>value</code> by default. Override
+<code data-dev-comment-type="paramref" class="paramref">tagEncyclopediaEntries</code> if this is not desired.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_GetString_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.GetString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L61">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L68">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_GetString_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_GetString_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString(System.String)">GetString(String)</h4>
-  <div class="markdown level1 summary"><p>Returns a localized string for the provided key. You must create the string using
-<a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_">CreateString(String, String)</a> before calling this.</p>
+  <div class="markdown level1 summary"><p>Returns the localized string created using <a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_">CreateString(String, String, Boolean)</a> with the specified
+<code>key</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
