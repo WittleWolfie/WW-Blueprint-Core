@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kingmaker.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -49,6 +50,19 @@ namespace BlueprintCoreGen.CodeGen
         return $"using {type.Namespace};";
       }
       return null;
+    }
+
+    /// <summary>
+    /// Returns the type of Blueprint represented by the given BlueprintReferenceBase type
+    /// </summary>
+    public static Type GetBlueprintType(Type blueprintReferenceType)
+    {
+      var refType = blueprintReferenceType;
+      while (!(refType!.IsGenericType && refType.GetGenericTypeDefinition() == typeof(BlueprintReference<>)))
+      {
+        refType = refType.BaseType;
+      }
+      return refType.GenericTypeArguments[0];
     }
 
     /// <summary>

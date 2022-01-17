@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -29,19 +31,19 @@ namespace BlueprintCoreGen.CodeGen
       return CreateField(info, sourceType);
     }
 
-    private static INewField CreateEnumerableField(FieldInfo info, Type sourceType, Type enumerableType)
-    {
-      return null;
-    }
-
     private static INewField CreateField(FieldInfo info, Type sourceType)
     {
       var field =
-          new SimpleField(
-              info.Name,
-              TypeTool.GetName(info.FieldType),
-              GetParamName(info.Name),
-              info.FieldType);
+          info.FieldType.IsSubclassOf(typeof(BlueprintReferenceBase))
+              ? new BlueprintField(
+                  info.Name,
+                  GetParamName(info.Name),
+                  info.FieldType)
+              : new SimpleField(
+                  info.Name,
+                  TypeTool.GetName(info.FieldType),
+                  GetParamName(info.Name),
+                  info.FieldType);
       
       if (FieldOverrides.ByType.ContainsKey(info.FieldType))
       {
@@ -94,25 +96,25 @@ namespace BlueprintCoreGen.CodeGen
 
     private class SimpleField : INewField
     {
-      public string TypeName { get; set; }
+      public string TypeName { get; protected set; }
 
-      public string ParamName { get; set; }
+      public string ParamName { get; protected set; }
 
-      public string? Comment { get; set; }
+      public string? Comment { get; protected set; }
 
-      public string? DefaultValue { get; set; }
+      public string? DefaultValue { get; protected set; }
 
-      public List<Type> Imports { get; set; }
+      public List<Type> Imports { get; protected set; }
 
       /// <summary>
       /// Assignment format string where {0} is objectName, {1} is fieldName, and {2} is ParamName
       /// </summary>
-      public List<string> AssignmentFmt { get; set; }
+      public List<string> AssignmentFmt { get; protected set; }
 
       /// <summary>
       /// Validation format string where {0} is validateFunction and {1} is ParamName
       /// </summary>
-      public List<string> ValidationFmt { get; set; }
+      public List<string> ValidationFmt { get; protected set; }
 
       private readonly string? fieldName;
 
@@ -171,6 +173,22 @@ namespace BlueprintCoreGen.CodeGen
         }
 
         Imports.AddRange(fieldOverride.Imports);
+      }
+    }
+
+    private class BlueprintField : SimpleField
+    {
+      public BlueprintField(string fieldName, string paramName, Type type)
+          : base(fieldName, "string?", paramName, type, typeof(BlueprintTool))
+      {
+        var blueprintType = TypeTool.GetBlueprintType(type);
+
+        Comment =
+            $"<param name=\"{ParamName}\"><see cref=\"{blueprintType.Namespace}.{TypeTool.GetName(blueprintType)}\"/></param>";
+        DefaultValue = "null";
+
+        AssignmentFmt = new() { "{0}.{1} = BlueprintTool.GetRef<" + TypeTool.GetName(type) + ">({2});" };
+        ValidationFmt = new();
       }
     }
   }
