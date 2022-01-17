@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
+using System;
 using System.Linq;
 
 #nullable enable

@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Owlcat.Runtime.Core.Math;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

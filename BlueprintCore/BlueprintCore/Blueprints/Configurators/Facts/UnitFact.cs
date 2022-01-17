@@ -5404,9 +5404,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(AddSpellListAsAbilities))]
     public TBuilder AddSpellListAsAbilities(
+        bool searchInAddFeatureComponents = default,
         string[]? resourcePerSpellLevel = null)
     {
       var component = new AddSpellListAsAbilities();
+      component.m_SearchInAddFeatureComponents = searchInAddFeatureComponents;
       component.m_ResourcePerSpellLevel = resourcePerSpellLevel.Select(name => BlueprintTool.GetRef<BlueprintAbilityResourceReference>(name)).ToArray();
       return AddComponent(component);
     }

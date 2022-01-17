@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.RuleSystem;
+using System;
 using System.Linq;
 
 #nullable enable

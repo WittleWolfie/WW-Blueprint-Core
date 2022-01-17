@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Blueprints.Root.Fx;
+using System;
 using System.Linq;
 using UnityEngine;
 

@@ -621,6 +621,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// Adds <see cref="Polymorph"/> (Auto Generated)
     /// </summary>
     ///
+    /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
     /// <param name="replaceUnitForInspection"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
     /// <param name="mainHand"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
@@ -636,6 +637,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Polymorph.VisualTransitionSettings enterTransition,
         Polymorph.VisualTransitionSettings exitTransition,
         PolymorphTransitionSettings transitionExternal,
+        string? race = null,
         SpecialDollType specialDollType = default,
         string? replaceUnitForInspection = null,
         string? portrait = null,
@@ -661,6 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(transitionExternal);
     
       var component = new Polymorph();
+      component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
       component.m_Prefab = prefab;
       component.m_PrefabFemale = prefabFemale;
       component.m_SpecialDollType = specialDollType;
