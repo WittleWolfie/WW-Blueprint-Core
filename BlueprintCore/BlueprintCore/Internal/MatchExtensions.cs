@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
-namespace BlueprintCore.Internal;
-
-internal static class MatchExtensions
+namespace BlueprintCore.Internal
 {
-  public static int GetEnd(this Match match) => match.Index + match.Length;
-  public static (int Start, int End) GetBounds(this Match match) => (match.Index, match.GetEnd());
+  internal static class MatchExtensions
+  {
+    public static int GetEnd(this Match match) => match.Index + match.Length;
+    public static (int Start, int End) GetBounds(this Match match) => (match.Index, match.GetEnd());
+  }
 }
