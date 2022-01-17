@@ -40,18 +40,24 @@ namespace BlueprintCoreGen.CodeGen
           new SimpleField(
               info.Name,
               TypeTool.GetName(info.FieldType),
-              GetParamName(info.Name));
+              GetParamName(info.Name),
+              info.FieldType);
+      
+      if (FieldOverrides.ByType.ContainsKey(info.FieldType))
+      {
+        field.ApplyFieldOverride(FieldOverrides.ByType[info.FieldType]);
+      }
 
-      if 
+      // Just checking the source type misses inherited fields so loop through all keys
+      foreach (Type type in FieldOverrides.ByName.Keys)
+      {
+        if ((sourceType == type || sourceType.IsSubclassOf(type))
+            && FieldOverrides.ByName[type].ContainsKey(info.Name))
+        {
+          field.ApplyFieldOverride(FieldOverrides.ByName[type][info.Name]);
+        }
+      }
 
-      return ApplyOverrides(field, info, sourceType);
-    }
-
-    private static INewField ApplyOverrides(SimpleField field, FieldInfo info, Type sourceType)
-    {
-      // TODO: apply global overrides (e.g. ActionList => ActionsBuilder)
-
-      // TODO: apply overrides
       return field;
     }
 
@@ -98,25 +104,73 @@ namespace BlueprintCoreGen.CodeGen
 
       public List<Type> Imports { get; set; }
 
-      private string? fieldName;
+      /// <summary>
+      /// Assignment format string where {0} is objectName, {1} is fieldName, and {2} is ParamName
+      /// </summary>
+      public List<string> AssignmentFmt { get; set; }
 
-      public SimpleField(string fieldName, string typeName, string paramName)
+      /// <summary>
+      /// Validation format string where {0} is validateFunction and {1} is ParamName
+      /// </summary>
+      public List<string> ValidationFmt { get; set; }
+
+      private readonly string? fieldName;
+
+      public SimpleField(string fieldName, string typeName, string paramName, params Type[] imports)
       {
         this.fieldName = fieldName;
         TypeName = typeName;
         ParamName = paramName;
         Imports = new();
+        Imports.AddRange(imports);
+
+        AssignmentFmt = new() { "{0}.{1} = {2};" };
+        ValidationFmt = new() { "{0}.{1};" };
       }
 
-      // TODO: Convert to delegates for use in overrides
       public List<string> GetAssignment(string objectName)
       {
-        return new() { $"{objectName}.{fieldName} = {ParamName};" };
+        return AssignmentFmt.Select(line => string.Format(line, objectName, fieldName, ParamName)).ToList();
       }
 
       public List<string> GetValidation(string validateFunction)
       {
-        return new() { $"{validateFunction}({ParamName});" };
+        return ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)).ToList();
+      }
+
+      public void ApplyFieldOverride(FieldOverride fieldOverride)
+      {
+        if (fieldOverride.TypeName is not null)
+        {
+          TypeName = fieldOverride.TypeName;
+        }
+
+        if (fieldOverride.ParamName is not null)
+        {
+          ParamName = fieldOverride.ParamName;
+        }
+
+        if (fieldOverride.Comment is not null)
+        {
+          Comment = fieldOverride.Comment;
+        }
+
+        if (fieldOverride.DefaultValue is not null)
+        {
+          DefaultValue = fieldOverride.DefaultValue;
+        }
+
+        if (fieldOverride.ValidationFmt is not null)
+        {
+          ValidationFmt = fieldOverride.ValidationFmt;
+        }
+
+        if (fieldOverride.AssignmentFmt is not null)
+        {
+          AssignmentFmt = fieldOverride.AssignmentFmt;
+        }
+
+        Imports.AddRange(fieldOverride.Imports);
       }
     }
   }

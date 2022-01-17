@@ -1,10 +1,38 @@
-﻿using Kingmaker.UnitLogic.FactLogic;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Utils;
+using Kingmaker.ElementsSystem;
+using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen
 {
+  /// <summary>
+  /// Manual overrides for INewField.
+  /// </summary>
+  public class FieldOverride
+  {
+    public string? TypeName;
+
+    public string? ParamName;
+
+    public string? Comment;
+
+    public string? DefaultValue;
+
+    public List<string>? ValidationFmt;
+
+    public List<string>? AssignmentFmt;
+
+    public List<Type> Imports = new();
+  }
+
+
   /// <summary>
   /// Contains hand-tuned overrides for generated methods.
   /// </summary>
@@ -13,6 +41,105 @@ namespace BlueprintCoreGen.CodeGen
   /// auto-generated method to component templates and just manually tweak from there.
   public class FieldOverrides
   {
+    private class DefaultEmptyFieldOverride : FieldOverride
+    {
+      public DefaultEmptyFieldOverride(string emptyConstant)
+      {
+        DefaultValue = "null";
+        AssignmentFmt = new() { "{0}.{1} = {2} ?? " + emptyConstant + ";" };
+
+        Imports.Add(typeof(Constants));
+        Imports.Add(typeof(ContextValues));
+      }
+    }
+
+    private class BuilderFieldOverride :FieldOverride
+    {
+      public BuilderFieldOverride(string builderTypeName)
+      {
+        TypeName = $"{builderTypeName}?";
+        DefaultValue = "null";
+        AssignmentFmt = new() { "{0}.{1} = {2}?.Build() ?? Constants.Empty." + builderTypeName + ";" };
+        ValidationFmt = new();
+
+        Imports.Add(typeof(ActionsBuilder));
+        Imports.Add(typeof(ConditionsBuilder));
+      }
+    }
+
+    /// <summary>
+    /// Maps from a source type to a map of FieldOverride by name
+    /// </summary>
+    public static readonly Dictionary<Type, Dictionary<string, FieldOverride>> ByName =
+      new()
+      {
+        // Kingmaker.ElementSystem.Condition
+        {
+          typeof(Condition),
+          new()
+          {
+            {
+              "Not",
+              new()
+              {
+                TypeName = "bool",
+                ParamName = "negate",
+                DefaultValue = "false",
+                ValidationFmt = new(),
+                AssignmentFmt = new() { "{0}.Not = negate;" },
+              }
+            }
+          }
+        }
+      };
+
+    /// <summary>
+    /// Maps from a field type to a FieldOverride
+    /// </summary>
+    public static readonly Dictionary<Type, FieldOverride> ByType =
+      new()
+      {
+        // Kingmaker.ElementsSystem.ActionList
+        {
+          typeof(ActionList),
+          new BuilderFieldOverride("ActionsBuilder")
+        },
+
+        // Kingmaker.ElementsSystem.Conditions
+        {
+          typeof(ConditionsChecker),
+          new BuilderFieldOverride("ConditionsBuilder")
+        },
+
+        //**** Empty Fields
+
+        // Kingmaker.UnitLogic.Mechanics.ContextDiceValue
+        {
+          typeof(ContextDiceValue),
+          new DefaultEmptyFieldOverride("Constants.Empty.DiceValue")
+        },
+
+        // Kingmaker.UnitLogic.Mechanics.ContextValue
+        {
+          typeof(ContextValue),
+          new DefaultEmptyFieldOverride("ContextValues.Constant(0)")
+        },
+
+        // Kingmaker.Localization.LocalizedString
+        {
+          typeof(LocalizedString),
+          new DefaultEmptyFieldOverride("Constants.Empty.String")
+        },
+
+        // Kingmaker.ResourceLinks.PrefabLink
+        {
+          typeof(PrefabLink),
+          new DefaultEmptyFieldOverride("Constants.Empty.PrefabLink")
+        }
+
+        //**** End Empty Fields
+      };
+
     /// <summary>
     /// Returns a field with manual overrides applied.
     /// </summary>
