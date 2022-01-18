@@ -1,4 +1,6 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Utility;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,10 +68,21 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     /// <summary>
-    /// Returns the type of enumerable represented, or null if it is not enumerable.
+    /// Returns the type of enumerable represented, or null if it is not enumerable or an unsupported enumerable type.
     /// </summary>
     public static Type? GetEnumerableType(Type type)
     {
+      if (type == typeof(string)
+          // For now just skip dictionaries
+          || type.GetInterfaces()
+              .Where(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>))
+              .Any()
+          // Maybe this type can be added later
+          || type.IsSubclassOf(typeof(TagListBase)))
+      {
+        return null;
+      }
+
       return type.GetInterfaces()
           .FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
           ?.GetGenericArguments()[0];
