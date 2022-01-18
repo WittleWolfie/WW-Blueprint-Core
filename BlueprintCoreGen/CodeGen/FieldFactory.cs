@@ -51,13 +51,22 @@ namespace BlueprintCoreGen.CodeGen
                   info.Name,
                   TypeTool.GetName(info.FieldType),
                   GetParamName(info.Name),
+                  ShouldSkipValidation(info.FieldType),
                   info.FieldType);
+
+      if (info.FieldType.IsGenericType)
+      {
+        field.Imports.AddRange(info.FieldType.GetGenericArguments());
+      }
+      field.DefaultValue = GetDefaultValue(info.FieldType);
       
+      // Type specific overrides
       if (FieldOverrides.ByType.ContainsKey(info.FieldType))
       {
         field.ApplyFieldOverride(FieldOverrides.ByType[info.FieldType]);
       }
 
+      // Field specific overrides
       // Just checking the source type misses inherited fields so loop through all keys
       foreach (Type type in FieldOverrides.ByName.Keys)
       {
@@ -69,6 +78,36 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return field;
+    }
+
+    private static string? GetDefaultValue(Type type)
+    {
+      // TODO: Pull the default hardcoded value by instantiating an object
+
+      if (type.IsPrimitive || type.IsEnum) { return "default"; }
+      if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)) { return "null"; }
+      return null;
+    }
+
+    private static bool ShouldSkipValidation(Type type)
+    {
+      if (type.IsPrimitive)
+      {
+        return true;
+      }
+      if (type == typeof(string))
+      {
+        return true;
+      }
+      if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+      {
+        return true;
+      }
+      if (type.IsValueType)
+      {
+        return true;
+      }
+      return false;
     }
 
     private static string GetParamName(string fieldName)
@@ -104,29 +143,30 @@ namespace BlueprintCoreGen.CodeGen
 
     private class SimpleField : INewField
     {
-      public string TypeName { get; protected set; }
+      public string TypeName { get; set; }
 
-      public string ParamName { get; protected set; }
+      public string ParamName { get; set; }
 
-      public string? Comment { get; protected set; }
+      public string? Comment { get; set; }
 
-      public string? DefaultValue { get; protected set; }
+      public string? DefaultValue { get; set; }
 
-      public List<Type> Imports { get; protected set; }
+      public List<Type> Imports { get; set; }
 
       /// <summary>
       /// Assignment format string where {0} is objectName, {1} is fieldName, and {2} is ParamName
       /// </summary>
-      public List<string> AssignmentFmt { get; protected set; }
+      public List<string> AssignmentFmt { get; set; }
 
       /// <summary>
       /// Validation format string where {0} is validateFunction and {1} is ParamName
       /// </summary>
-      public List<string> ValidationFmt { get; protected set; }
+      public List<string> ValidationFmt { get; set; }
 
       private readonly string? fieldName;
 
-      public SimpleField(string? fieldName, string typeName, string paramName, params Type[] imports)
+      public SimpleField(
+          string? fieldName, string typeName, string paramName, bool shouldSkipValidation, params Type[] imports)
       {
         this.fieldName = fieldName;
         TypeName = typeName;
@@ -135,7 +175,7 @@ namespace BlueprintCoreGen.CodeGen
         Imports.AddRange(imports);
 
         AssignmentFmt = new() { "{0}.{1} = {2};" };
-        ValidationFmt = new() { "{0}.{1};" };
+        ValidationFmt = shouldSkipValidation ? new() : new() { "{0}.{1};" };
       }
 
       public List<string> GetAssignment(string objectName)
@@ -187,7 +227,7 @@ namespace BlueprintCoreGen.CodeGen
     private class BlueprintField : SimpleField
     {
       public BlueprintField(string fieldName, string paramName, Type type)
-          : base(fieldName, "string?", paramName, type, typeof(BlueprintTool))
+          : base(fieldName, "string?", paramName, true, type, typeof(BlueprintTool))
       {
         var blueprintType = TypeTool.GetBlueprintType(type);
 
@@ -207,6 +247,7 @@ namespace BlueprintCoreGen.CodeGen
               null,
               "ComponentMerge",
               "mergeBehavior",
+              true,
               typeof(BlueprintConfigurator<>),
               typeof(Action),
               typeof(BlueprintComponent))
@@ -220,7 +261,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private class MergeActionField : SimpleField
     {
-      public MergeActionField() : base(null, "Action<BlueprintComponent, BluepprintComponent>?", "mergeAction")
+      public MergeActionField() : base(null, "Action<BlueprintComponent, BluepprintComponent>?", "mergeAction", true)
       {
         DefaultValue = "null";
 
