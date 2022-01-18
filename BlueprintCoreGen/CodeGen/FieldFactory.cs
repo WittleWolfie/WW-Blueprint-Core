@@ -1,11 +1,11 @@
-﻿using BlueprintCore.Utils;
+﻿using BlueprintCore.Blueprints.Configurators;
+using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -20,6 +20,9 @@ namespace BlueprintCoreGen.CodeGen
               .ToList();
     }
 
+    public static readonly List<INewField> UniqueComponentFields =
+        new() { new MergeBehaviorField(), new MergeActionField() };
+
     private static INewField CreateInternal(FieldInfo info, Type sourceType)
     {
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -29,6 +32,11 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return CreateField(info, sourceType);
+    }
+
+    private static INewField CreateEnumerableField(FieldInfo info, Type sourceType, Type enumerableType)
+    {
+      return null;
     }
 
     private static INewField CreateField(FieldInfo info, Type sourceType)
@@ -118,7 +126,7 @@ namespace BlueprintCoreGen.CodeGen
 
       private readonly string? fieldName;
 
-      public SimpleField(string fieldName, string typeName, string paramName, params Type[] imports)
+      public SimpleField(string? fieldName, string typeName, string paramName, params Type[] imports)
       {
         this.fieldName = fieldName;
         TypeName = typeName;
@@ -188,6 +196,35 @@ namespace BlueprintCoreGen.CodeGen
         DefaultValue = "null";
 
         AssignmentFmt = new() { "{0}.{1} = BlueprintTool.GetRef<" + TypeTool.GetName(type) + ">({2});" };
+        ValidationFmt = new();
+      }
+    }
+
+    private class MergeBehaviorField : SimpleField
+    {
+      public MergeBehaviorField()
+          : base(
+              null,
+              "ComponentMerge",
+              "mergeBehavior",
+              typeof(BlueprintConfigurator<>),
+              typeof(Action),
+              typeof(BlueprintComponent))
+      {
+        DefaultValue = "ComponentMerge.Replace";
+
+        AssignmentFmt = new();
+        ValidationFmt = new();
+      }
+    }
+
+    private class MergeActionField : SimpleField
+    {
+      public MergeActionField() : base(null, "Action<BlueprintComponent, BluepprintComponent>?", "mergeAction")
+      {
+        DefaultValue = "null";
+
+        AssignmentFmt = new();
         ValidationFmt = new();
       }
     }
