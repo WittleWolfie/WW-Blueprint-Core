@@ -54,22 +54,25 @@ namespace BlueprintCoreGen.CodeGen
                   ShouldSkipValidation(info.FieldType),
                   info.FieldType);
 
+      // Additional imports for generic types
       if (info.FieldType.IsGenericType)
       {
         field.Imports.AddRange(info.FieldType.GetGenericArguments());
       }
+
+      // Set the default value, if applicable
       field.DefaultValue = GetDefaultValue(info.FieldType);
       
-      // Type specific overrides
+      // Apply specific overrides
       if (FieldOverrides.ByType.ContainsKey(info.FieldType))
       {
         field.ApplyFieldOverride(FieldOverrides.ByType[info.FieldType]);
       }
 
-      // Field specific overrides
-      // Just checking the source type misses inherited fields so loop through all keys
+      // Apply field specific overrides
       foreach (Type type in FieldOverrides.ByName.Keys)
       {
+        // Just checking the source type misses inherited fields so loop through all keys
         if ((sourceType == type || sourceType.IsSubclassOf(type))
             && FieldOverrides.ByName[type].ContainsKey(info.Name))
         {
