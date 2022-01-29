@@ -69,6 +69,19 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<p>#v1.3.3 Release (Beta Branch)</p>
+<ul>
+<li>Updated for compatibility w/ 1.2.0 Beta</li>
+<li>Migrated from System.Text.Json to Newtonsoft.Json since it is already included with Wrath</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>New dependency on <code>Owlcat.Runtime.Validation.dll</code></li>
+<li>The game's validation system was refactored and this update makes it compile and run but there may new warnings, duplicate warnings, or missing warnings</li>
+<li>References to GameObject have migrated to PrefabLink</li>
+<li>References to asset types have migrated to Link, e.g. Sprite is now SpriteLink</li>
+<li>A lot of blueprints, components, actions, and conditions have small changes</li>
+</ul>
 <p>#v1.3.2 Release</p>
 <h3 id="new-features">New Features</h3>
 <ul>
@@ -177,7 +190,7 @@
 <li>Generated code makes a best effort attempt to define optional parameters and provide safe default values for types which should not be null</li>
 <li>Added LocalizationTool for creating LocalizedStrings</li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <p>A lot of codeode was moved around for consistency and new DLL references are required.</p>
 <ul>
 <li>BlueprintTool moved from BlueprintCore.Blueprints to BlueprintCore.Utils</li>
