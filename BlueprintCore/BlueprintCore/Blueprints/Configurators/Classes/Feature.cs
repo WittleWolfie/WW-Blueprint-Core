@@ -12,6 +12,7 @@ using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -756,6 +757,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PrerequisiteCondition))]
+    public TBuilder AddPrerequisiteCondition(
+        Condition condition,
+        LocalizedString? uIText = null,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default)
+    {
+      ValidateParam(condition);
+      ValidateParam(uIText);
+    
+      var component = new PrerequisiteCondition();
+      component.Condition = condition;
+      component.UIText = uIText ?? Constants.Empty.String;
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="PrerequisiteLoreMaster"/> (Auto Generated)
     /// </summary>
     ///
@@ -909,10 +934,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddTricksterAthleticBonus))]
     public TBuilder AddTricksterAthleticBonus(
-        ModifierDescriptor descriptor = default)
+        ModifierDescriptor descriptor = default,
+        bool isAdded = default)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor;
+      component.m_IsAdded = isAdded;
       return AddComponent(component);
     }
 

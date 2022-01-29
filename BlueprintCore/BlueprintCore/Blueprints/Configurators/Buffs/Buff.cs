@@ -1,6 +1,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
+using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
@@ -396,10 +397,12 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     [Generated]
     [Implements(typeof(AddTricksterAthleticBonus))]
     public BuffConfigurator AddTricksterAthleticBonus(
-        ModifierDescriptor descriptor = default)
+        ModifierDescriptor descriptor = default,
+        bool isAdded = default)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor;
+      component.m_IsAdded = isAdded;
       return AddComponent(component);
     }
 
@@ -1294,6 +1297,25 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);
       component.m_ChangeNegativeMorale = changeNegativeMorale;
       component.m_NegativeMoraleChancePercentDelta = negativeMoraleChancePercentDelta ?? ContextValues.Constant(0);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ModifyArmyUnitSpellPower"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ModifyArmyUnitSpellPower))]
+    public BuffConfigurator AddModifyArmyUnitSpellPower(
+        ContextValue? percentModifier = null,
+        ModifierDescriptor descriptor = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      ValidateParam(percentModifier);
+    
+      var component = new ModifyArmyUnitSpellPower();
+      component.PercentModifier = percentModifier ?? ContextValues.Constant(0);
+      component.Descriptor = descriptor;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

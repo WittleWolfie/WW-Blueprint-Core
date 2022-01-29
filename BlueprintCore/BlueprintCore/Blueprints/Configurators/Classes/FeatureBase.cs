@@ -4,7 +4,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
-using System;
 using System.Linq;
 
 #nullable enable
@@ -107,12 +106,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     [Generated]
     [Implements(typeof(HideFeatureInInspect))]
-    public TBuilder AddHideFeatureInInspect(
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    public TBuilder AddHideFeatureInInspect()
     {
-      var component = new HideFeatureInInspect();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+      return AddComponent(new HideFeatureInInspect());
     }
   }
 }

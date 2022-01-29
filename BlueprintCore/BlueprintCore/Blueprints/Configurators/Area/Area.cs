@@ -8,11 +8,12 @@ using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Localization;
+using Kingmaker.RandomEncounters;
 using Kingmaker.RandomEncounters.Settings;
+using Kingmaker.ResourceLinks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -232,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetLoadingScreenSprites(List<Sprite>? loadingScreenSprites)
+    public TBuilder SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
     
@@ -247,13 +248,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder AddToLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    public TBuilder AddToLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
       return OnConfigureInternal(
           bp =>
           {
-            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<Sprite>());
+            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<SpriteLink>());
           });
     }
 
@@ -261,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder RemoveFromLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    public TBuilder RemoveFromLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
       return OnConfigureInternal(
@@ -386,6 +387,23 @@ namespace BlueprintCore.Blueprints.Configurators.Area
                         bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
                     .ToArray();
           });
+    }
+
+    /// <summary>
+    /// Adds <see cref="CampingEncounterIncreaseDifficulty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(CampingEncounterIncreaseDifficulty))]
+    public TBuilder AddCampingEncounterIncreaseDifficulty(
+        float increaseChance = default,
+        int increaseDifficulty = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new CampingEncounterIncreaseDifficulty();
+      component.m_IncreaseChance = increaseChance;
+      component.m_IncreaseDifficulty = increaseDifficulty;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -746,7 +764,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator SetLoadingScreenSprites(List<Sprite>? loadingScreenSprites)
+    public AreaConfigurator SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
     
@@ -761,13 +779,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator AddToLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    public AreaConfigurator AddToLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
       return OnConfigureInternal(
           bp =>
           {
-            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<Sprite>());
+            bp.LoadingScreenSprites.AddRange(loadingScreenSprites.ToList() ?? new List<SpriteLink>());
           });
     }
 
@@ -775,7 +793,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaConfigurator RemoveFromLoadingScreenSprites(params Sprite[] loadingScreenSprites)
+    public AreaConfigurator RemoveFromLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
       return OnConfigureInternal(
@@ -900,6 +918,23 @@ namespace BlueprintCore.Blueprints.Configurators.Area
                         bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
                     .ToArray();
           });
+    }
+
+    /// <summary>
+    /// Adds <see cref="CampingEncounterIncreaseDifficulty"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(CampingEncounterIncreaseDifficulty))]
+    public AreaConfigurator AddCampingEncounterIncreaseDifficulty(
+        float increaseChance = default,
+        int increaseDifficulty = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new CampingEncounterIncreaseDifficulty();
+      component.m_IncreaseChance = increaseChance;
+      component.m_IncreaseDifficulty = increaseDifficulty;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

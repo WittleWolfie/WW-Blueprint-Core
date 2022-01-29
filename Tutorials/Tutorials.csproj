@@ -63,12 +63,7 @@
     
     <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
 
-    <ILRepack
-        OutputType="Dll"
-        MainAssembly="@(OutputAssembly)"
-        OutputAssembly="@(OutputAssembly)"
-        InputAssemblies="@(InputAssemblies)"
-        WorkingDirectory="$(OutputPath)" />
+    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
   </Target>
 
   <!-- Automatic Deployment Setup -->

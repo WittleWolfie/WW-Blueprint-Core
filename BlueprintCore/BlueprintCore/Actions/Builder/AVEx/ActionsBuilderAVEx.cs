@@ -8,9 +8,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Actions.Builder.AVEx
@@ -73,7 +71,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(ContextActionRunAnimationClip))]
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
-        AnimationClipWrapper clip,
+        AnimationClipWrapperLink clip,
         ExecutionMode mode = ExecutionMode.Interrupted,
         float transitionIn = 0.25f,
         float transitionOut = 0.25f)
@@ -194,7 +192,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     [Implements(typeof(PlayAnimationOneShot))]
     public static ActionsBuilder PlayAnimationOneShot(
         this ActionsBuilder builder,
-        AnimationClipWrapper clipWrapper,
+        AnimationClipWrapperLink clipWrapper,
         UnitEvaluator unit,
         float transitionIn = default,
         float transitionOut = default)
@@ -317,14 +315,14 @@ namespace BlueprintCore.Actions.Builder.AVEx
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
         TransformEvaluator target,
-        GameObject fxPrefab)
+        PrefabLink? fxPrefab = null)
     {
       builder.Validate(target);
       builder.Validate(fxPrefab);
     
       var element = ElementTool.Create<SpawnFx>();
       element.Target = target;
-      element.FxPrefab = fxPrefab;
+      element.FxPrefab = fxPrefab ?? Constants.Empty.PrefabLink;
       return builder.Add(element);
     }
 

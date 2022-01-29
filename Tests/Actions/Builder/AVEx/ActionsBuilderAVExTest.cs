@@ -80,8 +80,8 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
       // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
       // be constructed in unit tests.
       var clip =
-          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
-              typeof(AnimationClipWrapper));
+          (AnimationClipWrapperLink)FormatterServices.GetUninitializedObject(
+              typeof(AnimationClipWrapperLink));
 
       var actions = ActionsBuilder.New().RunAnimationClip(clip).Build();
 
@@ -101,8 +101,8 @@ namespace BlueprintCore.Test.Actions.Builder.AVEx
       // This is necessary because AnimationClipWrapper inherits from SerializedObject which cannot
       // be constructed in unit tests.
       var clip =
-          (AnimationClipWrapper)FormatterServices.GetUninitializedObject(
-              typeof(AnimationClipWrapper));
+          (AnimationClipWrapperLink)FormatterServices.GetUninitializedObject(
+              typeof(AnimationClipWrapperLink));
 
       var actions =
           ActionsBuilder.New()

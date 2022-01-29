@@ -12,6 +12,7 @@ using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Alignments;
 using System;
@@ -91,14 +92,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Sets <see cref="BlueprintSettlementBuilding.CompletedPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildingConfigurator SetCompletedPrefab(SettlementBuildingItem completedPrefab)
+    public SettlementBuildingConfigurator SetCompletedPrefab(PrefabLink? completedPrefab)
     {
       ValidateParam(completedPrefab);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.CompletedPrefab = completedPrefab;
+            bp.CompletedPrefab = completedPrefab ?? Constants.Empty.PrefabLink;
           });
     }
 
@@ -106,14 +107,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Sets <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public SettlementBuildingConfigurator SetUnfinishedPrefab(SettlementBuildingItem unfinishedPrefab)
+    public SettlementBuildingConfigurator SetUnfinishedPrefab(PrefabLink? unfinishedPrefab)
     {
       ValidateParam(unfinishedPrefab);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.UnfinishedPrefab = unfinishedPrefab;
+            bp.UnfinishedPrefab = unfinishedPrefab ?? Constants.Empty.PrefabLink;
           });
     }
 

@@ -211,6 +211,16 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="EtudeBracketDisableCampingEncounters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(EtudeBracketDisableCampingEncounters))]
+    public ComponentListConfigurator AddEtudeBracketDisableCampingEncounters()
+    {
+      return AddComponent(new EtudeBracketDisableCampingEncounters());
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeBracketDisablePlayerRespec"/> (Auto Generated)
     /// </summary>
     [Generated]

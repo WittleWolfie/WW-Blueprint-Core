@@ -1,4 +1,3 @@
-using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Components;
 using BlueprintCore.Test.Asserts;
 using BlueprintCore.Test.Blueprints.Configurators.Facts;
@@ -18,6 +17,7 @@ using static BlueprintCore.Test.TestData;
 using System;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
+using BlueprintCore.Blueprints.Configurators.Classes;
 
 namespace BlueprintCore.Test.Blueprints.Configurators.Classes
 {

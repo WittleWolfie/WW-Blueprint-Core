@@ -40,10 +40,10 @@ namespace BlueprintCore.Utils
       }
 
       var localizedString = new LocalizedString() { m_Key = key };
-      var stringsPack = LocalizationManager.CurrentPack.Strings;
-      if (stringsPack.ContainsKey(key))
+      var currentString = LocalizationManager.CurrentPack.GetText(key, reportUnknown: false);
+      if (!string.IsNullOrEmpty(currentString))
       {
-        if (stringsPack[key].Equals(taggedValue))
+        if (currentString.Equals(taggedValue))
         {
           Logger.Info($"Localized string already exists with key {key} and matching value.");
         }
@@ -54,7 +54,7 @@ namespace BlueprintCore.Utils
       }
       else
       {
-        stringsPack.Add(key, taggedValue);
+        LocalizationManager.CurrentPack.PutString(key, taggedValue);
       }
 
       keyToLocalString.Add(key, new(localizedString, taggedValue));

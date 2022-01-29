@@ -67,6 +67,23 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
     /// <summary>
+    /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LootItemsPackFixedAndNotInPlayerInitialInventory))]
+    public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
+        LootItem item,
+        int count = default)
+    {
+      ValidateParam(item);
+    
+      var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
+      component.m_Item = item;
+      component.m_Count = count;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="LootItemsPackVariable"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -167,6 +184,23 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       ValidateParam(item);
     
       var component = new LootItemsPackFixed();
+      component.m_Item = item;
+      component.m_Count = count;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LootItemsPackFixedAndNotInPlayerInitialInventory))]
+    public UnitLootConfigurator AddLootItemsPackFixedAndNotInPlayerInitialInventory(
+        LootItem item,
+        int count = default)
+    {
+      ValidateParam(item);
+    
+      var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
       component.m_Item = item;
       component.m_Count = count;
       return AddComponent(component);

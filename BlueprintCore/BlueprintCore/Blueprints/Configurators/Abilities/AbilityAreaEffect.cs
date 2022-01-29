@@ -479,6 +479,23 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="TacticalCombatCellsProviderLink"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="abilityWithCellsProvider"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    [Generated]
+    [Implements(typeof(TacticalCombatCellsProviderLink))]
+    public AbilityAreaEffectConfigurator AddTacticalCombatCellsProviderLink(
+        string? abilityWithCellsProvider = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new TacticalCombatCellsProviderLink();
+      component.m_AbilityWithCellsProvider = BlueprintTool.GetRef<BlueprintAbilityReference>(abilityWithCellsProvider);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="TacticalCombatResurrection"/> (Auto Generated)
     /// </summary>
     [Generated]

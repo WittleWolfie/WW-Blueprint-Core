@@ -336,20 +336,5 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
                     .ToList();
           });
     }
-
-    /// <summary>
-    /// Sets <see cref="UnitCustomizationPreset.randomParameters"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="randomParameters"><see cref="Kingmaker.UnitLogic.Customization.RandomParameters"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator SetRandomParameters(string? randomParameters)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.randomParameters = BlueprintTool.GetRef<RandomParametersReference>(randomParameters);
-          });
-    }
   }
 }

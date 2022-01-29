@@ -665,6 +665,16 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
+    /// Adds <see cref="EtudeBracketDisableCampingEncounters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(EtudeBracketDisableCampingEncounters))]
+    public EtudeConfigurator AddEtudeBracketDisableCampingEncounters()
+    {
+      return AddComponent(new EtudeBracketDisableCampingEncounters());
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeBracketDisablePlayerRespec"/> (Auto Generated)
     /// </summary>
     [Generated]

@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 #nullable enable
@@ -92,6 +93,68 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
                         bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
                     .ToArray();
           });
+    }
+
+    /// <summary>
+    /// Adds <see cref="DlcStoreCheat"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DlcStoreCheat))]
+    public DlcConfigurator AddDlcStoreCheat(
+        bool isAvailableInEditor = default,
+        bool isAvailableInDevBuild = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new DlcStoreCheat();
+      component.m_IsAvailableInEditor = isAvailableInEditor;
+      component.m_IsAvailableInDevBuild = isAvailableInDevBuild;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DlcStoreEpic"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DlcStoreEpic))]
+    public DlcConfigurator AddDlcStoreEpic(
+        string epicId,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new DlcStoreEpic();
+      component.m_EpicId = epicId;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DlcStoreGog"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DlcStoreGog))]
+    public DlcConfigurator AddDlcStoreGog(
+        ulong gogId = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new DlcStoreGog();
+      component.m_GogId = gogId;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DlcStoreSteam"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(DlcStoreSteam))]
+    public DlcConfigurator AddDlcStoreSteam(
+        uint steamId = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new DlcStoreSteam();
+      component.m_SteamId = steamId;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

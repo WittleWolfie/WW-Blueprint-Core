@@ -1,6 +1,5 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
@@ -170,7 +169,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private readonly List<BlueprintComponent> ComponentsToRemove = new();
     private readonly List<Action<T>> InternalOnConfigure = new();
     private readonly List<Action<T>> ExternalOnConfigure = new();
-    private readonly ValidationContext Context = new();
 
     private bool Configured = false;
     private readonly StringBuilder ValidationWarnings = new();
@@ -387,9 +385,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     private void ValidateBase()
     {
-      var validationContext = new ValidationContext();
-      Blueprint.Validate(validationContext);
-      foreach (var error in validationContext.Errors) { AddValidationWarning(error); }
+      foreach (var error in Validator.Check(Blueprint)) { AddValidationWarning(error); }
 
       ValidateComponents();
     }
@@ -404,7 +400,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       var componentTypes = new HashSet<Type>();
       foreach (BlueprintComponent component in Blueprint.Components)
       {
-        component.ApplyValidation(Context);
+        foreach (var error in Validator.Check(component)) { AddValidationWarning(error); }
 
         var componentType = component.GetType();
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
@@ -449,8 +445,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         AddValidationWarning(
             $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(",", duplicateRankTypes)}");
       }
-
-      Context.Errors.ToList().ForEach(str => AddValidationWarning(str));
     }
 
     private struct UniqueComponent

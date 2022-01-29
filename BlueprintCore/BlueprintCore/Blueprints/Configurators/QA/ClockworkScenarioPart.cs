@@ -434,5 +434,24 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       component.LateMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(lateMythic);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
+
+    /// <summary>
+    /// Adds <see cref="NavmeshHolesChecker"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(NavmeshHolesChecker))]
+    public ClockworkScenarioPartConfigurator AddNavmeshHolesChecker(
+        float maxDeltaHeightPerFrame = default,
+        float lastHeight = default,
+        bool isInit = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new NavmeshHolesChecker();
+      component.MaxDeltaHeightPerFrame = maxDeltaHeightPerFrame;
+      component.m_LastHeight = lastHeight;
+      component.m_IsInit = isInit;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
   }
 }

@@ -12,6 +12,7 @@ using Kingmaker.RazerChroma;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
 using Kingmaker.Settings.Difficulty;
+using Kingmaker.Tutorial;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Sound;
@@ -1159,6 +1160,21 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp =>
           {
             bp.m_CustomAiConsiderations = BlueprintTool.GetRef<CustomAiConsiderationsRoot.Reference>(customAiConsiderations);
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintRoot.m_BlueprintBugReportTutorialReference"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="blueprintBugReportTutorialReference"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
+    [Generated]
+    public RootConfigurator SetBlueprintBugReportTutorialReference(string? blueprintBugReportTutorialReference)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_BlueprintBugReportTutorialReference = BlueprintTool.GetRef<BlueprintTutorial.Reference>(blueprintBugReportTutorialReference);
           });
     }
   }

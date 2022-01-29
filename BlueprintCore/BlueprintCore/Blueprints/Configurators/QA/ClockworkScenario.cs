@@ -300,6 +300,19 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintClockworkScenario.DoNotStartTrade"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioConfigurator SetDoNotStartTrade(bool doNotStartTrade)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.DoNotStartTrade = doNotStartTrade;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintClockworkScenario.SaveLoadSmokeTest"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -712,6 +725,49 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintClockworkScenario.m_OnTickCheckers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioConfigurator SetOnTickCheckers(List<IOnTickChecker>? onTickCheckers)
+    {
+      ValidateParam(onTickCheckers);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OnTickCheckers = onTickCheckers;
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintClockworkScenario.m_OnTickCheckers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioConfigurator AddToOnTickCheckers(params IOnTickChecker[] onTickCheckers)
+    {
+      ValidateParam(onTickCheckers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OnTickCheckers.AddRange(onTickCheckers.ToList() ?? new List<IOnTickChecker>());
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintClockworkScenario.m_OnTickCheckers"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ClockworkScenarioConfigurator RemoveFromOnTickCheckers(params IOnTickChecker[] onTickCheckers)
+    {
+      ValidateParam(onTickCheckers);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_OnTickCheckers = bp.m_OnTickCheckers.Where(item => !onTickCheckers.Contains(item)).ToList();
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintClockworkScenario.m_AreaTests"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -868,6 +924,25 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       component.BeginnerMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(beginnerMythic);
       component.EarlyMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(earlyMythic);
       component.LateMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(lateMythic);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="NavmeshHolesChecker"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(NavmeshHolesChecker))]
+    public ClockworkScenarioConfigurator AddNavmeshHolesChecker(
+        float maxDeltaHeightPerFrame = default,
+        float lastHeight = default,
+        bool isInit = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new NavmeshHolesChecker();
+      component.MaxDeltaHeightPerFrame = maxDeltaHeightPerFrame;
+      component.m_LastHeight = lastHeight;
+      component.m_IsInit = isInit;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }

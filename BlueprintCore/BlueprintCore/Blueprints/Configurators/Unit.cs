@@ -6,6 +6,7 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Experience;
@@ -20,6 +21,7 @@ using Kingmaker.Kingdom;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Interaction;
@@ -210,21 +212,6 @@ namespace BlueprintCore.Blueprints.Configurators
           bp =>
           {
             bp.m_CustomizationPreset = BlueprintTool.GetRef<UnitCustomizationPresetReference>(customizationPreset);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnit.m_RandomParameters"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="randomParameters"><see cref="Kingmaker.UnitLogic.Customization.RandomParameters"/></param>
-    [Generated]
-    public UnitConfigurator SetRandomParameters(string? randomParameters)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RandomParameters = BlueprintTool.GetRef<RandomParametersReference>(randomParameters);
           });
     }
 
@@ -662,6 +649,32 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_PS4ChunkId"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetPS4ChunkId(PS4ChunkId pS4ChunkId)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_PS4ChunkId = pS4ChunkId;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintUnit.m_HasAssignedChunkId"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitConfigurator SetHasAssignedChunkId(bool hasAssignedChunkId)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HasAssignedChunkId = hasAssignedChunkId;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintUnit.m_CachedTags"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -930,6 +943,19 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="NoStartingItemsComponent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(NoStartingItemsComponent))]
+    public UnitConfigurator AddNoStartingItemsComponent(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new NoStartingItemsComponent();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="PregenUnitComponent"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -951,6 +977,21 @@ namespace BlueprintCore.Blueprints.Configurators
       component.PregenClass = pregenClass ?? Constants.Empty.String;
       component.PregenRole = pregenRole ?? Constants.Empty.String;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartingStatPointsComponent"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(StartingStatPointsComponent))]
+    public UnitConfigurator AddStartingStatPointsComponent(
+        int startingStatPoints = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new StartingStatPointsComponent();
+      component.StartingStatPoints = startingStatPoints;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>
@@ -1174,15 +1215,18 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ChangeVendorPrices))]
     public UnitConfigurator AddChangeVendorPrices(
-        Dictionary<BlueprintItem,long> itemsToCosts,
+        Dictionary<BlueprintItem,long> itemsToBuyCosts,
+        Dictionary<BlueprintItem,long> itemsToSellCosts,
         ChangeVendorPrices.Entry[]? priceOverrides = null)
     {
       ValidateParam(priceOverrides);
-      ValidateParam(itemsToCosts);
+      ValidateParam(itemsToBuyCosts);
+      ValidateParam(itemsToSellCosts);
     
       var component = new ChangeVendorPrices();
       component.m_PriceOverrides = priceOverrides;
-      component.m_ItemsToCosts = itemsToCosts;
+      component.m_ItemsToBuyCosts = itemsToBuyCosts;
+      component.m_ItemsToSellCosts = itemsToSellCosts;
       return AddComponent(component);
     }
 
@@ -1200,6 +1244,19 @@ namespace BlueprintCore.Blueprints.Configurators
     
       var component = new PregenDollSettings();
       component.Default = defaultValue;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="NPCWithAura"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(NPCWithAura))]
+    public UnitConfigurator AddNPCWithAura(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new NPCWithAura();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

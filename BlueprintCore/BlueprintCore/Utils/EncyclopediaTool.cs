@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using BlueprintCore.Internal;
+using Newtonsoft.Json;
 
 namespace BlueprintCore.Utils
 {
@@ -29,7 +29,7 @@ namespace BlueprintCore.Utils
         using (Stream stream = assembly.GetManifestResourceStream(resourceName))
         using (StreamReader reader = new StreamReader(stream))
         {
-          return JsonSerializer.Deserialize<EncyclopediaEntry[]>(stream)!;
+          return JsonConvert.DeserializeObject<EncyclopediaEntry[]>(reader.ReadToEnd())!;
         }
       }
       catch (FileNotFoundException ex)
