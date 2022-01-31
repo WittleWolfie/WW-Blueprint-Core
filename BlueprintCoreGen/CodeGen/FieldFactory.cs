@@ -34,8 +34,14 @@ namespace BlueprintCoreGen.CodeGen
       return CreateField(info, sourceType);
     }
 
+    // TODO: Maybe get rid of the concrete classes and replace w/ 1 for Enumerable and 1 for non-Enumerable?
+    // The idea is that the Factory code creates them with a simple constructor that sets each value.
+
     private static INewField CreateEnumerableField(FieldInfo info, Type sourceType, Type enumerableType)
     {
+      var field =
+          enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase))
+              ? new 
       return null;
     }
 
@@ -61,9 +67,12 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Set the default value, if applicable
-      field.DefaultValue = GetDefaultValue(info.FieldType);
-      
-      // Apply specific overrides
+      if (field.DefaultValue is null)
+      {
+        field.DefaultValue = GetDefaultValue(info.FieldType);
+      }
+
+      // Apply type specific overrides
       if (FieldOverrides.ByType.ContainsKey(info.FieldType))
       {
         field.ApplyFieldOverride(FieldOverrides.ByType[info.FieldType]);
@@ -159,14 +168,14 @@ namespace BlueprintCoreGen.CodeGen
       /// <summary>
       /// Assignment format string where {0} is objectName, {1} is fieldName, and {2} is ParamName
       /// </summary>
-      public List<string> AssignmentFmt { get; set; }
+      public virtual List<string> AssignmentFmt { get; set; }
 
       /// <summary>
       /// Validation format string where {0} is validateFunction and {1} is ParamName
       /// </summary>
       public List<string> ValidationFmt { get; set; }
 
-      private readonly string? fieldName;
+      protected readonly string? fieldName;
 
       public SimpleField(
           string? fieldName, string typeName, string paramName, bool shouldSkipValidation, params Type[] imports)
@@ -178,7 +187,7 @@ namespace BlueprintCoreGen.CodeGen
         Imports.AddRange(imports);
 
         AssignmentFmt = new() { "{0}.{1} = {2};" };
-        ValidationFmt = shouldSkipValidation ? new() : new() { "{0}.{1};" };
+        ValidationFmt = shouldSkipValidation ? new() : new() { "{0}({1});" };
       }
 
       public List<string> GetAssignment(string objectName)
@@ -240,6 +249,62 @@ namespace BlueprintCoreGen.CodeGen
 
         AssignmentFmt = new() { "{0}.{1} = BlueprintTool.GetRef<" + TypeTool.GetName(type) + ">({2});" };
         ValidationFmt = new();
+      }
+    }
+
+    private class EnumerableField : SimpleField, IEnumerableField
+    {
+      public string EnumerableTypeName { get; set; }
+
+      public EnumerableField(
+          string fieldName,
+          string typeName,
+          string enumerableTypeName,
+          string paramName,
+          bool shouldSkipValidation,
+          params Type[] imports)
+          : base(fieldName, typeName, paramName, shouldSkipValidation, imports)
+      {
+        EnumerableTypeName = enumerableTypeName;
+
+        if (!shouldSkipValidation)
+        {
+          ValidationFmt =
+              new()
+              {
+                "if ({1} is not null)",
+                "{",
+                "  foreach (var item in {1}) { {0}(item); }",
+                "}"
+              };
+        }
+      }
+    }
+
+    private class EnumerableBlueprintField : BlueprintField, IEnumerableField
+    {
+      public string EnumerableTypeName { get; set; }
+
+      public EnumerableBlueprintField(
+          string fieldName,
+          string paramName,
+          bool isArray,
+          Type refType,
+          params Type[] imports)
+          : base(fieldName, "string[]?", "string", paramName, true, imports)
+      {
+        var blueprintType = TypeTool.GetBlueprintType(refType);
+
+        if (isArray)
+        {
+          AssignmentFmt =
+              new()
+              {
+                "{0}.{1} = {2}.Select(bp => BlueprintTool.GetRef<" + TypeTool.GetName(refType) + ">(bp)).ToArray();"
+              };
+        }
+
+        Imports.Add(typeof(BlueprintTool));
       }
     }
 
