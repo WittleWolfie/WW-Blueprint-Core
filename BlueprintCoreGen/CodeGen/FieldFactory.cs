@@ -9,21 +9,36 @@ using System.Text;
 
 namespace BlueprintCoreGen.CodeGen
 {
+  public interface IConstructorField
+  {
+
+  }
+
+  public interface IBlueprintField
+  {
+
+  }
+
   public static class NewFieldFactory
   {
-    public static List<INewField> CreateForType(Type type)
+    public static List<INewField> CreateForConstructor(Type objectType)
     {
       return
-          type.GetFields()
-              .Where(fieldInfo => !ShouldIgnore(fieldInfo, type))
-              .Select(fieldInfo => CreateInternal(fieldInfo, type))
+          objectType.GetFields()
+              .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
+              .Select(fieldInfo => CreateForConstructor(fieldInfo, objectType))
               .ToList();
+    }
+
+    public static List<INewField> CreateForBlueprintConfigurator(Type blueprintType)
+    {
+      return null;
     }
 
     public static readonly List<INewField> UniqueComponentFields =
         new() { new MergeBehaviorField(), new MergeActionField() };
 
-    private static INewField CreateInternal(FieldInfo info, Type sourceType)
+    private static INewField CreateForConstructor(FieldInfo info, Type sourceType)
     {
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
       if (enumerableType is not null)

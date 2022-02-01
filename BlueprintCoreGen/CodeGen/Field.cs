@@ -63,24 +63,12 @@ namespace BlueprintCoreGen.CodeGen
     List<Type> Imports { get; }
   }
 
-  public interface IEnumerableField : IField
+  public interface IEnumerableField : INewField
   {
     /// <summary>
     /// Processed type name of the field's enumerable type.
     /// </summary>
     string EnumerableTypeName { get; }
-
-    /// <summary>
-    /// Returns a complete statement which adds to the field's contents.
-    /// </summary>
-    /// <param name="objectName">The variable name of the object containing the field.</param>
-    List<string> GetAddTo(string objectName);
-
-    /// <summary>
-    /// Returns a complete statement which removes from the field's contents.
-    /// </summary>
-    /// <param name="objectName">The variable name of the object containing the field.</param>
-    List<string> GetRemoveFrom(string objectName);
   }
 
   public static class FieldFactory
