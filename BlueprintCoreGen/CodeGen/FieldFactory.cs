@@ -9,11 +9,42 @@ using System.Text;
 
 namespace BlueprintCoreGen.CodeGen
 {
-  public interface IConstructorField
+  /// <summary>
+  /// Represents a field used as an input parameter in a constructor method. i.e. Field parameters in builder methods
+  /// and configurator component methods.
+  /// </summary>
+  public interface IFieldParameter
   {
+    /// <summary>
+    /// List of types to import.
+    /// </summary>
+    List<Type> Imports { get; }
 
+    /// <summary>
+    /// Parameter comment
+    /// </summary>
+    List<string> Comment { get; }
+
+    /// <summary>
+    /// Parameter declaration, e.g. <c>string name</c>
+    /// </summary>
+    string Declaration { get; }
+
+    /// <summary>
+    /// Returns a statement calling the provided validation function passing in itself or its entries (for enumerable
+    /// types).
+    /// </summary>
+    List<string> GetValidation(string validateFunction);
+
+    /// <summary>
+    /// Returns a statement which assigns the parameter to the specified object's field.
+    /// </summary>
+    List<string> GetAssignment(string objectName);
   }
 
+  /// <summary>
+  /// Represents a field within a blueprint.
+  /// </summary>
   public interface IBlueprintField
   {
 
@@ -21,7 +52,13 @@ namespace BlueprintCoreGen.CodeGen
 
   public static class NewFieldFactory
   {
-    public static List<INewField> CreateForConstructor(Type objectType)
+    /// <summary>
+    /// Returns an list of field parameters used to construct an object of the specified type. The list is ordered such
+    /// that optional parameters are at the end.
+    /// </summary>
+    /// 
+    /// <remarks></remarks>
+    public static List<IFieldParameter> CreateFieldParameter(Type objectType)
     {
       return
           objectType.GetFields()
