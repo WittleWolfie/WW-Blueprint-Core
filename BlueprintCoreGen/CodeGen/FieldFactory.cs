@@ -42,6 +42,12 @@ namespace BlueprintCoreGen.CodeGen
     List<string> GetAssignment(string objectName);
   }
 
+  // TODO: For custom methods entirely they'll be overridden at the Method level. I think. Maybe this shouldn't be done
+  // at all because it causes some of the problems I'm trying to avoid?
+  // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
+  // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
+
+
   /// <summary>
   /// Represents a field within a blueprint.
   /// </summary>
