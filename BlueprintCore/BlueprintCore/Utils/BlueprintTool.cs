@@ -6,6 +6,7 @@ using System.Linq;
 #nullable enable
 namespace BlueprintCore.Utils
 {
+  // TODO: Define BlueprintId class which acceps ID (string), Name (string), or BlueprintReference
   /// <summary>
   /// Tool for operations on blueprints.
   /// </summary>

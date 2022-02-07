@@ -44,17 +44,9 @@ namespace BlueprintCoreGen.CodeGen
 
   // TODO: For custom methods entirely they'll be overridden at the Method level. I think. Maybe this shouldn't be done
   // at all because it causes some of the problems I'm trying to avoid?
+
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
-
-
-  /// <summary>
-  /// Represents a field within a blueprint.
-  /// </summary>
-  public interface IBlueprintField
-  {
-
-  }
 
   public static class NewFieldFactory
   {
@@ -69,42 +61,44 @@ namespace BlueprintCoreGen.CodeGen
       return
           objectType.GetFields()
               .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
-              .Select(fieldInfo => CreateForConstructor(fieldInfo, objectType))
+              .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
               .ToList();
     }
 
-    public static List<INewField> CreateForBlueprintConfigurator(Type blueprintType)
+    /// <summary>
+    /// Common parameters applicable to all BlueprintComponent constructors.
+    /// </summary>
+    public static readonly List<IFieldParameter> UniqueComponentParams =
+        new()
+        {
+          new FieldParameter(
+            new() { typeof(BlueprintConfigurator<>) },
+            new(),
+            "ComponentMerge mergeBehavior = ComponentMerge.Replace",
+            new(),
+            new()),
+          new FieldParameter(
+            new() { typeof(Action), typeof(BlueprintComponent) },
+            new(),
+            "Action<BlueprintComponent, BlueprintComponent>? mergeAction = null",
+            new(),
+            new())
+        };
+
+    private static IFieldParameter CreateFieldParameter(FieldInfo info, Type sourceType)
     {
-      return null;
-    }
+      FieldParameter param =
+          new(
+              GetImports(info.FieldType),
+              GetComment(),
+              GetDeclaration(info),
+              GetValidationFmt(info.FieldType),
+              GetAssignmentFmt());
 
-    public static readonly List<INewField> UniqueComponentFields =
-        new() { new MergeBehaviorField(), new MergeActionField() };
+      
+      
 
-    private static INewField CreateForConstructor(FieldInfo info, Type sourceType)
-    {
-      var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
-      if (enumerableType is not null)
-      {
-        return CreateEnumerableField(info, sourceType, enumerableType);
-      }
 
-      return CreateField(info, sourceType);
-    }
-
-    // TODO: Maybe get rid of the concrete classes and replace w/ 1 for Enumerable and 1 for non-Enumerable?
-    // The idea is that the Factory code creates them with a simple constructor that sets each value.
-
-    private static INewField CreateEnumerableField(FieldInfo info, Type sourceType, Type enumerableType)
-    {
-      var field =
-          enumerableType.IsSubclassOf(typeof(BlueprintReferenceBase))
-              ? new 
-      return null;
-    }
-
-    private static INewField CreateField(FieldInfo info, Type sourceType)
-    {
       var field =
           info.FieldType.IsSubclassOf(typeof(BlueprintReferenceBase))
               ? new BlueprintField(
@@ -148,6 +142,41 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       return field;
+    }
+
+    private static List<Type> GetImports(Type type)
+    {
+      List<Type> imports = new() { type };
+      if (!type.IsGenericType)
+      {
+        return imports.ToList();
+      }
+      type.GetGenericArguments().ToList().ForEach(t => imports.AddRange(GetImports(t)));
+      return imports;
+    }
+
+    private static List<string> GetComment()
+    {
+      return new();
+    }
+
+    private static string GetDeclaration(FieldInfo info)
+    {
+      return $"{TypeTool.GetName(info.FieldType)} {GetParamName(info.Name)}";
+    }
+
+    private static List<string> GetValidationFmt(Type type)
+    {
+      if (ShouldSkipValidation(type))
+      {
+        return new();
+      }
+      return new() { "{0}({1});" };
+    }
+
+    private static List<string> GetAssignmentFmt()
+    {
+      return new() { "{0}.{1} = {2};" };
     }
 
     private static string? GetDefaultValue(Type type)
@@ -211,86 +240,44 @@ namespace BlueprintCoreGen.CodeGen
           || info.IsInitOnly;
     }
 
-    private class SimpleField : INewField
+    private class FieldParameter : IFieldParameter
     {
-      public string TypeName { get; set; }
-
-      public string ParamName { get; set; }
-
-      public string? Comment { get; set; }
-
-      public string? DefaultValue { get; set; }
-
-      public List<Type> Imports { get; set; }
+      public List<Type> Imports { get; }
+      public List<string> Comment { get; }
+      public string Declaration { get; }
 
       /// <summary>
-      /// Assignment format string where {0} is objectName, {1} is fieldName, and {2} is ParamName
+      /// Validation format string where {0} is validateFunction
       /// </summary>
-      public virtual List<string> AssignmentFmt { get; set; }
+      private List<string> ValidationFmt { get; set; }
 
       /// <summary>
-      /// Validation format string where {0} is validateFunction and {1} is ParamName
+      /// Assignment format string where {0} is objectName
       /// </summary>
-      public List<string> ValidationFmt { get; set; }
+      private List<string> AssignmentFmt { get; }
 
-      protected readonly string? fieldName;
-
-      public SimpleField(
-          string? fieldName, string typeName, string paramName, bool shouldSkipValidation, params Type[] imports)
+      public FieldParameter(
+          List<Type> imports,
+          List<string> comment,
+          string declaration,
+          List<string> validationFmt,
+          List<string> assignmentFmt)
       {
-        this.fieldName = fieldName;
-        TypeName = typeName;
-        ParamName = paramName;
-        Imports = new();
-        Imports.AddRange(imports);
-
-        AssignmentFmt = new() { "{0}.{1} = {2};" };
-        ValidationFmt = shouldSkipValidation ? new() : new() { "{0}({1});" };
-      }
-
-      public List<string> GetAssignment(string objectName)
-      {
-        return AssignmentFmt.Select(line => string.Format(line, objectName, fieldName, ParamName)).ToList();
+        Imports = imports;
+        Comment = comment;
+        Declaration = declaration;
+        ValidationFmt = validationFmt;
+        AssignmentFmt = assignmentFmt;
       }
 
       public List<string> GetValidation(string validateFunction)
       {
-        return ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)).ToList();
+        return ValidationFmt.Select(line => string.Format(line, validateFunction)).ToList();
       }
 
-      public void ApplyFieldOverride(FieldOverride fieldOverride)
+      public List<string> GetAssignment(string objectName)
       {
-        if (fieldOverride.TypeName is not null)
-        {
-          TypeName = fieldOverride.TypeName;
-        }
-
-        if (fieldOverride.ParamName is not null)
-        {
-          ParamName = fieldOverride.ParamName;
-        }
-
-        if (fieldOverride.Comment is not null)
-        {
-          Comment = fieldOverride.Comment;
-        }
-
-        if (fieldOverride.DefaultValue is not null)
-        {
-          DefaultValue = fieldOverride.DefaultValue;
-        }
-
-        if (fieldOverride.ValidationFmt is not null)
-        {
-          ValidationFmt = fieldOverride.ValidationFmt;
-        }
-
-        if (fieldOverride.AssignmentFmt is not null)
-        {
-          AssignmentFmt = fieldOverride.AssignmentFmt;
-        }
-
-        Imports.AddRange(fieldOverride.Imports);
+        return AssignmentFmt.Select(line => string.Format(line, objectName)).ToList();
       }
     }
 
@@ -363,36 +350,6 @@ namespace BlueprintCoreGen.CodeGen
         }
 
         Imports.Add(typeof(BlueprintTool));
-      }
-    }
-
-    private class MergeBehaviorField : SimpleField
-    {
-      public MergeBehaviorField()
-          : base(
-              null,
-              "ComponentMerge",
-              "mergeBehavior",
-              true,
-              typeof(BlueprintConfigurator<>),
-              typeof(Action),
-              typeof(BlueprintComponent))
-      {
-        DefaultValue = "ComponentMerge.Replace";
-
-        AssignmentFmt = new();
-        ValidationFmt = new();
-      }
-    }
-
-    private class MergeActionField : SimpleField
-    {
-      public MergeActionField() : base(null, "Action<BlueprintComponent, BluepprintComponent>?", "mergeAction", true)
-      {
-        DefaultValue = "null";
-
-        AssignmentFmt = new();
-        ValidationFmt = new();
       }
     }
   }
