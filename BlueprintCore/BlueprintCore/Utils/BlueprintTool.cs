@@ -197,7 +197,7 @@ namespace BlueprintCore.Utils
     }
 
     /// <summary> Adds all provided components to the blueprint. </summary>
-    public static void AddComponents( this BlueprintScriptableObject obj, params BlueprintComponent[] components)
+    public static void AddComponents(this BlueprintScriptableObject obj, params BlueprintComponent[] components)
     {
       if (components == null) { return; }
       obj.SetComponents(CommonTool.Append(components, obj.Components));
@@ -226,11 +226,57 @@ namespace BlueprintCore.Utils
         if (!names.Add(c.name))
         {
           string name;
-          for (int i = 0; !names.Add(name = $"{c.name}${i}"); i++);
+          for (int i = 0; !names.Add(name = $"{c.name}${i}"); i++) ;
           c.name = name;
         }
       }
       obj.Components = components;
+    }
+  }
+
+  /// <summary>
+  /// Wrapper for easy referencing of blueprints.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// Provides implicit constructors mapping different types to a blueprint. This is used in the library to provide
+  /// flexibility when passing in blueprint as method parameters.
+  /// </remarks>
+  public class Blueprint<T, TRef>
+    where T : SimpleBlueprint
+    where TRef : BlueprintReference<T>, new()
+  {
+    public T Instance => Reference.Get();
+    public readonly TRef Reference;
+
+    private Blueprint(TRef blueprintReference)
+    {
+      Reference = blueprintReference;
+    }
+
+    public static implicit operator Blueprint<T, TRef>(T blueprint)
+    {
+      return new Blueprint<T, TRef>(blueprint.ToReference<TRef>());
+    }
+
+    public static implicit operator Blueprint<T, TRef>(TRef blueprintReference)
+    {
+      return new Blueprint<T, TRef>(blueprintReference);
+    }
+
+    public static implicit operator Blueprint<T, TRef>(string nameOrGuid)
+    {
+      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(nameOrGuid));
+    }
+
+    public static implicit operator Blueprint<T, TRef>(Guid guid)
+    {
+      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
+    }
+
+    public static implicit operator Blueprint<T, TRef>(BlueprintGuid guid)
+    {
+      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
     }
   }
 }
