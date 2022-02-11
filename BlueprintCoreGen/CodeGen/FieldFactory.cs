@@ -1,4 +1,5 @@
-﻿using BlueprintCore.Blueprints.Configurators;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
@@ -62,8 +63,12 @@ namespace BlueprintCoreGen.CodeGen
           objectType.GetFields()
               .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
               .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
+              .Append(InitParam)
               .ToList();
     }
+
+    private static readonly IFieldParameter InitParam =
+        new FieldParameter();
 
     /// <summary>
     /// Common parameters applicable to all BlueprintComponent constructors.
@@ -155,14 +160,27 @@ namespace BlueprintCoreGen.CodeGen
       return imports;
     }
 
-    private static List<string> GetComment()
+    private static List<string> GetCommentFmt(FieldInfo info)
     {
+      var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
+      if (blueprintType is not null)
+      {
+        return
+            new()
+            {
+              $"<param name=\"{{0}}\">",
+              $"Blueprint of type {blueprintType.Name}. You can pass in the blueprint using:",
+              $"<list type =\"bullet\">",
+              $"  <item><term>A blueprint instance</term></item>",
+              $"  <item><term>A blueprint reference</term><item>",
+              $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
+              $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
+              $"</list>",
+              $"See <see cref=\"BlueprintCore.Utils.Blueprint\">Blueprint</see> for more details.",
+              $"</param>"
+            };
+      }
       return new();
-    }
-
-    private static string GetDeclaration(FieldInfo info)
-    {
-      return $"{TypeTool.GetName(info.FieldType)} {GetParamName(info.Name)}";
     }
 
     private static List<string> GetValidationFmt(Type type)
@@ -174,27 +192,50 @@ namespace BlueprintCoreGen.CodeGen
       return new() { "{0}({1});" };
     }
 
-    private static List<string> GetAssignmentFmt()
+    // TODO: Need to figure out how to
+    // - Allow Nullable<> types to set null
+    // - Prevent null values for enumerables and unsafe types
+    // - Don't set params that aren't specified
+    private static List<string> GetAssignmentFmt(Type type)
     {
-      return new() { "{0}.{1} = {2};" };
+      if (IsNullable(type))
+      {
+        return new() { "{0}.{1} = {2};" };
+      }
+      var enumerableType = TypeTool.GetEnumerableType(type);
+      if (enumerableType is not null)
+      {
+        return
+          new()
+          {
+            type.IsArray
+                ? $"{0}.{1} = "
+                : ""
+          };
+
+      }
+      return
+          new()
+          {
+            $"if({{2}} is not null)",
+            $"{{",
+            $"  {{0}}.{{1}} = {{2}};",
+            $"}}"
+          };
     }
 
-    private static string? GetDefaultValue(Type type)
+    /// <summary>
+    /// Determines if a type is nullable. Note that object types are not considered nullable, this specifically is
+    /// identifying types that are not nullable by default, e.g. bool?.
+    /// </summary>
+    private static bool IsNullable(Type type)
     {
-      // TODO: Pull the default hardcoded value by instantiating an object
-
-      if (type.IsPrimitive || type.IsEnum) { return "default"; }
-      if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>)) { return "null"; }
-      return null;
+      return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
     }
 
     private static bool ShouldSkipValidation(Type type)
     {
-      if (type.IsPrimitive)
-      {
-        return true;
-      }
-      if (type == typeof(string))
+      if (type.IsPrimitive || type.IsEnum || type.IsValueType)
       {
         return true;
       }
@@ -202,7 +243,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         return true;
       }
-      if (type.IsValueType)
+      if (type == typeof(string))
       {
         return true;
       }
@@ -243,36 +284,63 @@ namespace BlueprintCoreGen.CodeGen
     private class FieldParameter : IFieldParameter
     {
       public List<Type> Imports { get; }
-      public List<string> Comment { get; }
+      public List<string> Comment => GetComment();
       public string Declaration { get; }
 
+      private string ParamName { get; set; }
+      private string TypeName { get; set; }
+
       /// <summary>
-      /// Validation format string where {0} is validateFunction
+      /// Comment format string where {0} is the parameter name
+      /// </summary>
+      private List<string> CommentFmt { get; set; }
+
+      /// <summary>
+      /// Default value for optional parameters
+      /// </summary>
+      private string? DefaultValue { get; set; }
+
+      /// <summary>
+      /// Validation format string where {0} is the validation function and {1} is the parameter name
       /// </summary>
       private List<string> ValidationFmt { get; set; }
 
       /// <summary>
-      /// Assignment format string where {0} is objectName
+      /// Assignment format string where {0} is the object name, {1} is the field name, and {2} is the parameter name
       /// </summary>
       private List<string> AssignmentFmt { get; }
 
       public FieldParameter(
+          string paramName,
+          string typeName,
           List<Type> imports,
-          List<string> comment,
-          string declaration,
+          List<string> commentFmt,
           List<string> validationFmt,
           List<string> assignmentFmt)
       {
+        ParamName = paramName;
+        TypeName = typeName;
         Imports = imports;
-        Comment = comment;
-        Declaration = declaration;
+        CommentFmt = commentFmt;
         ValidationFmt = validationFmt;
         AssignmentFmt = assignmentFmt;
       }
 
+      private List<string> GetComment()
+      {
+        return CommentFmt.Select(line => string.Format(line, ParamName)).ToList();
+      }
+
+      private string GetDeclaration()
+      {
+        return string.IsNullOrEmpty(DefaultValue)
+            ? $"{TypeName} {ParamName}"
+            : $"{TypeName} {ParamName} = {DefaultValue}";
+      }
+
       public List<string> GetValidation(string validateFunction)
       {
-        return ValidationFmt.Select(line => string.Format(line, validateFunction)).ToList();
+        return ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)).ToList();
       }
 
       public List<string> GetAssignment(string objectName)
