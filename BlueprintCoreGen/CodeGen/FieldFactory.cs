@@ -192,36 +192,17 @@ namespace BlueprintCoreGen.CodeGen
       return new() { "{0}({1});" };
     }
 
-    // TODO: Need to figure out how to
-    // - Allow Nullable<> types to set null
-    // - Prevent null values for enumerables and unsafe types
-    // - Don't set params that aren't specified
-    private static List<string> GetAssignmentFmt(Type type)
+    private static List<string> GetAssignmentFmt()
     {
-      if (IsNullable(type))
-      {
-        return new() { "{0}.{1} = {2};" };
-      }
-      var enumerableType = TypeTool.GetEnumerableType(type);
-      if (enumerableType is not null)
-      {
-        return
-          new()
-          {
-            type.IsArray
-                ? $"{0}.{1} = "
-                : ""
-          };
+      return new() { "{0}.{1} = {2};" };
+    }
 
-      }
-      return
-          new()
-          {
-            $"if({{2}} is not null)",
-            $"{{",
-            $"  {{0}}.{{1}} = {{2}};",
-            $"}}"
-          };
+    private static List<string> GetAssignmentFmtIfNull()
+    {
+      // TODO: Add default value handling for lists.
+      // Note: Type specific overrides, i.e. values in Constants.Empty, can be handled through override config. Lists
+      // and arrays need handling here because overrides don't support type subclassing.
+      return new();
     }
 
     /// <summary>
@@ -285,8 +266,9 @@ namespace BlueprintCoreGen.CodeGen
     {
       public List<Type> Imports { get; }
       public List<string> Comment => GetComment();
-      public string Declaration { get; }
+      public string Declaration => GetDeclaration();
 
+      private string FieldName { get; }
       private string ParamName { get; set; }
       private string TypeName { get; set; }
 
@@ -310,20 +292,30 @@ namespace BlueprintCoreGen.CodeGen
       /// </summary>
       private List<string> AssignmentFmt { get; }
 
+      /// <summary>
+      /// Assignment format string if the field is null where {0} is the object name, {1} is the field name, and {2} is
+      /// the parameter name
+      /// </summary>
+      private List<string> AssignmentFmtIfNull { get; set; }
+
       public FieldParameter(
+          string fieldName,
           string paramName,
           string typeName,
           List<Type> imports,
           List<string> commentFmt,
           List<string> validationFmt,
-          List<string> assignmentFmt)
+          List<string> assignmentFmt,
+          List<string> assignmentFmtIfNull)
       {
+        FieldName = fieldName;
         ParamName = paramName;
         TypeName = typeName;
         Imports = imports;
         CommentFmt = commentFmt;
         ValidationFmt = validationFmt;
         AssignmentFmt = assignmentFmt;
+        AssignmentFmtIfNull = assignmentFmtIfNull;
       }
 
       private List<string> GetComment()
@@ -345,7 +337,38 @@ namespace BlueprintCoreGen.CodeGen
 
       public List<string> GetAssignment(string objectName)
       {
-        return AssignmentFmt.Select(line => string.Format(line, objectName)).ToList();
+        List<string> assignment = new();
+        if (string.IsNullOrEmpty(DefaultValue))
+        {
+          // Required
+          assignment.AddRange(AssignmentFmt.Select(line => string.Format(line, objectName, FieldName, ParamName)));
+        }
+        else
+        {
+          // Optional. Only assign if the parameter value is non-null.
+          assignment.Add($"if ({ParamName} is not null)");
+          assignment.Add($"{{");
+          assignment.AddRange(
+              AssignmentFmt.Select(line => string.Format($"  {line}", objectName, FieldName, ParamName)));
+          assignment.Add($"}}");
+        }
+        return assignment.Concat(GetAssignmentIfNull(objectName)).ToList();
+      }
+
+      private List<string> GetAssignmentIfNull(string objectName)
+      {
+        if (!AssignmentFmtIfNull.Any())
+        {
+          return new();
+        }
+
+        List<string> assignmentIfNull = new();
+        assignmentIfNull.Add($"if ({objectName}.{FieldName} is null)");
+        assignmentIfNull.Add($"{{");
+        assignmentIfNull.AddRange(
+            AssignmentFmtIfNull.Select(line => string.Format($"  {line}", objectName, FieldName)));
+        assignmentIfNull.Add($"}}");
+        return assignmentIfNull;
       }
     }
 
