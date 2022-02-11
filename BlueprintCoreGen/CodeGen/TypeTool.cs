@@ -54,11 +54,13 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     /// <summary>
-    /// Returns the type of Blueprint represented by the given BlueprintReferenceBase type
+    /// Returns the type of blueprint represented, or null if it does not represent a blueprint type.
     /// </summary>
-    public static Type GetBlueprintType(Type blueprintReferenceType)
+    public static Type? GetBlueprintType(Type type)
     {
-      var refType = blueprintReferenceType;
+      var refType = GetEnumerableType(type) ?? type;
+      if (!refType.IsSubclassOf(typeof(BlueprintReferenceBase))) { return null; }
+
       while (!(refType!.IsGenericType && refType.GetGenericTypeDefinition() == typeof(BlueprintReference<>)))
       {
         refType = refType.BaseType;
