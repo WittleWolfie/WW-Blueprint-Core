@@ -50,13 +50,17 @@ namespace BlueprintCoreGen.CodeGen
     /// that optional parameters are at the end.
     /// </summary>
     /// 
-    /// <remarks></remarks>
-    public static List<IFieldParameter> CreateFieldParameters(Type objectType)
+    /// <param name="overridesByName">
+    /// Overrides the fields matching the provided names. Highest priority override, applied after type specific and
+    /// type + name specific.
+    /// </param>
+    public static List<IFieldParameter> CreateFieldParameters(
+        Type objectType, Dictionary<string, FieldParamOverride> overridesByName)
     {
       return
           objectType.GetFields()
-              .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
-              .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
+              .Where(fieldInfo => !ShouldIgnore(fieldInfo))
+              .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, overridesByName))
               .Where(field => !field.Ignore)
               .OrderBy(field => field.DefaultValue is null ? 0 : 1)
               .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
@@ -64,7 +68,7 @@ namespace BlueprintCoreGen.CodeGen
               .ToList();
     }
 
-    private static bool ShouldIgnore(FieldInfo info, Type sourceType)
+    private static bool ShouldIgnore(FieldInfo info)
     {
       return info.Name.Contains("__BackingField") // Compiler generated field
                                                   // Skip constant, static, and read-only
@@ -73,7 +77,8 @@ namespace BlueprintCoreGen.CodeGen
           || info.IsInitOnly;
     }
 
-    private static FieldParameter CreateFieldParameter(FieldInfo info, Type sourceType)
+    private static FieldParameter CreateFieldParameter(
+        FieldInfo info, Type sourceType, Dictionary<string, FieldParamOverride> overridesByName)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -105,6 +110,12 @@ namespace BlueprintCoreGen.CodeGen
         {
           param.ApplyOverride(FieldParamOverrides.ByName[type][info.Name]);
         }
+      }
+
+      // Apply the provided overrides last
+      if (overridesByName.ContainsKey(info.Name))
+      {
+        param.ApplyOverride(overridesByName[info.Name]);
       }
 
       return param;
