@@ -26,8 +26,12 @@ namespace BlueprintCoreGen.CodeGen
       var paramComments = fields.Select(field => field.Comment).Where(comment => comment is not null).ToList();
       if (paramComments.Any())
       {
-        method.AddLine($"///");
-        paramComments.ForEach(comment => method.AddLine($"/// {comment}"));
+        paramComments.ForEach(
+            comment =>
+            {
+              method.AddLine($"///");
+              comment.ForEach(line => method.AddLine($"/// {line}"));
+            });
       }
 
       if (!fields.Any())
@@ -39,31 +43,21 @@ namespace BlueprintCoreGen.CodeGen
         return new() { method };
       }
 
-      // Declaration
+      // Declarations
       method.AddLine($"public static {builderType} {elementTypeName}(");
       method.AddLine($"    this {builderType} builder,");
-
-      var paramDeclarations =
-          fields
-              .Where(field => field.DefaultValue is null)
-              .Select(field => $"{field.TypeName} {field.ParamName}")
-              .Concat(
-                  // Optional params
-                  fields
-                      .Where(field => field.DefaultValue is not null)
-                      .Select(field => $"{field.TypeName} {field.ParamName} = {field.DefaultValue}"));
-      paramDeclarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
-      method.AddLine($"    {paramDeclarations.Last()})");
+      fields.Select(field => field.Declaration)
+          .SkipLast(1)
+          .ToList()
+          .ForEach(declaration => method.AddLine($"    {declaration},"));
+      method.AddLine($"    {fields.Last().Declaration})");
       method.AddLine($"{{");
-
-      var paramValidations =
-          fields.Select(field => field.GetValidation("builder.Validate")).Where(validation => validation.Any());
-      paramValidations.ToList().ForEach(validation => validation.ForEach(line => method.AddLine($"  {validation}")));
-      if (paramValidations.Any()) { method.AddLine($""); }
 
       // Constructor & assignment
       method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
-      fields.ForEach(field => field.GetAssignment("element").ForEach(line => method.AddLine($"  {line}")));
+      fields.SelectMany(field => field.GetAssignment("element", "builder.Validate"))
+        .ToList()
+        .ForEach(line => method.AddLine($"  {line}"));
 
       // Return
       method.AddLine($"  return builder.Add(element);");
