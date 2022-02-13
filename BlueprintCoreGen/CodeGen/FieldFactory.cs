@@ -1,6 +1,4 @@
-﻿using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators;
-using BlueprintCore.Utils;
+﻿using BlueprintCore.Blueprints.Configurators;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
@@ -32,15 +30,10 @@ namespace BlueprintCoreGen.CodeGen
     string Declaration { get; }
 
     /// <summary>
-    /// Returns a statement calling the provided validation function passing in itself or its entries (for enumerable
-    /// types).
+    /// Returns a statement which assigns the parameter to the given object's field. The provided validation function
+    /// is called on the parameter before assignment.
     /// </summary>
-    List<string> GetValidation(string validateFunction);
-
-    /// <summary>
-    /// Returns a statement which assigns the parameter to the specified object's field.
-    /// </summary>
-    List<string> GetAssignment(string objectName);
+    List<string> GetAssignment(string objectName, string validateFunction);
   }
 
   // TODO: For custom methods entirely they'll be overridden at the Method level. I think. Maybe this shouldn't be done
@@ -63,13 +56,27 @@ namespace BlueprintCoreGen.CodeGen
           objectType.GetFields()
               .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
               .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
-              .Append(InitParam)
               .ToList();
     }
 
-    private static readonly IFieldParameter InitParam =
-        new FieldParameter();
+    private static bool ShouldIgnore(FieldInfo info, Type sourceType)
+    {
+      foreach (var (type, fieldNames) in Overrides.IgnoredFieldNamesByType)
+      {
+        if (sourceType.IsSubclassOf(type) || sourceType == type)
+        {
+          if (fieldNames.Contains(info.Name)) { return true; }
+        }
+      }
 
+      return info.Name.Contains("__BackingField") // Compiler generated field
+                                                  // Skip constant, static, and read-only
+          || info.IsLiteral
+          || info.IsStatic
+          || info.IsInitOnly;
+    }
+
+    // TODO: Builder self field should be defined this way too
     /// <summary>
     /// Common parameters applicable to all BlueprintComponent constructors.
     /// </summary>
@@ -77,15 +84,23 @@ namespace BlueprintCoreGen.CodeGen
         new()
         {
           new FieldParameter(
-            new() { typeof(BlueprintConfigurator<>) },
-            new(),
-            "ComponentMerge mergeBehavior = ComponentMerge.Replace",
-            new(),
-            new()),
+              "",
+              "mergeBehavior",
+              "ComponentMerge",
+              new() { typeof(BlueprintConfigurator<>) },
+              new(),
+              "ComponentMerge.Replace",
+              new(),
+              new(),
+              new()),
           new FieldParameter(
+            "",
+            "mergeAction",
+            "Action<BlueprintComponent, BlueprintComponent>",
             new() { typeof(Action), typeof(BlueprintComponent) },
             new(),
-            "Action<BlueprintComponent, BlueprintComponent>? mergeAction = null",
+            "null",
+            new(),
             new(),
             new())
         };
@@ -94,64 +109,53 @@ namespace BlueprintCoreGen.CodeGen
     {
       FieldParameter param =
           new(
+              info.Name,
+              GetParamName(info.Name),
+              TypeTool.GetName(info.FieldType),
               GetImports(info.FieldType),
-              GetComment(),
-              GetDeclaration(info),
+              GetCommentFmt(info),
+              GetDefaultValue(),
               GetValidationFmt(info.FieldType),
-              GetAssignmentFmt());
-
-      
-      
-
-
-      var field =
-          info.FieldType.IsSubclassOf(typeof(BlueprintReferenceBase))
-              ? new BlueprintField(
-                  info.Name,
-                  GetParamName(info.Name),
-                  info.FieldType)
-              : new SimpleField(
-                  info.Name,
-                  TypeTool.GetName(info.FieldType),
-                  GetParamName(info.Name),
-                  ShouldSkipValidation(info.FieldType),
-                  info.FieldType);
-
-      // Additional imports for generic types
-      if (info.FieldType.IsGenericType)
-      {
-        field.Imports.AddRange(info.FieldType.GetGenericArguments());
-      }
-
-      // Set the default value, if applicable
-      if (field.DefaultValue is null)
-      {
-        field.DefaultValue = GetDefaultValue(info.FieldType);
-      }
+              GetAssignmentFmt(info.FieldType),
+              GetAssignmentFmtIfNull(info.FieldType));
 
       // Apply type specific overrides
-      if (FieldOverrides.ByType.ContainsKey(info.FieldType))
+      if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
       {
-        field.ApplyFieldOverride(FieldOverrides.ByType[info.FieldType]);
+        param.ApplyOverride(FieldParamOverrides.ByType[info.FieldType]);
       }
 
       // Apply field specific overrides
-      foreach (Type type in FieldOverrides.ByName.Keys)
+      foreach (Type type in FieldParamOverrides.ByName.Keys)
       {
         // Just checking the source type misses inherited fields so loop through all keys
         if ((sourceType == type || sourceType.IsSubclassOf(type))
-            && FieldOverrides.ByName[type].ContainsKey(info.Name))
+            && FieldParamOverrides.ByName[type].ContainsKey(info.Name))
         {
-          field.ApplyFieldOverride(FieldOverrides.ByName[type][info.Name]);
+          param.ApplyOverride(FieldParamOverrides.ByName[type][info.Name]);
         }
       }
 
-      return field;
+      return param;
+    }
+
+    private static string GetParamName(string fieldName)
+    {
+      StringBuilder paramName = new(fieldName);
+      if (paramName[0] == 'm' && paramName[1] == '_')
+      {
+        paramName.Remove(0, 2);
+      }
+      paramName[0] = char.ToLower(paramName[0]);
+
+      var result = paramName.ToString();
+      if (Overrides.FriendlyNameOverrides.ContainsKey(result)) { return Overrides.FriendlyNameOverrides[result]; }
+      return result;
     }
 
     private static List<Type> GetImports(Type type)
     {
-      List<Type> imports = new() { type };
+      List<Type> imports = new() { type, typeof(Enumerable) };
       if (!type.IsGenericType)
       {
         return imports.ToList();
@@ -183,39 +187,29 @@ namespace BlueprintCoreGen.CodeGen
       return new();
     }
 
+    public static string GetDefaultValue()
+    {
+      return "null";
+    }
+
     private static List<string> GetValidationFmt(Type type)
     {
       if (ShouldSkipValidation(type))
       {
         return new();
       }
+
+      if (TypeTool.GetEnumerableType(type) is not null)
+      {
+        return new() { "foreach (var item in {1}) { {0}(item); }" };
+      }
+
       return new() { "{0}({1});" };
-    }
-
-    private static List<string> GetAssignmentFmt()
-    {
-      return new() { "{0}.{1} = {2};" };
-    }
-
-    private static List<string> GetAssignmentFmtIfNull()
-    {
-      // TODO: Add default value handling for lists.
-      // Note: Type specific overrides, i.e. values in Constants.Empty, can be handled through override config. Lists
-      // and arrays need handling here because overrides don't support type subclassing.
-      return new();
-    }
-
-    /// <summary>
-    /// Determines if a type is nullable. Note that object types are not considered nullable, this specifically is
-    /// identifying types that are not nullable by default, e.g. bool?.
-    /// </summary>
-    private static bool IsNullable(Type type)
-    {
-      return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
     }
 
     private static bool ShouldSkipValidation(Type type)
     {
+      // Primitives & structs
       if (type.IsPrimitive || type.IsEnum || type.IsValueType)
       {
         return true;
@@ -224,42 +218,62 @@ namespace BlueprintCoreGen.CodeGen
       {
         return true;
       }
+
       if (type == typeof(string))
       {
         return true;
       }
+
+      var blueprintType = TypeTool.GetBlueprintType(type);
+      if (blueprintType is not null)
+      {
+        return true;
+      }
+
       return false;
     }
 
-    private static string GetParamName(string fieldName)
+    private static List<string> GetAssignmentFmt(Type type)
     {
-      StringBuilder paramName = new(fieldName);
-      if (paramName[0] == 'm' && paramName[1] == '_')
+      var blueprintType = TypeTool.GetBlueprintType(type);
+      if (blueprintType is not null)
       {
-        paramName.Remove(0, 2);
-      }
-      paramName[0] = char.ToLower(paramName[0]);
+        var enumerableType = TypeTool.GetEnumerableType(type);
+        if (enumerableType is not null)
+        {
+          if (type.IsArray)
+          {
+            return new() { "{0}.{1} = {2}.Select(bp => bp.Reference).ToArray();" };
+          }
 
-      var result = paramName.ToString();
-      if (Overrides.FriendlyNameOverrides.ContainsKey(result)) { return Overrides.FriendlyNameOverrides[result]; }
-      return result;
+          return new() { "{0}.{1} = {2}.Select(bp => bp.Reference).ToList();" };
+        }
+
+        return new() { "{0}.{1} = {2}.Reference;" };
+      }
+
+      return new() { "{0}.{1} = {2};" };
     }
 
-    private static bool ShouldIgnore(FieldInfo info, Type sourceType)
+    private static List<string> GetAssignmentFmtIfNull(Type type)
     {
-      foreach (var (type, fieldNames) in Overrides.IgnoredFieldNamesByType)
+      var enumerableType = TypeTool.GetEnumerableType(type);
+      if (enumerableType is not null)
       {
-        if (sourceType.IsSubclassOf(type) || sourceType == type)
+        if (type.IsArray)
         {
-          if (fieldNames.Contains(info.Name)) { return true; }
+          return new() { $"{{0}}.{{1}} = new {TypeTool.GetName(enumerableType)}[0];" };
         }
+        return new() { "{0}.{1} = new();" };
       }
 
-      return info.Name.Contains("__BackingField") // Compiler generated field
-          // Skip constant, static, and read-only
-          || info.IsLiteral
-          || info.IsStatic
-          || info.IsInitOnly;
+      var blueprintType = TypeTool.GetBlueprintType(type);
+      if (blueprintType is not null)
+      {
+        return new() { $"{{0}}.{{1}} = BlueprintTool.GetRef<{TypeTool.GetName(type)}>(null);" };
+      }
+
+      return new();
     }
 
     private class FieldParameter : IFieldParameter
@@ -269,7 +283,7 @@ namespace BlueprintCoreGen.CodeGen
       public string Declaration => GetDeclaration();
 
       private string FieldName { get; }
-      private string ParamName { get; set; }
+      public string ParamName { get; private set; }
       private string TypeName { get; set; }
 
       /// <summary>
@@ -280,7 +294,7 @@ namespace BlueprintCoreGen.CodeGen
       /// <summary>
       /// Default value for optional parameters
       /// </summary>
-      private string? DefaultValue { get; set; }
+      public string? DefaultValue { get; private set; }
 
       /// <summary>
       /// Validation format string where {0} is the validation function and {1} is the parameter name
@@ -290,7 +304,7 @@ namespace BlueprintCoreGen.CodeGen
       /// <summary>
       /// Assignment format string where {0} is the object name, {1} is the field name, and {2} is the parameter name
       /// </summary>
-      private List<string> AssignmentFmt { get; }
+      private List<string> AssignmentFmt { get; set; }
 
       /// <summary>
       /// Assignment format string if the field is null where {0} is the object name, {1} is the field name, and {2} is
@@ -304,6 +318,7 @@ namespace BlueprintCoreGen.CodeGen
           string typeName,
           List<Type> imports,
           List<string> commentFmt,
+          string defaultValue,
           List<string> validationFmt,
           List<string> assignmentFmt,
           List<string> assignmentFmtIfNull)
@@ -313,9 +328,22 @@ namespace BlueprintCoreGen.CodeGen
         TypeName = typeName;
         Imports = imports;
         CommentFmt = commentFmt;
+        DefaultValue = defaultValue;
         ValidationFmt = validationFmt;
         AssignmentFmt = assignmentFmt;
         AssignmentFmtIfNull = assignmentFmtIfNull;
+      }
+
+      public void ApplyOverride(FieldParamOverride fieldParamOverride)
+      {
+        Imports.AddRange(fieldParamOverride.Imports);
+        ParamName = fieldParamOverride.ParamName ?? ParamName;
+        TypeName = fieldParamOverride.TypeName ?? TypeName;
+        CommentFmt = fieldParamOverride.CommentFmt ?? CommentFmt;
+        DefaultValue = fieldParamOverride.DefaultValue ?? DefaultValue;
+        ValidationFmt = fieldParamOverride.ValidationFmt ?? ValidationFmt;
+        AssignmentFmt = fieldParamOverride.AssignmentFmt ?? AssignmentFmt;
+        AssignmentFmtIfNull = fieldParamOverride.AssignmentFmtIfNull ?? AssignmentFmtIfNull;
       }
 
       private List<string> GetComment()
@@ -327,20 +355,16 @@ namespace BlueprintCoreGen.CodeGen
       {
         return string.IsNullOrEmpty(DefaultValue)
             ? $"{TypeName} {ParamName}"
-            : $"{TypeName} {ParamName} = {DefaultValue}";
+            : $"{TypeName}? {ParamName} = {DefaultValue}";
       }
 
-      public List<string> GetValidation(string validateFunction)
-      {
-        return ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)).ToList();
-      }
-
-      public List<string> GetAssignment(string objectName)
+      public List<string> GetAssignment(string objectName, string validateFunction)
       {
         List<string> assignment = new();
         if (string.IsNullOrEmpty(DefaultValue))
         {
           // Required
+          assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
           assignment.AddRange(AssignmentFmt.Select(line => string.Format(line, objectName, FieldName, ParamName)));
         }
         else
@@ -348,6 +372,7 @@ namespace BlueprintCoreGen.CodeGen
           // Optional. Only assign if the parameter value is non-null.
           assignment.Add($"if ({ParamName} is not null)");
           assignment.Add($"{{");
+          assignment.AddRange(ValidationFmt.Select(line => string.Format($"  {line}", validateFunction, ParamName)));
           assignment.AddRange(
               AssignmentFmt.Select(line => string.Format($"  {line}", objectName, FieldName, ParamName)));
           assignment.Add($"}}");
@@ -369,78 +394,6 @@ namespace BlueprintCoreGen.CodeGen
             AssignmentFmtIfNull.Select(line => string.Format($"  {line}", objectName, FieldName)));
         assignmentIfNull.Add($"}}");
         return assignmentIfNull;
-      }
-    }
-
-    private class BlueprintField : SimpleField
-    {
-      public BlueprintField(string fieldName, string paramName, Type type)
-          : base(fieldName, "string?", paramName, true, type, typeof(BlueprintTool))
-      {
-        var blueprintType = TypeTool.GetBlueprintType(type);
-
-        Comment =
-            $"<param name=\"{ParamName}\"><see cref=\"{blueprintType.Namespace}.{TypeTool.GetName(blueprintType)}\"/></param>";
-        DefaultValue = "null";
-
-        AssignmentFmt = new() { "{0}.{1} = BlueprintTool.GetRef<" + TypeTool.GetName(type) + ">({2});" };
-        ValidationFmt = new();
-      }
-    }
-
-    private class EnumerableField : SimpleField, IEnumerableField
-    {
-      public string EnumerableTypeName { get; set; }
-
-      public EnumerableField(
-          string fieldName,
-          string typeName,
-          string enumerableTypeName,
-          string paramName,
-          bool shouldSkipValidation,
-          params Type[] imports)
-          : base(fieldName, typeName, paramName, shouldSkipValidation, imports)
-      {
-        EnumerableTypeName = enumerableTypeName;
-
-        if (!shouldSkipValidation)
-        {
-          ValidationFmt =
-              new()
-              {
-                "if ({1} is not null)",
-                "{",
-                "  foreach (var item in {1}) { {0}(item); }",
-                "}"
-              };
-        }
-      }
-    }
-
-    private class EnumerableBlueprintField : BlueprintField, IEnumerableField
-    {
-      public string EnumerableTypeName { get; set; }
-
-      public EnumerableBlueprintField(
-          string fieldName,
-          string paramName,
-          bool isArray,
-          Type refType,
-          params Type[] imports)
-          : base(fieldName, "string[]?", "string", paramName, true, imports)
-      {
-        var blueprintType = TypeTool.GetBlueprintType(refType);
-
-        if (isArray)
-        {
-          AssignmentFmt =
-              new()
-              {
-                "{0}.{1} = {2}.Select(bp => BlueprintTool.GetRef<" + TypeTool.GetName(refType) + ">(bp)).ToArray();"
-              };
-        }
-
-        Imports.Add(typeof(BlueprintTool));
       }
     }
   }
