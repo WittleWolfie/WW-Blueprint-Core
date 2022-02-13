@@ -55,7 +55,7 @@ namespace BlueprintCoreGen.CodeGen
     /// type + name specific.
     /// </param>
     public static List<IFieldParameter> CreateFieldParameters(
-        Type objectType, Dictionary<string, FieldParamOverride> overridesByName)
+        Type objectType, Dictionary<string, FieldParamOverride>? overridesByName)
     {
       return
           objectType.GetFields()
@@ -78,7 +78,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static FieldParameter CreateFieldParameter(
-        FieldInfo info, Type sourceType, Dictionary<string, FieldParamOverride> overridesByName)
+        FieldInfo info, Type sourceType, Dictionary<string, FieldParamOverride>? overridesByName)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -113,7 +113,7 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Apply the provided overrides last
-      if (overridesByName.ContainsKey(info.Name))
+      if (overridesByName is not null && overridesByName.ContainsKey(info.Name))
       {
         param.ApplyOverride(overridesByName[info.Name]);
       }
