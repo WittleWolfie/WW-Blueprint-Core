@@ -42,7 +42,7 @@ namespace BlueprintCoreGen.CodeGen
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
 
-  public static class NewFieldFactory
+  public static class FieldFactory
   {
     /// <summary>
     /// Returns an list of field parameters used to construct an object of the specified type. The list is ordered such
