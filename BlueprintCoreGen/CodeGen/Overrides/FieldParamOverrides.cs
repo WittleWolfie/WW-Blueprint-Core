@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Collections.Generic;
 
-namespace BlueprintCoreGen.CodeGen
+namespace BlueprintCoreGen.CodeGen.Overrides
 {
   /// <summary>
   /// Manual overrides for FieldParameter. Imports adds to existing imports but other fields replace their counterpart
