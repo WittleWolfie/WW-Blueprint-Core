@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Blueprints.Configurators;
+using BlueprintCoreGen.CodeGen.Override;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,7 @@ namespace BlueprintCoreGen.CodeGen
           objectType.GetFields()
               .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
               .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
+              .Where(field => !field.Ignore)
               .OrderBy(field => field.DefaultValue is null ? 0 : 1)
               .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
               .Select(field => field as IFieldParameter)
@@ -264,6 +266,10 @@ namespace BlueprintCoreGen.CodeGen
 
     private class FieldParameter : IFieldParameter
     {
+      /// <summary>
+      /// If true the parameter should be left out
+      /// </summary>
+      public bool Ignore = false;
       public List<Type> Imports { get; }
       public List<string> Comment => GetComment();
       public string Declaration => GetDeclaration();
@@ -322,6 +328,7 @@ namespace BlueprintCoreGen.CodeGen
 
       public void ApplyOverride(FieldParamOverride fieldParamOverride)
       {
+        Ignore = fieldParamOverride.Ignore;
         Imports.AddRange(fieldParamOverride.Imports);
         ParamName = fieldParamOverride.ParamName ?? ParamName;
         TypeName = fieldParamOverride.TypeName ?? TypeName;

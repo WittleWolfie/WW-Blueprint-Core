@@ -68,37 +68,6 @@ namespace BlueprintCoreGen.CodeGen
           typeof(WeaponMagic)
         };
 
-    public static readonly Dictionary<Type, string> TypeNameOverrides =
-          new()
-          {
-            { typeof(Kingmaker.UnitLogic.Mechanics.ValueType), "Kingmaker.UnitLogic.Mechanics.ValueType" },
-            { typeof(Kingmaker.UnitLogic.Abilities.Components.TargetType), "Kingmaker.UnitLogic.Abilities.Components.TargetType" },
-            { typeof(Kingmaker.AI.Blueprints.TargetType), "Kingmaker.AI.Blueprints.TargetType" },
-            { typeof(bool), "bool" },
-            { typeof(bool?), "bool?" },
-            { typeof(byte), "byte" },
-            { typeof(byte?), "byte?" },
-            { typeof(sbyte), "sbyte" },
-            { typeof(sbyte?), "sbyte?" },
-            { typeof(ushort), "ushort" },
-            { typeof(ushort?), "ushort?" },
-            { typeof(int), "int" },
-            { typeof(int?), "int?" },
-            { typeof(uint), "uint" },
-            { typeof(uint?), "uint?" },
-            { typeof(long), "long" },
-            { typeof(long?), "long?" },
-            { typeof(ulong), "ulong" },
-            { typeof(ulong?), "ulong?" },
-            { typeof(char), "char" },
-            { typeof(char?), "char?" },
-            { typeof(double), "double" },
-            { typeof(double?), "double?" },
-            { typeof(float), "float" },
-            { typeof(float?), "float?" },
-            { typeof(string), "string" },
-          };
-
     public static readonly List<(Type type, List<string> fieldNames)> IgnoredFieldNamesByType =
         new()
         {
