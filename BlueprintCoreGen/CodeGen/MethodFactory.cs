@@ -10,7 +10,7 @@ namespace BlueprintCoreGen.CodeGen
     public static List<INewMethod> CreateForBuilder(Type elementType, string builderType)
     {
       var elementTypeName = TypeTool.GetName(elementType);
-      var fields = FieldFactory.CreateForType(elementType);
+      var fields = FieldFactory.CreateFieldParameters(elementType);
 
       var method = new MethodImpl();
       method.AddImport(elementType);

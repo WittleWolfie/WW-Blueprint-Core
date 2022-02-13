@@ -50,12 +50,15 @@ namespace BlueprintCoreGen.CodeGen
     /// </summary>
     /// 
     /// <remarks></remarks>
-    public static List<IFieldParameter> CreateFieldParameter(Type objectType)
+    public static List<IFieldParameter> CreateFieldParameters(Type objectType)
     {
       return
           objectType.GetFields()
               .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
               .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType))
+              .OrderBy(field => field.DefaultValue is null ? 0 : 1)
+              .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
+              .Select(field => field as IFieldParameter)
               .ToList();
     }
 
@@ -76,36 +79,7 @@ namespace BlueprintCoreGen.CodeGen
           || info.IsInitOnly;
     }
 
-    // TODO: Builder self field should be defined this way too
-    /// <summary>
-    /// Common parameters applicable to all BlueprintComponent constructors.
-    /// </summary>
-    public static readonly List<IFieldParameter> UniqueComponentParams =
-        new()
-        {
-          new FieldParameter(
-              "",
-              "mergeBehavior",
-              "ComponentMerge",
-              new() { typeof(BlueprintConfigurator<>) },
-              new(),
-              "ComponentMerge.Replace",
-              new(),
-              new(),
-              new()),
-          new FieldParameter(
-            "",
-            "mergeAction",
-            "Action<BlueprintComponent, BlueprintComponent>",
-            new() { typeof(Action), typeof(BlueprintComponent) },
-            new(),
-            "null",
-            new(),
-            new(),
-            new())
-        };
-
-    private static IFieldParameter CreateFieldParameter(FieldInfo info, Type sourceType)
+    private static FieldParameter CreateFieldParameter(FieldInfo info, Type sourceType)
     {
       FieldParameter param =
           new(
