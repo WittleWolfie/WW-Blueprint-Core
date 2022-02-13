@@ -71,10 +71,8 @@ namespace BlueprintCoreGen.CodeGen
     public static readonly List<(Type type, List<string> fieldNames)> IgnoredFieldNamesByType =
         new()
         {
-          (typeof(Element), new() { "name" }),
-          (typeof(BlueprintComponent), new() { "m_Flags", "name", "m_PrototypeLink" }),
+          // TODO: Implement Blueprint Field support w/ overrides
           (typeof(BlueprintQuestObjective), new() { "m_AreasProxy", "m_AddendumsProxy", "m_NextObjectivesProxy" }),
-          (typeof(AbilityDeliverEffect), new() { "m_HasIsAllyEffectRunConditions" })
         };
 
     public static readonly Dictionary<string, string> FriendlyNameOverrides =

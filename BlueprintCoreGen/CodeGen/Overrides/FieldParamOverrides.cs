@@ -1,9 +1,12 @@
 ﻿using BlueprintCore.Actions.Builder;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using System;
 using System.Collections.Generic;
@@ -367,7 +370,55 @@ namespace BlueprintCoreGen.CodeGen.Override
               }
             }
           }
-        }
+        },
+
+        //**** Ignored Fields
+
+        // Kingmaker.ElementsSystem.Element
+        {
+          typeof(Element),
+          new()
+          {
+            {
+              "name",
+              new FieldParamOverride { Ignore = true }
+            }
+          }
+        },
+
+        // Kingmaker.Blueprints.BlueprintComponent
+        {
+          typeof(BlueprintComponent),
+          new()
+          {
+            {
+              "m_Flags",
+              new FieldParamOverride { Ignore = true }
+            },
+            {
+              "m_PrototypeLink",
+              new FieldParamOverride { Ignore = true }
+            },
+            {
+              "name",
+              new FieldParamOverride { Ignore = true }
+            },
+          }
+        },
+
+        // Kingmaker.UnitLogic.Abilities.Components.Base.AbilityDeliverEffect
+        {
+          typeof(AbilityDeliverEffect),
+          new()
+          {
+            {
+              "m_HasIsAllyEffectRunConditions",
+              new FieldParamOverride { Ignore = true }
+            }
+          }
+        },
+
+        //**** End Ignored Fields
       };
 
     ///// <summary>
