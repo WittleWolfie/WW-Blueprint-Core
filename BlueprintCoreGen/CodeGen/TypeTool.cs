@@ -16,11 +16,6 @@ namespace BlueprintCoreGen.CodeGen
     /// </summary>
     public static string GetName(Type type)
     {
-      if (Overrides.TypeNameOverrides.ContainsKey(type))
-      {
-        return Overrides.TypeNameOverrides[type];
-      }
-
       if (type.HasElementType && type.BaseType == typeof(Array))
       {
         return $"{GetName(type.GetElementType())}[]";
