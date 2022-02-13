@@ -81,17 +81,20 @@ namespace BlueprintCoreGen.CodeGen
 
     private static FieldParameter CreateFieldParameter(FieldInfo info, Type sourceType)
     {
+      var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
+      var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
+
       FieldParameter param =
           new(
               info.Name,
               GetParamName(info.Name),
-              TypeTool.GetName(info.FieldType),
+              GetTypeName(info.FieldType, blueprintType, enumerableType),
               GetImports(info.FieldType),
-              GetCommentFmt(info),
+              GetCommentFmt(blueprintType),
               GetDefaultValue(),
-              GetValidationFmt(info.FieldType),
-              GetAssignmentFmt(info.FieldType),
-              GetAssignmentFmtIfNull(info.FieldType));
+              GetValidationFmt(info.FieldType, blueprintType, enumerableType),
+              GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
+              GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
       // Apply type specific overrides
       if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
@@ -127,6 +130,20 @@ namespace BlueprintCoreGen.CodeGen
       return result;
     }
 
+    private static string GetTypeName(Type type, Type? blueprintType, Type? enumerableType)
+    {
+      if (blueprintType is not null)
+      {
+        if (enumerableType is not null)
+        {
+          return "List<Blueprint>";
+        }
+        return "Blueprint";
+      }
+
+      return TypeTool.GetName(type);
+    }
+
     private static List<Type> GetImports(Type type)
     {
       List<Type> imports = new() { type, typeof(Enumerable) };
@@ -138,9 +155,8 @@ namespace BlueprintCoreGen.CodeGen
       return imports;
     }
 
-    private static List<string> GetCommentFmt(FieldInfo info)
+    private static List<string> GetCommentFmt(Type? blueprintType)
     {
-      var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       if (blueprintType is not null)
       {
         return
@@ -166,14 +182,15 @@ namespace BlueprintCoreGen.CodeGen
       return "null";
     }
 
-    private static List<string> GetValidationFmt(Type type)
+    private static List<string> GetValidationFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
-      if (ShouldSkipValidation(type))
+      if (ShouldSkipValidation(type, blueprintType)
+          || (enumerableType is not null && ShouldSkipValidation(enumerableType, blueprintType)))
       {
         return new();
       }
 
-      if (TypeTool.GetEnumerableType(type) is not null)
+      if (enumerableType is not null)
       {
         return new() { "foreach (var item in {1}) { {0}(item); }" };
       }
@@ -181,7 +198,7 @@ namespace BlueprintCoreGen.CodeGen
       return new() { "{0}({1});" };
     }
 
-    private static bool ShouldSkipValidation(Type type)
+    private static bool ShouldSkipValidation(Type type, Type? blueprintType)
     {
       // Primitives & structs
       if (type.IsPrimitive || type.IsEnum || type.IsValueType)
@@ -198,7 +215,6 @@ namespace BlueprintCoreGen.CodeGen
         return true;
       }
 
-      var blueprintType = TypeTool.GetBlueprintType(type);
       if (blueprintType is not null)
       {
         return true;
@@ -207,12 +223,10 @@ namespace BlueprintCoreGen.CodeGen
       return false;
     }
 
-    private static List<string> GetAssignmentFmt(Type type)
+    private static List<string> GetAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
-      var blueprintType = TypeTool.GetBlueprintType(type);
       if (blueprintType is not null)
       {
-        var enumerableType = TypeTool.GetEnumerableType(type);
         if (enumerableType is not null)
         {
           if (type.IsArray)
@@ -229,9 +243,8 @@ namespace BlueprintCoreGen.CodeGen
       return new() { "{0}.{1} = {2};" };
     }
 
-    private static List<string> GetAssignmentFmtIfNull(Type type)
+    private static List<string> GetAssignmentFmtIfNull(Type type, Type? blueprintType, Type? enumerableType)
     {
-      var enumerableType = TypeTool.GetEnumerableType(type);
       if (enumerableType is not null)
       {
         if (type.IsArray)
@@ -241,7 +254,6 @@ namespace BlueprintCoreGen.CodeGen
         return new() { "{0}.{1} = new();" };
       }
 
-      var blueprintType = TypeTool.GetBlueprintType(type);
       if (blueprintType is not null)
       {
         return new() { $"{{0}}.{{1}} = BlueprintTool.GetRef<{TypeTool.GetName(type)}>(null);" };
