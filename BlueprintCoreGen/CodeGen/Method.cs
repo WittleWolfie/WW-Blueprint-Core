@@ -7,37 +7,6 @@ using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen
 {
-  /// <summary>
-  /// Represents a method for code generation.
-  /// </summary>
-  public interface IMethod
-  {
-    /// <summary>
-    /// A list of types that need to be imported for the method.
-    /// </summary>
-    List<string> GetImports();
-
-    /// <summary>
-    /// Returns the method implementation as text.
-    /// </summary>
-    List<string> GetText();
-  }
-
-  /// <summary>
-  /// Represents a method for code generation.
-  /// </summary>
-  public interface INewMethod
-  {
-    /// <summary>
-    /// A list of types that need to be imported for the method.
-    /// </summary>
-    List<Type> GetImports();
-
-    /// <summary>
-    /// Returns the method implementation as lines of text.
-    /// </summary>
-    List<string> GetLines();
-  }
 
   /// <summary>
   /// Represents a method constructed from text in a template file.
@@ -68,7 +37,7 @@ namespace BlueprintCoreGen.CodeGen
     }
   }
 
-  public class MethodFactory
+  public class OldMethodFactory
   {
     private enum BuilderType
     {

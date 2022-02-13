@@ -7,11 +7,27 @@ using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen
 {
-  public static class NewMethodFactory
+  /// <summary>
+  /// Represents a method for code generation.
+  /// </summary>
+  public interface IMethod
   {
-    public static List<INewMethod> CreateForBuilder(Type elementType)
+    /// <summary>
+    /// A list of types that need to be imported for the method.
+    /// </summary>
+    List<Type> GetImports();
+
+    /// <summary>
+    /// Returns the method implementation as lines of text.
+    /// </summary>
+    List<string> GetLines();
+  }
+
+  public static class MethodFactory
+  {
+    public static List<IMethod> CreateForBuilder(Type elementType)
     {
-      List<INewMethod> methods = new();
+      List<IMethod> methods = new();
       var builderType = elementType is Condition ? "ConditionsBuilder" : "ActionsBuilder";
 
       if (BuilderMethodOverrides.MethodOverrides.ContainsKey(elementType))
@@ -27,23 +43,32 @@ namespace BlueprintCoreGen.CodeGen
       return methods;
     }
 
-    private static INewMethod CreateForBuilder(
+    private static IMethod CreateForBuilder(
         Type elementType, string builderType, SingleMethodOverride? methodOverride = null)
     {
+      var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
       var fields = FieldFactory.CreateFieldParameters(elementType, methodOverride?.FieldOverridesByName);
 
-      var method = new MethodImpl();
+      // Imports
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
       fields.ForEach(field => field.Imports.ForEach(import => method.AddImport(import)));
+      if (methodOverride is not null) { methodOverride.Imports.ForEach(import => method.AddImport(import)); }
 
-      // Comments
+      // Comment summary
       method.AddLine($"/// <summary>");
       method.AddLine($"/// Adds <see cref=\"{elementTypeName}\"/>");
       method.AddLine($"/// </summary>");
-      // TODO: Remarks
 
+      // Remarks
+      if(methodOverride is not null && methodOverride.Remarks.Any())
+      {
+        method.AddLine($"///");
+        methodOverride.Remarks.ForEach(line => method.AddLine(line));
+      }
+
+      // Parameter comments
       var paramComments = fields.Select(field => field.Comment).Where(comment => comment is not null).ToList();
       if (paramComments.Any())
       {
@@ -55,9 +80,10 @@ namespace BlueprintCoreGen.CodeGen
             });
       }
 
+      var methodName = methodOverride?.Name ?? elementTypeName;
       if (!fields.Any())
       {
-        method.AddLine($"public static {builderType} {elementTypeName}(this {builderType} builder)");
+        method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
         method.AddLine($"{{");
         method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
         method.AddLine($"}}");
@@ -65,7 +91,7 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Declarations
-      method.AddLine($"public static {builderType} {elementTypeName}(");
+      method.AddLine($"public static {builderType} {methodName}(");
       method.AddLine($"    this {builderType} builder,");
       fields.Select(field => field.Declaration)
           .SkipLast(1)
@@ -87,7 +113,7 @@ namespace BlueprintCoreGen.CodeGen
       return method;
     }
 
-    private class MethodImpl : INewMethod
+    private class MethodImpl : IMethod
     {
       private readonly List<Type> Imports = new();
       private readonly List<string> Lines = new();
