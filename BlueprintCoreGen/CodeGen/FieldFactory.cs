@@ -66,14 +66,6 @@ namespace BlueprintCoreGen.CodeGen
 
     private static bool ShouldIgnore(FieldInfo info, Type sourceType)
     {
-      foreach (var (type, fieldNames) in Overrides.IgnoredFieldNamesByType)
-      {
-        if (sourceType.IsSubclassOf(type) || sourceType == type)
-        {
-          if (fieldNames.Contains(info.Name)) { return true; }
-        }
-      }
-
       return info.Name.Contains("__BackingField") // Compiler generated field
                                                   // Skip constant, static, and read-only
           || info.IsLiteral
@@ -128,9 +120,26 @@ namespace BlueprintCoreGen.CodeGen
       paramName[0] = char.ToLower(paramName[0]);
 
       var result = paramName.ToString();
-      if (Overrides.FriendlyNameOverrides.ContainsKey(result)) { return Overrides.FriendlyNameOverrides[result]; }
+      if (NameOverrides.ContainsKey(result)) { return NameOverrides[result]; }
       return result;
     }
+
+    /// <summary>
+    /// These ensure GetParamName returns a name that will compile successfully. This is for things like 'm_Class' which
+    /// would map to a parameter name of 'class' normally.
+    /// </summary>
+    private static readonly Dictionary<string, string> NameOverrides =
+          new()
+          {
+            { "default", "defaultValue" },
+            { "event", "eventValue" },
+            { "break", "breakValue" },
+            { "string", "stringValue" },
+            { "class", "clazz" },
+            { "override", "overrideValue" },
+            { "continue", "continueValue" },
+            { "double", "doubleValue" }
+          };
 
     private static string GetTypeName(Type type, Type? blueprintType, Type? enumerableType)
     {

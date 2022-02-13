@@ -74,18 +74,5 @@ namespace BlueprintCoreGen.CodeGen
           // TODO: Implement Blueprint Field support w/ overrides
           (typeof(BlueprintQuestObjective), new() { "m_AreasProxy", "m_AddendumsProxy", "m_NextObjectivesProxy" }),
         };
-
-    public static readonly Dictionary<string, string> FriendlyNameOverrides =
-          new()
-          {
-            { "default", "defaultValue" },
-            { "event", "eventValue" },
-            { "break", "breakValue" },
-            { "string", "stringValue" },
-            { "class", "clazz" },
-            { "override", "overrideValue" },
-            { "continue", "continueValue" },
-            { "double", "doubleValue" }
-          };
   }
 }
