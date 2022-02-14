@@ -56,6 +56,8 @@ namespace BlueprintCoreGen.CodeGen
       public ClassImpl(string filePath)
       {
         FilePath = filePath;
+
+        Text.AppendLine("//***** AUTO-GENERATED - DO NOT EDIT *****//");
       }
 
       public List<Type> GetImplementedTypes()
