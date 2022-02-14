@@ -259,34 +259,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy">CreateArmy</see>
-    /// </summary>
-    /// 
-    /// <param name="army"><see cref="BlueprintArmyPreset"/></param>
-    /// <param name="location"><see cref="BlueprintGlobalMapPoint"/></param>
-    /// <param name="leader"><see cref="BlueprintArmyLeader"/></param>
-    [Implements(typeof(CreateArmy))]
-    public static ActionsBuilder CreateCrusaderArmy(
-        this ActionsBuilder builder,
-        string army,
-        string location,
-        string? leader = null,
-        int? movePoints = null,
-        float? speed = null,
-        bool? applyRecruitIncrease = null)
-    {
-      return builder.Add(
-          CreateArmy(
-              ArmyFaction.Crusaders,
-              army,
-              location,
-              leader,
-              movePoints: movePoints,
-              speed: speed,
-              applyRecruitIncrease: applyRecruitIncrease));
-    }
-
     /// <inheritdoc cref="CreateCrusaderArmy"/>
     [Implements(typeof(CreateArmy))]
     public static ActionsBuilder CreateCrusaderArmyFromLosses(
@@ -356,9 +328,9 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         string army,
         string location,
         string? leader,
-        string? targetLocation = null,
-        string? onTargetReached = null,
-        int? daysToTarget = null,
+        string? targetLocation = null, // skip
+        string? onTargetReached = null, // skip
+        int? daysToTarget = null, // skip
         int? movePoints = null,
         float? speed = null,
         bool? applyRecruitIncrease = null,

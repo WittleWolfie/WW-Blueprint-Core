@@ -21,6 +21,8 @@ namespace BlueprintCoreGen.CodeGen.Override
   {
     public bool Ignore = false;
 
+    public bool SkipDeclaration = false;
+
     public List<Type> Imports = new();
 
     public string? ParamName;
@@ -36,6 +38,41 @@ namespace BlueprintCoreGen.CodeGen.Override
     public List<string>? AssignmentFmt;
 
     public List<string>? AssignmentFmtIfNull;
+  }
+
+  /// <summary>
+  /// Overrides a field to skip the parameter declaration and requires an assignment statement to assign a constant
+  /// values.
+  /// </summary>
+  public class ConstantFieldParam : FieldParamOverride
+  {
+    public ConstantFieldParam(string constantValue) : base()
+    {
+      SkipDeclaration = true;
+      AssignmentFmt = new() { $"{{0}}.{{1}} = {constantValue};" };
+    }
+  }
+
+  /// <summary>
+  /// Overrides a field to make it required (no default value).
+  /// </summary>
+  public class RequiredFieldParam : FieldParamOverride
+  {
+    public RequiredFieldParam() : base()
+    {
+      DefaultValue = "";
+    }
+  }
+
+  /// <summary>
+  /// Overrides a field to make it ignored.
+  /// </summary>
+  public class IgnoredFieldParam : FieldParamOverride
+  {
+    public IgnoredFieldParam() : base()
+    {
+      Ignore = true;
+    }
   }
 
   /// <summary>
@@ -381,7 +418,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "name",
-              new FieldParamOverride { Ignore = true }
+              new IgnoredFieldParam()
             }
           }
         },
@@ -393,15 +430,15 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "m_Flags",
-              new FieldParamOverride { Ignore = true }
+              new IgnoredFieldParam()
             },
             {
               "m_PrototypeLink",
-              new FieldParamOverride { Ignore = true }
+              new IgnoredFieldParam()
             },
             {
               "name",
-              new FieldParamOverride { Ignore = true }
+              new IgnoredFieldParam()
             },
           }
         },
@@ -413,7 +450,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "m_HasIsAllyEffectRunConditions",
-              new FieldParamOverride { Ignore = true }
+              new IgnoredFieldParam()
             }
           }
         },

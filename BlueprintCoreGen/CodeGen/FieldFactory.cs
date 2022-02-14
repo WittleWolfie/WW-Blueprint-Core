@@ -290,6 +290,12 @@ namespace BlueprintCoreGen.CodeGen
       /// If true the parameter should be left out
       /// </summary>
       public bool Ignore = false;
+
+      /// <summary>
+      /// If true the declaration should be left out
+      /// </summary>
+      private bool SkipDeclaration = false;
+
       public List<Type> Imports { get; }
       public List<string> Comment => GetComment();
       public string Declaration => GetDeclaration();
@@ -349,6 +355,7 @@ namespace BlueprintCoreGen.CodeGen
       public void ApplyOverride(FieldParamOverride fieldParamOverride)
       {
         Ignore = fieldParamOverride.Ignore;
+        SkipDeclaration = fieldParamOverride.SkipDeclaration;
         Imports.AddRange(fieldParamOverride.Imports);
         ParamName = fieldParamOverride.ParamName ?? ParamName;
         TypeName = fieldParamOverride.TypeName ?? TypeName;
@@ -366,6 +373,8 @@ namespace BlueprintCoreGen.CodeGen
 
       private string GetDeclaration()
       {
+        if (SkipDeclaration) { return ""; }
+
         return string.IsNullOrEmpty(DefaultValue)
             ? $"{TypeName} {ParamName}"
             : $"{TypeName}? {ParamName} = {DefaultValue}";

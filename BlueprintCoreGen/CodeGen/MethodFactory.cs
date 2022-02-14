@@ -30,13 +30,13 @@ namespace BlueprintCoreGen.CodeGen
       List<IMethod> methods = new();
       var builderType = elementType is Condition ? "ConditionsBuilder" : "ActionsBuilder";
 
-      if (BuilderMethodOverrides.MethodOverrides.ContainsKey(elementType))
+      if (MethodOverrides.BuilderMethods.ContainsKey(elementType))
       {
-        var methodOverride = BuilderMethodOverrides.MethodOverrides[elementType];
-        methodOverride.Methods.ForEach(
-            singleOverride => methods.Add(CreateForBuilder(elementType, builderType, singleOverride)));
+        var methodOverrides = MethodOverrides.BuilderMethods[elementType];
+        methodOverrides.Methods.ForEach(
+            methodOverride => methods.Add(CreateForBuilder(elementType, builderType, methodOverride)));
 
-        if (methodOverride.IgnoreDefault) { return methods; }
+        if (methodOverrides.IgnoreDefault) { return methods; }
       }
       
       methods.Add(CreateForBuilder(elementType, builderType));
@@ -44,7 +44,7 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static IMethod CreateForBuilder(
-        Type elementType, string builderType, SingleMethodOverride? methodOverride = null)
+        Type elementType, string builderType, MethodOverride? methodOverride = null)
     {
       var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
@@ -93,11 +93,10 @@ namespace BlueprintCoreGen.CodeGen
       // Declarations
       method.AddLine($"public static {builderType} {methodName}(");
       method.AddLine($"    this {builderType} builder,");
-      fields.Select(field => field.Declaration)
-          .SkipLast(1)
-          .ToList()
-          .ForEach(declaration => method.AddLine($"    {declaration},"));
-      method.AddLine($"    {fields.Last().Declaration})");
+      var declarations =
+          fields.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
+      declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
+      method.AddLine($"    {declarations.Last()})");
       method.AddLine($"{{");
 
       // Constructor & assignment
