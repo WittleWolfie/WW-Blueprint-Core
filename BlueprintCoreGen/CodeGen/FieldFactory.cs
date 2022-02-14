@@ -296,6 +296,11 @@ namespace BlueprintCoreGen.CodeGen
       /// </summary>
       private bool SkipDeclaration = false;
 
+      /// <summary>
+      /// If true appends `?` to the type name
+      /// </summary>
+      private bool IsNullable;
+
       public List<Type> Imports { get; }
       public List<string> Comment => GetComment();
       public string Declaration => GetDeclaration();
@@ -350,17 +355,21 @@ namespace BlueprintCoreGen.CodeGen
         ValidationFmt = validationFmt;
         AssignmentFmt = assignmentFmt;
         AssignmentFmtIfNull = assignmentFmtIfNull;
+        IsNullable = string.IsNullOrEmpty(DefaultValue);
       }
 
       public void ApplyOverride(FieldParamOverride fieldParamOverride)
       {
         Ignore = fieldParamOverride.Ignore;
         SkipDeclaration = fieldParamOverride.SkipDeclaration;
+        IsNullable = fieldParamOverride.IsNullable ?? IsNullable;
+
         Imports.AddRange(fieldParamOverride.Imports);
         ParamName = fieldParamOverride.ParamName ?? ParamName;
         TypeName = fieldParamOverride.TypeName ?? TypeName;
         CommentFmt = fieldParamOverride.CommentFmt ?? CommentFmt;
         DefaultValue = fieldParamOverride.DefaultValue ?? DefaultValue;
+
         ValidationFmt = fieldParamOverride.ValidationFmt ?? ValidationFmt;
         AssignmentFmt = fieldParamOverride.AssignmentFmt ?? AssignmentFmt;
         AssignmentFmtIfNull = fieldParamOverride.AssignmentFmtIfNull ?? AssignmentFmtIfNull;
@@ -375,7 +384,7 @@ namespace BlueprintCoreGen.CodeGen
       {
         if (SkipDeclaration) { return ""; }
 
-        return string.IsNullOrEmpty(DefaultValue)
+        return IsNullable
             ? $"{TypeName} {ParamName}"
             : $"{TypeName}? {ParamName} = {DefaultValue}";
       }
@@ -383,7 +392,7 @@ namespace BlueprintCoreGen.CodeGen
       public List<string> GetAssignment(string objectName, string validateFunction)
       {
         List<string> assignment = new();
-        if (string.IsNullOrEmpty(DefaultValue))
+        if (!IsNullable)
         {
           // Required
           assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));

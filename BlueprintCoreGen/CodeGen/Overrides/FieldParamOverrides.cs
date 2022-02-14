@@ -23,6 +23,8 @@ namespace BlueprintCoreGen.CodeGen.Override
 
     public bool SkipDeclaration = false;
 
+    public bool? IsNullable;
+
     public List<Type> Imports = new();
 
     public string? ParamName;
@@ -50,6 +52,7 @@ namespace BlueprintCoreGen.CodeGen.Override
     {
       SkipDeclaration = true;
       AssignmentFmt = new() { $"{{0}}.{{1}} = {constantValue};" };
+      AssignmentFmtIfNull = new();
     }
   }
 

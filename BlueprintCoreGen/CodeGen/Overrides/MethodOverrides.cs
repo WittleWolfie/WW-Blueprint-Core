@@ -95,7 +95,6 @@ namespace BlueprintCoreGen.CodeGen.Override
             Methods =
               new()
               {
-                // TODO: Need to implement WithLeader being set when Leader is not null
                 new MethodOverride()
                   .UseName("CreateCrusaderArmy")
                   .RequireFields("Location")
@@ -104,19 +103,80 @@ namespace BlueprintCoreGen.CodeGen.Override
                     "m_TargetLocation",
                     "m_CompleteActions",
                     "m_DaysToDestination",
-                    "m_ArmySpeed",
-                    "MovementPoints",
-                    "m_ApplyRecruitIncrease")
+                    "WithLeader")
                   .SetConstantFields(("Faction", "ArmyFaction.Crusaders"))
                   .OverrideFields(
                     ("Preset", new RequiredFieldParam { ParamName = "army" }),
-                    ("", new FieldParamOverride { })),
+                    ("ArmyLeader",
+                      new FieldParamOverride
+                      {
+                        AssignmentFmt =
+                          new()
+                          {
+                            "{0}.ArmyLeader = {2}.Reference;",
+                            "{0}.WithLeader = true;"
+                          }
+                      })),
                 new MethodOverride()
                   .UseName("CreateDemonArmy")
                   .RequireFields("Location")
-                  .IgnoreFields("m_MoveTarget", "m_TargetLocation", "m_CompleteActions", "m_DaysToDestination")
-                  .SetConstantFields(("Faction", "ArmyFaction.Crusaders"))
-                  .OverrideFields(("Preset", new RequiredFieldParam { ParamName = "army" })),
+                  .IgnoreFields(
+                    "m_TargetLocation",
+                    "m_DaysToDestination",
+                    "m_ApplyRecruitIncrease",
+                    "MovementPoints",
+                    "WithLeader")
+                  .SetConstantFields(("Faction", "ArmyFaction.Demons"))
+                  .OverrideFields(
+                    ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                    ("ArmyLeader",
+                      new FieldParamOverride
+                      {
+                        AssignmentFmt =
+                          new()
+                          {
+                            "{0}.ArmyLeader = {2}.Reference;",
+                            "{0}.WithLeader = true;"
+                          }
+                      }),
+                    ("m_MoveTarget",
+                      new FieldParamOverride
+                      {
+                        ParamName = "targetNearestEnemy",
+                        TypeName = "bool",
+                        DefaultValue = "false",
+                        AssignmentFmt =
+                          new()
+                          {
+                            "{0}.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;"
+                          },
+                        AssignmentFmtIfNull = new(),
+                        IsNullable = false
+                      })),
+                new MethodOverride()
+                  .UseName("CreateDemonArmyTargetingLocation")
+                  .RequireFields("m_TargetLocation")
+                  .IgnoreFields(
+                    "m_ArmySpeed",
+                    "m_ApplyRecruitIncrease",
+                    "MovementPoints",
+                    "WithLeader")
+                  .SetConstantFields(
+                    ("Faction", "ArmyFaction.Demons"),
+                    ("m_MoveTarget", "TravelLogicType.Location"))
+                  .OverrideFields(
+                    ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                    ("Location", new RequiredFieldParam { ParamName = "spawnLocation" }),
+                    ("ArmyLeader",
+                      new FieldParamOverride
+                      {
+                        AssignmentFmt =
+                          new()
+                          {
+                            "{0}.ArmyLeader = {2}.Reference;",
+                            "{0}.WithLeader = true;"
+                          }
+                      })),
               }
           }
         }
