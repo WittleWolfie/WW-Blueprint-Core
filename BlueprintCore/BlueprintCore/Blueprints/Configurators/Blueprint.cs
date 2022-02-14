@@ -7,7 +7,6 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
@@ -197,7 +196,6 @@ namespace BlueprintCore.Blueprints.Configurators
     private readonly List<BlueprintComponent> ComponentsToRemove = new();
     private readonly List<Action<T>> InternalOnConfigure = new();
     private readonly List<Action<T>> ExternalOnConfigure = new();
-    private readonly ValidationContext Context = new();
 
     private bool Configured = false;
     private readonly StringBuilder ValidationWarnings = new();
@@ -272,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </remarks>
     /// 
     /// <param name="init">Optional initialization <see cref="Action"/> run on the component.</param>
-    public TBuilder AddComponent<C>(Action<C> init) where C : BlueprintComponent, new()
+    public TBuilder AddComponent<C>(Action<C>? init = null) where C : BlueprintComponent, new()
     {
       var component = new C();
       init?.Invoke(component);
@@ -363,68 +361,6 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new DlcCondition();
       component.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(dlcReward);
       component.m_HideInstead = hideInstead;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DlcStoreCheat"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreCheat))]
-    public TBuilder AddDlcStoreCheat(
-        bool isAvailableInEditor = default,
-        bool isAvailableInDevBuild = default,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new DlcStoreCheat();
-      component.m_IsAvailableInEditor = isAvailableInEditor;
-      component.m_IsAvailableInDevBuild = isAvailableInDevBuild;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DlcStoreEpic"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreEpic))]
-    public TBuilder AddDlcStoreEpic(
-        string epicId,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new DlcStoreEpic();
-      component.m_EpicId = epicId;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DlcStoreGog"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreGog))]
-    public TBuilder AddDlcStoreGog(
-        ulong gogId = default,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new DlcStoreGog();
-      component.m_GogId = gogId;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DlcStoreSteam"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreSteam))]
-    public TBuilder AddDlcStoreSteam(
-        uint steamId = default,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new DlcStoreSteam();
-      component.m_SteamId = steamId;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1296,6 +1232,25 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="LevelUpTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(LevelUpTrigger))]
+    public TBuilder AddLevelUpTrigger(
+        UnitEvaluator unit,
+        ConditionsBuilder? conditions = null,
+        ActionsBuilder? actions = null)
+    {
+      ValidateParam(unit);
+    
+      var component = new LevelUpTrigger();
+      component.m_Unit = unit;
+      component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      component.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="MapObjectDestroyTrigger"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -1647,9 +1602,7 @@ namespace BlueprintCore.Blueprints.Configurators
 
     private void ValidateBase()
     {
-      var validationContext = new ValidationContext();
-      Blueprint.Validate(validationContext);
-      foreach (var error in validationContext.Errors) { AddValidationWarning(error); }
+      foreach (var error in Validator.Check(Blueprint)) { AddValidationWarning(error); }
 
       ValidateComponents();
     }
@@ -1664,7 +1617,7 @@ namespace BlueprintCore.Blueprints.Configurators
       var componentTypes = new HashSet<Type>();
       foreach (BlueprintComponent component in Blueprint.Components)
       {
-        component.ApplyValidation(Context);
+        foreach (var error in Validator.Check(component)) { AddValidationWarning(error); }
 
         var componentType = component.GetType();
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
@@ -1709,8 +1662,6 @@ namespace BlueprintCore.Blueprints.Configurators
         AddValidationWarning(
             $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(",", duplicateRankTypes)}");
       }
-
-      Context.Errors.ToList().ForEach(str => AddValidationWarning(str));
     }
 
     private struct UniqueComponent

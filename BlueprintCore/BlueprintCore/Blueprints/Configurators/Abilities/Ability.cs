@@ -10,6 +10,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Craft;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -1001,17 +1002,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(ArmyAbilityTeleportation))]
     public AbilityConfigurator AddArmyAbilityTeleportation(
         Feet radius,
-        GameObject portalFromPrefab,
-        GameObject portalToPrefab,
         string portalBone,
-        GameObject casterDisappearFx,
-        GameObject casterAppearFx,
-        GameObject sideDisappearFx,
-        GameObject sideAppearFx,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? portalToPrefab = null,
+        PrefabLink? casterDisappearFx = null,
+        PrefabLink? casterAppearFx = null,
+        PrefabLink? sideDisappearFx = null,
+        PrefabLink? sideAppearFx = null,
         string? casterDisappearProjectile = null,
         string? casterAppearProjectile = null,
         string? sideDisappearProjectile = null,
         string? sideAppearProjectile = null,
+        bool cameraShouldFollow = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
@@ -1024,17 +1026,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new ArmyAbilityTeleportation();
       component.Radius = radius;
-      component.PortalFromPrefab = portalFromPrefab;
-      component.PortalToPrefab = portalToPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
+      component.PortalToPrefab = portalToPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.CasterDisappearFx = casterDisappearFx;
-      component.CasterAppearFx = casterAppearFx;
-      component.SideDisappearFx = sideDisappearFx;
-      component.SideAppearFx = sideAppearFx;
+      component.CasterDisappearFx = casterDisappearFx ?? Constants.Empty.PrefabLink;
+      component.CasterAppearFx = casterAppearFx ?? Constants.Empty.PrefabLink;
+      component.SideDisappearFx = sideDisappearFx ?? Constants.Empty.PrefabLink;
+      component.SideAppearFx = sideAppearFx ?? Constants.Empty.PrefabLink;
       component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterDisappearProjectile);
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
+      component.m_CameraShouldFollow = cameraShouldFollow;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1212,17 +1215,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomDimensionDoor))]
     public AbilityConfigurator AddAbilityCustomDimensionDoor(
         Feet radius,
-        GameObject portalFromPrefab,
-        GameObject portalToPrefab,
         string portalBone,
-        GameObject casterDisappearFx,
-        GameObject casterAppearFx,
-        GameObject sideDisappearFx,
-        GameObject sideAppearFx,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? portalToPrefab = null,
+        PrefabLink? casterDisappearFx = null,
+        PrefabLink? casterAppearFx = null,
+        PrefabLink? sideDisappearFx = null,
+        PrefabLink? sideAppearFx = null,
         string? casterDisappearProjectile = null,
         string? casterAppearProjectile = null,
         string? sideDisappearProjectile = null,
         string? sideAppearProjectile = null,
+        bool cameraShouldFollow = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
@@ -1235,17 +1239,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new AbilityCustomDimensionDoor();
       component.Radius = radius;
-      component.PortalFromPrefab = portalFromPrefab;
-      component.PortalToPrefab = portalToPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
+      component.PortalToPrefab = portalToPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.CasterDisappearFx = casterDisappearFx;
-      component.CasterAppearFx = casterAppearFx;
-      component.SideDisappearFx = sideDisappearFx;
-      component.SideAppearFx = sideAppearFx;
+      component.CasterDisappearFx = casterDisappearFx ?? Constants.Empty.PrefabLink;
+      component.CasterAppearFx = casterAppearFx ?? Constants.Empty.PrefabLink;
+      component.SideDisappearFx = sideDisappearFx ?? Constants.Empty.PrefabLink;
+      component.SideAppearFx = sideAppearFx ?? Constants.Empty.PrefabLink;
       component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterDisappearProjectile);
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
+      component.m_CameraShouldFollow = cameraShouldFollow;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1258,10 +1263,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomDimensionDoorSwap))]
     public AbilityConfigurator AddAbilityCustomDimensionDoorSwap(
-        GameObject portalFromPrefab,
         string portalBone,
-        GameObject disappearFx,
-        GameObject appearFx,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? disappearFx = null,
+        PrefabLink? appearFx = null,
         string? disappearProjectile = null,
         string? appearProjectile = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1272,10 +1277,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(appearFx);
     
       var component = new AbilityCustomDimensionDoorSwap();
-      component.PortalFromPrefab = portalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.DisappearFx = disappearFx;
-      component.AppearFx = appearFx;
+      component.DisappearFx = disappearFx ?? Constants.Empty.PrefabLink;
+      component.AppearFx = appearFx ?? Constants.Empty.PrefabLink;
       component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(disappearProjectile);
       component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(appearProjectile);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1293,18 +1298,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomDimensionDoorTargets))]
     public AbilityConfigurator AddAbilityCustomDimensionDoorTargets(
         Feet radius,
-        GameObject portalFromPrefab,
-        GameObject portalToPrefab,
         string portalBone,
-        GameObject casterDisappearFx,
-        GameObject casterAppearFx,
-        GameObject sideDisappearFx,
-        GameObject sideAppearFx,
         UnitEvaluator[]? targets = null,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? portalToPrefab = null,
+        PrefabLink? casterDisappearFx = null,
+        PrefabLink? casterAppearFx = null,
+        PrefabLink? sideDisappearFx = null,
+        PrefabLink? sideAppearFx = null,
         string? casterDisappearProjectile = null,
         string? casterAppearProjectile = null,
         string? sideDisappearProjectile = null,
         string? sideAppearProjectile = null,
+        bool cameraShouldFollow = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
@@ -1319,17 +1325,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       var component = new AbilityCustomDimensionDoorTargets();
       component.Targets = targets;
       component.Radius = radius;
-      component.PortalFromPrefab = portalFromPrefab;
-      component.PortalToPrefab = portalToPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
+      component.PortalToPrefab = portalToPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.CasterDisappearFx = casterDisappearFx;
-      component.CasterAppearFx = casterAppearFx;
-      component.SideDisappearFx = sideDisappearFx;
-      component.SideAppearFx = sideAppearFx;
+      component.CasterDisappearFx = casterDisappearFx ?? Constants.Empty.PrefabLink;
+      component.CasterAppearFx = casterAppearFx ?? Constants.Empty.PrefabLink;
+      component.SideDisappearFx = sideDisappearFx ?? Constants.Empty.PrefabLink;
+      component.SideAppearFx = sideAppearFx ?? Constants.Empty.PrefabLink;
       component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterDisappearProjectile);
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
+      component.m_CameraShouldFollow = cameraShouldFollow;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1345,17 +1352,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomDweomerLeap))]
     public AbilityConfigurator AddAbilityCustomDweomerLeap(
         Feet radius,
-        GameObject portalFromPrefab,
-        GameObject portalToPrefab,
         string portalBone,
-        GameObject casterDisappearFx,
-        GameObject casterAppearFx,
-        GameObject sideDisappearFx,
-        GameObject sideAppearFx,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? portalToPrefab = null,
+        PrefabLink? casterDisappearFx = null,
+        PrefabLink? casterAppearFx = null,
+        PrefabLink? sideDisappearFx = null,
+        PrefabLink? sideAppearFx = null,
         string? casterDisappearProjectile = null,
         string? casterAppearProjectile = null,
         string? sideDisappearProjectile = null,
         string? sideAppearProjectile = null,
+        bool cameraShouldFollow = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
@@ -1368,17 +1376,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new AbilityCustomDweomerLeap();
       component.Radius = radius;
-      component.PortalFromPrefab = portalFromPrefab;
-      component.PortalToPrefab = portalToPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
+      component.PortalToPrefab = portalToPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.CasterDisappearFx = casterDisappearFx;
-      component.CasterAppearFx = casterAppearFx;
-      component.SideDisappearFx = sideDisappearFx;
-      component.SideAppearFx = sideAppearFx;
+      component.CasterDisappearFx = casterDisappearFx ?? Constants.Empty.PrefabLink;
+      component.CasterAppearFx = casterAppearFx ?? Constants.Empty.PrefabLink;
+      component.SideDisappearFx = sideDisappearFx ?? Constants.Empty.PrefabLink;
+      component.SideAppearFx = sideAppearFx ?? Constants.Empty.PrefabLink;
       component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterDisappearProjectile);
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
+      component.m_CameraShouldFollow = cameraShouldFollow;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1395,18 +1404,19 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Implements(typeof(AbilityCustomFlashStep))]
     public AbilityConfigurator AddAbilityCustomFlashStep(
         Feet radius,
-        GameObject portalFromPrefab,
-        GameObject portalToPrefab,
         string portalBone,
-        GameObject casterDisappearFx,
-        GameObject casterAppearFx,
-        GameObject sideDisappearFx,
-        GameObject sideAppearFx,
         string? flashShot = null,
+        PrefabLink? portalFromPrefab = null,
+        PrefabLink? portalToPrefab = null,
+        PrefabLink? casterDisappearFx = null,
+        PrefabLink? casterAppearFx = null,
+        PrefabLink? sideDisappearFx = null,
+        PrefabLink? sideAppearFx = null,
         string? casterDisappearProjectile = null,
         string? casterAppearProjectile = null,
         string? sideDisappearProjectile = null,
         string? sideAppearProjectile = null,
+        bool cameraShouldFollow = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
@@ -1420,17 +1430,18 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       var component = new AbilityCustomFlashStep();
       component.m_FlashShot = BlueprintTool.GetRef<BlueprintUnitFactReference>(flashShot);
       component.Radius = radius;
-      component.PortalFromPrefab = portalFromPrefab;
-      component.PortalToPrefab = portalToPrefab;
+      component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
+      component.PortalToPrefab = portalToPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
-      component.CasterDisappearFx = casterDisappearFx;
-      component.CasterAppearFx = casterAppearFx;
-      component.SideDisappearFx = sideDisappearFx;
-      component.SideAppearFx = sideAppearFx;
+      component.CasterDisappearFx = casterDisappearFx ?? Constants.Empty.PrefabLink;
+      component.CasterAppearFx = casterAppearFx ?? Constants.Empty.PrefabLink;
+      component.SideDisappearFx = sideDisappearFx ?? Constants.Empty.PrefabLink;
+      component.SideAppearFx = sideAppearFx ?? Constants.Empty.PrefabLink;
       component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterDisappearProjectile);
       component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(casterAppearProjectile);
       component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideDisappearProjectile);
       component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(sideAppearProjectile);
+      component.m_CameraShouldFollow = cameraShouldFollow;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -1539,10 +1550,10 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityCustomTeleportation))]
     public AbilityConfigurator AddAbilityCustomTeleportation(
-        GameObject disappearFx,
-        GameObject appearFx,
         string? projectile = null,
+        PrefabLink? disappearFx = null,
         float disappearDuration = default,
+        PrefabLink? appearFx = null,
         float appearDuration = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1552,9 +1563,9 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     
       var component = new AbilityCustomTeleportation();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
-      component.DisappearFx = disappearFx;
+      component.DisappearFx = disappearFx ?? Constants.Empty.PrefabLink;
       component.DisappearDuration = disappearDuration;
-      component.AppearFx = appearFx;
+      component.AppearFx = appearFx ?? Constants.Empty.PrefabLink;
       component.AppearDuration = appearDuration;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
@@ -2057,6 +2068,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     [Generated]
     [Implements(typeof(AbilityShadowSpell))]
     public AbilityConfigurator AddAbilityShadowSpell(
+        bool anySchool = default,
         SpellSchool school = default,
         string? factor = null,
         int maxSpellLevel = default,
@@ -2065,6 +2077,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AbilityShadowSpell();
+      component.AnySchool = anySchool;
       component.School = school;
       component.m_Factor = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(factor);
       component.MaxSpellLevel = maxSpellLevel;
@@ -2784,6 +2797,23 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="TacticalCombatCellsProviderLink"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="abilityWithCellsProvider"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    [Generated]
+    [Implements(typeof(TacticalCombatCellsProviderLink))]
+    public AbilityConfigurator AddTacticalCombatCellsProviderLink(
+        string? abilityWithCellsProvider = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new TacticalCombatCellsProviderLink();
+      component.m_AbilityWithCellsProvider = BlueprintTool.GetRef<BlueprintAbilityReference>(abilityWithCellsProvider);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="TacticalCombatDefenseAbility"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -3002,6 +3032,16 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       component.Stat = stat;
       component.Recommended = recommended;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HideFeatureInInspect"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HideFeatureInInspect))]
+    public AbilityConfigurator AddHideFeatureInInspect()
+    {
+      return AddComponent(new HideFeatureInInspect());
     }
 
     protected override void ValidateInternal()

@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System;
 using System.Linq;
 
 #nullable enable
@@ -348,17 +349,52 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintProgression.m_FeatureRankIncrease"/> (Auto Generated)
+    /// Sets <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="featureRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
-    public ProgressionConfigurator SetFeatureRankIncrease(string? featureRankIncrease)
+    public ProgressionConfigurator SetFeaturesRankIncrease(string[]? featuresRankIncrease)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_FeatureRankIncrease = BlueprintTool.GetRef<BlueprintFeatureReference>(featureRankIncrease);
+            bp.m_FeaturesRankIncrease = featuresRankIncrease.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    [Generated]
+    public ProgressionConfigurator AddToFeaturesRankIncrease(params string[] featuresRankIncrease)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_FeaturesRankIncrease.AddRange(featuresRankIncrease.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
+    [Generated]
+    public ProgressionConfigurator RemoveFromFeaturesRankIncrease(params string[] featuresRankIncrease)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = featuresRankIncrease.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name));
+            bp.m_FeaturesRankIncrease =
+                bp.m_FeaturesRankIncrease
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
           });
     }
   }

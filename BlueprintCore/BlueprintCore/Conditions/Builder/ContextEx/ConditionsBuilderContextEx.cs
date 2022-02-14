@@ -339,6 +339,44 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextConditionHasBuffFromThisAreaEffect"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    [Generated]
+    [Implements(typeof(ContextConditionHasBuffFromThisAreaEffect))]
+    public static ConditionsBuilder ContextConditionHasBuffFromThisAreaEffect(
+        this ConditionsBuilder builder,
+        string? buff = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionHasBuffFromThisAreaEffect>();
+      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionHasBuffImmunityWithDescriptor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(ContextConditionHasBuffImmunityWithDescriptor))]
+    public static ConditionsBuilder ContextConditionHasBuffImmunityWithDescriptor(
+        this ConditionsBuilder builder,
+        SpellDescriptorWrapper spellDescriptor,
+        bool checkBuffDescriptorComponent = default,
+        bool checkSpellDescriptorComponent = default,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionHasBuffImmunityWithDescriptor>();
+      element.CheckBuffDescriptorComponent = checkBuffDescriptorComponent;
+      element.CheckSpellDescriptorComponent = checkSpellDescriptorComponent;
+      element.SpellDescriptor = spellDescriptor;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextConditionHasBuffWithDescriptor"/> (Auto Generated)
     /// </summary>
     [Generated]

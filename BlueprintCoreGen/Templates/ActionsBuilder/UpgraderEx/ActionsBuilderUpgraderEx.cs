@@ -330,7 +330,10 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
 
     //----- Auto Generated -----//
     // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetRaceFromBlueprint)]
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RefreshArmyLeadersBaseSkills)]
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RespawnNewUnit)]
     // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveSpell)]
     // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RestoreClassFeature)]
+    // [Generate(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.UpdateProgression)]
   }
 }

@@ -597,16 +597,23 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         UnitEvaluator unit,
         IntEvaluator minLevel,
+        IntEvaluator maxLevel,
         string? clazz = null,
+        bool limitMinLevel = default,
+        bool limitMaxLevel = default,
         bool negate = false)
     {
       builder.Validate(unit);
       builder.Validate(minLevel);
+      builder.Validate(maxLevel);
     
       var element = ElementTool.Create<UnitClass>();
       element.Unit = unit;
       element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
+      element.LimitMinLevel = limitMinLevel;
       element.MinLevel = minLevel;
+      element.LimitMaxLevel = limitMaxLevel;
+      element.MaxLevel = maxLevel;
       element.Not = negate;
       return builder.Add(element);
     }

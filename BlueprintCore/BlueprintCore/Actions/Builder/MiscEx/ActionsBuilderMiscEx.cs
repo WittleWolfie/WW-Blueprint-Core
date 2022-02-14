@@ -434,6 +434,33 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="TransferSharedVendorTable"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="sourceSharedVendorTable"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
+    /// <param name="destinationSharedVendorTable"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
+    [Generated]
+    [Implements(typeof(TransferSharedVendorTable))]
+    public static ActionsBuilder TransferSharedVendorTable(
+        this ActionsBuilder builder,
+        string? sourceSharedVendorTable = null,
+        string? destinationSharedVendorTable = null,
+        bool transferSold = default,
+        bool transferBought = default,
+        TransferSharedVendorTable.Limit[]? limits = null)
+    {
+      builder.Validate(limits);
+    
+      var element = ElementTool.Create<TransferSharedVendorTable>();
+      element.m_SourceSharedVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(sourceSharedVendorTable);
+      element.m_DestinationSharedVendorTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(destinationSharedVendorTable);
+      element.m_TransferSold = transferSold;
+      element.m_TransferBought = transferBought;
+      element.m_Limits = limits;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnequipAllItems"/> (Auto Generated)
     /// </summary>
     [Generated]

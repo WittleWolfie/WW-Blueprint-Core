@@ -964,10 +964,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     public static ActionsBuilder SpawnBySummonPool(
         this ActionsBuilder builder,
         string? pool = null,
+        bool ignoreSpawnerConditions = default,
         ActionsBuilder? actionsOnSpawn = null)
     {
       var element = ElementTool.Create<SpawnBySummonPool>();
       element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
+      element.m_IgnoreSpawnerConditions = ignoreSpawnerConditions;
       element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);
     }

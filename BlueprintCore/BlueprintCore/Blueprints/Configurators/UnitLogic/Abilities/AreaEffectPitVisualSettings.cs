@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using UnityEngine;
 
@@ -57,14 +58,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(GameObject unitDisappearFx)
+    public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(PrefabLink? unitDisappearFx)
     {
       ValidateParam(unitDisappearFx);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.UnitDisappearFx = unitDisappearFx;
+            bp.UnitDisappearFx = unitDisappearFx ?? Constants.Empty.PrefabLink;
           });
     }
 
@@ -72,14 +73,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(GameObject unitAppearFx)
+    public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(PrefabLink? unitAppearFx)
     {
       ValidateParam(unitAppearFx);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.UnitAppearFx = unitAppearFx;
+            bp.UnitAppearFx = unitAppearFx ?? Constants.Empty.PrefabLink;
           });
     }
 

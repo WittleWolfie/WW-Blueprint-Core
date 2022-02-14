@@ -1,5 +1,4 @@
 using HarmonyLib;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.DLC;
 using UnityEngine;
@@ -11,13 +10,6 @@ namespace BlueprintCore.Test
   {
     [HarmonyPatch(typeof(ContextActionAddRandomTrashItem), "Validate")]
     static class ContextActionAddRandomTrashItem_Validate_Patch
-    {
-      [HarmonyPriority(Priority.First)]
-      static bool Prefix() { return false; }
-    }
-
-    [HarmonyPatch(typeof(ValidationContext), "ValidateFieldAttributes")]
-    static class ValidationContext_ValidateFieldAttributes_Patch
     {
       [HarmonyPriority(Priority.First)]
       static bool Prefix() { return false; }

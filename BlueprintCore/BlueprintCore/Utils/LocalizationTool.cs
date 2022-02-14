@@ -18,14 +18,21 @@ namespace BlueprintCore.Utils
     private static readonly Dictionary<string, LocalString> keyToLocalString = new();
 
     /// <summary>
-    /// Creates a localized string with the provided key and value.
+    /// Returns a localized string with the provided <c>key</c> and <c>value</c>.
     /// </summary>
-    public static LocalizedString CreateString(string key, string value)
+    /// 
+    /// <remarks>
+    /// Calls <see cref="EncyclopediaTool.TagEncyclopediaEntries(string)"/> on <c>value</c> by default. Override
+    /// <paramref name="tagEncyclopediaEntries"/> if this is not desired.
+    /// </remarks>
+    public static LocalizedString CreateString(string key, string value, bool tagEncyclopediaEntries = true)
     {
+      var taggedValue =
+          tagEncyclopediaEntries ? EncyclopediaTool.TagEncyclopediaEntries(value) : value;
       if (keyToLocalString.ContainsKey(key))
       {
         var localString = keyToLocalString[key];
-        if (!localString.Value.Equals(value))
+        if (!localString.Value.Equals(taggedValue))
         {
           throw new InvalidOperationException($"String with key {key} already exists with a different value.");
         }
@@ -33,10 +40,10 @@ namespace BlueprintCore.Utils
       }
 
       var localizedString = new LocalizedString() { m_Key = key };
-      var stringsPack = LocalizationManager.CurrentPack.Strings;
-      if (stringsPack.ContainsKey(key))
+      var currentString = LocalizationManager.CurrentPack.GetText(key, reportUnknown: false);
+      if (!string.IsNullOrEmpty(currentString))
       {
-        if (stringsPack[key].Equals(value))
+        if (currentString.Equals(taggedValue))
         {
           Logger.Info($"Localized string already exists with key {key} and matching value.");
         }
@@ -47,16 +54,16 @@ namespace BlueprintCore.Utils
       }
       else
       {
-        stringsPack.Add(key, value);
+        LocalizationManager.CurrentPack.PutString(key, taggedValue);
       }
 
-      keyToLocalString.Add(key, new(localizedString, value));
+      keyToLocalString.Add(key, new(localizedString, taggedValue));
       return localizedString;
     }
 
     /// <summary>
-    /// Returns a localized string for the provided key. You must create the string using
-    /// <see cref="CreateString(string, string)"/> before calling this.
+    /// Returns the localized string created using <see cref="CreateString(string, string, bool)"/> with the specified
+    /// <c>key</c>.
     /// </summary>
     public static LocalizedString GetString(string key)
     {

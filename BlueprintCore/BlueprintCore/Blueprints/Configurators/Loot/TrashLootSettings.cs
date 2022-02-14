@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Loot;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 

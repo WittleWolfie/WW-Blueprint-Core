@@ -5,7 +5,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
 
 namespace BlueprintCoreGen.Actions.Builder.AVEx
@@ -68,7 +67,7 @@ namespace BlueprintCoreGen.Actions.Builder.AVEx
     [Implements(typeof(ContextActionRunAnimationClip))]
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
-        AnimationClipWrapper clip,
+        AnimationClipWrapperLink clip,
         ExecutionMode mode = ExecutionMode.Interrupted,
         float transitionIn = 0.25f,
         float transitionOut = 0.25f)

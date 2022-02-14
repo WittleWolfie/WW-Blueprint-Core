@@ -12,12 +12,14 @@ using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -755,6 +757,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PrerequisiteCondition))]
+    public TBuilder AddPrerequisiteCondition(
+        Condition condition,
+        LocalizedString? uIText = null,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default)
+    {
+      ValidateParam(condition);
+      ValidateParam(uIText);
+    
+      var component = new PrerequisiteCondition();
+      component.Condition = condition;
+      component.UIText = uIText ?? Constants.Empty.String;
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="PrerequisiteLoreMaster"/> (Auto Generated)
     /// </summary>
     ///
@@ -908,10 +934,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     [Generated]
     [Implements(typeof(AddTricksterAthleticBonus))]
     public TBuilder AddTricksterAthleticBonus(
-        ModifierDescriptor descriptor = default)
+        ModifierDescriptor descriptor = default,
+        bool isAdded = default)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor;
+      component.m_IsAdded = isAdded;
       return AddComponent(component);
     }
 
@@ -970,6 +998,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.BaseValue = baseValue ?? ContextValues.Constant(0);
       component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(upgradeFeature);
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddDispelMagicSuccessTrigger"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddDispelMagicSuccessTrigger))]
+    public TBuilder AddDispelMagicSuccessTrigger(
+        bool triggerOnAreaEffectsDispell = default,
+        ActionsBuilder? actionOnTarget = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new AddDispelMagicSuccessTrigger();
+      component.TriggerOnAreaEffectsDispell = triggerOnAreaEffectsDispell;
+      component.ActionOnTarget = actionOnTarget?.Build() ?? Constants.Empty.Actions;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
     /// <summary>

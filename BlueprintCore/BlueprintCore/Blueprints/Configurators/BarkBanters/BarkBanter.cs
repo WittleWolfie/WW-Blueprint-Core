@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
+using System;
 using System.Linq;
 
 #nullable enable

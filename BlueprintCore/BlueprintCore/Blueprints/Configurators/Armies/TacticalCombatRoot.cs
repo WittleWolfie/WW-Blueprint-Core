@@ -5,6 +5,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Owlcat.Runtime.Core.Math;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -294,6 +295,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatRootConfigurator SetDismembermentDamageCoefficient(float dismembermentDamageCoefficient)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_DismembermentDamageCoefficient = dismembermentDamageCoefficient;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DiceRollResultsDistribution"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -471,6 +485,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp =>
           {
             bp.m_NegativeMoraleFx = negativeMoraleFx ?? Constants.Empty.PrefabLink;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintTacticalCombatRoot.m_AudioScalingFactor"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TacticalCombatRootConfigurator SetAudioScalingFactor(float audioScalingFactor)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_AudioScalingFactor = audioScalingFactor;
           });
     }
   }

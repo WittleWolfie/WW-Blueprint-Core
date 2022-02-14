@@ -1058,7 +1058,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         TimeSkip.SkipType type = default,
         TimeOfDay timeOfDay = default,
         bool noFatigue = default,
-        bool matchTimeOfDay = default)
+        bool matchTimeOfDay = default,
+        bool silent = default)
     {
       builder.Validate(minutesToSkip);
     
@@ -1068,6 +1069,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.TimeOfDay = timeOfDay;
       element.NoFatigue = noFatigue;
       element.MatchTimeOfDay = matchTimeOfDay;
+      element.Silent = silent;
       return builder.Add(element);
     }
 

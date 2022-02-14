@@ -1,10 +1,32 @@
 ﻿# Changelog
 
+#v1.3.3 Release (Beta Branch)
+
+* Updated for compatibility w/ 1.2.0 Beta
+* Migrated from System.Text.Json to Newtonsoft.Json since it is already included with Wrath
+
+### Breaking Changes
+
+* New dependency on `Owlcat.Runtime.Validation.dll`
+* The game's validation system was refactored and this update makes it compile and run but there may new warnings, duplicate warnings, or missing warnings
+* References to GameObject have migrated to PrefabLink
+* References to asset types have migrated to Link, e.g. Sprite is now SpriteLink
+* A lot of blueprints, components, actions, and conditions have small changes
+
+#v1.3.2 Release
+
+### New Features
+
+* Added `EncyclopediaTool` for adding tooltips to localized text
+    * If you create strings using `LocalizationTool` this is automatically called so no changes needed
+    * Credit to Hypebringer | Aegonek for porting from Vek's TabletopTweaks
+* Updated for compatibility w/ 1.1.7
+
 #v1.3.1 Release
 
 ### New Features
 
-*
+* Updated for compatibility w/ 1.1.6
 
 ### Fixes 
 

@@ -3,11 +3,11 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
+using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.LightSelector;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
 using System.Linq;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -315,7 +315,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.GraphCache"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetGraphCache(TextAsset graphCache)
+    public TBuilder SetGraphCache(TextAssetLink graphCache)
     {
       ValidateParam(graphCache);
     
@@ -660,7 +660,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// Sets <see cref="BlueprintAreaPart.GraphCache"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AreaPartConfigurator SetGraphCache(TextAsset graphCache)
+    public AreaPartConfigurator SetGraphCache(TextAssetLink graphCache)
     {
       ValidateParam(graphCache);
     

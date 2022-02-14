@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Prerequisites;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
@@ -569,6 +570,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       var component = new DeityDependencyClass();
       component.IsDeityDependencyClass = isDeityDependencyClass;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(PrerequisiteCondition))]
+    public ArchetypeConfigurator AddPrerequisiteCondition(
+        Condition condition,
+        LocalizedString? uIText = null,
+        Prerequisite.GroupType group = default,
+        bool checkInProgression = default,
+        bool hideInUI = default)
+    {
+      ValidateParam(condition);
+      ValidateParam(uIText);
+    
+      var component = new PrerequisiteCondition();
+      component.Condition = condition;
+      component.UIText = uIText ?? Constants.Empty.String;
+      component.Group = group;
+      component.CheckInProgression = checkInProgression;
+      component.HideInUI = hideInUI;
+      return AddComponent(component);
     }
 
     /// <summary>

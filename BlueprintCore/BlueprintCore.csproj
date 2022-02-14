@@ -14,7 +14,7 @@
 
     <!-- Package Config -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.3.0</Version>
+    <Version>1.3.3</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
 
@@ -38,6 +38,8 @@
     <None Remove="**\*.yml" />
     <None Remove="api\.manifest" />
     <None Remove="log.txt" />
+    <None Remove="resources\encyclopedia.json" />
+    <EmbeddedResource Include="resources\encyclopedia.json" />
     
     <!-- Content Files for Package -->
     <None Include="..\LICENSE">
@@ -67,11 +69,17 @@
       <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
       <HintPath>..\Assemblies\Owlcat.Runtime.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Validation">
+      <HintPath>..\Assemblies\Owlcat.Runtime.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Visual">
       <HintPath>..\Assemblies\Owlcat.Runtime.Visual.dll</HintPath>
@@ -95,7 +103,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <Folder Include="BlueprintCore\Blueprints\Configurators\" />
+  </ItemGroup>
+	
   <Target Name="Publicize" AfterTargets="Clean">
     <ItemGroup>
       <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll" />

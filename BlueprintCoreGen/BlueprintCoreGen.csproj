@@ -19,6 +19,9 @@
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Owlcat.Runtime.Validation">
+      <HintPath>..\Assemblies\Owlcat.Runtime.Validation.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\Assemblies\UnityEngine.dll</HintPath>
     </Reference>

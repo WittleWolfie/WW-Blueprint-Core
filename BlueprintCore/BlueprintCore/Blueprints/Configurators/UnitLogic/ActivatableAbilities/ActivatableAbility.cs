@@ -330,10 +330,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionCanGatherPower))]
     public ActivatableAbilityConfigurator AddRestrictionCanGatherPower(
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionCanGatherPower();
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -343,10 +345,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionCanUseKineticBlade))]
     public ActivatableAbilityConfigurator AddRestrictionCanUseKineticBlade(
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionCanUseKineticBlade();
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -427,12 +431,33 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionHasFact(
         string? feature = null,
         bool not = default,
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionHasFact();
       component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(feature);
       component.Not = not;
+      component.IgnoreIfStarted = ignoreIfStarted;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RestrictionHasPet"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(RestrictionHasPet))]
+    public ActivatableAbilityConfigurator AddRestrictionHasPet(
+        PetType petType = default,
+        bool not = default,
+        bool ignoreIfStarted = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new RestrictionHasPet();
+      component.PetType = petType;
+      component.Not = not;
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -443,11 +468,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionHasUnitCondition))]
     public ActivatableAbilityConfigurator AddRestrictionHasUnitCondition(
         UnitCondition condition = default,
-        bool invert = default)
+        bool invert = default,
+        bool ignoreIfStarted = default)
     {
       var component = new RestrictionHasUnitCondition();
       component.Condition = condition;
       component.Invert = invert;
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddComponent(component);
     }
 
@@ -462,12 +489,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionKensaiWeapon(
         string? characterClass = null,
         string? chosenWeaponBlueprint = null,
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionKensaiWeapon();
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(chosenWeaponBlueprint);
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -477,10 +506,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Generated]
     [Implements(typeof(RestrictionRangedWeapon))]
     public ActivatableAbilityConfigurator AddRestrictionRangedWeapon(
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionRangedWeapon();
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -493,11 +524,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     [Implements(typeof(RestrictionUnitConditionUnlessFact))]
     public ActivatableAbilityConfigurator AddRestrictionUnitConditionUnlessFact(
         UnitCondition condition = default,
-        string? checkedFact = null)
+        string? checkedFact = null,
+        bool ignoreIfStarted = default)
     {
       var component = new RestrictionUnitConditionUnlessFact();
       component.Condition = condition;
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddComponent(component);
     }
 
@@ -511,13 +544,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public ActivatableAbilityConfigurator AddRestrictionUnlockableFlag(
         string? neededFlag = null,
         bool invert = default,
+        bool ignoreIfStarted = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new RestrictionUnlockableFlag();
       component.m_NeededFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(neededFlag);
       component.Invert = invert;
+      component.IgnoreIfStarted = ignoreIfStarted;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HideFeatureInInspect"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HideFeatureInInspect))]
+    public ActivatableAbilityConfigurator AddHideFeatureInInspect()
+    {
+      return AddComponent(new HideFeatureInInspect());
     }
 
     /// <summary>

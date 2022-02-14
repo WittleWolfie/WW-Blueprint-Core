@@ -1857,20 +1857,20 @@ public static ConditionsBuilder UnitBlueprint(this ConditionsBuilder builder, Un
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L594">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.IntEvaluator,System.String,System.Boolean)">UnitClass(ConditionsBuilder, UnitEvaluator, IntEvaluator, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_">UnitClass(ConditionsBuilder, UnitEvaluator, IntEvaluator, String, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator,System.String,System.Boolean,System.Boolean,System.Boolean)">UnitClass(ConditionsBuilder, UnitEvaluator, IntEvaluator, IntEvaluator, String, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_String_System_Boolean_System_Boolean_System_Boolean_">UnitClass(ConditionsBuilder, UnitEvaluator, IntEvaluator, IntEvaluator, String, Boolean, Boolean, Boolean)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(UnitClass))]
-public static ConditionsBuilder UnitClass(this ConditionsBuilder builder, UnitEvaluator unit, IntEvaluator minLevel, string clazz = null, bool negate = false)</code></pre>
+public static ConditionsBuilder UnitClass(this ConditionsBuilder builder, UnitEvaluator unit, IntEvaluator minLevel, IntEvaluator maxLevel, string clazz = null, bool limitMinLevel = false, bool limitMaxLevel = false, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1898,10 +1898,25 @@ public static ConditionsBuilder UnitClass(this ConditionsBuilder builder, UnitEv
         <td></td>
       </tr>
       <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">maxLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">clazz</span></td>
         <td><p><span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span></p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">limitMinLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">limitMaxLevel</span></td>
+        <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
@@ -1930,7 +1945,7 @@ public static ConditionsBuilder UnitClass(this ConditionsBuilder builder, UnitEv
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L617">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L624">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">UnitEqual(ConditionsBuilder, UnitEvaluator, UnitEvaluator, Boolean)</h4>
@@ -1994,7 +2009,7 @@ public static ConditionsBuilder UnitEqual(this ConditionsBuilder builder, UnitEv
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Blueprints.EntityReference%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L638">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L645">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Blueprints.EntityReference,System.Boolean)">UnitFromSpawnerIsDead(ConditionsBuilder, EntityReference, Boolean)</h4>
@@ -2053,7 +2068,7 @@ public static ConditionsBuilder UnitFromSpawnerIsDead(this ConditionsBuilder bui
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L658">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L665">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String,System.Boolean)">UnitFromSummonPool(ConditionsBuilder, UnitEvaluator, String, Boolean)</h4>
@@ -2118,7 +2133,7 @@ public static ConditionsBuilder UnitFromSummonPool(this ConditionsBuilder builde
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Blueprints_Gender_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Blueprints.Gender%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L678">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L685">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Blueprints_Gender_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Blueprints.Gender,System.Boolean)">UnitGender(ConditionsBuilder, UnitEvaluator, Gender, Boolean)</h4>
@@ -2300,7 +2315,7 @@ public static ConditionsBuilder UnitIsHidden(this ConditionsBuilder builder, Uni
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L698">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L705">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">UnitIsNull(ConditionsBuilder, UnitEvaluator, Boolean)</h4>

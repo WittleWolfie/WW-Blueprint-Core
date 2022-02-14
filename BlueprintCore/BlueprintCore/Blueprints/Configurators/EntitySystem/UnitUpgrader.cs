@@ -28,6 +28,19 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitUpgraderConfigurator SetApplyFromPlaceholder(bool applyFromPlaceholder)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ApplyFromPlaceholder = applyFromPlaceholder;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
     /// </summary>
     [Generated]

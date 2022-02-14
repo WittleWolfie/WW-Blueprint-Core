@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Customization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -333,21 +334,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
                     .Where(
                         bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
                     .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitCustomizationPreset.randomParameters"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="randomParameters"><see cref="Kingmaker.UnitLogic.Customization.RandomParameters"/></param>
-    [Generated]
-    public UnitCustomizationPresetConfigurator SetRandomParameters(string? randomParameters)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.randomParameters = BlueprintTool.GetRef<RandomParametersReference>(randomParameters);
           });
     }
   }

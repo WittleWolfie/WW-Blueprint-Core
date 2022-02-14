@@ -17,7 +17,6 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
@@ -48,14 +47,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Sets <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public WeaponEnchantmentConfigurator SetWeaponFxPrefab(GameObject weaponFxPrefab)
+    public WeaponEnchantmentConfigurator SetWeaponFxPrefab(PrefabLink? weaponFxPrefab)
     {
       ValidateParam(weaponFxPrefab);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.WeaponFxPrefab = weaponFxPrefab;
+            bp.WeaponFxPrefab = weaponFxPrefab ?? Constants.Empty.PrefabLink;
           });
     }
 

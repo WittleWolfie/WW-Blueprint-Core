@@ -2987,20 +2987,20 @@ public static ActionsBuilder Spawn(this ActionsBuilder builder, EntityReference[
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnBySummonPool(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnBySummonPool(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L962">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnBySummonPool*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnBySummonPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,BlueprintCore.Actions.Builder.ActionsBuilder)">SpawnBySummonPool(ActionsBuilder, String, ActionsBuilder)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Actions_Builder_ActionsBuilder_">SpawnBySummonPool(ActionsBuilder, String, ActionsBuilder)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnBySummonPool(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">SpawnBySummonPool(ActionsBuilder, String, Boolean, ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnBySummonPool_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_">SpawnBySummonPool(ActionsBuilder, String, Boolean, ActionsBuilder)</a> (Auto Generated)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Implements(typeof(SpawnBySummonPool))]
-public static ActionsBuilder SpawnBySummonPool(this ActionsBuilder builder, string pool = null, ActionsBuilder actionsOnSpawn = null)</code></pre>
+public static ActionsBuilder SpawnBySummonPool(this ActionsBuilder builder, string pool = null, bool ignoreSpawnerConditions = false, ActionsBuilder actionsOnSpawn = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3022,6 +3022,11 @@ public static ActionsBuilder SpawnBySummonPool(this ActionsBuilder builder, stri
         <td><span class="parametername">pool</span></td>
         <td><p><span class="xref">Kingmaker.Blueprints.BlueprintSummonPool</span></p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">ignoreSpawnerConditions</span></td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
@@ -3050,7 +3055,7 @@ public static ActionsBuilder SpawnBySummonPool(this ActionsBuilder builder, stri
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnByUnitGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnByUnitGroup(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L978">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L980">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnByUnitGroup_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnByUnitGroup*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SpawnByUnitGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SpawnByUnitGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference,BlueprintCore.Actions.Builder.ActionsBuilder)">SpawnByUnitGroup(ActionsBuilder, EntityReference, ActionsBuilder)</h4>
@@ -3109,7 +3114,7 @@ public static ActionsBuilder SpawnByUnitGroup(this ActionsBuilder builder, Entit
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_StatusEffect_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_UnitLogic_UnitCondition_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.StatusEffect(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.UnitLogic.UnitCondition%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L996">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L998">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_StatusEffect_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.StatusEffect*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_StatusEffect_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_UnitLogic_UnitCondition_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.StatusEffect(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.UnitLogic.UnitCondition,System.Boolean)">StatusEffect(ActionsBuilder, UnitEvaluator, UnitCondition, Boolean)</h4>
@@ -3173,7 +3178,7 @@ public static ActionsBuilder StatusEffect(this ActionsBuilder builder, UnitEvalu
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_Summon_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_Vector3_System_String_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.Summon(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.TransformEvaluator%2CUnityEngine.Vector3%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1019">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1021">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_Summon_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.Summon*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_Summon_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_TransformEvaluator_UnityEngine_Vector3_System_String_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.Summon(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.TransformEvaluator,UnityEngine.Vector3,System.String,System.String,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">Summon(ActionsBuilder, TransformEvaluator, Vector3, String, String, Boolean, ActionsBuilder)</h4>
@@ -3254,7 +3259,7 @@ public static ActionsBuilder Summon(this ActionsBuilder builder, TransformEvalua
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonPoolUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonPoolUnits(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.String%2CBlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1047">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1049">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonPoolUnits_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonPoolUnits*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonPoolUnits_BlueprintCore_Actions_Builder_ActionsBuilder_System_String_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonPoolUnits(BlueprintCore.Actions.Builder.ActionsBuilder,System.String,BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">SummonPoolUnits(ActionsBuilder, String, ConditionsBuilder, ActionsBuilder)</h4>
@@ -3319,7 +3324,7 @@ public static ActionsBuilder SummonPoolUnits(this ActionsBuilder builder, string
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonUnitCopy_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_LocatorEvaluator_System_String_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonUnitCopy(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.LocatorEvaluator%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1068">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1070">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonUnitCopy_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonUnitCopy*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SummonUnitCopy_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_LocatorEvaluator_System_String_System_String_System_Boolean_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SummonUnitCopy(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.LocatorEvaluator,System.String,System.String,System.Boolean,BlueprintCore.Actions.Builder.ActionsBuilder)">SummonUnitCopy(ActionsBuilder, UnitEvaluator, LocatorEvaluator, String, String, Boolean, ActionsBuilder)</h4>
@@ -3400,7 +3405,7 @@ public static ActionsBuilder SummonUnitCopy(this ActionsBuilder builder, UnitEva
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchActivatableAbility_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchActivatableAbility(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1097">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1099">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchActivatableAbility_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchActivatableAbility*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchActivatableAbility_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchActivatableAbility(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String,System.Boolean)">SwitchActivatableAbility(ActionsBuilder, UnitEvaluator, String, Boolean)</h4>
@@ -3465,7 +3470,7 @@ public static ActionsBuilder SwitchActivatableAbility(this ActionsBuilder builde
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchDualCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1117">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1119">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchDualCompanion_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchDualCompanion*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_SwitchDualCompanion_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.SwitchDualCompanion(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator)">SwitchDualCompanion(ActionsBuilder, UnitEvaluator)</h4>
@@ -3519,7 +3524,7 @@ public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder, Un
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_UnitsFromSpawnersInUnitGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.UnitsFromSpawnersInUnitGroup(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1133">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/BasicEx/ActionsBuilderBasicEx.cs/#L1135">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_UnitsFromSpawnersInUnitGroup_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.UnitsFromSpawnersInUnitGroup*"></a>
   <h4 id="BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_UnitsFromSpawnersInUnitGroup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.UnitsFromSpawnersInUnitGroup(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference,BlueprintCore.Actions.Builder.ActionsBuilder)">UnitsFromSpawnersInUnitGroup(ActionsBuilder, EntityReference, ActionsBuilder)</h4>

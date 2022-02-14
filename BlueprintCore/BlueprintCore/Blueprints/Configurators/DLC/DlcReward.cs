@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,45 +36,58 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportRequired"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IsImportIntoMainCampaignRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsImportRequired(bool isImportRequired)
+    public TBuilder SetIsImportIntoMainCampaignRequired(bool isImportIntoMainCampaignRequired)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportRequired = isImportRequired;
+            bp.m_IsImportIntoMainCampaignRequired = isImportIntoMainCampaignRequired;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaignSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportIntoMainCampaign(DlcImportSettings importIntoMainCampaign)
+    public TBuilder SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
     {
-      ValidateParam(importIntoMainCampaign);
+      ValidateParam(importIntoMainCampaignSettings);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportIntoMainCampaign = importIntoMainCampaign;
+            bp.ImportIntoMainCampaignSettings = importIntoMainCampaignSettings;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IsImportFromMainCampaignRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportFromMainCampaign(DlcImportSettings importFromMainCampaign)
+    public TBuilder SetIsImportFromMainCampaignRequired(bool isImportFromMainCampaignRequired)
     {
-      ValidateParam(importFromMainCampaign);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsImportFromMainCampaignRequired = isImportFromMainCampaignRequired;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaignSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
+    {
+      ValidateParam(importFromMainCampaignSettings);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportFromMainCampaign = importFromMainCampaign;
+            bp.ImportFromMainCampaignSettings = importFromMainCampaignSettings;
           });
     }
 
@@ -172,45 +186,58 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportRequired"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IsImportIntoMainCampaignRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetIsImportRequired(bool isImportRequired)
+    public DlcRewardConfigurator SetIsImportIntoMainCampaignRequired(bool isImportIntoMainCampaignRequired)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportRequired = isImportRequired;
+            bp.m_IsImportIntoMainCampaignRequired = isImportIntoMainCampaignRequired;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaignSettings"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportIntoMainCampaign(DlcImportSettings importIntoMainCampaign)
+    public DlcRewardConfigurator SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
     {
-      ValidateParam(importIntoMainCampaign);
+      ValidateParam(importIntoMainCampaignSettings);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportIntoMainCampaign = importIntoMainCampaign;
+            bp.ImportIntoMainCampaignSettings = importIntoMainCampaignSettings;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IsImportFromMainCampaignRequired"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportFromMainCampaign(DlcImportSettings importFromMainCampaign)
+    public DlcRewardConfigurator SetIsImportFromMainCampaignRequired(bool isImportFromMainCampaignRequired)
     {
-      ValidateParam(importFromMainCampaign);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsImportFromMainCampaignRequired = isImportFromMainCampaignRequired;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaignSettings"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DlcRewardConfigurator SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
+    {
+      ValidateParam(importFromMainCampaignSettings);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportFromMainCampaign = importFromMainCampaign;
+            bp.ImportFromMainCampaignSettings = importFromMainCampaignSettings;
           });
     }
 

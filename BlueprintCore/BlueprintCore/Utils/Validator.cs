@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Owlcat.QA.Validation;
 
 #nullable enable
 namespace BlueprintCore.Utils
@@ -17,18 +17,12 @@ namespace BlueprintCore.Utils
   /// </remarks>
   public static class Validator
   {
-    private static readonly ValidationContext Context = new();
-
     /// <summary>Checks the object and returns a list of validation warnings</summary>
     /// 
     /// <remarks>
     /// Uses a combination of Wrath validation logic and custom logic validating that implicit object constraints are
     /// met. The exact validation run varies by type.
     /// <list type="bullet">
-    /// <item>
-    ///   <term>All Objects</term>
-    ///   <description><see cref="ValidationContext.ValidateFieldAttributes(object, string)"/></description>
-    /// </item>
     /// <item>
     ///   <term><see cref="Element"/> types</term>
     ///   <description>Verifies that <see cref="Element.name"/> is set.</description>
@@ -50,32 +44,31 @@ namespace BlueprintCore.Utils
       if (obj == null) { return errors; }
 
       var name = obj is Element element ? element.name : obj.GetType().ToString();
-      Check(obj, name);
+      ValidationContext context = new(name);
+      Check(obj, context);
 
       if (obj is Element && string.IsNullOrEmpty(name))
       {
         errors.Add(
             $"Element name missing: {obj.GetType()}. Create using ElementTool.Create().");
       }
-      else if (obj is BlueprintComponent component) { component.ApplyValidation(Context); }
+      else if (obj is BlueprintComponent component) { component.ApplyValidation(context, -1); }
 
-      errors.AddRange(Context.Errors);
-      Context.Clear();
+      errors.AddRange(context.Errors);
       return errors;
     }
 
-    private static void Check(object obj, string name)
+    private static void Check(object obj, ValidationContext context)
     {
-      Context.ValidateFieldAttributes(obj, name);
-
+      // TODO: Validate fields object fields w/ ValidatingFieldAttribute
       if (obj is IValidated validated)
       {
-        validated.Validate(Context, name ?? obj.GetType().ToString());
+        validated.Validate(context, -1);
       }
       else if (obj is DealStatDamage damage)
       {
         // DealStatDamage implements Validate but not IValidated
-        damage.Validate(Context, name ?? obj.GetType().ToString());
+        damage.Validate(context, -1);
       }
     }
   }
