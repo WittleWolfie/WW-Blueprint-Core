@@ -246,6 +246,9 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     // TODO: There's a problem with using this w/ nullable types. Need to re-think how I handle nullability.
+    // I think what should change:
+    // -Use null coalescing operator
+    // -Constructing the field in terms of RHS / LHS of null coalescing operator
     private static List<string> GetAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (blueprintType is not null)
