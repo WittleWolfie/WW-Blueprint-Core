@@ -1101,8 +1101,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
-      prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
+      prereq.WeaponProficiencies = weapons ;
+      prereq.ArmorProficiencies = armors ;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -1238,8 +1238,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ?? Constants.Empty.WeaponCategories;
-      prereq.ArmorProficiencies = armors ?? Constants.Empty.ArmorProficiencies;
+      prereq.WeaponProficiencies = weapons ;
+      prereq.ArmorProficiencies = armors ;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 

@@ -2,7 +2,6 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
@@ -95,7 +94,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           new FieldParamOverride
           {
             Imports = new() { typeof(ActionsBuilder), typeof(Constants) },
-            TypeName = "ActionsBuilder?",
+            TypeName = "ActionsBuilder",
             DefaultValue = "null",
             ValidationFmt = new(),
             AssignmentFmt = new() { "{0}.{1} = {2}.Build();" },
@@ -109,7 +108,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           new FieldParamOverride
           {
             Imports = new() { typeof(ConditionsBuilder), typeof(Constants) },
-            TypeName = "ConditionsBuilder?",
+            TypeName = "ConditionsBuilder",
             DefaultValue = "null",
             ValidationFmt = new(),
             AssignmentFmt = new() { "{0}.{1} = {2}.Build();" },

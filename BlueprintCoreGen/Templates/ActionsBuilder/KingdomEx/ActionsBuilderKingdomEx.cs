@@ -10,7 +10,6 @@ using Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
 using Kingmaker.Kingdom.Blueprints;

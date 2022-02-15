@@ -38,7 +38,7 @@ namespace BlueprintCoreGen
     private static List<Type> ProcessActions(Type[] gameTypes)
     {
       HashSet<Type> implementedActionTypes = new();
-      foreach (IClass actionClass in TemplateProcessor.ActionClasses)
+      foreach (IClassFile actionClass in TemplateProcessor.ActionClasses)
       {
         WriteClassToFile(actionClass);
         implementedActionTypes.UnionWith(actionClass.GetImplementedTypes());
@@ -49,7 +49,7 @@ namespace BlueprintCoreGen
     private static List<Type> ProcessConditions(Type[] gameTypes)
     {
       HashSet<Type> implementedConditionTypes = new();
-      foreach (IClass conditionClass in TemplateProcessor.ConditionClasses)
+      foreach (IClassFile conditionClass in TemplateProcessor.ConditionClasses)
       {
         WriteClassToFile(conditionClass);
         implementedConditionTypes.UnionWith(conditionClass.GetImplementedTypes());
@@ -57,7 +57,7 @@ namespace BlueprintCoreGen
       return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
-    private static void WriteClassToFile(IClass classToWrite)
+    private static void WriteClassToFile(IClassFile classToWrite)
     {
       // Create the directories if necessary
       FileInfo result = new FileInfo(classToWrite.FilePath);

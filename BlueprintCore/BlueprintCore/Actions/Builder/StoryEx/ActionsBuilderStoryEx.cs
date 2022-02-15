@@ -2,1208 +2,1986 @@ using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.Designers.Quests.Common;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
+using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
-
-#nullable enable
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.StoryEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionsBuilder"/> for actions related to the story such as companion stories, quests,
-  /// name changes, and etudes.
+  /// Extension to <see cref="ActionsBuilder"/> for actions related to the story such as companion stories, quests, name changes, and etudes.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderStoryEx
-  {
-    //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
+{
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CompleteEtude">CompleteEtude</see>
+    /// Adds <see cref="AlignmentSelector"/>
     /// </summary>
-    /// 
-    /// <param name="etude"><see cref="BlueprintEtude"/></param>
-    [Implements(typeof(CompleteEtude))]
-    public static ActionsBuilder CompleteEtude(
-        this ActionsBuilder builder, string etude, BlueprintEvaluator? evaluator = null)
-    {
-      var completeEtude = ElementTool.Create<CompleteEtude>();
-      completeEtude.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      if (evaluator != null)
-      {
-        completeEtude.EtudeEvaluator = evaluator;
-        completeEtude.Evaluate = true;
-      }
-      return builder.Add(completeEtude);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeRomance">ChangeRomance</see>
-    /// </summary>
-    /// 
-    /// <param name="romance"><see cref="BlueprintRomanceCounter"/></param>
-    [Implements(typeof(ChangeRomance))]
-    public static ActionsBuilder ChangeRomance(
-       this ActionsBuilder builder, string romance, IntEvaluator value)
-    {
-      builder.Validate(value);
-
-      var changeRomance = ElementTool.Create<ChangeRomance>();
-      changeRomance.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
-      changeRomance.ValueEvaluator = value;
-      return builder.Add(changeRomance);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName">ChangeUnitName</see>
-    /// </summary>
-    [Implements(typeof(ChangeUnitName))]
-    public static ActionsBuilder ChangeUnitName(
-        this ActionsBuilder builder,
-        UnitEvaluator unit,
-        LocalizedString name,
-        bool appendName = false)
-    {
-      builder.Validate(unit);
-
-      var changeName = ElementTool.Create<ChangeUnitName>();
-      changeName.Unit = unit;
-      changeName.NewName = name;
-      changeName.AddToTheName = appendName;
-      return builder.Add(changeName);
-    }
-
-    /// <inheritdoc cref="ChangeUnitName"/>
-    [Implements(typeof(ChangeUnitName))]
-    public static ActionsBuilder ResetUnitName(
-        this ActionsBuilder builder, UnitEvaluator unit)
-    {
-      builder.Validate(unit);
-
-      var changeName = ElementTool.Create<ChangeUnitName>();
-      changeName.Unit = unit;
-      changeName.ReturnTheOldName = true;
-      return builder.Add(changeName);
-    }
-
-    //----- Auto Generated -----//
-
-    /// <summary>
-    /// Adds <see cref="AlignmentSelector"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AlignmentSelector))]
     public static ActionsBuilder AlignmentSelector(
         this ActionsBuilder builder,
-        AlignmentSelector.ActionAndCondition lawfulGood,
-        AlignmentSelector.ActionAndCondition neutralGood,
-        AlignmentSelector.ActionAndCondition chaoticGood,
-        AlignmentSelector.ActionAndCondition lawfulNeutral,
-        AlignmentSelector.ActionAndCondition trueNeutral,
-        AlignmentSelector.ActionAndCondition chaoticNeutral,
-        AlignmentSelector.ActionAndCondition lawfulEvil,
-        AlignmentSelector.ActionAndCondition neutralEvil,
-        AlignmentSelector.ActionAndCondition chaoticEvil,
-        Dictionary<Alignment,AlignmentSelector.ActionAndCondition> actionsByAlignment,
-        bool selectClosest = default)
+        Dictionary<Alignment,AlignmentSelector.ActionAndCondition>? actionsByAlignment = null,
+        AlignmentSelector.ActionAndCondition? chaoticEvil = null,
+        AlignmentSelector.ActionAndCondition? chaoticGood = null,
+        AlignmentSelector.ActionAndCondition? chaoticNeutral = null,
+        AlignmentSelector.ActionAndCondition? lawfulEvil = null,
+        AlignmentSelector.ActionAndCondition? lawfulGood = null,
+        AlignmentSelector.ActionAndCondition? lawfulNeutral = null,
+        AlignmentSelector.ActionAndCondition? neutralEvil = null,
+        AlignmentSelector.ActionAndCondition? neutralGood = null,
+        bool? selectClosest = null,
+        AlignmentSelector.ActionAndCondition? trueNeutral = null)
     {
-      builder.Validate(actionsByAlignment);
-    
       var element = ElementTool.Create<AlignmentSelector>();
-      element.SelectClosest = selectClosest;
-      element.LawfulGood = lawfulGood;
-      element.NeutralGood = neutralGood;
-      element.ChaoticGood = chaoticGood;
-      element.LawfulNeutral = lawfulNeutral;
-      element.TrueNeutral = trueNeutral;
-      element.ChaoticNeutral = chaoticNeutral;
-      element.LawfulEvil = lawfulEvil;
-      element.NeutralEvil = neutralEvil;
-      element.ChaoticEvil = chaoticEvil;
-      element.m_ActionsByAlignment = actionsByAlignment;
+      if (actionsByAlignment is not null)
+      {
+        builder.Validate(actionsByAlignment);
+        element.m_ActionsByAlignment = actionsByAlignment;
+      }
+      if (chaoticEvil is not null)
+      {
+        element.ChaoticEvil = chaoticEvil;
+      }
+      if (chaoticGood is not null)
+      {
+        element.ChaoticGood = chaoticGood;
+      }
+      if (chaoticNeutral is not null)
+      {
+        element.ChaoticNeutral = chaoticNeutral;
+      }
+      if (lawfulEvil is not null)
+      {
+        element.LawfulEvil = lawfulEvil;
+      }
+      if (lawfulGood is not null)
+      {
+        element.LawfulGood = lawfulGood;
+      }
+      if (lawfulNeutral is not null)
+      {
+        element.LawfulNeutral = lawfulNeutral;
+      }
+      if (neutralEvil is not null)
+      {
+        element.NeutralEvil = neutralEvil;
+      }
+      if (neutralGood is not null)
+      {
+        element.NeutralGood = neutralGood;
+      }
+      if (selectClosest is not null)
+      {
+        element.SelectClosest = selectClosest;
+      }
+      if (trueNeutral is not null)
+      {
+        element.TrueNeutral = trueNeutral;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="DismissAllCompanions"/> (Auto Generated)
+    /// Adds <see cref="CompleteEtude"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(DismissAllCompanions))]
+    ///
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder CompleteEtude(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        BlueprintEvaluator? etudeEvaluator = null,
+        bool? evaluate = null)
+    {
+      var element = ElementTool.Create<CompleteEtude>();
+      if (etude is not null)
+      {
+        element.Etude = etude.Reference;
+      }
+      if (element.Etude is null)
+      {
+        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (etudeEvaluator is not null)
+      {
+        builder.Validate(etudeEvaluator);
+        element.EtudeEvaluator = etudeEvaluator;
+      }
+      if (evaluate is not null)
+      {
+        element.Evaluate = evaluate;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeRomance"/>
+    /// </summary>
+    ///
+    /// <param name="romance">
+    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ChangeRomance(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
+        IntEvaluator? valueEvaluator = null)
+    {
+      var element = ElementTool.Create<ChangeRomance>();
+      if (romance is not null)
+      {
+        element.m_Romance = romance.Reference;
+      }
+      if (element.m_Romance is null)
+      {
+        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
+      }
+      if (valueEvaluator is not null)
+      {
+        builder.Validate(valueEvaluator);
+        element.ValueEvaluator = valueEvaluator;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeUnitName"/>
+    /// </summary>
+    public static ActionsBuilder ChangeUnitName(
+        this ActionsBuilder builder,
+        bool? addToTheName = null,
+        LocalizedString? newName = null,
+        bool? returnTheOldName = null,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<ChangeUnitName>();
+      if (addToTheName is not null)
+      {
+        element.AddToTheName = addToTheName;
+      }
+      if (newName is not null)
+      {
+        element.NewName = newName;
+      }
+      if (element.NewName is null)
+      {
+        element.NewName = Constants.Empty.String;
+      }
+      if (returnTheOldName is not null)
+      {
+        element.ReturnTheOldName = returnTheOldName;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DismissAllCompanions"/>
+    /// </summary>
     public static ActionsBuilder DismissAllCompanions(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<DismissAllCompanions>());
     }
 
     /// <summary>
-    /// Adds <see cref="GiveObjective"/> (Auto Generated)
+    /// Adds <see cref="GiveObjective"/>
     /// </summary>
     ///
-    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(GiveObjective))]
+    /// <param name="objective">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder GiveObjective(
         this ActionsBuilder builder,
-        string? objective = null)
+        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<GiveObjective>();
-      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
+      if (objective is not null)
+      {
+        element.m_Objective = objective.Reference;
+      }
+      if (element.m_Objective is null)
+      {
+        element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="HideUnit"/> (Auto Generated)
+    /// Adds <see cref="HideUnit"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideUnit))]
     public static ActionsBuilder HideUnit(
         this ActionsBuilder builder,
-        UnitEvaluator target,
-        bool unhide = default,
-        bool fade = default)
+        bool? fade = null,
+        UnitEvaluator? target = null,
+        bool? unhide = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<HideUnit>();
-      element.Target = target;
-      element.Unhide = unhide;
-      element.Fade = fade;
+      if (fade is not null)
+      {
+        element.Fade = fade;
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
+      if (unhide is not null)
+      {
+        element.Unhide = unhide;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="HideWeapons"/> (Auto Generated)
+    /// Adds <see cref="HideWeapons"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideWeapons))]
     public static ActionsBuilder HideWeapons(
         this ActionsBuilder builder,
-        UnitEvaluator target,
-        bool hide = default)
+        bool? hide = null,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<HideWeapons>();
-      element.Target = target;
-      element.Hide = hide;
+      if (hide is not null)
+      {
+        element.Hide = hide;
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IncrementFlagValue"/> (Auto Generated)
+    /// Adds <see cref="IncrementFlagValue"/>
     /// </summary>
     ///
-    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(IncrementFlagValue))]
+    /// <param name="flag">
+    /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder IncrementFlagValue(
         this ActionsBuilder builder,
-        IntEvaluator value,
-        string? flag = null,
-        bool unlockIfNot = default)
+        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        bool? unlockIfNot = null,
+        IntEvaluator? value = null)
     {
-      builder.Validate(value);
-    
       var element = ElementTool.Create<IncrementFlagValue>();
-      element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
-      element.Value = value;
-      element.UnlockIfNot = unlockIfNot;
+      if (flag is not null)
+      {
+        element.m_Flag = flag.Reference;
+      }
+      if (element.m_Flag is null)
+      {
+        element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (unlockIfNot is not null)
+      {
+        element.UnlockIfNot = unlockIfNot;
+      }
+      if (value is not null)
+      {
+        builder.Validate(value);
+        element.Value = value;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="InterruptAllActions"/> (Auto Generated)
+    /// Adds <see cref="InterruptAllActions"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(InterruptAllActions))]
     public static ActionsBuilder InterruptAllActions(
         this ActionsBuilder builder,
-        UnitEvaluator unit)
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<InterruptAllActions>();
-      element.m_Unit = unit;
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.m_Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="LockAlignment"/> (Auto Generated)
+    /// Adds <see cref="LockAlignment"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(LockAlignment))]
     public static ActionsBuilder LockAlignment(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        AlignmentMaskType alignmentMask = default,
-        Alignment targetAlignment = default)
+        AlignmentMaskType? alignmentMask = null,
+        Alignment? targetAlignment = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<LockAlignment>();
-      element.Unit = unit;
-      element.AlignmentMask = alignmentMask;
-      element.TargetAlignment = targetAlignment;
+      if (alignmentMask is not null)
+      {
+        element.AlignmentMask = alignmentMask;
+      }
+      if (targetAlignment is not null)
+      {
+        element.TargetAlignment = targetAlignment;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="LockFlag"/> (Auto Generated)
+    /// Adds <see cref="LockFlag"/>
     /// </summary>
     ///
-    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(LockFlag))]
+    /// <param name="flag">
+    /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder LockFlag(
         this ActionsBuilder builder,
-        string? flag = null)
+        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null)
     {
       var element = ElementTool.Create<LockFlag>();
-      element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
+      if (flag is not null)
+      {
+        element.m_Flag = flag.Reference;
+      }
+      if (element.m_Flag is null)
+      {
+        element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="LockRomance"/> (Auto Generated)
+    /// Adds <see cref="LockRomance"/>
     /// </summary>
     ///
-    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
-    [Generated]
-    [Implements(typeof(LockRomance))]
+    /// <param name="romance">
+    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder LockRomance(
         this ActionsBuilder builder,
-        string? romance = null)
+        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null)
     {
       var element = ElementTool.Create<LockRomance>();
-      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
+      if (romance is not null)
+      {
+        element.m_Romance = romance.Reference;
+      }
+      if (element.m_Romance is null)
+      {
+        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="MarkAnswersSelected"/> (Auto Generated)
+    /// Adds <see cref="MarkAnswersSelected"/>
     /// </summary>
     ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
-    [Implements(typeof(MarkAnswersSelected))]
+    /// <param name="answers">
+    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder MarkAnswersSelected(
         this ActionsBuilder builder,
-        string[]? answers = null)
+        List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
-      element.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
+      if (answers is not null)
+      {
+        element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_Answers is null)
+      {
+        element.m_Answers = new BlueprintAnswerReference[0];
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="MarkCuesSeen"/> (Auto Generated)
+    /// Adds <see cref="MarkCuesSeen"/>
     /// </summary>
     ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
-    [Implements(typeof(MarkCuesSeen))]
+    /// <param name="cues">
+    /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder MarkCuesSeen(
         this ActionsBuilder builder,
-        string[]? cues = null)
+        List<Blueprint<BlueprintCueBase, BlueprintCueBaseReference>>? cues = null)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
-      element.m_Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToArray();
+      if (cues is not null)
+      {
+        element.m_Cues = cues.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_Cues is null)
+      {
+        element.m_Cues = new BlueprintCueBaseReference[0];
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="MoveAzataIslandToLocation"/> (Auto Generated)
+    /// Adds <see cref="MoveAzataIslandToLocation"/>
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(MoveAzataIslandToLocation))]
+    /// <param name="globalMap">
+    /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder MoveAzataIslandToLocation(
         this ActionsBuilder builder,
-        string? globalMap = null,
-        string? location = null)
+        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToLocation>();
-      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
-      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(location);
+      if (globalMap is not null)
+      {
+        element.m_GlobalMap = globalMap.Reference;
+      }
+      if (element.m_GlobalMap is null)
+      {
+        element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
+      }
+      if (location is not null)
+      {
+        element.m_Location = location.Reference;
+      }
+      if (element.m_Location is null)
+      {
+        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="MoveAzataIslandToNearestCrossroad"/> (Auto Generated)
+    /// Adds <see cref="MoveAzataIslandToNearestCrossroad"/>
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
-    [Implements(typeof(MoveAzataIslandToNearestCrossroad))]
+    /// <param name="globalMap">
+    /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder MoveAzataIslandToNearestCrossroad(
         this ActionsBuilder builder,
-        string? globalMap = null)
+        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
-      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
+      if (globalMap is not null)
+      {
+        element.m_GlobalMap = globalMap.Reference;
+      }
+      if (element.m_GlobalMap is null)
+      {
+        element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="OverrideUnitReturnPosition"/> (Auto Generated)
+    /// Adds <see cref="OverrideUnitReturnPosition"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(OverrideUnitReturnPosition))]
     public static ActionsBuilder OverrideUnitReturnPosition(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        PositionEvaluator position,
-        FloatEvaluator orientation)
+        FloatEvaluator? orientation = null,
+        PositionEvaluator? position = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-      builder.Validate(position);
-      builder.Validate(orientation);
-    
       var element = ElementTool.Create<OverrideUnitReturnPosition>();
-      element.Unit = unit;
-      element.Position = position;
-      element.Orientation = orientation;
+      if (orientation is not null)
+      {
+        builder.Validate(orientation);
+        element.Orientation = orientation;
+      }
+      if (position is not null)
+      {
+        builder.Validate(position);
+        element.Position = position;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PartyMembersAttach"/> (Auto Generated)
+    /// Adds <see cref="PartyMembersAttach"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PartyMembersAttach))]
     public static ActionsBuilder PartyMembersAttach(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<PartyMembersAttach>());
     }
 
     /// <summary>
-    /// Adds <see cref="PartyMembersDetach"/> (Auto Generated)
+    /// Adds <see cref="PartyMembersDetach"/>
     /// </summary>
     ///
-    /// <param name="detachAllExcept"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(PartyMembersDetach))]
+    /// <param name="detachAllExcept">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
-        string[]? detachAllExcept = null,
-        bool restrictPartySize = default,
-        int partySize = default,
-        ActionsBuilder? afterDetach = null)
+        ActionsBuilder? afterDetach = null,
+        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? detachAllExcept = null,
+        int? partySize = null,
+        bool? restrictPartySize = null)
     {
       var element = ElementTool.Create<PartyMembersDetach>();
-      element.m_DetachAllExcept = detachAllExcept.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
-      element.m_RestrictPartySize = restrictPartySize;
-      element.m_PartySize = partySize;
-      element.AfterDetach = afterDetach?.Build() ?? Constants.Empty.Actions;
+      if (afterDetach is not null)
+      {
+        element.AfterDetach = afterDetach.Build();
+      }
+      if (element.AfterDetach is null)
+      {
+        element.AfterDetach = Constants.Empty.Actions;
+      }
+      if (detachAllExcept is not null)
+      {
+        element.m_DetachAllExcept = detachAllExcept.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_DetachAllExcept is null)
+      {
+        element.m_DetachAllExcept = new BlueprintUnitReference[0];
+      }
+      if (partySize is not null)
+      {
+        element.m_PartySize = partySize;
+      }
+      if (restrictPartySize is not null)
+      {
+        element.m_RestrictPartySize = restrictPartySize;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PartyMembersDetachEvaluated"/> (Auto Generated)
+    /// Adds <see cref="PartyMembersDetachEvaluated"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PartyMembersDetachEvaluated))]
     public static ActionsBuilder PartyMembersDetachEvaluated(
         this ActionsBuilder builder,
-        UnitEvaluator[]? detachThese = null,
         ActionsBuilder? afterDetach = null,
-        bool restrictPartySize = default,
-        int partySize = default)
+        UnitEvaluator[]? detachThese = null,
+        int? partySize = null,
+        bool? restrictPartySize = null)
     {
-      builder.Validate(detachThese);
-    
       var element = ElementTool.Create<PartyMembersDetachEvaluated>();
-      element.DetachThese = detachThese;
-      element.AfterDetach = afterDetach?.Build() ?? Constants.Empty.Actions;
-      element.m_RestrictPartySize = restrictPartySize;
-      element.m_PartySize = partySize;
+      if (afterDetach is not null)
+      {
+        element.AfterDetach = afterDetach.Build();
+      }
+      if (element.AfterDetach is null)
+      {
+        element.AfterDetach = Constants.Empty.Actions;
+      }
+      if (detachThese is not null)
+      {
+        foreach (var item in detachThese) { builder.Validate(item); }
+        element.DetachThese = detachThese;
+      }
+      if (element.DetachThese is null)
+      {
+        element.DetachThese = new UnitEvaluator[0];
+      }
+      if (partySize is not null)
+      {
+        element.m_PartySize = partySize;
+      }
+      if (restrictPartySize is not null)
+      {
+        element.m_RestrictPartySize = restrictPartySize;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PartyMembersSwapAttachedAndDetached"/> (Auto Generated)
+    /// Adds <see cref="PartyMembersSwapAttachedAndDetached"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PartyMembersSwapAttachedAndDetached))]
     public static ActionsBuilder PartyMembersSwapAttachedAndDetached(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<PartyMembersSwapAttachedAndDetached>());
     }
 
     /// <summary>
-    /// Adds <see cref="Recruit"/> (Auto Generated)
+    /// Adds <see cref="Recruit"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(Recruit))]
     public static ActionsBuilder Recruit(
         this ActionsBuilder builder,
-        Recruit.RecruitData[]? recruited = null,
-        bool addToParty = default,
-        bool matchPlayerXpExactly = default,
+        bool? addToParty = null,
+        bool? matchPlayerXpExactly = null,
         ActionsBuilder? onRecruit = null,
-        ActionsBuilder? onRecruitImmediate = null)
+        ActionsBuilder? onRecruitImmediate = null,
+        Recruit.RecruitData[]? recruited = null)
     {
-      builder.Validate(recruited);
-    
       var element = ElementTool.Create<Recruit>();
-      element.Recruited = recruited;
-      element.AddToParty = addToParty;
-      element.MatchPlayerXpExactly = matchPlayerXpExactly;
-      element.OnRecruit = onRecruit?.Build() ?? Constants.Empty.Actions;
-      element.OnRecruitImmediate = onRecruitImmediate?.Build() ?? Constants.Empty.Actions;
+      if (addToParty is not null)
+      {
+        element.AddToParty = addToParty;
+      }
+      if (matchPlayerXpExactly is not null)
+      {
+        element.MatchPlayerXpExactly = matchPlayerXpExactly;
+      }
+      if (onRecruit is not null)
+      {
+        element.OnRecruit = onRecruit.Build();
+      }
+      if (element.OnRecruit is null)
+      {
+        element.OnRecruit = Constants.Empty.Actions;
+      }
+      if (onRecruitImmediate is not null)
+      {
+        element.OnRecruitImmediate = onRecruitImmediate.Build();
+      }
+      if (element.OnRecruitImmediate is null)
+      {
+        element.OnRecruitImmediate = Constants.Empty.Actions;
+      }
+      if (recruited is not null)
+      {
+        foreach (var item in recruited) { builder.Validate(item); }
+        element.Recruited = recruited;
+      }
+      if (element.Recruited is null)
+      {
+        element.Recruited = new Recruit.RecruitData[0];
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RecruitInactive"/> (Auto Generated)
+    /// Adds <see cref="RecruitInactive"/>
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(RecruitInactive))]
+    /// <param name="companionBlueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
-        string? companionBlueprint = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companionBlueprint = null,
         ActionsBuilder? onRecruit = null)
     {
       var element = ElementTool.Create<RecruitInactive>();
-      element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
-      element.OnRecruit = onRecruit?.Build() ?? Constants.Empty.Actions;
+      if (companionBlueprint is not null)
+      {
+        element.m_CompanionBlueprint = companionBlueprint.Reference;
+      }
+      if (element.m_CompanionBlueprint is null)
+      {
+        element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (onRecruit is not null)
+      {
+        element.OnRecruit = onRecruit.Build();
+      }
+      if (element.OnRecruit is null)
+      {
+        element.OnRecruit = Constants.Empty.Actions;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RelockInteraction"/> (Auto Generated)
+    /// Adds <see cref="RelockInteraction"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(RelockInteraction))]
     public static ActionsBuilder RelockInteraction(
         this ActionsBuilder builder,
-        MapObjectEvaluator mapObject)
+        MapObjectEvaluator? mapObject = null)
     {
-      builder.Validate(mapObject);
-    
       var element = ElementTool.Create<RelockInteraction>();
-      element.MapObject = mapObject;
+      if (mapObject is not null)
+      {
+        builder.Validate(mapObject);
+        element.MapObject = mapObject;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RemoveMythicLevels"/> (Auto Generated)
+    /// Adds <see cref="RemoveMythicLevels"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemoveMythicLevels))]
     public static ActionsBuilder RemoveMythicLevels(
         this ActionsBuilder builder,
-        int levels = default)
+        int? levels = null)
     {
       var element = ElementTool.Create<RemoveMythicLevels>();
-      element.Levels = levels;
+      if (levels is not null)
+      {
+        element.Levels = levels;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ReplaceAllMythicLevelsWithMythicHeroLevels"/> (Auto Generated)
+    /// Adds <see cref="ReplaceAllMythicLevelsWithMythicHeroLevels"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ReplaceAllMythicLevelsWithMythicHeroLevels))]
     public static ActionsBuilder ReplaceAllMythicLevelsWithMythicHeroLevels(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ReplaceAllMythicLevelsWithMythicHeroLevels>());
     }
 
     /// <summary>
-    /// Adds <see cref="ReplaceFeatureInProgression"/> (Auto Generated)
+    /// Adds <see cref="ReplaceFeatureInProgression"/>
     /// </summary>
     ///
-    /// <param name="remove"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    /// <param name="add"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(ReplaceFeatureInProgression))]
+    /// <param name="add">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="remove">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder ReplaceFeatureInProgression(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        string? remove = null,
-        string? add = null)
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? add = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? remove = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<ReplaceFeatureInProgression>();
-      element.Unit = unit;
-      element.m_Remove = BlueprintTool.GetRef<BlueprintFeatureReference>(remove);
-      element.m_Add = BlueprintTool.GetRef<BlueprintFeatureReference>(add);
+      if (add is not null)
+      {
+        element.m_Add = add.Reference;
+      }
+      if (element.m_Add is null)
+      {
+        element.m_Add = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (remove is not null)
+      {
+        element.m_Remove = remove.Reference;
+      }
+      if (element.m_Remove is null)
+      {
+        element.m_Remove = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ResetQuest"/> (Auto Generated)
+    /// Adds <see cref="ResetQuest"/>
     /// </summary>
     ///
-    /// <param name="quest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
-    /// <param name="objectiveToStart"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    /// <param name="objectivesToReset"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(ResetQuest))]
+    /// <param name="objectivesToReset">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="objectiveToStart">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="quest">
+    /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder ResetQuest(
         this ActionsBuilder builder,
-        string? quest = null,
-        string? objectiveToStart = null,
-        string[]? objectivesToReset = null)
+        List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>>? objectivesToReset = null,
+        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objectiveToStart = null,
+        Blueprint<BlueprintQuest, BlueprintQuestReference>? quest = null)
     {
       var element = ElementTool.Create<ResetQuest>();
-      element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(quest);
-      element.m_ObjectiveToStart = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objectiveToStart);
-      element.m_ObjectivesToReset = objectivesToReset.Select(name => BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(name)).ToArray();
+      if (objectivesToReset is not null)
+      {
+        element.m_ObjectivesToReset = objectivesToReset.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_ObjectivesToReset is null)
+      {
+        element.m_ObjectivesToReset = new BlueprintQuestObjectiveReference[0];
+      }
+      if (objectiveToStart is not null)
+      {
+        element.m_ObjectiveToStart = objectiveToStart.Reference;
+      }
+      if (element.m_ObjectiveToStart is null)
+      {
+        element.m_ObjectiveToStart = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
+      if (quest is not null)
+      {
+        element.m_Quest = quest.Reference;
+      }
+      if (element.m_Quest is null)
+      {
+        element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ResetQuestObjective"/> (Auto Generated)
+    /// Adds <see cref="ResetQuestObjective"/>
     /// </summary>
     ///
-    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(ResetQuestObjective))]
+    /// <param name="objective">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder ResetQuestObjective(
         this ActionsBuilder builder,
-        string? objective = null)
+        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<ResetQuestObjective>();
-      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
+      if (objective is not null)
+      {
+        element.m_Objective = objective.Reference;
+      }
+      if (element.m_Objective is null)
+      {
+        element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RespecCompanion"/> (Auto Generated)
+    /// Adds <see cref="RespecCompanion"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(RespecCompanion))]
     public static ActionsBuilder RespecCompanion(
         this ActionsBuilder builder,
-        bool forFree = default,
-        bool matchPlayerXpExactly = default)
+        bool? forFree = null,
+        bool? matchPlayerXpExactly = null)
     {
       var element = ElementTool.Create<RespecCompanion>();
-      element.ForFree = forFree;
-      element.MatchPlayerXpExactly = matchPlayerXpExactly;
+      if (forFree is not null)
+      {
+        element.ForFree = forFree;
+      }
+      if (matchPlayerXpExactly is not null)
+      {
+        element.MatchPlayerXpExactly = matchPlayerXpExactly;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RomanceSetMaximum"/> (Auto Generated)
+    /// Adds <see cref="RomanceSetMaximum"/>
     /// </summary>
     ///
-    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
-    [Generated]
-    [Implements(typeof(RomanceSetMaximum))]
+    /// <param name="romance">
+    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder RomanceSetMaximum(
         this ActionsBuilder builder,
-        IntEvaluator valueEvaluator,
-        string? romance = null)
+        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
+        IntEvaluator? valueEvaluator = null)
     {
-      builder.Validate(valueEvaluator);
-    
       var element = ElementTool.Create<RomanceSetMaximum>();
-      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
-      element.ValueEvaluator = valueEvaluator;
+      if (romance is not null)
+      {
+        element.m_Romance = romance.Reference;
+      }
+      if (element.m_Romance is null)
+      {
+        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
+      }
+      if (valueEvaluator is not null)
+      {
+        builder.Validate(valueEvaluator);
+        element.ValueEvaluator = valueEvaluator;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="RomanceSetMinimum"/> (Auto Generated)
+    /// Adds <see cref="RomanceSetMinimum"/>
     /// </summary>
     ///
-    /// <param name="romance"><see cref="Kingmaker.Blueprints.BlueprintRomanceCounter"/></param>
-    [Generated]
-    [Implements(typeof(RomanceSetMinimum))]
+    /// <param name="romance">
+    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder RomanceSetMinimum(
         this ActionsBuilder builder,
-        IntEvaluator valueEvaluator,
-        string? romance = null)
+        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
+        IntEvaluator? valueEvaluator = null)
     {
-      builder.Validate(valueEvaluator);
-    
       var element = ElementTool.Create<RomanceSetMinimum>();
-      element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(romance);
-      element.ValueEvaluator = valueEvaluator;
+      if (romance is not null)
+      {
+        element.m_Romance = romance.Reference;
+      }
+      if (element.m_Romance is null)
+      {
+        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
+      }
+      if (valueEvaluator is not null)
+      {
+        builder.Validate(valueEvaluator);
+        element.ValueEvaluator = valueEvaluator;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SetDialogPosition"/> (Auto Generated)
+    /// Adds <see cref="SetDialogPosition"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SetDialogPosition))]
     public static ActionsBuilder SetDialogPosition(
         this ActionsBuilder builder,
-        PositionEvaluator position)
+        PositionEvaluator? position = null)
     {
-      builder.Validate(position);
-    
       var element = ElementTool.Create<SetDialogPosition>();
-      element.Position = position;
+      if (position is not null)
+      {
+        builder.Validate(position);
+        element.Position = position;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SetMythicLevelForMainCharacter"/> (Auto Generated)
+    /// Adds <see cref="SetMythicLevelForMainCharacter"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SetMythicLevelForMainCharacter))]
     public static ActionsBuilder SetMythicLevelForMainCharacter(
         this ActionsBuilder builder,
-        int desireLevel = default)
+        int? desireLevel = null)
     {
       var element = ElementTool.Create<SetMythicLevelForMainCharacter>();
-      element.DesireLevel = desireLevel;
+      if (desireLevel is not null)
+      {
+        element.DesireLevel = desireLevel;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SetObjectiveStatus"/> (Auto Generated)
+    /// Adds <see cref="SetObjectiveStatus"/>
     /// </summary>
     ///
-    /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(SetObjectiveStatus))]
+    /// <param name="objective">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SetObjectiveStatus(
         this ActionsBuilder builder,
-        SummonPoolCountTrigger.ObjectiveStatus status = default,
-        string? objective = null,
-        bool startObjectiveIfNone = default)
+        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null,
+        bool? startObjectiveIfNone = null,
+        SummonPoolCountTrigger.ObjectiveStatus? status = null)
     {
       var element = ElementTool.Create<SetObjectiveStatus>();
-      element.Status = status;
-      element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
-      element.StartObjectiveIfNone = startObjectiveIfNone;
+      if (objective is not null)
+      {
+        element.m_Objective = objective.Reference;
+      }
+      if (element.m_Objective is null)
+      {
+        element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
+      if (startObjectiveIfNone is not null)
+      {
+        element.StartObjectiveIfNone = startObjectiveIfNone;
+      }
+      if (status is not null)
+      {
+        element.Status = status;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SetPortrait"/> (Auto Generated)
+    /// Adds <see cref="SetPortrait"/>
     /// </summary>
     ///
-    /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    [Generated]
-    [Implements(typeof(SetPortrait))]
+    /// <param name="portrait">
+    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SetPortrait(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        string? portrait = null)
+        Blueprint<BlueprintPortrait, BlueprintPortraitReference>? portrait = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<SetPortrait>();
-      element.Unit = unit;
-      element.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(portrait);
+      if (portrait is not null)
+      {
+        element.m_Portrait = portrait.Reference;
+      }
+      if (element.m_Portrait is null)
+      {
+        element.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ShiftAlignment"/> (Auto Generated)
+    /// Adds <see cref="ShiftAlignment"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShiftAlignment))]
     public static ActionsBuilder ShiftAlignment(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        IntEvaluator amount,
-        AlignmentShiftDirection alignment = default)
+        AlignmentShiftDirection? alignment = null,
+        IntEvaluator? amount = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-      builder.Validate(amount);
-    
       var element = ElementTool.Create<ShiftAlignment>();
-      element.Unit = unit;
-      element.Alignment = alignment;
-      element.Amount = amount;
+      if (alignment is not null)
+      {
+        element.Alignment = alignment;
+      }
+      if (amount is not null)
+      {
+        builder.Validate(amount);
+        element.Amount = amount;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ShowDialogBox"/> (Auto Generated)
+    /// Adds <see cref="ShowDialogBox"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShowDialogBox))]
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
-        ParametrizedContextSetter parameters,
-        LocalizedString? text = null,
         ActionsBuilder? onAccept = null,
-        ActionsBuilder? onCancel = null)
+        ActionsBuilder? onCancel = null,
+        ParametrizedContextSetter? parameters = null,
+        LocalizedString? text = null)
     {
-      builder.Validate(text);
-      builder.Validate(parameters);
-    
       var element = ElementTool.Create<ShowDialogBox>();
-      element.Text = text ?? Constants.Empty.String;
-      element.Parameters = parameters;
-      element.OnAccept = onAccept?.Build() ?? Constants.Empty.Actions;
-      element.OnCancel = onCancel?.Build() ?? Constants.Empty.Actions;
+      if (onAccept is not null)
+      {
+        element.OnAccept = onAccept.Build();
+      }
+      if (element.OnAccept is null)
+      {
+        element.OnAccept = Constants.Empty.Actions;
+      }
+      if (onCancel is not null)
+      {
+        element.OnCancel = onCancel.Build();
+      }
+      if (element.OnCancel is null)
+      {
+        element.OnCancel = Constants.Empty.Actions;
+      }
+      if (parameters is not null)
+      {
+        builder.Validate(parameters);
+        element.Parameters = parameters;
+      }
+      if (text is not null)
+      {
+        element.Text = text;
+      }
+      if (element.Text is null)
+      {
+        element.Text = Constants.Empty.String;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ShowMessageBox"/> (Auto Generated)
+    /// Adds <see cref="ShowMessageBox"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShowMessageBox))]
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
-        LocalizedString? text = null,
         ActionsBuilder? onClose = null,
-        int waitTime = default)
+        LocalizedString? text = null,
+        int? waitTime = null)
     {
-      builder.Validate(text);
-    
       var element = ElementTool.Create<ShowMessageBox>();
-      element.Text = text ?? Constants.Empty.String;
-      element.OnClose = onClose?.Build() ?? Constants.Empty.Actions;
-      element.WaitTime = waitTime;
+      if (onClose is not null)
+      {
+        element.OnClose = onClose.Build();
+      }
+      if (element.OnClose is null)
+      {
+        element.OnClose = Constants.Empty.Actions;
+      }
+      if (text is not null)
+      {
+        element.Text = text;
+      }
+      if (element.Text is null)
+      {
+        element.Text = Constants.Empty.String;
+      }
+      if (waitTime is not null)
+      {
+        element.WaitTime = waitTime;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ShowUIWarning"/> (Auto Generated)
+    /// Adds <see cref="ShowUIWarning"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShowUIWarning))]
     public static ActionsBuilder ShowUIWarning(
         this ActionsBuilder builder,
-        WarningNotificationType type = default,
-        LocalizedString? stringValue = null)
+        LocalizedString? stringValue = null,
+        WarningNotificationType? type = null)
     {
-      builder.Validate(stringValue);
-    
       var element = ElementTool.Create<ShowUIWarning>();
-      element.Type = type;
-      element.String = stringValue ?? Constants.Empty.String;
+      if (stringValue is not null)
+      {
+        element.String = stringValue;
+      }
+      if (element.String is null)
+      {
+        element.String = Constants.Empty.String;
+      }
+      if (type is not null)
+      {
+        element.Type = type;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SplitUnitGroup"/> (Auto Generated)
+    /// Adds <see cref="SplitUnitGroup"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SplitUnitGroup))]
     public static ActionsBuilder SplitUnitGroup(
         this ActionsBuilder builder,
-        UnitEvaluator target)
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<SplitUnitGroup>();
-      element.Target = target;
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="StartCombat"/> (Auto Generated)
+    /// Adds <see cref="StartCombat"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(StartCombat))]
     public static ActionsBuilder StartCombat(
         this ActionsBuilder builder,
-        UnitEvaluator unit1,
-        UnitEvaluator unit2)
+        UnitEvaluator? unit1 = null,
+        UnitEvaluator? unit2 = null)
     {
-      builder.Validate(unit1);
-      builder.Validate(unit2);
-    
       var element = ElementTool.Create<StartCombat>();
-      element.Unit1 = unit1;
-      element.Unit2 = unit2;
+      if (unit1 is not null)
+      {
+        builder.Validate(unit1);
+        element.Unit1 = unit1;
+      }
+      if (unit2 is not null)
+      {
+        builder.Validate(unit2);
+        element.Unit2 = unit2;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="StartDialog"/> (Auto Generated)
+    /// Adds <see cref="StartDialog"/>
     /// </summary>
     ///
-    /// <param name="dialogue"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(StartDialog))]
+    /// <param name="dialogue">
+    /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
-        UnitEvaluator dialogueOwner,
-        BlueprintEvaluator dialogEvaluator,
-        string? dialogue = null,
+        BlueprintEvaluator? dialogEvaluator = null,
+        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialogue = null,
+        UnitEvaluator? dialogueOwner = null,
         LocalizedString? speakerName = null)
     {
-      builder.Validate(dialogueOwner);
-      builder.Validate(dialogEvaluator);
-      builder.Validate(speakerName);
-    
       var element = ElementTool.Create<StartDialog>();
-      element.DialogueOwner = dialogueOwner;
-      element.m_Dialogue = BlueprintTool.GetRef<BlueprintDialogReference>(dialogue);
-      element.DialogEvaluator = dialogEvaluator;
-      element.SpeakerName = speakerName ?? Constants.Empty.String;
+      if (dialogEvaluator is not null)
+      {
+        builder.Validate(dialogEvaluator);
+        element.DialogEvaluator = dialogEvaluator;
+      }
+      if (dialogue is not null)
+      {
+        element.m_Dialogue = dialogue.Reference;
+      }
+      if (element.m_Dialogue is null)
+      {
+        element.m_Dialogue = BlueprintTool.GetRef<BlueprintDialogReference>(null);
+      }
+      if (dialogueOwner is not null)
+      {
+        builder.Validate(dialogueOwner);
+        element.DialogueOwner = dialogueOwner;
+      }
+      if (speakerName is not null)
+      {
+        element.SpeakerName = speakerName;
+      }
+      if (element.SpeakerName is null)
+      {
+        element.SpeakerName = Constants.Empty.String;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="StartEncounter"/> (Auto Generated)
+    /// Adds <see cref="StartEncounter"/>
     /// </summary>
     ///
-    /// <param name="encounter"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
-    [Generated]
-    [Implements(typeof(StartEncounter))]
+    /// <param name="encounter">
+    /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder StartEncounter(
         this ActionsBuilder builder,
-        string? encounter = null)
+        Blueprint<BlueprintRandomEncounter, BlueprintRandomEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<StartEncounter>();
-      element.m_Encounter = BlueprintTool.GetRef<BlueprintRandomEncounterReference>(encounter);
+      if (encounter is not null)
+      {
+        element.m_Encounter = encounter.Reference;
+      }
+      if (element.m_Encounter is null)
+      {
+        element.m_Encounter = BlueprintTool.GetRef<BlueprintRandomEncounterReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="StartEtude"/> (Auto Generated)
+    /// Adds <see cref="StartEtude"/>
     /// </summary>
     ///
-    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
-    [Implements(typeof(StartEtude))]
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder StartEtude(
         this ActionsBuilder builder,
-        BlueprintEvaluator etudeEvaluator,
-        string? etude = null,
-        bool evaluate = default)
+        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        BlueprintEvaluator? etudeEvaluator = null,
+        bool? evaluate = null)
     {
-      builder.Validate(etudeEvaluator);
-    
       var element = ElementTool.Create<StartEtude>();
-      element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
-      element.EtudeEvaluator = etudeEvaluator;
-      element.Evaluate = evaluate;
+      if (etude is not null)
+      {
+        element.Etude = etude.Reference;
+      }
+      if (element.Etude is null)
+      {
+        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (etudeEvaluator is not null)
+      {
+        builder.Validate(etudeEvaluator);
+        element.EtudeEvaluator = etudeEvaluator;
+      }
+      if (evaluate is not null)
+      {
+        element.Evaluate = evaluate;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchAzataIsland"/> (Auto Generated)
+    /// Adds <see cref="SwitchAzataIsland"/>
     /// </summary>
     ///
-    /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
-    [Implements(typeof(SwitchAzataIsland))]
+    /// <param name="globalMap">
+    /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SwitchAzataIsland(
         this ActionsBuilder builder,
-        string? globalMap = null,
-        bool isOn = default)
+        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
+        bool? isOn = null)
     {
       var element = ElementTool.Create<SwitchAzataIsland>();
-      element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(globalMap);
-      element.IsOn = isOn;
+      if (globalMap is not null)
+      {
+        element.m_GlobalMap = globalMap.Reference;
+      }
+      if (element.m_GlobalMap is null)
+      {
+        element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
+      }
+      if (isOn is not null)
+      {
+        element.IsOn = isOn;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchChapter"/> (Auto Generated)
+    /// Adds <see cref="SwitchChapter"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SwitchChapter))]
     public static ActionsBuilder SwitchChapter(
         this ActionsBuilder builder,
-        int chapter = default)
+        int? chapter = null)
     {
       var element = ElementTool.Create<SwitchChapter>();
-      element.Chapter = chapter;
+      if (chapter is not null)
+      {
+        element.Chapter = chapter;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchDoor"/> (Auto Generated)
+    /// Adds <see cref="SwitchDoor"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SwitchDoor))]
     public static ActionsBuilder SwitchDoor(
         this ActionsBuilder builder,
-        MapObjectEvaluator door,
-        bool unlockIfLocked = default,
-        bool closeIfAlreadyOpen = default,
-        bool openIfAlreadyClosed = default)
+        bool? closeIfAlreadyOpen = null,
+        MapObjectEvaluator? door = null,
+        bool? openIfAlreadyClosed = null,
+        bool? unlockIfLocked = null)
     {
-      builder.Validate(door);
-    
       var element = ElementTool.Create<SwitchDoor>();
-      element.Door = door;
-      element.UnlockIfLocked = unlockIfLocked;
-      element.CloseIfAlreadyOpen = closeIfAlreadyOpen;
-      element.OpenIfAlreadyClosed = openIfAlreadyClosed;
+      if (closeIfAlreadyOpen is not null)
+      {
+        element.CloseIfAlreadyOpen = closeIfAlreadyOpen;
+      }
+      if (door is not null)
+      {
+        builder.Validate(door);
+        element.Door = door;
+      }
+      if (openIfAlreadyClosed is not null)
+      {
+        element.OpenIfAlreadyClosed = openIfAlreadyClosed;
+      }
+      if (unlockIfLocked is not null)
+      {
+        element.UnlockIfLocked = unlockIfLocked;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchFaction"/> (Auto Generated)
+    /// Adds <see cref="SwitchFaction"/>
     /// </summary>
     ///
-    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
-    [Implements(typeof(SwitchFaction))]
+    /// <param name="faction">
+    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
-        UnitEvaluator target,
-        string? faction = null,
-        bool includeGroup = default,
-        bool resetAllRelations = default)
+        Blueprint<BlueprintFaction, BlueprintFactionReference>? faction = null,
+        bool? includeGroup = null,
+        bool? resetAllRelations = null,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<SwitchFaction>();
-      element.Target = target;
-      element.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(faction);
-      element.IncludeGroup = includeGroup;
-      element.ResetAllRelations = resetAllRelations;
+      if (faction is not null)
+      {
+        element.m_Faction = faction.Reference;
+      }
+      if (element.m_Faction is null)
+      {
+        element.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (includeGroup is not null)
+      {
+        element.IncludeGroup = includeGroup;
+      }
+      if (resetAllRelations is not null)
+      {
+        element.ResetAllRelations = resetAllRelations;
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchInteraction"/> (Auto Generated)
+    /// Adds <see cref="SwitchInteraction"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SwitchInteraction))]
     public static ActionsBuilder SwitchInteraction(
         this ActionsBuilder builder,
-        MapObjectEvaluator mapObject,
-        bool enableIfAlreadyDisabled = default,
-        bool disableIfAlreadyEnabled = default)
+        bool? disableIfAlreadyEnabled = null,
+        bool? enableIfAlreadyDisabled = null,
+        MapObjectEvaluator? mapObject = null)
     {
-      builder.Validate(mapObject);
-    
       var element = ElementTool.Create<SwitchInteraction>();
-      element.MapObject = mapObject;
-      element.EnableIfAlreadyDisabled = enableIfAlreadyDisabled;
-      element.DisableIfAlreadyEnabled = disableIfAlreadyEnabled;
+      if (disableIfAlreadyEnabled is not null)
+      {
+        element.DisableIfAlreadyEnabled = disableIfAlreadyEnabled;
+      }
+      if (enableIfAlreadyDisabled is not null)
+      {
+        element.EnableIfAlreadyDisabled = enableIfAlreadyDisabled;
+      }
+      if (mapObject is not null)
+      {
+        builder.Validate(mapObject);
+        element.MapObject = mapObject;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchRoaming"/> (Auto Generated)
+    /// Adds <see cref="SwitchRoaming"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SwitchRoaming))]
     public static ActionsBuilder SwitchRoaming(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        bool disable = default)
+        bool? disable = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<SwitchRoaming>();
-      element.Unit = unit;
-      element.Disable = disable;
+      if (disable is not null)
+      {
+        element.Disable = disable;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchToEnemy"/> (Auto Generated)
+    /// Adds <see cref="SwitchToEnemy"/>
     /// </summary>
     ///
-    /// <param name="factionToAttack"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
-    [Implements(typeof(SwitchToEnemy))]
+    /// <param name="factionToAttack">
+    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SwitchToEnemy(
         this ActionsBuilder builder,
-        UnitEvaluator target,
-        string? factionToAttack = null)
+        Blueprint<BlueprintFaction, BlueprintFactionReference>? factionToAttack = null,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<SwitchToEnemy>();
-      element.Target = target;
-      element.m_FactionToAttack = BlueprintTool.GetRef<BlueprintFactionReference>(factionToAttack);
+      if (factionToAttack is not null)
+      {
+        element.m_FactionToAttack = factionToAttack.Reference;
+      }
+      if (element.m_FactionToAttack is null)
+      {
+        element.m_FactionToAttack = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SwitchToNeutral"/> (Auto Generated)
+    /// Adds <see cref="SwitchToNeutral"/>
     /// </summary>
     ///
-    /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
-    [Implements(typeof(SwitchToNeutral))]
+    /// <param name="faction">
+    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder SwitchToNeutral(
         this ActionsBuilder builder,
-        UnitEvaluator target,
-        string? faction = null,
-        bool includeGroup = default)
+        Blueprint<BlueprintFaction, BlueprintFactionReference>? faction = null,
+        bool? includeGroup = null,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<SwitchToNeutral>();
-      element.Target = target;
-      element.Faction = BlueprintTool.GetRef<BlueprintFactionReference>(faction);
-      element.IncludeGroup = includeGroup;
+      if (faction is not null)
+      {
+        element.Faction = faction.Reference;
+      }
+      if (element.Faction is null)
+      {
+        element.Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (includeGroup is not null)
+      {
+        element.IncludeGroup = includeGroup;
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="TimeSkip"/> (Auto Generated)
+    /// Adds <see cref="TimeSkip"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(TimeSkip))]
     public static ActionsBuilder TimeSkip(
         this ActionsBuilder builder,
-        IntEvaluator minutesToSkip,
-        TimeSkip.SkipType type = default,
-        TimeOfDay timeOfDay = default,
-        bool noFatigue = default,
-        bool matchTimeOfDay = default,
-        bool silent = default)
+        bool? matchTimeOfDay = null,
+        IntEvaluator? minutesToSkip = null,
+        bool? noFatigue = null,
+        bool? silent = null,
+        TimeOfDay? timeOfDay = null,
+        TimeSkip.SkipType? type = null)
     {
-      builder.Validate(minutesToSkip);
-    
       var element = ElementTool.Create<TimeSkip>();
-      element.m_Type = type;
-      element.MinutesToSkip = minutesToSkip;
-      element.TimeOfDay = timeOfDay;
-      element.NoFatigue = noFatigue;
-      element.MatchTimeOfDay = matchTimeOfDay;
-      element.Silent = silent;
+      if (matchTimeOfDay is not null)
+      {
+        element.MatchTimeOfDay = matchTimeOfDay;
+      }
+      if (minutesToSkip is not null)
+      {
+        builder.Validate(minutesToSkip);
+        element.MinutesToSkip = minutesToSkip;
+      }
+      if (noFatigue is not null)
+      {
+        element.NoFatigue = noFatigue;
+      }
+      if (silent is not null)
+      {
+        element.Silent = silent;
+      }
+      if (timeOfDay is not null)
+      {
+        element.TimeOfDay = timeOfDay;
+      }
+      if (type is not null)
+      {
+        element.m_Type = type;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitLookAt"/> (Auto Generated)
+    /// Adds <see cref="UnitLookAt"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitLookAt))]
     public static ActionsBuilder UnitLookAt(
         this ActionsBuilder builder,
-        UnitEvaluator unit,
-        PositionEvaluator position)
+        PositionEvaluator? position = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-      builder.Validate(position);
-    
       var element = ElementTool.Create<UnitLookAt>();
-      element.Unit = unit;
-      element.Position = position;
+      if (position is not null)
+      {
+        builder.Validate(position);
+        element.Position = position;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnlinkDualCompanions"/> (Auto Generated)
+    /// Adds <see cref="UnlinkDualCompanions"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnlinkDualCompanions))]
     public static ActionsBuilder UnlinkDualCompanions(
         this ActionsBuilder builder,
-        UnitEvaluator first,
-        UnitEvaluator second)
+        UnitEvaluator? first = null,
+        UnitEvaluator? second = null)
     {
-      builder.Validate(first);
-      builder.Validate(second);
-    
       var element = ElementTool.Create<UnlinkDualCompanions>();
-      element.First = first;
-      element.Second = second;
+      if (first is not null)
+      {
+        builder.Validate(first);
+        element.First = first;
+      }
+      if (second is not null)
+      {
+        builder.Validate(second);
+        element.Second = second;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnlockCompanionStory"/> (Auto Generated)
+    /// Adds <see cref="UnlockCompanionStory"/>
     /// </summary>
     ///
-    /// <param name="story"><see cref="Kingmaker.Blueprints.BlueprintCompanionStory"/></param>
-    [Generated]
-    [Implements(typeof(UnlockCompanionStory))]
+    /// <param name="story">
+    /// Blueprint of type BlueprintCompanionStory. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder UnlockCompanionStory(
         this ActionsBuilder builder,
-        string? story = null)
+        Blueprint<BlueprintCompanionStory, BlueprintCompanionStoryReference>? story = null)
     {
       var element = ElementTool.Create<UnlockCompanionStory>();
-      element.m_Story = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(story);
+      if (story is not null)
+      {
+        element.m_Story = story.Reference;
+      }
+      if (element.m_Story is null)
+      {
+        element.m_Story = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnlockFlag"/> (Auto Generated)
+    /// Adds <see cref="UnlockFlag"/>
     /// </summary>
     ///
-    /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(UnlockFlag))]
+    /// <param name="flag">
+    /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder UnlockFlag(
         this ActionsBuilder builder,
-        string? flag = null,
-        int flagValue = default)
+        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        int? flagValue = null)
     {
       var element = ElementTool.Create<UnlockFlag>();
-      element.m_flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
-      element.flagValue = flagValue;
+      if (flag is not null)
+      {
+        element.m_flag = flag.Reference;
+      }
+      if (element.m_flag is null)
+      {
+        element.m_flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (flagValue is not null)
+      {
+        element.flagValue = flagValue;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnmarkAnswersSelected"/> (Auto Generated)
+    /// Adds <see cref="UnmarkAnswersSelected"/>
     /// </summary>
     ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
-    [Implements(typeof(UnmarkAnswersSelected))]
+    /// <param name="answers">
+    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder UnmarkAnswersSelected(
         this ActionsBuilder builder,
-        string[]? answers = null)
+        List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
-      element.m_Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerReference>(name)).ToArray();
+      if (answers is not null)
+      {
+        element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_Answers is null)
+      {
+        element.m_Answers = new BlueprintAnswerReference[0];
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Unrecruit"/> (Auto Generated)
+    /// Adds <see cref="Unrecruit"/>
     /// </summary>
     ///
-    /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(Unrecruit))]
+    /// <param name="companionBlueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
-        string? companionBlueprint = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companionBlueprint = null,
         ActionsBuilder? onUnrecruit = null)
     {
       var element = ElementTool.Create<Unrecruit>();
-      element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(companionBlueprint);
-      element.OnUnrecruit = onUnrecruit?.Build() ?? Constants.Empty.Actions;
+      if (companionBlueprint is not null)
+      {
+        element.m_CompanionBlueprint = companionBlueprint.Reference;
+      }
+      if (element.m_CompanionBlueprint is null)
+      {
+        element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (onUnrecruit is not null)
+      {
+        element.OnUnrecruit = onUnrecruit.Build();
+      }
+      if (element.OnUnrecruit is null)
+      {
+        element.OnUnrecruit = Constants.Empty.Actions;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UpdateEtudeProgressBar"/> (Auto Generated)
+    /// Adds <see cref="UpdateEtudeProgressBar"/>
     /// </summary>
     ///
-    /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
-    [Implements(typeof(UpdateEtudeProgressBar))]
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder UpdateEtudeProgressBar(
         this ActionsBuilder builder,
-        IntEvaluator progress,
-        string? etude = null)
+        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        IntEvaluator? progress = null)
     {
-      builder.Validate(progress);
-    
       var element = ElementTool.Create<UpdateEtudeProgressBar>();
-      element.Progress = progress;
-      element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
+      if (etude is not null)
+      {
+        element.Etude = etude.Reference;
+      }
+      if (element.Etude is null)
+      {
+        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (progress is not null)
+      {
+        builder.Validate(progress);
+        element.Progress = progress;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UpdateEtudes"/> (Auto Generated)
+    /// Adds <see cref="UpdateEtudes"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UpdateEtudes))]
     public static ActionsBuilder UpdateEtudes(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<UpdateEtudes>());

@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -9,57 +10,85 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Actions;
-
-#nullable enable
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionsBuilder"/> for actions involving audiovisual effects such as dialogs, camera,
-  /// cutscenes, and sounds.
+  /// Extension to <see cref="ActionsBuilder"/> for actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAVEx
-  {
+{
+
     /// <summary>
-    /// Adds <see cref="ChangeBookEventImage"/>
+    /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
-    [Implements(typeof(ChangeBookEventImage))]
-    public static ActionsBuilder ChangeBookImage(this ActionsBuilder builder, SpriteLink image)
+    public static ActionsBuilder ContextActionPlaySound(
+        this ActionsBuilder builder,
+        string? soundName = null)
     {
-      var setImage = ElementTool.Create<ChangeBookEventImage>();
-      setImage.m_Image = image;
-      return builder.Add(setImage);
+      var element = ElementTool.Create<ContextActionPlaySound>();
+      if (soundName is not null)
+      {
+        element.SoundName = soundName;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddDialogNotification"/>
+    /// </summary>
+    public static ActionsBuilder AddDialogNotification(
+        this ActionsBuilder builder,
+        LocalizedString? text = null)
+    {
+      var element = ElementTool.Create<AddDialogNotification>();
+      if (text is not null)
+      {
+        element.Text = text;
+      }
+      if (element.Text is null)
+      {
+        element.Text = Constants.Empty.String;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="CameraToPosition"/>
     /// </summary>
-    [Implements(typeof(CameraToPosition))]
-    public static ActionsBuilder MoveCamera(this ActionsBuilder builder, PositionEvaluator position)
+    public static ActionsBuilder CameraToPosition(
+        this ActionsBuilder builder,
+        PositionEvaluator? position = null)
     {
-      builder.Validate(position);
-
-      var moveCamera = ElementTool.Create<CameraToPosition>();
-      moveCamera.Position = position;
-      return builder.Add(moveCamera);
+      var element = ElementTool.Create<CameraToPosition>();
+      if (position is not null)
+      {
+        builder.Validate(position);
+        element.Position = position;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds
-    /// <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification">AddDialogNotification</see>
+    /// Adds <see cref="ChangeBookEventImage"/>
     /// </summary>
-    [Implements(typeof(AddDialogNotification))]
-    public static ActionsBuilder AddDialogNotification(this ActionsBuilder builder, LocalizedString text)
+    public static ActionsBuilder ChangeBookEventImage(
+        this ActionsBuilder builder,
+        SpriteLink? image = null)
     {
-      var notification = ElementTool.Create<AddDialogNotification>();
-      notification.Text = text;
-      return builder.Add(notification);
+      var element = ElementTool.Create<ChangeBookEventImage>();
+      if (image is not null)
+      {
+        builder.Validate(image);
+        element.m_Image = image;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.ClearBlood">ClearBlood</see>
+    /// Adds <see cref="ClearBlood"/>
     /// </summary>
-    [Implements(typeof(ClearBlood))]
     public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ClearBlood>());
@@ -68,329 +97,458 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
-    [Implements(typeof(ContextActionRunAnimationClip))]
-    public static ActionsBuilder RunAnimationClip(
+    public static ActionsBuilder ContextActionRunAnimationClip(
         this ActionsBuilder builder,
-        AnimationClipWrapperLink clip,
-        ExecutionMode mode = ExecutionMode.Interrupted,
-        float transitionIn = 0.25f,
-        float transitionOut = 0.25f)
+        AnimationClipWrapperLink? clipWrapper = null,
+        ExecutionMode? mode = null,
+        float? transitionIn = null,
+        float? transitionOut = null)
     {
-      var animation = ElementTool.Create<ContextActionRunAnimationClip>();
-      animation.ClipWrapper = clip;
-      animation.Mode = mode;
-      animation.TransitionIn = transitionIn;
-      animation.TransitionOut = transitionOut;
-      return builder.Add(animation);
+      var element = ElementTool.Create<ContextActionRunAnimationClip>();
+      if (clipWrapper is not null)
+      {
+        builder.Validate(clipWrapper);
+        element.ClipWrapper = clipWrapper;
+      }
+      if (mode is not null)
+      {
+        element.Mode = mode;
+      }
+      if (transitionIn is not null)
+      {
+        element.TransitionIn = transitionIn;
+      }
+      if (transitionOut is not null)
+      {
+        element.TransitionOut = transitionOut;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
-    [Implements(typeof(ContextActionShowBark))]
-    public static ActionsBuilder Bark(
+    public static ActionsBuilder ContextActionShowBark(
         this ActionsBuilder builder,
-        LocalizedString bark,
-        bool showIfUnconcious = false,
-        bool durationBasedOnTextLength = false)
+        bool? barkDurationByText = null,
+        bool? showWhileUnconscious = null,
+        LocalizedString? whatToBark = null,
+        SharedStringAsset? whatToBarkShared = null)
     {
-      var showBark = ElementTool.Create<ContextActionShowBark>();
-      showBark.WhatToBark = bark;
-      showBark.ShowWhileUnconscious = showIfUnconcious;
-      showBark.BarkDurationByText = durationBasedOnTextLength;
-      return builder.Add(showBark);
+      var element = ElementTool.Create<ContextActionShowBark>();
+      if (barkDurationByText is not null)
+      {
+        element.BarkDurationByText = barkDurationByText;
+      }
+      if (showWhileUnconscious is not null)
+      {
+        element.ShowWhileUnconscious = showWhileUnconscious;
+      }
+      if (whatToBark is not null)
+      {
+        element.WhatToBark = whatToBark;
+      }
+      if (element.WhatToBark is null)
+      {
+        element.WhatToBark = Constants.Empty.String;
+      }
+      if (whatToBarkShared is not null)
+      {
+        builder.Validate(whatToBarkShared);
+        element.WhatToBarkShared = whatToBarkShared;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
-    [Implements(typeof(ContextActionSpawnFx))]
-    public static ActionsBuilder SpawnFx(this ActionsBuilder builder, PrefabLink prefab)
+    public static ActionsBuilder ContextActionSpawnFx(
+        this ActionsBuilder builder,
+        PrefabLink? prefabLink = null)
     {
-      var spawnFx = ElementTool.Create<ContextActionSpawnFx>();
-      spawnFx.PrefabLink = prefab;
-      return builder.Add(spawnFx);
+      var element = ElementTool.Create<ContextActionSpawnFx>();
+      if (prefabLink is not null)
+      {
+        element.PrefabLink = prefabLink;
+      }
+      if (element.PrefabLink is null)
+      {
+        element.PrefabLink = Constants.Empty.PrefabLink;
+      }
+      return builder.Add(element);
     }
 
-    //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
-
     /// <summary>
-    /// Adds <see cref="ContextActionPlaySound"/>
+    /// Adds <see cref="OverrideRainIntesity"/>
     /// </summary>
-    [Implements(typeof(ContextActionPlaySound))]
-    public static ActionsBuilder PlaySound(this ActionsBuilder builder, string soundName)
-    {
-      var playSound = ElementTool.Create<ContextActionPlaySound>();
-      playSound.SoundName = soundName;
-      return builder.Add(playSound);
-    }
-
-    //----- Auto Generated -----//
-
-    /// <summary>
-    /// Adds <see cref="OverrideRainIntesity"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(OverrideRainIntesity))]
     public static ActionsBuilder OverrideRainIntesity(
         this ActionsBuilder builder,
-        float rainIntensity = default,
-        float duration = default)
+        float? duration = null,
+        float? rainIntensity = null)
     {
       var element = ElementTool.Create<OverrideRainIntesity>();
-      element.RainIntensity = rainIntensity;
-      element.Duration = duration;
+      if (duration is not null)
+      {
+        element.Duration = duration;
+      }
+      if (rainIntensity is not null)
+      {
+        element.RainIntensity = rainIntensity;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Play2DSound"/> (Auto Generated)
+    /// Adds <see cref="Play2DSound"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(Play2DSound))]
     public static ActionsBuilder Play2DSound(
         this ActionsBuilder builder,
-        string soundName,
-        bool setSex = default,
-        bool setRace = default)
+        bool? setRace = null,
+        bool? setSex = null,
+        string? soundName = null)
     {
       var element = ElementTool.Create<Play2DSound>();
-      element.SoundName = soundName;
-      element.SetSex = setSex;
-      element.SetRace = setRace;
+      if (setRace is not null)
+      {
+        element.SetRace = setRace;
+      }
+      if (setSex is not null)
+      {
+        element.SetSex = setSex;
+      }
+      if (soundName is not null)
+      {
+        element.SoundName = soundName;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Play3DSound"/> (Auto Generated)
+    /// Adds <see cref="Play3DSound"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(Play3DSound))]
     public static ActionsBuilder Play3DSound(
         this ActionsBuilder builder,
-        string soundName,
-        EntityReference soundSourceObject,
-        bool setSex = default,
-        bool setRace = default,
-        bool setCurrentSpeaker = default)
+        bool? setCurrentSpeaker = null,
+        bool? setRace = null,
+        bool? setSex = null,
+        string? soundName = null,
+        EntityReference? soundSourceObject = null)
     {
-      builder.Validate(soundSourceObject);
-    
       var element = ElementTool.Create<Play3DSound>();
-      element.SoundName = soundName;
-      element.SoundSourceObject = soundSourceObject;
-      element.SetSex = setSex;
-      element.SetRace = setRace;
-      element.SetCurrentSpeaker = setCurrentSpeaker;
+      if (setCurrentSpeaker is not null)
+      {
+        element.SetCurrentSpeaker = setCurrentSpeaker;
+      }
+      if (setRace is not null)
+      {
+        element.SetRace = setRace;
+      }
+      if (setSex is not null)
+      {
+        element.SetSex = setSex;
+      }
+      if (soundName is not null)
+      {
+        element.SoundName = soundName;
+      }
+      if (soundSourceObject is not null)
+      {
+        builder.Validate(soundSourceObject);
+        element.SoundSourceObject = soundSourceObject;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PlayAnimationOneShot"/> (Auto Generated)
+    /// Adds <see cref="PlayAnimationOneShot"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PlayAnimationOneShot))]
     public static ActionsBuilder PlayAnimationOneShot(
         this ActionsBuilder builder,
-        AnimationClipWrapperLink clipWrapper,
-        UnitEvaluator unit,
-        float transitionIn = default,
-        float transitionOut = default)
+        AnimationClipWrapperLink? clipWrapper = null,
+        float? transitionIn = null,
+        float? transitionOut = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(clipWrapper);
-      builder.Validate(unit);
-    
       var element = ElementTool.Create<PlayAnimationOneShot>();
-      element.m_ClipWrapper = clipWrapper;
-      element.Unit = unit;
-      element.TransitionIn = transitionIn;
-      element.TransitionOut = transitionOut;
+      if (clipWrapper is not null)
+      {
+        builder.Validate(clipWrapper);
+        element.m_ClipWrapper = clipWrapper;
+      }
+      if (transitionIn is not null)
+      {
+        element.TransitionIn = transitionIn;
+      }
+      if (transitionOut is not null)
+      {
+        element.TransitionOut = transitionOut;
+      }
+      if (unit is not null)
+      {
+        builder.Validate(unit);
+        element.Unit = unit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PlayCustomMusic"/> (Auto Generated)
+    /// Adds <see cref="PlayCustomMusic"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PlayCustomMusic))]
     public static ActionsBuilder PlayCustomMusic(
         this ActionsBuilder builder,
-        string musicEventStart,
-        string musicEventStop)
+        string? musicEventStart = null,
+        string? musicEventStop = null)
     {
       var element = ElementTool.Create<PlayCustomMusic>();
-      element.MusicEventStart = musicEventStart;
-      element.MusicEventStop = musicEventStop;
+      if (musicEventStart is not null)
+      {
+        element.MusicEventStart = musicEventStart;
+      }
+      if (musicEventStop is not null)
+      {
+        element.MusicEventStop = musicEventStop;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PlayCutscene"/> (Auto Generated)
+    /// Adds <see cref="PlayCutscene"/>
     /// </summary>
     ///
-    /// <param name="cutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
-    [Generated]
-    [Implements(typeof(PlayCutscene))]
+    /// <param name="cutscene">
+    /// Blueprint of type Cutscene. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder PlayCutscene(
         this ActionsBuilder builder,
-        ParametrizedContextSetter parameters,
-        string? cutscene = null,
-        bool putInQueue = default,
-        bool checkExistence = default)
+        bool? checkExistence = null,
+        Blueprint<Cutscene, CutsceneReference>? cutscene = null,
+        ParametrizedContextSetter? parameters = null,
+        bool? putInQueue = null)
     {
-      builder.Validate(parameters);
-    
       var element = ElementTool.Create<PlayCutscene>();
-      element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(cutscene);
-      element.PutInQueue = putInQueue;
-      element.CheckExistence = checkExistence;
-      element.Parameters = parameters;
+      if (checkExistence is not null)
+      {
+        element.CheckExistence = checkExistence;
+      }
+      if (cutscene is not null)
+      {
+        element.m_Cutscene = cutscene.Reference;
+      }
+      if (element.m_Cutscene is null)
+      {
+        element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);
+      }
+      if (parameters is not null)
+      {
+        builder.Validate(parameters);
+        element.Parameters = parameters;
+      }
+      if (putInQueue is not null)
+      {
+        element.PutInQueue = putInQueue;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ReloadMechanic"/> (Auto Generated)
+    /// Adds <see cref="ReloadMechanic"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ReloadMechanic))]
     public static ActionsBuilder ReloadMechanic(
         this ActionsBuilder builder,
-        string desc,
-        bool clearFx = default)
+        bool? clearFx = null,
+        string? desc = null)
     {
       var element = ElementTool.Create<ReloadMechanic>();
-      element.Desc = desc;
-      element.ClearFx = clearFx;
+      if (clearFx is not null)
+      {
+        element.ClearFx = clearFx;
+      }
+      if (desc is not null)
+      {
+        element.Desc = desc;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SetSoundState"/> (Auto Generated)
+    /// Adds <see cref="SetSoundState"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SetSoundState))]
     public static ActionsBuilder SetSoundState(
         this ActionsBuilder builder,
-        AkStateReference state)
+        AkStateReference? state = null)
     {
-      builder.Validate(state);
-    
       var element = ElementTool.Create<SetSoundState>();
-      element.m_State = state;
+      if (state is not null)
+      {
+        builder.Validate(state);
+        element.m_State = state;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ShowBark"/> (Auto Generated)
+    /// Adds <see cref="ShowBark"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShowBark))]
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
-        SharedStringAsset whatToBarkShared,
-        UnitEvaluator targetUnit,
-        MapObjectEvaluator targetMapObject,
+        bool? barkDurationByText = null,
+        MapObjectEvaluator? targetMapObject = null,
+        UnitEvaluator? targetUnit = null,
         LocalizedString? whatToBark = null,
-        bool barkDurationByText = default)
+        SharedStringAsset? whatToBarkShared = null)
     {
-      builder.Validate(whatToBark);
-      builder.Validate(whatToBarkShared);
-      builder.Validate(targetUnit);
-      builder.Validate(targetMapObject);
-    
       var element = ElementTool.Create<ShowBark>();
-      element.WhatToBark = whatToBark ?? Constants.Empty.String;
-      element.WhatToBarkShared = whatToBarkShared;
-      element.BarkDurationByText = barkDurationByText;
-      element.TargetUnit = targetUnit;
-      element.TargetMapObject = targetMapObject;
+      if (barkDurationByText is not null)
+      {
+        element.BarkDurationByText = barkDurationByText;
+      }
+      if (targetMapObject is not null)
+      {
+        builder.Validate(targetMapObject);
+        element.TargetMapObject = targetMapObject;
+      }
+      if (targetUnit is not null)
+      {
+        builder.Validate(targetUnit);
+        element.TargetUnit = targetUnit;
+      }
+      if (whatToBark is not null)
+      {
+        element.WhatToBark = whatToBark;
+      }
+      if (element.WhatToBark is null)
+      {
+        element.WhatToBark = Constants.Empty.String;
+      }
+      if (whatToBarkShared is not null)
+      {
+        builder.Validate(whatToBarkShared);
+        element.WhatToBarkShared = whatToBarkShared;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SpawnFx"/> (Auto Generated)
+    /// Adds <see cref="SpawnFx"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(SpawnFx))]
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
-        TransformEvaluator target,
-        PrefabLink? fxPrefab = null)
+        PrefabLink? fxPrefab = null,
+        TransformEvaluator? target = null)
     {
-      builder.Validate(target);
-      builder.Validate(fxPrefab);
-    
       var element = ElementTool.Create<SpawnFx>();
-      element.Target = target;
-      element.FxPrefab = fxPrefab ?? Constants.Empty.PrefabLink;
+      if (fxPrefab is not null)
+      {
+        element.FxPrefab = fxPrefab;
+      }
+      if (element.FxPrefab is null)
+      {
+        element.FxPrefab = Constants.Empty.PrefabLink;
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="StopCustomMusic"/> (Auto Generated)
+    /// Adds <see cref="StopCustomMusic"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(StopCustomMusic))]
     public static ActionsBuilder StopCustomMusic(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<StopCustomMusic>());
     }
 
     /// <summary>
-    /// Adds <see cref="StopCutscene"/> (Auto Generated)
+    /// Adds <see cref="StopCutscene"/>
     /// </summary>
     ///
-    /// <param name="cutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
-    [Generated]
-    [Implements(typeof(StopCutscene))]
+    /// <param name="cutscene">
+    /// Blueprint of type Cutscene. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder StopCutscene(
         this ActionsBuilder builder,
-        UnitEvaluator withUnit,
-        string? cutscene = null,
-        StopCutscene.UnitCheckType checkType = default)
+        StopCutscene.UnitCheckType? checkType = null,
+        Blueprint<Cutscene, CutsceneReference>? cutscene = null,
+        UnitEvaluator? withUnit = null)
     {
-      builder.Validate(withUnit);
-    
       var element = ElementTool.Create<StopCutscene>();
-      element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(cutscene);
-      element.WithUnit = withUnit;
-      element.m_CheckType = checkType;
+      if (checkType is not null)
+      {
+        element.m_CheckType = checkType;
+      }
+      if (cutscene is not null)
+      {
+        element.m_Cutscene = cutscene.Reference;
+      }
+      if (element.m_Cutscene is null)
+      {
+        element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);
+      }
+      if (withUnit is not null)
+      {
+        builder.Validate(withUnit);
+        element.WithUnit = withUnit;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ToggleObjectFx"/> (Auto Generated)
+    /// Adds <see cref="ToggleObjectFx"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ToggleObjectFx))]
     public static ActionsBuilder ToggleObjectFx(
         this ActionsBuilder builder,
-        MapObjectEvaluator target,
-        bool toggleOn = default)
+        MapObjectEvaluator? target = null,
+        bool? toggleOn = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<ToggleObjectFx>();
-      element.Target = target;
-      element.ToggleOn = toggleOn;
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
+      if (toggleOn is not null)
+      {
+        element.ToggleOn = toggleOn;
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ToggleObjectMusic"/> (Auto Generated)
+    /// Adds <see cref="ToggleObjectMusic"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ToggleObjectMusic))]
     public static ActionsBuilder ToggleObjectMusic(
         this ActionsBuilder builder,
-        MapObjectEvaluator target,
-        bool toggleOn = default)
+        MapObjectEvaluator? target = null,
+        bool? toggleOn = null)
     {
-      builder.Validate(target);
-    
       var element = ElementTool.Create<ToggleObjectMusic>();
-      element.Target = target;
-      element.ToggleOn = toggleOn;
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.Target = target;
+      }
+      if (toggleOn is not null)
+      {
+        element.ToggleOn = toggleOn;
+      }
       return builder.Add(element);
     }
   }

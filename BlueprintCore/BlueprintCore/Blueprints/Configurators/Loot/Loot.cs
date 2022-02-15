@@ -2,7 +2,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Enums;
-using System;
 using System.Linq;
 
 #nullable enable

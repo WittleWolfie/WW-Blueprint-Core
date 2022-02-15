@@ -69,7 +69,8 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Parameter comments
-      var paramComments = fields.Select(field => field.Comment).Where(comment => comment is not null).ToList();
+      var paramComments =
+          fields.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
       if (paramComments.Any())
       {
         paramComments.ForEach(

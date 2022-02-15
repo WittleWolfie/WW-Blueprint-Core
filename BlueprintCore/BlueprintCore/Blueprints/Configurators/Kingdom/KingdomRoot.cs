@@ -5,7 +5,6 @@ using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.UI.Kingdom;
-using System;
 using System.Linq;
 
 #nullable enable

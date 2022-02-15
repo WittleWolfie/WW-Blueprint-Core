@@ -4,7 +4,6 @@ using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
-using System;
 using System.Linq;
 
 #nullable enable

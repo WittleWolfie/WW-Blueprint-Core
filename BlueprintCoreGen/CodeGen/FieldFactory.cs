@@ -1,6 +1,4 @@
-﻿using BlueprintCore.Blueprints.Configurators;
-using BlueprintCoreGen.CodeGen.Override;
-using Kingmaker.Blueprints;
+﻿using BlueprintCoreGen.CodeGen.Override;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +34,6 @@ namespace BlueprintCoreGen.CodeGen
     /// </summary>
     List<string> GetAssignment(string objectName, string validateFunction);
   }
-
-  // TODO: For custom methods entirely they'll be overridden at the Method level. I think. Maybe this shouldn't be done
-  // at all because it causes some of the problems I'm trying to avoid?
 
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
@@ -83,12 +78,17 @@ namespace BlueprintCoreGen.CodeGen
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
 
+      // These are annoying to pull out of the recursive GetImports function, so handle them separately.
+      List<Type> imports = new();
+      if (blueprintType is not null) { imports.Add(blueprintType); }
+      if (enumerableType is not null) { imports.Add(enumerableType); }
+
       FieldParameter param =
           new(
               info.Name,
               GetParamName(info.Name),
               GetTypeName(info.FieldType, blueprintType, enumerableType),
-              GetImports(info.FieldType),
+              GetImports(info.FieldType).Concat(imports).ToList(),
               GetCommentFmt(blueprintType),
               GetDefaultValue(),
               GetValidationFmt(info.FieldType, blueprintType, enumerableType),
@@ -158,9 +158,9 @@ namespace BlueprintCoreGen.CodeGen
       {
         if (enumerableType is not null)
         {
-          return "List<Blueprint>";
+          return $"List<Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(enumerableType)}>>";
         }
-        return "Blueprint";
+        return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(type)}>";
       }
 
       return TypeTool.GetName(type);
@@ -168,7 +168,7 @@ namespace BlueprintCoreGen.CodeGen
 
     private static List<Type> GetImports(Type type)
     {
-      List<Type> imports = new() { type, typeof(Enumerable) };
+      List<Type> imports = new() { type, typeof(Enumerable), typeof(List<>) };
       if (!type.IsGenericType)
       {
         return imports.ToList();
@@ -185,10 +185,10 @@ namespace BlueprintCoreGen.CodeGen
             new()
             {
               $"<param name=\"{{0}}\">",
-              $"Blueprint of type {blueprintType.Name}. You can pass in the blueprint using:",
+              $"Blueprint of type {TypeTool.GetName(blueprintType)}. You can pass in the blueprint using:",
               $"<list type =\"bullet\">",
               $"  <item><term>A blueprint instance</term></item>",
-              $"  <item><term>A blueprint reference</term><item>",
+              $"  <item><term>A blueprint reference</term></item>",
               $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
               $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
               $"</list>",
@@ -214,7 +214,7 @@ namespace BlueprintCoreGen.CodeGen
 
       if (enumerableType is not null)
       {
-        return new() { "foreach (var item in {1}) { {0}(item); }" };
+        return new() { "foreach (var item in {1}) {{ {0}(item); }}" };
       }
 
       return new() { "{0}({1});" };
@@ -245,6 +245,7 @@ namespace BlueprintCoreGen.CodeGen
       return false;
     }
 
+    // TODO: There's a problem with using this w/ nullable types. Need to re-think how I handle nullability.
     private static List<string> GetAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (blueprintType is not null)
@@ -355,7 +356,7 @@ namespace BlueprintCoreGen.CodeGen
         ValidationFmt = validationFmt;
         AssignmentFmt = assignmentFmt;
         AssignmentFmtIfNull = assignmentFmtIfNull;
-        IsNullable = string.IsNullOrEmpty(DefaultValue);
+        IsNullable = !string.IsNullOrEmpty(DefaultValue);
       }
 
       public void ApplyOverride(FieldParamOverride fieldParamOverride)
@@ -385,8 +386,8 @@ namespace BlueprintCoreGen.CodeGen
         if (SkipDeclaration) { return ""; }
 
         return IsNullable
-            ? $"{TypeName} {ParamName}"
-            : $"{TypeName}? {ParamName} = {DefaultValue}";
+            ? $"{TypeName}? {ParamName} = {DefaultValue}"
+            : $"{TypeName} {ParamName}";
       }
 
       public List<string> GetAssignment(string objectName, string validateFunction)

@@ -6,9 +6,27 @@ using System.Text;
 
 namespace BlueprintCoreGen.CodeGen
 {
-  public static class NewClassFactory
+  public interface IClassFile
   {
-    public static IClass CreateBuilderExtension(IBuilderExtension builderExtension)
+    /// <summary>
+    /// Relative file path for the output class
+    /// </summary>
+    string FilePath { get; }
+
+    /// <summary>
+    /// Returns the full class text
+    /// </summary>
+    string GetText();
+
+    /// <summary>
+    /// Returns the types implemented in the class
+    /// </summary>
+    List<Type> GetImplementedTypes();
+  }
+
+  public static class ClassFactory
+  {
+    public static IClassFile CreateBuilderExtension(IBuilderExtension builderExtension)
     {
       var extensionClass = new ClassImpl(builderExtension.FilePath);
 
@@ -29,7 +47,7 @@ namespace BlueprintCoreGen.CodeGen
           type =>
           {
             extensionClass.AddImplementedType(type);
-            NewMethodFactory.CreateForBuilder(type, builderExtension.ParentType).ForEach(
+            MethodFactory.CreateForBuilder(type).ForEach(
                 method =>
                 {
                   method.GetImports().ForEach(import => extensionClass.AddImport(import));
@@ -44,7 +62,7 @@ namespace BlueprintCoreGen.CodeGen
       return extensionClass;
     }
 
-    private class ClassImpl : IClass
+    private class ClassImpl : IClassFile
     {
       public string FilePath { get; private set; }
 
@@ -57,7 +75,6 @@ namespace BlueprintCoreGen.CodeGen
       {
         FilePath = filePath;
 
-        Text.AppendLine("//***** AUTO-GENERATED - DO NOT EDIT *****//");
       }
 
       public List<Type> GetImplementedTypes()
@@ -67,6 +84,8 @@ namespace BlueprintCoreGen.CodeGen
 
       public string GetText()
       {
+        Text.Insert(0, "//***** AUTO-GENERATED - DO NOT EDIT *****//");
+
         var sortedImports = Imports.ToList();
         sortedImports.Sort();
         Text.Insert(0, string.Join('\n', sortedImports) + "\n");

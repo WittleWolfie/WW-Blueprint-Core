@@ -1,7 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Visual.CharacterSystem;
-using System;
 using System.Linq;
 
 #nullable enable

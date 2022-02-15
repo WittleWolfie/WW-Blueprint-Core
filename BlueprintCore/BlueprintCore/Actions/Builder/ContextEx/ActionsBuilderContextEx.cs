@@ -1,8 +1,13 @@
-using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Equipment;
+using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -13,59 +18,308 @@ using Kingmaker.Settings;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Actions;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
-using System;
+using System.Collections.Generic;
 using System.Linq;
-
-#nullable enable
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
-  /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some
-  /// <see cref="ContextAction"/> types are in more specific extensions such as
-  /// <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
+  /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific extensions such as <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
-  {
+{
+
+    /// <summary>
+    /// Adds <see cref="ContextActionResetAlignment"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionResetAlignment(
+        this ActionsBuilder builder,
+        bool? resetAlignmentLock = null)
+    {
+      var element = ElementTool.Create<ContextActionResetAlignment>();
+      if (resetAlignmentLock is not null)
+      {
+        element.m_ResetAlignmentLock = resetAlignmentLock;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSwarmAttack"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionSwarmAttack(
+        this ActionsBuilder builder,
+        ActionsBuilder? attackActions = null)
+    {
+      var element = ElementTool.Create<ContextActionSwarmAttack>();
+      if (attackActions is not null)
+      {
+        element.AttackActions = attackActions.Build();
+      }
+      if (element.AttackActions is null)
+      {
+        element.AttackActions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSwitchDualCompanion"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionSwitchDualCompanion(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionAddRandomTrashItem(
+        this ActionsBuilder builder,
+        bool? identify = null,
+        TrashLootType? lootType = null,
+        int? maxCost = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
+      if (identify is not null)
+      {
+        element.m_Identify = identify;
+      }
+      if (lootType is not null)
+      {
+        element.m_LootType = lootType;
+      }
+      if (maxCost is not null)
+      {
+        element.m_MaxCost = maxCost;
+      }
+      if (silent is not null)
+      {
+        element.m_Silent = silent;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionRestoreAllSpellSlots"/>
+    /// </summary>
+    ///
+    /// <param name="excludeSpellbooks">
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionRestoreAllSpellSlots(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? excludeSpellbooks = null,
+        UnitEvaluator? target = null,
+        int? upToSpellLevel = null)
+    {
+      var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
+      if (excludeSpellbooks is not null)
+      {
+        element.m_ExcludeSpellbooks = excludeSpellbooks.Select(bp => bp.Reference).ToList();
+      }
+      if (element.m_ExcludeSpellbooks is null)
+      {
+        element.m_ExcludeSpellbooks = new();
+      }
+      if (target is not null)
+      {
+        builder.Validate(target);
+        element.m_Target = target;
+      }
+      if (upToSpellLevel is not null)
+      {
+        element.m_UpToSpellLevel = upToSpellLevel;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffActionAddStatBonus"/>
+    /// </summary>
+    public static ActionsBuilder BuffActionAddStatBonus(
+        this ActionsBuilder builder,
+        ModifierDescriptor? descriptor = null,
+        StatType? stat = null,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<BuffActionAddStatBonus>();
+      if (descriptor is not null)
+      {
+        element.Descriptor = descriptor;
+      }
+      if (stat is not null)
+      {
+        element.Stat = stat;
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAcceptBurn"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionAcceptBurn(
+        this ActionsBuilder builder,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextActionAcceptBurn>();
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionHealBurn"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionHealBurn(
+        this ActionsBuilder builder,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextActionHealBurn>();
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedBurden"/>
+    /// </summary>
+    public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedGrace"/>
+    /// </summary>
+    public static ActionsBuilder AbilityCustomSharedGrace(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
+    }
+
     /// <summary>
     /// Adds <see cref="ContextActionAddFeature"/>
     /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(ContextActionAddFeature))]
-    public static ActionsBuilder AddFeature(this ActionsBuilder builder, string feature)
+    ///
+    /// <param name="permanentFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="setRankFrom">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionAddFeature(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? permanentFeature = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
     {
-      var addFeature = ElementTool.Create<ContextActionAddFeature>();
-      addFeature.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return builder.Add(addFeature);
+      var element = ElementTool.Create<ContextActionAddFeature>();
+      if (permanentFeature is not null)
+      {
+        element.m_PermanentFeature = permanentFeature.Reference;
+      }
+      if (element.m_PermanentFeature is null)
+      {
+        element.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (setRankFrom is not null)
+      {
+        element.m_SetRankFrom = setRankFrom.Reference;
+      }
+      if (element.m_SetRankFrom is null)
+      {
+        element.m_SetRankFrom = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionAddLocustClone"/>
     /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(ContextActionAddLocustClone))]
-    public static ActionsBuilder AddLocustClone(this ActionsBuilder builder, string feature)
+    ///
+    /// <param name="cloneFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionAddLocustClone(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? cloneFeature = null)
     {
-      var addClone = ElementTool.Create<ContextActionAddLocustClone>();
-      addClone.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return builder.Add(addClone);
+      var element = ElementTool.Create<ContextActionAddLocustClone>();
+      if (cloneFeature is not null)
+      {
+        element.m_CloneFeature = cloneFeature.Reference;
+      }
+      if (element.m_CloneFeature is null)
+      {
+        element.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionAeonRollbackToSavedState"/>
     /// </summary>
-    [Implements(typeof(ContextActionAeonRollbackToSavedState))]
-    public static ActionsBuilder AeonRollbackState(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionAeonRollbackToSavedState(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
     }
@@ -73,711 +327,831 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionApplyBuff"/>
     /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionApplyBuff))]
-    public static ActionsBuilder ApplyBuff(
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionApplyBuff(
         this ActionsBuilder builder,
-        string buff,
-        bool useDurationSeconds = false,
-        float durationSeconds = 0f,
-        ContextDurationValue? duration = null,
-        bool permanent = false,
-        bool isFromSpell = false,
-        bool dispellable = true,
-        bool toCaster = false,
-        bool asChild = true,
-        bool sameDuration = false)
+        bool? asChild = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        float? durationSeconds = null,
+        ContextDurationValue? durationValue = null,
+        bool? isFromSpell = null,
+        bool? isNotDispelable = null,
+        bool? permanent = null,
+        bool? sameDuration = null,
+        bool? toCaster = null,
+        bool? useDurationSeconds = null)
     {
-      if (!useDurationSeconds && duration == null && !permanent)
+      var element = ElementTool.Create<ContextActionApplyBuff>();
+      if (asChild is not null)
       {
-        throw new InvalidOperationException("Missing duration.");
+        element.AsChild = asChild;
       }
-      var applyBuff = ElementTool.Create<ContextActionApplyBuff>();
-      applyBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      applyBuff.UseDurationSeconds = useDurationSeconds;
-      applyBuff.DurationSeconds = durationSeconds;
-      applyBuff.DurationValue = duration;
-      applyBuff.Permanent = permanent;
-      applyBuff.IsFromSpell = isFromSpell;
-      applyBuff.IsNotDispelable = !dispellable;
-      applyBuff.ToCaster = toCaster;
-      applyBuff.AsChild = asChild;
-      applyBuff.SameDuration = sameDuration;
-      return builder.Add(applyBuff);
-    }
-
-    // Default GUIDs for ArmorEnchantPool and ShieldArmorEnchantPool
-    private const string PlusOneArmor = "1d9b60d57afb45c4f9bb0a3c21bb3b98";
-    private const string PlusTwoArmor = "d45bfd838c541bb40bde7b0bf0e1b684";
-    private const string PlusThreeArmor = "51c51d841e9f16046a169729c13c4d4f";
-    private const string PlusFourArmor = "a23bcee56c9fcf64d863dafedb369387";
-    private const string PlusFiveArmor = "15d7d6cbbf56bd744b37bbf9225ea83b";
-
-    private static BlueprintItemEnchantmentReference GetItemEnchant(string enchant)
-    {
-      return BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchant);
+      if (buff is not null)
+      {
+        element.m_Buff = buff.Reference;
+      }
+      if (element.m_Buff is null)
+      {
+        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (durationSeconds is not null)
+      {
+        element.DurationSeconds = durationSeconds;
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (isFromSpell is not null)
+      {
+        element.IsFromSpell = isFromSpell;
+      }
+      if (isNotDispelable is not null)
+      {
+        element.IsNotDispelable = isNotDispelable;
+      }
+      if (permanent is not null)
+      {
+        element.Permanent = permanent;
+      }
+      if (sameDuration is not null)
+      {
+        element.SameDuration = sameDuration;
+      }
+      if (toCaster is not null)
+      {
+        element.ToCaster = toCaster;
+      }
+      if (useDurationSeconds is not null)
+      {
+        element.UseDurationSeconds = useDurationSeconds;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionArmorEnchantPool"/>
     /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's armor is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the armor can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ArcaneArmor and SacredArmor blueprints for example usages.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryArmorEnhancementBonus* blueprint.
-    /// </para>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionArmorEnchantPool))]
-    public static ActionsBuilder ArmorEnchantPool(
+    ///
+    /// <param name="defaultEnchantments">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionArmorEnchantPool(
         this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneArmor,
-        string plusTwoEnchantment = PlusTwoArmor,
-        string plusThreeEnchantment = PlusThreeArmor,
-        string plusFourEnchantment = PlusFourArmor,
-        string plusFiveEnchantment = PlusFiveArmor)
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
+        ContextDurationValue? durationValue = null,
+        EnchantPoolType? enchantPool = null,
+        ActivatableAbilityGroup? group = null)
     {
-      var enchantArmor = ElementTool.Create<ContextActionArmorEnchantPool>();
-      enchantArmor.EnchantPool = poolType;
-      enchantArmor.Group = group;
-      enchantArmor.DurationValue = duration;
-      enchantArmor.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchantArmor.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchantArmor.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchantArmor.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchantArmor.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchantArmor);
+      var element = ElementTool.Create<ContextActionArmorEnchantPool>();
+      if (defaultEnchantments is not null)
+      {
+        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_DefaultEnchantments is null)
+      {
+        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantPool is not null)
+      {
+        element.EnchantPool = enchantPool;
+      }
+      if (group is not null)
+      {
+        element.Group = group;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionShieldArmorEnchantPool"/>
     /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's shield is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the shield can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See the SacredArmor blueprint for example usage.
-    /// </para>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryArmorEnhancementBonus* blueprint.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionShieldArmorEnchantPool))]
-    public static ActionsBuilder ShieldArmorEnchantPool(
+    ///
+    /// <param name="defaultEnchantments">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionShieldArmorEnchantPool(
         this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneArmor,
-        string plusTwoEnchantment = PlusTwoArmor,
-        string plusThreeEnchantment = PlusThreeArmor,
-        string plusFourEnchantment = PlusFourArmor,
-        string plusFiveEnchantment = PlusFiveArmor)
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
+        ContextDurationValue? durationValue = null,
+        EnchantPoolType? enchantPool = null,
+        ActivatableAbilityGroup? group = null)
     {
-      var enchant = ElementTool.Create<ContextActionShieldArmorEnchantPool>();
-      enchant.EnchantPool = poolType;
-      enchant.Group = group;
-      enchant.DurationValue = duration;
-      enchant.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchant.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchant.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchant.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchant.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchant);
+      var element = ElementTool.Create<ContextActionShieldArmorEnchantPool>();
+      if (defaultEnchantments is not null)
+      {
+        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_DefaultEnchantments is null)
+      {
+        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantPool is not null)
+      {
+        element.EnchantPool = enchantPool;
+      }
+      if (group is not null)
+      {
+        element.Group = group;
+      }
+      return builder.Add(element);
     }
-
-    // Default GUIDs for WeaponEnchantPool and ShieldWeaponEnchantPool
-    private const string PlusOneWeapon = "d704f90f54f813043a525f304f6c0050";
-    private const string PlusTwoWeapon = "9e9bab3020ec5f64499e007880b37e52";
-    private const string PlusThreeWeapon = "d072b841ba0668846adeb007f623bd6c";
-    private const string PlusFourWeapon = "6a6a0901d799ceb49b33d4851ff72132";
-    private const string PlusFiveWeapon = "746ee366e50611146821d61e391edf16";
 
     /// <summary>
     /// Adds <see cref="ContextActionWeaponEnchantPool"/>
     /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's weapon is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the weapon can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ArcaneWeapon and SacredWeapon blueprints for example usages.
-    /// </para>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionWeaponEnchantPool))]
-    public static ActionsBuilder WeaponEnchantPool(
+    ///
+    /// <param name="defaultEnchantments">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionWeaponEnchantPool(
         this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneWeapon,
-        string plusTwoEnchantment = PlusTwoWeapon,
-        string plusThreeEnchantment = PlusThreeWeapon,
-        string plusFourEnchantment = PlusFourWeapon,
-        string plusFiveEnchantment = PlusFiveWeapon)
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
+        ContextDurationValue? durationValue = null,
+        EnchantPoolType? enchantPool = null,
+        ActivatableAbilityGroup? group = null)
     {
-      var enchant = ElementTool.Create<ContextActionWeaponEnchantPool>();
-      enchant.EnchantPool = poolType;
-      enchant.Group = group;
-      enchant.DurationValue = duration;
-      enchant.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchant.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchant.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchant.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchant.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchant);
+      var element = ElementTool.Create<ContextActionWeaponEnchantPool>();
+      if (defaultEnchantments is not null)
+      {
+        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_DefaultEnchantments is null)
+      {
+        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantPool is not null)
+      {
+        element.EnchantPool = enchantPool;
+      }
+      if (group is not null)
+      {
+        element.Group = group;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionShieldWeaponEnchantPool"/>
     /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's shield is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the shield can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See the SacredWeapon blueprint for example usage.
-    /// </para>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionShieldWeaponEnchantPool))]
-    public static ActionsBuilder ShieldWeaponEnchantPool(
+    ///
+    /// <param name="defaultEnchantments">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionShieldWeaponEnchantPool(
         this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneWeapon,
-        string plusTwoEnchantment = PlusTwoWeapon,
-        string plusThreeEnchantment = PlusThreeWeapon,
-        string plusFourEnchantment = PlusFourWeapon,
-        string plusFiveEnchantment = PlusFiveWeapon)
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
+        ContextDurationValue? durationValue = null,
+        EnchantPoolType? enchantPool = null,
+        ActivatableAbilityGroup? group = null)
     {
-      var enchant = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
-      enchant.EnchantPool = poolType;
-      enchant.Group = group;
-      enchant.DurationValue = duration;
-      enchant.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchant.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchant.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchant.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchant.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchant);
+      var element = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
+      if (defaultEnchantments is not null)
+      {
+        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_DefaultEnchantments is null)
+      {
+        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantPool is not null)
+      {
+        element.EnchantPool = enchantPool;
+      }
+      if (group is not null)
+      {
+        element.Group = group;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionAttackWithWeapon"/>
     /// </summary>
-    /// 
-    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon">BlueprintItemWeapon</see></param>
-    [Implements(typeof(ContextActionAttackWithWeapon))]
-    public static ActionsBuilder AttackWithWeapon(this ActionsBuilder builder, StatType damageStat, string weapon)
+    ///
+    /// <param name="weaponRef">
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionAttackWithWeapon(
+        this ActionsBuilder builder,
+        StatType? stat = null,
+        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weaponRef = null)
     {
-      var attack = ElementTool.Create<ContextActionAttackWithWeapon>();
-      attack.m_Stat = damageStat;
-      attack.m_WeaponRef = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
-      return builder.Add(attack);
+      var element = ElementTool.Create<ContextActionAttackWithWeapon>();
+      if (stat is not null)
+      {
+        element.m_Stat = stat;
+      }
+      if (weaponRef is not null)
+      {
+        element.m_WeaponRef = weaponRef.Reference;
+      }
+      if (element.m_WeaponRef is null)
+      {
+        element.m_WeaponRef = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionBatteringBlast"/>
     /// </summary>
-    [Implements(typeof(ContextActionBatteringBlast))]
-    public static ActionsBuilder BatteringBlast(this ActionsBuilder builder, bool remove = false)
+    public static ActionsBuilder ContextActionBatteringBlast(
+        this ActionsBuilder builder,
+        bool? remove = null)
     {
-      var blast = ElementTool.Create<ContextActionBatteringBlast>();
-      blast.Remove = remove;
-      return builder.Add(blast);
+      var element = ElementTool.Create<ContextActionBatteringBlast>();
+      if (remove is not null)
+      {
+        element.Remove = remove;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionBreakFree"/>
     /// </summary>
-    [Implements(typeof(ContextActionBreakFree))]
-    public static ActionsBuilder BreakFree(
+    public static ActionsBuilder ContextActionBreakFree(
         this ActionsBuilder builder,
-        bool useCMB = false,
-        bool useCMD = false,
-        ActionsBuilder? onSuccess = null,
-        ActionsBuilder? onFail = null)
+        ActionsBuilder? failure = null,
+        ActionsBuilder? success = null,
+        bool? useCMB = null,
+        bool? useCMD = null)
     {
-      var breakFree = ElementTool.Create<ContextActionBreakFree>();
-      breakFree.UseCMB = useCMB;
-      breakFree.UseCMD = useCMD;
-      breakFree.Success = onSuccess?.Build() ?? Constants.Empty.Actions;
-      breakFree.Failure = onFail?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(breakFree);
+      var element = ElementTool.Create<ContextActionBreakFree>();
+      if (failure is not null)
+      {
+        element.Failure = failure.Build();
+      }
+      if (element.Failure is null)
+      {
+        element.Failure = Constants.Empty.Actions;
+      }
+      if (success is not null)
+      {
+        element.Success = success.Build();
+      }
+      if (element.Success is null)
+      {
+        element.Success = Constants.Empty.Actions;
+      }
+      if (useCMB is not null)
+      {
+        element.UseCMB = useCMB;
+      }
+      if (useCMD is not null)
+      {
+        element.UseCMD = useCMD;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionBreathOfLife"/>
     /// </summary>
-    [Implements(typeof(ContextActionBreathOfLife))]
-    public static ActionsBuilder BreathOfLife(
-        this ActionsBuilder builder, ContextDiceValue value)
+    public static ActionsBuilder ContextActionBreathOfLife(
+        this ActionsBuilder builder,
+        ContextDiceValue? value = null)
     {
-      var breathOfLife = ElementTool.Create<ContextActionBreathOfLife>();
-      breathOfLife.Value = value;
-      return builder.Add(breathOfLife);
+      var element = ElementTool.Create<ContextActionBreathOfLife>();
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = Constants.Empty.DiceValue;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionBreathOfMoney"/>
     /// </summary>
-    [Implements(typeof(ContextActionBreathOfMoney))]
-    public static ActionsBuilder BreathOfMoney(
-        this ActionsBuilder builder, ContextValue minCoins, ContextValue maxCoins)
+    public static ActionsBuilder ContextActionBreathOfMoney(
+        this ActionsBuilder builder,
+        ContextValue? maxCoins = null,
+        ContextValue? minCoins = null)
     {
-      var breathOfMoney = ElementTool.Create<ContextActionBreathOfMoney>();
-      breathOfMoney.MinCoins = minCoins;
-      breathOfMoney.MaxCoins = maxCoins;
-      return builder.Add(breathOfMoney);
+      var element = ElementTool.Create<ContextActionBreathOfMoney>();
+      if (maxCoins is not null)
+      {
+        element.MaxCoins = maxCoins;
+      }
+      if (element.MaxCoins is null)
+      {
+        element.MaxCoins = ContextValues.Constant(0);
+      }
+      if (minCoins is not null)
+      {
+        element.MinCoins = minCoins;
+      }
+      if (element.MinCoins is null)
+      {
+        element.MinCoins = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionCastSpell"/>
     /// </summary>
-    /// 
-    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(ContextActionCastSpell))]
-    public static ActionsBuilder CastSpell(
+    ///
+    /// <param name="spell">
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionCastSpell(
         this ActionsBuilder builder,
-        string spell,
-        bool castByTarget = false,
-        ContextValue? overrideDC = null,
-        ContextValue? overrideLevel = null)
+        bool? castByTarget = null,
+        ContextValue? dC = null,
+        bool? overrideDC = null,
+        bool? overrideSpellLevel = null,
+        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
+        ContextValue? spellLevel = null)
     {
-      var castSpell = ElementTool.Create<ContextActionCastSpell>();
-      castSpell.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
-      castSpell.CastByTarget = castByTarget;
-      if (overrideDC != null)
+      var element = ElementTool.Create<ContextActionCastSpell>();
+      if (castByTarget is not null)
       {
-        castSpell.OverrideDC = true;
-        castSpell.DC = overrideDC;
+        element.CastByTarget = castByTarget;
       }
-      if (overrideLevel != null)
+      if (dC is not null)
       {
-        castSpell.OverrideSpellLevel = true;
-        castSpell.SpellLevel = overrideLevel;
+        element.DC = dC;
       }
-      return builder.Add(castSpell);
+      if (element.DC is null)
+      {
+        element.DC = ContextValues.Constant(0);
+      }
+      if (overrideDC is not null)
+      {
+        element.OverrideDC = overrideDC;
+      }
+      if (overrideSpellLevel is not null)
+      {
+        element.OverrideSpellLevel = overrideSpellLevel;
+      }
+      if (spell is not null)
+      {
+        element.m_Spell = spell.Reference;
+      }
+      if (element.m_Spell is null)
+      {
+        element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (spellLevel is not null)
+      {
+        element.SpellLevel = spellLevel;
+      }
+      if (element.SpellLevel is null)
+      {
+        element.SpellLevel = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionChangeSharedValue"/>
     /// </summary>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder SetSharedValue(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue, ContextValue setValue)
+    public static ActionsBuilder ContextActionChangeSharedValue(
+        this ActionsBuilder builder,
+        ContextValue? addValue = null,
+        ContextValue? multiplyValue = null,
+        ContextValue? setValue = null,
+        AbilitySharedValue? sharedValue = null,
+        SharedValueChangeType? type = null)
     {
-      return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Set, set: setValue);
-    }
-
-    /// <inheritdoc cref="SetSharedValue"/>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder SetSharedValueToHD(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue)
-    {
-      return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.SubHD);
-    }
-
-    /// <inheritdoc cref="SetSharedValue"/>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder AddToSharedValue(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue, ContextValue addValue)
-    {
-      return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Add, add: addValue);
-    }
-
-    /// <inheritdoc cref="SetSharedValue"/>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder MultiplySharedValue(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue, ContextValue multiplyValue)
-    {
-      return ChangeSharedValue(
-          builder, sharedValue, SharedValueChangeType.Multiply, multiply: multiplyValue);
-    }
-
-    /// <inheritdoc cref="SetSharedValue"/>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder DivideSharedValueBy2(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue)
-    {
-      return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Div2);
-    }
-
-    /// <inheritdoc cref="SetSharedValue"/>
-    [Implements(typeof(ContextActionChangeSharedValue))]
-    public static ActionsBuilder DivideSharedValueBy4(
-        this ActionsBuilder builder, AbilitySharedValue sharedValue)
-    {
-      return ChangeSharedValue(builder, sharedValue, SharedValueChangeType.Div4);
-    }
-
-    private static ActionsBuilder ChangeSharedValue(
-        ActionsBuilder builder,
-        AbilitySharedValue sharedValue,
-        SharedValueChangeType type,
-        ContextValue? add = null,
-        ContextValue? set = null,
-        ContextValue? multiply = null)
-    {
-      var changeValue = ElementTool.Create<ContextActionChangeSharedValue>();
-      changeValue.SharedValue = sharedValue;
-      changeValue.Type = type;
-      changeValue.AddValue = add;
-      changeValue.SetValue = set;
-      changeValue.MultiplyValue = multiply;
-      return builder.Add(changeValue);
+      var element = ElementTool.Create<ContextActionChangeSharedValue>();
+      if (addValue is not null)
+      {
+        element.AddValue = addValue;
+      }
+      if (element.AddValue is null)
+      {
+        element.AddValue = ContextValues.Constant(0);
+      }
+      if (multiplyValue is not null)
+      {
+        element.MultiplyValue = multiplyValue;
+      }
+      if (element.MultiplyValue is null)
+      {
+        element.MultiplyValue = ContextValues.Constant(0);
+      }
+      if (setValue is not null)
+      {
+        element.SetValue = setValue;
+      }
+      if (element.SetValue is null)
+      {
+        element.SetValue = ContextValues.Constant(0);
+      }
+      if (sharedValue is not null)
+      {
+        element.SharedValue = sharedValue;
+      }
+      if (type is not null)
+      {
+        element.Type = type;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionClearSummonPool"/>
     /// </summary>
-    /// 
-    /// <param name="pool"><see cref="BlueprintSummonPool"/></param>
-    [Implements(typeof(ContextActionClearSummonPool))]
-    public static ActionsBuilder ClearSummonPool(this ActionsBuilder builder, string pool)
+    ///
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionClearSummonPool(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
-      var clearSummons = ElementTool.Create<ContextActionClearSummonPool>();
-      clearSummons.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(pool);
-      return builder.Add(clearSummons);
+      var element = ElementTool.Create<ContextActionClearSummonPool>();
+      if (summonPool is not null)
+      {
+        element.m_SummonPool = summonPool.Reference;
+      }
+      if (element.m_SummonPool is null)
+      {
+        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionCombatManeuver"/>
     /// </summary>
-    [Implements(typeof(ContextActionCombatManeuver))]
-    public static ActionsBuilder CombatManeuver(
+    public static ActionsBuilder ContextActionCombatManeuver(
         this ActionsBuilder builder,
-        CombatManeuver type,
-        ActionsBuilder onSuccess,
-        bool ignoreConcealment = false,
-        bool batteringBlast = false,
-        StatType useStat = StatType.Unknown,
-        bool useKineticistMainStat = false,
-        bool useCastingStat = false,
-        bool useCasterLevelForBAB = false,
-        bool useBestMentalStat = false)
+        bool? batteringBlast = null,
+        bool? ignoreConcealment = null,
+        StatType? newStat = null,
+        ActionsBuilder? onSuccess = null,
+        bool? replaceStat = null,
+        CombatManeuver? type = null,
+        bool? useBestMentalStat = null,
+        bool? useCasterLevelAsBaseAttack = null,
+        bool? useCastingStat = null,
+        bool? useKineticistMainStat = null)
     {
-      var maneuver = ElementTool.Create<ContextActionCombatManeuver>();
-      maneuver.Type = type;
-      maneuver.OnSuccess = onSuccess.Build();
-      maneuver.IgnoreConcealment = ignoreConcealment;
-      maneuver.BatteringBlast = batteringBlast;
-      maneuver.ReplaceStat =
-          useStat != StatType.Unknown
-              || useKineticistMainStat
-              || useCastingStat
-              || useCasterLevelForBAB
-              || useBestMentalStat;
-      maneuver.NewStat = useStat;
-      maneuver.UseKineticistMainStat = useKineticistMainStat;
-      maneuver.UseCastingStat = useCastingStat;
-      maneuver.UseCasterLevelAsBaseAttack = useCasterLevelForBAB;
-      maneuver.UseBestMentalStat = useBestMentalStat;
-      return builder.Add(maneuver);
+      var element = ElementTool.Create<ContextActionCombatManeuver>();
+      if (batteringBlast is not null)
+      {
+        element.BatteringBlast = batteringBlast;
+      }
+      if (ignoreConcealment is not null)
+      {
+        element.IgnoreConcealment = ignoreConcealment;
+      }
+      if (newStat is not null)
+      {
+        element.NewStat = newStat;
+      }
+      if (onSuccess is not null)
+      {
+        element.OnSuccess = onSuccess.Build();
+      }
+      if (element.OnSuccess is null)
+      {
+        element.OnSuccess = Constants.Empty.Actions;
+      }
+      if (replaceStat is not null)
+      {
+        element.ReplaceStat = replaceStat;
+      }
+      if (type is not null)
+      {
+        element.Type = type;
+      }
+      if (useBestMentalStat is not null)
+      {
+        element.UseBestMentalStat = useBestMentalStat;
+      }
+      if (useCasterLevelAsBaseAttack is not null)
+      {
+        element.UseCasterLevelAsBaseAttack = useCasterLevelAsBaseAttack;
+      }
+      if (useCastingStat is not null)
+      {
+        element.UseCastingStat = useCastingStat;
+      }
+      if (useKineticistMainStat is not null)
+      {
+        element.UseKineticistMainStat = useKineticistMainStat;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionCombatManeuverCustom"/>
     /// </summary>
-    [Implements(typeof(ContextActionCombatManeuverCustom))]
-    public static ActionsBuilder CustomCombatManeuver(
+    public static ActionsBuilder ContextActionCombatManeuverCustom(
         this ActionsBuilder builder,
-        CombatManeuver type,
-        ActionsBuilder? onSuccess = null,
-        ActionsBuilder? onFail = null)
+        ActionsBuilder? failure = null,
+        ActionsBuilder? success = null,
+        CombatManeuver? type = null)
     {
-      var maneuver = ElementTool.Create<ContextActionCombatManeuverCustom>();
-      maneuver.Type = type;
-      maneuver.Success = onSuccess?.Build() ?? Constants.Empty.Actions;
-      maneuver.Failure = onFail?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(maneuver);
+      var element = ElementTool.Create<ContextActionCombatManeuverCustom>();
+      if (failure is not null)
+      {
+        element.Failure = failure.Build();
+      }
+      if (element.Failure is null)
+      {
+        element.Failure = Constants.Empty.Actions;
+      }
+      if (success is not null)
+      {
+        element.Success = success.Build();
+      }
+      if (element.Success is null)
+      {
+        element.Success = Constants.Empty.Actions;
+      }
+      if (type is not null)
+      {
+        element.Type = type;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionConditionalSaved"/>
     /// </summary>
-    [Implements(typeof(ContextActionConditionalSaved))]
-    public static ActionsBuilder AfterSavingThrow(
+    public static ActionsBuilder ContextActionConditionalSaved(
         this ActionsBuilder builder,
-        ActionsBuilder? ifPassed = null,
-        ActionsBuilder? ifFailed = null)
+        ActionsBuilder? failed = null,
+        ActionsBuilder? succeed = null)
     {
-      var onSave = ElementTool.Create<ContextActionConditionalSaved>();
-      onSave.Succeed = ifPassed?.Build() ?? Constants.Empty.Actions;
-      onSave.Failed = ifFailed?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(onSave);
+      var element = ElementTool.Create<ContextActionConditionalSaved>();
+      if (failed is not null)
+      {
+        element.Failed = failed.Build();
+      }
+      if (element.Failed is null)
+      {
+        element.Failed = Constants.Empty.Actions;
+      }
+      if (succeed is not null)
+      {
+        element.Succeed = succeed.Build();
+      }
+      if (element.Succeed is null)
+      {
+        element.Succeed = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionDealDamage"/>
     /// </summary>
-    /// 
-    /// <param name="sharedResult">If specified, the resulting damage is stored in this shared value.</param>
-    /// <param name="criticalSharedResult">
-    /// If specified and the associated attack roll is a critical, this shared value is set to 1.
-    /// </param>
-    [Implements(typeof(ContextActionDealDamage))]
-    public static ActionsBuilder DealDamage(
+    public static ActionsBuilder ContextActionDealDamage(
         this ActionsBuilder builder,
-        DamageTypeDescription type,
-        ContextDiceValue value,
-        bool dealHalfIfSaved = false,
-        bool dealHalf = false,
-        bool ignoreCrit = false,
-        bool isAOE = false,
-        int? minHPAfterDmg = null,
-        AbilitySharedValue? sharedResult = null,
-        AbilitySharedValue? criticalSharedResult = null)
+        StatType? abilityType = null,
+        bool? alreadyHalved = null,
+        AbilitySharedValue? criticalSharedValue = null,
+        DamageTypeDescription? damageType = null,
+        bool? drain = null,
+        ContextDurationValue? duration = null,
+        EnergyDrainType? energyDrainType = null,
+        bool? half = null,
+        bool? halfIfSaved = null,
+        bool? ignoreCritical = null,
+        bool? isAoE = null,
+        bool? isAOE = null,
+        int? minHPAfterDamage = null,
+        AbilitySharedValue? preRolledSharedValue = null,
+        bool? readPreRolledFromSharedValue = null,
+        AbilitySharedValue? resultSharedValue = null,
+        bool? setFactAsReason = null,
+        ContextActionDealDamage.Type? type = null,
+        bool? useMinHPAfterDamage = null,
+        bool? useWeaponDamageModifiers = null,
+        ContextDiceValue? value = null,
+        bool? writeCriticalToSharedValue = null,
+        bool? writeRawResultToSharedValue = null,
+        bool? writeResultToSharedValue = null)
     {
-      return DealDamage(
-          builder,
-          ContextActionDealDamage.Type.Damage,
-          dealHalfIfSaved,
-          ignoreCrit,
-          dmgType: type,
-          value: value,
-          dealHalf: dealHalf,
-          isAOE: isAOE,
-          minHPAfterDmg: minHPAfterDmg,
-          sharedResult: sharedResult,
-          criticalSharedResult: criticalSharedResult);
-    }
-
-    /// <inheritdoc cref="DealDamage"/>
-    /// <param name="preRolledValue">Deals damage equal to this shared value.</param>
-    [Implements(typeof(ContextActionDealDamage))]
-    public static ActionsBuilder DealDamagePreRolled(
-        this ActionsBuilder builder,
-        DamageTypeDescription type,
-        AbilitySharedValue preRolledValue,
-        bool dealHalfIfSaved = false,
-        bool dealHalf = false,
-        bool alreadyHalved = false,
-        bool ignoreCrit = false,
-        int? minHPAfterDmg = null,
-        AbilitySharedValue? sharedResult = null,
-        AbilitySharedValue? criticalSharedResult = null)
-    {
-      return DealDamage(
-          builder,
-          ContextActionDealDamage.Type.Damage,
-          dealHalfIfSaved,
-          ignoreCrit,
-          dmgType: type,
-          preRolledValue: preRolledValue,
-          dealHalf: dealHalf,
-          alreadyHalved: alreadyHalved,
-          minHPAfterDmg: minHPAfterDmg,
-          sharedResult: sharedResult,
-          criticalSharedResult: criticalSharedResult);
-    }
-
-    /// <inheritdoc cref="DealDamage"/>
-    [Implements(typeof(ContextActionDealDamage))]
-    public static ActionsBuilder DealAbilityDamage(
-        this ActionsBuilder builder,
-        StatType type,
-        ContextDiceValue value,
-        bool isDrain = false,
-        bool dealHalfIfSaved = false,
-        bool ignoreCrit = false,
-        int? minStatAfterDmg = null,
-        AbilitySharedValue? sharedResult = null,
-        AbilitySharedValue? criticalSharedResult = null)
-    {
-      return DealDamage(
-          builder,
-          ContextActionDealDamage.Type.AbilityDamage,
-          dealHalfIfSaved,
-          ignoreCrit,
-          statType: type,
-          value: value,
-          isDrain: isDrain,
-          minHPAfterDmg: minStatAfterDmg,
-          sharedResult: sharedResult,
-          criticalSharedResult: criticalSharedResult);
-    }
-
-    /// <inheritdoc cref="DealDamage"/>
-    [Implements(typeof(ContextActionDealDamage))]
-    public static ActionsBuilder DealPermanentNegativeLevels(
-        this ActionsBuilder builder,
-        ContextDiceValue damageValue,
-        bool dealHalfIfSaved = false,
-        bool ignoreCrit = false,
-        AbilitySharedValue? sharedResult = null,
-        AbilitySharedValue? criticalSharedResult = null)
-    {
-      return DealDamage(
-        builder,
-        ContextActionDealDamage.Type.EnergyDrain,
-        dealHalfIfSaved,
-        ignoreCrit,
-        drainType: EnergyDrainType.Permanent,
-        value: damageValue,
-        sharedResult: sharedResult,
-        criticalSharedResult: criticalSharedResult);
-    }
-
-    /// <inheritdoc cref="DealDamage"/>
-    [Implements(typeof(ContextActionDealDamage))]
-    public static ActionsBuilder DealTempNegativeLevels(
-        this ActionsBuilder builder,
-        ContextDiceValue damageValue,
-        ContextDurationValue duration,
-        bool permanentOnFailedSave = false,
-        bool dealHalfIfSaved = false,
-        bool ignoreCrit = false,
-        AbilitySharedValue? sharedResult = null,
-        AbilitySharedValue? criticalSharedResult = null)
-    {
-      return DealDamage(
-        builder,
-        ContextActionDealDamage.Type.EnergyDrain,
-        dealHalfIfSaved,
-        ignoreCrit,
-        drainType:
-            permanentOnFailedSave
-                ? EnergyDrainType.SaveOrBecamePermanent
-                : EnergyDrainType.Temporary,
-        duration: duration,
-        value: damageValue,
-        sharedResult: sharedResult,
-        criticalSharedResult: criticalSharedResult);
-    }
-
-    private static ActionsBuilder DealDamage(
-      ActionsBuilder builder,
-      ContextActionDealDamage.Type type,
-      bool halfIfSaved,
-      bool ignoreCrit,
-      bool dealHalf = false,
-      bool alreadyHalved = false,
-      bool isAOE = false,
-      bool isDrain = false,
-      ContextDiceValue? value = null,
-      DamageTypeDescription? dmgType = null,
-      ContextDurationValue? duration = null,
-      StatType? statType = null,
-      EnergyDrainType? drainType = null,
-      int? minHPAfterDmg = null,
-      AbilitySharedValue? preRolledValue = null,
-      AbilitySharedValue? sharedResult = null,
-      AbilitySharedValue? criticalSharedResult = null)
-    {
-      var dmg = ElementTool.Create<ContextActionDealDamage>();
-      dmg.m_Type = type;
-      dmg.HalfIfSaved = halfIfSaved;
-      dmg.IgnoreCritical = ignoreCrit;
-      dmg.Half = dealHalf;
-      dmg.AlreadyHalved = alreadyHalved;
-      dmg.IsAoE = isAOE;
-      dmg.Drain = isDrain;
-      dmg.Value = value ?? Constants.Empty.DiceValue;
-
-      if (dmgType is not null)
+      var element = ElementTool.Create<ContextActionDealDamage>();
+      if (abilityType is not null)
       {
-        builder.Validate(dmgType);
-        dmg.DamageType = dmgType;
+        element.AbilityType = abilityType;
       }
-      if (duration is not null) { dmg.Duration = duration; }
-      if (statType is not null) { dmg.AbilityType = statType.Value; }
-      if (drainType is not null) { dmg.EnergyDrainType = drainType.Value; }
-      if (minHPAfterDmg is not null)
+      if (alreadyHalved is not null)
       {
-        dmg.UseMinHPAfterDamage = true;
-        dmg.MinHPAfterDamage = minHPAfterDmg.Value;
+        element.AlreadyHalved = alreadyHalved;
       }
-      if (preRolledValue is not null)
+      if (criticalSharedValue is not null)
       {
-        dmg.ReadPreRolledFromSharedValue = true;
-        dmg.PreRolledSharedValue = preRolledValue.Value;
+        element.CriticalSharedValue = criticalSharedValue;
       }
-      if (sharedResult is not null)
+      if (damageType is not null)
       {
-        dmg.WriteResultToSharedValue = true;
-        dmg.ResultSharedValue = sharedResult.Value;
+        builder.Validate(damageType);
+        element.DamageType = damageType;
       }
-      if (criticalSharedResult is not null)
+      if (drain is not null)
       {
-        dmg.WriteCriticalToSharedValue = true;
-        dmg.CriticalSharedValue = criticalSharedResult.Value;
+        element.Drain = drain;
       }
-      return builder.Add(dmg);
+      if (duration is not null)
+      {
+        builder.Validate(duration);
+        element.Duration = duration;
+      }
+      if (energyDrainType is not null)
+      {
+        element.EnergyDrainType = energyDrainType;
+      }
+      if (half is not null)
+      {
+        element.Half = half;
+      }
+      if (halfIfSaved is not null)
+      {
+        element.HalfIfSaved = halfIfSaved;
+      }
+      if (ignoreCritical is not null)
+      {
+        element.IgnoreCritical = ignoreCritical;
+      }
+      if (isAoE is not null)
+      {
+        element.IsAoE = isAoE;
+      }
+      if (isAOE is not null)
+      {
+        element.m_IsAOE = isAOE;
+      }
+      if (minHPAfterDamage is not null)
+      {
+        element.MinHPAfterDamage = minHPAfterDamage;
+      }
+      if (preRolledSharedValue is not null)
+      {
+        element.PreRolledSharedValue = preRolledSharedValue;
+      }
+      if (readPreRolledFromSharedValue is not null)
+      {
+        element.ReadPreRolledFromSharedValue = readPreRolledFromSharedValue;
+      }
+      if (resultSharedValue is not null)
+      {
+        element.ResultSharedValue = resultSharedValue;
+      }
+      if (setFactAsReason is not null)
+      {
+        element.SetFactAsReason = setFactAsReason;
+      }
+      if (type is not null)
+      {
+        element.m_Type = type;
+      }
+      if (useMinHPAfterDamage is not null)
+      {
+        element.UseMinHPAfterDamage = useMinHPAfterDamage;
+      }
+      if (useWeaponDamageModifiers is not null)
+      {
+        element.UseWeaponDamageModifiers = useWeaponDamageModifiers;
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = Constants.Empty.DiceValue;
+      }
+      if (writeCriticalToSharedValue is not null)
+      {
+        element.WriteCriticalToSharedValue = writeCriticalToSharedValue;
+      }
+      if (writeRawResultToSharedValue is not null)
+      {
+        element.WriteRawResultToSharedValue = writeRawResultToSharedValue;
+      }
+      if (writeResultToSharedValue is not null)
+      {
+        element.WriteResultToSharedValue = writeResultToSharedValue;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionDealWeaponDamage"/>
     /// </summary>
-    [Implements(typeof(ContextActionDealWeaponDamage))]
-    public static ActionsBuilder DealWeaponDamage(this ActionsBuilder builder, bool allowRanged = false)
+    public static ActionsBuilder ContextActionDealWeaponDamage(
+        this ActionsBuilder builder,
+        bool? canBeRanged = null,
+        bool? ignoreAttackRoll = null)
     {
-      var dmg = ElementTool.Create<ContextActionDealWeaponDamage>();
-      dmg.CanBeRanged = allowRanged;
-      return builder.Add(dmg);
+      var element = ElementTool.Create<ContextActionDealWeaponDamage>();
+      if (canBeRanged is not null)
+      {
+        element.CanBeRanged = canBeRanged;
+      }
+      if (ignoreAttackRoll is not null)
+      {
+        element.IgnoreAttackRoll = ignoreAttackRoll;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionDetachFromSpawner"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionDetachFromSpawner(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionDetectSecretDoors"/>
     /// </summary>
-    [Implements(typeof(ContextActionDetectSecretDoors))]
-    public static ActionsBuilder DetectSecretDoors(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDetectSecretDoors(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDetectSecretDoors>());
     }
@@ -785,8 +1159,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDevourBySwarm"/>
     /// </summary>
-    [Implements(typeof(ContextActionDevourBySwarm))]
-    public static ActionsBuilder DevourWithSwarm(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDevourBySwarm(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDevourBySwarm>());
     }
@@ -794,8 +1167,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDisarm"/>
     /// </summary>
-    [Implements(typeof(ContextActionDisarm))]
-    public static ActionsBuilder Disarm(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDisarm(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDisarm>());
     }
@@ -803,8 +1175,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDismissAreaEffect"/>
     /// </summary>
-    [Implements(typeof(ContextActionDismissAreaEffect))]
-    public static ActionsBuilder DismissAOE(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDismissAreaEffect(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismissAreaEffect>());
     }
@@ -812,8 +1183,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDismount"/>
     /// </summary>
-    [Implements(typeof(ContextActionDismount))]
-    public static ActionsBuilder Dismount(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDismount(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismount>());
     }
@@ -821,66 +1191,135 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDispelMagic"/>
     /// </summary>
-    /// 
-    /// <param name="checkEitherSchoolOrDescriptor">
-    /// By default dispel only effects things matching both the required SpellSchool and SpellDescriptor. If this is
-    /// true, effects only need to satisfy one or the other.
-    /// </param>
-    [Implements(typeof(ContextActionDispelMagic))]
-    public static ActionsBuilder Dispel(
+    public static ActionsBuilder ContextActionDispelMagic(
         this ActionsBuilder builder,
-        ContextActionDispelMagic.BuffType type,
-        RuleDispelMagic.CheckType checkType,
-        ContextValue maxSpellLevel,
-        bool onlyDispelEnemyBuffs = false,
-        ContextValue? countToRemove = null,
-        int bonus = 0,
+        ContextActionDispelMagic.BuffType? buffType = null,
+        int? checkBonus = null,
+        bool? checkSchoolOrDescriptor = null,
+        RuleDispelMagic.CheckType? checkType = null,
         ContextValue? contextBonus = null,
-        ActionsBuilder? onSuccess = null,
+        ContextValue? countToRemove = null,
+        SpellDescriptorWrapper? descriptor = null,
+        ContextValue? maxCasterLevel = null,
+        ContextValue? maxSpellLevel = null,
+        bool? oneRollForAll = null,
         ActionsBuilder? onFail = null,
-        SpellSchool[]? limitToSchools = null,
-        SpellDescriptor? limitToDescriptor = null,
-        bool checkEitherSchoolOrDescriptor = false,
-        StatType skill = StatType.Unknown,
-        ContextValue? maxCasterLevel = null)
+        bool? onlyEnemyAreaEffects = null,
+        bool? onlyTargetEnemyBuffs = null,
+        ActionsBuilder? onSuccess = null,
+        SpellSchool[]? schools = null,
+        StatType? skill = null,
+        bool? stopAfterCountRemoved = null,
+        bool? useMaxCasterLevel = null)
     {
-      var dispel = ElementTool.Create<ContextActionDispelMagic>();
-      dispel.m_BuffType = type;
-      dispel.m_CheckType = checkType;
-      dispel.m_MaxSpellLevel = maxSpellLevel;
-      dispel.OnlyTargetEnemyBuffs = onlyDispelEnemyBuffs;
+      var element = ElementTool.Create<ContextActionDispelMagic>();
+      if (buffType is not null)
+      {
+        element.m_BuffType = buffType;
+      }
+      if (checkBonus is not null)
+      {
+        element.CheckBonus = checkBonus;
+      }
+      if (checkSchoolOrDescriptor is not null)
+      {
+        element.CheckSchoolOrDescriptor = checkSchoolOrDescriptor;
+      }
+      if (checkType is not null)
+      {
+        element.m_CheckType = checkType;
+      }
+      if (contextBonus is not null)
+      {
+        element.ContextBonus = contextBonus;
+      }
+      if (element.ContextBonus is null)
+      {
+        element.ContextBonus = ContextValues.Constant(0);
+      }
       if (countToRemove is not null)
       {
-        dispel.m_StopAfterCountRemoved = true;
-        dispel.m_CountToRemove = countToRemove;
+        element.m_CountToRemove = countToRemove;
       }
-      dispel.CheckBonus = bonus;
-      dispel.ContextBonus = contextBonus ?? 0;
-      dispel.OnSuccess = onSuccess?.Build() ?? Constants.Empty.Actions;
-      dispel.OnFail = onFail?.Build() ?? Constants.Empty.Actions;
-      dispel.Schools = limitToSchools ?? Array.Empty<SpellSchool>();
-      dispel.Descriptor = limitToDescriptor ?? SpellDescriptor.None;
-      dispel.CheckSchoolOrDescriptor = checkEitherSchoolOrDescriptor;
-      dispel.m_Skill = skill;
-
+      if (element.m_CountToRemove is null)
+      {
+        element.m_CountToRemove = ContextValues.Constant(0);
+      }
+      if (descriptor is not null)
+      {
+        element.Descriptor = descriptor;
+      }
       if (maxCasterLevel is not null)
       {
-        dispel.m_UseMaxCasterLevel = true;
-        dispel.m_MaxCasterLevel = maxCasterLevel;
+        element.m_MaxCasterLevel = maxCasterLevel;
       }
-      if ((dispel.IsSkillCheck && dispel.m_Skill == StatType.Unknown)
-          || !dispel.IsSkillCheck && dispel.m_Skill != StatType.Unknown)
+      if (element.m_MaxCasterLevel is null)
       {
-        throw new InvalidCastException($"Mismatched CheckType and StatType: {checkType}, {skill}");
+        element.m_MaxCasterLevel = ContextValues.Constant(0);
       }
-      return builder.Add(dispel);
+      if (maxSpellLevel is not null)
+      {
+        element.m_MaxSpellLevel = maxSpellLevel;
+      }
+      if (element.m_MaxSpellLevel is null)
+      {
+        element.m_MaxSpellLevel = ContextValues.Constant(0);
+      }
+      if (oneRollForAll is not null)
+      {
+        element.OneRollForAll = oneRollForAll;
+      }
+      if (onFail is not null)
+      {
+        element.OnFail = onFail.Build();
+      }
+      if (element.OnFail is null)
+      {
+        element.OnFail = Constants.Empty.Actions;
+      }
+      if (onlyEnemyAreaEffects is not null)
+      {
+        element.OnlyEnemyAreaEffects = onlyEnemyAreaEffects;
+      }
+      if (onlyTargetEnemyBuffs is not null)
+      {
+        element.OnlyTargetEnemyBuffs = onlyTargetEnemyBuffs;
+      }
+      if (onSuccess is not null)
+      {
+        element.OnSuccess = onSuccess.Build();
+      }
+      if (element.OnSuccess is null)
+      {
+        element.OnSuccess = Constants.Empty.Actions;
+      }
+      if (schools is not null)
+      {
+        element.Schools = schools;
+      }
+      if (element.Schools is null)
+      {
+        element.Schools = new SpellSchool[0];
+      }
+      if (skill is not null)
+      {
+        element.m_Skill = skill;
+      }
+      if (stopAfterCountRemoved is not null)
+      {
+        element.m_StopAfterCountRemoved = stopAfterCountRemoved;
+      }
+      if (useMaxCasterLevel is not null)
+      {
+        element.m_UseMaxCasterLevel = useMaxCasterLevel;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionDropItems"/>
     /// </summary>
-    [Implements(typeof(ContextActionDropItems))]
-    public static ActionsBuilder DropItems(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionDropItems(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDropItems>());
     }
@@ -888,54 +1327,112 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionEnchantWornItem"/>
     /// </summary>
-    /// 
-    /// <param name="enchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment">BlueprintItemEnchantment</see></param>
-    [Implements(typeof(ContextActionEnchantWornItem))]
-    public static ActionsBuilder EnchantWornItem(
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionEnchantWornItem(
         this ActionsBuilder builder,
-        string enchantment,
-        EquipSlotBase.SlotType slot,
-        ContextDurationValue duration,
-        bool onCaster = false,
-        bool removeOnUnequip = false)
+        ContextDurationValue? durationValue = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantment = null,
+        bool? permanent = null,
+        bool? removeOnUnequip = null,
+        EquipSlotBase.SlotType? slot = null,
+        bool? toCaster = null)
     {
-      var enchant = ElementTool.Create<ContextActionEnchantWornItem>();
-      enchant.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchantment);
-      enchant.Slot = slot;
-      enchant.DurationValue = duration;
-      enchant.ToCaster = onCaster;
-      enchant.RemoveOnUnequip = removeOnUnequip;
-      return builder.Add(enchant);
+      var element = ElementTool.Create<ContextActionEnchantWornItem>();
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantment is not null)
+      {
+        element.m_Enchantment = enchantment.Reference;
+      }
+      if (element.m_Enchantment is null)
+      {
+        element.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
+      }
+      if (permanent is not null)
+      {
+        element.Permanent = permanent;
+      }
+      if (removeOnUnequip is not null)
+      {
+        element.RemoveOnUnequip = removeOnUnequip;
+      }
+      if (slot is not null)
+      {
+        element.Slot = slot;
+      }
+      if (toCaster is not null)
+      {
+        element.ToCaster = toCaster;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionFinishObjective"/>
     /// </summary>
-    [Implements(typeof(ContextActionFinishObjective))]
-    public static ActionsBuilder FinishObjective(this ActionsBuilder builder, string objective)
+    ///
+    /// <param name="objective">
+    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionFinishObjective(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
-      var finish = ElementTool.Create<ContextActionFinishObjective>();
-      finish.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(objective);
-      return builder.Add(finish);
+      var element = ElementTool.Create<ContextActionFinishObjective>();
+      if (objective is not null)
+      {
+        element.m_Objective = objective.Reference;
+      }
+      if (element.m_Objective is null)
+      {
+        element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionForEachSwallowedUnit"/>
     /// </summary>
-    [Implements(typeof(ContextActionForEachSwallowedUnit))]
-    public static ActionsBuilder OnEachSwallowedUnit(
-        this ActionsBuilder builder, ActionsBuilder onEachUnit)
+    public static ActionsBuilder ContextActionForEachSwallowedUnit(
+        this ActionsBuilder builder,
+        ActionsBuilder? action = null)
     {
-      var onUnits = ElementTool.Create<ContextActionForEachSwallowedUnit>();
-      onUnits.Action = onEachUnit.Build();
-      return builder.Add(onUnits);
+      var element = ElementTool.Create<ContextActionForEachSwallowedUnit>();
+      if (action is not null)
+      {
+        element.Action = action.Build();
+      }
+      if (element.Action is null)
+      {
+        element.Action = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionGiveExperience"/>
     /// </summary>
-    [Implements(typeof(ContextActionGiveExperience))]
-    public static ActionsBuilder GiveExperience(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionGiveExperience(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionGiveExperience>());
     }
@@ -943,88 +1440,140 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionGrapple"/>
     /// </summary>
-    /// 
+    ///
     /// <param name="casterBuff">
-    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> applied for the duration of
-    /// the grapple check.
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
+    ///
     /// <param name="targetBuff">
-    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> applied for the duration of
-    /// the grapple check.
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    [Implements(typeof(ContextActionGrapple))]
-    public static ActionsBuilder Grapple(
-        this ActionsBuilder builder, string? casterBuff = null, string? targetBuff = null)
+    public static ActionsBuilder ContextActionGrapple(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? casterBuff = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
-      var grapple = ElementTool.Create<ContextActionGrapple>();
-      if (casterBuff != null) { grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff); }
-      if (targetBuff != null) { grapple.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(targetBuff); }
-      return builder.Add(grapple);
+      var element = ElementTool.Create<ContextActionGrapple>();
+      if (casterBuff is not null)
+      {
+        element.m_CasterBuff = casterBuff.Reference;
+      }
+      if (element.m_CasterBuff is null)
+      {
+        element.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (targetBuff is not null)
+      {
+        element.m_TargetBuff = targetBuff.Reference;
+      }
+      if (element.m_TargetBuff is null)
+      {
+        element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionHealEnergyDrain"/>
     /// </summary>
-    [Implements(typeof(ContextActionHealEnergyDrain))]
-    public static ActionsBuilder HealNegativeLevels(
+    public static ActionsBuilder ContextActionHealEnergyDrain(
         this ActionsBuilder builder,
-        EnergyDrainHealType tempLevels = EnergyDrainHealType.None,
-        EnergyDrainHealType permanentLevels = EnergyDrainHealType.None)
+        EnergyDrainHealType? permanentNegativeLevelsHeal = null,
+        EnergyDrainHealType? temporaryNegativeLevelsHeal = null)
     {
-      var heal = ElementTool.Create<ContextActionHealEnergyDrain>();
-      heal.TemporaryNegativeLevelsHeal = tempLevels;
-      heal.PermanentNegativeLevelsHeal = permanentLevels;
-      return builder.Add(heal);
+      var element = ElementTool.Create<ContextActionHealEnergyDrain>();
+      if (permanentNegativeLevelsHeal is not null)
+      {
+        element.PermanentNegativeLevelsHeal = permanentNegativeLevelsHeal;
+      }
+      if (temporaryNegativeLevelsHeal is not null)
+      {
+        element.TemporaryNegativeLevelsHeal = temporaryNegativeLevelsHeal;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionHealStatDamage"/>
     /// </summary>
-    /// 
-    /// <param name="sharedResult">If specified, the amount of healing done is stored in this shared value.</param>
-    [Implements(typeof(ContextActionHealStatDamage))]
-    public static ActionsBuilder HealStatDamage(
+    public static ActionsBuilder ContextActionHealStatDamage(
         this ActionsBuilder builder,
-        ContextActionHealStatDamage.StatDamageHealType type,
-        ContextActionHealStatDamage.StatClass statClass,
+        bool? healDrain = null,
+        ContextActionHealStatDamage.StatDamageHealType? healType = null,
+        AbilitySharedValue? resultSharedValue = null,
+        ContextActionHealStatDamage.StatClass? statClass = null,
         ContextDiceValue? value = null,
-        bool healDrain = false,
-        AbilitySharedValue? sharedResult = null)
+        bool? writeResultToSharedValue = null)
     {
-      if (type == ContextActionHealStatDamage.StatDamageHealType.Dice && value == null)
+      var element = ElementTool.Create<ContextActionHealStatDamage>();
+      if (healDrain is not null)
       {
-        throw new InvalidOperationException("Cannot use StatDamageHealType.Dice without a value.");
+        element.HealDrain = healDrain;
       }
-
-      var heal = ElementTool.Create<ContextActionHealStatDamage>();
-      heal.m_HealType = type;
-      heal.m_StatClass = statClass;
-      heal.Value = value;
-      heal.HealDrain = healDrain;
-      if (sharedResult != null)
+      if (healType is not null)
       {
-        heal.WriteResultToSharedValue = true;
-        heal.ResultSharedValue = sharedResult.Value;
+        element.m_HealType = healType;
       }
-      return builder.Add(heal);
+      if (resultSharedValue is not null)
+      {
+        element.ResultSharedValue = resultSharedValue;
+      }
+      if (statClass is not null)
+      {
+        element.m_StatClass = statClass;
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = Constants.Empty.DiceValue;
+      }
+      if (writeResultToSharedValue is not null)
+      {
+        element.WriteResultToSharedValue = writeResultToSharedValue;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionHealTarget"/>
     /// </summary>
-    [Implements(typeof(ContextActionHealTarget))]
-    public static ActionsBuilder HealTarget(this ActionsBuilder builder, ContextDiceValue value)
+    public static ActionsBuilder ContextActionHealTarget(
+        this ActionsBuilder builder,
+        ContextDiceValue? value = null)
     {
-      var heal = ElementTool.Create<ContextActionHealTarget>();
-      heal.Value = value;
-      return builder.Add(heal);
+      var element = ElementTool.Create<ContextActionHealTarget>();
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = Constants.Empty.DiceValue;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionHideInPlainSight"/>
     /// </summary>
-    [Implements(typeof(ContextActionHideInPlainSight))]
-    public static ActionsBuilder HideInPlainSight(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionHideInPlainSight(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionHideInPlainSight>());
     }
@@ -1032,21 +1581,22 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionKill"/>
     /// </summary>
-    [Implements(typeof(ContextActionKill))]
-    public static ActionsBuilder Kill(
-        this ActionsBuilder builder, UnitState.DismemberType dismember = UnitState.DismemberType.None)
+    public static ActionsBuilder ContextActionKill(
+        this ActionsBuilder builder,
+        UnitState.DismemberType? dismember = null)
     {
-      var kill = ElementTool.Create<ContextActionKill>();
-      kill.Dismember = dismember;
-      return builder.Add(kill);
+      var element = ElementTool.Create<ContextActionKill>();
+      if (dismember is not null)
+      {
+        element.Dismember = dismember;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionKnockdownTarget"/>
     /// </summary>
-    [Implements(typeof(ContextActionKnockdownTarget))]
-    public static ActionsBuilder Knockdown(
-        this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionKnockdownTarget(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionKnockdownTarget>());
     }
@@ -1054,54 +1604,95 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionMakeKnowledgeCheck"/>
     /// </summary>
-    [Implements(typeof(ContextActionMakeKnowledgeCheck))]
-    public static ActionsBuilder KnowledgeCheck(
-        this ActionsBuilder builder, ActionsBuilder? onSuccess = null, ActionsBuilder? onFail = null)
+    public static ActionsBuilder ContextActionMakeKnowledgeCheck(
+        this ActionsBuilder builder,
+        ActionsBuilder? failActions = null,
+        ActionsBuilder? successActions = null)
     {
-      var knowledgeCheck = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
-      knowledgeCheck.SuccessActions = onSuccess?.Build() ?? Constants.Empty.Actions;
-      knowledgeCheck.FailActions = onFail?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(knowledgeCheck);
+      var element = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
+      if (failActions is not null)
+      {
+        element.FailActions = failActions.Build();
+      }
+      if (element.FailActions is null)
+      {
+        element.FailActions = Constants.Empty.Actions;
+      }
+      if (successActions is not null)
+      {
+        element.SuccessActions = successActions.Build();
+      }
+      if (element.SuccessActions is null)
+      {
+        element.SuccessActions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionMarkForceDismemberOwner"/>
     /// </summary>
-    [Implements(typeof(ContextActionMarkForceDismemberOwner))]
-    public static ActionsBuilder MarkOwnerForDismemberment(
-        this ActionsBuilder builder, UnitState.DismemberType type = UnitState.DismemberType.Normal)
+    public static ActionsBuilder ContextActionMarkForceDismemberOwner(
+        this ActionsBuilder builder,
+        UnitState.DismemberType? forceDismemberType = null)
     {
-      var markForDismemberment = ElementTool.Create<ContextActionMarkForceDismemberOwner>();
-      markForDismemberment.ForceDismemberType = type;
-      return builder.Add(markForDismemberment);
+      var element = ElementTool.Create<ContextActionMarkForceDismemberOwner>();
+      if (forceDismemberType is not null)
+      {
+        element.ForceDismemberType = forceDismemberType;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionMeleeAttack"/>
     /// </summary>
-    [Implements(typeof(ContextActionMeleeAttack))]
-    public static ActionsBuilder MeleeAttack(
+    public static ActionsBuilder ContextActionMeleeAttack(
         this ActionsBuilder builder,
-        bool autoCritThreat = false,
-        bool autoCritConfirm = false,
-        bool autoHit = false,
-        bool ignoreStatBonus = false,
-        bool selectNewTarget = false)
+        bool? autoCritConfirmation = null,
+        bool? autoCritThreat = null,
+        bool? autoHit = null,
+        bool? extraAttack = null,
+        bool? fullAttack = null,
+        bool? ignoreStatBonus = null,
+        bool? selectNewTarget = null)
     {
-      var attack = ElementTool.Create<ContextActionMeleeAttack>();
-      attack.AutoCritThreat = autoCritThreat;
-      attack.AutoCritConfirmation = autoCritConfirm;
-      attack.AutoHit = autoHit;
-      attack.IgnoreStatBonus = ignoreStatBonus;
-      attack.SelectNewTarget = selectNewTarget;
-      return builder.Add(attack);
+      var element = ElementTool.Create<ContextActionMeleeAttack>();
+      if (autoCritConfirmation is not null)
+      {
+        element.AutoCritConfirmation = autoCritConfirmation;
+      }
+      if (autoCritThreat is not null)
+      {
+        element.AutoCritThreat = autoCritThreat;
+      }
+      if (autoHit is not null)
+      {
+        element.AutoHit = autoHit;
+      }
+      if (extraAttack is not null)
+      {
+        element.ExtraAttack = extraAttack;
+      }
+      if (fullAttack is not null)
+      {
+        element.FullAttack = fullAttack;
+      }
+      if (ignoreStatBonus is not null)
+      {
+        element.IgnoreStatBonus = ignoreStatBonus;
+      }
+      if (selectNewTarget is not null)
+      {
+        element.SelectNewTarget = selectNewTarget;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionMount"/>
     /// </summary>
-    [Implements(typeof(ContextActionMount))]
-    public static ActionsBuilder Mount(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionMount(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionMount>());
     }
@@ -1109,118 +1700,191 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionOnContextCaster"/>
     /// </summary>
-    [Implements(typeof(ContextActionOnContextCaster))]
-    public static ActionsBuilder OnCaster(this ActionsBuilder builder, ActionsBuilder actions)
+    public static ActionsBuilder ContextActionOnContextCaster(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null)
     {
-      var onCaster = ElementTool.Create<ContextActionOnContextCaster>();
-      onCaster.Actions = actions.Build();
-      return builder.Add(onCaster);
+      var element = ElementTool.Create<ContextActionOnContextCaster>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionOnOwner"/>
     /// </summary>
-    [Implements(typeof(ContextActionOnOwner))]
-    public static ActionsBuilder OnOwner(this ActionsBuilder builder, ActionsBuilder actions)
+    public static ActionsBuilder ContextActionOnOwner(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null)
     {
-      var onOwner = ElementTool.Create<ContextActionOnOwner>();
-      onOwner.Actions = actions.Build();
-      return builder.Add(onOwner);
+      var element = ElementTool.Create<ContextActionOnOwner>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionOnRandomAreaTarget"/>
     /// </summary>
-    /// 
-    /// <remarks>
-    /// <list type="bullet">
-    ///   <item>
-    ///     <description>The component's OnEnemies field is unused. It only targets enemies.</description>
-    ///   </item>
-    ///   <item>
-    ///     <description>
-    ///       Only works inside of
-    ///       <see cref="Kingmaker.UnitLogic.Abilities.Components.AreaEffects.AbilityAreaEffectRunAction">AbilityAreaEffectRunAction</see>
-    ///     </description>
-    ///   </item>
-    /// </list>
-    /// </remarks>
-    [Implements(typeof(ContextActionOnRandomAreaTarget))]
-    public static ActionsBuilder OnRandomEnemyInAOE(this ActionsBuilder builder, ActionsBuilder actions)
+    public static ActionsBuilder ContextActionOnRandomAreaTarget(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null,
+        bool? onEnemies = null)
     {
-      var onEnemy = ElementTool.Create<ContextActionOnRandomAreaTarget>();
-      onEnemy.Actions = actions.Build();
-      return builder.Add(onEnemy);
+      var element = ElementTool.Create<ContextActionOnRandomAreaTarget>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      if (onEnemies is not null)
+      {
+        element.OnEnemies = onEnemies;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionOnRandomTargetsAround"/>
     /// </summary>
-    /// 
-    /// <param name="ignoreFact">
-    /// <see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see> units with this fact are
-    /// ignored.
+    ///
+    /// <param name="filterNoFact">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    [Implements(typeof(ContextActionOnRandomTargetsAround))]
-    public static ActionsBuilder OnRandomUnitNearTarget(
+    public static ActionsBuilder ContextActionOnRandomTargetsAround(
         this ActionsBuilder builder,
-        ActionsBuilder actions,
-        int radiusInFeet,
-        int numTargets = 1,
-        bool targetEnemies = true,
-        string? ignoreFact = null)
+        ActionsBuilder? actions = null,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? filterNoFact = null,
+        int? numberOfTargets = null,
+        bool? onEnemies = null,
+        Feet? radius = null)
     {
-      var onUnit = ElementTool.Create<ContextActionOnRandomTargetsAround>();
-      onUnit.Actions = actions.Build();
-      onUnit.Radius = new Feet(radiusInFeet);
-      onUnit.NumberOfTargets = numTargets;
-      onUnit.OnEnemies = targetEnemies;
-      onUnit.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(ignoreFact!);
-      return builder.Add(onUnit);
+      var element = ElementTool.Create<ContextActionOnRandomTargetsAround>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      if (filterNoFact is not null)
+      {
+        element.m_FilterNoFact = filterNoFact.Reference;
+      }
+      if (element.m_FilterNoFact is null)
+      {
+        element.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      if (numberOfTargets is not null)
+      {
+        element.NumberOfTargets = numberOfTargets;
+      }
+      if (onEnemies is not null)
+      {
+        element.OnEnemies = onEnemies;
+      }
+      if (radius is not null)
+      {
+        element.Radius = radius;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionOnSwarmTargets"/>
     /// </summary>
-    [Implements(typeof(ContextActionOnSwarmTargets))]
-    public static ActionsBuilder OnSwarmTargets(this ActionsBuilder builder, ActionsBuilder actions)
+    public static ActionsBuilder ContextActionOnSwarmTargets(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null)
     {
-      var onTarget = ElementTool.Create<ContextActionOnSwarmTargets>();
-      onTarget.Actions = actions.Build();
-      return builder.Add(onTarget);
+      var element = ElementTool.Create<ContextActionOnSwarmTargets>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionPartyMembers"/>
+    /// Adds <see cref="ContextActionPrintHDRestrictionToCombatLog"/>
     /// </summary>
-    [Implements(typeof(ContextActionPartyMembers))]
-    public static ActionsBuilder OnPartyMembers(
-        this ActionsBuilder builder, ActionsBuilder actions)
+    public static ActionsBuilder ContextActionPrintHDRestrictionToCombatLog(
+        this ActionsBuilder builder,
+        ContextValue? hitDice = null)
     {
-      var onParty = ElementTool.Create<ContextActionPartyMembers>();
-      onParty.Action = actions.Build();
-      return builder.Add(onParty);
+      var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
+      if (hitDice is not null)
+      {
+        element.HitDice = hitDice;
+      }
+      if (element.HitDice is null)
+      {
+        element.HitDice = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionProjectileFx"/>
     /// </summary>
-    /// 
-    /// <param name="projectile"><see cref="BlueprintProjectile"/></param>
-    [Implements(typeof(ContextActionProjectileFx))]
-    public static ActionsBuilder ProjectileFx(this ActionsBuilder builder, string projectile)
+    ///
+    /// <param name="projectile">
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionProjectileFx(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null)
     {
-      var projectileFx = ElementTool.Create<ContextActionProjectileFx>();
-      projectileFx.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
-      return builder.Add(projectileFx);
+      var element = ElementTool.Create<ContextActionProjectileFx>();
+      if (projectile is not null)
+      {
+        element.m_Projectile = projectile.Reference;
+      }
+      if (element.m_Projectile is null)
+      {
+        element.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionProvokeAttackFromCaster"/>
     /// </summary>
-    [Implements(typeof(ContextActionProvokeAttackFromCaster))]
-    public static ActionsBuilder ProvokeOpportunityAttackFromCaster(
-        this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionProvokeAttackFromCaster(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionProvokeAttackFromCaster>());
     }
@@ -1228,159 +1892,302 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionProvokeAttackOfOpportunity"/>
     /// </summary>
-    [Implements(typeof(ContextActionProvokeAttackOfOpportunity))]
-    public static ActionsBuilder ProvokeOpportunityAttack(
-        this ActionsBuilder builder, bool casterProvokes = false)
+    public static ActionsBuilder ContextActionProvokeAttackOfOpportunity(
+        this ActionsBuilder builder,
+        bool? applyToCaster = null)
     {
-      var attack = ElementTool.Create<ContextActionProvokeAttackOfOpportunity>();
-      attack.ApplyToCaster = casterProvokes;
-      return builder.Add(attack);
+      var element = ElementTool.Create<ContextActionProvokeAttackOfOpportunity>();
+      if (applyToCaster is not null)
+      {
+        element.ApplyToCaster = applyToCaster;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionPush"/>
     /// </summary>
-    [Implements(typeof(ContextActionPush))]
-    public static ActionsBuilder Push(
+    public static ActionsBuilder ContextActionPush(
         this ActionsBuilder builder,
-        ContextValue distance,
-        bool provokeOpportunityAttack = false)
+        ContextValue? distance = null,
+        bool? provokeAttackOfOpportunity = null)
     {
-      var push = ElementTool.Create<ContextActionPush>();
-      push.Distance = distance;
-      push.ProvokeAttackOfOpportunity = provokeOpportunityAttack;
-      return builder.Add(push);
+      var element = ElementTool.Create<ContextActionPush>();
+      if (distance is not null)
+      {
+        element.Distance = distance;
+      }
+      if (element.Distance is null)
+      {
+        element.Distance = ContextValues.Constant(0);
+      }
+      if (provokeAttackOfOpportunity is not null)
+      {
+        element.ProvokeAttackOfOpportunity = provokeAttackOfOpportunity;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRandomize"/>
     /// </summary>
-    /// 
-    /// <param name="weightedActions">
-    /// Pair of <see cref="ActionsBuilder"/> and an int representing the relative probability of that action compared
-    /// to the rest of the entries. These map to <see cref="ContextActionRandomize.ActionWrapper"/>.
-    /// </param>
-    [Implements(typeof(ContextActionRandomize))]
-    public static ActionsBuilder RandomActions(
+    public static ActionsBuilder ContextActionRandomize(
         this ActionsBuilder builder,
-        params (ActionsBuilder actions, int weight)[] weightedActions)
+        ContextActionRandomize.ActionWrapper[]? actions = null)
     {
-      var actions = ElementTool.Create<ContextActionRandomize>();
-      actions.m_Actions =
-          weightedActions
-              .Select(
-                  weightedAction => new ContextActionRandomize.ActionWrapper
-                  {
-                    Action = weightedAction.actions.Build(),
-                    Weight = weightedAction.weight
-                  })
-              .ToArray();
-      return builder.Add(actions);
+      var element = ElementTool.Create<ContextActionRandomize>();
+      if (actions is not null)
+      {
+        foreach (var item in actions) { builder.Validate(item); }
+        element.m_Actions = actions;
+      }
+      if (element.m_Actions is null)
+      {
+        element.m_Actions = new ContextActionRandomize.ActionWrapper[0];
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRangedAttack"/>
     /// </summary>
-    [Implements(typeof(ContextActionRangedAttack))]
-    public static ActionsBuilder RangedAttack(
+    public static ActionsBuilder ContextActionRangedAttack(
         this ActionsBuilder builder,
-        bool autoCritThreat = false,
-        bool autoCritConfirm = false,
-        bool autoHit = false,
-        bool ignoreStatBonus = false,
-        bool selectNewTarget = false)
+        bool? autoCritConfirmation = null,
+        bool? autoCritThreat = null,
+        bool? autoHit = null,
+        bool? extraAttack = null,
+        bool? fullAttack = null,
+        bool? ignoreStatBonus = null,
+        bool? selectNewTarget = null)
     {
-      var attack = ElementTool.Create<ContextActionRangedAttack>();
-      attack.AutoCritThreat = autoCritThreat;
-      attack.AutoCritConfirmation = autoCritConfirm;
-      attack.AutoHit = autoHit;
-      attack.IgnoreStatBonus = ignoreStatBonus;
-      attack.SelectNewTarget = selectNewTarget;
-      return builder.Add(attack);
+      var element = ElementTool.Create<ContextActionRangedAttack>();
+      if (autoCritConfirmation is not null)
+      {
+        element.AutoCritConfirmation = autoCritConfirmation;
+      }
+      if (autoCritThreat is not null)
+      {
+        element.AutoCritThreat = autoCritThreat;
+      }
+      if (autoHit is not null)
+      {
+        element.AutoHit = autoHit;
+      }
+      if (extraAttack is not null)
+      {
+        element.ExtraAttack = extraAttack;
+      }
+      if (fullAttack is not null)
+      {
+        element.FullAttack = fullAttack;
+      }
+      if (ignoreStatBonus is not null)
+      {
+        element.IgnoreStatBonus = ignoreStatBonus;
+      }
+      if (selectNewTarget is not null)
+      {
+        element.SelectNewTarget = selectNewTarget;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRecoverItemCharges"/>
     /// </summary>
-    /// 
-    /// <param name="item"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment">BlueprintItemEquipment</see></param>
-    [Implements(typeof(ContextActionRecoverItemCharges))]
-    public static ActionsBuilder RecoverItemCharges(this ActionsBuilder builder, string item, int charges = 1)
+    ///
+    /// <param name="item">
+    /// Blueprint of type BlueprintItemEquipment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionRecoverItemCharges(
+        this ActionsBuilder builder,
+        int? chargesRecoverCount = null,
+        Blueprint<BlueprintItemEquipment, BlueprintItemEquipmentReference>? item = null)
     {
-      var recoverCharges = ElementTool.Create<ContextActionRecoverItemCharges>();
-      recoverCharges.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(item);
-      recoverCharges.ChargesRecoverCount = charges;
-      return builder.Add(recoverCharges);
+      var element = ElementTool.Create<ContextActionRecoverItemCharges>();
+      if (chargesRecoverCount is not null)
+      {
+        element.ChargesRecoverCount = chargesRecoverCount;
+      }
+      if (item is not null)
+      {
+        element.m_Item = item.Reference;
+      }
+      if (element.m_Item is null)
+      {
+        element.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionReduceBuffDuration"/>
     /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionReduceBuffDuration))]
-    public static ActionsBuilder ChangeBuffDuration(
+    ///
+    /// <param name="targetBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionReduceBuffDuration(
         this ActionsBuilder builder,
-        string buff,
-        ContextDurationValue duration,
-        bool increase,
-        bool onTarget = false)
+        ContextDurationValue? durationValue = null,
+        bool? increase = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null,
+        bool? toTarget = null)
     {
-      var changeDuration = ElementTool.Create<ContextActionReduceBuffDuration>();
-      changeDuration.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      changeDuration.DurationValue = duration;
-      changeDuration.Increase = increase;
-      changeDuration.ToTarget = onTarget;
-      return builder.Add(changeDuration);
+      var element = ElementTool.Create<ContextActionReduceBuffDuration>();
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (increase is not null)
+      {
+        element.Increase = increase;
+      }
+      if (targetBuff is not null)
+      {
+        element.m_TargetBuff = targetBuff.Reference;
+      }
+      if (element.m_TargetBuff is null)
+      {
+        element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (toTarget is not null)
+      {
+        element.ToTarget = toTarget;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRemoveBuff"/>
     /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionRemoveBuff))]
-    public static ActionsBuilder RemoveBuff(
-        this ActionsBuilder builder, string buff, bool removeRank = false, bool toCaster = false)
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionRemoveBuff(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        bool? onlyFromCaster = null,
+        bool? removeRank = null,
+        bool? toCaster = null)
     {
-      var removeBuff = ElementTool.Create<ContextActionRemoveBuff>();
-      removeBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      removeBuff.RemoveRank = removeRank;
-      removeBuff.ToCaster = toCaster;
-      return builder.Add(removeBuff);
+      var element = ElementTool.Create<ContextActionRemoveBuff>();
+      if (buff is not null)
+      {
+        element.m_Buff = buff.Reference;
+      }
+      if (element.m_Buff is null)
+      {
+        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (onlyFromCaster is not null)
+      {
+        element.OnlyFromCaster = onlyFromCaster;
+      }
+      if (removeRank is not null)
+      {
+        element.RemoveRank = removeRank;
+      }
+      if (toCaster is not null)
+      {
+        element.ToCaster = toCaster;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRemoveBuffsByDescriptor"/>
     /// </summary>
-    [Implements(typeof(ContextActionRemoveBuffsByDescriptor))]
-    public static ActionsBuilder RemoveBuffsWithDescriptor(
-        this ActionsBuilder builder, SpellDescriptor descriptor, bool includeThisBuff = false)
+    public static ActionsBuilder ContextActionRemoveBuffsByDescriptor(
+        this ActionsBuilder builder,
+        bool? notSelf = null,
+        SpellDescriptorWrapper? spellDescriptor = null)
     {
-      var removeBuffs = ElementTool.Create<ContextActionRemoveBuffsByDescriptor>();
-      removeBuffs.SpellDescriptor = descriptor;
-      removeBuffs.NotSelf = !includeThisBuff;
-      return builder.Add(removeBuffs);
+      var element = ElementTool.Create<ContextActionRemoveBuffsByDescriptor>();
+      if (notSelf is not null)
+      {
+        element.NotSelf = notSelf;
+      }
+      if (spellDescriptor is not null)
+      {
+        element.SpellDescriptor = spellDescriptor;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRemoveBuffSingleStack"/>
     /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionRemoveBuffSingleStack))]
-    public static ActionsBuilder RemoveBuffStack(this ActionsBuilder builder, string buff)
+    ///
+    /// <param name="targetBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionRemoveBuffSingleStack(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
-      var removeStack = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
-      removeStack.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      return builder.Add(removeStack);
+      var element = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
+      if (targetBuff is not null)
+      {
+        element.m_TargetBuff = targetBuff.Reference;
+      }
+      if (element.m_TargetBuff is null)
+      {
+        element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionReduceDebilitatingBuffsDuration"/>
+    /// </summary>
+    public static ActionsBuilder ContextActionReduceDebilitatingBuffsDuration(
+        this ActionsBuilder builder,
+        StatsAdjustmentsType? statsAdjustmentsType = null)
+    {
+      var element = ElementTool.Create<ContextActionReduceDebilitatingBuffsDuration>();
+      if (statsAdjustmentsType is not null)
+      {
+        element.StatsAdjustmentsType = statsAdjustmentsType;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRemoveDeathDoor"/>
     /// </summary>
-    [Implements(typeof(ContextActionRemoveDeathDoor))]
-    public static ActionsBuilder RemoveDeathDoor(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionRemoveDeathDoor(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveDeathDoor>());
     }
@@ -1388,10 +2195,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRemoveSelf"/>
     /// </summary>
-    /// 
-    /// <remarks>Only works on buffs and area effects.</remarks>
-    [Implements(typeof(ContextActionRemoveSelf))]
-    public static ActionsBuilder RemoveSelf(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionRemoveSelf(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveSelf>());
     }
@@ -1399,352 +2203,508 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRepeatedActions"/>
     /// </summary>
-    [Implements(typeof(ContextActionRepeatedActions))]
-    public static ActionsBuilder RepeatActions(
-        this ActionsBuilder builder, ActionsBuilder actions, ContextDiceValue times)
+    public static ActionsBuilder ContextActionRepeatedActions(
+        this ActionsBuilder builder,
+        ActionsBuilder? actions = null,
+        ContextDiceValue? value = null)
     {
-      var repeat = ElementTool.Create<ContextActionRepeatedActions>();
-      repeat.Actions = actions.Build();
-      repeat.Value = times;
-      return builder.Add(repeat);
+      var element = ElementTool.Create<ContextActionRepeatedActions>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = Constants.Empty.DiceValue;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRestoreSpells"/>
     /// </summary>
-    /// 
-    /// <param name="spellbooks"><see cref="BlueprintSpellbook"/></param>
-    [Implements(typeof(ContextActionRestoreSpells))]
-    public static ActionsBuilder RestoreSpells(this ActionsBuilder builder, params string[] spellbooks)
+    ///
+    /// <param name="spellbooks">
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionRestoreSpells(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
-      var restoreSpells = ElementTool.Create<ContextActionRestoreSpells>();
-      restoreSpells.m_Spellbooks =
-          spellbooks
-              .Select(spellbook => BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook))
-              .ToArray();
-      return builder.Add(restoreSpells);
+      var element = ElementTool.Create<ContextActionRestoreSpells>();
+      if (spellbooks is not null)
+      {
+        element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_Spellbooks is null)
+      {
+        element.m_Spellbooks = new BlueprintSpellbookReference[0];
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionResurrect"/>
     /// </summary>
-    /// 
-    /// <param name="healPercent">Percentage of health after resurrection as a float between 0.0 and 1.0.</param>
-    /// <param name="resurrectBuff">
-    /// <see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see> which replces the default
-    /// resurrection buff. Must contain a <see cref="Kingmaker.UnitLogic.Buffs.Components.ResurrectionLogic">ResurrectionLogic</see>
+    ///
+    /// <param name="customResurrectionBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    [Implements(typeof(ContextActionResurrect))]
-    public static ActionsBuilder Resurrect(
-        this ActionsBuilder builder, float healPercent, string? resurrectBuff = null)
+    public static ActionsBuilder ContextActionResurrect(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? customResurrectionBuff = null,
+        bool? fullRestore = null,
+        float? resultHealth = null)
     {
-      return Resurrect(builder, resurrectBuff, healPercent, false);
-    }
-
-    /// <inheritdoc cref="Resurrect"/>
-    [Implements(typeof(ContextActionResurrect))]
-    public static ActionsBuilder ResurrectAndFullRestore(this ActionsBuilder builder, string? resurrectBuff = null)
-    {
-      return Resurrect(builder, resurrectBuff, 0.0f, true);
-    }
-
-    private static ActionsBuilder Resurrect(
-        ActionsBuilder builder, string? resurrectBuff, float healPercent, bool fullRestore)
-    {
-      var resurrect = ElementTool.Create<ContextActionResurrect>();
-      resurrect.m_CustomResurrectionBuff =
-          BlueprintTool.GetRef<BlueprintBuffReference>(resurrectBuff!);
-      resurrect.ResultHealth = healPercent;
-      resurrect.FullRestore = fullRestore;
-      return builder.Add(resurrect);
+      var element = ElementTool.Create<ContextActionResurrect>();
+      if (customResurrectionBuff is not null)
+      {
+        element.m_CustomResurrectionBuff = customResurrectionBuff.Reference;
+      }
+      if (element.m_CustomResurrectionBuff is null)
+      {
+        element.m_CustomResurrectionBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (fullRestore is not null)
+      {
+        element.FullRestore = fullRestore;
+      }
+      if (resultHealth is not null)
+      {
+        element.ResultHealth = resultHealth;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSavingThrow"/>
     /// </summary>
-    /// 
-    /// <param name="fromBuff">
-    /// If this is true, onResult should have a <see cref="ContextActionConditionalSaved"/> with
-    /// <see cref="ContextActionApplyBuff"/> in it's Succeed <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see>.
-    /// The buff associated with that component will be attached to the
-    /// <see cref="Kingmaker.RuleSystem.Rules.RuleSavingThrow">RuleSavingThrow</see>.
-    /// </param>
-    [Implements(typeof(ContextActionSavingThrow))]
-    public static ActionsBuilder SavingThrow(
+    public static ActionsBuilder ContextActionSavingThrow(
         this ActionsBuilder builder,
-        SavingThrowType type,
-        ActionsBuilder onResult,
+        ActionsBuilder? actions = null,
+        ContextActionSavingThrow.ConditionalDCIncrease[]? conditionalDCIncrease = null,
         ContextValue? customDC = null,
-        bool fromBuff = false,
-        params (ConditionsBuilder conditions, ContextValue value)[] conditionalDCModifiers)
+        bool? fromBuff = null,
+        bool? hasCustomDC = null,
+        SavingThrowType? type = null)
     {
-      var savingThrow = ElementTool.Create<ContextActionSavingThrow>();
-      savingThrow.Type = type;
-      savingThrow.Actions = onResult.Build();
-      savingThrow.FromBuff = fromBuff;
-      savingThrow.m_ConditionalDCIncrease =
-          conditionalDCModifiers
-              .Select(modifier =>
-                  new ContextActionSavingThrow.ConditionalDCIncrease
-                  {
-                    Condition = modifier.conditions.Build(),
-                    Value = modifier.value
-                  })
-              .ToArray();
-
+      var element = ElementTool.Create<ContextActionSavingThrow>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      if (conditionalDCIncrease is not null)
+      {
+        element.m_ConditionalDCIncrease = conditionalDCIncrease;
+      }
+      if (element.m_ConditionalDCIncrease is null)
+      {
+        element.m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0];
+      }
       if (customDC is not null)
       {
-        savingThrow.HasCustomDC = true;
-        savingThrow.CustomDC = customDC;
+        element.CustomDC = customDC;
       }
-      return builder.Add(savingThrow);
+      if (element.CustomDC is null)
+      {
+        element.CustomDC = ContextValues.Constant(0);
+      }
+      if (fromBuff is not null)
+      {
+        element.FromBuff = fromBuff;
+      }
+      if (hasCustomDC is not null)
+      {
+        element.HasCustomDC = hasCustomDC;
+      }
+      if (type is not null)
+      {
+        element.Type = type;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSelectByValue"/>
     /// </summary>
-    [Implements(typeof(ContextActionSelectByValue))]
-    public static ActionsBuilder RunActionWithGreatestValue(
-        this ActionsBuilder builder, params (ContextValue value, ActionsBuilder action)[] actionVariants)
+    public static ActionsBuilder ContextActionSelectByValue(
+        this ActionsBuilder builder,
+        ContextActionSelectByValue.SelectionType? type = null,
+        ContextActionSelectByValue.ValueAndAction[]? variants = null)
     {
-      var select = ElementTool.Create<ContextActionSelectByValue>();
-      select.m_Type = ContextActionSelectByValue.SelectionType.Greatest;
-      select.m_Variants =
-          actionVariants
-              .Select(variant =>
-                  new ContextActionSelectByValue.ValueAndAction
-                  {
-                    Value = variant.value,
-                    Action = variant.action.Build()
-                  })
-              .ToArray();
-      return builder.Add(select);
+      var element = ElementTool.Create<ContextActionSelectByValue>();
+      if (type is not null)
+      {
+        element.m_Type = type;
+      }
+      if (variants is not null)
+      {
+        element.m_Variants = variants;
+      }
+      if (element.m_Variants is null)
+      {
+        element.m_Variants = new ContextActionSelectByValue.ValueAndAction[0];
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSkillCheck"/>
     /// </summary>
-    [Implements(typeof(ContextActionSkillCheck))]
-    public static ActionsBuilder SkillCheck(
+    public static ActionsBuilder ContextActionSkillCheck(
         this ActionsBuilder builder,
-        StatType skill,
+        bool? calculateDCDifference = null,
+        ContextActionSkillCheck.ConditionalDCIncrease[]? conditionalDCIncrease = null,
         ContextValue? customDC = null,
-        ActionsBuilder? onSuccess = null,
-        ActionsBuilder? onFail = null,
-        params (ConditionsBuilder condition, ContextValue value)[] dcModifiers)
+        ActionsBuilder? failure = null,
+        ActionsBuilder? failureDiffMoreOrEqual10 = null,
+        ActionsBuilder? failureDiffMoreOrEqual5Less10 = null,
+        StatType? stat = null,
+        ActionsBuilder? success = null,
+        bool? useCustomDC = null)
     {
-      return SkillCheck(
-          builder, skill, customDC, false, onSuccess, onFail: onFail, dcModifiers: dcModifiers);
-    }
-
-    /// <inheritdoc cref="SkillCheck"/>
-    [Implements(typeof(ContextActionSkillCheck))]
-    public static ActionsBuilder SkillCheckWithFailureDegrees(
-        this ActionsBuilder builder,
-        StatType skill,
-        ContextValue? customDC = null,
-        ActionsBuilder? onSuccess = null,
-        ActionsBuilder? onFailBy5to10 = null,
-        ActionsBuilder? onFailBy10orMore = null,
-        params (ConditionsBuilder condition, ContextValue value)[] dcModifiers)
-    {
-      return SkillCheck(
-          builder,
-          skill,
-          customDC,
-          true,
-          onSuccess,
-          onFailBy5to10: onFailBy5to10,
-          onFailBy10orMore: onFailBy10orMore,
-          dcModifiers: dcModifiers);
-    }
-
-    private static ActionsBuilder SkillCheck(
-        ActionsBuilder builder,
-        StatType skill,
-        ContextValue? customDC,
-        bool calculateDCDiff,
-        ActionsBuilder? onSuccess,
-        (ConditionsBuilder condition, ContextValue value)[] dcModifiers,
-        ActionsBuilder? onFail = null,
-        ActionsBuilder? onFailBy5to10 = null,
-        ActionsBuilder? onFailBy10orMore = null)
-    {
-      var skillCheck = ElementTool.Create<ContextActionSkillCheck>();
-      skillCheck.Stat = skill;
+      var element = ElementTool.Create<ContextActionSkillCheck>();
+      if (calculateDCDifference is not null)
+      {
+        element.CalculateDCDifference = calculateDCDifference;
+      }
+      if (conditionalDCIncrease is not null)
+      {
+        element.m_ConditionalDCIncrease = conditionalDCIncrease;
+      }
+      if (element.m_ConditionalDCIncrease is null)
+      {
+        element.m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[0];
+      }
       if (customDC is not null)
       {
-        skillCheck.UseCustomDC = true;
-        skillCheck.CustomDC = customDC;
+        element.CustomDC = customDC;
       }
-      skillCheck.Success = onSuccess?.Build() ?? Constants.Empty.Actions;
-      skillCheck.Failure = onFail?.Build() ?? Constants.Empty.Actions;
-      skillCheck.FailureDiffMoreOrEqual5Less10 = onFailBy5to10?.Build() ?? Constants.Empty.Actions;
-      skillCheck.FailureDiffMoreOrEqual10 = onFailBy10orMore?.Build() ?? Constants.Empty.Actions;
-      skillCheck.CalculateDCDifference = calculateDCDiff;
-      skillCheck.m_ConditionalDCIncrease =
-          dcModifiers
-              .Select(modifier =>
-                  new ContextActionSkillCheck.ConditionalDCIncrease
-                  {
-                    Condition = modifier.condition.Build(),
-                    Value = modifier.value
-                  })
-              .ToArray();
-      return builder.Add(skillCheck);
+      if (element.CustomDC is null)
+      {
+        element.CustomDC = ContextValues.Constant(0);
+      }
+      if (failure is not null)
+      {
+        element.Failure = failure.Build();
+      }
+      if (element.Failure is null)
+      {
+        element.Failure = Constants.Empty.Actions;
+      }
+      if (failureDiffMoreOrEqual10 is not null)
+      {
+        element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10.Build();
+      }
+      if (element.FailureDiffMoreOrEqual10 is null)
+      {
+        element.FailureDiffMoreOrEqual10 = Constants.Empty.Actions;
+      }
+      if (failureDiffMoreOrEqual5Less10 is not null)
+      {
+        element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10.Build();
+      }
+      if (element.FailureDiffMoreOrEqual5Less10 is null)
+      {
+        element.FailureDiffMoreOrEqual5Less10 = Constants.Empty.Actions;
+      }
+      if (stat is not null)
+      {
+        element.Stat = stat;
+      }
+      if (success is not null)
+      {
+        element.Success = success.Build();
+      }
+      if (element.Success is null)
+      {
+        element.Success = Constants.Empty.Actions;
+      }
+      if (useCustomDC is not null)
+      {
+        element.UseCustomDC = useCustomDC;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionsOnPet"/>
     /// </summary>
-    [Implements(typeof(ContextActionsOnPet))]
-    public static ActionsBuilder OnPets(
+    public static ActionsBuilder ContextActionsOnPet(
         this ActionsBuilder builder,
-        ActionsBuilder actions,
-        bool anyPetType = false,
-        PetType type = PetType.AnimalCompanion)
+        ActionsBuilder? actions = null,
+        bool? allPets = null,
+        PetType? petType = null)
     {
-      var onPets = ElementTool.Create<ContextActionsOnPet>();
-      onPets.Actions = actions.Build();
-      onPets.AllPets = anyPetType;
-      onPets.PetType = type;
-      return builder.Add(onPets);
+      var element = ElementTool.Create<ContextActionsOnPet>();
+      if (actions is not null)
+      {
+        element.Actions = actions.Build();
+      }
+      if (element.Actions is null)
+      {
+        element.Actions = Constants.Empty.Actions;
+      }
+      if (allPets is not null)
+      {
+        element.AllPets = allPets;
+      }
+      if (petType is not null)
+      {
+        element.PetType = petType;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpawnAreaEffect"/>
     /// </summary>
-    /// 
-    /// <param name="aoe"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbilityAreaEffect">BlueprintAbilityAreaEffect</see></param>
-    [Implements(typeof(ContextActionSpawnAreaEffect))]
-    public static ActionsBuilder SpawnAOE(
-        this ActionsBuilder builder, string aoe, ContextDurationValue duration)
+    ///
+    /// <param name="areaEffect">
+    /// Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionSpawnAreaEffect(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>? areaEffect = null,
+        ContextDurationValue? durationValue = null,
+        bool? onUnit = null)
     {
-      var spawnAOE = ElementTool.Create<ContextActionSpawnAreaEffect>();
-      spawnAOE.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(aoe);
-      spawnAOE.DurationValue = duration;
-      return builder.Add(spawnAOE);
+      var element = ElementTool.Create<ContextActionSpawnAreaEffect>();
+      if (areaEffect is not null)
+      {
+        element.m_AreaEffect = areaEffect.Reference;
+      }
+      if (element.m_AreaEffect is null)
+      {
+        element.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(null);
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (onUnit is not null)
+      {
+        element.OnUnit = onUnit;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpawnControllableProjectile"/>
     /// </summary>
-    /// 
-    /// <param name="projectile"><see cref="BlueprintControllableProjectile"/></param>
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionSpawnControllableProjectile))]
-    public static ActionsBuilder SpawnControllableProjectile(
-        this ActionsBuilder builder, string projectile, string buff)
+    ///
+    /// <param name="associatedCasterBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="controllableProjectile">
+    /// Blueprint of type BlueprintControllableProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionSpawnControllableProjectile(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? associatedCasterBuff = null,
+        Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference>? controllableProjectile = null)
     {
-      var spawnProjectile = ElementTool.Create<ContextActionSpawnControllableProjectile>();
-      spawnProjectile.ControllableProjectile =
-          BlueprintTool.GetRef<BlueprintControllableProjectileReference>(projectile);
-      spawnProjectile.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      return builder.Add(spawnProjectile);
+      var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
+      if (associatedCasterBuff is not null)
+      {
+        element.AssociatedCasterBuff = associatedCasterBuff.Reference;
+      }
+      if (element.AssociatedCasterBuff is null)
+      {
+        element.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (controllableProjectile is not null)
+      {
+        element.ControllableProjectile = controllableProjectile.Reference;
+      }
+      if (element.ControllableProjectile is null)
+      {
+        element.ControllableProjectile = BlueprintTool.GetRef<BlueprintControllableProjectileReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpawnMonster"/>
     /// </summary>
-    /// 
-    /// <param name="monster"><see cref="BlueprintUnit"/></param>
-    [Implements(typeof(ContextActionSpawnMonster))]
-    public static ActionsBuilder SpawnMonster(
+    ///
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionSpawnMonster(
         this ActionsBuilder builder,
-        string monster,
-        ContextDiceValue count,
-        ContextDurationValue duration,
-        ActionsBuilder? onSpawn = null,
-        ContextValue? level = null,
-        bool controllable = false,
-        bool linkToCaster = true)
+        ActionsBuilder? afterSpawn = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
+        ContextDiceValue? countValue = null,
+        bool? doNotLinkToCaster = null,
+        ContextDurationValue? durationValue = null,
+        bool? isDirectlyControllable = null,
+        ContextValue? levelValue = null,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        bool? useLimitFromSummonPool = null)
     {
-      return SpawnMonsterInternal(
-        builder,
-        monster,
-        count,
-        duration,
-        onSpawn,
-        level,
-        controllable,
-        linkToCaster);
-    }
-
-    /// <inheritdoc cref="SpawnMonster"/>
-    /// <param name="summonPool"><see cref="BlueprintSummonPool"/></param>
-    [Implements(typeof(ContextActionSpawnMonster))]
-    public static ActionsBuilder SpawnMonsterUsingSummonPool(
-        this ActionsBuilder builder,
-        string monster,
-        string summonPool,
-        ContextDiceValue count,
-        ContextDurationValue duration,
-        bool useSummonPoolLimit = false,
-        ActionsBuilder? onSpawn = null,
-        ContextValue? level = null,
-        bool controllable = false,
-        bool linkToCaster = true)
-    {
-      return SpawnMonsterInternal(
-        builder,
-        monster,
-        count,
-        duration,
-        onSpawn,
-        level,
-        controllable,
-        linkToCaster,
-        summonPool: summonPool,
-        useSummonPoolLimit: useSummonPoolLimit);
-    }
-
-    private static ActionsBuilder SpawnMonsterInternal(
-        this ActionsBuilder builder,
-        string monster,
-        ContextDiceValue count,
-        ContextDurationValue duration,
-        ActionsBuilder? onSpawn,
-        ContextValue? level,
-        bool controllable,
-        bool linkToCaster,
-        string? summonPool = null,
-        bool useSummonPoolLimit = false)
-    {
-      var spawn = ElementTool.Create<ContextActionSpawnMonster>();
-      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(monster);
-      spawn.CountValue = count;
-      spawn.DurationValue = duration;
-      spawn.AfterSpawn = onSpawn?.Build() ?? Constants.Empty.Actions;
-      spawn.LevelValue = level ?? 0;
-      spawn.IsDirectlyControllable = controllable;
-      spawn.DoNotLinkToCaster = !linkToCaster;
-
-      spawn.m_SummonPool =
-          summonPool is null
-              ? null
-              : BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
-      spawn.UseLimitFromSummonPool = useSummonPoolLimit;
-      return builder.Add(spawn);
+      var element = ElementTool.Create<ContextActionSpawnMonster>();
+      if (afterSpawn is not null)
+      {
+        element.AfterSpawn = afterSpawn.Build();
+      }
+      if (element.AfterSpawn is null)
+      {
+        element.AfterSpawn = Constants.Empty.Actions;
+      }
+      if (blueprint is not null)
+      {
+        element.m_Blueprint = blueprint.Reference;
+      }
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (countValue is not null)
+      {
+        element.CountValue = countValue;
+      }
+      if (element.CountValue is null)
+      {
+        element.CountValue = Constants.Empty.DiceValue;
+      }
+      if (doNotLinkToCaster is not null)
+      {
+        element.DoNotLinkToCaster = doNotLinkToCaster;
+      }
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (isDirectlyControllable is not null)
+      {
+        element.IsDirectlyControllable = isDirectlyControllable;
+      }
+      if (levelValue is not null)
+      {
+        element.LevelValue = levelValue;
+      }
+      if (element.LevelValue is null)
+      {
+        element.LevelValue = ContextValues.Constant(0);
+      }
+      if (summonPool is not null)
+      {
+        element.m_SummonPool = summonPool.Reference;
+      }
+      if (element.m_SummonPool is null)
+      {
+        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
+      if (useLimitFromSummonPool is not null)
+      {
+        element.UseLimitFromSummonPool = useLimitFromSummonPool;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpawnUnlinkedMonster"/>
     /// </summary>
-    /// 
-    /// <param name="monster"><see cref="BlueprintUnit"/></param>
-    [Implements(typeof(ContextActionSpawnUnlinkedMonster))]
-    public static ActionsBuilder SpawnMonsterUnlinked(this ActionsBuilder builder, string monster)
+    ///
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionSpawnUnlinkedMonster(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
     {
-      var spawn = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
-      spawn.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(monster);
-      return builder.Add(spawn);
+      var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
+      if (blueprint is not null)
+      {
+        element.m_Blueprint = blueprint.Reference;
+      }
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSpendAttackOfOpportunity"/>
     /// </summary>
-    [Implements(typeof(ContextActionSpendAttackOfOpportunity))]
-    public static ActionsBuilder SpendOpportunityAttack(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionSpendAttackOfOpportunity(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
     }
@@ -1752,53 +2712,67 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionStealBuffs"/>
     /// </summary>
-    [Implements(typeof(ContextActionStealBuffs))]
-    public static ActionsBuilder StealBuffs(this ActionsBuilder builder, SpellDescriptor descriptor)
+    public static ActionsBuilder ContextActionStealBuffs(
+        this ActionsBuilder builder,
+        SpellDescriptorWrapper? descriptor = null)
     {
-      var steal = ElementTool.Create<ContextActionStealBuffs>();
-      steal.m_Descriptor = descriptor;
-      return builder.Add(steal);
+      var element = ElementTool.Create<ContextActionStealBuffs>();
+      if (descriptor is not null)
+      {
+        element.m_Descriptor = descriptor;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSwallowWhole"/>
     /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionSwallowWhole))]
-    public static ActionsBuilder SwallowWhole(this ActionsBuilder builder, string? buff = null)
+    ///
+    /// <param name="targetBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextActionSwallowWhole(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
-      var swallow = ElementTool.Create<ContextActionSwallowWhole>();
-      swallow.m_TargetBuff =
-          buff is null
-              ? null
-              : BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      return builder.Add(swallow);
+      var element = ElementTool.Create<ContextActionSwallowWhole>();
+      if (targetBuff is not null)
+      {
+        element.m_TargetBuff = targetBuff.Reference;
+      }
+      if (element.m_TargetBuff is null)
+      {
+        element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionSwarmTarget"/>
     /// </summary>
-    [Implements(typeof(ContextActionSwarmTarget))]
-    public static ActionsBuilder AddToSwarmTargets(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionSwarmTarget(
+        this ActionsBuilder builder,
+        bool? remove = null)
     {
-      return builder.Add(ElementTool.Create<ContextActionSwarmTarget>());
-    }
-
-    /// <inheritdoc cref="AddToSwarmTargets"/>
-    [Implements(typeof(ContextActionSwarmTarget))]
-    public static ActionsBuilder RemoveFromSwarmTargets(this ActionsBuilder builder)
-    {
-      var removeTarget = ElementTool.Create<ContextActionSwarmTarget>();
-      removeTarget.Remove = true;
-      return builder.Add(removeTarget);
+      var element = ElementTool.Create<ContextActionSwarmTarget>();
+      if (remove is not null)
+      {
+        element.Remove = remove;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionTranslocate"/>
     /// </summary>
-    [Implements(typeof(ContextActionTranslocate))]
-    public static ActionsBuilder Teleport(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionTranslocate(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionTranslocate>());
     }
@@ -1806,8 +2780,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionUnsummon"/>
     /// </summary>
-    [Implements(typeof(ContextActionUnsummon))]
-    public static ActionsBuilder Unsummon(this ActionsBuilder builder)
+    public static ActionsBuilder ContextActionUnsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
     }
@@ -1815,367 +2788,321 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextRestoreResource"/>
     /// </summary>
-    /// 
-    /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
-    [Implements(typeof(ContextRestoreResource))]
-    public static ActionsBuilder RestoreResource(
-        this ActionsBuilder builder, string resource, ContextValue? amount = null)
+    ///
+    /// <param name="resource">
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextRestoreResource(
+        this ActionsBuilder builder,
+        bool? contextValueRestoration = null,
+        bool? isFullRestoreAllResources = null,
+        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
+        ContextValue? value = null)
     {
-      var restore = ElementTool.Create<ContextRestoreResource>();
-      restore.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
-
-      if (amount != null)
+      var element = ElementTool.Create<ContextRestoreResource>();
+      if (contextValueRestoration is not null)
       {
-        restore.ContextValueRestoration = true;
-        restore.Value = amount;
+        element.ContextValueRestoration = contextValueRestoration;
       }
-      return builder.Add(restore);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
-    /// </summary>
-    [Implements(typeof(ContextRestoreResource))]
-    public static ActionsBuilder RestoreAllResourcesToFull(this ActionsBuilder builder)
-    {
-      var restore = ElementTool.Create<ContextRestoreResource>();
-      restore.m_IsFullRestoreAllResources = true;
-      return builder.Add(restore);
+      if (isFullRestoreAllResources is not null)
+      {
+        element.m_IsFullRestoreAllResources = isFullRestoreAllResources;
+      }
+      if (resource is not null)
+      {
+        element.m_Resource = resource.Reference;
+      }
+      if (element.m_Resource is null)
+      {
+        element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextSpendResource"/>
     /// </summary>
-    /// 
-    /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
-    [Implements(typeof(ContextSpendResource))]
-    public static ActionsBuilder SpendResource(
-        this ActionsBuilder builder, string resource, ContextValue? amount = null)
+    ///
+    /// <param name="resource">
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ContextSpendResource(
+        this ActionsBuilder builder,
+        bool? contextValueSpendure = null,
+        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
+        ContextValue? value = null)
     {
-      var spend = ElementTool.Create<ContextSpendResource>();
-      spend.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
-
-      if (amount != null)
+      var element = ElementTool.Create<ContextSpendResource>();
+      if (contextValueSpendure is not null)
       {
-        spend.ContextValueSpendure = true;
-        spend.Value = amount;
+        element.ContextValueSpendure = contextValueSpendure;
       }
-      return builder.Add(spend);
+      if (resource is not null)
+      {
+        element.m_Resource = resource.Reference;
+      }
+      if (element.m_Resource is null)
+      {
+        element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      if (value is not null)
+      {
+        element.Value = value;
+      }
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
     }
-
-    // Default GUIDs for Demoralize buffs
-    private const string Shaken = "25ec6cb6ab1845c48a95f9c20b034220";
-    private const string Frightened = "f08a7239aa961f34c8301518e71d4cdf";
-    private const string DisplayWeaponProwess = "ac8d4d2e375a8c841a19ed46696e5af2";
-    private const string ShatterConfidenceFeature = "14225a2e4561bfd46874c9a4a97e7133";
-    private const string ShatterConfidenceBuff = "51f5a63f1a0cb9047acdad77fc437312";
 
     /// <summary>
     /// Adds <see cref="Demoralize"/>
     /// </summary>
-    [Implements(typeof(Demoralize))]
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="greaterBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="shatterConfidenceBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="shatterConfidenceFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="swordlordProwessFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder Demoralize(
         this ActionsBuilder builder,
-        int bonus = 0,
-        bool dazzlingDisplay = false,
-        string effect = Shaken,
-        string greaterEffect = Frightened,
-        string swordlordProwess = DisplayWeaponProwess,
-        string shatterConfidenceFeature = ShatterConfidenceFeature,
-        string shatterConfidenceBuff = ShatterConfidenceBuff,
+        int? bonus = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        bool? dazzlingDisplay = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? greaterBuff = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? shatterConfidenceBuff = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? shatterConfidenceFeature = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? swordlordProwessFeature = null,
         ActionsBuilder? tricksterRank3Actions = null)
     {
-      var demoralize = ElementTool.Create<Demoralize>();
-      demoralize.Bonus = bonus;
-      demoralize.DazzlingDisplay = dazzlingDisplay;
-      demoralize.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(effect);
-      demoralize.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(greaterEffect);
-      demoralize.m_SwordlordProwessFeature =
-          BlueprintTool.GetRef<BlueprintFeatureReference>(swordlordProwess);
-      demoralize.m_ShatterConfidenceFeature =
-          BlueprintTool.GetRef<BlueprintFeatureReference>(shatterConfidenceFeature);
-      demoralize.m_ShatterConfidenceBuff =
-          BlueprintTool.GetRef<BlueprintBuffReference>(shatterConfidenceBuff);
-      demoralize.TricksterRank3Actions = tricksterRank3Actions?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(demoralize);
+      var element = ElementTool.Create<Demoralize>();
+      if (bonus is not null)
+      {
+        element.Bonus = bonus;
+      }
+      if (buff is not null)
+      {
+        element.m_Buff = buff.Reference;
+      }
+      if (element.m_Buff is null)
+      {
+        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (dazzlingDisplay is not null)
+      {
+        element.DazzlingDisplay = dazzlingDisplay;
+      }
+      if (greaterBuff is not null)
+      {
+        element.m_GreaterBuff = greaterBuff.Reference;
+      }
+      if (element.m_GreaterBuff is null)
+      {
+        element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (shatterConfidenceBuff is not null)
+      {
+        element.m_ShatterConfidenceBuff = shatterConfidenceBuff.Reference;
+      }
+      if (element.m_ShatterConfidenceBuff is null)
+      {
+        element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (shatterConfidenceFeature is not null)
+      {
+        element.m_ShatterConfidenceFeature = shatterConfidenceFeature.Reference;
+      }
+      if (element.m_ShatterConfidenceFeature is null)
+      {
+        element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (swordlordProwessFeature is not null)
+      {
+        element.m_SwordlordProwessFeature = swordlordProwessFeature.Reference;
+      }
+      if (element.m_SwordlordProwessFeature is null)
+      {
+        element.m_SwordlordProwessFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (tricksterRank3Actions is not null)
+      {
+        element.TricksterRank3Actions = tricksterRank3Actions.Build();
+      }
+      if (element.TricksterRank3Actions is null)
+      {
+        element.TricksterRank3Actions = Constants.Empty.Actions;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="EnhanceWeapon"/>
     /// </summary>
-    /// 
-    /// <param name="enhancements"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment">BlueprintItemEnchantment</see></param>
-    [Implements(typeof(EnhanceWeapon))]
-    public static ActionsBuilder MagicWeapon(
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder EnhanceWeapon(
         this ActionsBuilder builder,
-        string[] enhancements,
-        ContextDurationValue duration,
-        ContextValue level,
-        bool greater = false,
-        bool useSecondaryHand = false)
+        ContextDurationValue? durationValue = null,
+        ContextValue? enchantLevel = null,
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? enchantment = null,
+        EnhanceWeapon.EnchantmentApplyType? enchantmentType = null,
+        bool? greater = null,
+        bool? useSecondaryHand = null)
     {
-      return EnhanceWeaponInternal(
-          builder,
-          EnhanceWeapon.EnchantmentApplyType.MagicWeapon,
-          enhancements,
-          duration,
-          level,
-          greater,
-          useSecondaryHand: useSecondaryHand);
-    }
-
-    /// <inheritdoc cref="MagicWeapon"/>
-    [Implements(typeof(EnhanceWeapon))]
-    public static ActionsBuilder MagicFang(
-        this ActionsBuilder builder,
-        string[] enhancements,
-        ContextDurationValue duration,
-        ContextValue level,
-        bool greater = false)
-    {
-      return EnhanceWeaponInternal(
-          builder,
-          EnhanceWeapon.EnchantmentApplyType.MagicFang,
-          enhancements,
-          duration,
-          level,
-          greater);
-    }
-
-    private static ActionsBuilder EnhanceWeaponInternal(
-        ActionsBuilder builder,
-        EnhanceWeapon.EnchantmentApplyType type,
-        string[] enhancements,
-        ContextDurationValue duration,
-        ContextValue level,
-        bool greater,
-        bool useSecondaryHand = false)
-    {
-      var enhance = ElementTool.Create<EnhanceWeapon>();
-      enhance.EnchantmentType = type;
-      enhance.m_Enchantment =
-          enhancements
-              .Select(
-                  enhancement =>
-                      BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enhancement))
-              .ToArray();
-      enhance.DurationValue = duration;
-      enhance.EnchantLevel = level;
-      enhance.Greater = greater;
-      enhance.UseSecondaryHand = useSecondaryHand;
-      return builder.Add(enhance);
+      var element = ElementTool.Create<EnhanceWeapon>();
+      if (durationValue is not null)
+      {
+        builder.Validate(durationValue);
+        element.DurationValue = durationValue;
+      }
+      if (enchantLevel is not null)
+      {
+        element.EnchantLevel = enchantLevel;
+      }
+      if (element.EnchantLevel is null)
+      {
+        element.EnchantLevel = ContextValues.Constant(0);
+      }
+      if (enchantment is not null)
+      {
+        element.m_Enchantment = enchantment.Select(bp => bp.Reference).ToArray();
+      }
+      if (element.m_Enchantment is null)
+      {
+        element.m_Enchantment = new BlueprintItemEnchantmentReference[0];
+      }
+      if (enchantmentType is not null)
+      {
+        element.EnchantmentType = enchantmentType;
+      }
+      if (greater is not null)
+      {
+        element.Greater = greater;
+      }
+      if (useSecondaryHand is not null)
+      {
+        element.UseSecondaryHand = useSecondaryHand;
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Actions.SwordlordAdaptiveTacticsAdd">SwordlordAdaptiveTacticsAdd</see>
+    /// Adds <see cref="SwordlordAdaptiveTacticsAdd"/>
     /// </summary>
-    /// 
-    /// <param name="source"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(SwordlordAdaptiveTacticsAdd))]
-    public static ActionsBuilder SwordlordAdaptiveTacticsAdd(this ActionsBuilder builder, string source)
+    ///
+    /// <param name="source">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? source = null)
     {
-      var add = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
-      add.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(source);
-      return builder.Add(add);
+      var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
+      if (source is not null)
+      {
+        element.m_Source = source.Reference;
+      }
+      if (element.m_Source is null)
+      {
+        element.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Actions.SwordlordAdaptiveTacticsClear">SwordlordAdaptiveTacticsClear</see>
+    /// Adds <see cref="SwordlordAdaptiveTacticsClear"/>
     /// </summary>
-    [Implements(typeof(SwordlordAdaptiveTacticsClear))]
     public static ActionsBuilder SwordlordAdaptiveTacticsClear(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SwordlordAdaptiveTacticsClear>());
-    }
-
-    //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
-
-    /// <summary>
-    /// Adds <see cref="ContextActionResetAlignment"/>
-    /// </summary>
-    [Implements(typeof(ContextActionResetAlignment))]
-    public static ActionsBuilder ResetAlignment(this ActionsBuilder builder, bool removeMythicLock = false)
-    {
-      var resetAlignment = ElementTool.Create<ContextActionResetAlignment>();
-      resetAlignment.m_ResetAlignmentLock = removeMythicLock;
-      return builder.Add(resetAlignment);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwarmAttack"/>
-    /// </summary>
-    [Implements(typeof(ContextActionSwarmAttack))]
-    public static ActionsBuilder SwarmAttack(this ActionsBuilder builder, ActionsBuilder attackActions)
-    {
-      var attack = ElementTool.Create<ContextActionSwarmAttack>();
-      attack.AttackActions = attackActions.Build();
-      return builder.Add(attack);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwitchDualCompanion"/>
-    /// </summary>
-    [Implements(typeof(ContextActionSwitchDualCompanion))]
-    public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
-    }
-
-    //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
-    /// </summary>
-    [Implements(typeof(ContextActionAddRandomTrashItem))]
-    public static ActionsBuilder GiveRandomTrashToPlayer(
-        this ActionsBuilder builder,
-        TrashLootType type,
-        int maxCost,
-        bool identify = false,
-        bool silent = false)
-    {
-      var addTrash = ElementTool.Create<ContextActionAddRandomTrashItem>();
-      addTrash.m_LootType = type;
-      addTrash.m_MaxCost = maxCost;
-      addTrash.m_Identify = identify;
-      addTrash.m_Silent = silent;
-      return builder.Add(addTrash);
-    }
-
-    //----- Auto Generated -----//
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAcceptBurn"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ContextActionAcceptBurn))]
-    public static ActionsBuilder ContextActionAcceptBurn(
-        this ActionsBuilder builder,
-        ContextValue? value = null)
-    {
-      builder.Validate(value);
-    
-      var element = ElementTool.Create<ContextActionAcceptBurn>();
-      element.Value = value ?? ContextValues.Constant(0);
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionHealBurn"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ContextActionHealBurn))]
-    public static ActionsBuilder ContextActionHealBurn(
-        this ActionsBuilder builder,
-        ContextValue? value = null)
-    {
-      builder.Validate(value);
-    
-      var element = ElementTool.Create<ContextActionHealBurn>();
-      element.Value = value ?? ContextValues.Constant(0);
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffActionAddStatBonus"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffActionAddStatBonus))]
-    public static ActionsBuilder BuffActionAddStatBonus(
-        this ActionsBuilder builder,
-        StatType stat = default,
-        ContextValue? value = null,
-        ModifierDescriptor descriptor = default)
-    {
-      builder.Validate(value);
-    
-      var element = ElementTool.Create<BuffActionAddStatBonus>();
-      element.Stat = stat;
-      element.Value = value ?? ContextValues.Constant(0);
-      element.Descriptor = descriptor;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomSharedBurden"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomSharedBurden))]
-    public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomSharedGrace"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomSharedGrace))]
-    public static ActionsBuilder AbilityCustomSharedGrace(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDetachFromSpawner"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ContextActionDetachFromSpawner))]
-    public static ActionsBuilder ContextActionDetachFromSpawner(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionPrintHDRestrictionToCombatLog"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ContextActionPrintHDRestrictionToCombatLog))]
-    public static ActionsBuilder ContextActionPrintHDRestrictionToCombatLog(
-        this ActionsBuilder builder,
-        ContextValue? hitDice = null)
-    {
-      builder.Validate(hitDice);
-    
-      var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
-      element.HitDice = hitDice ?? ContextValues.Constant(0);
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionReduceDebilitatingBuffsDuration"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(ContextActionReduceDebilitatingBuffsDuration))]
-    public static ActionsBuilder ContextActionReduceDebilitatingBuffsDuration(
-        this ActionsBuilder builder,
-        StatsAdjustmentsType statsAdjustmentsType = default)
-    {
-      var element = ElementTool.Create<ContextActionReduceDebilitatingBuffsDuration>();
-      element.StatsAdjustmentsType = statsAdjustmentsType;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRestoreAllSpellSlots"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="excludeSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
-    [Implements(typeof(ContextActionRestoreAllSpellSlots))]
-    public static ActionsBuilder ContextActionRestoreAllSpellSlots(
-        this ActionsBuilder builder,
-        UnitEvaluator target,
-        int upToSpellLevel = default,
-        string[]? excludeSpellbooks = null)
-    {
-      builder.Validate(target);
-    
-      var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
-      element.m_Target = target;
-      element.m_UpToSpellLevel = upToSpellLevel;
-      element.m_ExcludeSpellbooks = excludeSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToList();
-      return builder.Add(element);
     }
   }
 }
