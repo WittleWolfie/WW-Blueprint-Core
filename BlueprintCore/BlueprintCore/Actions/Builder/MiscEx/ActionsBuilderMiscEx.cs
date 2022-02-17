@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
@@ -14,7 +16,6 @@ using Kingmaker.Tutorial.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /// <summary>
@@ -43,10 +44,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
       var element = ElementTool.Create<ActionAchievementIncrementCounter>();
-      if (achievement is not null)
-      {
-        element.m_Achievement = achievement.Reference;
-      }
+      element.m_Achievement = achievement.Reference ?? element.m_Achievement;
       if (element.m_Achievement is null)
       {
         element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
@@ -73,10 +71,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
       var element = ElementTool.Create<ActionAchievementUnlock>();
-      if (achievement is not null)
-      {
-        element.m_Achievement = achievement.Reference;
-      }
+      element.m_Achievement = achievement.Reference ?? element.m_Achievement;
       if (element.m_Achievement is null)
       {
         element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
@@ -96,27 +91,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         ActionsBuilder? onCreate = null)
     {
       var element = ElementTool.Create<CreateCustomCompanion>();
-      if (forFree is not null)
-      {
-        element.ForFree = forFree;
-      }
-      if (locator is not null)
-      {
-        builder.Validate(locator);
-        element.Locator = locator;
-      }
-      if (matchPlayerXpExactly is not null)
-      {
-        element.MatchPlayerXpExactly = matchPlayerXpExactly;
-      }
-      if (noEquipment is not null)
-      {
-        element.NoEquipment = noEquipment;
-      }
-      if (onCreate is not null)
-      {
-        element.OnCreate = onCreate.Build();
-      }
+      element.ForFree = forFree ?? element.ForFree;
+      builder.Validate(locator);
+      element.Locator = locator ?? element.Locator;
+      element.MatchPlayerXpExactly = matchPlayerXpExactly ?? element.MatchPlayerXpExactly;
+      element.NoEquipment = noEquipment ?? element.NoEquipment;
+      element.OnCreate = onCreate.Build() ?? element.OnCreate;
       if (element.OnCreate is null)
       {
         element.OnCreate = Constants.Empty.Actions;
@@ -132,10 +112,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string? eventId = null)
     {
       var element = ElementTool.Create<CustomEvent>();
-      if (eventId is not null)
-      {
-        element.EventId = eventId;
-      }
+      element.EventId = eventId ?? element.EventId;
       return builder.Add(element);
     }
 
@@ -183,34 +160,22 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? playerFeatures = null)
     {
       var element = ElementTool.Create<AddPremiumReward>();
-      if (additionalActions is not null)
-      {
-        element.AdditionalActions = additionalActions.Build();
-      }
+      element.AdditionalActions = additionalActions.Build() ?? element.AdditionalActions;
       if (element.AdditionalActions is null)
       {
         element.AdditionalActions = Constants.Empty.Actions;
       }
-      if (dlcReward is not null)
-      {
-        element.m_DlcReward = dlcReward.Reference;
-      }
+      element.m_DlcReward = dlcReward.Reference ?? element.m_DlcReward;
       if (element.m_DlcReward is null)
       {
         element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(null);
       }
-      if (items is not null)
-      {
-        element.Items = items.Select(bp => bp.Reference).ToList();
-      }
+      element.Items = items.Select(bp => bp.Reference).ToList() ?? element.Items;
       if (element.Items is null)
       {
         element.Items = new();
       }
-      if (playerFeatures is not null)
-      {
-        element.PlayerFeatures = playerFeatures.Select(bp => bp.Reference).ToList();
-      }
+      element.PlayerFeatures = playerFeatures.Select(bp => bp.Reference).ToList() ?? element.PlayerFeatures;
       if (element.PlayerFeatures is null)
       {
         element.PlayerFeatures = new();
@@ -227,14 +192,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string? log = null)
     {
       var element = ElementTool.Create<DebugLog>();
-      if (breakValue is not null)
-      {
-        element.Break = breakValue;
-      }
-      if (log is not null)
-      {
-        element.Log = log;
-      }
+      element.Break = breakValue ?? element.Break;
+      element.Log = log ?? element.Log;
       return builder.Add(element);
     }
 
@@ -246,10 +205,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Player.GameOverReasonType? reason = null)
     {
       var element = ElementTool.Create<GameOver>();
-      if (reason is not null)
-      {
-        element.Reason = reason;
-      }
+      element.Reason = reason ?? element.Reason;
       return builder.Add(element);
     }
 
@@ -261,10 +217,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? saveForImport = null)
     {
       var element = ElementTool.Create<MakeAutoSave>();
-      if (saveForImport is not null)
-      {
-        element.SaveForImport = saveForImport;
-      }
+      element.SaveForImport = saveForImport ?? element.SaveForImport;
       return builder.Add(element);
     }
 
@@ -288,18 +241,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? nonRemovable = null)
     {
       var element = ElementTool.Create<MakeItemNonRemovable>();
-      if (item is not null)
-      {
-        element.m_Item = item.Reference;
-      }
+      element.m_Item = item.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (nonRemovable is not null)
-      {
-        element.NonRemovable = nonRemovable;
-      }
+      element.NonRemovable = nonRemovable ?? element.NonRemovable;
       return builder.Add(element);
     }
 
@@ -313,20 +260,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         ItemsCollectionEvaluator? targetCollection = null)
     {
       var element = ElementTool.Create<MovePartyItemsAction>();
-      if (leaveEquipmentOf is not null)
-      {
-        builder.Validate(leaveEquipmentOf);
-        element.m_LeaveEquipmentOf = leaveEquipmentOf;
-      }
-      if (pickupTypes is not null)
-      {
-        element.PickupTypes = pickupTypes;
-      }
-      if (targetCollection is not null)
-      {
-        builder.Validate(targetCollection);
-        element.TargetCollection = targetCollection;
-      }
+      builder.Validate(leaveEquipmentOf);
+      element.m_LeaveEquipmentOf = leaveEquipmentOf ?? element.m_LeaveEquipmentOf;
+      element.PickupTypes = pickupTypes ?? element.PickupTypes;
+      builder.Validate(targetCollection);
+      element.TargetCollection = targetCollection ?? element.TargetCollection;
       return builder.Add(element);
     }
 
@@ -340,26 +278,17 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? lockStopChargen = null)
     {
       var element = ElementTool.Create<OpenSelectMythicUI>();
-      if (afterCommitActions is not null)
-      {
-        element.m_AfterCommitActions = afterCommitActions.Build();
-      }
+      element.m_AfterCommitActions = afterCommitActions.Build() ?? element.m_AfterCommitActions;
       if (element.m_AfterCommitActions is null)
       {
         element.m_AfterCommitActions = Constants.Empty.Actions;
       }
-      if (afterStopActions is not null)
-      {
-        element.m_AfterStopActions = afterStopActions.Build();
-      }
+      element.m_AfterStopActions = afterStopActions.Build() ?? element.m_AfterStopActions;
       if (element.m_AfterStopActions is null)
       {
         element.m_AfterStopActions = Constants.Empty.Actions;
       }
-      if (lockStopChargen is not null)
-      {
-        element.m_LockStopChargen = lockStopChargen;
-      }
+      element.m_LockStopChargen = lockStopChargen ?? element.m_LockStopChargen;
       return builder.Add(element);
     }
 
@@ -387,34 +316,16 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? silent = null)
     {
       var element = ElementTool.Create<RemoveItemFromPlayer>();
-      if (itemToRemove is not null)
-      {
-        element.m_ItemToRemove = itemToRemove.Reference;
-      }
+      element.m_ItemToRemove = itemToRemove.Reference ?? element.m_ItemToRemove;
       if (element.m_ItemToRemove is null)
       {
         element.m_ItemToRemove = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (money is not null)
-      {
-        element.Money = money;
-      }
-      if (percentage is not null)
-      {
-        element.Percentage = percentage;
-      }
-      if (quantity is not null)
-      {
-        element.Quantity = quantity;
-      }
-      if (removeAll is not null)
-      {
-        element.RemoveAll = removeAll;
-      }
-      if (silent is not null)
-      {
-        element.m_Silent = silent;
-      }
+      element.Money = money ?? element.Money;
+      element.Percentage = percentage ?? element.Percentage;
+      element.Quantity = quantity ?? element.Quantity;
+      element.RemoveAll = removeAll ?? element.RemoveAll;
+      element.m_Silent = silent ?? element.m_Silent;
       return builder.Add(element);
     }
 
@@ -427,16 +338,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         List<LootEntry>? loot = null)
     {
       var element = ElementTool.Create<RemoveItemsFromCollection>();
-      if (collection is not null)
-      {
-        builder.Validate(collection);
-        element.Collection = collection;
-      }
-      if (loot is not null)
-      {
-        foreach (var item in loot) { builder.Validate(item); }
-        element.Loot = loot;
-      }
+      builder.Validate(collection);
+      element.Collection = collection ?? element.Collection;
+      foreach (var item in loot) { builder.Validate(item); }
+      element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {
         element.Loot = new();
@@ -464,19 +369,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveDuplicateItems>();
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -501,20 +400,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintItem, BlueprintItemReference>? item = null)
     {
       var element = ElementTool.Create<RestoreItemsCountInCollection>();
-      if (collection is not null)
-      {
-        builder.Validate(collection);
-        element.Collection = collection;
-      }
-      if (count is not null)
-      {
-        builder.Validate(count);
-        element.Count = count;
-      }
-      if (item is not null)
-      {
-        element.m_Item = item.Reference;
-      }
+      builder.Validate(collection);
+      element.Collection = collection ?? element.Collection;
+      builder.Validate(count);
+      element.Count = count ?? element.Count;
+      element.m_Item = item.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -542,14 +432,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintItem, BlueprintItemReference>? itemToSell = null)
     {
       var element = ElementTool.Create<SellCollectibleItems>();
-      if (halfPrice is not null)
-      {
-        element.HalfPrice = halfPrice;
-      }
-      if (itemToSell is not null)
-      {
-        element.m_ItemToSell = itemToSell.Reference;
-      }
+      element.HalfPrice = halfPrice ?? element.HalfPrice;
+      element.m_ItemToSell = itemToSell.Reference ?? element.m_ItemToSell;
       if (element.m_ItemToSell is null)
       {
         element.m_ItemToSell = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -565,10 +449,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         string? date = null)
     {
       var element = ElementTool.Create<SetStartDate>();
-      if (date is not null)
-      {
-        element.Date = date;
-      }
+      element.Date = date ?? element.Date;
       return builder.Add(element);
     }
 
@@ -581,20 +462,14 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? vendorUnit = null)
     {
       var element = ElementTool.Create<SetVendorPriceModifier>();
-      if (entries is not null)
-      {
-        foreach (var item in entries) { builder.Validate(item); }
-        element.m_Entries = entries;
-      }
+      foreach (var item in entries) { builder.Validate(item); }
+      element.m_Entries = entries ?? element.m_Entries;
       if (element.m_Entries is null)
       {
         element.m_Entries = new SetVendorPriceModifier.Entry[0];
       }
-      if (vendorUnit is not null)
-      {
-        builder.Validate(vendorUnit);
-        element.VendorUnit = vendorUnit;
-      }
+      builder.Validate(vendorUnit);
+      element.VendorUnit = vendorUnit ?? element.VendorUnit;
       return builder.Add(element);
     }
 
@@ -607,18 +482,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         ActionsBuilder? actionsIfCanceled = null)
     {
       var element = ElementTool.Create<ShowPartySelection>();
-      if (actionsAfterPartySelection is not null)
-      {
-        element.ActionsAfterPartySelection = actionsAfterPartySelection.Build();
-      }
+      element.ActionsAfterPartySelection = actionsAfterPartySelection.Build() ?? element.ActionsAfterPartySelection;
       if (element.ActionsAfterPartySelection is null)
       {
         element.ActionsAfterPartySelection = Constants.Empty.Actions;
       }
-      if (actionsIfCanceled is not null)
-      {
-        element.ActionsIfCanceled = actionsIfCanceled.Build();
-      }
+      element.ActionsIfCanceled = actionsIfCanceled.Build() ?? element.ActionsIfCanceled;
       if (element.ActionsIfCanceled is null)
       {
         element.ActionsIfCanceled = Constants.Empty.Actions;
@@ -634,11 +503,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? vendor = null)
     {
       var element = ElementTool.Create<StartTrade>();
-      if (vendor is not null)
-      {
-        builder.Validate(vendor);
-        element.Vendor = vendor;
-      }
+      builder.Validate(vendor);
+      element.Vendor = vendor ?? element.Vendor;
       return builder.Add(element);
     }
 
@@ -652,20 +518,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<UnequipAllItems>();
-      if (destinationContainer is not null)
-      {
-        builder.Validate(destinationContainer);
-        element.DestinationContainer = destinationContainer;
-      }
-      if (silent is not null)
-      {
-        element.Silent = silent;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(destinationContainer);
+      element.DestinationContainer = destinationContainer ?? element.DestinationContainer;
+      element.Silent = silent ?? element.Silent;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -692,32 +549,17 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<UnequipItem>();
-      if (all is not null)
-      {
-        element.All = all;
-      }
-      if (destinationContainer is not null)
-      {
-        builder.Validate(destinationContainer);
-        element.DestinationContainer = destinationContainer;
-      }
-      if (item is not null)
-      {
-        element.m_Item = item.Reference;
-      }
+      element.All = all ?? element.All;
+      builder.Validate(destinationContainer);
+      element.DestinationContainer = destinationContainer ?? element.DestinationContainer;
+      element.m_Item = item.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (silent is not null)
-      {
-        element.Silent = silent;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      element.Silent = silent ?? element.Silent;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -741,19 +583,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
     {
       var element = ElementTool.Create<ShowNewTutorial>();
-      if (evaluators is not null)
-      {
-        foreach (var item in evaluators) { builder.Validate(item); }
-        element.Evaluators = evaluators;
-      }
+      foreach (var item in evaluators) { builder.Validate(item); }
+      element.Evaluators = evaluators ?? element.Evaluators;
       if (element.Evaluators is null)
       {
         element.Evaluators = new TutorialContextDataEvaluator[0];
       }
-      if (tutorial is not null)
-      {
-        element.m_Tutorial = tutorial.Reference;
-      }
+      element.m_Tutorial = tutorial.Reference ?? element.m_Tutorial;
       if (element.m_Tutorial is null)
       {
         element.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
@@ -781,15 +617,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? vendorTable = null)
     {
       var element = ElementTool.Create<AddVendorItemsAction>();
-      if (vendorEvaluator is not null)
-      {
-        builder.Validate(vendorEvaluator);
-        element.m_VendorEvaluator = vendorEvaluator;
-      }
-      if (vendorTable is not null)
-      {
-        element.m_VendorTable = vendorTable.Reference;
-      }
+      builder.Validate(vendorEvaluator);
+      element.m_VendorEvaluator = vendorEvaluator ?? element.m_VendorEvaluator;
+      element.m_VendorTable = vendorTable.Reference ?? element.m_VendorTable;
       if (element.m_VendorTable is null)
       {
         element.m_VendorTable = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
@@ -816,10 +646,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null)
     {
       var element = ElementTool.Create<ClearVendorTable>();
-      if (table is not null)
-      {
-        element.m_Table = table.Reference;
-      }
+      element.m_Table = table.Reference ?? element.m_Table;
       if (element.m_Table is null)
       {
         element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);

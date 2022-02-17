@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -36,7 +38,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Collections.Generic;
 using System.Linq;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.KingdomEx
 {
   /// <summary>
@@ -54,11 +55,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         TacticalMapObstacle.Link? obstaclePrefab = null)
     {
       var element = ElementTool.Create<BlockTacticalCell>();
-      if (obstaclePrefab is not null)
-      {
-        builder.Validate(obstaclePrefab);
-        element.m_ObstaclePrefab = obstaclePrefab;
-      }
+      builder.Validate(obstaclePrefab);
+      element.m_ObstaclePrefab = obstaclePrefab ?? element.m_ObstaclePrefab;
       return builder.Add(element);
     }
 
@@ -70,10 +68,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<TacticalCombatRecoverLeaderMana>();
-      if (value is not null)
-      {
-        element.m_Value = value;
-      }
+      element.m_Value = value ?? element.m_Value;
       if (element.m_Value is null)
       {
         element.m_Value = ContextValues.Constant(0);
@@ -90,14 +85,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? inCurrentTurn = null)
     {
       var element = ElementTool.Create<ArmyAdditionalAction>();
-      if (canAddInBonusMoraleTurn is not null)
-      {
-        element.m_CanAddInBonusMoraleTurn = canAddInBonusMoraleTurn;
-      }
-      if (inCurrentTurn is not null)
-      {
-        element.m_InCurrentTurn = inCurrentTurn;
-      }
+      element.m_CanAddInBonusMoraleTurn = canAddInBonusMoraleTurn ?? element.m_CanAddInBonusMoraleTurn;
+      element.m_InCurrentTurn = inCurrentTurn ?? element.m_InCurrentTurn;
       return builder.Add(element);
     }
 
@@ -109,10 +98,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount? resourcesAmount = null)
     {
       var element = ElementTool.Create<ContextActionAddCrusadeResource>();
-      if (resourcesAmount is not null)
-      {
-        element.m_ResourcesAmount = resourcesAmount;
-      }
+      element.m_ResourcesAmount = resourcesAmount ?? element.m_ResourcesAmount;
       return builder.Add(element);
     }
 
@@ -135,10 +121,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? factsToRemove = null)
     {
       var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
-      if (factsToRemove is not null)
-      {
-        element.m_FactsToRemove = factsToRemove.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_FactsToRemove = factsToRemove.Select(bp => bp.Reference).ToArray() ?? element.m_FactsToRemove;
       if (element.m_FactsToRemove is null)
       {
         element.m_FactsToRemove = new BlueprintUnitFactReference[0];
@@ -183,24 +166,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         GlobalMagicValue? hoursDuration = null)
     {
       var element = ElementTool.Create<AddBuffToSquad>();
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (filter is not null)
-      {
-        builder.Validate(filter);
-        element.m_Filter = filter;
-      }
-      if (hoursDuration is not null)
-      {
-        builder.Validate(hoursDuration);
-        element.m_HoursDuration = hoursDuration;
-      }
+      builder.Validate(filter);
+      element.m_Filter = filter ?? element.m_Filter;
+      builder.Validate(hoursDuration);
+      element.m_HoursDuration = hoursDuration ?? element.m_HoursDuration;
       return builder.Add(element);
     }
 
@@ -213,16 +187,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         GlobalMagicValue? duration = null)
     {
       var element = ElementTool.Create<ChangeArmyMorale>();
-      if (changeValue is not null)
-      {
-        builder.Validate(changeValue);
-        element.m_ChangeValue = changeValue;
-      }
-      if (duration is not null)
-      {
-        builder.Validate(duration);
-        element.m_Duration = duration;
-      }
+      builder.Validate(changeValue);
+      element.m_ChangeValue = changeValue ?? element.m_ChangeValue;
+      builder.Validate(duration);
+      element.m_Duration = duration ?? element.m_Duration;
       return builder.Add(element);
     }
 
@@ -234,11 +202,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         GlobalMagicValue? skipDays = null)
     {
       var element = ElementTool.Create<FakeSkipTime>();
-      if (skipDays is not null)
-      {
-        builder.Validate(skipDays);
-        element.m_SkipDays = skipDays;
-      }
+      builder.Validate(skipDays);
+      element.m_SkipDays = skipDays ?? element.m_SkipDays;
       return builder.Add(element);
     }
 
@@ -261,10 +226,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
     {
       var element = ElementTool.Create<GainGlobalMagicSpell>();
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
@@ -291,10 +253,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
     {
       var element = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
@@ -310,10 +269,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ActionsBuilder? onTeleportActions = null)
     {
       var element = ElementTool.Create<OpenTeleportationInterface>();
-      if (onTeleportActions is not null)
-      {
-        element.m_OnTeleportActions = onTeleportActions.Build();
-      }
+      element.m_OnTeleportActions = onTeleportActions.Build() ?? element.m_OnTeleportActions;
       if (element.m_OnTeleportActions is null)
       {
         element.m_OnTeleportActions = Constants.Empty.Actions;
@@ -340,10 +296,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
     {
       var element = ElementTool.Create<RemoveGlobalMagicSpell>();
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
@@ -359,11 +312,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         GlobalMagicValue? value = null)
     {
       var element = ElementTool.Create<RepairLeaderMana>();
-      if (value is not null)
-      {
-        builder.Validate(value);
-        element.m_Value = value;
-      }
+      builder.Validate(value);
+      element.m_Value = value ?? element.m_Value;
       return builder.Add(element);
     }
 
@@ -384,16 +334,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SquadFilter? filter = null)
     {
       var element = ElementTool.Create<GainDiceArmyDamage>();
-      if (diceValue is not null)
-      {
-        builder.Validate(diceValue);
-        element.m_DiceValue = diceValue;
-      }
-      if (filter is not null)
-      {
-        builder.Validate(filter);
-        element.m_Filter = filter;
-      }
+      builder.Validate(diceValue);
+      element.m_DiceValue = diceValue ?? element.m_DiceValue;
+      builder.Validate(filter);
+      element.m_Filter = filter ?? element.m_Filter;
       return builder.Add(element);
     }
 
@@ -406,16 +350,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SquadFilter? filter = null)
     {
       var element = ElementTool.Create<RemoveUnitsByExp>();
-      if (expValue is not null)
-      {
-        builder.Validate(expValue);
-        element.m_ExpValue = expValue;
-      }
-      if (filter is not null)
-      {
-        builder.Validate(filter);
-        element.m_Filter = filter;
-      }
+      builder.Validate(expValue);
+      element.m_ExpValue = expValue ?? element.m_ExpValue;
+      builder.Validate(filter);
+      element.m_Filter = filter ?? element.m_Filter;
       return builder.Add(element);
     }
 
@@ -427,11 +365,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         GlobalMagicValue? sumExpCost = null)
     {
       var element = ElementTool.Create<SummonExistUnits>();
-      if (sumExpCost is not null)
-      {
-        builder.Validate(sumExpCost);
-        element.m_SumExpCost = sumExpCost;
-      }
+      builder.Validate(sumExpCost);
+      element.m_SumExpCost = sumExpCost ?? element.m_SumExpCost;
       return builder.Add(element);
     }
 
@@ -443,11 +378,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SummonRandomGroup.RandomGroup[]? randomGroups = null)
     {
       var element = ElementTool.Create<SummonRandomGroup>();
-      if (randomGroups is not null)
-      {
-        foreach (var item in randomGroups) { builder.Validate(item); }
-        element.m_RandomGroups = randomGroups;
-      }
+      foreach (var item in randomGroups) { builder.Validate(item); }
+      element.m_RandomGroups = randomGroups ?? element.m_RandomGroups;
       if (element.m_RandomGroups is null)
       {
         element.m_RandomGroups = new SummonRandomGroup.RandomGroup[0];
@@ -470,8 +402,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
     ///
-    /// <param name="armyLeader">
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -481,8 +413,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
     ///
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <param name="leader">
+    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -493,55 +425,34 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     public static ActionsBuilder CreateCrusaderArmy(
         this ActionsBuilder builder,
+        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
         bool? applyRecruitIncrease = null,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference>? army = ,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
         float? armySpeed = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = ,
+        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? leader = null,
         int? movementPoints = null)
     {
       var element = ElementTool.Create<CreateArmy>();
-      if (applyRecruitIncrease is not null)
-      {
-        element.m_ApplyRecruitIncrease = applyRecruitIncrease;
-      }
-      if (army is not null)
-      {
-        element.Preset = army.Reference;
-      }
+      element.Preset = army.Reference;
       if (element.Preset is null)
       {
         element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
       }
-      if (armyLeader is not null)
-      {
-        element.ArmyLeader = armyLeader.Reference;
-        element.WithLeader = true;
-      }
-      if (element.ArmyLeader is null)
-      {
-        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
-      }
-      if (armySpeed is not null)
-      {
-        element.m_ArmySpeed = armySpeed;
-      }
-      if (faction is not null)
-      {
-        element.Faction = ArmyFaction.Crusaders;
-      }
-      if (location is not null)
-      {
-        element.Location = location.Reference;
-      }
+      element.Location = location.Reference;
       if (element.Location is null)
       {
         element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (movementPoints is not null)
+      element.m_ApplyRecruitIncrease = applyRecruitIncrease ?? element.m_ApplyRecruitIncrease;
+      element.m_ArmySpeed = armySpeed ?? element.m_ArmySpeed;
+      element.ArmyLeader = leader.Reference ?? element.ArmyLeader;
+      element.WithLeader = leader is not null;
+      if (element.ArmyLeader is null)
       {
-        element.MovementPoints = movementPoints;
+        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
       }
+      element.MovementPoints = movementPoints ?? element.MovementPoints;
+      element.Faction = ArmyFaction.Crusaders;
       return builder.Add(element);
     }
 
@@ -551,28 +462,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <param name="army">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
-    /// </param>
-    ///
-    /// <param name="armyLeader">
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
-    /// </param>
-    ///
-    /// <param name="completeActions">
-    /// Blueprint of type BlueprintActionList. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -592,67 +481,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder CreateDemonArmy(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference>? army = ,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
-        float? armySpeed = null,
-        Blueprint<BlueprintActionList, BlueprintActionList.Reference>? completeActions = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = ,
-        bool targetNearestEnemy)
-    {
-      var element = ElementTool.Create<CreateArmy>();
-      if (army is not null)
-      {
-        element.Preset = army.Reference;
-      }
-      if (element.Preset is null)
-      {
-        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
-      }
-      if (armyLeader is not null)
-      {
-        element.ArmyLeader = armyLeader.Reference;
-        element.WithLeader = true;
-      }
-      if (element.ArmyLeader is null)
-      {
-        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
-      }
-      if (armySpeed is not null)
-      {
-        element.m_ArmySpeed = armySpeed;
-      }
-      if (completeActions is not null)
-      {
-        element.m_CompleteActions = completeActions.Reference;
-      }
-      if (element.m_CompleteActions is null)
-      {
-        element.m_CompleteActions = BlueprintTool.GetRef<BlueprintActionList.Reference>(null);
-      }
-      if (faction is not null)
-      {
-        element.Faction = ArmyFaction.Demons;
-      }
-      if (location is not null)
-      {
-        element.Location = location.Reference;
-      }
-      if (element.Location is null)
-      {
-        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
-      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CreateArmy"/>
-    /// </summary>
     ///
-    /// <param name="army">
-    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
+    /// <param name="completeActions">
+    /// Blueprint of type BlueprintActionList. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -662,7 +493,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
     ///
-    /// <param name="armyLeader">
+    /// <param name="leader">
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -672,9 +503,49 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
+    public static ActionsBuilder CreateDemonArmy(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        float? armySpeed = null,
+        Blueprint<BlueprintActionList, BlueprintActionList.Reference>? completeActions = null,
+        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? leader = null,
+        bool targetNearestEnemy = false)
+    {
+      var element = ElementTool.Create<CreateArmy>();
+      element.Preset = army.Reference;
+      if (element.Preset is null)
+      {
+        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
+      }
+      element.Location = location.Reference;
+      if (element.Location is null)
+      {
+        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      element.m_ArmySpeed = armySpeed ?? element.m_ArmySpeed;
+      element.m_CompleteActions = completeActions.Reference ?? element.m_CompleteActions;
+      if (element.m_CompleteActions is null)
+      {
+        element.m_CompleteActions = BlueprintTool.GetRef<BlueprintActionList.Reference>(null);
+      }
+      element.ArmyLeader = leader.Reference ?? element.ArmyLeader;
+      element.WithLeader = leader is not null;
+      if (element.ArmyLeader is null)
+      {
+        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
+      }
+      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;;
+      element.Faction = ArmyFaction.Demons;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CreateArmy"/>
+    /// </summary>
     ///
-    /// <param name="completeActions">
-    /// Blueprint of type BlueprintActionList. You can pass in the blueprint using:
+    /// <param name="army">
+    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -705,69 +576,67 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
+    ///
+    /// <param name="completeActions">
+    /// Blueprint of type BlueprintActionList. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    ///
+    /// <param name="leader">
+    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
     public static ActionsBuilder CreateDemonArmyTargetingLocation(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference>? army = ,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
+        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> spawnLocation,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> targetLocation,
         Blueprint<BlueprintActionList, BlueprintActionList.Reference>? completeActions = null,
         int? daysToDestination = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? spawnLocation = ,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? targetLocation = )
+        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? leader = null)
     {
       var element = ElementTool.Create<CreateArmy>();
-      if (army is not null)
-      {
-        element.Preset = army.Reference;
-      }
+      element.Preset = army.Reference;
       if (element.Preset is null)
       {
         element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
       }
-      if (armyLeader is not null)
-      {
-        element.ArmyLeader = armyLeader.Reference;
-        element.WithLeader = true;
-      }
-      if (element.ArmyLeader is null)
-      {
-        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
-      }
-      if (completeActions is not null)
-      {
-        element.m_CompleteActions = completeActions.Reference;
-      }
-      if (element.m_CompleteActions is null)
-      {
-        element.m_CompleteActions = BlueprintTool.GetRef<BlueprintActionList.Reference>(null);
-      }
-      if (daysToDestination is not null)
-      {
-        element.m_DaysToDestination = daysToDestination;
-      }
-      if (faction is not null)
-      {
-        element.Faction = ArmyFaction.Demons;
-      }
-      if (moveTarget is not null)
-      {
-        element.m_MoveTarget = TravelLogicType.Location;
-      }
-      if (spawnLocation is not null)
-      {
-        element.Location = spawnLocation.Reference;
-      }
+      element.Location = spawnLocation.Reference;
       if (element.Location is null)
       {
         element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (targetLocation is not null)
-      {
-        element.m_TargetLocation = targetLocation.Reference;
-      }
+      element.m_TargetLocation = targetLocation.Reference;
       if (element.m_TargetLocation is null)
       {
         element.m_TargetLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
+      element.m_CompleteActions = completeActions.Reference ?? element.m_CompleteActions;
+      if (element.m_CompleteActions is null)
+      {
+        element.m_CompleteActions = BlueprintTool.GetRef<BlueprintActionList.Reference>(null);
+      }
+      element.m_DaysToDestination = daysToDestination ?? element.m_DaysToDestination;
+      element.ArmyLeader = leader.Reference ?? element.ArmyLeader;
+      element.WithLeader = leader is not null;
+      if (element.ArmyLeader is null)
+      {
+        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
+      }
+      element.Faction = ArmyFaction.Demons;
+      element.m_MoveTarget = TravelLogicType.Location;
       return builder.Add(element);
     }
 
@@ -816,38 +685,23 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? withLeader = null)
     {
       var element = ElementTool.Create<CreateGarrison>();
-      if (armyLeader is not null)
-      {
-        element.ArmyLeader = armyLeader.Reference;
-      }
+      element.ArmyLeader = armyLeader.Reference ?? element.ArmyLeader;
       if (element.ArmyLeader is null)
       {
         element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
       }
-      if (hasNoReward is not null)
-      {
-        element.HasNoReward = hasNoReward;
-      }
-      if (location is not null)
-      {
-        element.Location = location.Reference;
-      }
+      element.HasNoReward = hasNoReward ?? element.HasNoReward;
+      element.Location = location.Reference ?? element.Location;
       if (element.Location is null)
       {
         element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (preset is not null)
-      {
-        element.Preset = preset.Reference;
-      }
+      element.Preset = preset.Reference ?? element.Preset;
       if (element.Preset is null)
       {
         element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
       }
-      if (withLeader is not null)
-      {
-        element.WithLeader = withLeader;
-      }
+      element.WithLeader = withLeader ?? element.WithLeader;
       return builder.Add(element);
     }
 
@@ -873,26 +727,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? sumExperience = null)
     {
       var element = ElementTool.Create<CreateArmyFromLosses>();
-      if (applyRecruitIncrease is not null)
-      {
-        element.m_ApplyRecruitIncrease = applyRecruitIncrease;
-      }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_ApplyRecruitIncrease = applyRecruitIncrease ?? element.m_ApplyRecruitIncrease;
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (squadsMaxCount is not null)
-      {
-        element.m_SquadsMaxCount = squadsMaxCount;
-      }
-      if (sumExperience is not null)
-      {
-        element.m_SumExperience = sumExperience;
-      }
+      element.m_SquadsMaxCount = squadsMaxCount ?? element.m_SquadsMaxCount;
+      element.m_SumExperience = sumExperience ?? element.m_SumExperience;
       return builder.Add(element);
     }
 
@@ -916,18 +758,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ActionsBuilder? triggerAfterAuto = null)
     {
       var element = ElementTool.Create<EnterKingdomInterface>();
-      if (returnPoint is not null)
-      {
-        element.m_ReturnPoint = returnPoint.Reference;
-      }
+      element.m_ReturnPoint = returnPoint.Reference ?? element.m_ReturnPoint;
       if (element.m_ReturnPoint is null)
       {
         element.m_ReturnPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
-      if (triggerAfterAuto is not null)
-      {
-        element.TriggerAfterAuto = triggerAfterAuto.Build();
-      }
+      element.TriggerAfterAuto = triggerAfterAuto.Build() ?? element.TriggerAfterAuto;
       if (element.TriggerAfterAuto is null)
       {
         element.TriggerAfterAuto = Constants.Empty.Actions;
@@ -954,10 +790,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null)
     {
       var element = ElementTool.Create<RecruiteArmyLeader>();
-      if (armyLeader is not null)
-      {
-        element.ArmyLeader = armyLeader.Reference;
-      }
+      element.ArmyLeader = armyLeader.Reference ?? element.ArmyLeader;
       if (element.ArmyLeader is null)
       {
         element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
@@ -985,18 +818,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ArmyType? armyType = null)
     {
       var element = ElementTool.Create<RemoveDemonArmies>();
-      if (armyPreset is not null)
-      {
-        element.m_ArmyPreset = armyPreset.Reference;
-      }
+      element.m_ArmyPreset = armyPreset.Reference ?? element.m_ArmyPreset;
       if (element.m_ArmyPreset is null)
       {
         element.m_ArmyPreset = BlueprintTool.GetRef<BlueprintArmyPresetReference>(null);
       }
-      if (armyType is not null)
-      {
-        element.m_ArmyType = armyType;
-      }
+      element.m_ArmyType = armyType ?? element.m_ArmyType;
       return builder.Add(element);
     }
 
@@ -1020,14 +847,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<RemoveGarrison>();
-      if (handleAsGarrisonDefeated is not null)
-      {
-        element.HandleAsGarrisonDefeated = handleAsGarrisonDefeated;
-      }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.HandleAsGarrisonDefeated = handleAsGarrisonDefeated ?? element.HandleAsGarrisonDefeated;
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -1066,67 +887,28 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unitToRemove = null)
     {
       var element = ElementTool.Create<RemoveUnitFromArmy>();
-      if (armies is not null)
-      {
-        builder.Validate(armies);
-        element.m_Armies = armies;
-      }
-      if (experience is not null)
-      {
-        element.m_Experience = experience;
-      }
-      if (limitUnitExperienceMaximum is not null)
-      {
-        element.m_LimitUnitExperienceMaximum = limitUnitExperienceMaximum;
-      }
-      if (limitUnitExperienceMinimum is not null)
-      {
-        element.m_LimitUnitExperienceMinimum = limitUnitExperienceMinimum;
-      }
-      if (mode is not null)
-      {
-        element.m_Mode = mode;
-      }
-      if (percentage is not null)
-      {
-        element.m_Percentage = percentage;
-      }
-      if (removeCheapestUnit is not null)
-      {
-        element.m_RemoveCheapestUnit = removeCheapestUnit;
-      }
-      if (removeSpecificUnit is not null)
-      {
-        element.m_RemoveSpecificUnit = removeSpecificUnit;
-      }
-      if (unitExperienceMaximum is not null)
-      {
-        element.m_UnitExperienceMaximum = unitExperienceMaximum;
-      }
-      if (unitExperienceMinimum is not null)
-      {
-        element.m_UnitExperienceMinimum = unitExperienceMinimum;
-      }
-      if (unitTagBlacklist is not null)
-      {
-        element.m_UnitTagBlacklist = unitTagBlacklist;
-      }
+      builder.Validate(armies);
+      element.m_Armies = armies ?? element.m_Armies;
+      element.m_Experience = experience ?? element.m_Experience;
+      element.m_LimitUnitExperienceMaximum = limitUnitExperienceMaximum ?? element.m_LimitUnitExperienceMaximum;
+      element.m_LimitUnitExperienceMinimum = limitUnitExperienceMinimum ?? element.m_LimitUnitExperienceMinimum;
+      element.m_Mode = mode ?? element.m_Mode;
+      element.m_Percentage = percentage ?? element.m_Percentage;
+      element.m_RemoveCheapestUnit = removeCheapestUnit ?? element.m_RemoveCheapestUnit;
+      element.m_RemoveSpecificUnit = removeSpecificUnit ?? element.m_RemoveSpecificUnit;
+      element.m_UnitExperienceMaximum = unitExperienceMaximum ?? element.m_UnitExperienceMaximum;
+      element.m_UnitExperienceMinimum = unitExperienceMinimum ?? element.m_UnitExperienceMinimum;
+      element.m_UnitTagBlacklist = unitTagBlacklist ?? element.m_UnitTagBlacklist;
       if (element.m_UnitTagBlacklist is null)
       {
         element.m_UnitTagBlacklist = new UnitTag[0];
       }
-      if (unitTagWhitelist is not null)
-      {
-        element.m_UnitTagWhitelist = unitTagWhitelist;
-      }
+      element.m_UnitTagWhitelist = unitTagWhitelist ?? element.m_UnitTagWhitelist;
       if (element.m_UnitTagWhitelist is null)
       {
         element.m_UnitTagWhitelist = new UnitTag[0];
       }
-      if (unitToRemove is not null)
-      {
-        element.m_UnitToRemove = unitToRemove.Reference;
-      }
+      element.m_UnitToRemove = unitToRemove.Reference ?? element.m_UnitToRemove;
       if (element.m_UnitToRemove is null)
       {
         element.m_UnitToRemove = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -1153,10 +935,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<SetWarCampLocation>();
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -1174,18 +953,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? substract = null)
     {
       var element = ElementTool.Create<AddMorale>();
-      if (bonus is not null)
-      {
-        element.Bonus = bonus;
-      }
-      if (change is not null)
-      {
-        element.Change = change;
-      }
-      if (substract is not null)
-      {
-        element.Substract = substract;
-      }
+      element.Bonus = bonus ?? element.Bonus;
+      element.Change = change ?? element.Change;
+      element.Substract = substract ?? element.Substract;
       return builder.Add(element);
     }
 
@@ -1208,10 +978,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>? deck = null)
     {
       var element = ElementTool.Create<KingdomActionActivateEventDeck>();
-      if (deck is not null)
-      {
-        element.m_Deck = deck.Reference;
-      }
+      element.m_Deck = deck.Reference ?? element.m_Deck;
       if (element.m_Deck is null)
       {
         element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(null);
@@ -1230,22 +997,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResource? resourceType = null)
     {
       var element = ElementTool.Create<KingdomActionAddBPRandom>();
-      if (bonus is not null)
-      {
-        element.Bonus = bonus;
-      }
-      if (change is not null)
-      {
-        element.Change = change;
-      }
-      if (includeInEventStats is not null)
-      {
-        element.IncludeInEventStats = includeInEventStats;
-      }
-      if (resourceType is not null)
-      {
-        element.ResourceType = resourceType;
-      }
+      element.Bonus = bonus ?? element.Bonus;
+      element.Change = change ?? element.Change;
+      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
+      element.ResourceType = resourceType ?? element.ResourceType;
       return builder.Add(element);
     }
 
@@ -1283,30 +1038,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomActionAddBuff>();
-      if (applyToRegion is not null)
-      {
-        element.ApplyToRegion = applyToRegion;
-      }
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.ApplyToRegion = applyToRegion ?? element.ApplyToRegion;
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
       }
-      if (copyToAdjacentRegions is not null)
-      {
-        element.CopyToAdjacentRegions = copyToAdjacentRegions;
-      }
-      if (overrideDuration is not null)
-      {
-        element.OverrideDuration = overrideDuration;
-      }
-      if (region is not null)
-      {
-        element.m_Region = region.Reference;
-      }
+      element.CopyToAdjacentRegions = copyToAdjacentRegions ?? element.CopyToAdjacentRegions;
+      element.OverrideDuration = overrideDuration ?? element.OverrideDuration;
+      element.m_Region = region.Reference ?? element.m_Region;
       if (element.m_Region is null)
       {
         element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
@@ -1347,26 +1087,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
     {
       var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
-      if (anywhere is not null)
-      {
-        element.Anywhere = anywhere;
-      }
-      if (building is not null)
-      {
-        element.m_Building = building.Reference;
-      }
+      element.Anywhere = anywhere ?? element.Anywhere;
+      element.m_Building = building.Reference ?? element.m_Building;
       if (element.m_Building is null)
       {
         element.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
       }
-      if (count is not null)
-      {
-        element.Count = count;
-      }
-      if (settlement is not null)
-      {
-        element.m_Settlement = settlement.Reference;
-      }
+      element.Count = count ?? element.Count;
+      element.m_Settlement = settlement.Reference ?? element.m_Settlement;
       if (element.m_Settlement is null)
       {
         element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
@@ -1382,10 +1110,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? freeRerollsToAdd = null)
     {
       var element = ElementTool.Create<KingdomActionAddMercenaryReroll>();
-      if (freeRerollsToAdd is not null)
-      {
-        element.m_FreeRerollsToAdd = freeRerollsToAdd;
-      }
+      element.m_FreeRerollsToAdd = freeRerollsToAdd ?? element.m_FreeRerollsToAdd;
       return builder.Add(element);
     }
 
@@ -1409,18 +1134,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? overrideDurationDays = null)
     {
       var element = ElementTool.Create<KingdomActionAddRandomBuff>();
-      if (buffs is not null)
-      {
-        element.m_Buffs = buffs.Select(bp => bp.Reference).ToList();
-      }
+      element.m_Buffs = buffs.Select(bp => bp.Reference).ToList() ?? element.m_Buffs;
       if (element.m_Buffs is null)
       {
         element.m_Buffs = new();
       }
-      if (overrideDurationDays is not null)
-      {
-        element.OverrideDurationDays = overrideDurationDays;
-      }
+      element.OverrideDurationDays = overrideDurationDays ?? element.OverrideDurationDays;
       return builder.Add(element);
     }
 
@@ -1455,18 +1174,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
     {
       var element = ElementTool.Create<KingdomActionArtisanRequestHelp>();
-      if (artisan is not null)
-      {
-        element.m_Artisan = artisan.Reference;
-      }
+      element.m_Artisan = artisan.Reference ?? element.m_Artisan;
       if (element.m_Artisan is null)
       {
         element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
       }
-      if (project is not null)
-      {
-        element.m_Project = project.Reference;
-      }
+      element.m_Project = project.Reference ?? element.m_Project;
       if (element.m_Project is null)
       {
         element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
@@ -1509,10 +1222,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomActionConquerRegion>();
-      if (region is not null)
-      {
-        element.m_Region = region.Reference;
-      }
+      element.m_Region = region.Reference ?? element.m_Region;
       if (element.m_Region is null)
       {
         element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
@@ -1575,18 +1285,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? specificSettlement = null)
     {
       var element = ElementTool.Create<KingdomActionFillSettlement>();
-      if (buildList is not null)
-      {
-        element.m_BuildList = buildList.Reference;
-      }
+      element.m_BuildList = buildList.Reference ?? element.m_BuildList;
       if (element.m_BuildList is null)
       {
         element.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(null);
       }
-      if (specificSettlement is not null)
-      {
-        element.m_SpecificSettlement = specificSettlement.Reference;
-      }
+      element.m_SpecificSettlement = specificSettlement.Reference ?? element.m_SpecificSettlement;
       if (element.m_SpecificSettlement is null)
       {
         element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
@@ -1625,18 +1329,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? specificSettlementLocation = null)
     {
       var element = ElementTool.Create<KingdomActionFillSettlementByLocation>();
-      if (buildList is not null)
-      {
-        element.m_BuildList = buildList.Reference;
-      }
+      element.m_BuildList = buildList.Reference ?? element.m_BuildList;
       if (element.m_BuildList is null)
       {
         element.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(null);
       }
-      if (specificSettlementLocation is not null)
-      {
-        element.m_SpecificSettlementLocation = specificSettlementLocation.Reference;
-      }
+      element.m_SpecificSettlementLocation = specificSettlementLocation.Reference ?? element.m_SpecificSettlementLocation;
       if (element.m_SpecificSettlementLocation is null)
       {
         element.m_SpecificSettlementLocation = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(null);
@@ -1691,18 +1389,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
     {
       var element = ElementTool.Create<KingdomActionFoundSettlement>();
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (settlement is not null)
-      {
-        element.m_Settlement = settlement.Reference;
-      }
+      element.m_Settlement = settlement.Reference ?? element.m_Settlement;
       if (element.m_Settlement is null)
       {
         element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
@@ -1720,19 +1412,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         IntEvaluator? value = null)
     {
       var element = ElementTool.Create<KingdomActionGainLeaderExperience>();
-      if (multiplierCoefficient is not null)
-      {
-        element.m_MultiplierCoefficient = multiplierCoefficient;
-      }
-      if (multiplyByLeaderLevel is not null)
-      {
-        element.m_MultiplyByLeaderLevel = multiplyByLeaderLevel;
-      }
-      if (value is not null)
-      {
-        builder.Validate(value);
-        element.m_Value = value;
-      }
+      element.m_MultiplierCoefficient = multiplierCoefficient ?? element.m_MultiplierCoefficient;
+      element.m_MultiplyByLeaderLevel = multiplyByLeaderLevel ?? element.m_MultiplyByLeaderLevel;
+      builder.Validate(value);
+      element.m_Value = value ?? element.m_Value;
       return builder.Add(element);
     }
 
@@ -1745,14 +1428,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResource? resourceType = null)
     {
       var element = ElementTool.Create<KingdomIncreaseIncome>();
-      if (bonus is not null)
-      {
-        element.Bonus = bonus;
-      }
-      if (resourceType is not null)
-      {
-        element.ResourceType = resourceType;
-      }
+      element.Bonus = bonus ?? element.Bonus;
+      element.ResourceType = resourceType ?? element.ResourceType;
       return builder.Add(element);
     }
 
@@ -1775,10 +1452,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null)
     {
       var element = ElementTool.Create<KingdomActionGetArtisanGift>();
-      if (artisan is not null)
-      {
-        element.m_Artisan = artisan.Reference;
-      }
+      element.m_Artisan = artisan.Reference ?? element.m_Artisan;
       if (element.m_Artisan is null)
       {
         element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
@@ -1806,18 +1480,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? tier = null)
     {
       var element = ElementTool.Create<KingdomActionGetArtisanGiftWithCertainTier>();
-      if (artisan is not null)
-      {
-        element.m_Artisan = artisan.Reference;
-      }
+      element.m_Artisan = artisan.Reference ?? element.m_Artisan;
       if (element.m_Artisan is null)
       {
         element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
       }
-      if (tier is not null)
-      {
-        element.tier = tier;
-      }
+      element.tier = tier ?? element.tier;
       return builder.Add(element);
     }
 
@@ -1830,14 +1498,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? goldPerUnit = null)
     {
       var element = ElementTool.Create<KingdomActionGetPartyGoldByUnitsCount>();
-      if (coefficient is not null)
-      {
-        element.m_Coefficient = coefficient;
-      }
-      if (goldPerUnit is not null)
-      {
-        element.m_GoldPerUnit = goldPerUnit;
-      }
+      element.m_Coefficient = coefficient ?? element.m_Coefficient;
+      element.m_GoldPerUnit = goldPerUnit ?? element.m_GoldPerUnit;
       return builder.Add(element);
     }
 
@@ -1850,14 +1512,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount? resourcePerUnit = null)
     {
       var element = ElementTool.Create<KingdomActionGetResourcesByUnitsCount>();
-      if (coefficient is not null)
-      {
-        element.m_Coefficient = coefficient;
-      }
-      if (resourcePerUnit is not null)
-      {
-        element.m_ResourcePerUnit = resourcePerUnit;
-      }
+      element.m_Coefficient = coefficient ?? element.m_Coefficient;
+      element.m_ResourcePerUnit = resourcePerUnit ?? element.m_ResourcePerUnit;
       return builder.Add(element);
     }
 
@@ -1871,18 +1527,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResource? resourceType = null)
     {
       var element = ElementTool.Create<KingdomActionGetResourcesPercent>();
-      if (maxResourceCountGained is not null)
-      {
-        element.m_MaxResourceCountGained = maxResourceCountGained;
-      }
-      if (percent is not null)
-      {
-        element.m_Percent = percent;
-      }
-      if (resourceType is not null)
-      {
-        element.m_ResourceType = resourceType;
-      }
+      element.m_MaxResourceCountGained = maxResourceCountGained ?? element.m_MaxResourceCountGained;
+      element.m_Percent = percent ?? element.m_Percent;
+      element.m_ResourceType = resourceType ?? element.m_ResourceType;
       return builder.Add(element);
     }
 
@@ -1894,11 +1541,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         LootEntry[]? loot = null)
     {
       var element = ElementTool.Create<KingdomActionGiveLoot>();
-      if (loot is not null)
-      {
-        foreach (var item in loot) { builder.Validate(item); }
-        element.Loot = loot;
-      }
+      foreach (var item in loot) { builder.Validate(item); }
+      element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {
         element.Loot = new LootEntry[0];
@@ -1926,18 +1570,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SettlementState.LevelType? toLevel = null)
     {
       var element = ElementTool.Create<KingdomActionImproveSettlement>();
-      if (specificSettlement is not null)
-      {
-        element.m_SpecificSettlement = specificSettlement.Reference;
-      }
+      element.m_SpecificSettlement = specificSettlement.Reference ?? element.m_SpecificSettlement;
       if (element.m_SpecificSettlement is null)
       {
         element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
       }
-      if (toLevel is not null)
-      {
-        element.ToLevel = toLevel;
-      }
+      element.ToLevel = toLevel ?? element.ToLevel;
       return builder.Add(element);
     }
 
@@ -1949,10 +1587,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomStats.Type? statType = null)
     {
       var element = ElementTool.Create<KingdomActionImproveStat>();
-      if (statType is not null)
-      {
-        element.StatType = statType;
-      }
+      element.StatType = statType ?? element.StatType;
       return builder.Add(element);
     }
 
@@ -1967,30 +1602,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomStats.Type? stat = null)
     {
       var element = ElementTool.Create<KingdomActionMakeRoll>();
-      if (dC is not null)
-      {
-        element.DC = dC;
-      }
-      if (onFailure is not null)
-      {
-        element.OnFailure = onFailure.Build();
-      }
+      element.DC = dC ?? element.DC;
+      element.OnFailure = onFailure.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
         element.OnFailure = Constants.Empty.Actions;
       }
-      if (onSuccess is not null)
-      {
-        element.OnSuccess = onSuccess.Build();
-      }
+      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
         element.OnSuccess = Constants.Empty.Actions;
       }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
+      element.Stat = stat ?? element.Stat;
       return builder.Add(element);
     }
 
@@ -2002,10 +1625,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? changeTime = null)
     {
       var element = ElementTool.Create<KingdomActionModifyBuildTime>();
-      if (changeTime is not null)
-      {
-        element.ChangeTime = changeTime;
-      }
+      element.ChangeTime = changeTime ?? element.ChangeTime;
       return builder.Add(element);
     }
 
@@ -2018,14 +1638,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? changeTime = null)
     {
       var element = ElementTool.Create<KingdomActionModifyClaims>();
-      if (changeCost is not null)
-      {
-        element.ChangeCost = changeCost;
-      }
-      if (changeTime is not null)
-      {
-        element.ChangeTime = changeTime;
-      }
+      element.ChangeCost = changeCost ?? element.ChangeCost;
+      element.ChangeTime = changeTime ?? element.ChangeTime;
       return builder.Add(element);
     }
 
@@ -2037,10 +1651,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? modifier = null)
     {
       var element = ElementTool.Create<KingdomActionModifyEventDC>();
-      if (modifier is not null)
-      {
-        element.Modifier = modifier;
-      }
+      element.Modifier = modifier ?? element.Modifier;
       return builder.Add(element);
     }
 
@@ -2054,18 +1665,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? upgradedChange = null)
     {
       var element = ElementTool.Create<KingdomActionModifyRE>();
-      if (claimedChange is not null)
-      {
-        element.ClaimedChange = claimedChange;
-      }
-      if (unclaimedChange is not null)
-      {
-        element.UnclaimedChange = unclaimedChange;
-      }
-      if (upgradedChange is not null)
-      {
-        element.UpgradedChange = upgradedChange;
-      }
+      element.ClaimedChange = claimedChange ?? element.ClaimedChange;
+      element.UnclaimedChange = unclaimedChange ?? element.UnclaimedChange;
+      element.UpgradedChange = upgradedChange ?? element.UpgradedChange;
       return builder.Add(element);
     }
 
@@ -2077,10 +1679,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? changeTime = null)
     {
       var element = ElementTool.Create<KingdomActionModifyRankTime>();
-      if (changeTime is not null)
-      {
-        element.ChangeTime = changeTime;
-      }
+      element.ChangeTime = changeTime ?? element.ChangeTime;
       return builder.Add(element);
     }
 
@@ -2093,14 +1692,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? includeInEventStats = null)
     {
       var element = ElementTool.Create<KingdomActionModifyStatRandom>();
-      if (change is not null)
-      {
-        element.Change = change;
-      }
-      if (includeInEventStats is not null)
-      {
-        element.IncludeInEventStats = includeInEventStats;
-      }
+      element.Change = change ?? element.Change;
+      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
       return builder.Add(element);
     }
 
@@ -2113,15 +1706,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? includeInEventStats = null)
     {
       var element = ElementTool.Create<KingdomActionModifyStats>();
-      if (changes is not null)
-      {
-        builder.Validate(changes);
-        element.Changes = changes;
-      }
-      if (includeInEventStats is not null)
-      {
-        element.IncludeInEventStats = includeInEventStats;
-      }
+      builder.Validate(changes);
+      element.Changes = changes ?? element.Changes;
+      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
       return builder.Add(element);
     }
 
@@ -2137,27 +1724,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomStatusType? upTo = null)
     {
       var element = ElementTool.Create<KingdomActionModifyUnrest>();
-      if (bounded is not null)
-      {
-        element.Bounded = bounded;
-      }
-      if (makeBetter is not null)
-      {
-        element.MakeBetter = makeBetter;
-      }
-      if (reason is not null)
-      {
-        element.Reason = reason;
-      }
-      if (reasonString is not null)
-      {
-        builder.Validate(reasonString);
-        element.ReasonString = reasonString;
-      }
-      if (upTo is not null)
-      {
-        element.UpTo = upTo;
-      }
+      element.Bounded = bounded ?? element.Bounded;
+      element.MakeBetter = makeBetter ?? element.MakeBetter;
+      element.Reason = reason ?? element.Reason;
+      builder.Validate(reasonString);
+      element.ReasonString = reasonString ?? element.ReasonString;
+      element.UpTo = upTo ?? element.UpTo;
       return builder.Add(element);
     }
 
@@ -2169,10 +1741,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? chapterNumber = null)
     {
       var element = ElementTool.Create<KingdomActionNextChapter>();
-      if (chapterNumber is not null)
-      {
-        element.ChapterNumber = chapterNumber;
-      }
+      element.ChapterNumber = chapterNumber ?? element.ChapterNumber;
       return builder.Add(element);
     }
 
@@ -2225,26 +1794,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveBuff>();
-      if (allBuffs is not null)
-      {
-        element.m_AllBuffs = allBuffs;
-      }
-      if (applyToRegion is not null)
-      {
-        element.ApplyToRegion = applyToRegion;
-      }
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.m_AllBuffs = allBuffs ?? element.m_AllBuffs;
+      element.ApplyToRegion = applyToRegion ?? element.ApplyToRegion;
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
       }
-      if (region is not null)
-      {
-        element.m_Region = region.Reference;
-      }
+      element.m_Region = region.Reference ?? element.m_Region;
       if (element.m_Region is null)
       {
         element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
@@ -2273,18 +1830,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>? eventBlueprint = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveEvent>();
-      if (allIfMultiple is not null)
-      {
-        element.AllIfMultiple = allIfMultiple;
-      }
-      if (cancelIfInProgress is not null)
-      {
-        element.CancelIfInProgress = cancelIfInProgress;
-      }
-      if (eventBlueprint is not null)
-      {
-        element.m_EventBlueprint = eventBlueprint.Reference;
-      }
+      element.AllIfMultiple = allIfMultiple ?? element.AllIfMultiple;
+      element.CancelIfInProgress = cancelIfInProgress ?? element.CancelIfInProgress;
+      element.m_EventBlueprint = eventBlueprint.Reference ?? element.m_EventBlueprint;
       if (element.m_EventBlueprint is null)
       {
         element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(null);
@@ -2311,10 +1859,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>? deck = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveEventDeck>();
-      if (deck is not null)
-      {
-        element.m_Deck = deck.Reference;
-      }
+      element.m_Deck = deck.Reference ?? element.m_Deck;
       if (element.m_Deck is null)
       {
         element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(null);
@@ -2353,18 +1898,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<ArtisanItemDeck, ArtisanItemDeckReference>? itemType = null)
     {
       var element = ElementTool.Create<KingdomActionRequestArtisanGift>();
-      if (artisan is not null)
-      {
-        element.m_Artisan = artisan.Reference;
-      }
+      element.m_Artisan = artisan.Reference ?? element.m_Artisan;
       if (element.m_Artisan is null)
       {
         element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
       }
-      if (itemType is not null)
-      {
-        element.m_ItemType = itemType.Reference;
-      }
+      element.m_ItemType = itemType.Reference ?? element.m_ItemType;
       if (element.m_ItemType is null)
       {
         element.m_ItemType = BlueprintTool.GetRef<ArtisanItemDeckReference>(null);
@@ -2400,18 +1939,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? solutionIndex = null)
     {
       var element = ElementTool.Create<KingdomActionResolveCrusadeEvent>();
-      if (eventBlueprint is not null)
-      {
-        element.m_EventBlueprint = eventBlueprint.Reference;
-      }
+      element.m_EventBlueprint = eventBlueprint.Reference ?? element.m_EventBlueprint;
       if (element.m_EventBlueprint is null)
       {
         element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintCrusadeEvent.Reference>(null);
       }
-      if (solutionIndex is not null)
-      {
-        element.m_SolutionIndex = solutionIndex;
-      }
+      element.m_SolutionIndex = solutionIndex ?? element.m_SolutionIndex;
       return builder.Add(element);
     }
 
@@ -2437,26 +1970,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         EventResult.MarginType? result = null)
     {
       var element = ElementTool.Create<KingdomActionResolveEvent>();
-      if (alignment is not null)
-      {
-        element.Alignment = alignment;
-      }
-      if (eventBlueprint is not null)
-      {
-        element.m_EventBlueprint = eventBlueprint.Reference;
-      }
+      element.Alignment = alignment ?? element.Alignment;
+      element.m_EventBlueprint = eventBlueprint.Reference ?? element.m_EventBlueprint;
       if (element.m_EventBlueprint is null)
       {
         element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomEventReference>(null);
       }
-      if (finalResolve is not null)
-      {
-        element.FinalResolve = finalResolve;
-      }
-      if (result is not null)
-      {
-        element.Result = result;
-      }
+      element.FinalResolve = finalResolve ?? element.FinalResolve;
+      element.Result = result ?? element.Result;
       return builder.Add(element);
     }
 
@@ -2479,10 +2000,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? eventBlueprint = null)
     {
       var element = ElementTool.Create<KingdomActionResolveProject>();
-      if (eventBlueprint is not null)
-      {
-        element.m_EventBlueprint = eventBlueprint.Reference;
-      }
+      element.m_EventBlueprint = eventBlueprint.Reference ?? element.m_EventBlueprint;
       if (element.m_EventBlueprint is null)
       {
         element.m_EventBlueprint = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
@@ -2512,34 +2030,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomActionRollbackRecurrence.RollbackType? type = null)
     {
       var element = ElementTool.Create<KingdomActionRollbackRecurrence>();
-      if (includeResources is not null)
-      {
-        element.m_IncludeResources = includeResources;
-      }
-      if (includeResourcesPerTurn is not null)
-      {
-        element.m_IncludeResourcesPerTurn = includeResourcesPerTurn;
-      }
-      if (includeStats is not null)
-      {
-        element.m_IncludeStats = includeStats;
-      }
-      if (lastNDays is not null)
-      {
-        element.m_LastNDays = lastNDays;
-      }
-      if (lastNTimes is not null)
-      {
-        element.m_LastNTimes = lastNTimes;
-      }
-      if (resourcesRatio is not null)
-      {
-        element.m_ResourcesRatio = resourcesRatio;
-      }
-      if (type is not null)
-      {
-        element.m_Type = type;
-      }
+      element.m_IncludeResources = includeResources ?? element.m_IncludeResources;
+      element.m_IncludeResourcesPerTurn = includeResourcesPerTurn ?? element.m_IncludeResourcesPerTurn;
+      element.m_IncludeStats = includeStats ?? element.m_IncludeStats;
+      element.m_LastNDays = lastNDays ?? element.m_LastNDays;
+      element.m_LastNTimes = lastNTimes ?? element.m_LastNTimes;
+      element.m_ResourcesRatio = resourcesRatio ?? element.m_ResourcesRatio;
+      element.m_Type = type ?? element.m_Type;
       return builder.Add(element);
     }
 
@@ -2569,18 +2066,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount? incomePerUpgraded = null)
     {
       var element = ElementTool.Create<KingdomActionSetRegionalIncome>();
-      if (add is not null)
-      {
-        element.Add = add;
-      }
-      if (incomePerClaimed is not null)
-      {
-        element.IncomePerClaimed = incomePerClaimed;
-      }
-      if (incomePerUpgraded is not null)
-      {
-        element.IncomePerUpgraded = incomePerUpgraded;
-      }
+      element.Add = add ?? element.Add;
+      element.IncomePerClaimed = incomePerClaimed ?? element.IncomePerClaimed;
+      element.IncomePerUpgraded = incomePerUpgraded ?? element.IncomePerUpgraded;
       return builder.Add(element);
     }
 
@@ -2624,22 +2112,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>>? locations = null)
     {
       var element = ElementTool.Create<KingdomActionSpawnRandomArmy>();
-      if (armies is not null)
-      {
-        element.m_Armies = armies.Select(bp => bp.Reference).ToList();
-      }
+      element.m_Armies = armies.Select(bp => bp.Reference).ToList() ?? element.m_Armies;
       if (element.m_Armies is null)
       {
         element.m_Armies = new();
       }
-      if (faction is not null)
-      {
-        element.m_Faction = faction;
-      }
-      if (locations is not null)
-      {
-        element.m_Locations = locations.Select(bp => bp.Reference).ToList();
-      }
+      element.m_Faction = faction ?? element.m_Faction;
+      element.m_Locations = locations.Select(bp => bp.Reference).ToList() ?? element.m_Locations;
       if (element.m_Locations is null)
       {
         element.m_Locations = new();
@@ -2683,42 +2162,21 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? startNextMonth = null)
     {
       var element = ElementTool.Create<KingdomActionStartEvent>();
-      if (checkTriggerImmediately is not null)
-      {
-        element.CheckTriggerImmediately = checkTriggerImmediately;
-      }
-      if (checkTriggerOnStart is not null)
-      {
-        element.CheckTriggerOnStart = checkTriggerOnStart;
-      }
-      if (delayDays is not null)
-      {
-        element.DelayDays = delayDays;
-      }
-      if (eventValue is not null)
-      {
-        element.m_Event = eventValue.Reference;
-      }
+      element.CheckTriggerImmediately = checkTriggerImmediately ?? element.CheckTriggerImmediately;
+      element.CheckTriggerOnStart = checkTriggerOnStart ?? element.CheckTriggerOnStart;
+      element.DelayDays = delayDays ?? element.DelayDays;
+      element.m_Event = eventValue.Reference ?? element.m_Event;
       if (element.m_Event is null)
       {
         element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(null);
       }
-      if (randomRegion is not null)
-      {
-        element.RandomRegion = randomRegion;
-      }
-      if (region is not null)
-      {
-        element.m_Region = region.Reference;
-      }
+      element.RandomRegion = randomRegion ?? element.RandomRegion;
+      element.m_Region = region.Reference ?? element.m_Region;
       if (element.m_Region is null)
       {
         element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
       }
-      if (startNextMonth is not null)
-      {
-        element.StartNextMonth = startNextMonth;
-      }
+      element.StartNextMonth = startNextMonth ?? element.StartNextMonth;
       return builder.Add(element);
     }
 
@@ -2741,10 +2199,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null)
     {
       var element = ElementTool.Create<KingdomActionUnlockArtisan>();
-      if (artisan is not null)
-      {
-        element.m_Artisan = artisan.Reference;
-      }
+      element.m_Artisan = artisan.Reference ?? element.m_Artisan;
       if (element.m_Artisan is null)
       {
         element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
@@ -2760,10 +2215,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? bonus = null)
     {
       var element = ElementTool.Create<AddGrowthBonus>();
-      if (bonus is not null)
-      {
-        element.Bonus = bonus;
-      }
+      element.Bonus = bonus ?? element.Bonus;
       return builder.Add(element);
     }
 
@@ -2787,18 +2239,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? weight = null)
     {
       var element = ElementTool.Create<AddMercenaryToPool>();
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (weight is not null)
-      {
-        element.m_Weight = weight;
-      }
+      element.m_Weight = weight ?? element.m_Weight;
       return builder.Add(element);
     }
 
@@ -2838,42 +2284,21 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         MercenariesIncludeOption? mercenariesFilter = null)
     {
       var element = ElementTool.Create<AddTacticalArmyFeature>();
-      if (armyTag is not null)
-      {
-        element.m_ArmyTag = armyTag;
-      }
-      if (armyUnits is not null)
-      {
-        element.m_ArmyUnits = armyUnits.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_ArmyTag = armyTag ?? element.m_ArmyTag;
+      element.m_ArmyUnits = armyUnits.Select(bp => bp.Reference).ToArray() ?? element.m_ArmyUnits;
       if (element.m_ArmyUnits is null)
       {
         element.m_ArmyUnits = new BlueprintUnitReference[0];
       }
-      if (byTag is not null)
-      {
-        element.m_ByTag = byTag;
-      }
-      if (byUnits is not null)
-      {
-        element.m_ByUnits = byUnits;
-      }
-      if (faction is not null)
-      {
-        element.m_Faction = faction;
-      }
-      if (features is not null)
-      {
-        element.m_Features = features.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_ByTag = byTag ?? element.m_ByTag;
+      element.m_ByUnits = byUnits ?? element.m_ByUnits;
+      element.m_Faction = faction ?? element.m_Faction;
+      element.m_Features = features.Select(bp => bp.Reference).ToArray() ?? element.m_Features;
       if (element.m_Features is null)
       {
         element.m_Features = new BlueprintFeatureReference[0];
       }
-      if (mercenariesFilter is not null)
-      {
-        element.m_MercenariesFilter = mercenariesFilter;
-      }
+      element.m_MercenariesFilter = mercenariesFilter ?? element.m_MercenariesFilter;
       return builder.Add(element);
     }
 
@@ -2897,18 +2322,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         float? weight = null)
     {
       var element = ElementTool.Create<ChangeMercenaryWeight>();
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (weight is not null)
-      {
-        element.m_Weight = weight;
-      }
+      element.m_Weight = weight ?? element.m_Weight;
       return builder.Add(element);
     }
 
@@ -2932,14 +2351,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<DecreaseRecruitsGrowth>();
-      if (count is not null)
-      {
-        element.Count = count;
-      }
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.Count = count ?? element.Count;
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -2967,14 +2380,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<DecreaseRecruitsPool>();
-      if (count is not null)
-      {
-        element.Count = count;
-      }
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.Count = count ?? element.Count;
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3016,30 +2423,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? oldUnit = null)
     {
       var element = ElementTool.Create<ExchangeRecruits>();
-      if (convertCoefficient is not null)
-      {
-        element.ConvertCoefficient = convertCoefficient;
-      }
-      if (newGrowth is not null)
-      {
-        element.NewGrowth = newGrowth;
-      }
-      if (newUnit is not null)
-      {
-        element.m_NewUnit = newUnit.Reference;
-      }
+      element.ConvertCoefficient = convertCoefficient ?? element.ConvertCoefficient;
+      element.NewGrowth = newGrowth ?? element.NewGrowth;
+      element.m_NewUnit = newUnit.Reference ?? element.m_NewUnit;
       if (element.m_NewUnit is null)
       {
         element.m_NewUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (oldGrowth is not null)
-      {
-        element.OldGrowth = oldGrowth;
-      }
-      if (oldUnit is not null)
-      {
-        element.m_OldUnit = oldUnit.Reference;
-      }
+      element.OldGrowth = oldGrowth ?? element.OldGrowth;
+      element.m_OldUnit = oldUnit.Reference ?? element.m_OldUnit;
       if (element.m_OldUnit is null)
       {
         element.m_OldUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3067,14 +2459,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<IncreaseRecruitsGrowth>();
-      if (count is not null)
-      {
-        element.Count = count;
-      }
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.Count = count ?? element.Count;
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3102,14 +2488,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<IncreaseRecruitsPool>();
-      if (count is not null)
-      {
-        element.Count = count;
-      }
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.Count = count ?? element.Count;
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3136,10 +2516,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<RemoveMercenaryFromPool>();
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3178,18 +2555,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>? oldBuilding = null)
     {
       var element = ElementTool.Create<ReplaceBuildings>();
-      if (newBuilding is not null)
-      {
-        element.m_NewBuilding = newBuilding.Reference;
-      }
+      element.m_NewBuilding = newBuilding.Reference ?? element.m_NewBuilding;
       if (element.m_NewBuilding is null)
       {
         element.m_NewBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
       }
-      if (oldBuilding is not null)
-      {
-        element.m_OldBuilding = oldBuilding.Reference;
-      }
+      element.m_OldBuilding = oldBuilding.Reference ?? element.m_OldBuilding;
       if (element.m_OldBuilding is null)
       {
         element.m_OldBuilding = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
@@ -3216,10 +2587,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? point = null)
     {
       var element = ElementTool.Create<SetRecruitPoint>();
-      if (point is not null)
-      {
-        element.m_Point = point.Reference;
-      }
+      element.m_Point = point.Reference ?? element.m_Point;
       if (element.m_Point is null)
       {
         element.m_Point = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -3246,10 +2614,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<UnlockUnitsGrowth>();
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -3265,10 +2630,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount? _resourcesAmount = null)
     {
       var element = ElementTool.Create<AddCrusadeResources>();
-      if (_resourcesAmount is not null)
-      {
-        element._resourcesAmount = _resourcesAmount;
-      }
+      element._resourcesAmount = _resourcesAmount ?? element._resourcesAmount;
       return builder.Add(element);
     }
 
@@ -3280,10 +2642,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         KingdomResourcesAmount? resourcesAmount = null)
     {
       var element = ElementTool.Create<RemoveCrusadeResources>();
-      if (resourcesAmount is not null)
-      {
-        element.m_ResourcesAmount = resourcesAmount;
-      }
+      element.m_ResourcesAmount = resourcesAmount ?? element.m_ResourcesAmount;
       return builder.Add(element);
     }
 
@@ -3295,10 +2654,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? maxValueDelta = null)
     {
       var element = ElementTool.Create<ChangeKingdomMoraleMaximum>();
-      if (maxValueDelta is not null)
-      {
-        element.m_MaxValueDelta = maxValueDelta;
-      }
+      element.m_MaxValueDelta = maxValueDelta ?? element.m_MaxValueDelta;
       return builder.Add(element);
     }
 
@@ -3321,10 +2677,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? newFlags = null)
     {
       var element = ElementTool.Create<KingdomAddMoraleFlags>();
-      if (newFlags is not null)
-      {
-        element.m_NewFlags = newFlags.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_NewFlags = newFlags.Select(bp => bp.Reference).ToArray() ?? element.m_NewFlags;
       if (element.m_NewFlags is null)
       {
         element.m_NewFlags = new BlueprintKingdomMoraleFlag.Reference[0];
@@ -3352,14 +2705,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomFlagIncrement>();
-      if (increment is not null)
-      {
-        element.m_Increment = increment;
-      }
-      if (targetFlag is not null)
-      {
-        element.m_TargetFlag = targetFlag.Reference;
-      }
+      element.m_Increment = increment ?? element.m_Increment;
+      element.m_TargetFlag = targetFlag.Reference ?? element.m_TargetFlag;
       if (element.m_TargetFlag is null)
       {
         element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(null);
@@ -3386,10 +2733,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomMoraleFlagUpdateIncome>();
-      if (targetFlag is not null)
-      {
-        element.m_TargetFlag = targetFlag.Reference;
-      }
+      element.m_TargetFlag = targetFlag.Reference ?? element.m_TargetFlag;
       if (element.m_TargetFlag is null)
       {
         element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(null);
@@ -3416,10 +2760,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? flagsToRemove = null)
     {
       var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
-      if (flagsToRemove is not null)
-      {
-        element.m_FlagsToRemove = flagsToRemove.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_FlagsToRemove = flagsToRemove.Select(bp => bp.Reference).ToArray() ?? element.m_FlagsToRemove;
       if (element.m_FlagsToRemove is null)
       {
         element.m_FlagsToRemove = new BlueprintKingdomMoraleFlag.Reference[0];
@@ -3448,18 +2789,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomSetFlagState>();
-      if (maxDays is not null)
-      {
-        element.m_MaxDays = maxDays;
-      }
-      if (state is not null)
-      {
-        element.m_State = state;
-      }
-      if (targetFlag is not null)
-      {
-        element.m_TargetFlag = targetFlag.Reference;
-      }
+      element.m_MaxDays = maxDays ?? element.m_MaxDays;
+      element.m_State = state ?? element.m_State;
+      element.m_TargetFlag = targetFlag.Reference ?? element.m_TargetFlag;
       if (element.m_TargetFlag is null)
       {
         element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(null);
@@ -3475,10 +2807,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? value = null)
     {
       var element = ElementTool.Create<ReduceNegativeMorale>();
-      if (value is not null)
-      {
-        element.m_Value = value;
-      }
+      element.m_Value = value ?? element.m_Value;
       return builder.Add(element);
     }
 
@@ -3490,10 +2819,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ChangeTacticalMorale>();
-      if (value is not null)
-      {
-        element.m_Value = value;
-      }
+      element.m_Value = value ?? element.m_Value;
       if (element.m_Value is null)
       {
         element.m_Value = ContextValues.Constant(0);
@@ -3511,22 +2837,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? useFloatValue = null)
     {
       var element = ElementTool.Create<ContextActionSquadUnitsKill>();
-      if (count is not null)
-      {
-        element.m_Count = count;
-      }
+      element.m_Count = count ?? element.m_Count;
       if (element.m_Count is null)
       {
         element.m_Count = Constants.Empty.DiceValue;
       }
-      if (floatCount is not null)
-      {
-        element.m_FloatCount = floatCount;
-      }
-      if (useFloatValue is not null)
-      {
-        element.m_UseFloatValue = useFloatValue;
-      }
+      element.m_FloatCount = floatCount ?? element.m_FloatCount;
+      element.m_UseFloatValue = useFloatValue ?? element.m_UseFloatValue;
       return builder.Add(element);
     }
 
@@ -3563,34 +2880,22 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<ContextActionSummonTacticalSquad>();
-      if (afterSpawn is not null)
-      {
-        element.m_AfterSpawn = afterSpawn.Build();
-      }
+      element.m_AfterSpawn = afterSpawn.Build() ?? element.m_AfterSpawn;
       if (element.m_AfterSpawn is null)
       {
         element.m_AfterSpawn = Constants.Empty.Actions;
       }
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (count is not null)
-      {
-        element.m_Count = count;
-      }
+      element.m_Count = count ?? element.m_Count;
       if (element.m_Count is null)
       {
         element.m_Count = ContextValues.Constant(0);
       }
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -3612,39 +2917,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? useMinHPAfterDamage = null)
     {
       var element = ElementTool.Create<ContextActionTacticalCombatDealDamage>();
-      if (damageType is not null)
-      {
-        builder.Validate(damageType);
-        element.DamageType = damageType;
-      }
-      if (diceType is not null)
-      {
-        element.DiceType = diceType;
-      }
-      if (half is not null)
-      {
-        element.Half = half;
-      }
-      if (ignoreCritical is not null)
-      {
-        element.IgnoreCritical = ignoreCritical;
-      }
-      if (minHPAfterDamage is not null)
-      {
-        element.MinHPAfterDamage = minHPAfterDamage;
-      }
-      if (rollsCount is not null)
-      {
-        element.RollsCount = rollsCount;
-      }
+      builder.Validate(damageType);
+      element.DamageType = damageType ?? element.DamageType;
+      element.DiceType = diceType ?? element.DiceType;
+      element.Half = half ?? element.Half;
+      element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
+      element.MinHPAfterDamage = minHPAfterDamage ?? element.MinHPAfterDamage;
+      element.RollsCount = rollsCount ?? element.RollsCount;
       if (element.RollsCount is null)
       {
         element.RollsCount = ContextValues.Constant(0);
       }
-      if (useMinHPAfterDamage is not null)
-      {
-        element.UseMinHPAfterDamage = useMinHPAfterDamage;
-      }
+      element.UseMinHPAfterDamage = useMinHPAfterDamage ?? element.UseMinHPAfterDamage;
       return builder.Add(element);
     }
 
@@ -3657,14 +2941,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         ContextValue? rollsCount = null)
     {
       var element = ElementTool.Create<ContextActionTacticalCombatHealTarget>();
-      if (diceType is not null)
-      {
-        element.DiceType = diceType;
-      }
-      if (rollsCount is not null)
-      {
-        element.RollsCount = rollsCount;
-      }
+      element.DiceType = diceType ?? element.DiceType;
+      element.RollsCount = rollsCount ?? element.RollsCount;
       if (element.RollsCount is null)
       {
         element.RollsCount = ContextValues.Constant(0);

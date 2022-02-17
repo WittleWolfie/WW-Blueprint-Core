@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
@@ -13,7 +15,6 @@ using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.UpgraderEx
 {
   /// <summary>
@@ -55,26 +56,17 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         AddFactIfEtudePlaying.TargetType? target = null)
     {
       var element = ElementTool.Create<AddFactIfEtudePlaying>();
-      if (etude is not null)
-      {
-        element.m_Etude = etude.Reference;
-      }
+      element.m_Etude = etude.Reference ?? element.m_Etude;
       if (element.m_Etude is null)
       {
         element.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
       }
-      if (fact is not null)
-      {
-        element.m_Fact = fact.Reference;
-      }
+      element.m_Fact = fact.Reference ?? element.m_Fact;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      if (target is not null)
-      {
-        element.m_Target = target;
-      }
+      element.m_Target = target ?? element.m_Target;
       return builder.Add(element);
     }
 
@@ -90,26 +82,11 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         float? unitExpDiplomacyCoefficient = null)
     {
       var element = ElementTool.Create<FixKingdomSystemBuffsAndStats>();
-      if (diplomacyBonusCoefficient is not null)
-      {
-        element.m_DiplomacyBonusCoefficient = diplomacyBonusCoefficient;
-      }
-      if (statPerFavors is not null)
-      {
-        element.m_StatPerFavors = statPerFavors;
-      }
-      if (statPerFinances is not null)
-      {
-        element.m_StatPerFinances = statPerFinances;
-      }
-      if (statPerMaterials is not null)
-      {
-        element.m_StatPerMaterials = statPerMaterials;
-      }
-      if (unitExpDiplomacyCoefficient is not null)
-      {
-        element.m_UnitExpDiplomacyCoefficient = unitExpDiplomacyCoefficient;
-      }
+      element.m_DiplomacyBonusCoefficient = diplomacyBonusCoefficient ?? element.m_DiplomacyBonusCoefficient;
+      element.m_StatPerFavors = statPerFavors ?? element.m_StatPerFavors;
+      element.m_StatPerFinances = statPerFinances ?? element.m_StatPerFinances;
+      element.m_StatPerMaterials = statPerMaterials ?? element.m_StatPerMaterials;
+      element.m_UnitExpDiplomacyCoefficient = unitExpDiplomacyCoefficient ?? element.m_UnitExpDiplomacyCoefficient;
       return builder.Add(element);
     }
 
@@ -121,11 +98,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         EntityReference? scriptZone = null)
     {
       var element = ElementTool.Create<ReenterScriptzone>();
-      if (scriptZone is not null)
-      {
-        builder.Validate(scriptZone);
-        element.m_ScriptZone = scriptZone;
-      }
+      builder.Validate(scriptZone);
+      element.m_ScriptZone = scriptZone ?? element.m_ScriptZone;
       return builder.Add(element);
     }
 
@@ -172,26 +146,17 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null)
     {
       var element = ElementTool.Create<RemoveFact>();
-      if (additionalExceptHasFacts is not null)
-      {
-        element.m_AdditionalExceptHasFacts = additionalExceptHasFacts.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_AdditionalExceptHasFacts = additionalExceptHasFacts.Select(bp => bp.Reference).ToArray() ?? element.m_AdditionalExceptHasFacts;
       if (element.m_AdditionalExceptHasFacts is null)
       {
         element.m_AdditionalExceptHasFacts = new BlueprintUnitFactReference[0];
       }
-      if (exceptHasFact is not null)
-      {
-        element.m_ExceptHasFact = exceptHasFact.Reference;
-      }
+      element.m_ExceptHasFact = exceptHasFact.Reference ?? element.m_ExceptHasFact;
       if (element.m_ExceptHasFact is null)
       {
         element.m_ExceptHasFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      if (fact is not null)
-      {
-        element.m_Fact = fact.Reference;
-      }
+      element.m_Fact = fact.Reference ?? element.m_Fact;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
@@ -246,18 +211,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>? spellbook = null)
     {
       var element = ElementTool.Create<RemoveSpell>();
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
-      if (spellbook is not null)
-      {
-        element.m_Spellbook = spellbook.Reference;
-      }
+      element.m_Spellbook = spellbook.Reference ?? element.m_Spellbook;
       if (element.m_Spellbook is null)
       {
         element.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
@@ -292,10 +251,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null)
     {
       var element = ElementTool.Create<RestoreClassFeature>();
-      if (feature is not null)
-      {
-        element.m_Feature = feature.Reference;
-      }
+      element.m_Feature = feature.Reference ?? element.m_Feature;
       if (element.m_Feature is null)
       {
         element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -335,26 +291,17 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         bool? tryEquip = null)
     {
       var element = ElementTool.Create<FixItemInInventory>();
-      if (toAdd is not null)
-      {
-        element.m_ToAdd = toAdd.Reference;
-      }
+      element.m_ToAdd = toAdd.Reference ?? element.m_ToAdd;
       if (element.m_ToAdd is null)
       {
         element.m_ToAdd = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (toRemove is not null)
-      {
-        element.m_ToRemove = toRemove.Reference;
-      }
+      element.m_ToRemove = toRemove.Reference ?? element.m_ToRemove;
       if (element.m_ToRemove is null)
       {
         element.m_ToRemove = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (tryEquip is not null)
-      {
-        element.m_TryEquip = tryEquip;
-      }
+      element.m_TryEquip = tryEquip ?? element.m_TryEquip;
       return builder.Add(element);
     }
 
@@ -471,58 +418,34 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? selection = null)
     {
       var element = ElementTool.Create<AddFeatureFromProgression>();
-      if (archetype is not null)
-      {
-        element.m_Archetype = archetype.Reference;
-      }
+      element.m_Archetype = archetype.Reference ?? element.m_Archetype;
       if (element.m_Archetype is null)
       {
         element.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
       }
-      if (exceptHasFeature is not null)
-      {
-        element.m_ExceptHasFeature = exceptHasFeature.Reference;
-      }
+      element.m_ExceptHasFeature = exceptHasFeature.Reference ?? element.m_ExceptHasFeature;
       if (element.m_ExceptHasFeature is null)
       {
         element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (feature is not null)
-      {
-        element.m_Feature = feature.Reference;
-      }
+      element.m_Feature = feature.Reference ?? element.m_Feature;
       if (element.m_Feature is null)
       {
         element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (level is not null)
-      {
-        element.m_Level = level;
-      }
-      if (originalProgression is not null)
-      {
-        element.m_OriginalProgression = originalProgression.Reference;
-      }
+      element.m_Level = level ?? element.m_Level;
+      element.m_OriginalProgression = originalProgression.Reference ?? element.m_OriginalProgression;
       if (element.m_OriginalProgression is null)
       {
         element.m_OriginalProgression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
       }
-      if (progression is not null)
-      {
-        element.m_Progression = progression.Reference;
-      }
+      element.m_Progression = progression.Reference ?? element.m_Progression;
       if (element.m_Progression is null)
       {
         element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
       }
-      if (rankUpOnly is not null)
-      {
-        element.m_RankUpOnly = rankUpOnly;
-      }
-      if (selection is not null)
-      {
-        element.m_Selection = selection.Reference;
-      }
+      element.m_RankUpOnly = rankUpOnly ?? element.m_RankUpOnly;
+      element.m_Selection = selection.Reference ?? element.m_Selection;
       if (element.m_Selection is null)
       {
         element.m_Selection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(null);
@@ -550,18 +473,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         bool? redoOnceTriggers = null)
     {
       var element = ElementTool.Create<RecheckEtude>();
-      if (etude is not null)
-      {
-        element.Etude = etude.Reference;
-      }
+      element.Etude = etude.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
       }
-      if (redoOnceTriggers is not null)
-      {
-        element.m_RedoOnceTriggers = redoOnceTriggers;
-      }
+      element.m_RedoOnceTriggers = redoOnceTriggers ?? element.m_RedoOnceTriggers;
       return builder.Add(element);
     }
 
@@ -573,10 +490,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         bool? onlyPlayerLeaders = null)
     {
       var element = ElementTool.Create<RefreshAllArmyLeaders>();
-      if (onlyPlayerLeaders is not null)
-      {
-        element.m_OnlyPlayerLeaders = onlyPlayerLeaders;
-      }
+      element.m_OnlyPlayerLeaders = onlyPlayerLeaders ?? element.m_OnlyPlayerLeaders;
       return builder.Add(element);
     }
 
@@ -636,38 +550,23 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintProgression, BlueprintProgressionReference>? progression = null)
     {
       var element = ElementTool.Create<RemoveFeatureFromProgression>();
-      if (archetype is not null)
-      {
-        element.m_Archetype = archetype.Reference;
-      }
+      element.m_Archetype = archetype.Reference ?? element.m_Archetype;
       if (element.m_Archetype is null)
       {
         element.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
       }
-      if (exceptHasFeature is not null)
-      {
-        element.m_ExceptHasFeature = exceptHasFeature.Reference;
-      }
+      element.m_ExceptHasFeature = exceptHasFeature.Reference ?? element.m_ExceptHasFeature;
       if (element.m_ExceptHasFeature is null)
       {
         element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (feature is not null)
-      {
-        element.m_Feature = feature.Reference;
-      }
+      element.m_Feature = feature.Reference ?? element.m_Feature;
       if (element.m_Feature is null)
       {
         element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (level is not null)
-      {
-        element.m_Level = level;
-      }
-      if (progression is not null)
-      {
-        element.m_Progression = progression.Reference;
-      }
+      element.m_Level = level ?? element.m_Level;
+      element.m_Progression = progression.Reference ?? element.m_Progression;
       if (element.m_Progression is null)
       {
         element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
@@ -742,42 +641,27 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? toReplace = null)
     {
       var element = ElementTool.Create<ReplaceFeature>();
-      if (exceptHasFeature is not null)
-      {
-        element.m_ExceptHasFeature = exceptHasFeature.Reference;
-      }
+      element.m_ExceptHasFeature = exceptHasFeature.Reference ?? element.m_ExceptHasFeature;
       if (element.m_ExceptHasFeature is null)
       {
         element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (fromProgression is not null)
-      {
-        element.m_FromProgression = fromProgression.Reference;
-      }
+      element.m_FromProgression = fromProgression.Reference ?? element.m_FromProgression;
       if (element.m_FromProgression is null)
       {
         element.m_FromProgression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
       }
-      if (replacement is not null)
-      {
-        element.m_Replacement = replacement.Reference;
-      }
+      element.m_Replacement = replacement.Reference ?? element.m_Replacement;
       if (element.m_Replacement is null)
       {
         element.m_Replacement = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (targetPartyUnit is not null)
-      {
-        element.m_TargetPartyUnit = targetPartyUnit.Reference;
-      }
+      element.m_TargetPartyUnit = targetPartyUnit.Reference ?? element.m_TargetPartyUnit;
       if (element.m_TargetPartyUnit is null)
       {
         element.m_TargetPartyUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (toReplace is not null)
-      {
-        element.m_ToReplace = toReplace.Reference;
-      }
+      element.m_ToReplace = toReplace.Reference ?? element.m_ToReplace;
       if (element.m_ToReplace is null)
       {
         element.m_ToReplace = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -805,19 +689,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SetSharedVendorTable>();
-      if (table is not null)
-      {
-        element.m_Table = table.Reference;
-      }
+      element.m_Table = table.Reference ?? element.m_Table;
       if (element.m_Table is null)
       {
         element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.m_Unit = unit;
-      }
+      builder.Validate(unit);
+      element.m_Unit = unit ?? element.m_Unit;
       return builder.Add(element);
     }
 
@@ -840,10 +718,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null)
     {
       var element = ElementTool.Create<StartEtudeForced>();
-      if (etude is not null)
-      {
-        element.Etude = etude.Reference;
-      }
+      element.Etude = etude.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
@@ -870,10 +745,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null)
     {
       var element = ElementTool.Create<UnStartEtude>();
-      if (etude is not null)
-      {
-        element.Etude = etude.Reference;
-      }
+      element.Etude = etude.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);

@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
@@ -14,7 +16,6 @@ using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
   /// <summary>
@@ -44,14 +45,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? destination = null)
     {
       var element = ElementTool.Create<CapitalExit>();
-      if (autoSaveMode is not null)
-      {
-        element.AutoSaveMode = autoSaveMode;
-      }
-      if (destination is not null)
-      {
-        element.m_Destination = destination.Reference;
-      }
+      element.AutoSaveMode = autoSaveMode ?? element.AutoSaveMode;
+      element.m_Destination = destination.Reference ?? element.m_Destination;
       if (element.m_Destination is null)
       {
         element.m_Destination = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
@@ -86,10 +81,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<AddCampingEncounter>();
-      if (encounter is not null)
-      {
-        element.m_Encounter = encounter.Reference;
-      }
+      element.m_Encounter = encounter.Reference ?? element.m_Encounter;
       if (element.m_Encounter is null)
       {
         element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(null);
@@ -128,18 +120,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? newEntrance = null)
     {
       var element = ElementTool.Create<AreaEntranceChange>();
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (newEntrance is not null)
-      {
-        element.m_NewEntrance = newEntrance.Reference;
-      }
+      element.m_NewEntrance = newEntrance.Reference ?? element.m_NewEntrance;
       if (element.m_NewEntrance is null)
       {
         element.m_NewEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
@@ -170,38 +156,23 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         LocalizedString? title = null)
     {
       var element = ElementTool.Create<AskPlayerForLocationName>();
-      if (defaultValue is not null)
-      {
-        element.Default = defaultValue;
-      }
+      element.Default = defaultValue ?? element.Default;
       if (element.Default is null)
       {
         element.Default = Constants.Empty.String;
       }
-      if (hint is not null)
-      {
-        element.Hint = hint;
-      }
+      element.Hint = hint ?? element.Hint;
       if (element.Hint is null)
       {
         element.Hint = Constants.Empty.String;
       }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      if (obligatory is not null)
-      {
-        element.Obligatory = obligatory;
-      }
-      if (title is not null)
-      {
-        element.Title = title;
-      }
+      element.Obligatory = obligatory ?? element.Obligatory;
+      element.Title = title ?? element.Title;
       if (element.Title is null)
       {
         element.Title = Constants.Empty.String;
@@ -218,18 +189,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? restoreDefault = null)
     {
       var element = ElementTool.Create<ChangeCurrentAreaName>();
-      if (newName is not null)
-      {
-        element.NewName = newName;
-      }
+      element.NewName = newName ?? element.NewName;
       if (element.NewName is null)
       {
         element.NewName = Constants.Empty.String;
       }
-      if (restoreDefault is not null)
-      {
-        element.RestoreDefault = restoreDefault;
-      }
+      element.RestoreDefault = restoreDefault ?? element.RestoreDefault;
       return builder.Add(element);
     }
 
@@ -241,11 +206,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         MapObjectEvaluator? mapObject = null)
     {
       var element = ElementTool.Create<DestroyMapObject>();
-      if (mapObject is not null)
-      {
-        builder.Validate(mapObject);
-        element.MapObject = mapObject;
-      }
+      builder.Validate(mapObject);
+      element.MapObject = mapObject ?? element.MapObject;
       return builder.Add(element);
     }
 
@@ -259,20 +221,11 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? updateLocationVisitedTime = null)
     {
       var element = ElementTool.Create<GlobalMapTeleport>();
-      if (destination is not null)
-      {
-        builder.Validate(destination);
-        element.Destination = destination;
-      }
-      if (skipHours is not null)
-      {
-        builder.Validate(skipHours);
-        element.SkipHours = skipHours;
-      }
-      if (updateLocationVisitedTime is not null)
-      {
-        element.UpdateLocationVisitedTime = updateLocationVisitedTime;
-      }
+      builder.Validate(destination);
+      element.Destination = destination ?? element.Destination;
+      builder.Validate(skipHours);
+      element.SkipHours = skipHours ?? element.SkipHours;
+      element.UpdateLocationVisitedTime = updateLocationVisitedTime ?? element.UpdateLocationVisitedTime;
       return builder.Add(element);
     }
 
@@ -285,15 +238,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? unhide = null)
     {
       var element = ElementTool.Create<HideMapObject>();
-      if (mapObject is not null)
-      {
-        builder.Validate(mapObject);
-        element.MapObject = mapObject;
-      }
-      if (unhide is not null)
-      {
-        element.Unhide = unhide;
-      }
+      builder.Validate(mapObject);
+      element.MapObject = mapObject ?? element.MapObject;
+      element.Unhide = unhide ?? element.Unhide;
       return builder.Add(element);
     }
 
@@ -313,11 +260,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<MakeServiceCaster>();
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -341,14 +285,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MarkLocationClosed>();
-      if (closed is not null)
-      {
-        element.Closed = closed;
-      }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.Closed = closed ?? element.Closed;
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -376,14 +314,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MarkLocationExplored>();
-      if (explored is not null)
-      {
-        element.Explored = explored;
-      }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.Explored = explored ?? element.Explored;
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -400,15 +332,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         MapObjectEvaluator? mapObject = null)
     {
       var element = ElementTool.Create<MarkOnLocalMap>();
-      if (hidden is not null)
-      {
-        element.Hidden = hidden;
-      }
-      if (mapObject is not null)
-      {
-        builder.Validate(mapObject);
-        element.MapObject = mapObject;
-      }
+      element.Hidden = hidden ?? element.Hidden;
+      builder.Validate(mapObject);
+      element.MapObject = mapObject ?? element.MapObject;
       return builder.Add(element);
     }
 
@@ -420,11 +346,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         MapObjectEvaluator? mapObject = null)
     {
       var element = ElementTool.Create<OpenLootContainer>();
-      if (mapObject is not null)
-      {
-        builder.Validate(mapObject);
-        element.MapObject = mapObject;
-      }
+      builder.Validate(mapObject);
+      element.MapObject = mapObject ?? element.MapObject;
       return builder.Add(element);
     }
 
@@ -447,10 +370,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         List<Blueprint<BlueprintArea, BlueprintAreaReference>>? except = null)
     {
       var element = ElementTool.Create<RemoveAllAreasFromSave>();
-      if (except is not null)
-      {
-        element.m_Except = except.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_Except = except.Select(bp => bp.Reference).ToArray() ?? element.m_Except;
       if (element.m_Except is null)
       {
         element.m_Except = new BlueprintAreaReference[0];
@@ -467,15 +387,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveAmbush>();
-      if (exitStealth is not null)
-      {
-        element.m_ExitStealth = exitStealth;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.m_Unit = unit;
-      }
+      element.m_ExitStealth = exitStealth ?? element.m_ExitStealth;
+      builder.Validate(unit);
+      element.m_Unit = unit ?? element.m_Unit;
       return builder.Add(element);
     }
 
@@ -498,10 +412,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<RemoveCampingEncounter>();
-      if (encounter is not null)
-      {
-        element.m_Encounter = encounter.Reference;
-      }
+      element.m_Encounter = encounter.Reference ?? element.m_Encounter;
       if (element.m_Encounter is null)
       {
         element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(null);
@@ -528,10 +439,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<ResetLocationPerceptionCheck>();
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -559,18 +467,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? revealEdges = null)
     {
       var element = ElementTool.Create<RevealGlobalMap>();
-      if (points is not null)
-      {
-        element.Points = points.Select(bp => bp.Reference).ToArray();
-      }
+      element.Points = points.Select(bp => bp.Reference).ToArray() ?? element.Points;
       if (element.Points is null)
       {
         element.Points = new BlueprintGlobalMapPoint.Reference[0];
       }
-      if (revealEdges is not null)
-      {
-        element.RevealEdges = revealEdges;
-      }
+      element.RevealEdges = revealEdges ?? element.RevealEdges;
       return builder.Add(element);
     }
 
@@ -582,11 +484,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         EntityReference? scriptZone = null)
     {
       var element = ElementTool.Create<ScriptZoneActivate>();
-      if (scriptZone is not null)
-      {
-        builder.Validate(scriptZone);
-        element.ScriptZone = scriptZone;
-      }
+      builder.Validate(scriptZone);
+      element.ScriptZone = scriptZone ?? element.ScriptZone;
       return builder.Add(element);
     }
 
@@ -598,11 +497,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         EntityReference? scriptZone = null)
     {
       var element = ElementTool.Create<ScriptZoneDeactivate>();
-      if (scriptZone is not null)
-      {
-        builder.Validate(scriptZone);
-        element.ScriptZone = scriptZone;
-      }
+      builder.Validate(scriptZone);
+      element.ScriptZone = scriptZone ?? element.ScriptZone;
       return builder.Add(element);
     }
 
@@ -615,19 +511,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         EntityReference? scriptZone = null)
     {
       var element = ElementTool.Create<ScripZoneUnits>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (scriptZone is not null)
-      {
-        builder.Validate(scriptZone);
-        element.ScriptZone = scriptZone;
-      }
+      builder.Validate(scriptZone);
+      element.ScriptZone = scriptZone ?? element.ScriptZone;
       return builder.Add(element);
     }
 
@@ -640,16 +530,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         IntEvaluator? state = null)
     {
       var element = ElementTool.Create<SetDeviceState>();
-      if (device is not null)
-      {
-        builder.Validate(device);
-        element.Device = device;
-      }
-      if (state is not null)
-      {
-        builder.Validate(state);
-        element.State = state;
-      }
+      builder.Validate(device);
+      element.Device = device ?? element.Device;
+      builder.Validate(state);
+      element.State = state ?? element.State;
       return builder.Add(element);
     }
 
@@ -662,15 +546,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string? trigger = null)
     {
       var element = ElementTool.Create<SetDeviceTrigger>();
-      if (device is not null)
-      {
-        builder.Validate(device);
-        element.Device = device;
-      }
-      if (trigger is not null)
-      {
-        element.Trigger = trigger;
-      }
+      builder.Validate(device);
+      element.Device = device ?? element.Device;
+      element.Trigger = trigger ?? element.Trigger;
       return builder.Add(element);
     }
 
@@ -683,15 +561,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         int? overrideDC = null)
     {
       var element = ElementTool.Create<SetDisableDevice>();
-      if (mapObject is not null)
-      {
-        builder.Validate(mapObject);
-        element.MapObject = mapObject;
-      }
-      if (overrideDC is not null)
-      {
-        element.OverrideDC = overrideDC;
-      }
+      builder.Validate(mapObject);
+      element.MapObject = mapObject ?? element.MapObject;
+      element.OverrideDC = overrideDC ?? element.OverrideDC;
       return builder.Add(element);
     }
 
@@ -714,10 +586,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintMultiEntrance, BlueprintMultiEntranceReference>? map = null)
     {
       var element = ElementTool.Create<ShowMultiEntrance>();
-      if (map is not null)
-      {
-        element.m_Map = map.Reference;
-      }
+      element.m_Map = map.Reference ?? element.m_Map;
       if (element.m_Map is null)
       {
         element.m_Map = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(null);
@@ -734,16 +603,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         MapObjectEvaluator? target = null)
     {
       var element = ElementTool.Create<SpotMapObject>();
-      if (spotter is not null)
-      {
-        builder.Validate(spotter);
-        element.Spotter = spotter;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(spotter);
+      element.Spotter = spotter ?? element.Spotter;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -756,16 +619,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SpotUnit>();
-      if (spotter is not null)
-      {
-        builder.Validate(spotter);
-        element.Spotter = spotter;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(spotter);
+      element.Spotter = spotter ?? element.Spotter;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -791,30 +648,18 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? forcePauseAfterTeleport = null)
     {
       var element = ElementTool.Create<TeleportParty>();
-      if (afterTeleport is not null)
-      {
-        element.AfterTeleport = afterTeleport.Build();
-      }
+      element.AfterTeleport = afterTeleport.Build() ?? element.AfterTeleport;
       if (element.AfterTeleport is null)
       {
         element.AfterTeleport = Constants.Empty.Actions;
       }
-      if (autoSaveMode is not null)
-      {
-        element.AutoSaveMode = autoSaveMode;
-      }
-      if (exitPositon is not null)
-      {
-        element.m_exitPositon = exitPositon.Reference;
-      }
+      element.AutoSaveMode = autoSaveMode ?? element.AutoSaveMode;
+      element.m_exitPositon = exitPositon.Reference ?? element.m_exitPositon;
       if (element.m_exitPositon is null)
       {
         element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
-      if (forcePauseAfterTeleport is not null)
-      {
-        element.ForcePauseAfterTeleport = forcePauseAfterTeleport;
-      }
+      element.ForcePauseAfterTeleport = forcePauseAfterTeleport ?? element.ForcePauseAfterTeleport;
       return builder.Add(element);
     }
 
@@ -828,19 +673,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         EntityReference? transolcatePosition = null)
     {
       var element = ElementTool.Create<TranslocatePlayer>();
-      if (byFormationAndWithPets is not null)
-      {
-        element.ByFormationAndWithPets = byFormationAndWithPets;
-      }
-      if (scrollCameraToPlayer is not null)
-      {
-        element.ScrollCameraToPlayer = scrollCameraToPlayer;
-      }
-      if (transolcatePosition is not null)
-      {
-        builder.Validate(transolcatePosition);
-        element.transolcatePosition = transolcatePosition;
-      }
+      element.ByFormationAndWithPets = byFormationAndWithPets ?? element.ByFormationAndWithPets;
+      element.ScrollCameraToPlayer = scrollCameraToPlayer ?? element.ScrollCameraToPlayer;
+      builder.Validate(transolcatePosition);
+      element.transolcatePosition = transolcatePosition ?? element.transolcatePosition;
       return builder.Add(element);
     }
 
@@ -856,30 +692,15 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<TranslocateUnit>();
-      if (copyRotation is not null)
-      {
-        element.m_CopyRotation = copyRotation;
-      }
-      if (translocateOrientationEvaluator is not null)
-      {
-        builder.Validate(translocateOrientationEvaluator);
-        element.translocateOrientationEvaluator = translocateOrientationEvaluator;
-      }
-      if (translocatePosition is not null)
-      {
-        builder.Validate(translocatePosition);
-        element.translocatePosition = translocatePosition;
-      }
-      if (translocatePositionEvaluator is not null)
-      {
-        builder.Validate(translocatePositionEvaluator);
-        element.translocatePositionEvaluator = translocatePositionEvaluator;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      element.m_CopyRotation = copyRotation ?? element.m_CopyRotation;
+      builder.Validate(translocateOrientationEvaluator);
+      element.translocateOrientationEvaluator = translocateOrientationEvaluator ?? element.translocateOrientationEvaluator;
+      builder.Validate(translocatePosition);
+      element.translocatePosition = translocatePosition ?? element.translocatePosition;
+      builder.Validate(translocatePositionEvaluator);
+      element.translocatePositionEvaluator = translocatePositionEvaluator ?? element.translocatePositionEvaluator;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -911,54 +732,24 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         UnitEvaluator? triggeringUnit = null)
     {
       var element = ElementTool.Create<TrapCastSpell>();
-      if (actorPosition is not null)
-      {
-        builder.Validate(actorPosition);
-        element.ActorPosition = actorPosition;
-      }
-      if (dC is not null)
-      {
-        element.DC = dC;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (overrideDC is not null)
-      {
-        element.OverrideDC = overrideDC;
-      }
-      if (overrideSpellLevel is not null)
-      {
-        element.OverrideSpellLevel = overrideSpellLevel;
-      }
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      builder.Validate(actorPosition);
+      element.ActorPosition = actorPosition ?? element.ActorPosition;
+      element.DC = dC ?? element.DC;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      element.OverrideDC = overrideDC ?? element.OverrideDC;
+      element.OverrideSpellLevel = overrideSpellLevel ?? element.OverrideSpellLevel;
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
-      if (spellLevel is not null)
-      {
-        element.SpellLevel = spellLevel;
-      }
-      if (targetPoint is not null)
-      {
-        builder.Validate(targetPoint);
-        element.TargetPoint = targetPoint;
-      }
-      if (trapObject is not null)
-      {
-        builder.Validate(trapObject);
-        element.TrapObject = trapObject;
-      }
-      if (triggeringUnit is not null)
-      {
-        builder.Validate(triggeringUnit);
-        element.TriggeringUnit = triggeringUnit;
-      }
+      element.SpellLevel = spellLevel ?? element.SpellLevel;
+      builder.Validate(targetPoint);
+      element.TargetPoint = targetPoint ?? element.TargetPoint;
+      builder.Validate(trapObject);
+      element.TrapObject = trapObject ?? element.TrapObject;
+      builder.Validate(triggeringUnit);
+      element.TriggeringUnit = triggeringUnit ?? element.TriggeringUnit;
       return builder.Add(element);
     }
 
@@ -981,10 +772,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintCookingRecipe, BlueprintCookingRecipeReference>? recipe = null)
     {
       var element = ElementTool.Create<UnlockCookingRecipe>();
-      if (recipe is not null)
-      {
-        element.m_Recipe = recipe.Reference;
-      }
+      element.m_Recipe = recipe.Reference ?? element.m_Recipe;
       if (element.m_Recipe is null)
       {
         element.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(null);
@@ -1013,18 +801,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<UnlockLocation>();
-      if (fakeDescription is not null)
-      {
-        element.FakeDescription = fakeDescription;
-      }
-      if (hideInstead is not null)
-      {
-        element.HideInstead = hideInstead;
-      }
-      if (location is not null)
-      {
-        element.m_Location = location.Reference;
-      }
+      element.FakeDescription = fakeDescription ?? element.FakeDescription;
+      element.HideInstead = hideInstead ?? element.HideInstead;
+      element.m_Location = location.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -1052,18 +831,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? openEdges = null)
     {
       var element = ElementTool.Create<UnlockMapEdge>();
-      if (edge is not null)
-      {
-        element.m_Edge = edge.Reference;
-      }
+      element.m_Edge = edge.Reference ?? element.m_Edge;
       if (element.m_Edge is null)
       {
         element.m_Edge = BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(null);
       }
-      if (openEdges is not null)
-      {
-        element.OpenEdges = openEdges;
-      }
+      element.OpenEdges = openEdges ?? element.OpenEdges;
       return builder.Add(element);
     }
 
@@ -1075,10 +848,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         int? index = null)
     {
       var element = ElementTool.Create<ActionCreateImportedCompanion>();
-      if (index is not null)
-      {
-        element.Index = index;
-      }
+      element.Index = index ?? element.Index;
       return builder.Add(element);
     }
 
@@ -1090,10 +860,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         int? firstStage = null)
     {
       var element = ElementTool.Create<ActionEnterToDungeon>();
-      if (firstStage is not null)
-      {
-        element.FirstStage = firstStage;
-      }
+      element.FirstStage = firstStage ?? element.FirstStage;
       return builder.Add(element);
     }
 
@@ -1121,10 +888,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         int? stage = null)
     {
       var element = ElementTool.Create<ActionSetDungeonStage>();
-      if (stage is not null)
-      {
-        element.Stage = stage;
-      }
+      element.Stage = stage ?? element.Stage;
       return builder.Add(element);
     }
 
@@ -1137,15 +901,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? isLock = null)
     {
       var element = ElementTool.Create<GameActionSetIsleLock>();
-      if (isle is not null)
-      {
-        builder.Validate(isle);
-        element.m_Isle = isle;
-      }
-      if (isLock is not null)
-      {
-        element.m_IsLock = isLock;
-      }
+      builder.Validate(isle);
+      element.m_Isle = isle ?? element.m_Isle;
+      element.m_IsLock = isLock ?? element.m_IsLock;
       return builder.Add(element);
     }
 
@@ -1158,15 +916,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         string? stateName = null)
     {
       var element = ElementTool.Create<GameActionSetIsleState>();
-      if (isle is not null)
-      {
-        builder.Validate(isle);
-        element.m_Isle = isle;
-      }
-      if (stateName is not null)
-      {
-        element.m_StateName = stateName;
-      }
+      builder.Validate(isle);
+      element.m_Isle = isle ?? element.m_Isle;
+      element.m_StateName = stateName ?? element.m_StateName;
       return builder.Add(element);
     }
   }

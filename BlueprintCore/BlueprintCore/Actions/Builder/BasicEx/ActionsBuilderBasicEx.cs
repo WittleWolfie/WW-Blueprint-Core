@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
@@ -21,7 +23,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using UnityEngine;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.BasicEx
 {
   /// <summary>
@@ -52,24 +53,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<AttachBuff>();
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (duration is not null)
-      {
-        builder.Validate(duration);
-        element.Duration = duration;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(duration);
+      element.Duration = duration ?? element.Duration;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -85,32 +77,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         FloatEvaluator? radius = null)
     {
       var element = ElementTool.Create<CreaturesAround>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (center is not null)
-      {
-        builder.Validate(center);
-        element.Center = center;
-      }
-      if (checkLos is not null)
-      {
-        element.CheckLos = checkLos;
-      }
-      if (includeDead is not null)
-      {
-        element.IncludeDead = includeDead;
-      }
-      if (radius is not null)
-      {
-        builder.Validate(radius);
-        element.Radius = radius;
-      }
+      builder.Validate(center);
+      element.Center = center ?? element.Center;
+      element.CheckLos = checkLos ?? element.CheckLos;
+      element.IncludeDead = includeDead ?? element.IncludeDead;
+      builder.Validate(radius);
+      element.Radius = radius ?? element.Radius;
       return builder.Add(element);
     }
 
@@ -134,19 +111,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<AddFact>();
-      if (fact is not null)
-      {
-        element.m_Fact = fact.Reference;
-      }
+      element.m_Fact = fact.Reference ?? element.m_Fact;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -159,16 +130,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<AddFatigueHours>();
-      if (hours is not null)
-      {
-        builder.Validate(hours);
-        element.Hours = hours;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(hours);
+      element.Hours = hours ?? element.Hours;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -181,15 +146,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<ChangeAlignment>();
-      if (alignment is not null)
-      {
-        element.Alignment = alignment;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      element.Alignment = alignment ?? element.Alignment;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -202,14 +161,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Alignment? targetAlignment = null)
     {
       var element = ElementTool.Create<ChangePlayerAlignment>();
-      if (canUnlockAlignment is not null)
-      {
-        element.CanUnlockAlignment = canUnlockAlignment;
-      }
-      if (targetAlignment is not null)
-      {
-        element.TargetAlignment = targetAlignment;
-      }
+      element.CanUnlockAlignment = canUnlockAlignment ?? element.CanUnlockAlignment;
+      element.TargetAlignment = targetAlignment ?? element.TargetAlignment;
       return builder.Add(element);
     }
 
@@ -224,24 +177,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? noSource = null)
     {
       var element = ElementTool.Create<DamageParty>();
-      if (damage is not null)
-      {
-        builder.Validate(damage);
-        element.Damage = damage;
-      }
-      if (damageSource is not null)
-      {
-        builder.Validate(damageSource);
-        element.DamageSource = damageSource;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (noSource is not null)
-      {
-        element.NoSource = noSource;
-      }
+      builder.Validate(damage);
+      element.Damage = damage ?? element.Damage;
+      builder.Validate(damageSource);
+      element.DamageSource = damageSource ?? element.DamageSource;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      element.NoSource = noSource ?? element.NoSource;
       return builder.Add(element);
     }
 
@@ -258,33 +199,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DealDamage>();
-      if (damage is not null)
-      {
-        builder.Validate(damage);
-        element.Damage = damage;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (disableFxAndSound is not null)
-      {
-        element.DisableFxAndSound = disableFxAndSound;
-      }
-      if (noSource is not null)
-      {
-        element.NoSource = noSource;
-      }
-      if (source is not null)
-      {
-        builder.Validate(source);
-        element.Source = source;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(damage);
+      element.Damage = damage ?? element.Damage;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      element.DisableFxAndSound = disableFxAndSound ?? element.DisableFxAndSound;
+      element.NoSource = noSource ?? element.NoSource;
+      builder.Validate(source);
+      element.Source = source ?? element.Source;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -303,40 +226,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DealStatDamage>();
-      if (damageBonus is not null)
-      {
-        element.DamageBonus = damageBonus;
-      }
-      if (damageDice is not null)
-      {
-        element.DamageDice = damageDice;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (isDrain is not null)
-      {
-        element.IsDrain = isDrain;
-      }
-      if (noSource is not null)
-      {
-        element.NoSource = noSource;
-      }
-      if (source is not null)
-      {
-        builder.Validate(source);
-        element.Source = source;
-      }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      element.DamageBonus = damageBonus ?? element.DamageBonus;
+      element.DamageDice = damageDice ?? element.DamageDice;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      element.IsDrain = isDrain ?? element.IsDrain;
+      element.NoSource = noSource ?? element.NoSource;
+      builder.Validate(source);
+      element.Source = source ?? element.Source;
+      element.Stat = stat ?? element.Stat;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -364,40 +263,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? useBlueprintUnitLoot = null)
     {
       var element = ElementTool.Create<AddItemsToCollection>();
-      if (blueprintLoot is not null)
-      {
-        element.m_BlueprintLoot = blueprintLoot.Reference;
-      }
+      element.m_BlueprintLoot = blueprintLoot.Reference ?? element.m_BlueprintLoot;
       if (element.m_BlueprintLoot is null)
       {
         element.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
       }
-      if (identify is not null)
-      {
-        element.Identify = identify;
-      }
-      if (itemsCollection is not null)
-      {
-        builder.Validate(itemsCollection);
-        element.ItemsCollection = itemsCollection;
-      }
-      if (loot is not null)
-      {
-        foreach (var item in loot) { builder.Validate(item); }
-        element.Loot = loot;
-      }
+      element.Identify = identify ?? element.Identify;
+      builder.Validate(itemsCollection);
+      element.ItemsCollection = itemsCollection ?? element.ItemsCollection;
+      foreach (var item in loot) { builder.Validate(item); }
+      element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {
         element.Loot = new();
       }
-      if (silent is not null)
-      {
-        element.Silent = silent;
-      }
-      if (useBlueprintUnitLoot is not null)
-      {
-        element.UseBlueprintUnitLoot = useBlueprintUnitLoot;
-      }
+      element.Silent = silent ?? element.Silent;
+      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
       return builder.Add(element);
     }
 
@@ -427,43 +308,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? silent = null)
     {
       var element = ElementTool.Create<AddItemToPlayer>();
-      if (equip is not null)
-      {
-        element.Equip = equip;
-      }
-      if (equipOn is not null)
-      {
-        builder.Validate(equipOn);
-        element.EquipOn = equipOn;
-      }
-      if (errorIfDidNotEquip is not null)
-      {
-        element.ErrorIfDidNotEquip = errorIfDidNotEquip;
-      }
-      if (identify is not null)
-      {
-        element.Identify = identify;
-      }
-      if (itemToGive is not null)
-      {
-        element.m_ItemToGive = itemToGive.Reference;
-      }
+      element.Equip = equip ?? element.Equip;
+      builder.Validate(equipOn);
+      element.EquipOn = equipOn ?? element.EquipOn;
+      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
+      element.Identify = identify ?? element.Identify;
+      element.m_ItemToGive = itemToGive.Reference ?? element.m_ItemToGive;
       if (element.m_ItemToGive is null)
       {
         element.m_ItemToGive = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
-      if (preferredWeaponSet is not null)
-      {
-        element.PreferredWeaponSet = preferredWeaponSet;
-      }
-      if (quantity is not null)
-      {
-        element.Quantity = quantity;
-      }
-      if (silent is not null)
-      {
-        element.Silent = silent;
-      }
+      element.PreferredWeaponSet = preferredWeaponSet ?? element.PreferredWeaponSet;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
       return builder.Add(element);
     }
 
@@ -476,16 +333,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<AdvanceUnitLevel>();
-      if (level is not null)
-      {
-        builder.Validate(level);
-        element.Level = level;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(level);
+      element.Level = level ?? element.Level;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -498,15 +349,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DestroyUnit>();
-      if (fadeOut is not null)
-      {
-        element.FadeOut = fadeOut;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      element.FadeOut = fadeOut ?? element.FadeOut;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -519,16 +364,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? targetUnit = null)
     {
       var element = ElementTool.Create<CombineToGroup>();
-      if (groupHolder is not null)
-      {
-        builder.Validate(groupHolder);
-        element.GroupHolder = groupHolder;
-      }
-      if (targetUnit is not null)
-      {
-        builder.Validate(targetUnit);
-        element.TargetUnit = targetUnit;
-      }
+      builder.Validate(groupHolder);
+      element.GroupHolder = groupHolder ?? element.GroupHolder;
+      builder.Validate(targetUnit);
+      element.TargetUnit = targetUnit ?? element.TargetUnit;
       return builder.Add(element);
     }
 
@@ -540,11 +379,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<ClearUnitReturnPosition>();
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -568,19 +404,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<AddUnitToSummonPool>();
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -604,19 +434,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<DeleteUnitFromSummonPool>();
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -640,19 +464,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DetachBuff>();
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -664,11 +482,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<DisableExperienceFromUnit>();
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -687,40 +502,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EnergyDrainType? type = null)
     {
       var element = ElementTool.Create<DrainEnergy>();
-      if (damageBonus is not null)
-      {
-        element.DamageBonus = damageBonus;
-      }
-      if (damageDice is not null)
-      {
-        element.DamageDice = damageDice;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (duration is not null)
-      {
-        element.Duration = duration;
-      }
-      if (noSource is not null)
-      {
-        element.NoSource = noSource;
-      }
-      if (source is not null)
-      {
-        builder.Validate(source);
-        element.Source = source;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
-      if (type is not null)
-      {
-        element.Type = type;
-      }
+      element.DamageBonus = damageBonus ?? element.DamageBonus;
+      element.DamageDice = damageDice ?? element.DamageDice;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      element.Duration = duration ?? element.Duration;
+      element.NoSource = noSource ?? element.NoSource;
+      builder.Validate(source);
+      element.Source = source ?? element.Source;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
+      element.Type = type ?? element.Type;
       return builder.Add(element);
     }
 
@@ -735,26 +526,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? restWithCraft = null)
     {
       var element = ElementTool.Create<FakePartyRest>();
-      if (actionsOnRestEnd is not null)
-      {
-        element.m_ActionsOnRestEnd = actionsOnRestEnd.Build();
-      }
+      element.m_ActionsOnRestEnd = actionsOnRestEnd.Build() ?? element.m_ActionsOnRestEnd;
       if (element.m_ActionsOnRestEnd is null)
       {
         element.m_ActionsOnRestEnd = Constants.Empty.Actions;
       }
-      if (ignoreCorruption is not null)
-      {
-        element.m_IgnoreCorruption = ignoreCorruption;
-      }
-      if (immediate is not null)
-      {
-        element.m_Immediate = immediate;
-      }
-      if (restWithCraft is not null)
-      {
-        element.m_RestWithCraft = restWithCraft;
-      }
+      element.m_IgnoreCorruption = ignoreCorruption ?? element.m_IgnoreCorruption;
+      element.m_Immediate = immediate ?? element.m_Immediate;
+      element.m_RestWithCraft = restWithCraft ?? element.m_RestWithCraft;
       return builder.Add(element);
     }
 
@@ -770,27 +549,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         float? modifier = null)
     {
       var element = ElementTool.Create<GainExp>();
-      if (count is not null)
-      {
-        builder.Validate(count);
-        element.Count = count;
-      }
-      if (cR is not null)
-      {
-        element.CR = cR;
-      }
-      if (dummy is not null)
-      {
-        element.Dummy = dummy;
-      }
-      if (encounter is not null)
-      {
-        element.Encounter = encounter;
-      }
-      if (modifier is not null)
-      {
-        element.Modifier = modifier;
-      }
+      builder.Validate(count);
+      element.Count = count ?? element.Count;
+      element.CR = cR ?? element.CR;
+      element.Dummy = dummy ?? element.Dummy;
+      element.Encounter = encounter ?? element.Encounter;
+      element.Modifier = modifier ?? element.Modifier;
       return builder.Add(element);
     }
 
@@ -802,10 +566,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         int? levels = null)
     {
       var element = ElementTool.Create<GainMythicLevel>();
-      if (levels is not null)
-      {
-        element.Levels = levels;
-      }
+      element.Levels = levels ?? element.Levels;
       return builder.Add(element);
     }
 
@@ -817,11 +578,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? healSource = null)
     {
       var element = ElementTool.Create<HealParty>();
-      if (healSource is not null)
-      {
-        builder.Validate(healSource);
-        element.HealSource = healSource;
-      }
+      builder.Validate(healSource);
+      element.HealSource = healSource ?? element.HealSource;
       return builder.Add(element);
     }
 
@@ -836,25 +594,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? toFullHP = null)
     {
       var element = ElementTool.Create<HealUnit>();
-      if (healAmount is not null)
-      {
-        builder.Validate(healAmount);
-        element.HealAmount = healAmount;
-      }
-      if (source is not null)
-      {
-        builder.Validate(source);
-        element.Source = source;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
-      if (toFullHP is not null)
-      {
-        element.ToFullHP = toFullHP;
-      }
+      builder.Validate(healAmount);
+      element.HealAmount = healAmount ?? element.HealAmount;
+      builder.Validate(source);
+      element.Source = source ?? element.Source;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
+      element.ToFullHP = toFullHP ?? element.ToFullHP;
       return builder.Add(element);
     }
 
@@ -879,20 +625,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintItem, BlueprintItemReference>? item = null)
     {
       var element = ElementTool.Create<ItemSetCharges>();
-      if (charges is not null)
-      {
-        builder.Validate(charges);
-        element.Charges = charges;
-      }
-      if (collection is not null)
-      {
-        builder.Validate(collection);
-        element.Collection = collection;
-      }
-      if (item is not null)
-      {
-        element.m_Item = item.Reference;
-      }
+      builder.Validate(charges);
+      element.Charges = charges ?? element.Charges;
+      builder.Validate(collection);
+      element.Collection = collection ?? element.Collection;
+      element.m_Item = item.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -912,28 +649,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<Kill>();
-      if (critical is not null)
-      {
-        element.Critical = critical;
-      }
-      if (disableBattleLog is not null)
-      {
-        element.DisableBattleLog = disableBattleLog;
-      }
-      if (killer is not null)
-      {
-        builder.Validate(killer);
-        element.Killer = killer;
-      }
-      if (removeExp is not null)
-      {
-        element.RemoveExp = removeExp;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      element.Critical = critical ?? element.Critical;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
+      builder.Validate(killer);
+      element.Killer = killer ?? element.Killer;
+      element.RemoveExp = removeExp ?? element.RemoveExp;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -946,16 +668,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<LevelUpUnit>();
-      if (targetLevel is not null)
-      {
-        builder.Validate(targetLevel);
-        element.TargetLevel = targetLevel;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(targetLevel);
+      element.TargetLevel = targetLevel ?? element.TargetLevel;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -970,24 +686,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<MeleeAttack>();
-      if (autoHit is not null)
-      {
-        element.AutoHit = autoHit;
-      }
-      if (caster is not null)
-      {
-        builder.Validate(caster);
-        element.Caster = caster;
-      }
-      if (ignoreStatBonus is not null)
-      {
-        element.IgnoreStatBonus = ignoreStatBonus;
-      }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      element.AutoHit = autoHit ?? element.AutoHit;
+      builder.Validate(caster);
+      element.Caster = caster ?? element.Caster;
+      element.IgnoreStatBonus = ignoreStatBonus ?? element.IgnoreStatBonus;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -1000,18 +704,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Player.CharactersList? unitsList = null)
     {
       var element = ElementTool.Create<PartyUnits>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (unitsList is not null)
-      {
-        element.m_UnitsList = unitsList;
-      }
+      element.m_UnitsList = unitsList ?? element.m_UnitsList;
       return builder.Add(element);
     }
 
@@ -1024,15 +722,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         AbilitiesHelper.AbilityDescription? description = null)
     {
       var element = ElementTool.Create<PartyUseAbility>();
-      if (allowItems is not null)
-      {
-        element.AllowItems = allowItems;
-      }
-      if (description is not null)
-      {
-        builder.Validate(description);
-        element.Description = description;
-      }
+      element.AllowItems = allowItems ?? element.AllowItems;
+      builder.Validate(description);
+      element.Description = description ?? element.Description;
       return builder.Add(element);
     }
 
@@ -1056,18 +748,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? riseAllCompanions = null)
     {
       var element = ElementTool.Create<RaiseDead>();
-      if (companion is not null)
-      {
-        element.m_companion = companion.Reference;
-      }
+      element.m_companion = companion.Reference ?? element.m_companion;
       if (element.m_companion is null)
       {
         element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (riseAllCompanions is not null)
-      {
-        element.riseAllCompanions = riseAllCompanions;
-      }
+      element.riseAllCompanions = riseAllCompanions ?? element.riseAllCompanions;
       return builder.Add(element);
     }
 
@@ -1079,10 +765,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         ActionAndWeight[]? actions = null)
     {
       var element = ElementTool.Create<RandomAction>();
-      if (actions is not null)
-      {
-        element.Actions = actions;
-      }
+      element.Actions = actions ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = new ActionAndWeight[0];
@@ -1098,11 +781,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveDeathDoor>();
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -1126,19 +806,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveFact>();
-      if (fact is not null)
-      {
-        element.m_Fact = fact.Reference;
-      }
+      element.m_Fact = fact.Reference ?? element.m_Fact;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -1155,38 +829,20 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         StatType? stat = null)
     {
       var element = ElementTool.Create<RollPartySkillCheck>();
-      if (dC is not null)
-      {
-        element.DC = dC;
-      }
-      if (logFailure is not null)
-      {
-        element.LogFailure = logFailure;
-      }
-      if (logSuccess is not null)
-      {
-        element.LogSuccess = logSuccess;
-      }
-      if (onFailure is not null)
-      {
-        element.OnFailure = onFailure.Build();
-      }
+      element.DC = dC ?? element.DC;
+      element.LogFailure = logFailure ?? element.LogFailure;
+      element.LogSuccess = logSuccess ?? element.LogSuccess;
+      element.OnFailure = onFailure.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
         element.OnFailure = Constants.Empty.Actions;
       }
-      if (onSuccess is not null)
-      {
-        element.OnSuccess = onSuccess.Build();
-      }
+      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
         element.OnSuccess = Constants.Empty.Actions;
       }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
+      element.Stat = stat ?? element.Stat;
       return builder.Add(element);
     }
 
@@ -1206,51 +862,24 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? voice = null)
     {
       var element = ElementTool.Create<RollSkillCheck>();
-      if (dC is not null)
-      {
-        element.DC = dC;
-      }
-      if (forbidPartyHelpInCamp is not null)
-      {
-        element.ForbidPartyHelpInCamp = forbidPartyHelpInCamp;
-      }
-      if (logFailure is not null)
-      {
-        element.LogFailure = logFailure;
-      }
-      if (logSuccess is not null)
-      {
-        element.LogSuccess = logSuccess;
-      }
-      if (onFailure is not null)
-      {
-        element.OnFailure = onFailure.Build();
-      }
+      element.DC = dC ?? element.DC;
+      element.ForbidPartyHelpInCamp = forbidPartyHelpInCamp ?? element.ForbidPartyHelpInCamp;
+      element.LogFailure = logFailure ?? element.LogFailure;
+      element.LogSuccess = logSuccess ?? element.LogSuccess;
+      element.OnFailure = onFailure.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
         element.OnFailure = Constants.Empty.Actions;
       }
-      if (onSuccess is not null)
-      {
-        element.OnSuccess = onSuccess.Build();
-      }
+      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
         element.OnSuccess = Constants.Empty.Actions;
       }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
-      if (voice is not null)
-      {
-        element.Voice = voice;
-      }
+      element.Stat = stat ?? element.Stat;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
+      element.Voice = voice ?? element.Voice;
       return builder.Add(element);
     }
 
@@ -1275,23 +904,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         ParametrizedContextSetter? parameters = null)
     {
       var element = ElementTool.Create<RunActionHolder>();
-      if (comment is not null)
-      {
-        element.Comment = comment;
-      }
-      if (holder is not null)
-      {
-        element.Holder = holder.Reference;
-      }
+      element.Comment = comment ?? element.Comment;
+      element.Holder = holder.Reference ?? element.Holder;
       if (element.Holder is null)
       {
         element.Holder = BlueprintTool.GetRef<ActionsReference>(null);
       }
-      if (parameters is not null)
-      {
-        builder.Validate(parameters);
-        element.Parameters = parameters;
-      }
+      builder.Validate(parameters);
+      element.Parameters = parameters ?? element.Parameters;
       return builder.Add(element);
     }
 
@@ -1304,19 +924,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference[]? spawners = null)
     {
       var element = ElementTool.Create<Spawn>();
-      if (actionsOnSpawn is not null)
-      {
-        element.ActionsOnSpawn = actionsOnSpawn.Build();
-      }
+      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
         element.ActionsOnSpawn = Constants.Empty.Actions;
       }
-      if (spawners is not null)
-      {
-        foreach (var item in spawners) { builder.Validate(item); }
-        element.Spawners = spawners;
-      }
+      foreach (var item in spawners) { builder.Validate(item); }
+      element.Spawners = spawners ?? element.Spawners;
       if (element.Spawners is null)
       {
         element.Spawners = new EntityReference[0];
@@ -1345,22 +959,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? pool = null)
     {
       var element = ElementTool.Create<SpawnBySummonPool>();
-      if (actionsOnSpawn is not null)
-      {
-        element.ActionsOnSpawn = actionsOnSpawn.Build();
-      }
+      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
         element.ActionsOnSpawn = Constants.Empty.Actions;
       }
-      if (ignoreSpawnerConditions is not null)
-      {
-        element.m_IgnoreSpawnerConditions = ignoreSpawnerConditions;
-      }
-      if (pool is not null)
-      {
-        element.m_Pool = pool.Reference;
-      }
+      element.m_IgnoreSpawnerConditions = ignoreSpawnerConditions ?? element.m_IgnoreSpawnerConditions;
+      element.m_Pool = pool.Reference ?? element.m_Pool;
       if (element.m_Pool is null)
       {
         element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1377,19 +982,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference? group = null)
     {
       var element = ElementTool.Create<SpawnByUnitGroup>();
-      if (actionsOnSpawn is not null)
-      {
-        element.ActionsOnSpawn = actionsOnSpawn.Build();
-      }
+      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
         element.ActionsOnSpawn = Constants.Empty.Actions;
       }
-      if (group is not null)
-      {
-        builder.Validate(group);
-        element.Group = group;
-      }
+      builder.Validate(group);
+      element.Group = group ?? element.Group;
       return builder.Add(element);
     }
 
@@ -1403,19 +1002,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<StatusEffect>();
-      if (condition is not null)
-      {
-        element.Condition = condition;
-      }
-      if (remove is not null)
-      {
-        element.Remove = remove;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      element.Condition = condition ?? element.Condition;
+      element.Remove = remove ?? element.Remove;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -1454,39 +1044,21 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<Summon>();
-      if (groupBySummonPool is not null)
-      {
-        element.GroupBySummonPool = groupBySummonPool;
-      }
-      if (offset is not null)
-      {
-        element.Offset = offset;
-      }
-      if (onSummmon is not null)
-      {
-        element.OnSummmon = onSummmon.Build();
-      }
+      element.GroupBySummonPool = groupBySummonPool ?? element.GroupBySummonPool;
+      element.Offset = offset ?? element.Offset;
+      element.OnSummmon = onSummmon.Build() ?? element.OnSummmon;
       if (element.OnSummmon is null)
       {
         element.OnSummmon = Constants.Empty.Actions;
       }
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
-      if (transform is not null)
-      {
-        builder.Validate(transform);
-        element.Transform = transform;
-      }
-      if (unit is not null)
-      {
-        element.m_Unit = unit.Reference;
-      }
+      builder.Validate(transform);
+      element.Transform = transform ?? element.Transform;
+      element.m_Unit = unit.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -1515,26 +1087,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonPoolUnits>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (conditions is not null)
-      {
-        element.Conditions = conditions.Build();
-      }
+      element.Conditions = conditions.Build() ?? element.Conditions;
       if (element.Conditions is null)
       {
         element.Conditions = Constants.Empty.Conditions;
       }
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1577,40 +1140,22 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonUnitCopy>();
-      if (copyBlueprint is not null)
-      {
-        element.m_CopyBlueprint = copyBlueprint.Reference;
-      }
+      element.m_CopyBlueprint = copyBlueprint.Reference ?? element.m_CopyBlueprint;
       if (element.m_CopyBlueprint is null)
       {
         element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (copyFrom is not null)
-      {
-        builder.Validate(copyFrom);
-        element.CopyFrom = copyFrom;
-      }
-      if (doNotCreateItems is not null)
-      {
-        element.DoNotCreateItems = doNotCreateItems;
-      }
-      if (locator is not null)
-      {
-        builder.Validate(locator);
-        element.Locator = locator;
-      }
-      if (onSummon is not null)
-      {
-        element.OnSummon = onSummon.Build();
-      }
+      builder.Validate(copyFrom);
+      element.CopyFrom = copyFrom ?? element.CopyFrom;
+      element.DoNotCreateItems = doNotCreateItems ?? element.DoNotCreateItems;
+      builder.Validate(locator);
+      element.Locator = locator ?? element.Locator;
+      element.OnSummon = onSummon.Build() ?? element.OnSummon;
       if (element.OnSummon is null)
       {
         element.OnSummon = Constants.Empty.Actions;
       }
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1639,23 +1184,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SwitchActivatableAbility>();
-      if (ability is not null)
-      {
-        element.m_Ability = ability.Reference;
-      }
+      element.m_Ability = ability.Reference ?? element.m_Ability;
       if (element.m_Ability is null)
       {
         element.m_Ability = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
       }
-      if (isOn is not null)
-      {
-        element.IsOn = isOn;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      element.IsOn = isOn ?? element.IsOn;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -1667,11 +1203,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SwitchDualCompanion>();
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -1684,19 +1217,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference? group = null)
     {
       var element = ElementTool.Create<UnitsFromSpawnersInUnitGroup>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (group is not null)
-      {
-        builder.Validate(group);
-        element.m_Group = group;
-      }
+      builder.Validate(group);
+      element.m_Group = group ?? element.m_Group;
       return builder.Add(element);
     }
   }

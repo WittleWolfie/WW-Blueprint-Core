@@ -1,4 +1,5 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
+
 namespace BlueprintCore.Actions.Builder.NewEx
 {
   /// <summary>

@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
@@ -30,7 +32,6 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
@@ -48,10 +49,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? resetAlignmentLock = null)
     {
       var element = ElementTool.Create<ContextActionResetAlignment>();
-      if (resetAlignmentLock is not null)
-      {
-        element.m_ResetAlignmentLock = resetAlignmentLock;
-      }
+      element.m_ResetAlignmentLock = resetAlignmentLock ?? element.m_ResetAlignmentLock;
       return builder.Add(element);
     }
 
@@ -63,10 +61,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? attackActions = null)
     {
       var element = ElementTool.Create<ContextActionSwarmAttack>();
-      if (attackActions is not null)
-      {
-        element.AttackActions = attackActions.Build();
-      }
+      element.AttackActions = attackActions.Build() ?? element.AttackActions;
       if (element.AttackActions is null)
       {
         element.AttackActions = Constants.Empty.Actions;
@@ -93,22 +88,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? silent = null)
     {
       var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
-      if (identify is not null)
-      {
-        element.m_Identify = identify;
-      }
-      if (lootType is not null)
-      {
-        element.m_LootType = lootType;
-      }
-      if (maxCost is not null)
-      {
-        element.m_MaxCost = maxCost;
-      }
-      if (silent is not null)
-      {
-        element.m_Silent = silent;
-      }
+      element.m_Identify = identify ?? element.m_Identify;
+      element.m_LootType = lootType ?? element.m_LootType;
+      element.m_MaxCost = maxCost ?? element.m_MaxCost;
+      element.m_Silent = silent ?? element.m_Silent;
       return builder.Add(element);
     }
 
@@ -133,23 +116,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         int? upToSpellLevel = null)
     {
       var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
-      if (excludeSpellbooks is not null)
-      {
-        element.m_ExcludeSpellbooks = excludeSpellbooks.Select(bp => bp.Reference).ToList();
-      }
+      element.m_ExcludeSpellbooks = excludeSpellbooks.Select(bp => bp.Reference).ToList() ?? element.m_ExcludeSpellbooks;
       if (element.m_ExcludeSpellbooks is null)
       {
         element.m_ExcludeSpellbooks = new();
       }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.m_Target = target;
-      }
-      if (upToSpellLevel is not null)
-      {
-        element.m_UpToSpellLevel = upToSpellLevel;
-      }
+      builder.Validate(target);
+      element.m_Target = target ?? element.m_Target;
+      element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
       return builder.Add(element);
     }
 
@@ -163,18 +137,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<BuffActionAddStatBonus>();
-      if (descriptor is not null)
-      {
-        element.Descriptor = descriptor;
-      }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Descriptor = descriptor ?? element.Descriptor;
+      element.Stat = stat ?? element.Stat;
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = ContextValues.Constant(0);
@@ -190,10 +155,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextActionAcceptBurn>();
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = ContextValues.Constant(0);
@@ -209,10 +171,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextActionHealBurn>();
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = ContextValues.Constant(0);
@@ -267,18 +226,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
     {
       var element = ElementTool.Create<ContextActionAddFeature>();
-      if (permanentFeature is not null)
-      {
-        element.m_PermanentFeature = permanentFeature.Reference;
-      }
+      element.m_PermanentFeature = permanentFeature.Reference ?? element.m_PermanentFeature;
       if (element.m_PermanentFeature is null)
       {
         element.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (setRankFrom is not null)
-      {
-        element.m_SetRankFrom = setRankFrom.Reference;
-      }
+      element.m_SetRankFrom = setRankFrom.Reference ?? element.m_SetRankFrom;
       if (element.m_SetRankFrom is null)
       {
         element.m_SetRankFrom = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -305,10 +258,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? cloneFeature = null)
     {
       var element = ElementTool.Create<ContextActionAddLocustClone>();
-      if (cloneFeature is not null)
-      {
-        element.m_CloneFeature = cloneFeature.Reference;
-      }
+      element.m_CloneFeature = cloneFeature.Reference ?? element.m_CloneFeature;
       if (element.m_CloneFeature is null)
       {
         element.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -352,51 +302,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useDurationSeconds = null)
     {
       var element = ElementTool.Create<ContextActionApplyBuff>();
-      if (asChild is not null)
-      {
-        element.AsChild = asChild;
-      }
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.AsChild = asChild ?? element.AsChild;
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (durationSeconds is not null)
-      {
-        element.DurationSeconds = durationSeconds;
-      }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (isFromSpell is not null)
-      {
-        element.IsFromSpell = isFromSpell;
-      }
-      if (isNotDispelable is not null)
-      {
-        element.IsNotDispelable = isNotDispelable;
-      }
-      if (permanent is not null)
-      {
-        element.Permanent = permanent;
-      }
-      if (sameDuration is not null)
-      {
-        element.SameDuration = sameDuration;
-      }
-      if (toCaster is not null)
-      {
-        element.ToCaster = toCaster;
-      }
-      if (useDurationSeconds is not null)
-      {
-        element.UseDurationSeconds = useDurationSeconds;
-      }
+      element.DurationSeconds = durationSeconds ?? element.DurationSeconds;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+      element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+      element.Permanent = permanent ?? element.Permanent;
+      element.SameDuration = sameDuration ?? element.SameDuration;
+      element.ToCaster = toCaster ?? element.ToCaster;
+      element.UseDurationSeconds = useDurationSeconds ?? element.UseDurationSeconds;
       return builder.Add(element);
     }
 
@@ -422,27 +342,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionArmorEnchantPool>();
-      if (defaultEnchantments is not null)
-      {
-        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
       if (element.m_DefaultEnchantments is null)
       {
         element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
       }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantPool is not null)
-      {
-        element.EnchantPool = enchantPool;
-      }
-      if (group is not null)
-      {
-        element.Group = group;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.Group = group ?? element.Group;
       return builder.Add(element);
     }
 
@@ -468,27 +376,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldArmorEnchantPool>();
-      if (defaultEnchantments is not null)
-      {
-        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
       if (element.m_DefaultEnchantments is null)
       {
         element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
       }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantPool is not null)
-      {
-        element.EnchantPool = enchantPool;
-      }
-      if (group is not null)
-      {
-        element.Group = group;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.Group = group ?? element.Group;
       return builder.Add(element);
     }
 
@@ -514,27 +410,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionWeaponEnchantPool>();
-      if (defaultEnchantments is not null)
-      {
-        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
       if (element.m_DefaultEnchantments is null)
       {
         element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
       }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantPool is not null)
-      {
-        element.EnchantPool = enchantPool;
-      }
-      if (group is not null)
-      {
-        element.Group = group;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.Group = group ?? element.Group;
       return builder.Add(element);
     }
 
@@ -560,27 +444,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
-      if (defaultEnchantments is not null)
-      {
-        element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
       if (element.m_DefaultEnchantments is null)
       {
         element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
       }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantPool is not null)
-      {
-        element.EnchantPool = enchantPool;
-      }
-      if (group is not null)
-      {
-        element.Group = group;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.Group = group ?? element.Group;
       return builder.Add(element);
     }
 
@@ -604,14 +476,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weaponRef = null)
     {
       var element = ElementTool.Create<ContextActionAttackWithWeapon>();
-      if (stat is not null)
-      {
-        element.m_Stat = stat;
-      }
-      if (weaponRef is not null)
-      {
-        element.m_WeaponRef = weaponRef.Reference;
-      }
+      element.m_Stat = stat ?? element.m_Stat;
+      element.m_WeaponRef = weaponRef.Reference ?? element.m_WeaponRef;
       if (element.m_WeaponRef is null)
       {
         element.m_WeaponRef = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
@@ -627,10 +493,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? remove = null)
     {
       var element = ElementTool.Create<ContextActionBatteringBlast>();
-      if (remove is not null)
-      {
-        element.Remove = remove;
-      }
+      element.Remove = remove ?? element.Remove;
       return builder.Add(element);
     }
 
@@ -645,30 +508,18 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useCMD = null)
     {
       var element = ElementTool.Create<ContextActionBreakFree>();
-      if (failure is not null)
-      {
-        element.Failure = failure.Build();
-      }
+      element.Failure = failure.Build() ?? element.Failure;
       if (element.Failure is null)
       {
         element.Failure = Constants.Empty.Actions;
       }
-      if (success is not null)
-      {
-        element.Success = success.Build();
-      }
+      element.Success = success.Build() ?? element.Success;
       if (element.Success is null)
       {
         element.Success = Constants.Empty.Actions;
       }
-      if (useCMB is not null)
-      {
-        element.UseCMB = useCMB;
-      }
-      if (useCMD is not null)
-      {
-        element.UseCMD = useCMD;
-      }
+      element.UseCMB = useCMB ?? element.UseCMB;
+      element.UseCMD = useCMD ?? element.UseCMD;
       return builder.Add(element);
     }
 
@@ -680,10 +531,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextDiceValue? value = null)
     {
       var element = ElementTool.Create<ContextActionBreathOfLife>();
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = Constants.Empty.DiceValue;
@@ -700,18 +548,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? minCoins = null)
     {
       var element = ElementTool.Create<ContextActionBreathOfMoney>();
-      if (maxCoins is not null)
-      {
-        element.MaxCoins = maxCoins;
-      }
+      element.MaxCoins = maxCoins ?? element.MaxCoins;
       if (element.MaxCoins is null)
       {
         element.MaxCoins = ContextValues.Constant(0);
       }
-      if (minCoins is not null)
-      {
-        element.MinCoins = minCoins;
-      }
+      element.MinCoins = minCoins ?? element.MinCoins;
       if (element.MinCoins is null)
       {
         element.MinCoins = ContextValues.Constant(0);
@@ -743,38 +585,20 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? spellLevel = null)
     {
       var element = ElementTool.Create<ContextActionCastSpell>();
-      if (castByTarget is not null)
-      {
-        element.CastByTarget = castByTarget;
-      }
-      if (dC is not null)
-      {
-        element.DC = dC;
-      }
+      element.CastByTarget = castByTarget ?? element.CastByTarget;
+      element.DC = dC ?? element.DC;
       if (element.DC is null)
       {
         element.DC = ContextValues.Constant(0);
       }
-      if (overrideDC is not null)
-      {
-        element.OverrideDC = overrideDC;
-      }
-      if (overrideSpellLevel is not null)
-      {
-        element.OverrideSpellLevel = overrideSpellLevel;
-      }
-      if (spell is not null)
-      {
-        element.m_Spell = spell.Reference;
-      }
+      element.OverrideDC = overrideDC ?? element.OverrideDC;
+      element.OverrideSpellLevel = overrideSpellLevel ?? element.OverrideSpellLevel;
+      element.m_Spell = spell.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
-      if (spellLevel is not null)
-      {
-        element.SpellLevel = spellLevel;
-      }
+      element.SpellLevel = spellLevel ?? element.SpellLevel;
       if (element.SpellLevel is null)
       {
         element.SpellLevel = ContextValues.Constant(0);
@@ -794,38 +618,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         SharedValueChangeType? type = null)
     {
       var element = ElementTool.Create<ContextActionChangeSharedValue>();
-      if (addValue is not null)
-      {
-        element.AddValue = addValue;
-      }
+      element.AddValue = addValue ?? element.AddValue;
       if (element.AddValue is null)
       {
         element.AddValue = ContextValues.Constant(0);
       }
-      if (multiplyValue is not null)
-      {
-        element.MultiplyValue = multiplyValue;
-      }
+      element.MultiplyValue = multiplyValue ?? element.MultiplyValue;
       if (element.MultiplyValue is null)
       {
         element.MultiplyValue = ContextValues.Constant(0);
       }
-      if (setValue is not null)
-      {
-        element.SetValue = setValue;
-      }
+      element.SetValue = setValue ?? element.SetValue;
       if (element.SetValue is null)
       {
         element.SetValue = ContextValues.Constant(0);
       }
-      if (sharedValue is not null)
-      {
-        element.SharedValue = sharedValue;
-      }
-      if (type is not null)
-      {
-        element.Type = type;
-      }
+      element.SharedValue = sharedValue ?? element.SharedValue;
+      element.Type = type ?? element.Type;
       return builder.Add(element);
     }
 
@@ -848,10 +657,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<ContextActionClearSummonPool>();
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -876,50 +682,20 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useKineticistMainStat = null)
     {
       var element = ElementTool.Create<ContextActionCombatManeuver>();
-      if (batteringBlast is not null)
-      {
-        element.BatteringBlast = batteringBlast;
-      }
-      if (ignoreConcealment is not null)
-      {
-        element.IgnoreConcealment = ignoreConcealment;
-      }
-      if (newStat is not null)
-      {
-        element.NewStat = newStat;
-      }
-      if (onSuccess is not null)
-      {
-        element.OnSuccess = onSuccess.Build();
-      }
+      element.BatteringBlast = batteringBlast ?? element.BatteringBlast;
+      element.IgnoreConcealment = ignoreConcealment ?? element.IgnoreConcealment;
+      element.NewStat = newStat ?? element.NewStat;
+      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
         element.OnSuccess = Constants.Empty.Actions;
       }
-      if (replaceStat is not null)
-      {
-        element.ReplaceStat = replaceStat;
-      }
-      if (type is not null)
-      {
-        element.Type = type;
-      }
-      if (useBestMentalStat is not null)
-      {
-        element.UseBestMentalStat = useBestMentalStat;
-      }
-      if (useCasterLevelAsBaseAttack is not null)
-      {
-        element.UseCasterLevelAsBaseAttack = useCasterLevelAsBaseAttack;
-      }
-      if (useCastingStat is not null)
-      {
-        element.UseCastingStat = useCastingStat;
-      }
-      if (useKineticistMainStat is not null)
-      {
-        element.UseKineticistMainStat = useKineticistMainStat;
-      }
+      element.ReplaceStat = replaceStat ?? element.ReplaceStat;
+      element.Type = type ?? element.Type;
+      element.UseBestMentalStat = useBestMentalStat ?? element.UseBestMentalStat;
+      element.UseCasterLevelAsBaseAttack = useCasterLevelAsBaseAttack ?? element.UseCasterLevelAsBaseAttack;
+      element.UseCastingStat = useCastingStat ?? element.UseCastingStat;
+      element.UseKineticistMainStat = useKineticistMainStat ?? element.UseKineticistMainStat;
       return builder.Add(element);
     }
 
@@ -933,26 +709,17 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         CombatManeuver? type = null)
     {
       var element = ElementTool.Create<ContextActionCombatManeuverCustom>();
-      if (failure is not null)
-      {
-        element.Failure = failure.Build();
-      }
+      element.Failure = failure.Build() ?? element.Failure;
       if (element.Failure is null)
       {
         element.Failure = Constants.Empty.Actions;
       }
-      if (success is not null)
-      {
-        element.Success = success.Build();
-      }
+      element.Success = success.Build() ?? element.Success;
       if (element.Success is null)
       {
         element.Success = Constants.Empty.Actions;
       }
-      if (type is not null)
-      {
-        element.Type = type;
-      }
+      element.Type = type ?? element.Type;
       return builder.Add(element);
     }
 
@@ -965,18 +732,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? succeed = null)
     {
       var element = ElementTool.Create<ContextActionConditionalSaved>();
-      if (failed is not null)
-      {
-        element.Failed = failed.Build();
-      }
+      element.Failed = failed.Build() ?? element.Failed;
       if (element.Failed is null)
       {
         element.Failed = Constants.Empty.Actions;
       }
-      if (succeed is not null)
-      {
-        element.Succeed = succeed.Build();
-      }
+      element.Succeed = succeed.Build() ?? element.Succeed;
       if (element.Succeed is null)
       {
         element.Succeed = Constants.Empty.Actions;
@@ -1015,108 +776,36 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? writeResultToSharedValue = null)
     {
       var element = ElementTool.Create<ContextActionDealDamage>();
-      if (abilityType is not null)
-      {
-        element.AbilityType = abilityType;
-      }
-      if (alreadyHalved is not null)
-      {
-        element.AlreadyHalved = alreadyHalved;
-      }
-      if (criticalSharedValue is not null)
-      {
-        element.CriticalSharedValue = criticalSharedValue;
-      }
-      if (damageType is not null)
-      {
-        builder.Validate(damageType);
-        element.DamageType = damageType;
-      }
-      if (drain is not null)
-      {
-        element.Drain = drain;
-      }
-      if (duration is not null)
-      {
-        builder.Validate(duration);
-        element.Duration = duration;
-      }
-      if (energyDrainType is not null)
-      {
-        element.EnergyDrainType = energyDrainType;
-      }
-      if (half is not null)
-      {
-        element.Half = half;
-      }
-      if (halfIfSaved is not null)
-      {
-        element.HalfIfSaved = halfIfSaved;
-      }
-      if (ignoreCritical is not null)
-      {
-        element.IgnoreCritical = ignoreCritical;
-      }
-      if (isAoE is not null)
-      {
-        element.IsAoE = isAoE;
-      }
-      if (isAOE is not null)
-      {
-        element.m_IsAOE = isAOE;
-      }
-      if (minHPAfterDamage is not null)
-      {
-        element.MinHPAfterDamage = minHPAfterDamage;
-      }
-      if (preRolledSharedValue is not null)
-      {
-        element.PreRolledSharedValue = preRolledSharedValue;
-      }
-      if (readPreRolledFromSharedValue is not null)
-      {
-        element.ReadPreRolledFromSharedValue = readPreRolledFromSharedValue;
-      }
-      if (resultSharedValue is not null)
-      {
-        element.ResultSharedValue = resultSharedValue;
-      }
-      if (setFactAsReason is not null)
-      {
-        element.SetFactAsReason = setFactAsReason;
-      }
-      if (type is not null)
-      {
-        element.m_Type = type;
-      }
-      if (useMinHPAfterDamage is not null)
-      {
-        element.UseMinHPAfterDamage = useMinHPAfterDamage;
-      }
-      if (useWeaponDamageModifiers is not null)
-      {
-        element.UseWeaponDamageModifiers = useWeaponDamageModifiers;
-      }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.AbilityType = abilityType ?? element.AbilityType;
+      element.AlreadyHalved = alreadyHalved ?? element.AlreadyHalved;
+      element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
+      builder.Validate(damageType);
+      element.DamageType = damageType ?? element.DamageType;
+      element.Drain = drain ?? element.Drain;
+      builder.Validate(duration);
+      element.Duration = duration ?? element.Duration;
+      element.EnergyDrainType = energyDrainType ?? element.EnergyDrainType;
+      element.Half = half ?? element.Half;
+      element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
+      element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
+      element.IsAoE = isAoE ?? element.IsAoE;
+      element.m_IsAOE = isAOE ?? element.m_IsAOE;
+      element.MinHPAfterDamage = minHPAfterDamage ?? element.MinHPAfterDamage;
+      element.PreRolledSharedValue = preRolledSharedValue ?? element.PreRolledSharedValue;
+      element.ReadPreRolledFromSharedValue = readPreRolledFromSharedValue ?? element.ReadPreRolledFromSharedValue;
+      element.ResultSharedValue = resultSharedValue ?? element.ResultSharedValue;
+      element.SetFactAsReason = setFactAsReason ?? element.SetFactAsReason;
+      element.m_Type = type ?? element.m_Type;
+      element.UseMinHPAfterDamage = useMinHPAfterDamage ?? element.UseMinHPAfterDamage;
+      element.UseWeaponDamageModifiers = useWeaponDamageModifiers ?? element.UseWeaponDamageModifiers;
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = Constants.Empty.DiceValue;
       }
-      if (writeCriticalToSharedValue is not null)
-      {
-        element.WriteCriticalToSharedValue = writeCriticalToSharedValue;
-      }
-      if (writeRawResultToSharedValue is not null)
-      {
-        element.WriteRawResultToSharedValue = writeRawResultToSharedValue;
-      }
-      if (writeResultToSharedValue is not null)
-      {
-        element.WriteResultToSharedValue = writeResultToSharedValue;
-      }
+      element.WriteCriticalToSharedValue = writeCriticalToSharedValue ?? element.WriteCriticalToSharedValue;
+      element.WriteRawResultToSharedValue = writeRawResultToSharedValue ?? element.WriteRawResultToSharedValue;
+      element.WriteResultToSharedValue = writeResultToSharedValue ?? element.WriteResultToSharedValue;
       return builder.Add(element);
     }
 
@@ -1129,14 +818,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? ignoreAttackRoll = null)
     {
       var element = ElementTool.Create<ContextActionDealWeaponDamage>();
-      if (canBeRanged is not null)
-      {
-        element.CanBeRanged = canBeRanged;
-      }
-      if (ignoreAttackRoll is not null)
-      {
-        element.IgnoreAttackRoll = ignoreAttackRoll;
-      }
+      element.CanBeRanged = canBeRanged ?? element.CanBeRanged;
+      element.IgnoreAttackRoll = ignoreAttackRoll ?? element.IgnoreAttackRoll;
       return builder.Add(element);
     }
 
@@ -1213,106 +896,52 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useMaxCasterLevel = null)
     {
       var element = ElementTool.Create<ContextActionDispelMagic>();
-      if (buffType is not null)
-      {
-        element.m_BuffType = buffType;
-      }
-      if (checkBonus is not null)
-      {
-        element.CheckBonus = checkBonus;
-      }
-      if (checkSchoolOrDescriptor is not null)
-      {
-        element.CheckSchoolOrDescriptor = checkSchoolOrDescriptor;
-      }
-      if (checkType is not null)
-      {
-        element.m_CheckType = checkType;
-      }
-      if (contextBonus is not null)
-      {
-        element.ContextBonus = contextBonus;
-      }
+      element.m_BuffType = buffType ?? element.m_BuffType;
+      element.CheckBonus = checkBonus ?? element.CheckBonus;
+      element.CheckSchoolOrDescriptor = checkSchoolOrDescriptor ?? element.CheckSchoolOrDescriptor;
+      element.m_CheckType = checkType ?? element.m_CheckType;
+      element.ContextBonus = contextBonus ?? element.ContextBonus;
       if (element.ContextBonus is null)
       {
         element.ContextBonus = ContextValues.Constant(0);
       }
-      if (countToRemove is not null)
-      {
-        element.m_CountToRemove = countToRemove;
-      }
+      element.m_CountToRemove = countToRemove ?? element.m_CountToRemove;
       if (element.m_CountToRemove is null)
       {
         element.m_CountToRemove = ContextValues.Constant(0);
       }
-      if (descriptor is not null)
-      {
-        element.Descriptor = descriptor;
-      }
-      if (maxCasterLevel is not null)
-      {
-        element.m_MaxCasterLevel = maxCasterLevel;
-      }
+      element.Descriptor = descriptor ?? element.Descriptor;
+      element.m_MaxCasterLevel = maxCasterLevel ?? element.m_MaxCasterLevel;
       if (element.m_MaxCasterLevel is null)
       {
         element.m_MaxCasterLevel = ContextValues.Constant(0);
       }
-      if (maxSpellLevel is not null)
-      {
-        element.m_MaxSpellLevel = maxSpellLevel;
-      }
+      element.m_MaxSpellLevel = maxSpellLevel ?? element.m_MaxSpellLevel;
       if (element.m_MaxSpellLevel is null)
       {
         element.m_MaxSpellLevel = ContextValues.Constant(0);
       }
-      if (oneRollForAll is not null)
-      {
-        element.OneRollForAll = oneRollForAll;
-      }
-      if (onFail is not null)
-      {
-        element.OnFail = onFail.Build();
-      }
+      element.OneRollForAll = oneRollForAll ?? element.OneRollForAll;
+      element.OnFail = onFail.Build() ?? element.OnFail;
       if (element.OnFail is null)
       {
         element.OnFail = Constants.Empty.Actions;
       }
-      if (onlyEnemyAreaEffects is not null)
-      {
-        element.OnlyEnemyAreaEffects = onlyEnemyAreaEffects;
-      }
-      if (onlyTargetEnemyBuffs is not null)
-      {
-        element.OnlyTargetEnemyBuffs = onlyTargetEnemyBuffs;
-      }
-      if (onSuccess is not null)
-      {
-        element.OnSuccess = onSuccess.Build();
-      }
+      element.OnlyEnemyAreaEffects = onlyEnemyAreaEffects ?? element.OnlyEnemyAreaEffects;
+      element.OnlyTargetEnemyBuffs = onlyTargetEnemyBuffs ?? element.OnlyTargetEnemyBuffs;
+      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
         element.OnSuccess = Constants.Empty.Actions;
       }
-      if (schools is not null)
-      {
-        element.Schools = schools;
-      }
+      element.Schools = schools ?? element.Schools;
       if (element.Schools is null)
       {
         element.Schools = new SpellSchool[0];
       }
-      if (skill is not null)
-      {
-        element.m_Skill = skill;
-      }
-      if (stopAfterCountRemoved is not null)
-      {
-        element.m_StopAfterCountRemoved = stopAfterCountRemoved;
-      }
-      if (useMaxCasterLevel is not null)
-      {
-        element.m_UseMaxCasterLevel = useMaxCasterLevel;
-      }
+      element.m_Skill = skill ?? element.m_Skill;
+      element.m_StopAfterCountRemoved = stopAfterCountRemoved ?? element.m_StopAfterCountRemoved;
+      element.m_UseMaxCasterLevel = useMaxCasterLevel ?? element.m_UseMaxCasterLevel;
       return builder.Add(element);
     }
 
@@ -1348,35 +977,17 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionEnchantWornItem>();
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantment is not null)
-      {
-        element.m_Enchantment = enchantment.Reference;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.m_Enchantment = enchantment.Reference ?? element.m_Enchantment;
       if (element.m_Enchantment is null)
       {
         element.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
       }
-      if (permanent is not null)
-      {
-        element.Permanent = permanent;
-      }
-      if (removeOnUnequip is not null)
-      {
-        element.RemoveOnUnequip = removeOnUnequip;
-      }
-      if (slot is not null)
-      {
-        element.Slot = slot;
-      }
-      if (toCaster is not null)
-      {
-        element.ToCaster = toCaster;
-      }
+      element.Permanent = permanent ?? element.Permanent;
+      element.RemoveOnUnequip = removeOnUnequip ?? element.RemoveOnUnequip;
+      element.Slot = slot ?? element.Slot;
+      element.ToCaster = toCaster ?? element.ToCaster;
       return builder.Add(element);
     }
 
@@ -1399,10 +1010,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<ContextActionFinishObjective>();
-      if (objective is not null)
-      {
-        element.m_Objective = objective.Reference;
-      }
+      element.m_Objective = objective.Reference ?? element.m_Objective;
       if (element.m_Objective is null)
       {
         element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
@@ -1418,10 +1026,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? action = null)
     {
       var element = ElementTool.Create<ContextActionForEachSwallowedUnit>();
-      if (action is not null)
-      {
-        element.Action = action.Build();
-      }
+      element.Action = action.Build() ?? element.Action;
       if (element.Action is null)
       {
         element.Action = Constants.Empty.Actions;
@@ -1468,18 +1073,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionGrapple>();
-      if (casterBuff is not null)
-      {
-        element.m_CasterBuff = casterBuff.Reference;
-      }
+      element.m_CasterBuff = casterBuff.Reference ?? element.m_CasterBuff;
       if (element.m_CasterBuff is null)
       {
         element.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (targetBuff is not null)
-      {
-        element.m_TargetBuff = targetBuff.Reference;
-      }
+      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -1496,14 +1095,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         EnergyDrainHealType? temporaryNegativeLevelsHeal = null)
     {
       var element = ElementTool.Create<ContextActionHealEnergyDrain>();
-      if (permanentNegativeLevelsHeal is not null)
-      {
-        element.PermanentNegativeLevelsHeal = permanentNegativeLevelsHeal;
-      }
-      if (temporaryNegativeLevelsHeal is not null)
-      {
-        element.TemporaryNegativeLevelsHeal = temporaryNegativeLevelsHeal;
-      }
+      element.PermanentNegativeLevelsHeal = permanentNegativeLevelsHeal ?? element.PermanentNegativeLevelsHeal;
+      element.TemporaryNegativeLevelsHeal = temporaryNegativeLevelsHeal ?? element.TemporaryNegativeLevelsHeal;
       return builder.Add(element);
     }
 
@@ -1520,34 +1113,16 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? writeResultToSharedValue = null)
     {
       var element = ElementTool.Create<ContextActionHealStatDamage>();
-      if (healDrain is not null)
-      {
-        element.HealDrain = healDrain;
-      }
-      if (healType is not null)
-      {
-        element.m_HealType = healType;
-      }
-      if (resultSharedValue is not null)
-      {
-        element.ResultSharedValue = resultSharedValue;
-      }
-      if (statClass is not null)
-      {
-        element.m_StatClass = statClass;
-      }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.HealDrain = healDrain ?? element.HealDrain;
+      element.m_HealType = healType ?? element.m_HealType;
+      element.ResultSharedValue = resultSharedValue ?? element.ResultSharedValue;
+      element.m_StatClass = statClass ?? element.m_StatClass;
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = Constants.Empty.DiceValue;
       }
-      if (writeResultToSharedValue is not null)
-      {
-        element.WriteResultToSharedValue = writeResultToSharedValue;
-      }
+      element.WriteResultToSharedValue = writeResultToSharedValue ?? element.WriteResultToSharedValue;
       return builder.Add(element);
     }
 
@@ -1559,10 +1134,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextDiceValue? value = null)
     {
       var element = ElementTool.Create<ContextActionHealTarget>();
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = Constants.Empty.DiceValue;
@@ -1586,10 +1158,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         UnitState.DismemberType? dismember = null)
     {
       var element = ElementTool.Create<ContextActionKill>();
-      if (dismember is not null)
-      {
-        element.Dismember = dismember;
-      }
+      element.Dismember = dismember ?? element.Dismember;
       return builder.Add(element);
     }
 
@@ -1610,18 +1179,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? successActions = null)
     {
       var element = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
-      if (failActions is not null)
-      {
-        element.FailActions = failActions.Build();
-      }
+      element.FailActions = failActions.Build() ?? element.FailActions;
       if (element.FailActions is null)
       {
         element.FailActions = Constants.Empty.Actions;
       }
-      if (successActions is not null)
-      {
-        element.SuccessActions = successActions.Build();
-      }
+      element.SuccessActions = successActions.Build() ?? element.SuccessActions;
       if (element.SuccessActions is null)
       {
         element.SuccessActions = Constants.Empty.Actions;
@@ -1637,10 +1200,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         UnitState.DismemberType? forceDismemberType = null)
     {
       var element = ElementTool.Create<ContextActionMarkForceDismemberOwner>();
-      if (forceDismemberType is not null)
-      {
-        element.ForceDismemberType = forceDismemberType;
-      }
+      element.ForceDismemberType = forceDismemberType ?? element.ForceDismemberType;
       return builder.Add(element);
     }
 
@@ -1658,34 +1218,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? selectNewTarget = null)
     {
       var element = ElementTool.Create<ContextActionMeleeAttack>();
-      if (autoCritConfirmation is not null)
-      {
-        element.AutoCritConfirmation = autoCritConfirmation;
-      }
-      if (autoCritThreat is not null)
-      {
-        element.AutoCritThreat = autoCritThreat;
-      }
-      if (autoHit is not null)
-      {
-        element.AutoHit = autoHit;
-      }
-      if (extraAttack is not null)
-      {
-        element.ExtraAttack = extraAttack;
-      }
-      if (fullAttack is not null)
-      {
-        element.FullAttack = fullAttack;
-      }
-      if (ignoreStatBonus is not null)
-      {
-        element.IgnoreStatBonus = ignoreStatBonus;
-      }
-      if (selectNewTarget is not null)
-      {
-        element.SelectNewTarget = selectNewTarget;
-      }
+      element.AutoCritConfirmation = autoCritConfirmation ?? element.AutoCritConfirmation;
+      element.AutoCritThreat = autoCritThreat ?? element.AutoCritThreat;
+      element.AutoHit = autoHit ?? element.AutoHit;
+      element.ExtraAttack = extraAttack ?? element.ExtraAttack;
+      element.FullAttack = fullAttack ?? element.FullAttack;
+      element.IgnoreStatBonus = ignoreStatBonus ?? element.IgnoreStatBonus;
+      element.SelectNewTarget = selectNewTarget ?? element.SelectNewTarget;
       return builder.Add(element);
     }
 
@@ -1705,10 +1244,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnContextCaster>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
@@ -1724,10 +1260,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnOwner>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
@@ -1744,18 +1277,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? onEnemies = null)
     {
       var element = ElementTool.Create<ContextActionOnRandomAreaTarget>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (onEnemies is not null)
-      {
-        element.OnEnemies = onEnemies;
-      }
+      element.OnEnemies = onEnemies ?? element.OnEnemies;
       return builder.Add(element);
     }
 
@@ -1782,34 +1309,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Feet? radius = null)
     {
       var element = ElementTool.Create<ContextActionOnRandomTargetsAround>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (filterNoFact is not null)
-      {
-        element.m_FilterNoFact = filterNoFact.Reference;
-      }
+      element.m_FilterNoFact = filterNoFact.Reference ?? element.m_FilterNoFact;
       if (element.m_FilterNoFact is null)
       {
         element.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      if (numberOfTargets is not null)
-      {
-        element.NumberOfTargets = numberOfTargets;
-      }
-      if (onEnemies is not null)
-      {
-        element.OnEnemies = onEnemies;
-      }
-      if (radius is not null)
-      {
-        element.Radius = radius;
-      }
+      element.NumberOfTargets = numberOfTargets ?? element.NumberOfTargets;
+      element.OnEnemies = onEnemies ?? element.OnEnemies;
+      element.Radius = radius ?? element.Radius;
       return builder.Add(element);
     }
 
@@ -1821,10 +1333,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnSwarmTargets>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
@@ -1840,10 +1349,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? hitDice = null)
     {
       var element = ElementTool.Create<ContextActionPrintHDRestrictionToCombatLog>();
-      if (hitDice is not null)
-      {
-        element.HitDice = hitDice;
-      }
+      element.HitDice = hitDice ?? element.HitDice;
       if (element.HitDice is null)
       {
         element.HitDice = ContextValues.Constant(0);
@@ -1870,10 +1376,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null)
     {
       var element = ElementTool.Create<ContextActionProjectileFx>();
-      if (projectile is not null)
-      {
-        element.m_Projectile = projectile.Reference;
-      }
+      element.m_Projectile = projectile.Reference ?? element.m_Projectile;
       if (element.m_Projectile is null)
       {
         element.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
@@ -1897,10 +1400,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? applyToCaster = null)
     {
       var element = ElementTool.Create<ContextActionProvokeAttackOfOpportunity>();
-      if (applyToCaster is not null)
-      {
-        element.ApplyToCaster = applyToCaster;
-      }
+      element.ApplyToCaster = applyToCaster ?? element.ApplyToCaster;
       return builder.Add(element);
     }
 
@@ -1913,18 +1413,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? provokeAttackOfOpportunity = null)
     {
       var element = ElementTool.Create<ContextActionPush>();
-      if (distance is not null)
-      {
-        element.Distance = distance;
-      }
+      element.Distance = distance ?? element.Distance;
       if (element.Distance is null)
       {
         element.Distance = ContextValues.Constant(0);
       }
-      if (provokeAttackOfOpportunity is not null)
-      {
-        element.ProvokeAttackOfOpportunity = provokeAttackOfOpportunity;
-      }
+      element.ProvokeAttackOfOpportunity = provokeAttackOfOpportunity ?? element.ProvokeAttackOfOpportunity;
       return builder.Add(element);
     }
 
@@ -1936,11 +1430,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextActionRandomize.ActionWrapper[]? actions = null)
     {
       var element = ElementTool.Create<ContextActionRandomize>();
-      if (actions is not null)
-      {
-        foreach (var item in actions) { builder.Validate(item); }
-        element.m_Actions = actions;
-      }
+      foreach (var item in actions) { builder.Validate(item); }
+      element.m_Actions = actions ?? element.m_Actions;
       if (element.m_Actions is null)
       {
         element.m_Actions = new ContextActionRandomize.ActionWrapper[0];
@@ -1962,34 +1453,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? selectNewTarget = null)
     {
       var element = ElementTool.Create<ContextActionRangedAttack>();
-      if (autoCritConfirmation is not null)
-      {
-        element.AutoCritConfirmation = autoCritConfirmation;
-      }
-      if (autoCritThreat is not null)
-      {
-        element.AutoCritThreat = autoCritThreat;
-      }
-      if (autoHit is not null)
-      {
-        element.AutoHit = autoHit;
-      }
-      if (extraAttack is not null)
-      {
-        element.ExtraAttack = extraAttack;
-      }
-      if (fullAttack is not null)
-      {
-        element.FullAttack = fullAttack;
-      }
-      if (ignoreStatBonus is not null)
-      {
-        element.IgnoreStatBonus = ignoreStatBonus;
-      }
-      if (selectNewTarget is not null)
-      {
-        element.SelectNewTarget = selectNewTarget;
-      }
+      element.AutoCritConfirmation = autoCritConfirmation ?? element.AutoCritConfirmation;
+      element.AutoCritThreat = autoCritThreat ?? element.AutoCritThreat;
+      element.AutoHit = autoHit ?? element.AutoHit;
+      element.ExtraAttack = extraAttack ?? element.ExtraAttack;
+      element.FullAttack = fullAttack ?? element.FullAttack;
+      element.IgnoreStatBonus = ignoreStatBonus ?? element.IgnoreStatBonus;
+      element.SelectNewTarget = selectNewTarget ?? element.SelectNewTarget;
       return builder.Add(element);
     }
 
@@ -2013,14 +1483,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintItemEquipment, BlueprintItemEquipmentReference>? item = null)
     {
       var element = ElementTool.Create<ContextActionRecoverItemCharges>();
-      if (chargesRecoverCount is not null)
-      {
-        element.ChargesRecoverCount = chargesRecoverCount;
-      }
-      if (item is not null)
-      {
-        element.m_Item = item.Reference;
-      }
+      element.ChargesRecoverCount = chargesRecoverCount ?? element.ChargesRecoverCount;
+      element.m_Item = item.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(null);
@@ -2050,27 +1514,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toTarget = null)
     {
       var element = ElementTool.Create<ContextActionReduceBuffDuration>();
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (increase is not null)
-      {
-        element.Increase = increase;
-      }
-      if (targetBuff is not null)
-      {
-        element.m_TargetBuff = targetBuff.Reference;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.Increase = increase ?? element.Increase;
+      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (toTarget is not null)
-      {
-        element.ToTarget = toTarget;
-      }
+      element.ToTarget = toTarget ?? element.ToTarget;
       return builder.Add(element);
     }
 
@@ -2096,26 +1548,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionRemoveBuff>();
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (onlyFromCaster is not null)
-      {
-        element.OnlyFromCaster = onlyFromCaster;
-      }
-      if (removeRank is not null)
-      {
-        element.RemoveRank = removeRank;
-      }
-      if (toCaster is not null)
-      {
-        element.ToCaster = toCaster;
-      }
+      element.OnlyFromCaster = onlyFromCaster ?? element.OnlyFromCaster;
+      element.RemoveRank = removeRank ?? element.RemoveRank;
+      element.ToCaster = toCaster ?? element.ToCaster;
       return builder.Add(element);
     }
 
@@ -2128,14 +1568,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         SpellDescriptorWrapper? spellDescriptor = null)
     {
       var element = ElementTool.Create<ContextActionRemoveBuffsByDescriptor>();
-      if (notSelf is not null)
-      {
-        element.NotSelf = notSelf;
-      }
-      if (spellDescriptor is not null)
-      {
-        element.SpellDescriptor = spellDescriptor;
-      }
+      element.NotSelf = notSelf ?? element.NotSelf;
+      element.SpellDescriptor = spellDescriptor ?? element.SpellDescriptor;
       return builder.Add(element);
     }
 
@@ -2158,10 +1592,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
-      if (targetBuff is not null)
-      {
-        element.m_TargetBuff = targetBuff.Reference;
-      }
+      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -2177,10 +1608,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         StatsAdjustmentsType? statsAdjustmentsType = null)
     {
       var element = ElementTool.Create<ContextActionReduceDebilitatingBuffsDuration>();
-      if (statsAdjustmentsType is not null)
-      {
-        element.StatsAdjustmentsType = statsAdjustmentsType;
-      }
+      element.StatsAdjustmentsType = statsAdjustmentsType ?? element.StatsAdjustmentsType;
       return builder.Add(element);
     }
 
@@ -2209,18 +1637,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextDiceValue? value = null)
     {
       var element = ElementTool.Create<ContextActionRepeatedActions>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = Constants.Empty.DiceValue;
@@ -2247,10 +1669,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
       var element = ElementTool.Create<ContextActionRestoreSpells>();
-      if (spellbooks is not null)
-      {
-        element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray() ?? element.m_Spellbooks;
       if (element.m_Spellbooks is null)
       {
         element.m_Spellbooks = new BlueprintSpellbookReference[0];
@@ -2279,22 +1698,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         float? resultHealth = null)
     {
       var element = ElementTool.Create<ContextActionResurrect>();
-      if (customResurrectionBuff is not null)
-      {
-        element.m_CustomResurrectionBuff = customResurrectionBuff.Reference;
-      }
+      element.m_CustomResurrectionBuff = customResurrectionBuff.Reference ?? element.m_CustomResurrectionBuff;
       if (element.m_CustomResurrectionBuff is null)
       {
         element.m_CustomResurrectionBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (fullRestore is not null)
-      {
-        element.FullRestore = fullRestore;
-      }
-      if (resultHealth is not null)
-      {
-        element.ResultHealth = resultHealth;
-      }
+      element.FullRestore = fullRestore ?? element.FullRestore;
+      element.ResultHealth = resultHealth ?? element.ResultHealth;
       return builder.Add(element);
     }
 
@@ -2311,42 +1721,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         SavingThrowType? type = null)
     {
       var element = ElementTool.Create<ContextActionSavingThrow>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (conditionalDCIncrease is not null)
-      {
-        element.m_ConditionalDCIncrease = conditionalDCIncrease;
-      }
+      element.m_ConditionalDCIncrease = conditionalDCIncrease ?? element.m_ConditionalDCIncrease;
       if (element.m_ConditionalDCIncrease is null)
       {
         element.m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0];
       }
-      if (customDC is not null)
-      {
-        element.CustomDC = customDC;
-      }
+      element.CustomDC = customDC ?? element.CustomDC;
       if (element.CustomDC is null)
       {
         element.CustomDC = ContextValues.Constant(0);
       }
-      if (fromBuff is not null)
-      {
-        element.FromBuff = fromBuff;
-      }
-      if (hasCustomDC is not null)
-      {
-        element.HasCustomDC = hasCustomDC;
-      }
-      if (type is not null)
-      {
-        element.Type = type;
-      }
+      element.FromBuff = fromBuff ?? element.FromBuff;
+      element.HasCustomDC = hasCustomDC ?? element.HasCustomDC;
+      element.Type = type ?? element.Type;
       return builder.Add(element);
     }
 
@@ -2359,14 +1751,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextActionSelectByValue.ValueAndAction[]? variants = null)
     {
       var element = ElementTool.Create<ContextActionSelectByValue>();
-      if (type is not null)
-      {
-        element.m_Type = type;
-      }
-      if (variants is not null)
-      {
-        element.m_Variants = variants;
-      }
+      element.m_Type = type ?? element.m_Type;
+      element.m_Variants = variants ?? element.m_Variants;
       if (element.m_Variants is null)
       {
         element.m_Variants = new ContextActionSelectByValue.ValueAndAction[0];
@@ -2390,66 +1776,39 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useCustomDC = null)
     {
       var element = ElementTool.Create<ContextActionSkillCheck>();
-      if (calculateDCDifference is not null)
-      {
-        element.CalculateDCDifference = calculateDCDifference;
-      }
-      if (conditionalDCIncrease is not null)
-      {
-        element.m_ConditionalDCIncrease = conditionalDCIncrease;
-      }
+      element.CalculateDCDifference = calculateDCDifference ?? element.CalculateDCDifference;
+      element.m_ConditionalDCIncrease = conditionalDCIncrease ?? element.m_ConditionalDCIncrease;
       if (element.m_ConditionalDCIncrease is null)
       {
         element.m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[0];
       }
-      if (customDC is not null)
-      {
-        element.CustomDC = customDC;
-      }
+      element.CustomDC = customDC ?? element.CustomDC;
       if (element.CustomDC is null)
       {
         element.CustomDC = ContextValues.Constant(0);
       }
-      if (failure is not null)
-      {
-        element.Failure = failure.Build();
-      }
+      element.Failure = failure.Build() ?? element.Failure;
       if (element.Failure is null)
       {
         element.Failure = Constants.Empty.Actions;
       }
-      if (failureDiffMoreOrEqual10 is not null)
-      {
-        element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10.Build();
-      }
+      element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10.Build() ?? element.FailureDiffMoreOrEqual10;
       if (element.FailureDiffMoreOrEqual10 is null)
       {
         element.FailureDiffMoreOrEqual10 = Constants.Empty.Actions;
       }
-      if (failureDiffMoreOrEqual5Less10 is not null)
-      {
-        element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10.Build();
-      }
+      element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10.Build() ?? element.FailureDiffMoreOrEqual5Less10;
       if (element.FailureDiffMoreOrEqual5Less10 is null)
       {
         element.FailureDiffMoreOrEqual5Less10 = Constants.Empty.Actions;
       }
-      if (stat is not null)
-      {
-        element.Stat = stat;
-      }
-      if (success is not null)
-      {
-        element.Success = success.Build();
-      }
+      element.Stat = stat ?? element.Stat;
+      element.Success = success.Build() ?? element.Success;
       if (element.Success is null)
       {
         element.Success = Constants.Empty.Actions;
       }
-      if (useCustomDC is not null)
-      {
-        element.UseCustomDC = useCustomDC;
-      }
+      element.UseCustomDC = useCustomDC ?? element.UseCustomDC;
       return builder.Add(element);
     }
 
@@ -2463,22 +1822,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         PetType? petType = null)
     {
       var element = ElementTool.Create<ContextActionsOnPet>();
-      if (actions is not null)
-      {
-        element.Actions = actions.Build();
-      }
+      element.Actions = actions.Build() ?? element.Actions;
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
-      if (allPets is not null)
-      {
-        element.AllPets = allPets;
-      }
-      if (petType is not null)
-      {
-        element.PetType = petType;
-      }
+      element.AllPets = allPets ?? element.AllPets;
+      element.PetType = petType ?? element.PetType;
       return builder.Add(element);
     }
 
@@ -2503,23 +1853,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? onUnit = null)
     {
       var element = ElementTool.Create<ContextActionSpawnAreaEffect>();
-      if (areaEffect is not null)
-      {
-        element.m_AreaEffect = areaEffect.Reference;
-      }
+      element.m_AreaEffect = areaEffect.Reference ?? element.m_AreaEffect;
       if (element.m_AreaEffect is null)
       {
         element.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(null);
       }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (onUnit is not null)
-      {
-        element.OnUnit = onUnit;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.OnUnit = onUnit ?? element.OnUnit;
       return builder.Add(element);
     }
 
@@ -2554,18 +1895,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference>? controllableProjectile = null)
     {
       var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
-      if (associatedCasterBuff is not null)
-      {
-        element.AssociatedCasterBuff = associatedCasterBuff.Reference;
-      }
+      element.AssociatedCasterBuff = associatedCasterBuff.Reference ?? element.AssociatedCasterBuff;
       if (element.AssociatedCasterBuff is null)
       {
         element.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (controllableProjectile is not null)
-      {
-        element.ControllableProjectile = controllableProjectile.Reference;
-      }
+      element.ControllableProjectile = controllableProjectile.Reference ?? element.ControllableProjectile;
       if (element.ControllableProjectile is null)
       {
         element.ControllableProjectile = BlueprintTool.GetRef<BlueprintControllableProjectileReference>(null);
@@ -2611,63 +1946,36 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useLimitFromSummonPool = null)
     {
       var element = ElementTool.Create<ContextActionSpawnMonster>();
-      if (afterSpawn is not null)
-      {
-        element.AfterSpawn = afterSpawn.Build();
-      }
+      element.AfterSpawn = afterSpawn.Build() ?? element.AfterSpawn;
       if (element.AfterSpawn is null)
       {
         element.AfterSpawn = Constants.Empty.Actions;
       }
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      if (countValue is not null)
-      {
-        element.CountValue = countValue;
-      }
+      element.CountValue = countValue ?? element.CountValue;
       if (element.CountValue is null)
       {
         element.CountValue = Constants.Empty.DiceValue;
       }
-      if (doNotLinkToCaster is not null)
-      {
-        element.DoNotLinkToCaster = doNotLinkToCaster;
-      }
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (isDirectlyControllable is not null)
-      {
-        element.IsDirectlyControllable = isDirectlyControllable;
-      }
-      if (levelValue is not null)
-      {
-        element.LevelValue = levelValue;
-      }
+      element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
+      element.LevelValue = levelValue ?? element.LevelValue;
       if (element.LevelValue is null)
       {
         element.LevelValue = ContextValues.Constant(0);
       }
-      if (summonPool is not null)
-      {
-        element.m_SummonPool = summonPool.Reference;
-      }
+      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
-      if (useLimitFromSummonPool is not null)
-      {
-        element.UseLimitFromSummonPool = useLimitFromSummonPool;
-      }
+      element.UseLimitFromSummonPool = useLimitFromSummonPool ?? element.UseLimitFromSummonPool;
       return builder.Add(element);
     }
 
@@ -2690,10 +1998,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
     {
       var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
-      if (blueprint is not null)
-      {
-        element.m_Blueprint = blueprint.Reference;
-      }
+      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -2717,10 +2022,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         SpellDescriptorWrapper? descriptor = null)
     {
       var element = ElementTool.Create<ContextActionStealBuffs>();
-      if (descriptor is not null)
-      {
-        element.m_Descriptor = descriptor;
-      }
+      element.m_Descriptor = descriptor ?? element.m_Descriptor;
       return builder.Add(element);
     }
 
@@ -2743,10 +2045,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionSwallowWhole>();
-      if (targetBuff is not null)
-      {
-        element.m_TargetBuff = targetBuff.Reference;
-      }
+      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -2762,10 +2061,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? remove = null)
     {
       var element = ElementTool.Create<ContextActionSwarmTarget>();
-      if (remove is not null)
-      {
-        element.Remove = remove;
-      }
+      element.Remove = remove ?? element.Remove;
       return builder.Add(element);
     }
 
@@ -2807,26 +2103,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextRestoreResource>();
-      if (contextValueRestoration is not null)
-      {
-        element.ContextValueRestoration = contextValueRestoration;
-      }
-      if (isFullRestoreAllResources is not null)
-      {
-        element.m_IsFullRestoreAllResources = isFullRestoreAllResources;
-      }
-      if (resource is not null)
-      {
-        element.m_Resource = resource.Reference;
-      }
+      element.ContextValueRestoration = contextValueRestoration ?? element.ContextValueRestoration;
+      element.m_IsFullRestoreAllResources = isFullRestoreAllResources ?? element.m_IsFullRestoreAllResources;
+      element.m_Resource = resource.Reference ?? element.m_Resource;
       if (element.m_Resource is null)
       {
         element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
       }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = ContextValues.Constant(0);
@@ -2855,22 +2139,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextSpendResource>();
-      if (contextValueSpendure is not null)
-      {
-        element.ContextValueSpendure = contextValueSpendure;
-      }
-      if (resource is not null)
-      {
-        element.m_Resource = resource.Reference;
-      }
+      element.ContextValueSpendure = contextValueSpendure ?? element.ContextValueSpendure;
+      element.m_Resource = resource.Reference ?? element.m_Resource;
       if (element.m_Resource is null)
       {
         element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
       }
-      if (value is not null)
-      {
-        element.Value = value;
-      }
+      element.Value = value ?? element.Value;
       if (element.Value is null)
       {
         element.Value = ContextValues.Constant(0);
@@ -2948,58 +2223,34 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? tricksterRank3Actions = null)
     {
       var element = ElementTool.Create<Demoralize>();
-      if (bonus is not null)
-      {
-        element.Bonus = bonus;
-      }
-      if (buff is not null)
-      {
-        element.m_Buff = buff.Reference;
-      }
+      element.Bonus = bonus ?? element.Bonus;
+      element.m_Buff = buff.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (dazzlingDisplay is not null)
-      {
-        element.DazzlingDisplay = dazzlingDisplay;
-      }
-      if (greaterBuff is not null)
-      {
-        element.m_GreaterBuff = greaterBuff.Reference;
-      }
+      element.DazzlingDisplay = dazzlingDisplay ?? element.DazzlingDisplay;
+      element.m_GreaterBuff = greaterBuff.Reference ?? element.m_GreaterBuff;
       if (element.m_GreaterBuff is null)
       {
         element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (shatterConfidenceBuff is not null)
-      {
-        element.m_ShatterConfidenceBuff = shatterConfidenceBuff.Reference;
-      }
+      element.m_ShatterConfidenceBuff = shatterConfidenceBuff.Reference ?? element.m_ShatterConfidenceBuff;
       if (element.m_ShatterConfidenceBuff is null)
       {
         element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      if (shatterConfidenceFeature is not null)
-      {
-        element.m_ShatterConfidenceFeature = shatterConfidenceFeature.Reference;
-      }
+      element.m_ShatterConfidenceFeature = shatterConfidenceFeature.Reference ?? element.m_ShatterConfidenceFeature;
       if (element.m_ShatterConfidenceFeature is null)
       {
         element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (swordlordProwessFeature is not null)
-      {
-        element.m_SwordlordProwessFeature = swordlordProwessFeature.Reference;
-      }
+      element.m_SwordlordProwessFeature = swordlordProwessFeature.Reference ?? element.m_SwordlordProwessFeature;
       if (element.m_SwordlordProwessFeature is null)
       {
         element.m_SwordlordProwessFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      if (tricksterRank3Actions is not null)
-      {
-        element.TricksterRank3Actions = tricksterRank3Actions.Build();
-      }
+      element.TricksterRank3Actions = tricksterRank3Actions.Build() ?? element.TricksterRank3Actions;
       if (element.TricksterRank3Actions is null)
       {
         element.TricksterRank3Actions = Constants.Empty.Actions;
@@ -3031,39 +2282,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useSecondaryHand = null)
     {
       var element = ElementTool.Create<EnhanceWeapon>();
-      if (durationValue is not null)
-      {
-        builder.Validate(durationValue);
-        element.DurationValue = durationValue;
-      }
-      if (enchantLevel is not null)
-      {
-        element.EnchantLevel = enchantLevel;
-      }
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue ?? element.DurationValue;
+      element.EnchantLevel = enchantLevel ?? element.EnchantLevel;
       if (element.EnchantLevel is null)
       {
         element.EnchantLevel = ContextValues.Constant(0);
       }
-      if (enchantment is not null)
-      {
-        element.m_Enchantment = enchantment.Select(bp => bp.Reference).ToArray();
-      }
+      element.m_Enchantment = enchantment.Select(bp => bp.Reference).ToArray() ?? element.m_Enchantment;
       if (element.m_Enchantment is null)
       {
         element.m_Enchantment = new BlueprintItemEnchantmentReference[0];
       }
-      if (enchantmentType is not null)
-      {
-        element.EnchantmentType = enchantmentType;
-      }
-      if (greater is not null)
-      {
-        element.Greater = greater;
-      }
-      if (useSecondaryHand is not null)
-      {
-        element.UseSecondaryHand = useSecondaryHand;
-      }
+      element.EnchantmentType = enchantmentType ?? element.EnchantmentType;
+      element.Greater = greater ?? element.Greater;
+      element.UseSecondaryHand = useSecondaryHand ?? element.UseSecondaryHand;
       return builder.Add(element);
     }
 
@@ -3086,10 +2319,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? source = null)
     {
       var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
-      if (source is not null)
-      {
-        element.m_Source = source.Reference;
-      }
+      element.m_Source = source.Reference ?? element.m_Source;
       if (element.m_Source is null)
       {
         element.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);

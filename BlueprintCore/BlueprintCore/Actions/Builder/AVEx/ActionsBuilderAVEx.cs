@@ -1,3 +1,5 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
@@ -10,7 +12,6 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Actions;
-//***** AUTO-GENERATED - DO NOT EDIT *****//
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>
@@ -28,10 +29,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         string? soundName = null)
     {
       var element = ElementTool.Create<ContextActionPlaySound>();
-      if (soundName is not null)
-      {
-        element.SoundName = soundName;
-      }
+      element.SoundName = soundName ?? element.SoundName;
       return builder.Add(element);
     }
 
@@ -43,10 +41,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         LocalizedString? text = null)
     {
       var element = ElementTool.Create<AddDialogNotification>();
-      if (text is not null)
-      {
-        element.Text = text;
-      }
+      element.Text = text ?? element.Text;
       if (element.Text is null)
       {
         element.Text = Constants.Empty.String;
@@ -62,11 +57,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         PositionEvaluator? position = null)
     {
       var element = ElementTool.Create<CameraToPosition>();
-      if (position is not null)
-      {
-        builder.Validate(position);
-        element.Position = position;
-      }
+      builder.Validate(position);
+      element.Position = position ?? element.Position;
       return builder.Add(element);
     }
 
@@ -78,11 +70,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         SpriteLink? image = null)
     {
       var element = ElementTool.Create<ChangeBookEventImage>();
-      if (image is not null)
-      {
-        builder.Validate(image);
-        element.m_Image = image;
-      }
+      builder.Validate(image);
+      element.m_Image = image ?? element.m_Image;
       return builder.Add(element);
     }
 
@@ -105,23 +94,11 @@ namespace BlueprintCore.Actions.Builder.AVEx
         float? transitionOut = null)
     {
       var element = ElementTool.Create<ContextActionRunAnimationClip>();
-      if (clipWrapper is not null)
-      {
-        builder.Validate(clipWrapper);
-        element.ClipWrapper = clipWrapper;
-      }
-      if (mode is not null)
-      {
-        element.Mode = mode;
-      }
-      if (transitionIn is not null)
-      {
-        element.TransitionIn = transitionIn;
-      }
-      if (transitionOut is not null)
-      {
-        element.TransitionOut = transitionOut;
-      }
+      builder.Validate(clipWrapper);
+      element.ClipWrapper = clipWrapper ?? element.ClipWrapper;
+      element.Mode = mode ?? element.Mode;
+      element.TransitionIn = transitionIn ?? element.TransitionIn;
+      element.TransitionOut = transitionOut ?? element.TransitionOut;
       return builder.Add(element);
     }
 
@@ -136,27 +113,15 @@ namespace BlueprintCore.Actions.Builder.AVEx
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ContextActionShowBark>();
-      if (barkDurationByText is not null)
-      {
-        element.BarkDurationByText = barkDurationByText;
-      }
-      if (showWhileUnconscious is not null)
-      {
-        element.ShowWhileUnconscious = showWhileUnconscious;
-      }
-      if (whatToBark is not null)
-      {
-        element.WhatToBark = whatToBark;
-      }
+      element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
+      element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
+      element.WhatToBark = whatToBark ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
         element.WhatToBark = Constants.Empty.String;
       }
-      if (whatToBarkShared is not null)
-      {
-        builder.Validate(whatToBarkShared);
-        element.WhatToBarkShared = whatToBarkShared;
-      }
+      builder.Validate(whatToBarkShared);
+      element.WhatToBarkShared = whatToBarkShared ?? element.WhatToBarkShared;
       return builder.Add(element);
     }
 
@@ -168,10 +133,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
         PrefabLink? prefabLink = null)
     {
       var element = ElementTool.Create<ContextActionSpawnFx>();
-      if (prefabLink is not null)
-      {
-        element.PrefabLink = prefabLink;
-      }
+      element.PrefabLink = prefabLink ?? element.PrefabLink;
       if (element.PrefabLink is null)
       {
         element.PrefabLink = Constants.Empty.PrefabLink;
@@ -188,14 +150,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         float? rainIntensity = null)
     {
       var element = ElementTool.Create<OverrideRainIntesity>();
-      if (duration is not null)
-      {
-        element.Duration = duration;
-      }
-      if (rainIntensity is not null)
-      {
-        element.RainIntensity = rainIntensity;
-      }
+      element.Duration = duration ?? element.Duration;
+      element.RainIntensity = rainIntensity ?? element.RainIntensity;
       return builder.Add(element);
     }
 
@@ -209,18 +165,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
         string? soundName = null)
     {
       var element = ElementTool.Create<Play2DSound>();
-      if (setRace is not null)
-      {
-        element.SetRace = setRace;
-      }
-      if (setSex is not null)
-      {
-        element.SetSex = setSex;
-      }
-      if (soundName is not null)
-      {
-        element.SoundName = soundName;
-      }
+      element.SetRace = setRace ?? element.SetRace;
+      element.SetSex = setSex ?? element.SetSex;
+      element.SoundName = soundName ?? element.SoundName;
       return builder.Add(element);
     }
 
@@ -236,27 +183,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
         EntityReference? soundSourceObject = null)
     {
       var element = ElementTool.Create<Play3DSound>();
-      if (setCurrentSpeaker is not null)
-      {
-        element.SetCurrentSpeaker = setCurrentSpeaker;
-      }
-      if (setRace is not null)
-      {
-        element.SetRace = setRace;
-      }
-      if (setSex is not null)
-      {
-        element.SetSex = setSex;
-      }
-      if (soundName is not null)
-      {
-        element.SoundName = soundName;
-      }
-      if (soundSourceObject is not null)
-      {
-        builder.Validate(soundSourceObject);
-        element.SoundSourceObject = soundSourceObject;
-      }
+      element.SetCurrentSpeaker = setCurrentSpeaker ?? element.SetCurrentSpeaker;
+      element.SetRace = setRace ?? element.SetRace;
+      element.SetSex = setSex ?? element.SetSex;
+      element.SoundName = soundName ?? element.SoundName;
+      builder.Validate(soundSourceObject);
+      element.SoundSourceObject = soundSourceObject ?? element.SoundSourceObject;
       return builder.Add(element);
     }
 
@@ -271,24 +203,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<PlayAnimationOneShot>();
-      if (clipWrapper is not null)
-      {
-        builder.Validate(clipWrapper);
-        element.m_ClipWrapper = clipWrapper;
-      }
-      if (transitionIn is not null)
-      {
-        element.TransitionIn = transitionIn;
-      }
-      if (transitionOut is not null)
-      {
-        element.TransitionOut = transitionOut;
-      }
-      if (unit is not null)
-      {
-        builder.Validate(unit);
-        element.Unit = unit;
-      }
+      builder.Validate(clipWrapper);
+      element.m_ClipWrapper = clipWrapper ?? element.m_ClipWrapper;
+      element.TransitionIn = transitionIn ?? element.TransitionIn;
+      element.TransitionOut = transitionOut ?? element.TransitionOut;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -301,14 +221,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         string? musicEventStop = null)
     {
       var element = ElementTool.Create<PlayCustomMusic>();
-      if (musicEventStart is not null)
-      {
-        element.MusicEventStart = musicEventStart;
-      }
-      if (musicEventStop is not null)
-      {
-        element.MusicEventStop = musicEventStop;
-      }
+      element.MusicEventStart = musicEventStart ?? element.MusicEventStart;
+      element.MusicEventStop = musicEventStop ?? element.MusicEventStop;
       return builder.Add(element);
     }
 
@@ -334,27 +248,15 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool? putInQueue = null)
     {
       var element = ElementTool.Create<PlayCutscene>();
-      if (checkExistence is not null)
-      {
-        element.CheckExistence = checkExistence;
-      }
-      if (cutscene is not null)
-      {
-        element.m_Cutscene = cutscene.Reference;
-      }
+      element.CheckExistence = checkExistence ?? element.CheckExistence;
+      element.m_Cutscene = cutscene.Reference ?? element.m_Cutscene;
       if (element.m_Cutscene is null)
       {
         element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);
       }
-      if (parameters is not null)
-      {
-        builder.Validate(parameters);
-        element.Parameters = parameters;
-      }
-      if (putInQueue is not null)
-      {
-        element.PutInQueue = putInQueue;
-      }
+      builder.Validate(parameters);
+      element.Parameters = parameters ?? element.Parameters;
+      element.PutInQueue = putInQueue ?? element.PutInQueue;
       return builder.Add(element);
     }
 
@@ -367,14 +269,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         string? desc = null)
     {
       var element = ElementTool.Create<ReloadMechanic>();
-      if (clearFx is not null)
-      {
-        element.ClearFx = clearFx;
-      }
-      if (desc is not null)
-      {
-        element.Desc = desc;
-      }
+      element.ClearFx = clearFx ?? element.ClearFx;
+      element.Desc = desc ?? element.Desc;
       return builder.Add(element);
     }
 
@@ -386,11 +282,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
         AkStateReference? state = null)
     {
       var element = ElementTool.Create<SetSoundState>();
-      if (state is not null)
-      {
-        builder.Validate(state);
-        element.m_State = state;
-      }
+      builder.Validate(state);
+      element.m_State = state ?? element.m_State;
       return builder.Add(element);
     }
 
@@ -406,33 +299,18 @@ namespace BlueprintCore.Actions.Builder.AVEx
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ShowBark>();
-      if (barkDurationByText is not null)
-      {
-        element.BarkDurationByText = barkDurationByText;
-      }
-      if (targetMapObject is not null)
-      {
-        builder.Validate(targetMapObject);
-        element.TargetMapObject = targetMapObject;
-      }
-      if (targetUnit is not null)
-      {
-        builder.Validate(targetUnit);
-        element.TargetUnit = targetUnit;
-      }
-      if (whatToBark is not null)
-      {
-        element.WhatToBark = whatToBark;
-      }
+      element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
+      builder.Validate(targetMapObject);
+      element.TargetMapObject = targetMapObject ?? element.TargetMapObject;
+      builder.Validate(targetUnit);
+      element.TargetUnit = targetUnit ?? element.TargetUnit;
+      element.WhatToBark = whatToBark ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
         element.WhatToBark = Constants.Empty.String;
       }
-      if (whatToBarkShared is not null)
-      {
-        builder.Validate(whatToBarkShared);
-        element.WhatToBarkShared = whatToBarkShared;
-      }
+      builder.Validate(whatToBarkShared);
+      element.WhatToBarkShared = whatToBarkShared ?? element.WhatToBarkShared;
       return builder.Add(element);
     }
 
@@ -445,19 +323,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
         TransformEvaluator? target = null)
     {
       var element = ElementTool.Create<SpawnFx>();
-      if (fxPrefab is not null)
-      {
-        element.FxPrefab = fxPrefab;
-      }
+      element.FxPrefab = fxPrefab ?? element.FxPrefab;
       if (element.FxPrefab is null)
       {
         element.FxPrefab = Constants.Empty.PrefabLink;
       }
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
@@ -490,23 +362,14 @@ namespace BlueprintCore.Actions.Builder.AVEx
         UnitEvaluator? withUnit = null)
     {
       var element = ElementTool.Create<StopCutscene>();
-      if (checkType is not null)
-      {
-        element.m_CheckType = checkType;
-      }
-      if (cutscene is not null)
-      {
-        element.m_Cutscene = cutscene.Reference;
-      }
+      element.m_CheckType = checkType ?? element.m_CheckType;
+      element.m_Cutscene = cutscene.Reference ?? element.m_Cutscene;
       if (element.m_Cutscene is null)
       {
         element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);
       }
-      if (withUnit is not null)
-      {
-        builder.Validate(withUnit);
-        element.WithUnit = withUnit;
-      }
+      builder.Validate(withUnit);
+      element.WithUnit = withUnit ?? element.WithUnit;
       return builder.Add(element);
     }
 
@@ -519,15 +382,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool? toggleOn = null)
     {
       var element = ElementTool.Create<ToggleObjectFx>();
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
-      if (toggleOn is not null)
-      {
-        element.ToggleOn = toggleOn;
-      }
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
+      element.ToggleOn = toggleOn ?? element.ToggleOn;
       return builder.Add(element);
     }
 
@@ -540,15 +397,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
         bool? toggleOn = null)
     {
       var element = ElementTool.Create<ToggleObjectMusic>();
-      if (target is not null)
-      {
-        builder.Validate(target);
-        element.Target = target;
-      }
-      if (toggleOn is not null)
-      {
-        element.ToggleOn = toggleOn;
-      }
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
+      element.ToggleOn = toggleOn ?? element.ToggleOn;
       return builder.Add(element);
     }
   }
