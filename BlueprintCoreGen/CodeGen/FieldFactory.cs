@@ -57,7 +57,8 @@ namespace BlueprintCoreGen.CodeGen
               .Where(fieldInfo => !ShouldIgnore(fieldInfo))
               .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, overridesByName))
               .Where(field => !field.Ignore)
-              .OrderBy(field => field.DefaultValue is null ? 0 : 1)
+              .OrderBy(field => !field.SkipDeclaration ? 0 : 1)
+              .ThenBy(field => string.IsNullOrEmpty(field.DefaultValue) ? 0 : 1)
               .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
               .Select(field => field as IFieldParameter)
               .ToList();
@@ -245,11 +246,7 @@ namespace BlueprintCoreGen.CodeGen
       return false;
     }
 
-    // TODO: There's a problem with using this w/ nullable types. Need to re-think how I handle nullability.
-    // I think what should change:
-    // -Use null coalescing operator
-    // -Constructing the field in terms of RHS / LHS of null coalescing operator
-    private static List<string> GetAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
+    private static string GetAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (blueprintType is not null)
       {
@@ -257,35 +254,35 @@ namespace BlueprintCoreGen.CodeGen
         {
           if (type.IsArray)
           {
-            return new() { "{0}.{1} = {2}.Select(bp => bp.Reference).ToArray();" };
+            return "{0}.Select(bp => bp.Reference).ToArray()";
           }
 
-          return new() { "{0}.{1} = {2}.Select(bp => bp.Reference).ToList();" };
+          return "{0}.Select(bp => bp.Reference).ToList()";
         }
 
-        return new() { "{0}.{1} = {2}.Reference;" };
+        return "{0}.Reference";
       }
 
-      return new() { "{0}.{1} = {2};" };
+      return "{0}";
     }
 
-    private static List<string> GetAssignmentFmtIfNull(Type type, Type? blueprintType, Type? enumerableType)
+    private static string GetAssignmentFmtIfNull(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (enumerableType is not null)
       {
         if (type.IsArray)
         {
-          return new() { $"{{0}}.{{1}} = new {TypeTool.GetName(enumerableType)}[0];" };
+          return $"new {TypeTool.GetName(enumerableType)}[0]";
         }
-        return new() { "{0}.{1} = new();" };
+        return "new()";
       }
 
       if (blueprintType is not null)
       {
-        return new() { $"{{0}}.{{1}} = BlueprintTool.GetRef<{TypeTool.GetName(type)}>(null);" };
+        return $"BlueprintTool.GetRef<{TypeTool.GetName(type)}>(null)";
       }
 
-      return new();
+      return "";
     }
 
     private class FieldParameter : IFieldParameter
@@ -298,12 +295,12 @@ namespace BlueprintCoreGen.CodeGen
       /// <summary>
       /// If true the declaration should be left out
       /// </summary>
-      private bool SkipDeclaration = false;
+      public bool SkipDeclaration = false;
 
       /// <summary>
       /// If true appends `?` to the type name
       /// </summary>
-      private bool IsNullable;
+      private bool IsNullable = true;
 
       public List<Type> Imports { get; }
       public List<string> Comment => GetComment();
@@ -329,15 +326,20 @@ namespace BlueprintCoreGen.CodeGen
       private List<string> ValidationFmt { get; set; }
 
       /// <summary>
-      /// Assignment format string where {0} is the object name, {1} is the field name, and {2} is the parameter name
+      /// Assignment format string for the right hand side of an assignment statement, where {0} is the parameter name
       /// </summary>
-      private List<string> AssignmentFmt { get; set; }
+      private string AssignmentFmtRhs { get; set; }
 
       /// <summary>
-      /// Assignment format string if the field is null where {0} is the object name, {1} is the field name, and {2} is
-      /// the parameter name
+      /// Assignment string for the right hand side of an assignment statement if the field is null
       /// </summary>
-      private List<string> AssignmentFmtIfNull { get; set; }
+      private string? AssignmentIfNullRhs { get; set; }
+
+      /// <summary>
+      /// Assignment format strings for additional lines of code after the assignment statement, where {0} is the
+      /// object name
+      /// </summary>
+      private List<string> ExtraAssignmentFmtLines { get; set; }
 
       public FieldParameter(
           string fieldName,
@@ -347,19 +349,21 @@ namespace BlueprintCoreGen.CodeGen
           List<string> commentFmt,
           string defaultValue,
           List<string> validationFmt,
-          List<string> assignmentFmt,
-          List<string> assignmentFmtIfNull)
+          string assignmentRhsFmt,
+          string assignmentIfNullRhs)
       {
         FieldName = fieldName;
         ParamName = paramName;
         TypeName = typeName;
+
         Imports = imports;
         CommentFmt = commentFmt;
         DefaultValue = defaultValue;
+
         ValidationFmt = validationFmt;
-        AssignmentFmt = assignmentFmt;
-        AssignmentFmtIfNull = assignmentFmtIfNull;
-        IsNullable = !string.IsNullOrEmpty(DefaultValue);
+        AssignmentFmtRhs = assignmentRhsFmt;
+        AssignmentIfNullRhs = assignmentIfNullRhs;
+        ExtraAssignmentFmtLines = new();
       }
 
       public void ApplyOverride(FieldParamOverride fieldParamOverride)
@@ -375,8 +379,9 @@ namespace BlueprintCoreGen.CodeGen
         DefaultValue = fieldParamOverride.DefaultValue ?? DefaultValue;
 
         ValidationFmt = fieldParamOverride.ValidationFmt ?? ValidationFmt;
-        AssignmentFmt = fieldParamOverride.AssignmentFmt ?? AssignmentFmt;
-        AssignmentFmtIfNull = fieldParamOverride.AssignmentFmtIfNull ?? AssignmentFmtIfNull;
+        AssignmentFmtRhs = fieldParamOverride.AssignmentRhsFmt ?? AssignmentFmtRhs;
+        AssignmentIfNullRhs = fieldParamOverride.AssignmentIfNullRhs ?? AssignmentIfNullRhs;
+        ExtraAssignmentFmtLines = fieldParamOverride.ExtraAssignmentFmtLines ?? ExtraAssignmentFmtLines;
       }
 
       private List<string> GetComment()
@@ -388,36 +393,43 @@ namespace BlueprintCoreGen.CodeGen
       {
         if (SkipDeclaration) { return ""; }
 
-        return IsNullable
-            ? $"{TypeName}? {ParamName} = {DefaultValue}"
-            : $"{TypeName} {ParamName}";
+        var declaration = IsNullable ? $"{TypeName}? {ParamName}" : $"{TypeName} {ParamName}";
+        return string.IsNullOrEmpty(DefaultValue)
+            ? declaration
+            : $"{declaration} = {DefaultValue}";
       }
 
       public List<string> GetAssignment(string objectName, string validateFunction)
       {
         List<string> assignment = new();
-        if (!IsNullable)
+        assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
+
+        if (IsNullable)
         {
-          // Required
-          assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
-          assignment.AddRange(AssignmentFmt.Select(line => string.Format(line, objectName, FieldName, ParamName)));
+          assignment.Add(
+              string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs} ?? {objectName}.{FieldName};", ParamName));
         }
         else
         {
-          // Optional. Only assign if the parameter value is non-null.
-          assignment.Add($"if ({ParamName} is not null)");
-          assignment.Add($"{{");
-          assignment.AddRange(ValidationFmt.Select(line => string.Format($"  {line}", validateFunction, ParamName)));
-          assignment.AddRange(
-              AssignmentFmt.Select(line => string.Format($"  {line}", objectName, FieldName, ParamName)));
-          assignment.Add($"}}");
+          assignment.Add(string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs};", ParamName));
         }
-        return assignment.Concat(GetAssignmentIfNull(objectName)).ToList();
+
+        return assignment.Concat(GetExtraAssignmentLines(objectName)).Concat(GetAssignmentIfNull(objectName)).ToList();
+      }
+
+      private List<string> GetExtraAssignmentLines(string objectName)
+      {
+        if (!ExtraAssignmentFmtLines.Any())
+        {
+          return new();
+        }
+
+        return ExtraAssignmentFmtLines.Select(line => string.Format($"{line}", objectName)).ToList();
       }
 
       private List<string> GetAssignmentIfNull(string objectName)
       {
-        if (!AssignmentFmtIfNull.Any())
+        if (string.IsNullOrEmpty(AssignmentIfNullRhs))
         {
           return new();
         }
@@ -425,8 +437,7 @@ namespace BlueprintCoreGen.CodeGen
         List<string> assignmentIfNull = new();
         assignmentIfNull.Add($"if ({objectName}.{FieldName} is null)");
         assignmentIfNull.Add($"{{");
-        assignmentIfNull.AddRange(
-            AssignmentFmtIfNull.Select(line => string.Format($"  {line}", objectName, FieldName)));
+        assignmentIfNull.Add($"  {objectName}.{FieldName} = {AssignmentIfNullRhs};");
         assignmentIfNull.Add($"}}");
         return assignmentIfNull;
       }

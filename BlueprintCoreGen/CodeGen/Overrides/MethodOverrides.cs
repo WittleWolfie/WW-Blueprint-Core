@@ -107,12 +107,8 @@ namespace BlueprintCoreGen.CodeGen.Override
                     ("ArmyLeader",
                       new FieldParamOverride
                       {
-                        AssignmentFmt =
-                          new()
-                          {
-                            "{0}.ArmyLeader = {2}.Reference;",
-                            "{0}.WithLeader = true;"
-                          }
+                        ParamName = "leader",
+                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
                       })),
                 new MethodOverride()
                   .UseName("CreateDemonArmy")
@@ -123,18 +119,15 @@ namespace BlueprintCoreGen.CodeGen.Override
                     "m_ApplyRecruitIncrease",
                     "MovementPoints",
                     "WithLeader")
-                  .SetConstantFields(("Faction", "ArmyFaction.Demons"))
+                  .SetConstantFields(
+                    ("Faction", "ArmyFaction.Demons"))
                   .OverrideFields(
                     ("Preset", new RequiredFieldParam { ParamName = "army" }),
                     ("ArmyLeader",
                       new FieldParamOverride
                       {
-                        AssignmentFmt =
-                          new()
-                          {
-                            "{0}.ArmyLeader = {2}.Reference;",
-                            "{0}.WithLeader = true;"
-                          }
+                        ParamName = "leader",
+                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
                       }),
                     ("m_MoveTarget",
                       new FieldParamOverride
@@ -142,12 +135,7 @@ namespace BlueprintCoreGen.CodeGen.Override
                         ParamName = "targetNearestEnemy",
                         TypeName = "bool",
                         DefaultValue = "false",
-                        AssignmentFmt =
-                          new()
-                          {
-                            "{0}.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;"
-                          },
-                        AssignmentFmtIfNull = new(),
+                        AssignmentRhsFmt = "{0} ? TravelLogicType.NearestEnemy : TravelLogicType.None;",
                         IsNullable = false
                       })),
                 new MethodOverride()
@@ -167,12 +155,8 @@ namespace BlueprintCoreGen.CodeGen.Override
                     ("ArmyLeader",
                       new FieldParamOverride
                       {
-                        AssignmentFmt =
-                          new()
-                          {
-                            "{0}.ArmyLeader = {2}.Reference;",
-                            "{0}.WithLeader = true;"
-                          }
+                        ParamName = "leader",
+                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
                       })),
               }
           }

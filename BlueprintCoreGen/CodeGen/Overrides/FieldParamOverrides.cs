@@ -36,9 +36,11 @@ namespace BlueprintCoreGen.CodeGen.Override
 
     public List<string>? ValidationFmt;
 
-    public List<string>? AssignmentFmt;
+    public string? AssignmentRhsFmt;
 
-    public List<string>? AssignmentFmtIfNull;
+    public string? AssignmentIfNullRhs;
+
+    public List<string>? ExtraAssignmentFmtLines;
   }
 
   /// <summary>
@@ -49,9 +51,10 @@ namespace BlueprintCoreGen.CodeGen.Override
   {
     public ConstantFieldParam(string constantValue) : base()
     {
+      IsNullable = false;
       SkipDeclaration = true;
-      AssignmentFmt = new() { $"{{0}}.{{1}} = {constantValue};" };
-      AssignmentFmtIfNull = new();
+      AssignmentRhsFmt = constantValue;
+      AssignmentIfNullRhs = "";
     }
   }
 
@@ -62,6 +65,7 @@ namespace BlueprintCoreGen.CodeGen.Override
   {
     public RequiredFieldParam() : base()
     {
+      IsNullable = false;
       DefaultValue = "";
     }
   }
@@ -97,8 +101,8 @@ namespace BlueprintCoreGen.CodeGen.Override
             TypeName = "ActionsBuilder",
             DefaultValue = "null",
             ValidationFmt = new(),
-            AssignmentFmt = new() { "{0}.{1} = {2}.Build();" },
-            AssignmentFmtIfNull = new() { "{0}.{1} = Constants.Empty.Actions;" }
+            AssignmentRhsFmt = "{0}.Build()",
+            AssignmentIfNullRhs = "Constants.Empty.Actions"
           }
         },
 
@@ -111,8 +115,8 @@ namespace BlueprintCoreGen.CodeGen.Override
             TypeName = "ConditionsBuilder",
             DefaultValue = "null",
             ValidationFmt = new(),
-            AssignmentFmt = new() { "{0}.{1} = {2}.Build();" },
-            AssignmentFmtIfNull = new() { "{0}.{1} = Constants.Empty.Conditions;" }
+            AssignmentRhsFmt = "{0}.Build()",
+            AssignmentIfNullRhs = "Constants.Empty.Conditions"
           }
         },
 
@@ -345,7 +349,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
-            AssignmentFmtIfNull = new() { "{0}.{1} = Constants.Empty.DiceValue;" }
+            AssignmentIfNullRhs = "Constants.Empty.DiceValue"
           }
         },
 
@@ -356,7 +360,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             Imports = new() { typeof(ContextValues) },
             ValidationFmt = new(),
-            AssignmentFmtIfNull = new() { "{0}.{1} = ContextValues.Constant(0);" }
+            AssignmentIfNullRhs = "ContextValues.Constant(0)"
           }
         },
 
@@ -367,7 +371,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
-            AssignmentFmtIfNull = new() { "{0}.{1} = Constants.Empty.String;" }
+            AssignmentIfNullRhs = "Constants.Empty.String"
           }
         },
 
@@ -378,7 +382,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
-            AssignmentFmtIfNull = new() { "{0}.{1} = Constants.Empty.PrefabLink;" }
+            AssignmentIfNullRhs = "Constants.Empty.PrefabLink"
           }
         }
 
@@ -401,11 +405,9 @@ namespace BlueprintCoreGen.CodeGen.Override
               "Not",
               new FieldParamOverride
               {
-                TypeName = "bool",
+                IsNullable = false,
                 ParamName = "negate",
-                DefaultValue = "false",
-                AssignmentFmt = new() { "{0}.Not = negate;" },
-                AssignmentFmtIfNull = new()
+                DefaultValue = "false"
               }
             }
           }
