@@ -84,11 +84,11 @@ namespace BlueprintCoreGen.CodeGen
 
       public string GetText()
       {
-        Text.Insert(0, "//***** AUTO-GENERATED - DO NOT EDIT *****//");
 
         var sortedImports = Imports.ToList();
         sortedImports.Sort();
         Text.Insert(0, string.Join('\n', sortedImports) + "\n");
+        Text.Insert(0, "//***** AUTO-GENERATED - DO NOT EDIT *****//\n\n");
 
         return Text.ToString();
       }
