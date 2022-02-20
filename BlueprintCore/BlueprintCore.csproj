@@ -93,12 +93,12 @@
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="AssemblyPublicizer" Version="1.0.0">
+    <PackageReference Include="AssemblyPublicizer" Version="1.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     
-   <PackageReference Include="docfx.console" Version="2.58.9">
+   <PackageReference Include="docfx.console" Version="2.59.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
