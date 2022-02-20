@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Dungeon.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,7 +71,7 @@ namespace BlueprintCoreGen.CodeGen.Override
     /// <summary>
     /// If true, the default generated method is skipped and only Methods are generated.
     /// </summary>
-    public bool IgnoreDefault = false;
+    public bool ReplaceDefault = false;
 
     public List<MethodOverride> Methods = new();
   }
@@ -83,12 +84,99 @@ namespace BlueprintCoreGen.CodeGen.Override
     public static readonly Dictionary<Type, MethodOverrideList> BuilderMethods =
       new()
       {
+        //**** ActionsBuilderAreaEx ****//
+
+        // Kingmaker.Dungeons.Actions.ActionCreateImportedCompanion
+        {
+          typeof(ActionCreateImportedCompanion),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().UseName("CreateImportedCompanion").RequireFields("Index") }
+          }
+        },
+        // Kingmaker.Dungeons.Actions.ActionEnterToDungeon
+        {
+          typeof(ActionEnterToDungeon),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().UseName("TeleportToLastDungeonStageEntrance") }
+          }
+        },
+        // Kingmaker.Dungeons.Actions.ActionGoDeeperIntoDungeon
+        {
+          typeof(ActionGoDeeperIntoDungeon),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().UseName("EnterNextDungeonStage") }
+          }
+        },
+        // Kingmaker.Dungeons.Actions.ActionIncreaseDungeonStage
+        {
+          typeof(ActionIncreaseDungeonStage),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().UseName("IncrementDungeonStage") }
+          }
+        },
+
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AreaEntranceChange
+        {
+          typeof(AreaEntranceChange),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods =
+              new() { new MethodOverride().UseName("ChangeAreaEntrance").RequireFields("m_Location", "m_NewEntrance") }
+          }
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName
+        {
+          typeof(ChangeCurrentAreaName),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods =
+              new()
+              {
+                new MethodOverride().RequireFields("NewName").IgnoreFields("RestoreDefault"),
+                new MethodOverride()
+                  .UseName("ResetCurrentAreaName")
+                  .IgnoreFields("NewName")
+                  .SetConstantFields(("RestoreDefault", "true"))
+              }
+          }
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter
+        {
+          typeof(AddCampingEncounter),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().RequireFields("m_Encounter") }
+          }
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject
+        {
+          typeof(DestroyMapObject),
+          new MethodOverrideList
+          {
+            ReplaceDefault = true,
+            Methods = new() { new MethodOverride().RequireFields("MapObject") }
+          }
+        },
+
+        //**** ActionsBuilderKingdomEx ****//
+
         // Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy
         {
           typeof(CreateArmy),
           new MethodOverrideList
           {
-            IgnoreDefault = true,
+            ReplaceDefault = true,
             Methods =
               new()
               {
@@ -160,7 +248,7 @@ namespace BlueprintCoreGen.CodeGen.Override
                       })),
               }
           }
-        }
+        },
       };
   }
 }

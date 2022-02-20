@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen
         methodOverrides.Methods.ForEach(
             methodOverride => methods.Add(CreateForBuilder(elementType, builderType, methodOverride)));
 
-        if (methodOverrides.IgnoreDefault) { return methods; }
+        if (methodOverrides.ReplaceDefault) { return methods; }
       }
       
       methods.Add(CreateForBuilder(elementType, builderType));
@@ -81,7 +81,7 @@ namespace BlueprintCoreGen.CodeGen
             });
       }
 
-      var methodName = methodOverride?.Name ?? elementTypeName;
+      var methodName = methodOverride?.Name ?? GetMethodName(elementTypeName);
       if (!fields.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
@@ -92,12 +92,19 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       // Declarations
-      method.AddLine($"public static {builderType} {methodName}(");
-      method.AddLine($"    this {builderType} builder,");
       var declarations =
           fields.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
-      declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
-      method.AddLine($"    {declarations.Last()})");
+      if (!declarations.Any())
+      {
+        method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
+      }
+      else
+      {
+        method.AddLine($"public static {builderType} {methodName}(");
+        method.AddLine($"    this {builderType} builder,");
+        declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
+        method.AddLine($"    {declarations.Last()})");
+      }
       method.AddLine($"{{");
 
       // Constructor & assignment
@@ -111,6 +118,23 @@ namespace BlueprintCoreGen.CodeGen
       method.AddLine($"}}");
 
       return method;
+    }
+
+    /// <summary>
+    /// Removes unnecessary method name prefixes, e.g. ActionGoDeeperIntoDungeon > GoDeeperIntoDungeon.
+    /// </summary>
+    private static readonly List<string> IgnoreMethodNamePrefixes = new() { "Action" };
+    private static string GetMethodName(string elementTypeName)
+    {
+      var methodName = elementTypeName;
+      foreach (var prefix in IgnoreMethodNamePrefixes)
+      {
+        if (methodName.StartsWith(prefix))
+        {
+          return methodName.Remove(0, prefix.Length);
+        }
+      }
+      return methodName;
     }
 
     private class MethodImpl : IMethod

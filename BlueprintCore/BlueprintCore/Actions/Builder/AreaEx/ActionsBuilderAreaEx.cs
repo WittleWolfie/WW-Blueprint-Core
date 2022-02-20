@@ -78,10 +78,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </param>
     public static ActionsBuilder AddCampingEncounter(
         this ActionsBuilder builder,
-        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference>? encounter = null)
+        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
     {
       var element = ElementTool.Create<AddCampingEncounter>();
-      element.m_Encounter = encounter.Reference ?? element.m_Encounter;
+      element.m_Encounter = encounter.Reference;
       if (element.m_Encounter is null)
       {
         element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(null);
@@ -114,18 +114,18 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder AreaEntranceChange(
+    public static ActionsBuilder ChangeAreaEntrance(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? newEntrance = null)
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
     {
       var element = ElementTool.Create<AreaEntranceChange>();
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location.Reference;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
-      element.m_NewEntrance = newEntrance.Reference ?? element.m_NewEntrance;
+      element.m_NewEntrance = newEntrance.Reference;
       if (element.m_NewEntrance is null)
       {
         element.m_NewEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
@@ -185,16 +185,24 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     public static ActionsBuilder ChangeCurrentAreaName(
         this ActionsBuilder builder,
-        LocalizedString? newName = null,
-        bool? restoreDefault = null)
+        LocalizedString newName)
     {
       var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.NewName = newName ?? element.NewName;
+      element.NewName = newName;
       if (element.NewName is null)
       {
         element.NewName = Constants.Empty.String;
       }
-      element.RestoreDefault = restoreDefault ?? element.RestoreDefault;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeCurrentAreaName"/>
+    /// </summary>
+    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
+    {
+      var element = ElementTool.Create<ChangeCurrentAreaName>();
+      element.RestoreDefault = true;
       return builder.Add(element);
     }
 
@@ -203,11 +211,11 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     public static ActionsBuilder DestroyMapObject(
         this ActionsBuilder builder,
-        MapObjectEvaluator? mapObject = null)
+        MapObjectEvaluator mapObject)
     {
       var element = ElementTool.Create<DestroyMapObject>();
       builder.Validate(mapObject);
-      element.MapObject = mapObject ?? element.MapObject;
+      element.MapObject = mapObject;
       return builder.Add(element);
     }
 
@@ -843,19 +851,19 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionCreateImportedCompanion"/>
     /// </summary>
-    public static ActionsBuilder ActionCreateImportedCompanion(
+    public static ActionsBuilder CreateImportedCompanion(
         this ActionsBuilder builder,
-        int? index = null)
+        int index)
     {
       var element = ElementTool.Create<ActionCreateImportedCompanion>();
-      element.Index = index ?? element.Index;
+      element.Index = index;
       return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ActionEnterToDungeon"/>
     /// </summary>
-    public static ActionsBuilder ActionEnterToDungeon(
+    public static ActionsBuilder TeleportToLastDungeonStageEntrance(
         this ActionsBuilder builder,
         int? firstStage = null)
     {
@@ -867,7 +875,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionGoDeeperIntoDungeon"/>
     /// </summary>
-    public static ActionsBuilder ActionGoDeeperIntoDungeon(this ActionsBuilder builder)
+    public static ActionsBuilder EnterNextDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionGoDeeperIntoDungeon>());
     }
@@ -875,7 +883,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionIncreaseDungeonStage"/>
     /// </summary>
-    public static ActionsBuilder ActionIncreaseDungeonStage(this ActionsBuilder builder)
+    public static ActionsBuilder IncrementDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionIncreaseDungeonStage>());
     }
@@ -883,7 +891,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionSetDungeonStage"/>
     /// </summary>
-    public static ActionsBuilder ActionSetDungeonStage(
+    public static ActionsBuilder SetDungeonStage(
         this ActionsBuilder builder,
         int? stage = null)
     {
