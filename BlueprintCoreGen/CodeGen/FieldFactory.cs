@@ -337,7 +337,7 @@ namespace BlueprintCoreGen.CodeGen
 
       /// <summary>
       /// Assignment format strings for additional lines of code after the assignment statement, where {0} is the
-      /// object name
+      /// object name and {1} is the parameter name
       /// </summary>
       private List<string> ExtraAssignmentFmtLines { get; set; }
 
@@ -424,7 +424,7 @@ namespace BlueprintCoreGen.CodeGen
           return new();
         }
 
-        return ExtraAssignmentFmtLines.Select(line => string.Format($"{line}", objectName)).ToList();
+        return ExtraAssignmentFmtLines.Select(line => string.Format($"{line}", objectName, ParamName)).ToList();
       }
 
       private List<string> GetAssignmentIfNull(string objectName)

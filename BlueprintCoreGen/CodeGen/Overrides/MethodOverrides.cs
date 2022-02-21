@@ -144,6 +144,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           typeof(AddDialogNotification),
           new MethodOverrideList(new MethodOverride().RequireFields("Text"))
         },
+
         // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRunAnimationClip
         {
           typeof(ContextActionRunAnimationClip),
@@ -160,10 +161,105 @@ namespace BlueprintCoreGen.CodeGen.Override
           typeof(ContextActionSpawnFx),
           new MethodOverrideList(new MethodOverride().RequireFields("PrefabLink"))
         },
+
         // Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionPlaySound
         {
           typeof(ContextActionPlaySound),
           new MethodOverrideList(new MethodOverride().RequireFields("SoundName"))
+        },
+
+        //**** ActionsBuilderBasicEx ****//
+
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AttachBuff
+        {
+          typeof(AttachBuff),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Buff", "Target", "Duration"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.CreaturesAround
+        {
+          typeof(CreaturesAround),
+          new MethodOverrideList(
+            new MethodOverride().UseName("OnCreaturesAround").RequireFields("Actions", "Radius", "Center"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddFact
+        {
+          typeof(AddFact),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Fact", "Unit"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddFatigueHours
+        {
+          typeof(AddFatigueHours),
+          new MethodOverrideList(new MethodOverride().RequireFields("Hours", "Unit"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment
+        {
+          typeof(ChangeAlignment),
+          new MethodOverrideList(new MethodOverride().RequireFields("Alignment"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment
+        {
+          typeof(ChangePlayerAlignment),
+          new MethodOverrideList(new MethodOverride().RequireFields("TargetAlignment"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DamageParty
+        {
+          typeof(DamageParty),
+          new MethodOverrideList(
+            new MethodOverride()
+              .RequireFields("Damage")
+              .OverrideFields(
+                ("DamageSource",
+                  new FieldParamOverride
+                  {
+                    ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
+                  })))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DealDamage
+        {
+          typeof(DealDamage),
+          new MethodOverrideList(
+            new MethodOverride()
+              .RequireFields("Target", "Damage")
+              .OverrideFields(
+                ("Source",
+                  new FieldParamOverride
+                  {
+                    ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
+                  })))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage
+        {
+          typeof(DealStatDamage),
+          new MethodOverrideList(
+            new MethodOverride()
+              .RequireFields("Target", "Stat", "DamageDice")
+              .OverrideFields(
+                ("Source",
+                  new FieldParamOverride
+                  {
+                    ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
+                  })))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemsToCollection
+        {
+          typeof(AddItemsToCollection),
+          new MethodOverrideList(
+            new MethodOverride()
+              .UseName("AddItems")
+              .OverrideFields(
+                ("Loot", new RequiredFieldParam { ParamName = "items" }),
+                ("ItemsCollection", new RequiredFieldParam { ParamName = "toCollection" })),
+            new MethodOverride()
+              .UseName("AddItemsFromBlueprint")
+              .RequireFields("m_BlueprintLoot")
+              .OverrideFields(("ItemsCollection", new RequiredFieldParam { ParamName = "toCollection" })))
+        },
+
+        // TODO: Finish overrides for AddItemToPlayer
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer
+        {
+          typeof(AddItemToPlayer),
+          new MethodOverrideList()
         },
 
         //**** ActionsBuilderKingdomEx ****//
@@ -171,81 +267,98 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy
         {
           typeof(CreateArmy),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods =
-              new()
-              {
-                new MethodOverride()
-                  .UseName("CreateCrusaderArmy")
-                  .RequireFields("Location")
-                  .IgnoreFields(
-                    "m_MoveTarget",
-                    "m_TargetLocation",
-                    "m_CompleteActions",
-                    "m_DaysToDestination",
-                    "WithLeader")
-                  .SetConstantFields(("Faction", "ArmyFaction.Crusaders"))
-                  .OverrideFields(
-                    ("Preset", new RequiredFieldParam { ParamName = "army" }),
-                    ("ArmyLeader",
-                      new FieldParamOverride
-                      {
-                        ParamName = "leader",
-                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
-                      })),
-                new MethodOverride()
-                  .UseName("CreateDemonArmy")
-                  .RequireFields("Location")
-                  .IgnoreFields(
-                    "m_TargetLocation",
-                    "m_DaysToDestination",
-                    "m_ApplyRecruitIncrease",
-                    "MovementPoints",
-                    "WithLeader")
-                  .SetConstantFields(
-                    ("Faction", "ArmyFaction.Demons"))
-                  .OverrideFields(
-                    ("Preset", new RequiredFieldParam { ParamName = "army" }),
-                    ("ArmyLeader",
-                      new FieldParamOverride
-                      {
-                        ParamName = "leader",
-                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
-                      }),
-                    ("m_MoveTarget",
-                      new FieldParamOverride
-                      {
-                        ParamName = "targetNearestEnemy",
-                        TypeName = "bool",
-                        DefaultValue = "false",
-                        AssignmentRhsFmt = "{0} ? TravelLogicType.NearestEnemy : TravelLogicType.None;",
-                        IsNullable = false
-                      })),
-                new MethodOverride()
-                  .UseName("CreateDemonArmyTargetingLocation")
-                  .RequireFields("m_TargetLocation")
-                  .IgnoreFields(
-                    "m_ArmySpeed",
-                    "m_ApplyRecruitIncrease",
-                    "MovementPoints",
-                    "WithLeader")
-                  .SetConstantFields(
-                    ("Faction", "ArmyFaction.Demons"),
-                    ("m_MoveTarget", "TravelLogicType.Location"))
-                  .OverrideFields(
-                    ("Preset", new RequiredFieldParam { ParamName = "army" }),
-                    ("Location", new RequiredFieldParam { ParamName = "spawnLocation" }),
-                    ("ArmyLeader",
-                      new FieldParamOverride
-                      {
-                        ParamName = "leader",
-                        ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
-                      })),
-              }
-          }
+          new MethodOverrideList(
+            new MethodOverride()
+              .UseName("CreateCrusaderArmy")
+              .RequireFields("Location")
+              .IgnoreFields(
+                "m_MoveTarget",
+                "m_TargetLocation",
+                "m_CompleteActions",
+                "m_DaysToDestination",
+                "WithLeader")
+              .SetConstantFields(("Faction", "ArmyFaction.Crusaders"))
+              .OverrideFields(
+                ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                ("ArmyLeader",
+                  new FieldParamOverride
+                  {
+                    ParamName = "leader",
+                    ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
+                  })),
+            new MethodOverride()
+              .UseName("CreateDemonArmy")
+              .RequireFields("Location")
+              .IgnoreFields(
+                "m_TargetLocation",
+                "m_DaysToDestination",
+                "m_ApplyRecruitIncrease",
+                "MovementPoints",
+                "WithLeader")
+              .SetConstantFields(
+                ("Faction", "ArmyFaction.Demons"))
+              .OverrideFields(
+                ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                ("ArmyLeader",
+                  new FieldParamOverride
+                  {
+                    ParamName = "leader",
+                    ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
+                  }),
+                ("m_MoveTarget",
+                  new FieldParamOverride
+                  {
+                    ParamName = "targetNearestEnemy",
+                    TypeName = "bool",
+                    DefaultValue = "false",
+                    AssignmentRhsFmt = "{0} ? TravelLogicType.NearestEnemy : TravelLogicType.None;",
+                    IsNullable = false
+                  })),
+            new MethodOverride()
+              .UseName("CreateDemonArmyTargetingLocation")
+              .RequireFields("m_TargetLocation")
+              .IgnoreFields(
+                "m_ArmySpeed",
+                "m_ApplyRecruitIncrease",
+                "MovementPoints",
+                "WithLeader")
+              .SetConstantFields(
+                ("Faction", "ArmyFaction.Demons"),
+                ("m_MoveTarget", "TravelLogicType.Location"))
+              .OverrideFields(
+                ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                ("Location", new RequiredFieldParam { ParamName = "spawnLocation" }),
+                ("ArmyLeader",
+                  new FieldParamOverride
+                  {
+                    ParamName = "leader",
+                    ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
+                  })))
         },
+      };
+
+    private static readonly List<string> ItemActionRemarks =
+      new()
+      {
+        "<remarks>",
+        "<list type=\"bullet\">",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
+        "  </description>",
+        "</item>",
+        "</list>",
+        "</remarks>"
       };
   }
 }

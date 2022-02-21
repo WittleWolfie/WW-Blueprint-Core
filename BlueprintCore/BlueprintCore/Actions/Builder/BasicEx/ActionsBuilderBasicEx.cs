@@ -30,7 +30,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderBasicEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="AttachBuff"/>
@@ -48,46 +48,46 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </param>
     public static ActionsBuilder AttachBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
-        IntEvaluator? duration = null,
-        UnitEvaluator? target = null)
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        IntEvaluator duration,
+        UnitEvaluator target)
     {
       var element = ElementTool.Create<AttachBuff>();
-      element.m_Buff = buff.Reference ?? element.m_Buff;
+      element.m_Buff = buff.Reference;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       builder.Validate(duration);
-      element.Duration = duration ?? element.Duration;
+      element.Duration = duration;
       builder.Validate(target);
-      element.Target = target ?? element.Target;
+      element.Target = target;
       return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="CreaturesAround"/>
     /// </summary>
-    public static ActionsBuilder CreaturesAround(
+    public static ActionsBuilder OnCreaturesAround(
         this ActionsBuilder builder,
-        ActionsBuilder? actions = null,
-        PositionEvaluator? center = null,
+        ActionsBuilder actions,
+        PositionEvaluator center,
+        FloatEvaluator radius,
         bool? checkLos = null,
-        bool? includeDead = null,
-        FloatEvaluator? radius = null)
+        bool? includeDead = null)
     {
       var element = ElementTool.Create<CreaturesAround>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions.Build();
       if (element.Actions is null)
       {
         element.Actions = Constants.Empty.Actions;
       }
       builder.Validate(center);
-      element.Center = center ?? element.Center;
+      element.Center = center;
+      builder.Validate(radius);
+      element.Radius = radius;
       element.CheckLos = checkLos ?? element.CheckLos;
       element.IncludeDead = includeDead ?? element.IncludeDead;
-      builder.Validate(radius);
-      element.Radius = radius ?? element.Radius;
       return builder.Add(element);
     }
 
@@ -107,17 +107,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </param>
     public static ActionsBuilder AddFact(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
-        UnitEvaluator? unit = null)
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<AddFact>();
-      element.m_Fact = fact.Reference ?? element.m_Fact;
+      element.m_Fact = fact.Reference;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -126,14 +126,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder AddFatigueHours(
         this ActionsBuilder builder,
-        IntEvaluator? hours = null,
-        UnitEvaluator? unit = null)
+        IntEvaluator hours,
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<AddFatigueHours>();
       builder.Validate(hours);
-      element.Hours = hours ?? element.Hours;
+      element.Hours = hours;
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -142,11 +142,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder ChangeAlignment(
         this ActionsBuilder builder,
-        Alignment? alignment = null,
+        Alignment alignment,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<ChangeAlignment>();
-      element.Alignment = alignment ?? element.Alignment;
+      element.Alignment = alignment;
       builder.Validate(unit);
       element.Unit = unit ?? element.Unit;
       return builder.Add(element);
@@ -157,12 +157,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder ChangePlayerAlignment(
         this ActionsBuilder builder,
-        bool? canUnlockAlignment = null,
-        Alignment? targetAlignment = null)
+        Alignment targetAlignment,
+        bool? canUnlockAlignment = null)
     {
       var element = ElementTool.Create<ChangePlayerAlignment>();
+      element.TargetAlignment = targetAlignment;
       element.CanUnlockAlignment = canUnlockAlignment ?? element.CanUnlockAlignment;
-      element.TargetAlignment = targetAlignment ?? element.TargetAlignment;
       return builder.Add(element);
     }
 
@@ -171,16 +171,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder DamageParty(
         this ActionsBuilder builder,
-        DamageDescription? damage = null,
+        DamageDescription damage,
         UnitEvaluator? damageSource = null,
         bool? disableBattleLog = null,
         bool? noSource = null)
     {
       var element = ElementTool.Create<DamageParty>();
       builder.Validate(damage);
-      element.Damage = damage ?? element.Damage;
+      element.Damage = damage;
       builder.Validate(damageSource);
       element.DamageSource = damageSource ?? element.DamageSource;
+      element.NoSource = damageSource is null;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.NoSource = noSource ?? element.NoSource;
       return builder.Add(element);
@@ -191,23 +192,24 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder DealDamage(
         this ActionsBuilder builder,
-        DamageDescription? damage = null,
+        DamageDescription damage,
+        UnitEvaluator target,
         bool? disableBattleLog = null,
         bool? disableFxAndSound = null,
         bool? noSource = null,
-        UnitEvaluator? source = null,
-        UnitEvaluator? target = null)
+        UnitEvaluator? source = null)
     {
       var element = ElementTool.Create<DealDamage>();
       builder.Validate(damage);
-      element.Damage = damage ?? element.Damage;
+      element.Damage = damage;
+      builder.Validate(target);
+      element.Target = target;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.DisableFxAndSound = disableFxAndSound ?? element.DisableFxAndSound;
       element.NoSource = noSource ?? element.NoSource;
       builder.Validate(source);
       element.Source = source ?? element.Source;
-      builder.Validate(target);
-      element.Target = target ?? element.Target;
+      element.NoSource = source is null;
       return builder.Add(element);
     }
 
@@ -216,26 +218,27 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder DealStatDamage(
         this ActionsBuilder builder,
+        DiceFormula damageDice,
+        StatType stat,
+        UnitEvaluator target,
         int? damageBonus = null,
-        DiceFormula? damageDice = null,
         bool? disableBattleLog = null,
         bool? isDrain = null,
         bool? noSource = null,
-        UnitEvaluator? source = null,
-        StatType? stat = null,
-        UnitEvaluator? target = null)
+        UnitEvaluator? source = null)
     {
       var element = ElementTool.Create<DealStatDamage>();
+      element.DamageDice = damageDice;
+      element.Stat = stat;
+      builder.Validate(target);
+      element.Target = target;
       element.DamageBonus = damageBonus ?? element.DamageBonus;
-      element.DamageDice = damageDice ?? element.DamageDice;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.IsDrain = isDrain ?? element.IsDrain;
       element.NoSource = noSource ?? element.NoSource;
       builder.Validate(source);
       element.Source = source ?? element.Source;
-      element.Stat = stat ?? element.Stat;
-      builder.Validate(target);
-      element.Target = target ?? element.Target;
+      element.NoSource = source is null;
       return builder.Add(element);
     }
 
@@ -253,41 +256,41 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder AddItemsToCollection(
+    public static ActionsBuilder AddItems(
         this ActionsBuilder builder,
+        List<LootEntry> items,
+        ItemsCollectionEvaluator toCollection,
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? blueprintLoot = null,
         bool? identify = null,
-        ItemsCollectionEvaluator? itemsCollection = null,
-        List<LootEntry>? loot = null,
         bool? silent = null,
         bool? useBlueprintUnitLoot = null)
     {
       var element = ElementTool.Create<AddItemsToCollection>();
+      foreach (var item in items) { builder.Validate(item); }
+      element.Loot = items;
+      if (element.Loot is null)
+      {
+        element.Loot = new();
+      }
+      builder.Validate(toCollection);
+      element.ItemsCollection = toCollection;
       element.m_BlueprintLoot = blueprintLoot.Reference ?? element.m_BlueprintLoot;
       if (element.m_BlueprintLoot is null)
       {
         element.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
       }
       element.Identify = identify ?? element.Identify;
-      builder.Validate(itemsCollection);
-      element.ItemsCollection = itemsCollection ?? element.ItemsCollection;
-      foreach (var item in loot) { builder.Validate(item); }
-      element.Loot = loot ?? element.Loot;
-      if (element.Loot is null)
-      {
-        element.Loot = new();
-      }
       element.Silent = silent ?? element.Silent;
       element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="AddItemToPlayer"/>
+    /// Adds <see cref="AddItemsToCollection"/>
     /// </summary>
     ///
-    /// <param name="itemToGive">
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <param name="blueprintLoot">
+    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -296,31 +299,32 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder AddItemToPlayer(
+    public static ActionsBuilder AddItemsFromBlueprint(
         this ActionsBuilder builder,
-        bool? equip = null,
-        UnitEvaluator? equipOn = null,
-        bool? errorIfDidNotEquip = null,
+        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference> blueprintLoot,
+        ItemsCollectionEvaluator toCollection,
         bool? identify = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToGive = null,
-        int? preferredWeaponSet = null,
-        int? quantity = null,
-        bool? silent = null)
+        List<LootEntry>? loot = null,
+        bool? silent = null,
+        bool? useBlueprintUnitLoot = null)
     {
-      var element = ElementTool.Create<AddItemToPlayer>();
-      element.Equip = equip ?? element.Equip;
-      builder.Validate(equipOn);
-      element.EquipOn = equipOn ?? element.EquipOn;
-      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
-      element.Identify = identify ?? element.Identify;
-      element.m_ItemToGive = itemToGive.Reference ?? element.m_ItemToGive;
-      if (element.m_ItemToGive is null)
+      var element = ElementTool.Create<AddItemsToCollection>();
+      element.m_BlueprintLoot = blueprintLoot.Reference;
+      if (element.m_BlueprintLoot is null)
       {
-        element.m_ItemToGive = BlueprintTool.GetRef<BlueprintItemReference>(null);
+        element.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
       }
-      element.PreferredWeaponSet = preferredWeaponSet ?? element.PreferredWeaponSet;
-      element.Quantity = quantity ?? element.Quantity;
+      builder.Validate(toCollection);
+      element.ItemsCollection = toCollection;
+      element.Identify = identify ?? element.Identify;
+      foreach (var item in loot) { builder.Validate(item); }
+      element.Loot = loot ?? element.Loot;
+      if (element.Loot is null)
+      {
+        element.Loot = new();
+      }
       element.Silent = silent ?? element.Silent;
+      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
       return builder.Add(element);
     }
 
