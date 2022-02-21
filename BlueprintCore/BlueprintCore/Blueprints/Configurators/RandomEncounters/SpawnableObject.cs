@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public TBuilder SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public SpawnableObjectConfigurator SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {

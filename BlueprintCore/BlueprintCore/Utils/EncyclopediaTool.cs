@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BlueprintCore.Internal;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using BlueprintCore.Internal;
-using Newtonsoft.Json;
 
 namespace BlueprintCore.Utils
 {

@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SettlementEmptyMarker(KingdomUISettlementEmptyMarker settlementEmptyMarker)
     {
       ValidateParam(settlementEmptyMarker);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -342,7 +342,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetLeaderSlots(LeaderSlot[]? leaderSlots)
     {
       ValidateParam(leaderSlots);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -718,7 +718,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetDefaultName(LocalizedString? defaultName)
     {
       ValidateParam(defaultName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -841,7 +841,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetVillage(KingdomRoot.SettlementLevelData village)
     {
       ValidateParam(village);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -856,7 +856,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetTown(KingdomRoot.SettlementLevelData town)
     {
       ValidateParam(town);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -871,7 +871,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetCity(KingdomRoot.SettlementLevelData city)
     {
       ValidateParam(city);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -886,7 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetStats(KingdomRoot.StatData[]? stats)
     {
       ValidateParam(stats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1226,7 +1226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomRootConfigurator SetRankUps(KingdomRankUpsRoot rankUps)
     {
       ValidateParam(rankUps);
-    
+
       return OnConfigureInternal(
           bp =>
           {

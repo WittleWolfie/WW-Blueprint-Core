@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[]? features)
     {
       ValidateParam(features);
-    
+
       return OnConfigureInternal(
           bp =>
           {

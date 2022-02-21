@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     public InteractionRootConfigurator SetDestructionFx(PrefabLink? destructionFx)
     {
       ValidateParam(destructionFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {

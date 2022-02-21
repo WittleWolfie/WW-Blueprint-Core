@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestGroupsConfigurator SetGroups(QuestGroup[]? groups)
     {
       ValidateParam(groups);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder SetVisualParameters(WeaponVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

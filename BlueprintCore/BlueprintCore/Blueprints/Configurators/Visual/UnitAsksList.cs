@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public UnitAsksListConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -100,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       ValidateParam(animationBarks);
       ValidateParam(unit);
       ValidateParam(currentlyActiveBark);
-    
+
       var component = new UnitAsksComponent();
       component.SoundBanks = soundBanks;
       component.PreviewSound = previewSound;

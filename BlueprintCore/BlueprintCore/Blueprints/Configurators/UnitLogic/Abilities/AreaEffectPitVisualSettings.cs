@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(PrefabLink? unitDisappearFx)
     {
       ValidateParam(unitDisappearFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(PrefabLink? unitAppearFx)
     {
       ValidateParam(unitAppearFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetFallXZCurve(AnimationCurve fallXZCurve)
     {
       ValidateParam(fallXZCurve);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetFallYCurve(AnimationCurve fallYCurve)
     {
       ValidateParam(fallYCurve);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetClimbXZCurve(AnimationCurve climbXZCurve)
     {
       ValidateParam(climbXZCurve);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public AreaEffectPitVisualSettingsConfigurator SetClimbYCurve(AnimationCurve climbYCurve)
     {
       ValidateParam(climbYCurve);
-    
+
       return OnConfigureInternal(
           bp =>
           {

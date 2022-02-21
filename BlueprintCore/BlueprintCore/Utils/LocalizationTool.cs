@@ -1,6 +1,6 @@
 ﻿using Kingmaker.Localization;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 #nullable enable
 namespace BlueprintCore.Utils

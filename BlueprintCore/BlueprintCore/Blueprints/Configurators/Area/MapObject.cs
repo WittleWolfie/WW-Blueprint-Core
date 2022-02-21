@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetPrefab(GameObject prefab)
     {
       ValidateParam(prefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {

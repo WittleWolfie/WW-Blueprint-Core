@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsTeamsConfigurator SetTeams(List<CreditTeam>? teams)
     {
       ValidateParam(teams);
-    
+
       return OnConfigureInternal(
           bp =>
           {

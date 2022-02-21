@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomEventConfigurator SetTags(BlueprintKingdomEvent.TagList tags)
     {
       ValidateParam(tags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomEventConfigurator SetRequiredTags(EventLocationTagList requiredTags)
     {
       ValidateParam(requiredTags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomEventConfigurator SetStatsOnTrigger(KingdomStats.Changes statsOnTrigger)
     {
       ValidateParam(statsOnTrigger);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     {
       ValidateParam(statsOnRecurrence);
       ValidateParam(description);
-    
+
       var component = new EventRecurrence();
       component.RecurrencePeriod = recurrencePeriod;
       component.TickOnStart = tickOnStart;

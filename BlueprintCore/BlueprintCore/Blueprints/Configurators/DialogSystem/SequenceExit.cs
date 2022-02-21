@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public SequenceExitConfigurator SetContinue(CueSelection continueValue)
     {
       ValidateParam(continueValue);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     public TBuilder SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     public SpellbookConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -285,7 +285,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     public SpellbookConfigurator SetSpecialSpellListName(LocalizedString? specialSpellListName)
     {
       ValidateParam(specialSpellListName);
-    
+
       return OnConfigureInternal(
           bp =>
           {

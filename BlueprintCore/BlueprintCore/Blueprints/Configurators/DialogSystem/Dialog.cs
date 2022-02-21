@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public DialogConfigurator SetFirstCue(CueSelection firstCue)
     {
       ValidateParam(firstCue);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public DialogConfigurator SetStartPosition(PositionEvaluator startPosition)
     {
       ValidateParam(startPosition);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public DialogConfigurator SetOverrideAreaCR(IntEvaluator overrideAreaCR)
     {
       ValidateParam(overrideAreaCR);
-    
+
       return OnConfigureInternal(
           bp =>
           {

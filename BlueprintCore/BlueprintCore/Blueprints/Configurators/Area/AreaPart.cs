@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetDynamicScene(SceneReference dynamicScene)
     {
       ValidateParam(dynamicScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetStaticScene(SceneReference staticScene)
     {
       ValidateParam(staticScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetLightScene(SceneReference lightScene)
     {
       ValidateParam(lightScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetBounds(AreaPartBounds bounds)
     {
       ValidateParam(bounds);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetAudioTimeOfDayVariants(SceneReference[]? audioTimeOfDayVariants)
     {
       ValidateParam(audioTimeOfDayVariants);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -238,7 +238,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetWeatherProfile(WeatherProfileExtended weatherProfile)
     {
       ValidateParam(weatherProfile);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -318,7 +318,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetGraphCache(TextAssetLink graphCache)
     {
       ValidateParam(graphCache);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -376,7 +376,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetDynamicScene(SceneReference dynamicScene)
     {
       ValidateParam(dynamicScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -391,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetStaticScene(SceneReference staticScene)
     {
       ValidateParam(staticScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -406,7 +406,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetLightScene(SceneReference lightScene)
     {
       ValidateParam(lightScene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -421,7 +421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetBounds(AreaPartBounds bounds)
     {
       ValidateParam(bounds);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -436,7 +436,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetAudioTimeOfDayVariants(SceneReference[]? audioTimeOfDayVariants)
     {
       ValidateParam(audioTimeOfDayVariants);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -583,7 +583,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetWeatherProfile(WeatherProfileExtended weatherProfile)
     {
       ValidateParam(weatherProfile);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -663,7 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPartConfigurator SetGraphCache(TextAssetLink graphCache)
     {
       ValidateParam(graphCache);
-    
+
       return OnConfigureInternal(
           bp =>
           {

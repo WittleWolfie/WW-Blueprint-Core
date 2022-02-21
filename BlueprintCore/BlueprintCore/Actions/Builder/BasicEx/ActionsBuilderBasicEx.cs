@@ -30,7 +30,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderBasicEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="AttachBuff"/>

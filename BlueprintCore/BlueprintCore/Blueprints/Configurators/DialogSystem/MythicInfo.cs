@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public MythicInfoConfigurator Set_mythicName(LocalizedString? _mythicName)
     {
       ValidateParam(_mythicName);
-    
+
       return OnConfigureInternal(
           bp =>
           {

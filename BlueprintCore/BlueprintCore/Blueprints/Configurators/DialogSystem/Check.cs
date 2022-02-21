@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CheckConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
     {
       ValidateParam(dCModifiers);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CheckConfigurator SetUnitEvaluator(UnitEvaluator unitEvaluator)
     {
       ValidateParam(unitEvaluator);
-    
+
       return OnConfigureInternal(
           bp =>
           {

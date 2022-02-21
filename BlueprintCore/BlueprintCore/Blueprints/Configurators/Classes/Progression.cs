@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ProgressionConfigurator SetClasses(BlueprintProgression.ClassWithLevel[]? classes)
     {
       ValidateParam(classes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ProgressionConfigurator SetArchetypes(BlueprintProgression.ArchetypeWithLevel[]? archetypes)
     {
       ValidateParam(archetypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ProgressionConfigurator SetAlternateProgressionClasses(BlueprintProgression.ClassWithLevel[]? alternateProgressionClasses)
     {
       ValidateParam(alternateProgressionClasses);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ProgressionConfigurator SetLevelEntries(LevelEntry[]? levelEntries)
     {
       ValidateParam(levelEntries);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ProgressionConfigurator SetUIGroups(UIGroup[]? uIGroups)
     {
       ValidateParam(uIGroups);
-    
+
       return OnConfigureInternal(
           bp =>
           {

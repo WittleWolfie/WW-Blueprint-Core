@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ItemArmorConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

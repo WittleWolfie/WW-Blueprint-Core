@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ClassAdditionalVisualSettingsProgressionConfigurator SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[]? entries)
     {
       ValidateParam(entries);
-    
+
       return OnConfigureInternal(
           bp =>
           {

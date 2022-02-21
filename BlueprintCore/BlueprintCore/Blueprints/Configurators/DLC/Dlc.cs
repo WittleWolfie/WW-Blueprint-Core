@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -412,7 +412,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(progressions);
-    
+
       var component = new ReplaceDamageDice();
       component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(weaponType);
       component.Progressions = progressions;
@@ -433,7 +433,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(settings);
       ValidateParam(addExternalProperties);
-    
+
       var component = new UnitPropertyComponent();
       component.Name = name;
       component.m_Settings = settings;
@@ -640,7 +640,7 @@ namespace BlueprintCore.Blueprints.Configurators
       ValidateParam(value);
       ValidateParam(damageType);
       ValidateParam(damageEntries);
-    
+
       var component = new AdditionalDiceOnAttack();
       component.OnlyOnFullAttack = onlyOnFullAttack;
       component.OnlyOnFirstAttack = onlyOnFirstAttack;
@@ -867,7 +867,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(groups);
-    
+
       var component = new SummonUnitsAfterArmyBattle();
       component.m_Groups = groups;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -946,7 +946,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(isleEvaluator);
-    
+
       var component = new OnIsleStateEnterTrigger();
       component.m_IsleEvaluator = isleEvaluator;
       component.m_TargetState = targetState;
@@ -965,7 +965,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(isleEvaluator);
-    
+
       var component = new OnIsleStateExitTrigger();
       component.m_IsleEvaluator = isleEvaluator;
       component.m_TargetState = targetState;
@@ -1070,7 +1070,7 @@ namespace BlueprintCore.Blueprints.Configurators
         DamageEnergyType damageEType = default)
     {
       ValidateParam(unit);
-    
+
       var component = new DamageTypeTrigger();
       component.Unit = unit;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1120,7 +1120,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool triggerOnExit = default)
     {
       ValidateParam(unit);
-    
+
       var component = new EvaluatedUnitCombatTrigger();
       component.Unit = unit;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1139,7 +1139,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(unit);
-    
+
       var component = new EvaluatedUnitDeathTrigger();
       component.AnyUnit = anyUnit;
       component.Unit = unit;
@@ -1160,7 +1160,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(unit);
-    
+
       var component = new EvaluatedUnitHealthTrigger();
       component.Unit = unit;
       component.Once = once;
@@ -1200,7 +1200,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? restrictedActions = null)
     {
       ValidateParam(mapObject);
-    
+
       var component = new GenericInteractionTrigger();
       component.MapObject = mapObject;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -1222,7 +1222,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? onRemoveActions = null)
     {
       ValidateParam(mapObject);
-    
+
       var component = new ItemInContainerTrigger();
       component.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(itemToCheck);
       component.MapObject = mapObject;
@@ -1242,7 +1242,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(unit);
-    
+
       var component = new LevelUpTrigger();
       component.m_Unit = unit;
       component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
@@ -1313,7 +1313,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(unit);
       ValidateParam(mapObject);
-    
+
       var component = new PerceptionTrigger();
       component.Unit = unit;
       component.MapObject = mapObject;
@@ -1375,7 +1375,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? onExitActions = null)
     {
       ValidateParam(scriptZone);
-    
+
       var component = new ScriptZoneTrigger();
       component.ScriptZone = scriptZone;
       component.UnitRef = unitRef;
@@ -1431,7 +1431,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null)
     {
       ValidateParam(scriptZone);
-    
+
       var component = new SpellCastTrigger();
       component.ScriptZone = scriptZone;
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
@@ -1528,7 +1528,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(trap);
-    
+
       var component = new TrapTrigger();
       component.Trap = trap;
       component.OnActivation = onActivation?.Build() ?? Constants.Empty.Actions;

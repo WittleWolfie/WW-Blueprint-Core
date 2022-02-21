@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     public TBuilder SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     public GateConfigurator SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
-    
+
       return OnConfigureInternal(
           bp =>
           {

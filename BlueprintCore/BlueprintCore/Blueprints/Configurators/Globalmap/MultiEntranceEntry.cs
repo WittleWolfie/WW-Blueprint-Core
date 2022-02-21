@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public MultiEntranceEntryConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {

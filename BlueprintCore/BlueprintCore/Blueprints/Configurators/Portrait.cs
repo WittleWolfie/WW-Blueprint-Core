@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public PortraitConfigurator SetData(PortraitData data)
     {
       ValidateParam(data);
-    
+
       return OnConfigureInternal(
           bp =>
           {

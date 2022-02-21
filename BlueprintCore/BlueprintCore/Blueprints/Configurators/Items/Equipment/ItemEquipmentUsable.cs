@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink? beltItemPrefab)
     {
       ValidateParam(beltItemPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {

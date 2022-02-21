@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public CastsGroupConfigurator SetArcaneCasts(CastGroupForSpellSource arcaneCasts)
     {
       ValidateParam(arcaneCasts);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public CastsGroupConfigurator SetDivineCasts(CastGroupForSpellSource divineCasts)
     {
       ValidateParam(divineCasts);
-    
+
       return OnConfigureInternal(
           bp =>
           {

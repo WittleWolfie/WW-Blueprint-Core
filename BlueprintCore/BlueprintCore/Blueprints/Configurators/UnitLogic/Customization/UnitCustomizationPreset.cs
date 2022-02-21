@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     public UnitCustomizationPresetConfigurator SetPresetObjects(List<PresetObject>? presetObjects)
     {
       ValidateParam(presetObjects);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     public UnitCustomizationPresetConfigurator SetClothesSelections(ClothesSelection[]? clothesSelections)
     {
       ValidateParam(clothesSelections);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -200,7 +200,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     public UnitCustomizationPresetConfigurator SetUnitVariations(List<UnitVariations>? unitVariations)
     {
       ValidateParam(unitVariations);
-    
+
       return OnConfigureInternal(
           bp =>
           {

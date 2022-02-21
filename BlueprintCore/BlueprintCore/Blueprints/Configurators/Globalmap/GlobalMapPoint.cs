@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -140,7 +140,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -155,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetFakeName(LocalizedString? fakeName)
     {
       ValidateParam(fakeName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetFakeDescription(LocalizedString? fakeDescription)
     {
       ValidateParam(fakeDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
     {
       ValidateParam(dCModifiers);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -388,7 +388,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetResourceStats(KingdomStats.Changes resourceStats)
     {
       ValidateParam(resourceStats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -403,7 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetResourceName(LocalizedString? resourceName)
     {
       ValidateParam(resourceName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -431,7 +431,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetIngredients(IngredientPair[]? ingredients)
     {
       ValidateParam(ingredients);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -487,7 +487,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetLoot(LootEntry[]? loot)
     {
       ValidateParam(loot);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -543,7 +543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetResourceFoundDescription(LocalizedString? resourceFoundDescription)
     {
       ValidateParam(resourceFoundDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -612,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetCustomEnterConfirmationText(LocalizedString? customEnterConfirmationText)
     {
       ValidateParam(customEnterConfirmationText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -670,7 +670,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetAutoDefeatData(AutoDefeatData autoDefeatData)
     {
       ValidateParam(autoDefeatData);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -698,7 +698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointConfigurator SetCustomClosedText(LocalizedString? customClosedText)
     {
       ValidateParam(customClosedText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -754,7 +754,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(description);
-    
+
       var component = new LocationRestriction();
       component.IgnoreCondition = ignoreCondition?.Build() ?? Constants.Empty.Conditions;
       component.AllowedCondition = allowedCondition?.Build() ?? Constants.Empty.Conditions;

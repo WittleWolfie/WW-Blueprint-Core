@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     public BarkBanterConfigurator SetConditions(BanterConditions conditions)
     {
       ValidateParam(conditions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     public BarkBanterConfigurator SetFirstPhrase(LocalizedString[]? firstPhrase)
     {
       ValidateParam(firstPhrase);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     public BarkBanterConfigurator SetResponses(BlueprintBarkBanter.BanterResponseEntry[]? responses)
     {
       ValidateParam(responses);
-    
+
       return OnConfigureInternal(
           bp =>
           {

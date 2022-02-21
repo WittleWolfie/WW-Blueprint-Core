@@ -316,7 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public ParametrizedFeatureConfigurator SetCachedItems(FeatureUIData[]? cachedItems)
     {
       ValidateParam(cachedItems);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -377,7 +377,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddParametrizedStatBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;

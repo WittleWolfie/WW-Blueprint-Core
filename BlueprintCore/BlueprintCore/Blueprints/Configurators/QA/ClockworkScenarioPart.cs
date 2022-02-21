@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     public ClockworkScenarioPartConfigurator SetRetrySkillChecks(List<EntityReference>? retrySkillChecks)
     {
       ValidateParam(retrySkillChecks);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     public ClockworkScenarioPartConfigurator SetDoNotInterract(List<ClockworkEntityReference>? doNotInterract)
     {
       ValidateParam(doNotInterract);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     {
       ValidateParam(condition);
       ValidateParam(commandList);
-    
+
       var component = new AreaTest();
       component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
       component.AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(areaPart);
@@ -405,7 +405,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     {
       ValidateParam(condition);
       ValidateParam(commandList);
-    
+
       var component = new ConditionalCommandList();
       component.Condition = condition;
       component.CommandList = commandList;

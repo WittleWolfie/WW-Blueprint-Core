@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapConfigurator SetRegionsMask(RegionsMask regionsMask)
     {
       ValidateParam(regionsMask);
-    
+
       return OnConfigureInternal(
           bp =>
           {

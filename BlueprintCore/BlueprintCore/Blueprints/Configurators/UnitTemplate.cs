@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitTemplateConfigurator SetStatAdjustments(BlueprintUnitTemplate.StatAdjustment[]? statAdjustments)
     {
       ValidateParam(statAdjustments);
-    
+
       return OnConfigureInternal(
           bp =>
           {

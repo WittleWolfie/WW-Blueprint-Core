@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public TBuilder SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public TBuilder SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
     {
       ValidateParam(importIntoMainCampaignSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public TBuilder SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
     {
       ValidateParam(importFromMainCampaignSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public TBuilder SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -176,7 +176,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcRewardConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -204,7 +204,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcRewardConfigurator SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
     {
       ValidateParam(importIntoMainCampaignSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcRewardConfigurator SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
     {
       ValidateParam(importFromMainCampaignSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcRewardConfigurator SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
-    
+
       return OnConfigureInternal(
           bp =>
           {

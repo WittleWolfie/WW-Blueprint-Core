@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     public RaceGenderDistributionConfigurator SetRaces(RaceEntry[]? races)
     {
       ValidateParam(races);
-    
+
       return OnConfigureInternal(
           bp =>
           {

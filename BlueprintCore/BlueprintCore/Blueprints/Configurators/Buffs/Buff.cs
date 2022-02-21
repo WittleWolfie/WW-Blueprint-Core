@@ -303,7 +303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(feetPerRound);
-    
+
       var component = new AddForceMove();
       component.FeetPerRound = feetPerRound ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -338,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(highestStatBonus);
       ValidateParam(secondHighestStatBonus);
-    
+
       var component = new AddNocticulaBonus();
       component.Descriptor = descriptor;
       component.HighestStatBonus = highestStatBonus ?? ContextValues.Constant(0);
@@ -503,7 +503,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(coroutine);
-    
+
       var component = new DropLootAndDestroyOnDeactivate();
       component.m_Coroutine = coroutine;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -581,7 +581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         string? upgradeFeature = null)
     {
       ValidateParam(baseValue);
-    
+
       var component = new ShroudOfWater();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -664,7 +664,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(enterTransition);
       ValidateParam(exitTransition);
       ValidateParam(transitionExternal);
-    
+
       var component = new Polymorph();
       component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
       component.m_Prefab = prefab;
@@ -795,7 +795,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AddEffectContextFastHealing();
       component.Bonus = bonus ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -872,7 +872,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
-    
+
       var component = new AddMirrorImage();
       component.Count = count ?? Constants.Empty.DiceValue;
       component.MaxCount = maxCount;
@@ -950,7 +950,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(firstFx);
       ValidateParam(secondFx);
-    
+
       var component = new ResurrectionLogic();
       component.FirstFx = firstFx;
       component.FirstFxDelay = firstFxDelay;
@@ -971,7 +971,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(delay);
-    
+
       var component = new SetBuffOnsetDelay();
       component.Delay = delay;
       component.OnStart = onStart?.Build() ?? Constants.Empty.Actions;
@@ -989,7 +989,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animation);
-    
+
       var component = new SpecialAnimationState();
       component.Animation = animation;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1022,7 +1022,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new WeaponAttackTypeDamageBonus();
       component.Type = type;
       component.AttackBonus = attackBonus;
@@ -1052,7 +1052,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextCalculateAbilityParams();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
@@ -1097,7 +1097,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         double modifier = default)
     {
       ValidateParam(value);
-    
+
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
@@ -1123,7 +1123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(casterLevel);
       ValidateParam(concentration);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
       component.DC = dC ?? ContextValues.Constant(0);
@@ -1160,7 +1160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstTacticalOwner();
       component.m_TargetFilter = targetFilter;
       component.m_Value = value ?? ContextValues.Constant(0);
@@ -1182,7 +1182,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstTacticalTarget();
       component.m_TargetFilter = targetFilter;
       component.m_Value = value ?? ContextValues.Constant(0);
@@ -1205,7 +1205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
-    
+
       var component = new DamageBonusAgainstTacticalOwner();
       component.m_TargetFilter = targetFilter;
       component._valueType = _valueType;
@@ -1229,7 +1229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(targetFilter);
       ValidateParam(value);
-    
+
       var component = new DamageBonusAgainstTacticalTarget();
       component.m_TargetFilter = targetFilter;
       component._valueType = _valueType;
@@ -1291,7 +1291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     {
       ValidateParam(positiveMoraleChancePercentDelta);
       ValidateParam(negativeMoraleChancePercentDelta);
-    
+
       var component = new TacticalMoraleChanceModifier();
       component.m_ChangePositiveMorale = changePositiveMorale;
       component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);
@@ -1312,7 +1312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(percentModifier);
-    
+
       var component = new ModifyArmyUnitSpellPower();
       component.PercentModifier = percentModifier ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -1345,7 +1345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new BodyguardACBonus();
       component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(checkBuff);
       component.Descriptor = descriptor;
@@ -1545,7 +1545,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new ACBonusAgainstCaster();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -1566,7 +1566,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new ACBonusAgainstTarget();
       component.Value = value ?? ContextValues.Constant(0);
       component.CheckCaster = checkCaster;
@@ -1606,7 +1606,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddStatBonusAbilityValue();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -1630,7 +1630,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         string[]? checkedFacts = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddStatBonusIfHasFact();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -1676,7 +1676,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         int value = default)
     {
       ValidateParam(scaling);
-    
+
       var component = new AddStatBonusScaled();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -1716,7 +1716,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstCaster();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -1739,7 +1739,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstTarget();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -1764,7 +1764,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(chance);
-    
+
       var component = new BuffInvisibility();
       component.NotDispellAfterOffensiveAction = notDispellAfterOffensiveAction;
       component.m_StealthBonus = stealthBonus;
@@ -1819,7 +1819,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
       ValidateParam(bonus);
       ValidateParam(ticks);
       ValidateParam(succesfullSaves);
-    
+
       var component = new BuffPoisonStatDamageContext();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -1859,7 +1859,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new DamageBonusAgainstTarget();
       component.Value = value ?? ContextValues.Constant(0);
       component.CheckCaster = checkCaster;
@@ -1893,7 +1893,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new GreaterSnapShotBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -1928,7 +1928,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(locoMotion);
-    
+
       var component = new OverrideLocoMotion();
       component.LocoMotion = locoMotion;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

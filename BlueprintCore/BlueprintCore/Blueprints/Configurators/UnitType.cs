@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitTypeConfigurator SetImage(Sprite image)
     {
       ValidateParam(image);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitTypeConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitTypeConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {

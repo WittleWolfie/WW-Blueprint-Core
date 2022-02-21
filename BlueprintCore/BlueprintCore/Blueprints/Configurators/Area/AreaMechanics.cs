@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaMechanicsConfigurator SetScene(SceneReference scene)
     {
       ValidateParam(scene);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaMechanicsConfigurator SetAdditionalDataBank(AkBankReference additionalDataBank)
     {
       ValidateParam(additionalDataBank);
-    
+
       return OnConfigureInternal(
           bp =>
           {

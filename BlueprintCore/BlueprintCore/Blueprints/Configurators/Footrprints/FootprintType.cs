@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     public FootprintTypeConfigurator SetFootprints(FootprintsEnumArray footprints)
     {
       ValidateParam(footprints);
-    
+
       return OnConfigureInternal(
           bp =>
           {

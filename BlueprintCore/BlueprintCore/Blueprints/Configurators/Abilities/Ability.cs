@@ -770,7 +770,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(classPriorities);
-    
+
       var component = new LevelUpRecommendation();
       component.ClassPriorities = classPriorities;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -909,7 +909,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextCalculateAbilityParams();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
@@ -954,7 +954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         double modifier = default)
     {
       ValidateParam(value);
-    
+
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
@@ -980,7 +980,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterLevel);
       ValidateParam(concentration);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
       component.DC = dC ?? ContextValues.Constant(0);
@@ -1023,7 +1023,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterAppearFx);
       ValidateParam(sideDisappearFx);
       ValidateParam(sideAppearFx);
-    
+
       var component = new ArmyAbilityTeleportation();
       component.Radius = radius;
       component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
@@ -1114,7 +1114,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(duration);
-    
+
       var component = new AbilityApplyFact();
       component.m_Restriction = restriction;
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -1153,7 +1153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(defaultAnimation);
       ValidateParam(variants);
-    
+
       var component = new AbilityCustomAnimationByBuff();
       component.DefaultAnimation = defaultAnimation;
       component.Variants = variants;
@@ -1236,7 +1236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterAppearFx);
       ValidateParam(sideDisappearFx);
       ValidateParam(sideAppearFx);
-    
+
       var component = new AbilityCustomDimensionDoor();
       component.Radius = radius;
       component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
@@ -1275,7 +1275,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(portalFromPrefab);
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
-    
+
       var component = new AbilityCustomDimensionDoorSwap();
       component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
       component.PortalBone = portalBone;
@@ -1321,7 +1321,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterAppearFx);
       ValidateParam(sideDisappearFx);
       ValidateParam(sideAppearFx);
-    
+
       var component = new AbilityCustomDimensionDoorTargets();
       component.Targets = targets;
       component.Radius = radius;
@@ -1373,7 +1373,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterAppearFx);
       ValidateParam(sideDisappearFx);
       ValidateParam(sideAppearFx);
-    
+
       var component = new AbilityCustomDweomerLeap();
       component.Radius = radius;
       component.PortalFromPrefab = portalFromPrefab ?? Constants.Empty.PrefabLink;
@@ -1426,7 +1426,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterAppearFx);
       ValidateParam(sideDisappearFx);
       ValidateParam(sideAppearFx);
-    
+
       var component = new AbilityCustomFlashStep();
       component.m_FlashShot = BlueprintTool.GetRef<BlueprintUnitFactReference>(flashShot);
       component.Radius = radius;
@@ -1464,7 +1464,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(animation);
       ValidateParam(takeOff);
       ValidateParam(landing);
-    
+
       var component = new AbilityCustomFly();
       component.Animation = animation;
       component.MaxHeight = maxHeight;
@@ -1560,7 +1560,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
-    
+
       var component = new AbilityCustomTeleportation();
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
       component.DisappearFx = disappearFx ?? Constants.Empty.PrefabLink;
@@ -1589,7 +1589,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(animationAction);
       ValidateParam(stickCurve);
       ValidateParam(returnCurve);
-    
+
       var component = new AbilityCustomTongueGrab();
       component.AnimationAction = animationAction;
       component.TongueStickSpeed = tongueStickSpeed;
@@ -1656,7 +1656,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetsCount);
-    
+
       var component = new AbilityDeliverChain();
       component.m_ProjectileFirst = BlueprintTool.GetRef<BlueprintProjectileReference>(projectileFirst);
       component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(projectile);
@@ -2115,7 +2115,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(animation);
-    
+
       var component = new AbilitySillyFeed();
       component.m_Animation = animation;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2143,7 +2143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(portalPrefab);
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
-    
+
       var component = new AbilitySwitchDualCompanion();
       component.PortalPrefab = portalPrefab;
       component.PortalBone = portalBone;
@@ -2742,7 +2742,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         AbilitySpawnFxOrientation orientationMode = default)
     {
       ValidateParam(prefabLink);
-    
+
       var component = new AbilitySpawnFx();
       component.PrefabLink = prefabLink ?? Constants.Empty.PrefabLink;
       component.Time = time;
@@ -2769,7 +2769,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(pullCurve);
-    
+
       var component = new ArmyAbilityHook();
       component.PullSpeed = pullSpeed;
       component.PullCurve = pullCurve;

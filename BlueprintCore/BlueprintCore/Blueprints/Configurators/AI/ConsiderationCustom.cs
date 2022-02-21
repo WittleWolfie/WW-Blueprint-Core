@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     public ConsiderationCustomConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     public ConsiderationCustomConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {

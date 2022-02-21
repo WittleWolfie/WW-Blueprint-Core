@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public SettlementConfigurator SetDefaultSettlementName(LocalizedString? defaultSettlementName)
     {
       ValidateParam(defaultSettlementName);
-    
+
       return OnConfigureInternal(
           bp =>
           {

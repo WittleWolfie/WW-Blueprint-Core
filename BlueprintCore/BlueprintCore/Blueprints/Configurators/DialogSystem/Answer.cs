@@ -41,7 +41,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetNextCue(CueSelection nextCue)
     {
       ValidateParam(nextCue);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetShowCheck(ShowCheck showCheck)
     {
       ValidateParam(showCheck);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetCharacterSelection(CharacterSelection characterSelection)
     {
       ValidateParam(characterSelection);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -218,7 +218,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetFakeChecks(CheckData[]? fakeChecks)
     {
       ValidateParam(fakeChecks);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -261,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public AnswerConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
       ValidateParam(alignmentShift);
-    
+
       return OnConfigureInternal(
           bp =>
           {

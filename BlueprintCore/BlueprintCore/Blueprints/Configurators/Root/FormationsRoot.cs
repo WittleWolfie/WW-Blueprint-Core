@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public FormationsRootConfigurator SetAutoFormation(FormationsRoot.AutoFormationSettings autoFormation)
     {
       ValidateParam(autoFormation);
-    
+
       return OnConfigureInternal(
           bp =>
           {

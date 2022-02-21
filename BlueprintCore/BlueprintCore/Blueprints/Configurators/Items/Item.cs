@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -298,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -462,7 +462,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(itemName);
-    
+
       var component = new ItemDialog();
       component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
       component.m_ItemName = itemName ?? Constants.Empty.String;
@@ -536,7 +536,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
-    
+
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -606,7 +606,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -621,7 +621,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -636,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -651,7 +651,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -666,7 +666,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -867,7 +867,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public ItemConfigurator SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1031,7 +1031,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(itemName);
-    
+
       var component = new ItemDialog();
       component.m_Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
       component.m_ItemName = itemName ?? Constants.Empty.String;
@@ -1105,7 +1105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
-    
+
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

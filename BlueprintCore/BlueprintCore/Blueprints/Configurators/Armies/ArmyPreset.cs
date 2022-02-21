@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public ArmyPresetConfigurator SetSquads(BlueprintArmyPreset.UnitAndCount[]? squads)
     {
       ValidateParam(squads);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     public SpellListConfigurator SetSpellsByLevel(SpellLevelList[]? spellsByLevel)
     {
       ValidateParam(spellsByLevel);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ShieldTypeConfigurator SetHandVisualParameters(WeaponVisualParameters handVisualParameters)
     {
       ValidateParam(handVisualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetDamageTypes(DamageEntry[]? damageTypes)
     {
       ValidateParam(damageTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetEnergyTypes(EnergyEntry[]? energyTypes)
     {
       ValidateParam(energyTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetBloodTypes(BloodEntry[]? bloodTypes)
     {
       ValidateParam(bloodTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -164,7 +164,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetDefaultDamage(DamageHitSettings defaultDamage)
     {
       ValidateParam(defaultDamage);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -179,7 +179,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetDefaultAoeDamage(DamageHitSettings defaultAoeDamage)
     {
       ValidateParam(defaultAoeDamage);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -194,7 +194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetOverrideHitDirectionPrefabFromAnimationStyle(BloodPrefabsFromWeaponAnimationStyleEntry[]? overrideHitDirectionPrefabFromAnimationStyle)
     {
       ValidateParam(overrideHitDirectionPrefabFromAnimationStyle);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetEnergyResistance(GameObject energyResistance)
     {
       ValidateParam(energyResistance);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -317,7 +317,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedDamageTypes(HitCollection[]? cachedDamageTypes)
     {
       ValidateParam(cachedDamageTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -360,7 +360,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedEnergyTypes(HitCollection[]? cachedEnergyTypes)
     {
       ValidateParam(cachedEnergyTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -403,7 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedBillboardBloodTypes(HitCollection[]? cachedBillboardBloodTypes)
     {
       ValidateParam(cachedBillboardBloodTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -446,7 +446,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedDirectionalBloodTypes(HitCollection[]? cachedDirectionalBloodTypes)
     {
       ValidateParam(cachedDirectionalBloodTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -489,7 +489,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedBillboardAdditiveBloodTypes(HitCollection[]? cachedBillboardAdditiveBloodTypes)
     {
       ValidateParam(cachedBillboardAdditiveBloodTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -532,7 +532,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedDirectionalAdditiveBloodTypes(HitCollection[]? cachedDirectionalAdditiveBloodTypes)
     {
       ValidateParam(cachedDirectionalAdditiveBloodTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -575,7 +575,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public HitSystemRootConfigurator SetCachedBloodPrefabsFromWeaponAnimationStyleEntries(BloodPrefabsFromWeaponAnimationStyleEntry[]? cachedBloodPrefabsFromWeaponAnimationStyleEntries)
     {
       ValidateParam(cachedBloodPrefabsFromWeaponAnimationStyleEntries);
-    
+
       return OnConfigureInternal(
           bp =>
           {

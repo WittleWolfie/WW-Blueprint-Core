@@ -360,8 +360,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -497,8 +497,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -586,7 +586,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(condition);
       ValidateParam(uIText);
-    
+
       var component = new PrerequisiteCondition();
       component.Condition = condition;
       component.UIText = uIText ?? Constants.Empty.String;

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[]? obstacles)
     {
       ValidateParam(obstacles);
-    
+
       return OnConfigureInternal(
           bp =>
           {

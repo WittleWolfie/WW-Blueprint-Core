@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     public CookingRecipeConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     public CookingRecipeConfigurator SetIngredients(BlueprintCookingRecipe.ItemEntry[]? ingredients)
     {
       ValidateParam(ingredients);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     public CookingRecipeConfigurator SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[]? unitBuffs)
     {
       ValidateParam(unitBuffs);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     public FootprintConfigurator SetLeftFootPrint(PrefabLink? leftFootPrint)
     {
       ValidateParam(leftFootPrint);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     public FootprintConfigurator SetRightFootPrint(PrefabLink? rightFootPrint)
     {
       ValidateParam(rightFootPrint);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetCompletedPrefab(PrefabLink? completedPrefab)
     {
       ValidateParam(completedPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetUnfinishedPrefab(PrefabLink? unfinishedPrefab)
     {
       ValidateParam(unfinishedPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public SettlementBuildingConfigurator SetStatChanges(KingdomStats.Changes statChanges)
     {
       ValidateParam(statChanges);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         string[]? buildings = null)
     {
       ValidateParam(stats);
-    
+
       var component = new BuildingAdjacencyBonus();
       component.NoSuchBuildings = noSuchBuildings;
       component.Distance = distance;
@@ -429,7 +429,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         KingdomStats.Changes stats)
     {
       ValidateParam(stats);
-    
+
       var component = new BuildingLoneSlotBonus();
       component.Stats = stats;
       return AddComponent(component);
@@ -570,7 +570,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         BuildingUpgradeBonus.RegionApplicabilityType region = default)
     {
       ValidateParam(stats);
-    
+
       var component = new BuildingUpgradeBonus();
       component.Stats = stats;
       component.m_UpgradeProject = BlueprintTool.GetRef<BlueprintKingdomUpgradeReference>(upgradeProject);
@@ -762,7 +762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ActionsBuilder? action = null)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new EventResolutonTrigger();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;
@@ -789,7 +789,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ActionsBuilder? action = null)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new EventStartTrigger();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;
@@ -873,7 +873,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ConditionsBuilder? condition = null)
     {
       ValidateParam(stats);
-    
+
       var component = new KingdomConditionalStatChange();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Stats = stats;
@@ -920,7 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bool addDisadvantage = default)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new KingdomEventModifier();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;

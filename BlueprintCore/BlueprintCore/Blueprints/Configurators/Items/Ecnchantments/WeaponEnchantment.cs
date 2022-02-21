@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public WeaponEnchantmentConfigurator SetWeaponFxPrefab(PrefabLink? weaponFxPrefab)
     {
       ValidateParam(weaponFxPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new WeaponCriticalConfirmationBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.AdditionalBonus = additionalBonus;
@@ -267,7 +267,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonusDamage);
-    
+
       var component = new ModifyWeaponStatsConditional();
       component.m_Type = type;
       component.Alignment = alignment;
@@ -324,7 +324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     {
       ValidateParam(bonusIncrementValue);
       ValidateParam(maximumTotalEnhancementBonus);
-    
+
       var component = new IncreaseWeaponEnhancementBonusOnTargetFocus();
       component.BonusIncrementValue = bonusIncrementValue ?? ContextValues.Constant(0);
       component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus ?? ContextValues.Constant(0);
@@ -401,7 +401,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
-    
+
       var component = new WeaponBuffOnAttack();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.Duration = duration;
@@ -425,7 +425,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
-    
+
       var component = new WeaponBuffOnConfirmedCrit();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.Duration = duration;
@@ -448,7 +448,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(damage);
-    
+
       var component = new WeaponConditionalDamageDice();
       component.Damage = damage;
       component.CheckWielder = checkWielder;
@@ -520,7 +520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new WeaponDamageAgainstAlignment();
       component.EnemyAlignment = enemyAlignment;
       component.WeaponAlignment = weaponAlignment;
@@ -546,7 +546,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(fx);
-    
+
       var component = new WeaponDebuffOnAttack();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.Duration = duration;

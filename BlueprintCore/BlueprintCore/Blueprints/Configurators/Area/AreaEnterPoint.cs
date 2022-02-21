@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString>? tooltipList)
     {
       ValidateParam(tooltipList);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -114,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaEnterPointConfigurator SetTooltip(LocalizedString? tooltip)
     {
       ValidateParam(tooltip);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaEnterPointConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaEnterPointConfigurator SetHoverIcon(Sprite hoverIcon)
     {
       ValidateParam(hoverIcon);
-    
+
       return OnConfigureInternal(
           bp =>
           {

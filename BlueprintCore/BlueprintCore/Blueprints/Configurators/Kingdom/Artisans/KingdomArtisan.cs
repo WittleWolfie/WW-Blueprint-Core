@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     public KingdomArtisanConfigurator SetTiers(BlueprintKingdomArtisan.TierData[]? tiers)
     {
       ValidateParam(tiers);
-    
+
       return OnConfigureInternal(
           bp =>
           {

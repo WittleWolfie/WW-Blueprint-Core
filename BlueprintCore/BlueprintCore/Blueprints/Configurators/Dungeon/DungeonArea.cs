@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonAreaConfigurator SetRooms(DungeonRoomSettings[]? rooms)
     {
       ValidateParam(rooms);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonAreaConfigurator SetSecretRooms(DungeonRoomSettings[]? secretRooms)
     {
       ValidateParam(secretRooms);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonAreaConfigurator SetTraps(DungeonTrapLocator[]? traps)
     {
       ValidateParam(traps);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonAreaConfigurator SetThemeLightScenes(BlueprintDungeonArea.ThemeScene[]? themeLightScenes)
     {
       ValidateParam(themeLightScenes);
-    
+
       return OnConfigureInternal(
           bp =>
           {

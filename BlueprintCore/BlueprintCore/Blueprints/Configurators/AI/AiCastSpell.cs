@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     public AiCastSpellConfigurator SetLocators(EntityReference[]? locators)
     {
       ValidateParam(locators);
-    
+
       return OnConfigureInternal(
           bp =>
           {

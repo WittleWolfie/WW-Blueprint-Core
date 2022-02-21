@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public LootConfigurator SetItems(LootEntry[]? items)
     {
       ValidateParam(items);
-    
+
       return OnConfigureInternal(
           bp =>
           {

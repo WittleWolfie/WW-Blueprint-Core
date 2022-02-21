@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
-    
+
       var component = new Experience();
       component.Encounter = encounter;
       component.CR = cR;

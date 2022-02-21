@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new RestRoleBonus();
       component.m_RoleType = roleType;
       component.m_Descriptor = descriptor;
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(prefab);
-    
+
       var component = new ReplaceUnitPrefab();
       component.m_Prefab = prefab ?? Constants.Empty.PrefabLink;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool doNotApplyAutomatically = default)
     {
       ValidateParam(selections);
-    
+
       var component = new AddClassLevels();
       component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(characterClass);
       component.m_Archetypes = archetypes.Select(name => BlueprintTool.GetRef<BlueprintArchetypeReference>(name)).ToArray();
@@ -382,7 +382,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(triggerCount);
-    
+
       var component = new AbilityUsagesCountTrigger();
       component.m_TriggerCount = triggerCount ?? ContextValues.Constant(0);
       component.Action = action?.Build() ?? Constants.Empty.Actions;
@@ -428,7 +428,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddACBonusWithDistanceToMasterCondition();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -573,7 +573,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(failFx);
-    
+
       var component = new AddAttackerSpellFailureChance();
       component.Chance = chance;
       component.FailFx = failFx;
@@ -591,7 +591,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? stackBonus = null)
     {
       ValidateParam(stackBonus);
-    
+
       var component = new AddBackgroundArmorProficiency();
       component.Proficiency = proficiency;
       component.StackBonus = stackBonus ?? ContextValues.Constant(0);
@@ -622,7 +622,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? stackBonus = null)
     {
       ValidateParam(stackBonus);
-    
+
       var component = new AddBackgroundWeaponProficiency();
       component.Proficiency = proficiency;
       component.StackBonusType = stackBonusType;
@@ -683,7 +683,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
-    
+
       var component = new AddBuffOnApplyingSpell();
       component.OnEffectApplied = onEffectApplied;
       component.OnResistSpell = onResistSpell;
@@ -702,7 +702,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(failFx);
-    
+
       var component = new AddCasterSpellFailureChance();
       component.Chance = chance;
       component.FailFx = failFx;
@@ -854,7 +854,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new AddDamageResistanceEnergy();
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
@@ -881,7 +881,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new AddDamageResistanceForce();
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
@@ -923,7 +923,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new AddDamageResistancePhysical();
       component.Or = or;
       component.BypassedByMaterial = bypassedByMaterial;
@@ -1037,7 +1037,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(equipmentEntity);
-    
+
       var component = new AddEquipmentEntity();
       component.EquipmentEntity = equipmentEntity;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1111,7 +1111,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(prefabLink);
-    
+
       var component = new AddFamiliar();
       component.PrefabLink = prefabLink;
       component.HideInCapital = hideInCapital;
@@ -1131,7 +1131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddFortification();
       component.UseContextValue = useContextValue;
       component.Bonus = bonus;
@@ -1197,7 +1197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(bonus);
       ValidateParam(spellBonus);
-    
+
       var component = new AddIdentifyBonus();
       component.AllowUsingUntrainedSkill = allowUsingUntrainedSkill;
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -1544,7 +1544,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(damageType);
-    
+
       var component = new AddOutgoingDamageBonus();
       component.DamageType = damageType;
       component.Condition = condition;
@@ -1619,7 +1619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(maxValue);
-    
+
       var component = new AddOverHealTrigger();
       component.ActionOnTarget = actionOnTarget?.Build() ?? Constants.Empty.Actions;
       component.SharedValue = sharedValue;
@@ -1639,7 +1639,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(features);
-    
+
       var component = new AddParametrizedFeatures();
       component.m_Features = features;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1682,7 +1682,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(levelContextValue);
-    
+
       var component = new AddPet();
       component.Type = type;
       component.ProgressionType = progressionType;
@@ -1841,7 +1841,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(failFx);
-    
+
       var component = new AddSpellFailureChance();
       component.Chance = chance;
       component.FailFx = failFx;
@@ -1928,7 +1928,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AddSpellResistance();
       component.AddCR = addCR;
       component.Value = value ?? ContextValues.Constant(0);
@@ -1951,7 +1951,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(failFx);
-    
+
       var component = new AddSpellTypeFailureChance();
       component.Chance = chance;
       component.FailFx = failFx;
@@ -2018,7 +2018,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool updateIfStatChanged = default)
     {
       ValidateParam(modifierPercents);
-    
+
       var component = new AddStatModifier();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -2110,7 +2110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(disappearFx);
       ValidateParam(appearFx);
-    
+
       var component = new AeonSavedStateFeature();
       component.m_Rank = BlueprintTool.GetRef<BlueprintFeatureReference>(rank);
       component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
@@ -2169,7 +2169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(parameterizedFeatures);
-    
+
       var component = new ApplyClassProgression();
       component.Level = level;
       component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
@@ -2317,7 +2317,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(type);
-    
+
       var component = new ChangeIncomingDamageType();
       component.Type = type;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2334,7 +2334,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(type);
-    
+
       var component = new ChangeOutgoingDamageType();
       component.Type = type;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -2399,7 +2399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(disappearFx);
       ValidateParam(fakeDeathMessage);
-    
+
       var component = new CompanionImmortality();
       component.DisappearDelay = disappearDelay;
       component.DisappearFx = disappearFx ?? Constants.Empty.PrefabLink;
@@ -2430,7 +2430,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new ConduitSurge();
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       component.Value = value ?? ContextValues.Constant(0);
@@ -2846,7 +2846,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(cachedFacts);
-    
+
       var component = new HideFactsWhileEtudePlaying();
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       component.m_ReplaceRace = BlueprintTool.GetRef<BlueprintRaceReference>(replaceRace);
@@ -2943,7 +2943,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool decrease = default)
     {
       ValidateParam(value);
-    
+
       var component = new IncreaseResourceAmountBySharedValue();
       component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
       component.Value = value ?? ContextValues.Constant(0);
@@ -3026,7 +3026,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(maxAttacksCount);
-    
+
       var component = new KeepAlliesAlive();
       component.m_MaxAttacksCount = maxAttacksCount ?? ContextValues.Constant(0);
       component.WalkingDeadBuff = BlueprintTool.GetRef<BlueprintBuffReference>(walkingDeadBuff);
@@ -3127,7 +3127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(distanceInFeet);
-    
+
       var component = new MovementDistanceTrigger();
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       component.DistanceInFeet = distanceInFeet ?? ContextValues.Constant(0);
@@ -3154,7 +3154,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(abilityExecutionContext);
-    
+
       var component = new NenioSpecialPolymorphWhileEtudePlaying();
       component.abilityExecutionContext = abilityExecutionContext;
       component.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
@@ -3221,7 +3221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetValue);
-    
+
       var component = new RaiseBAB();
       component.TargetValue = targetValue ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -3239,7 +3239,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(targetValue);
-    
+
       var component = new RaiseStatToMinimum();
       component.TargetValue = targetValue ?? ContextValues.Constant(0);
       component.Stat = stat;
@@ -3444,7 +3444,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SpellResistanceAgainstAlignment();
       component.Value = value ?? ContextValues.Constant(0);
       component.Alignment = alignment;
@@ -3463,7 +3463,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SpellResistanceAgainstSpellDescriptor();
       component.Value = value ?? ContextValues.Constant(0);
       component.SpellDescriptor = spellDescriptor;
@@ -3499,7 +3499,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(damageDescription);
-    
+
       var component = new SufferFromHealing();
       component.DamageDescription = damageDescription;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -3700,7 +3700,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(burnValue);
-    
+
       var component = new AddKineticistBurnModifier();
       component.BurnType = burnType;
       component.Value = value;
@@ -3742,7 +3742,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AddKineticistElementalOverflow();
       component.Bonus = bonus ?? ContextValues.Constant(0);
       component.IgnoreBurn = ignoreBurn;
@@ -3868,7 +3868,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         PhysicalDamageForm damagePhysicalTypeNot = default)
     {
       ValidateParam(targetValue);
-    
+
       var component = new AddIncomingDamageTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain;
@@ -3990,7 +3990,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string[]? abilityList = null)
     {
       ValidateParam(targetValue);
-    
+
       var component = new AddOutgoingDamageTrigger();
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
       component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain;
@@ -4026,7 +4026,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int[]? diceBonuses = null)
     {
       ValidateParam(diceValues);
-    
+
       var component = new AddSpellDiceBonusTrigger();
       component.CheckSpellDescriptor = checkSpellDescriptor;
       component.SpellDescriptorsList = spellDescriptorsList;
@@ -4236,7 +4236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new ModifyAttackerMissChance();
       component.Value = value ?? ContextValues.Constant(0);
       return AddComponent(component);
@@ -4256,7 +4256,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(modifierPercents);
-    
+
       var component = new OutcomingDamageAndHealingModifier();
       component.ModifierPercents = modifierPercents ?? ContextValues.Constant(0);
       component.Type = type;
@@ -4327,7 +4327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(value);
-    
+
       var component = new SetAttackerMissChance();
       component.m_Type = type;
       component.Value = value ?? ContextValues.Constant(0);
@@ -4346,7 +4346,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(value);
-    
+
       var component = new SetFactOwnerMissChance();
       component.m_Type = type;
       component.Value = value ?? ContextValues.Constant(0);
@@ -4407,7 +4407,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(levelMultiplier);
       ValidateParam(additionalCost);
-    
+
       var component = new AbilityResourceOverride();
       component.m_AbilityResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(abilityResource);
       component.m_LevelMultiplier = levelMultiplier ?? ContextValues.Constant(0);
@@ -4470,7 +4470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new ArmyChangeInitiative();
       component.m_Descriptor = descriptor;
       component.m_Value = value ?? ContextValues.Constant(0);
@@ -4829,7 +4829,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new ACBonusAgainstAttackOfOpportunity();
       component.NotAttackOfOpportunity = notAttackOfOpportunity;
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -4856,7 +4856,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool noShield = default)
     {
       ValidateParam(value);
-    
+
       var component = new ACBonusAgainstAttacks();
       component.AgainstMeleeOnly = againstMeleeOnly;
       component.AgainstRangedOnly = againstRangedOnly;
@@ -4955,7 +4955,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Size size = default)
     {
       ValidateParam(value);
-    
+
       var component = new ACBonusAgainstSize();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -5088,7 +5088,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool noFact = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new ACContextBonusAgainstFactOwner();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -5109,7 +5109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor descriptor = default)
     {
       ValidateParam(value);
-    
+
       var component = new ACContextBonusAgainstWeaponSubcategory();
       component.Value = value ?? ContextValues.Constant(0);
       component.SubCategory = subCategory;
@@ -5145,7 +5145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         StatType stat = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new AbilityScoreCheckBonus();
       component.Descriptor = descriptor;
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -5226,7 +5226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(weapon);
-    
+
       var component = new AddCalculatedWeapon();
       component.Weapon = weapon;
       component.ScaleDamageByRank = scaleDamageByRank;
@@ -5500,7 +5500,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(casterLevel);
-    
+
       var component = new AddSpellbook();
       component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
       component.m_CasterLevel = casterLevel ?? ContextValues.Constant(0);
@@ -5581,7 +5581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(casterLevel);
       ValidateParam(dC);
-    
+
       var component = new AllSpellsParamsOverride();
       component.CasterLevel = casterLevel ?? ContextValues.Constant(0);
       component.DC = dC ?? ContextValues.Constant(0);
@@ -5623,7 +5623,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(healingPrefab);
       ValidateParam(damagePrefab);
-    
+
       var component = new AngelSwordAdditionalDamageAndHeal();
       component.m_MaximizeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(maximizeFact);
       component.m_CloakFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(cloakFact);
@@ -5750,7 +5750,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new ArmorCheckPenaltyIncrease();
       component.Bonus = bonus ?? ContextValues.Constant(0);
       component.BonesPerRank = bonesPerRank;
@@ -5771,7 +5771,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new ArmorClassBonusAgainstAlignment();
       component.alignment = alignment;
       component.Descriptor = descriptor;
@@ -5808,7 +5808,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor descriptor = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackBonusAgainstAlignment();
       component.Alignment = alignment;
       component.OnlyMelee = onlyMelee;
@@ -5829,7 +5829,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ArmyProperties armyProperties = default)
     {
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstArmyProperty();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -5852,7 +5852,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool not = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackBonusAgainstFactOwner();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.AttackBonus = attackBonus;
@@ -5895,7 +5895,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? targetFact = null)
     {
       ValidateParam(value);
-    
+
       var component = new AttackBonusAgainstSize();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -5920,7 +5920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackBonusConditional();
       component.CheckWielder = checkWielder;
       component.Descriptor = descriptor;
@@ -5959,7 +5959,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackOfOpportunityAttackBonus();
       component.NotAttackOfOpportunity = notAttackOfOpportunity;
       component.Descriptor = descriptor;
@@ -5981,7 +5981,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackOfOpportunityAttackBonusAgainstFactOwner();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -6001,7 +6001,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new AttackOfOpportunityCriticalConfirmationBonus();
       component.Bonus = bonus ?? ContextValues.Constant(0);
       component.CheckWeaponRangeType = checkWeaponRangeType;
@@ -6022,7 +6022,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(damageBonus);
-    
+
       var component = new AttackOfOpportunityDamageBonus();
       component.DamageBonus = damageBonus ?? ContextValues.Constant(0);
       component.CheckWeaponRangeType = checkWeaponRangeType;
@@ -6049,7 +6049,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new AttackTypeAttackBonus();
       component.Type = type;
       component.AllTypesExcept = allTypesExcept;
@@ -6322,7 +6322,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? checkedFact = null)
     {
       ValidateParam(value);
-    
+
       var component = new CMBBonus();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6346,7 +6346,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? checkedFact = null)
     {
       ValidateParam(value);
-    
+
       var component = new CMBBonusAgainstSize();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6371,7 +6371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         CombatManeuver[]? maneuvers = null)
     {
       ValidateParam(value);
-    
+
       var component = new CMBBonusForManeuver();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6396,7 +6396,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool onCaster = default)
     {
       ValidateParam(value);
-    
+
       var component = new CMDBonus();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6417,7 +6417,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         CombatManeuver[]? maneuvers = null)
     {
       ValidateParam(value);
-    
+
       var component = new CMDBonusAgainstManeuvers();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6441,7 +6441,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool onCaster = default)
     {
       ValidateParam(value);
-    
+
       var component = new CMDBonusAgainstSize();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -6536,7 +6536,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new ChargeAttackBonus();
       component.CheckWielder = checkWielder;
       component.Descriptor = descriptor;
@@ -6642,7 +6642,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new ConcentrationBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.CheckFact = checkFact;
@@ -6662,7 +6662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new ConcentrationBonusOnArmorType();
       component.Value = value ?? ContextValues.Constant(0);
       component.ArmorCategory = armorCategory;
@@ -6695,7 +6695,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       ValidateParam(value);
       ValidateParam(rendType);
-    
+
       var component = new ContextRendFeature();
       component.Value = value ?? Constants.Empty.DiceValue;
       component.RendType = rendType;
@@ -6746,7 +6746,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new CraftBonus();
       component.m_BonusFor = bonusFor;
       component.m_Value = value ?? ContextValues.Constant(0);
@@ -6782,7 +6782,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new CriticalConfirmationACBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.Bonus = bonus;
@@ -6808,7 +6808,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new CriticalConfirmationACBonusAgainstFactOwner();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.Value = value ?? ContextValues.Constant(0);
@@ -6850,7 +6850,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new CriticalConfirmationBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.Bonus = bonus;
@@ -6894,7 +6894,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor descriptor = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new DamageBonusAgainstAlignment();
       component.Alignment = alignment;
       component.OnlyMelee = onlyMelee;
@@ -6918,7 +6918,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor descriptor = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new DamageBonusAgainstFactOwner();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.DamageBonus = damageBonus;
@@ -6943,7 +6943,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? checkedFact = null)
     {
       ValidateParam(damageValue);
-    
+
       var component = new DamageBonusAgainstSize();
       component.DamageValue = damageValue ?? ContextValues.Constant(0);
       component.size = size;
@@ -6967,7 +6967,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor descriptor = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new DamageBonusOrderOfCockatrice();
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(checkedFact);
       component.Bonus = bonus ?? ContextValues.Constant(0);
@@ -7148,7 +7148,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new DiceDamageBonusOnSpell();
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
       component.UseContextBonus = useContextBonus;
@@ -7210,7 +7210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new DispelCasterLevelCheckBonus();
       component.Value = value ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -7300,7 +7300,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new DraconicBloodlineArcana();
       component.SpellDescriptor = spellDescriptor;
       component.SpellsOnly = spellsOnly;
@@ -7676,7 +7676,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new IncreaseAllSpellsDC();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -7696,7 +7696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new IncreaseCasterLevel();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -7745,7 +7745,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new IncreaseSpellContextDescriptorDC();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -7771,7 +7771,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool spellsOnly = default)
     {
       ValidateParam(value);
-    
+
       var component = new IncreaseSpellDC();
       component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
       component.HalfMythicRank = halfMythicRank;
@@ -7833,7 +7833,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? healBonus = null)
     {
       ValidateParam(healBonus);
-    
+
       var component = new IncreaseSpellHealing();
       component.School = school;
       component.HealBonus = healBonus ?? ContextValues.Constant(0);
@@ -7886,7 +7886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? damageBonus = null)
     {
       ValidateParam(damageBonus);
-    
+
       var component = new IncreaseSpellSchoolDamage();
       component.School = school;
       component.DamageBonus = damageBonus ?? ContextValues.Constant(0);
@@ -8242,7 +8242,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(chance);
       ValidateParam(valueToCompareRoll);
       ValidateParam(value);
-    
+
       var component = new ModifyD20();
       component.Rule = rule;
       component.DispellMagicCheckType = dispellMagicCheckType;
@@ -8544,7 +8544,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? preciseStrikeFact = null)
     {
       ValidateParam(damage);
-    
+
       var component = new PreciseStrike();
       component.Damage = damage;
       component.m_PreciseStrikeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(preciseStrikeFact);
@@ -8704,7 +8704,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(rendType);
-    
+
       var component = new RendFeature();
       component.RendDamage = rendDamage;
       component.RendType = rendType;
@@ -9008,7 +9008,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SavingSlash();
       component.UseContextValue = useContextValue;
       component.Bonus = bonus;
@@ -9030,7 +9030,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool onlyPositiveValue = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstAbilityType();
       component.AbilityType = abilityType;
       component.ModifierDescriptor = modifierDescriptor;
@@ -9054,7 +9054,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstAlignment();
       component.Alignment = alignment;
       component.Descriptor = descriptor;
@@ -9097,7 +9097,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? disablingFeature = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstAllies();
       component.ModifierDescriptor = modifierDescriptor;
       component.Value = value;
@@ -9123,7 +9123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string? disablingFeature = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstDescriptor();
       component.SpellDescriptor = spellDescriptor;
       component.ModifierDescriptor = modifierDescriptor;
@@ -9209,7 +9209,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstSchoolAbilityValue();
       component.School = school;
       component.ModifierDescriptor = modifierDescriptor;
@@ -9255,7 +9255,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool onlyPositiveValue = default)
     {
       ValidateParam(bonus);
-    
+
       var component = new SavingThrowBonusAgainstSpellType();
       component.AgainstArcaneSpells = againstArcaneSpells;
       component.ModifierDescriptor = modifierDescriptor;
@@ -9301,7 +9301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new SavingThrowContextBonusAgainstDescriptor();
       component.SpellDescriptor = spellDescriptor;
       component.ModifierDescriptor = modifierDescriptor;
@@ -9532,7 +9532,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SpellPenetrationBonus();
       component.Value = value ?? ContextValues.Constant(0);
       component.Descriptor = descriptor;
@@ -9740,7 +9740,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new TrapPerceptionBonus();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -9914,7 +9914,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(radiusInMeters);
-    
+
       var component = new UnitDeathTrigger();
       component.RadiusInMeters = radiusInMeters ?? ContextValues.Constant(0);
       component.Faction = faction;
@@ -9983,7 +9983,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? contextMultiplier = null)
     {
       ValidateParam(contextMultiplier);
-    
+
       var component = new WeaponGroupAttackBonus();
       component.WeaponGroup = weaponGroup;
       component.AttackBonus = attackBonus;
@@ -10007,7 +10007,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(additionalValue);
-    
+
       var component = new WeaponGroupDamageBonus();
       component.WeaponGroup = weaponGroup;
       component.DamageBonus = damageBonus;
@@ -10402,7 +10402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(multiplier);
-    
+
       var component = new BuffAbilityRollsBonus();
       component.Value = value;
       component.Descriptor = descriptor;
@@ -10439,7 +10439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? multiplier = null)
     {
       ValidateParam(multiplier);
-    
+
       var component = new BuffAllSkillsBonus();
       component.Descriptor = descriptor;
       component.Value = value;
@@ -10457,7 +10457,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new BuffAllSkillsBonusAbilityValue();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -10543,7 +10543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new BuffIncomingDamageIncrease();
       component.Value = value ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -10581,7 +10581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int minimumCap = default)
     {
       ValidateParam(contextBonus);
-    
+
       var component = new BuffMovementSpeed();
       component.Descriptor = descriptor;
       component.Value = value;
@@ -10656,7 +10656,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(activateFx);
       ValidateParam(deactivateFx);
       ValidateParam(eachRoundFx);
-    
+
       var component = new BuffParticleEffectPlay();
       component.PlayOnActivate = playOnActivate;
       component.ActivateFx = activateFx ?? Constants.Empty.PrefabLink;
@@ -10714,7 +10714,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int increaseDC = default)
     {
       ValidateParam(effectOnDeath);
-    
+
       var component = new BuffSaveOrDieEachRound();
       component.Condition = condition;
       component.SaveType = saveType;
@@ -10820,7 +10820,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int value = default)
     {
       ValidateParam(scaling);
-    
+
       var component = new BuffStrengthSkillsBonus();
       component.Descriptor = descriptor;
       component.Value = value;
@@ -10890,7 +10890,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new DamageBonusConditional();
       component.CheckWielder = checkWielder;
       component.OnlyWeaponDamage = onlyWeaponDamage;
@@ -11060,7 +11060,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool scale = default)
     {
       ValidateParam(scaling);
-    
+
       var component = new HealOverTimeIfHasFact();
       component.Heal = heal;
       component.InstantStartTick = instantStartTick;
@@ -11136,7 +11136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(leader);
-    
+
       var component = new MakeUnitFollowUnit();
       component.AlwaysRun = alwaysRun;
       component.CanBeSlowerThanLeader = canBeSlowerThanLeader;
@@ -11245,7 +11245,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int additionalDiceRolls = default)
     {
       ValidateParam(value);
-    
+
       var component = new PowerfulCharge();
       component.UseContextBonus = useContextBonus;
       component.Value = value ?? ContextValues.Constant(0);
@@ -11269,7 +11269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new ProtectionFromEnergy();
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
@@ -11305,7 +11305,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? value = null)
     {
       ValidateParam(value);
-    
+
       var component = new ReduceDamageReduction();
       component.Multiplier = multiplier;
       component.Value = value ?? ContextValues.Constant(0);
@@ -11345,7 +11345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new ResistEnergy();
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
@@ -11372,7 +11372,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new ResistEnergyContext();
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
@@ -11394,7 +11394,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SaveSuccessIfBonus();
       component.Value = value ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -11421,7 +11421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new SkillSuccessIfBonus();
       component.Value = value ?? ContextValues.Constant(0);
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -11518,7 +11518,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new TemporaryHitPointsConstitutionBased();
       component.Value = value ?? ContextValues.Constant(0);
       component.BonusMultiplier = bonusMultiplier;
@@ -11554,7 +11554,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new TemporaryHitPointsFromAbilityValue();
       component.Descriptor = descriptor;
       component.Value = value ?? ContextValues.Constant(0);
@@ -11582,7 +11582,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(value);
-    
+
       var component = new TemporaryHitPointsPerLevel();
       component.Descriptor = descriptor;
       component.HitPointsPerLevel = hitPointsPerLevel;
@@ -11608,7 +11608,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bonus);
-    
+
       var component = new TemporaryHitPointsRandom();
       component.Descriptor = descriptor;
       component.Dice = dice;
@@ -11661,7 +11661,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new WizardAbjurationResistance();
       component.m_Wizard = BlueprintTool.GetRef<BlueprintCharacterClassReference>(wizard);
       component.Type = type;
@@ -11692,7 +11692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       ValidateParam(valueMultiplier);
       ValidateParam(value);
       ValidateParam(pool);
-    
+
       var component = new WizardEnergyAbsorption();
       component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
       component.Type = type;

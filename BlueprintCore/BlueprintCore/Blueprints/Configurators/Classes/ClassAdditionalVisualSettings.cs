@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ClassAdditionalVisualSettingsConfigurator SetColorRamps(BlueprintClassAdditionalVisualSettings.ColorRamp[]? colorRamps)
     {
       ValidateParam(colorRamps);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ClassAdditionalVisualSettingsConfigurator SetCommonSettings(BlueprintClassAdditionalVisualSettings.SettingsData commonSettings)
     {
       ValidateParam(commonSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ClassAdditionalVisualSettingsConfigurator SetInGameSettings(BlueprintClassAdditionalVisualSettings.SettingsData inGameSettings)
     {
       ValidateParam(inGameSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public ClassAdditionalVisualSettingsConfigurator SetDollRoomSettings(BlueprintClassAdditionalVisualSettings.SettingsData dollRoomSettings)
     {
       ValidateParam(dollRoomSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {

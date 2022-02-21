@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderSkillConfigurator SetBonusAttributes(LeaderAttributes bonusAttributes)
     {
       ValidateParam(bonusAttributes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         string[]? facts = null)
     {
       ValidateParam(targetController);
-    
+
       var component = new AddFactOnTacticalUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_TargetController = targetController;
@@ -274,7 +274,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(percentBonuses);
-    
+
       var component = new LeaderPercentAttributeBonus();
       component.m_PercentBonuses = percentBonuses;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -324,7 +324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         string[]? facts = null)
     {
       ValidateParam(targetController);
-    
+
       var component = new RemoveFactFromTacticalUnit();
       component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_TargetController = targetController;
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         ActionsBuilder? actions = null)
     {
       ValidateParam(filter);
-    
+
       var component = new SquadsActionOnTacticalCombatStart();
       component.m_Filter = filter;
       component.m_BannedFacts = bannedFacts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToList();
@@ -399,7 +399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         int modValue = default)
     {
       ValidateParam(targetFilter);
-    
+
       var component = new TacticalMoraleModifier();
       component.m_TargetFilter = targetFilter;
       component.m_FactionTarget = factionTarget;

@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileTrajectoryConfigurator SetPlaneOffset(TrajectoryOffset[]? planeOffset)
     {
       ValidateParam(planeOffset);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileTrajectoryConfigurator SetUpOffset(TrajectoryOffset[]? upOffset)
     {
       ValidateParam(upOffset);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileTrajectoryConfigurator SetAmplitudeScaleByLifetime(AnimationCurve amplitudeScaleByLifetime)
     {
       ValidateParam(amplitudeScaleByLifetime);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileTrajectoryConfigurator SetAmplitudeScaleByFullDistance(AnimationCurve amplitudeScaleByFullDistance)
     {
       ValidateParam(amplitudeScaleByFullDistance);
-    
+
       return OnConfigureInternal(
           bp =>
           {

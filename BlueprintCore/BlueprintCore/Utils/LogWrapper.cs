@@ -1,6 +1,6 @@
+using Owlcat.Runtime.Core.Logging;
 using System;
 using System.Collections.Generic;
-using Owlcat.Runtime.Core.Logging;
 
 #nullable enable
 namespace BlueprintCore.Utils
@@ -82,7 +82,7 @@ namespace BlueprintCore.Utils
       Logger.Error($"{Prefix}: {msg}");
       if (e != null) { Logger.Exception(e); }
     }
-    
+
     public virtual void Info(string msg)
     {
       Logger.Log($"{Prefix}: {msg}");

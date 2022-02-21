@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     public CutsceneConfigurator SetAnchors(EntityReference[]? anchors)
     {
       ValidateParam(anchors);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     public CutsceneConfigurator SetDefaultParameters(ParametrizedContextSetter defaultParameters)
     {
       ValidateParam(defaultParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

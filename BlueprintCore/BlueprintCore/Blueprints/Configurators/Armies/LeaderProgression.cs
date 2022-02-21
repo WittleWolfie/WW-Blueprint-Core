@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderProgressionConfigurator SetProgressionName(LocalizedString? progressionName)
     {
       ValidateParam(progressionName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public LeaderProgressionConfigurator SetLevels(LeaderLevel[]? levels)
     {
       ValidateParam(levels);
-    
+
       return OnConfigureInternal(
           bp =>
           {

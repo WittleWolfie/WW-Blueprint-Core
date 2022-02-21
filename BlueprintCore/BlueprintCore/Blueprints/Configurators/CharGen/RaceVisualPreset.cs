@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     public RaceVisualPresetConfigurator SetMaleSkeleton(Skeleton maleSkeleton)
     {
       ValidateParam(maleSkeleton);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     public RaceVisualPresetConfigurator SetFemaleSkeleton(Skeleton femaleSkeleton)
     {
       ValidateParam(femaleSkeleton);
-    
+
       return OnConfigureInternal(
           bp =>
           {

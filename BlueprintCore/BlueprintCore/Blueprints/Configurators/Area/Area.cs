@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetCampingSettings(CampingSettings campingSettings)
     {
       ValidateParam(campingSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
       ValidateParam(randomEncounterSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -236,7 +236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -423,7 +423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(formations);
-    
+
       var component = new CombatRandomEncounterAreaSettings();
       component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(defaultEnterPoint);
       component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(goodAvoidanceEnterPoint);
@@ -670,7 +670,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaConfigurator SetCampingSettings(CampingSettings campingSettings)
     {
       ValidateParam(campingSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -685,7 +685,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaConfigurator SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
       ValidateParam(randomEncounterSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -726,7 +726,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaConfigurator SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -767,7 +767,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaConfigurator SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -954,7 +954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(formations);
-    
+
       var component = new CombatRandomEncounterAreaSettings();
       component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(defaultEnterPoint);
       component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(goodAvoidanceEnterPoint);

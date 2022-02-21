@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? onlyOfType = null)
     {
       ValidateParam(settings);
-    
+
       var component = new CountCorpsesAroundPropertyGetter();
       component.m_OnlyOfType = BlueprintTool.GetRef<BlueprintUnitTypeReference>(onlyOfType);
       component.m_Radius = radius;
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int featureBonus = default)
     {
       ValidateParam(settings);
-    
+
       var component = new BaseAttackPropertyWithFeatureList();
       component.BaseValue = baseValue;
       component.BaseAttackDiv = baseAttackDiv;
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings settings)
     {
       ValidateParam(settings);
-    
+
       var component = new CurrentMeleeWeaponDamageStatGetter();
       component.Settings = settings;
       return AddComponent(component);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings settings)
     {
       ValidateParam(settings);
-    
+
       var component = new CurrentWeaponCriticalMultiplierGetter();
       component.Settings = settings;
       return AddComponent(component);
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string[]? duelingFeatures = null)
     {
       ValidateParam(settings);
-    
+
       var component = new FightingDefensivelyACBonusProperty();
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_DuelingFeatures = duelingFeatures.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -161,7 +161,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? halfBuff = null)
     {
       ValidateParam(settings);
-    
+
       var component = new FightingDefensivelyAttackPenaltyProperty();
       component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
       component.m_DuelingFeatures = duelingFeatures.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         bool multyplyOnCharacterLevel = default)
     {
       ValidateParam(settings);
-    
+
       var component = new KineticistBurnPropertyGetter();
       component.MultiplyOnClassLevel = multiplyOnClassLevel;
       component.MultyplyOnCharacterLevel = multyplyOnCharacterLevel;
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings settings)
     {
       ValidateParam(settings);
-    
+
       var component = new KineticistMainStatBonusPropertyGetter();
       component.Settings = settings;
       return AddComponent(component);
@@ -220,7 +220,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int featureBonus = default)
     {
       ValidateParam(settings);
-    
+
       var component = new LevelBasedPropertyWithFeatureList();
       component.BaseValue = baseValue;
       component.LevelDiv = levelDiv;
@@ -245,7 +245,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? requiredFact = null)
     {
       ValidateParam(settings);
-    
+
       var component = new StatBonusIfHasFactProperty();
       component.Multiplier = multiplier;
       component.Stat = stat;
@@ -264,7 +264,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         UnitProperty property = default)
     {
       ValidateParam(settings);
-    
+
       var component = new AnimalPetOwnerRankGetter();
       component.Property = property;
       component.Settings = settings;
@@ -283,7 +283,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int denominator = default)
     {
       ValidateParam(settings);
-    
+
       var component = new AreaCrComplexGetter();
       component.Bonus = bonus;
       component.Multiplier = multiplier;
@@ -304,7 +304,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? clazz = null)
     {
       ValidateParam(settings);
-    
+
       var component = new ClassLevelGetter();
       component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       component.Settings = settings;
@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? property = null)
     {
       ValidateParam(settings);
-    
+
       var component = new CustomPropertyGetter();
       component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property);
       component.Settings = settings;
@@ -342,7 +342,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string? fact = null)
     {
       ValidateParam(settings);
-    
+
       var component = new FactRankGetter();
       component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
       component.Settings = settings;
@@ -363,7 +363,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int rankMultiplier = default)
     {
       ValidateParam(settings);
-    
+
       var component = new PropertyWithFactRankGetter();
       component.m_Property = property;
       component.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
@@ -381,7 +381,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings settings)
     {
       ValidateParam(settings);
-    
+
       var component = new ShieldBonusGetter();
       component.Settings = settings;
       return AddComponent(component);
@@ -397,7 +397,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         UnitProperty property = default)
     {
       ValidateParam(settings);
-    
+
       var component = new SimplePropertyGetter();
       component.Property = property;
       component.Settings = settings;
@@ -414,7 +414,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         StatType skill = default)
     {
       ValidateParam(settings);
-    
+
       var component = new SkillRankGetter();
       component.Skill = skill;
       component.Settings = settings;
@@ -431,7 +431,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         StatType skill = default)
     {
       ValidateParam(settings);
-    
+
       var component = new SkillValueGetter();
       component.Skill = skill;
       component.Settings = settings;
@@ -454,7 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         string[]? archetypes = null)
     {
       ValidateParam(settings);
-    
+
       var component = new SummClassLevelGetter();
       component.m_Class = clazz.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
       component.Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(archetype);
@@ -472,7 +472,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings settings)
     {
       ValidateParam(settings);
-    
+
       var component = new UnitWeaponEnhancementGetter();
       component.Settings = settings;
       return AddComponent(component);
@@ -491,7 +491,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         bool attributeBonus = default)
     {
       ValidateParam(settings);
-    
+
       var component = new CastingAttributeGetter();
       component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
       component.AttributeBonus = attributeBonus;
@@ -512,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         UnitProperty property = default)
     {
       ValidateParam(settings);
-    
+
       var component = new ComplexPropertyGetter();
       component.Bonus = bonus;
       component.Multiplier = multiplier;
@@ -534,7 +534,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         UnitProperty property = default)
     {
       ValidateParam(settings);
-    
+
       var component = new CustomProgressionPropertyGetter();
       component.Start = start;
       component.Step = step;
@@ -557,7 +557,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         StatType defaultStat = default)
     {
       ValidateParam(settings);
-    
+
       var component = new MaxCastingAttributeGetter();
       component.m_Classes = classes.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
       component.AttributeBonus = attributeBonus;

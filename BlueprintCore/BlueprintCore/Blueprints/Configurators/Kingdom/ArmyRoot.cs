@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public ArmyRootConfigurator SetTravelingArmiesByChapter(ArmyRoot.ChapterSpawnInfo[]? travelingArmiesByChapter)
     {
       ValidateParam(travelingArmiesByChapter);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public ArmyRootConfigurator SetResourceIcon(ArmyRoot.ResourceIcons resourceIcon)
     {
       ValidateParam(resourceIcon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -453,7 +453,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public ArmyRootConfigurator SetArmyStrings(ArmyStrings armyStrings)
     {
       ValidateParam(armyStrings);
-    
+
       return OnConfigureInternal(
           bp =>
           {

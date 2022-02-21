@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextCalculateAbilityParams();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
@@ -271,7 +271,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         double modifier = default)
     {
       ValidateParam(value);
-    
+
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       ValidateParam(casterLevel);
       ValidateParam(concentration);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
       component.DC = dC ?? ContextValues.Constant(0);
@@ -393,7 +393,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffFact);
-    
+
       var component = new AbilityAreaEffectSpecialBehaviour();
       component.Behaviour = behaviour;
       component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -413,7 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(prefabLink);
-    
+
       var component = new AbillityAreaEffectRoundFX();
       component.PrefabLink = prefabLink ?? Constants.Empty.PrefabLink;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -444,7 +444,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(climbDC);
-    
+
       var component = new AreaEffectPit();
       component.m_VisualSettings = BlueprintTool.GetRef<BlueprintAreaEffectPitVisualSettingsReference>(visualSettings);
       component.ClimbDC = climbDC ?? ContextValues.Constant(0);

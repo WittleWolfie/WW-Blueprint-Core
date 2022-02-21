@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetSpellName(LocalizedString? spellName)
     {
       ValidateParam(spellName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetVFX(PrefabLink? vFX)
     {
       ValidateParam(vFX);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetHoursCooldown(GlobalMagicValue hoursCooldown)
     {
       ValidateParam(hoursCooldown);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     public GlobalMagicSpellConfigurator SetExecutor(BlueprintGlobalMagicSpell.ExecutorGlobalMagicSpell executor)
     {
       ValidateParam(executor);
-    
+
       return OnConfigureInternal(
           bp =>
           {

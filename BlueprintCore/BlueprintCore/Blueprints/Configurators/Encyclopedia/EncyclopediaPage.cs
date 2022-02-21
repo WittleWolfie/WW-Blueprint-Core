@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     public EncyclopediaPageConfigurator SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
-    
+
       return OnConfigureInternal(
           bp =>
           {

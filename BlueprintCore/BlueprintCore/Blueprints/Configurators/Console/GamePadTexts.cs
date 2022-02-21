@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer>? layers)
     {
       ValidateParam(layers);
-    
+
       return OnConfigureInternal(
           bp =>
           {

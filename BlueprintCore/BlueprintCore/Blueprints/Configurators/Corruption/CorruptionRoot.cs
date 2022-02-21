@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     public CorruptionRootConfigurator SetProgression(CorruptionProgression progression)
     {
       ValidateParam(progression);
-    
+
       return OnConfigureInternal(
           bp =>
           {

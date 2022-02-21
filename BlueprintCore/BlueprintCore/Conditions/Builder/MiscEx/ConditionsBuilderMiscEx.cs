@@ -33,7 +33,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(difficulty);
-    
+
       var element = ElementTool.Create<ContextConditionDifficultyHigherThan>();
       element.Less = less;
       element.Reverse = reverse;
@@ -54,7 +54,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(difficulty);
-    
+
       var element = ElementTool.Create<DifficultyHigherThan>();
       element.m_Difficulty = difficulty;
       element.Not = negate;
@@ -165,7 +165,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(item);
-    
+
       var element = ElementTool.Create<IsListContainsItem>();
       element.Item = item;
       element.List = BlueprintTool.GetRef<BlueprintItemsList.Reference>(list);
@@ -198,7 +198,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<IsUnitCustomCompanion>();
       element.Unit = unit;
       element.Not = negate;
@@ -231,7 +231,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
         bool negate = false)
     {
       builder.Validate(isle);
-    
+
       var element = ElementTool.Create<IsleStateCondition>();
       element.m_Isle = isle;
       element.m_State = state;

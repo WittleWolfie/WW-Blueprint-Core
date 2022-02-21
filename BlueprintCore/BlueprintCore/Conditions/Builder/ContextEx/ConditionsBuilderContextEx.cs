@@ -153,7 +153,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(rankValue);
-    
+
       var element = ElementTool.Create<ContextConditionBuffRank>();
       element.Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       element.RankValue = rankValue ?? ContextValues.Constant(0);
@@ -241,7 +241,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     {
       builder.Validate(checkValue);
       builder.Validate(targetValue);
-    
+
       var element = ElementTool.Create<ContextConditionCompare>();
       element.m_Type = type;
       element.CheckValue = checkValue ?? ContextValues.Constant(0);
@@ -262,7 +262,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(value);
-    
+
       var element = ElementTool.Create<ContextConditionCompareCasterHP>();
       element.m_CompareType = compareType;
       element.Value = value ?? ContextValues.Constant(0);
@@ -282,7 +282,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
         bool negate = false)
     {
       builder.Validate(value);
-    
+
       var element = ElementTool.Create<ContextConditionCompareTargetHP>();
       element.m_CompareType = compareType;
       element.Value = value ?? ContextValues.Constant(0);

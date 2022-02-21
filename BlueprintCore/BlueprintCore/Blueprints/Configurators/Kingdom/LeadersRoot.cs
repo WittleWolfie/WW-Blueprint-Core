@@ -256,7 +256,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetSkillsListName(LocalizedString? skillsListName)
     {
       ValidateParam(skillsListName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -271,7 +271,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetManaName(LocalizedString? manaName)
     {
       ValidateParam(manaName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetAttackBonusName(LocalizedString? attackBonusName)
     {
       ValidateParam(attackBonusName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -301,7 +301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetDeffBonusName(LocalizedString? deffBonusName)
     {
       ValidateParam(deffBonusName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -316,7 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetSpellStrengthName(LocalizedString? spellStrengthName)
     {
       ValidateParam(spellStrengthName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -331,7 +331,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public LeadersRootConfigurator SetLeaderHireText(LocalizedString? leaderHireText)
     {
       ValidateParam(leaderHireText);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsGroupConfigurator SetTabIcon(Sprite tabIcon)
     {
       ValidateParam(tabIcon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsGroupConfigurator SetHeaderText(LocalizedString? headerText)
     {
       ValidateParam(headerText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsGroupConfigurator SetLeftPageImage(Sprite leftPageImage)
     {
       ValidateParam(leftPageImage);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsGroupConfigurator SetLeftPageText(LocalizedString? leftPageText)
     {
       ValidateParam(leftPageText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsGroupConfigurator SetPersones(List<CreditPerson>? persones)
     {
       ValidateParam(persones);
-    
+
       return OnConfigureInternal(
           bp =>
           {

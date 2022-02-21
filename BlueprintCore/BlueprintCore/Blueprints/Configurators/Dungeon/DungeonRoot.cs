@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetDebugOutput(BlueprintDungeonRoot.DebugOutputSettings debugOutput)
     {
       ValidateParam(debugOutput);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetTest(BlueprintDungeonRoot.TestSettings test)
     {
       ValidateParam(test);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -524,7 +524,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetEveryRoomCRBonuses(BlueprintDungeonRoot.StageCRBonus[]? everyRoomCRBonuses)
     {
       ValidateParam(everyRoomCRBonuses);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -580,7 +580,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetUnitsCountInPack(BlueprintDungeonRoot.UnitsPerPack[]? unitsCountInPack)
     {
       ValidateParam(unitsCountInPack);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -623,7 +623,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetUnitsCountInBossPack(BlueprintDungeonRoot.UnitsPerPack[]? unitsCountInBossPack)
     {
       ValidateParam(unitsCountInBossPack);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -666,7 +666,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetPacksCountInRoom(BlueprintDungeonRoot.ValueWithWeight[]? packsCountInRoom)
     {
       ValidateParam(packsCountInRoom);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -709,7 +709,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetPacksCountInBossRoom(BlueprintDungeonRoot.ValueWithWeight[]? packsCountInBossRoom)
     {
       ValidateParam(packsCountInBossRoom);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -752,7 +752,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetArmies(DungeonArmySettings[]? armies)
     {
       ValidateParam(armies);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -795,7 +795,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetRoaming(RoamingUnitSettings roaming)
     {
       ValidateParam(roaming);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -810,7 +810,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetCustomBosses(BlueprintDungeonRoot.CustomBossSettings[]? customBosses)
     {
       ValidateParam(customBosses);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -868,7 +868,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetLootTableSmall(BlueprintDungeonRoot.LootTypeWeight[]? lootTableSmall)
     {
       ValidateParam(lootTableSmall);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -911,7 +911,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetLootTableBig(BlueprintDungeonRoot.LootTypeWeight[]? lootTableBig)
     {
       ValidateParam(lootTableBig);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -954,7 +954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetLootCRBonuses(BlueprintDungeonRoot.ValueWithWeight[]? lootCRBonuses)
     {
       ValidateParam(lootCRBonuses);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -997,7 +997,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetLoot(DungeonLootRoot loot)
     {
       ValidateParam(loot);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1012,7 +1012,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetItems(BlueprintDungeonRoot.ItemsList[]? items)
     {
       ValidateParam(items);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1187,7 +1187,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetSpecialObjects(BlueprintDungeonRoot.SpecialObjectsList[]? specialObjects)
     {
       ValidateParam(specialObjects);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1280,7 +1280,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetThemeBuffs(BlueprintDungeonRoot.ThemeBuffSettings[]? themeBuffs)
     {
       ValidateParam(themeBuffs);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1323,7 +1323,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetThemeAudioScenes(BlueprintDungeonRoot.ThemeAudioSettings[]? themeAudioScenes)
     {
       ValidateParam(themeAudioScenes);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1381,7 +1381,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonRootConfigurator SetTraps(BlueprintDungeonRoot.TrapAndMinStage[]? traps)
     {
       ValidateParam(traps);
-    
+
       return OnConfigureInternal(
           bp =>
           {

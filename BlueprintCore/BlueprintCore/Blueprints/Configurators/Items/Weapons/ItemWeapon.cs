@@ -158,7 +158,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public ItemWeaponConfigurator SetDamageType(DamageTypeDescription damageType)
     {
       ValidateParam(damageType);
-    
+
       return OnConfigureInternal(
           bp =>
           {

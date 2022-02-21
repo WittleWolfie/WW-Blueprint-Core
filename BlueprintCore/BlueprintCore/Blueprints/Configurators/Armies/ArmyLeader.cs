@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public ArmyLeaderConfigurator SetLeaderName(LocalizedString? leaderName)
     {
       ValidateParam(leaderName);
-    
+
       return OnConfigureInternal(
           bp =>
           {

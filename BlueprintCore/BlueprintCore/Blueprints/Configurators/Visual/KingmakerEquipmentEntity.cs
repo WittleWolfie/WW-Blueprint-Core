@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[]? maleArray)
     {
       ValidateParam(maleArray);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[]? femaleArray)
     {
       ValidateParam(femaleArray);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[]? raceDependentArrays)
     {
       ValidateParam(raceDependentArrays);
-    
+
       return OnConfigureInternal(
           bp =>
           {

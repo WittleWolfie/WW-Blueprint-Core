@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[]? entries)
     {
       ValidateParam(entries);
-    
+
       return OnConfigureInternal(
           bp =>
           {

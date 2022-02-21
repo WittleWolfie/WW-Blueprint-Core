@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     public DlcRewardCampaignConfigurator SetScreenshotForImportSave(Texture2D screenshotForImportSave)
     {
       ValidateParam(screenshotForImportSave);
-    
+
       return OnConfigureInternal(
           bp =>
           {

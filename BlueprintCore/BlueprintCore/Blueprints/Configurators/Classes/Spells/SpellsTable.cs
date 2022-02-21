@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     public SpellsTableConfigurator SetLevels(SpellsLevelEntry[]? levels)
     {
       ValidateParam(levels);
-    
+
       return OnConfigureInternal(
           bp =>
           {

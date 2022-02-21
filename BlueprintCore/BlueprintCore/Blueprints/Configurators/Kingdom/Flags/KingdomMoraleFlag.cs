@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     public KingdomMoraleFlagConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {

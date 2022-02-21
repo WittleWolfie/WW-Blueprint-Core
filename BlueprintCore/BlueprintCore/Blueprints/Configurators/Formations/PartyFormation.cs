@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     public PartyFormationConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {

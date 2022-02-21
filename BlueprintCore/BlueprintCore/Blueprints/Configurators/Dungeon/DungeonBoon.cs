@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonBoonConfigurator SetCachedLogic(DungeonBoonLogic cachedLogic)
     {
       ValidateParam(cachedLogic);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetLinkHairAndSkinColorsCondition(Condition linkHairAndSkinColorsCondition)
     {
       ValidateParam(linkHairAndSkinColorsCondition);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetMaleOptions(CustomizationOptions maleOptions)
     {
       ValidateParam(maleOptions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -221,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetFemaleOptions(CustomizationOptions femaleOptions)
     {
       ValidateParam(femaleOptions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -236,7 +236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetMaleSpeedSettings(UnitAnimationSettings maleSpeedSettings)
     {
       ValidateParam(maleSpeedSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -251,7 +251,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetFemaleSpeedSettings(UnitAnimationSettings femaleSpeedSettings)
     {
       ValidateParam(femaleSpeedSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -266,7 +266,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public RaceConfigurator SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[]? specialDollTypes)
     {
       ValidateParam(specialDollTypes);
-    
+
       return OnConfigureInternal(
           bp =>
           {

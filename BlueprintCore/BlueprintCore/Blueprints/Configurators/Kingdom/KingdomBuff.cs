@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomBuffConfigurator SetStatChanges(KingdomStats.Changes statChanges)
     {
       ValidateParam(statChanges);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(changeValue);
-    
+
       var component = new ChangeGlobalMagicPower();
       component.m_ChangeValue = changeValue;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -292,7 +292,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ActionsBuilder? action = null)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new EventResolutonTrigger();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;
@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ActionsBuilder? action = null)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new EventStartTrigger();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;
@@ -420,7 +420,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ConditionsBuilder? condition = null)
     {
       ValidateParam(stats);
-    
+
       var component = new KingdomConditionalStatChange();
       component.Condition = condition?.Build() ?? Constants.Empty.Conditions;
       component.Stats = stats;
@@ -467,7 +467,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool addDisadvantage = default)
     {
       ValidateParam(requiredTags);
-    
+
       var component = new KingdomEventModifier();
       component.ApplyToProblems = applyToProblems;
       component.ApplyToOpportunities = applyToOpportunities;

@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     public AchievementDataConfigurator SetUnlockedIcon(Texture2D unlockedIcon)
     {
       ValidateParam(unlockedIcon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     public AchievementDataConfigurator SetLockedIcon(Texture2D lockedIcon)
     {
       ValidateParam(lockedIcon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -188,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     public AchievementDataConfigurator SetMinDifficulty(DifficultyPresetAsset minDifficulty)
     {
       ValidateParam(minDifficulty);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -270,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     public AchievementDataConfigurator SetFlags(AchievementData.UnlockableFlagsPack[]? flags)
     {
       ValidateParam(flags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -313,7 +313,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     public AchievementDataConfigurator SetEtudes(AchievementData.EtudesPack[]? etudes)
     {
       ValidateParam(etudes);
-    
+
       return OnConfigureInternal(
           bp =>
           {

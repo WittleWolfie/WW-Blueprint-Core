@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CueConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CueConfigurator SetSpeaker(DialogSpeaker speaker)
     {
       ValidateParam(speaker);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CueConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
       ValidateParam(alignmentShift);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -214,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public CueConfigurator SetContinue(CueSelection continueValue)
     {
       ValidateParam(continueValue);
-    
+
       return OnConfigureInternal(
           bp =>
           {

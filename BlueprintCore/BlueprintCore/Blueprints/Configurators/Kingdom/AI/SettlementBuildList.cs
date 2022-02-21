@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots slotSetupPrefab)
     {
       ValidateParam(slotSetupPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry>? list)
     {
       ValidateParam(list);
-    
+
       return OnConfigureInternal(
           bp =>
           {

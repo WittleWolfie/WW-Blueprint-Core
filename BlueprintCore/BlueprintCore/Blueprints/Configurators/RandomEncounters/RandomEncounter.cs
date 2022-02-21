@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncounterConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncounterConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncounterConfigurator SetPawnPrefab(GlobalMapRandomEncounterPawn pawnPrefab)
     {
       ValidateParam(pawnPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder SetSolutions(PossibleEventSolutions solutions)
     {
       ValidateParam(solutions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -205,7 +205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder SetDefaultResolutionDescription(LocalizedString? defaultResolutionDescription)
     {
       ValidateParam(defaultResolutionDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -278,7 +278,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(results);
-    
+
       var component = new EventFinalResults();
       component.Results = results;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

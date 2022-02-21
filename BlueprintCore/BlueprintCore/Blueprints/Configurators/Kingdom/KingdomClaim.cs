@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomClaimConfigurator SetUnknownDescription(LocalizedString? unknownDescription)
     {
       ValidateParam(unknownDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomClaimConfigurator SetKnownDescription(LocalizedString? knownDescription)
     {
       ValidateParam(knownDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomClaimConfigurator SetFailedDescription(LocalizedString? failedDescription)
     {
       ValidateParam(failedDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomClaimConfigurator SetFulfilledDescription(LocalizedString? fulfilledDescription)
     {
       ValidateParam(fulfilledDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {

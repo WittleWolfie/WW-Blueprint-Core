@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public TimeOfDaySettingsConfigurator SetMorning(GameObject morning)
     {
       ValidateParam(morning);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public TimeOfDaySettingsConfigurator SetDay(GameObject day)
     {
       ValidateParam(day);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public TimeOfDaySettingsConfigurator SetEvening(GameObject evening)
     {
       ValidateParam(evening);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     public TimeOfDaySettingsConfigurator SetNight(GameObject night)
     {
       ValidateParam(night);
-    
+
       return OnConfigureInternal(
           bp =>
           {

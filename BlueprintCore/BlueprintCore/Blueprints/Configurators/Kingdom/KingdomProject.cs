@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public TBuilder SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {

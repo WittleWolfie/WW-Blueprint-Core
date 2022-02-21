@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncountersRootConfigurator SetChapters(RandomEncounterChapterSettings[]? chapters)
     {
       ValidateParam(chapters);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncountersRootConfigurator SetEncounterPawnPrefab(GlobalMapRandomEncounterPawn encounterPawnPrefab)
     {
       ValidateParam(encounterPawnPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -148,7 +148,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncountersRootConfigurator SetZoneSettings(ZoneCombatRandomEncounterSettings[]? zoneSettings)
     {
       ValidateParam(zoneSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -241,7 +241,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncountersRootConfigurator SetArmies(ArmySettings[]? armies)
     {
       ValidateParam(armies);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     public RandomEncountersRootConfigurator SetVendor(REVendor vendor)
     {
       ValidateParam(vendor);
-    
+
       return OnConfigureInternal(
           bp =>
           {

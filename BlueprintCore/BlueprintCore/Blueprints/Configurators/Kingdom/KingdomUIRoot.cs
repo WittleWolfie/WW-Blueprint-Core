@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetDefaultOpportunityMapMarker(KingdomUIEventMapMarker defaultOpportunityMapMarker)
     {
       ValidateParam(defaultOpportunityMapMarker);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetDefaultProblemMapMarker(KingdomUIEventMapMarker defaultProblemMapMarker)
     {
       ValidateParam(defaultProblemMapMarker);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetStats(List<KingdomUIRoot.KingdomStatElement>? stats)
     {
       ValidateParam(stats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetResources(List<KingdomUIRoot.KingdomResourceElement>? resources)
     {
       ValidateParam(resources);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetRavenTexts(KingdomUIRoot.KingdomRavenText ravenTexts)
     {
       ValidateParam(ravenTexts);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetLeaderDescriptions(List<KingdomUIRoot.KingdomLeaderDescription>? leaderDescriptions)
     {
       ValidateParam(leaderDescriptions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetTexts(KingdomUIRoot.KingdomUITexts texts)
     {
       ValidateParam(texts);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetEventResultMarginDescriptions(List<KingdomUIRoot.EventResultMarginDescription>? eventResultMarginDescriptions)
     {
       ValidateParam(eventResultMarginDescriptions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -268,7 +268,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator Settlement(KingdomUIRoot.SettlementRoot settlement)
     {
       ValidateParam(settlement);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -283,7 +283,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetTooltip(KingdomUIRoot.KingdomUITooltip tooltip)
     {
       ValidateParam(tooltip);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -298,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetMotto(KingdomUIRoot.KingdomMotto motto)
     {
       ValidateParam(motto);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -313,7 +313,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetKingdomStatusChangeReasons(List<KingdomUIRoot.KingdomStatusChangeReasonEntity>? kingdomStatusChangeReasons)
     {
       ValidateParam(kingdomStatusChangeReasons);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -369,7 +369,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetExResourceStateTypeStrings(KingdomUIRoot.ResourceStateTypeStrings exResourceStateTypeStrings)
     {
       ValidateParam(exResourceStateTypeStrings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomUIRootConfigurator SetKingdomStautsDesriptions(List<KingdomUIRoot.KingdomStatusDescription>? kingdomStautsDesriptions)
     {
       ValidateParam(kingdomStautsDesriptions);
-    
+
       return OnConfigureInternal(
           bp =>
           {

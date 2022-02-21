@@ -22,7 +22,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderUpgraderEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="AddFactIfEtudePlaying"/>

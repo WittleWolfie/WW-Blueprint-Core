@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString? masterworkDescriptionText)
     {
       ValidateParam(masterworkDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetVisualParameters(WeaponVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -200,7 +200,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     public WeaponTypeConfigurator SetDamageType(DamageTypeDescription damageType)
     {
       ValidateParam(damageType);
-    
+
       return OnConfigureInternal(
           bp =>
           {

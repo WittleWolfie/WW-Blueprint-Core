@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetLocalizedDescriptionShort(LocalizedString? localizedDescriptionShort)
     {
       ValidateParam(localizedDescriptionShort);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -533,7 +533,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetMaleEquipmentEntities(EquipmentEntityLink[]? maleEquipmentEntities)
     {
       ValidateParam(maleEquipmentEntities);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -576,7 +576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public CharacterClassConfigurator SetFemaleEquipmentEntities(EquipmentEntityLink[]? femaleEquipmentEntities)
     {
       ValidateParam(femaleEquipmentEntities);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1101,8 +1101,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -1238,8 +1238,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -1354,7 +1354,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       ValidateParam(selectorFrame);
       ValidateParam(abilityFrame);
       ValidateParam(emblem);
-    
+
       var component = new MythicClassArtComponent();
       component.m_SelectorPortrait = selectorPortrait;
       component.m_SelectorPortraitLineart = selectorPortraitLineart;
@@ -1412,7 +1412,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(condition);
       ValidateParam(uIText);
-    
+
       var component = new PrerequisiteCondition();
       component.Condition = condition;
       component.UIText = uIText ?? Constants.Empty.String;

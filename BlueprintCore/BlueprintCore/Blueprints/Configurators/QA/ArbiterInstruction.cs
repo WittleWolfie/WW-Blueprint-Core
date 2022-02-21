@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
         bool makeMapScreenshot = default)
     {
       ValidateParam(areaParts);
-    
+
       var component = new ArbiterAreaTest();
       component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
       component.OverrideAreaPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(overrideAreaPreset);

@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public KingdomEventTimelineConfigurator SetEntries(BlueprintKingdomEventTimeline.EntryList entries)
     {
       ValidateParam(entries);
-    
+
       return OnConfigureInternal(
           bp =>
           {

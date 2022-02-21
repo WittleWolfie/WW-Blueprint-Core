@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public TBuilder SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
       ValidateParam(dummy);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int count = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackFixed();
       component.m_Item = item;
       component.m_Count = count;
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int count = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
       component.m_Item = item;
       component.m_Count = count;
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int countTo = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackVariable();
       component.m_Item = item;
       component.m_CountFrom = countFrom;
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         LootItemAndWeight[]? items = null)
     {
       ValidateParam(items);
-    
+
       var component = new LootRandomItem();
       component.m_Items = items;
       return AddComponent(component);
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
       ValidateParam(dummy);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int count = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackFixed();
       component.m_Item = item;
       component.m_Count = count;
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int count = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
       component.m_Item = item;
       component.m_Count = count;
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int countTo = default)
     {
       ValidateParam(item);
-    
+
       var component = new LootItemsPackVariable();
       component.m_Item = item;
       component.m_CountFrom = countFrom;
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         LootItemAndWeight[]? items = null)
     {
       ValidateParam(items);
-    
+
       var component = new LootRandomItem();
       component.m_Items = items;
       return AddComponent(component);

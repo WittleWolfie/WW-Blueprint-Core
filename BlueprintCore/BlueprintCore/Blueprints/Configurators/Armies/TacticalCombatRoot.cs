@@ -41,7 +41,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetProbabilitySampler(ProbabilityCurveSampler probabilitySampler)
     {
       ValidateParam(probabilitySampler);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -220,7 +220,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString? buffPrefix)
     {
       ValidateParam(buffPrefix);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -313,7 +313,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetDiceRollResultsDistribution(AnimationCurve diceRollResultsDistribution)
     {
       ValidateParam(diceRollResultsDistribution);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -391,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings>? zoneSettings)
     {
       ValidateParam(zoneSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -464,7 +464,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink? positiveMoraleFx)
     {
       ValidateParam(positiveMoraleFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -479,7 +479,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink? negativeMoraleFx)
     {
       ValidateParam(negativeMoraleFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {

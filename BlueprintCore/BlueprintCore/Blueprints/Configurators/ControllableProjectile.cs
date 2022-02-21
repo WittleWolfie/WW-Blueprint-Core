@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink? onCreatureCastPrefab)
     {
       ValidateParam(onCreatureCastPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink? onCreaturePrefab)
     {
       ValidateParam(onCreaturePrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ControllableProjectileConfigurator SetRotationCurve(AnimationCurve rotationCurve)
     {
       ValidateParam(rotationCurve);
-    
+
       return OnConfigureInternal(
           bp =>
           {

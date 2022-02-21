@@ -7,6 +7,6 @@ namespace BlueprintCore.Actions.Builder.NewEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderNewEx
-{
+  {
   }
 }

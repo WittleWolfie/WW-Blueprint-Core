@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaTransitionConfigurator SetActions(ConditionAction[]? actions)
     {
       ValidateParam(actions);
-    
+
       return OnConfigureInternal(
           bp =>
           {

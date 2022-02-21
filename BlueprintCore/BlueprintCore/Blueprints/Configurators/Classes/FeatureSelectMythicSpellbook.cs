@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public FeatureSelectMythicSpellbookConfigurator SetCachedItems(List<IFeatureSelectionItem>? cachedItems)
     {
       ValidateParam(cachedItems);
-    
+
       return OnConfigureInternal(
           bp =>
           {

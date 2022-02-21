@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public TrashLootSettingsConfigurator SetTypes(List<TrashLootSettings.TypeSettings>? types)
     {
       ValidateParam(types);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public TrashLootSettingsConfigurator SetTable(TrashLootSettings.TypeChance[]? table)
     {
       ValidateParam(table);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public TrashLootSettingsConfigurator SetSuperTrashLoot(TrashLootSettings.SettingAndItems[]? superTrashLoot)
     {
       ValidateParam(superTrashLoot);
-    
+
       return OnConfigureInternal(
           bp =>
           {

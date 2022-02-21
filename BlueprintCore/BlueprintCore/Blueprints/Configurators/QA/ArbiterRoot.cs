@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     public ArbiterRootConfigurator SetIgnoreScenesInReport(SceneReference[]? ignoreScenesInReport)
     {
       ValidateParam(ignoreScenesInReport);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     public ArtisanItemDeckConfigurator SetTypeName(LocalizedString? typeName)
     {
       ValidateParam(typeName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     public ArtisanItemDeckConfigurator SetTiers(ArtisanItemDeck.TierData[]? tiers)
     {
       ValidateParam(tiers);
-    
+
       return OnConfigureInternal(
           bp =>
           {

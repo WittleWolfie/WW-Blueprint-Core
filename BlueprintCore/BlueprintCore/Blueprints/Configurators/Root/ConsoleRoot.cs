@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public ConsoleRootConfigurator SetIcons(GamePadIcons icons)
     {
       ValidateParam(icons);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public ConsoleRootConfigurator SetInGameMenuIcons(ConsoleRoot.UIInGameMenuIcons inGameMenuIcons)
     {
       ValidateParam(inGameMenuIcons);
-    
+
       return OnConfigureInternal(
           bp =>
           {

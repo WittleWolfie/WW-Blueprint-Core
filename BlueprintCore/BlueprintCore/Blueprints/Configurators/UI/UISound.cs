@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound>? sounds)
     {
       ValidateParam(sounds);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound>? armyManagement)
     {
       ValidateParam(armyManagement);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound>? tooltip)
     {
       ValidateParam(tooltip);
-    
+
       return OnConfigureInternal(
           bp =>
           {

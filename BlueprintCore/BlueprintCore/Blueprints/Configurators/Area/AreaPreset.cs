@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetOverrideGameDifficulty(DifficultyPresetAsset overrideGameDifficulty)
     {
       ValidateParam(overrideGameDifficulty);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -386,7 +386,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetUnlockedFlags(List<UnlockValuePair>? unlockedFlags)
     {
       ValidateParam(unlockedFlags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -970,7 +970,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetStats(BlueprintAreaPreset.KingdomsStatsPreset stats)
     {
       ValidateParam(stats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -985,7 +985,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetRegions(BlueprintAreaPreset.KingdomsRegionPreset[]? regions)
     {
       ValidateParam(regions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1028,7 +1028,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public TBuilder SetHistory(BlueprintAreaPreset.KingdomsEventHistoryPreset[]? history)
     {
       ValidateParam(history);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1202,7 +1202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPresetConfigurator SetOverrideGameDifficulty(DifficultyPresetAsset overrideGameDifficulty)
     {
       ValidateParam(overrideGameDifficulty);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1449,7 +1449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPresetConfigurator SetUnlockedFlags(List<UnlockValuePair>? unlockedFlags)
     {
       ValidateParam(unlockedFlags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -2033,7 +2033,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPresetConfigurator SetStats(BlueprintAreaPreset.KingdomsStatsPreset stats)
     {
       ValidateParam(stats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -2048,7 +2048,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPresetConfigurator SetRegions(BlueprintAreaPreset.KingdomsRegionPreset[]? regions)
     {
       ValidateParam(regions);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -2091,7 +2091,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     public AreaPresetConfigurator SetHistory(BlueprintAreaPreset.KingdomsEventHistoryPreset[]? history)
     {
       ValidateParam(history);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -185,7 +185,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetHumanAnimationSet(AnimationSet humanAnimationSet)
     {
       ValidateParam(humanAnimationSet);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -228,7 +228,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetDialog(DialogRoot dialog)
     {
       ValidateParam(dialog);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -243,7 +243,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetCheats(CheatRoot cheats)
     {
       ValidateParam(cheats);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetGlobalMap(GlobalMapRoot globalMap)
     {
       ValidateParam(globalMap);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -288,7 +288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetProgression(ProgressionRoot progression)
     {
       ValidateParam(progression);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -303,7 +303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetCharGen(CharGenRoot charGen)
     {
       ValidateParam(charGen);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -318,7 +318,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetPrefabs(Prefabs prefabs)
     {
       ValidateParam(prefabs);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -333,7 +333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetOccludedCharacterColors(OccludedCharacterColors occludedCharacterColors)
     {
       ValidateParam(occludedCharacterColors);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -348,7 +348,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetUIRoot(UIRoot uIRoot)
     {
       ValidateParam(uIRoot);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -363,7 +363,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetQuests(QuestsRoot quests)
     {
       ValidateParam(quests);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -378,7 +378,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetVendors(VendorsRoot vendors)
     {
       ValidateParam(vendors);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -393,7 +393,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetSystemMechanics(SystemMechanicsRoot systemMechanics)
     {
       ValidateParam(systemMechanics);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -408,7 +408,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetStatusBuffs(StatusBuffsRoot statusBuffs)
     {
       ValidateParam(statusBuffs);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -423,7 +423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetCursors(CursorRoot cursors)
     {
       ValidateParam(cursors);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -438,7 +438,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetWeatherSettings(WeatherRoot weatherSettings)
     {
       ValidateParam(weatherSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -453,7 +453,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetDlcSettings(DlcRoot dlcSettings)
     {
       ValidateParam(dlcSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -468,7 +468,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetNewGameSettings(NewGameRoot newGameSettings)
     {
       ValidateParam(newGameSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -483,7 +483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetSurfaceTypeData(SurfaceTypeData surfaceTypeData)
     {
       ValidateParam(surfaceTypeData);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -513,7 +513,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetOptimizationDummyUnit(PrefabLink? optimizationDummyUnit)
     {
       ValidateParam(optimizationDummyUnit);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -543,7 +543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetLocalizedTexts(LocalizedTexts localizedTexts)
     {
       ValidateParam(localizedTexts);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -558,7 +558,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SettingsRoot(UISettingsRoot settingsRoot)
     {
       ValidateParam(settingsRoot);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -573,7 +573,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetDifficultyList(DifficultyPresetsList difficultyList)
     {
       ValidateParam(difficultyList);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -588,7 +588,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SettingsValues(SettingsValues settingsValues)
     {
       ValidateParam(settingsValues);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -603,7 +603,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetStealthEffectPrefab(GameObject stealthEffectPrefab)
     {
       ValidateParam(stealthEffectPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -618,7 +618,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetExitStealthEffectPrefab(GameObject exitStealthEffectPrefab)
     {
       ValidateParam(exitStealthEffectPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -633,7 +633,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetWeaponModelSizing(WeaponModelSizeSettings weaponModelSizing)
     {
       ValidateParam(weaponModelSizing);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -648,7 +648,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetMountModelSizing(MountModelSizeSetting mountModelSizing)
     {
       ValidateParam(mountModelSizing);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -663,7 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetSound(SoundRoot sound)
     {
       ValidateParam(sound);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -798,7 +798,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetCalendar(CalendarRoot calendar)
     {
       ValidateParam(calendar);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -828,7 +828,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetRazerColorData(RazerColorData razerColorData)
     {
       ValidateParam(razerColorData);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -843,7 +843,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetAnimation(AnimationRoot animation)
     {
       ValidateParam(animation);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -858,7 +858,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetCamping(CampingRoot camping)
     {
       ValidateParam(camping);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -985,7 +985,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetDefaultDissolveTexture(Texture2D defaultDissolveTexture)
     {
       ValidateParam(defaultDissolveTexture);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1000,7 +1000,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetAchievements(AchievementsRoot achievements)
     {
       ValidateParam(achievements);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -1065,7 +1065,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     public RootConfigurator SetTestUIStyles(TestUIStylesRoot testUIStyles)
     {
       ValidateParam(testUIStyles);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonLocalizedStringsConfigurator SetStageNameParameterized(LocalizedString? stageNameParameterized)
     {
       ValidateParam(stageNameParameterized);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonLocalizedStringsConfigurator SetLeaderboardRecordValues(BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[]? leaderboardRecordValues)
     {
       ValidateParam(leaderboardRecordValues);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public DungeonLocalizedStringsConfigurator SetLeaderboardCharacterValues(BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[]? leaderboardCharacterValues)
     {
       ValidateParam(leaderboardCharacterValues);
-    
+
       return OnConfigureInternal(
           bp =>
           {

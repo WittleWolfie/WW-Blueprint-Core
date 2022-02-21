@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[]? mythicAlignments)
     {
       ValidateParam(mythicAlignments);
-    
+
       return OnConfigureInternal(
           bp =>
           {

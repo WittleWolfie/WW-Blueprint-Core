@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetView(ProjectileLink view)
     {
       ValidateParam(view);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetCastFx(PrefabLink? castFx)
     {
       ValidateParam(castFx);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetProjectileHit(ProjectileHitSettings projectileHit)
     {
       ValidateParam(projectileHit);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetDamageHit(DamageHitSettings damageHit)
     {
       ValidateParam(damageHit);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -334,7 +334,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetStuckArrowPrefab(GameObject stuckArrowPrefab)
     {
       ValidateParam(stuckArrowPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -349,7 +349,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public ProjectileConfigurator SetDeflectedArrowPrefab(GameObject deflectedArrowPrefab)
     {
       ValidateParam(deflectedArrowPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public RegionConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public RegionConfigurator SetClaimedDescription(LocalizedString? claimedDescription)
     {
       ValidateParam(claimedDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public RegionConfigurator SetStatsWhenClaimed(KingdomStats.Changes statsWhenClaimed)
     {
       ValidateParam(statsWhenClaimed);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -161,7 +161,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public RegionConfigurator SetUpgradeEvents(List<BlueprintRegion.UpgradeVariant>? upgradeEvents)
     {
       ValidateParam(upgradeEvents);
-    
+
       return OnConfigureInternal(
           bp =>
           {

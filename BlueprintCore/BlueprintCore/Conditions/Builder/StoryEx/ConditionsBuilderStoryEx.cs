@@ -36,7 +36,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     {
       builder.Validate(unit);
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<CheckUnitSeeUnit>();
       element.Unit = unit;
       element.Target = target;
@@ -165,7 +165,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         bool negate = false)
     {
       builder.Validate(scene);
-    
+
       var element = ElementTool.Create<ChangeableDynamicIsLoaded>();
       element.Scene = scene;
       element.Not = negate;

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public CrusadeEventTimelineConfigurator SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[]? chapters)
     {
       ValidateParam(chapters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

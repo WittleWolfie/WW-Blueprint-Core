@@ -100,7 +100,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     {
       builder.Validate(lootObject);
       builder.Validate(mapObject);
-    
+
       var element = ElementTool.Create<IsLootEmpty>();
       element.LootObject = lootObject;
       element.MapObject = mapObject;
@@ -154,7 +154,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         bool negate = false)
     {
       builder.Validate(mapObject);
-    
+
       var element = ElementTool.Create<MapObjectDestroyed>();
       element.MapObject = mapObject;
       element.Not = negate;
@@ -172,7 +172,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         bool negate = false)
     {
       builder.Validate(mapObject);
-    
+
       var element = ElementTool.Create<MapObjectRevealed>();
       element.MapObject = mapObject;
       element.Not = negate;
@@ -191,7 +191,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         bool negate = false)
     {
       builder.Validate(scriptZone);
-    
+
       var element = ElementTool.Create<PartyInScriptZone>();
       element.m_Check = check;
       element.m_ScriptZone = scriptZone;
@@ -212,7 +212,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     {
       builder.Validate(unit);
       builder.Validate(scriptZone);
-    
+
       var element = ElementTool.Create<UnitInScriptZone>();
       element.Unit = unit;
       element.ScriptZone = scriptZone;
@@ -234,7 +234,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<UnitIsInAreaPart>();
       element.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(areaPart);
       element.Unit = unit;
@@ -253,7 +253,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         bool negate = false)
     {
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<UnitIsInFogOfWar>();
       element.Target = target;
       element.Not = negate;

@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString? baseMoraleValue)
     {
       ValidateParam(baseMoraleValue);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString? armyEffectOnSquad)
     {
       ValidateParam(armyEffectOnSquad);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString? unitNotHaveMorale)
     {
       ValidateParam(unitNotHaveMorale);
-    
+
       return OnConfigureInternal(
           bp =>
           {

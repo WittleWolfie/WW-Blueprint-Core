@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     public CraftRootConfigurator SetPotionRequirements(CraftRequirements[]? potionRequirements)
     {
       ValidateParam(potionRequirements);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     public CraftRootConfigurator SetScrollsRequirements(CraftRequirements[]? scrollsRequirements)
     {
       ValidateParam(scrollsRequirements);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     public CraftRootConfigurator SetIngredientTable(IngredientTable ingredientTable)
     {
       ValidateParam(ingredientTable);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -288,7 +288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     public CraftRootConfigurator SetCollectingRoot(CollectIngredientRoot collectingRoot)
     {
       ValidateParam(collectingRoot);
-    
+
       return OnConfigureInternal(
           bp =>
           {

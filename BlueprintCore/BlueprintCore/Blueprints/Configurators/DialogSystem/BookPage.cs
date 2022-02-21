@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public BookPageConfigurator SetImageLink(SpriteLink imageLink)
     {
       ValidateParam(imageLink);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public BookPageConfigurator SetForeImageLink(SpriteLink foreImageLink)
     {
       ValidateParam(foreImageLink);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     public BookPageConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
-    
+
       return OnConfigureInternal(
           bp =>
           {

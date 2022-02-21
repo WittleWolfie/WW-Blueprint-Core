@@ -47,7 +47,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool negate = false)
     {
       builder.Validate(referenceValue);
-    
+
       var element = ElementTool.Create<TacticalCombatSquadHitPointsCondition>();
       element.CheckInitiatorHP = checkInitiatorHP;
       element.Operation = operation;

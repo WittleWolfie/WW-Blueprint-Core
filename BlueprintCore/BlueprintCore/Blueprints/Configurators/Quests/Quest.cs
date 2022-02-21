@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     public QuestConfigurator SetCompletionText(LocalizedString? completionText)
     {
       ValidateParam(completionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
-    
+
       var component = new Experience();
       component.Encounter = encounter;
       component.CR = cR;

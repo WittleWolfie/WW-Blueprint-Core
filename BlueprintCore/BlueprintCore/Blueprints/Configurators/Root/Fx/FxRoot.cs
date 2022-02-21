@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetDustOnFallPrefab(GameObject dustOnFallPrefab)
     {
       ValidateParam(dustOnFallPrefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetPoolEntries(PoolEntry[]? poolEntries)
     {
       ValidateParam(poolEntries);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -194,7 +194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? overrideDeathPrefabsFromEnergy)
     {
       ValidateParam(overrideDeathPrefabsFromEnergy);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -341,7 +341,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetRaceFxSnapMapScaleSettings(RaceFxScaleSettings raceFxSnapMapScaleSettings)
     {
       ValidateParam(raceFxSnapMapScaleSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetRaceFxSnapToLocatorScaleSettings(RaceFxScaleSettings raceFxSnapToLocatorScaleSettings)
     {
       ValidateParam(raceFxSnapToLocatorScaleSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetRaceFxFluidFogInteractionScaleSettings(RaceFxScaleSettings raceFxFluidFogInteractionScaleSettings)
     {
       ValidateParam(raceFxFluidFogInteractionScaleSettings);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -488,7 +488,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetFootprintsLocators(FxRoot.FootprintLocators[]? footprintsLocators)
     {
       ValidateParam(footprintsLocators);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -544,7 +544,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     public FxRootConfigurator SetCachedOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? cachedOverrideDeathPrefabsFromEnergy)
     {
       ValidateParam(cachedOverrideDeathPrefabsFromEnergy);
-    
+
       return OnConfigureInternal(
           bp =>
           {

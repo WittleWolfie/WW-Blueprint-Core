@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     public CreditsRolesConfigurator SetRoles(List<CreditRole>? roles)
     {
       ValidateParam(roles);
-    
+
       return OnConfigureInternal(
           bp =>
           {

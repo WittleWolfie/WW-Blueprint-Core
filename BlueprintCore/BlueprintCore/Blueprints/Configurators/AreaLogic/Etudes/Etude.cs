@@ -612,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       ValidateParam(onEtudeStart);
       ValidateParam(onEtudeStop);
-    
+
       var component = new EtudeBracketAudioEvents();
       component.OnEtudeStart = onEtudeStart;
       component.OnEtudeStop = onEtudeStop;
@@ -657,7 +657,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         PetType petType = default)
     {
       ValidateParam(master);
-    
+
       var component = new EtudeBracketDetachPet();
       component.Master = master;
       component.PetType = petType;
@@ -744,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       ValidateParam(leader);
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketFollowUnit();
       component.Leader = leader;
       component.UseSummonPool = useSummonPool;
@@ -775,7 +775,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         ActionsBuilder? actionList = null)
     {
       ValidateParam(gameModeWaiter);
-    
+
       var component = new EtudeBracketIgnoreGameover();
       component.ActionList = actionList?.Build() ?? Constants.Empty.Actions;
       component.m_GameModeWaiter = gameModeWaiter;
@@ -791,7 +791,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         UnitEvaluator unit)
     {
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketMakePassive();
       component.Unit = unit;
       return AddComponent(component);
@@ -806,7 +806,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         UnitEvaluator target)
     {
       ValidateParam(target);
-    
+
       var component = new EtudeBracketMarkUnitEssential();
       component.Target = target;
       return AddComponent(component);
@@ -823,7 +823,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       ValidateParam(startTheme);
       ValidateParam(stopTheme);
-    
+
       var component = new EtudeBracketMusic();
       component.StartTheme = startTheme;
       component.StopTheme = stopTheme;
@@ -841,7 +841,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         float distance = default)
     {
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketOverrideActionsOnClick();
       component.Unit = unit;
       component.Actions = actions?.Build() ?? Constants.Empty.Actions;
@@ -862,7 +862,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       ValidateParam(unit);
       ValidateParam(whatToBarkShared);
-    
+
       var component = new EtudeBracketOverrideBark();
       component.Unit = unit;
       component.WhatToBarkShared = whatToBarkShared;
@@ -884,7 +884,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         float distance = default)
     {
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketOverrideDialog();
       component.Unit = unit;
       component.Dialog = BlueprintTool.GetRef<BlueprintDialogReference>(dialog);
@@ -902,7 +902,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         InclemencyType inclemency = default)
     {
       ValidateParam(gameModeWaiter);
-    
+
       var component = new EtudeBracketOverrideWeatherInclemency();
       component.Inclemency = inclemency;
       component.m_GameModeWaiter = gameModeWaiter;
@@ -920,7 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     {
       ValidateParam(weatherProfile);
       ValidateParam(gameModeWaiter);
-    
+
       var component = new EtudeBracketOverrideWeatherProfile();
       component.m_WeatherProfile = weatherProfile;
       component.m_GameModeWaiter = gameModeWaiter;
@@ -936,7 +936,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         UnitEvaluator unit)
     {
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketPinCompanionInParty();
       component.Unit = unit;
       return AddComponent(component);
@@ -951,7 +951,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         UnitEvaluator unit)
     {
       ValidateParam(unit);
-    
+
       var component = new EtudeBracketPreventDirectControl();
       component.Unit = unit;
       return AddComponent(component);
@@ -967,7 +967,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         LocalizedString? title = null)
     {
       ValidateParam(title);
-    
+
       var component = new EtudeBracketProgressBar();
       component.MaxProgress = maxProgress;
       component.Title = title ?? Constants.Empty.String;
@@ -1012,7 +1012,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bool shouldRelease = default)
     {
       ValidateParam(locator);
-    
+
       var component = new EtudeBracketSetCompanionPosition();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
       component.m_Locator = locator;
@@ -1029,7 +1029,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         EntityReference[]? objects = null)
     {
       ValidateParam(objects);
-    
+
       var component = new EtudeBracketShowObjects();
       component.Objects = objects;
       return AddComponent(component);

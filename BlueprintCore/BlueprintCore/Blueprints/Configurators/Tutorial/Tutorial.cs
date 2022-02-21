@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetPicture(SpriteLink picture)
     {
       ValidateParam(picture);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetVideo(VideoLink video)
     {
       ValidateParam(video);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetTitleText(LocalizedString? titleText)
     {
       ValidateParam(titleText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetTriggerText(LocalizedString? triggerText)
     {
       ValidateParam(triggerText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetSolutionFoundText(LocalizedString? solutionFoundText)
     {
       ValidateParam(solutionFoundText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TutorialConfigurator SetSolutionNotFoundText(LocalizedString? solutionNotFoundText)
     {
       ValidateParam(solutionNotFoundText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -290,7 +290,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       ValidateParam(descriptionText);
       ValidateParam(solutionFoundText);
       ValidateParam(solutionNotFoundText);
-    
+
       var component = new TutorialPage();
       component.m_Picture = picture;
       component.m_Video = video;
@@ -556,7 +556,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(savedContext);
-    
+
       var component = new TutorialTriggerDamageFromWeapon();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement;
       component.m_AllowFlatfootedTarget = allowFlatfootedTarget;
@@ -655,7 +655,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     {
       ValidateParam(unit);
       ValidateParam(partyBuff);
-    
+
       var component = new TutorialTriggerEnemyHasBlindsight();
       component.m_Unit = unit;
       component.m_PartyBuff = partyBuff;
@@ -678,7 +678,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool allowItemsWithSpell = default)
     {
       ValidateParam(unit);
-    
+
       var component = new TutorialTriggerEnemyHasFact();
       component.m_Unit = unit;
       component.m_EnemyFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(enemyFact);
@@ -777,7 +777,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(triggerUnit);
-    
+
       var component = new TutorialTriggerExtraAttackAfterLevelUp();
       component.m_TriggerUnit = triggerUnit;
       component.m_StartPrimaryAttackCount = startPrimaryAttackCount;

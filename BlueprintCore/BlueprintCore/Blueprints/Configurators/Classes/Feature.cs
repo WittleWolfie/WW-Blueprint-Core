@@ -474,8 +474,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteNotProficient>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -611,8 +611,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var prereq =
           PrereqTool.Create<PrerequisiteProficiency>(group, checkInProgression, hideInUI);
-      prereq.WeaponProficiencies = weapons ;
-      prereq.ArmorProficiencies = armors ;
+      prereq.WeaponProficiencies = weapons;
+      prereq.ArmorProficiencies = armors;
       return AddUniqueComponent(prereq, behavior, merge);
     }
 
@@ -750,7 +750,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(classPriorities);
-    
+
       var component = new LevelUpRecommendation();
       component.ClassPriorities = classPriorities;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -770,7 +770,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(condition);
       ValidateParam(uIText);
-    
+
       var component = new PrerequisiteCondition();
       component.Condition = condition;
       component.UIText = uIText ?? Constants.Empty.String;
@@ -816,7 +816,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool onlyIfRequiresThisFeature = default)
     {
       ValidateParam(introduction);
-    
+
       var component = new AddFeaturesFromSelectionToDescription();
       component.Introduction = introduction ?? Constants.Empty.String;
       component.m_FeatureSelection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(featureSelection);
@@ -881,7 +881,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(highestStatBonus);
       ValidateParam(secondHighestStatBonus);
-    
+
       var component = new AddNocticulaBonus();
       component.Descriptor = descriptor;
       component.HighestStatBonus = highestStatBonus ?? ContextValues.Constant(0);
@@ -920,7 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         string[]? spells = null)
     {
       ValidateParam(introduction);
-    
+
       var component = new AddSpellsToDescription();
       component.Introduction = introduction ?? Constants.Empty.String;
       component.m_SpellLists = spellLists.Select(name => BlueprintTool.GetRef<BlueprintSpellListReference>(name)).ToArray();
@@ -991,7 +991,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         string? upgradeFeature = null)
     {
       ValidateParam(baseValue);
-    
+
       var component = new ShroudOfWater();
       component.Descriptor = descriptor;
       component.Stat = stat;
@@ -1038,7 +1038,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextCalculateAbilityParams();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
@@ -1083,7 +1083,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         double modifier = default)
     {
       ValidateParam(value);
-    
+
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
@@ -1109,7 +1109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       ValidateParam(casterLevel);
       ValidateParam(concentration);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
       component.DC = dC ?? ContextValues.Constant(0);
@@ -1147,7 +1147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       ValidateParam(positiveMoraleChancePercentDelta);
       ValidateParam(negativeMoraleChancePercentDelta);
-    
+
       var component = new TacticalMoraleChanceModifier();
       component.m_ChangePositiveMorale = changePositiveMorale;
       component.m_PositiveMoraleChancePercentDelta = positiveMoraleChancePercentDelta ?? ContextValues.Constant(0);

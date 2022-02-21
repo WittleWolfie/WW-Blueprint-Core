@@ -27,7 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public TBuilder SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -413,7 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -428,7 +428,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -443,7 +443,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -458,7 +458,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -473,7 +473,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -488,7 +488,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     public ArmorTypeConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
-    
+
       return OnConfigureInternal(
           bp =>
           {

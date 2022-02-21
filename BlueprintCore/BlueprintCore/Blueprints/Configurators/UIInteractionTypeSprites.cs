@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UIInteractionTypeSpritesConfigurator SetMain(Sprite main)
     {
       ValidateParam(main);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UIInteractionTypeSpritesConfigurator SetActive(Sprite active)
     {
       ValidateParam(active);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UIInteractionTypeSpritesConfigurator SetHover(Sprite hover)
     {
       ValidateParam(hover);
-    
+
       return OnConfigureInternal(
           bp =>
           {

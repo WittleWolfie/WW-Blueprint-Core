@@ -29,7 +29,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<DualCompanionInactive>();
       element.Unit = unit;
       element.Not = negate;
@@ -66,7 +66,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(parameters);
-    
+
       var element = ElementTool.Create<CheckConditionsHolder>();
       element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(conditionsHolder);
       element.Parameters = parameters;
@@ -89,7 +89,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unitEvaluator);
-    
+
       var element = ElementTool.Create<CheckItemCondition>();
       element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(targetItem);
       element.m_RequiredState = requiredState;
@@ -197,7 +197,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     {
       builder.Validate(point1);
       builder.Validate(point2);
-    
+
       var element = ElementTool.Create<CheckLos>();
       element.Point1 = point1;
       element.Point2 = point2;
@@ -219,7 +219,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<HasBuff>();
       element.Target = target;
       element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
@@ -241,7 +241,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<HasFact>();
       element.Unit = unit;
       element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
@@ -262,7 +262,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     {
       builder.Validate(firstUnit);
       builder.Validate(secondUnit);
-    
+
       var element = ElementTool.Create<IsEnemy>();
       element.FirstUnit = firstUnit;
       element.SecondUnit = secondUnit;
@@ -282,7 +282,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<IsInCombat>();
       element.Unit = unit;
       element.Player = player;
@@ -315,7 +315,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<IsPartyMember>();
       element.Unit = unit;
       element.Not = negate;
@@ -333,7 +333,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<IsUnconscious>();
       element.Unit = unit;
       element.Not = negate;
@@ -353,7 +353,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<IsUnitLevelLessThan>();
       element.Unit = unit;
       element.Level = level;
@@ -376,7 +376,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(item);
-    
+
       var element = ElementTool.Create<ItemBlueprint>();
       element.Item = item;
       element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(blueprint);
@@ -397,7 +397,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(items);
-    
+
       var element = ElementTool.Create<ItemFromCollectionCondition>();
       element.Items = items;
       element.Any = any;
@@ -440,7 +440,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(description);
-    
+
       var element = ElementTool.Create<PartyCanUseAbility>();
       element.Description = description;
       element.AllowItems = allowItems;
@@ -539,7 +539,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<UnitIsDead>();
       element.Target = target;
       element.Not = negate;
@@ -557,7 +557,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<UnitIsHidden>();
       element.Unit = unit;
       element.Not = negate;
@@ -578,7 +578,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<UnitBlueprint>();
       element.Unit = unit;
       element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
@@ -606,7 +606,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
       builder.Validate(unit);
       builder.Validate(minLevel);
       builder.Validate(maxLevel);
-    
+
       var element = ElementTool.Create<UnitClass>();
       element.Unit = unit;
       element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
@@ -631,7 +631,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     {
       builder.Validate(firstUnit);
       builder.Validate(secondUnit);
-    
+
       var element = ElementTool.Create<UnitEqual>();
       element.FirstUnit = firstUnit;
       element.SecondUnit = secondUnit;
@@ -650,7 +650,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<UnitFromSpawnerIsDead>();
       element.Target = target;
       element.Not = negate;
@@ -671,7 +671,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<UnitFromSummonPool>();
       element.Unit = unit;
       element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
@@ -691,7 +691,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(unit);
-    
+
       var element = ElementTool.Create<UnitGender>();
       element.Unit = unit;
       element.Gender = gender;
@@ -710,7 +710,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool negate = false)
     {
       builder.Validate(target);
-    
+
       var element = ElementTool.Create<UnitIsNull>();
       element.Target = target;
       element.Not = negate;

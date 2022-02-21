@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder SetEnchantName(LocalizedString? enchantName)
     {
       ValidateParam(enchantName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder SetPrefix(LocalizedString? prefix)
     {
       ValidateParam(prefix);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder SetSuffix(LocalizedString? suffix)
     {
       ValidateParam(suffix);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     {
       ValidateParam(casterLevel);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextCalculateAbilityParams();
       component.UseKineticistMainStat = useKineticistMainStat;
       component.StatType = statType;
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         double modifier = default)
     {
       ValidateParam(value);
-    
+
       var component = new ContextCalculateSharedValue();
       component.ValueType = valueType;
       component.Value = value ?? Constants.Empty.DiceValue;
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       ValidateParam(casterLevel);
       ValidateParam(concentration);
       ValidateParam(spellLevel);
-    
+
       var component = new ContextSetAbilityParams();
       component.Add10ToDC = add10ToDC;
       component.DC = dC ?? ContextValues.Constant(0);
@@ -455,7 +455,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(buffs);
-    
+
       var component = new EnchantmentAddBuffWhileInStealth();
       component.Buffs = buffs;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);

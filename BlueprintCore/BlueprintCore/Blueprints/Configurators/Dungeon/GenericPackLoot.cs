@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     public GenericPackLootConfigurator SetEntries(BlueprintGenericPackLoot.EntryType[]? entries)
     {
       ValidateParam(entries);
-    
+
       return OnConfigureInternal(
           bp =>
           {

@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public CompanionStoryConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public CompanionStoryConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public CompanionStoryConfigurator SetImage(Sprite image)
     {
       ValidateParam(image);
-    
+
       return OnConfigureInternal(
           bp =>
           {

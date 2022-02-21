@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetLocalizedName(SharedStringAsset localizedName)
     {
       ValidateParam(localizedName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -192,7 +192,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetPrefab(UnitViewLink prefab)
     {
       ValidateParam(prefab);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -222,7 +222,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetVisual(UnitVisualParams visual)
     {
       ValidateParam(visual);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -252,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetFactionOverrides(FactionOverrides factionOverrides)
     {
       ValidateParam(factionOverrides);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -382,7 +382,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetBody(BlueprintUnit.UnitBody body)
     {
       ValidateParam(body);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -501,7 +501,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetSkills(BlueprintUnit.UnitSkills skills)
     {
       ValidateParam(skills);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public UnitConfigurator SetCachedTags(AddTags cachedTags)
     {
       ValidateParam(cachedTags);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -742,7 +742,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(name);
       ValidateParam(description);
-    
+
       var component = new CampingSpecialAbility();
       component.Name = name ?? Constants.Empty.String;
       component.Description = description ?? Constants.Empty.String;
@@ -932,7 +932,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(count);
-    
+
       var component = new Experience();
       component.Encounter = encounter;
       component.CR = cR;
@@ -970,7 +970,7 @@ namespace BlueprintCore.Blueprints.Configurators
       ValidateParam(pregenDescription);
       ValidateParam(pregenClass);
       ValidateParam(pregenRole);
-    
+
       var component = new PregenUnitComponent();
       component.PregenName = pregenName ?? Constants.Empty.String;
       component.PregenDescription = pregenDescription ?? Constants.Empty.String;
@@ -1036,7 +1036,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(bark);
-    
+
       var component = new BarkOnClick();
       component.Bark = bark ?? Constants.Empty.String;
       component.ShowOnUser = showOnUser;
@@ -1215,14 +1215,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Generated]
     [Implements(typeof(ChangeVendorPrices))]
     public UnitConfigurator AddChangeVendorPrices(
-        Dictionary<BlueprintItem,long> itemsToBuyCosts,
-        Dictionary<BlueprintItem,long> itemsToSellCosts,
+        Dictionary<BlueprintItem, long> itemsToBuyCosts,
+        Dictionary<BlueprintItem, long> itemsToSellCosts,
         ChangeVendorPrices.Entry[]? priceOverrides = null)
     {
       ValidateParam(priceOverrides);
       ValidateParam(itemsToBuyCosts);
       ValidateParam(itemsToSellCosts);
-    
+
       var component = new ChangeVendorPrices();
       component.m_PriceOverrides = priceOverrides;
       component.m_ItemsToBuyCosts = itemsToBuyCosts;
@@ -1241,7 +1241,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(defaultValue);
-    
+
       var component = new PregenDollSettings();
       component.Default = defaultValue;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -1338,7 +1338,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(chanceBase);
       ValidateParam(chanceMultiplier);
-    
+
       var component = new ArmyCriticalDamage();
       component.m_ChanceBase = chanceBase ?? ContextValues.Constant(0);
       component.m_ChanceMultiplier = chanceMultiplier ?? ContextValues.Constant(0);
@@ -1373,7 +1373,7 @@ namespace BlueprintCore.Blueprints.Configurators
         int modValue = default)
     {
       ValidateParam(targetFilter);
-    
+
       var component = new TacticalMoraleModifier();
       component.m_TargetFilter = targetFilter;
       component.m_FactionTarget = factionTarget;
@@ -1401,7 +1401,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       ValidateParam(icon);
       ValidateParam(description);
-    
+
       var component = new ArmyUnitComponent();
       component.Icon = icon;
       component.Description = description ?? Constants.Empty.String;

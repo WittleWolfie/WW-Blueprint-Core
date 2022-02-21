@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     public CrusadeEventConfigurator SetEventSolutions(EventSolution[]? eventSolutions)
     {
       ValidateParam(eventSolutions);
-    
+
       return OnConfigureInternal(
           bp =>
           {

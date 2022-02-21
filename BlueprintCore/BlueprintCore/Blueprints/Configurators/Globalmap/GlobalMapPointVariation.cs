@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointVariationConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointVariationConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointVariationConfigurator SetFakeName(LocalizedString? fakeName)
     {
       ValidateParam(fakeName);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     public GlobalMapPointVariationConfigurator SetFakeDescription(LocalizedString? fakeDescription)
     {
       ValidateParam(fakeDescription);
-    
+
       return OnConfigureInternal(
           bp =>
           {
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       ValidateParam(description);
-    
+
       var component = new LocationRestriction();
       component.IgnoreCondition = ignoreCondition?.Build() ?? Constants.Empty.Conditions;
       component.AllowedCondition = allowedCondition?.Build() ?? Constants.Empty.Conditions;
