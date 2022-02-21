@@ -39,12 +39,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="ContextActionResetAlignment"/>
     /// </summary>
-    public static ActionsBuilder ContextActionResetAlignment(
+    public static ActionsBuilder ResetAlignment(
         this ActionsBuilder builder,
         bool? resetAlignmentLock = null)
     {
@@ -56,7 +56,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSwarmAttack"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSwarmAttack(
+    public static ActionsBuilder SwarmAttack(
         this ActionsBuilder builder,
         ActionsBuilder? attackActions = null)
     {
@@ -72,7 +72,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSwitchDualCompanion"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSwitchDualCompanion(this ActionsBuilder builder)
+    public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
     }
@@ -80,7 +80,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionAddRandomTrashItem"/>
     /// </summary>
-    public static ActionsBuilder ContextActionAddRandomTrashItem(
+    public static ActionsBuilder AddRandomTrashItem(
         this ActionsBuilder builder,
         bool? identify = null,
         TrashLootType? lootType = null,
@@ -109,7 +109,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionRestoreAllSpellSlots(
+    public static ActionsBuilder RestoreAllSpellSlots(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? excludeSpellbooks = null,
         UnitEvaluator? target = null,
@@ -150,7 +150,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionAcceptBurn"/>
     /// </summary>
-    public static ActionsBuilder ContextActionAcceptBurn(
+    public static ActionsBuilder AcceptBurn(
         this ActionsBuilder builder,
         ContextValue? value = null)
     {
@@ -166,7 +166,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionHealBurn"/>
     /// </summary>
-    public static ActionsBuilder ContextActionHealBurn(
+    public static ActionsBuilder HealBurn(
         this ActionsBuilder builder,
         ContextValue? value = null)
     {
@@ -220,7 +220,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionAddFeature(
+    public static ActionsBuilder AddFeature(
         this ActionsBuilder builder,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? permanentFeature = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
@@ -253,7 +253,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionAddLocustClone(
+    public static ActionsBuilder AddLocustClone(
         this ActionsBuilder builder,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? cloneFeature = null)
     {
@@ -269,7 +269,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionAeonRollbackToSavedState"/>
     /// </summary>
-    public static ActionsBuilder ContextActionAeonRollbackToSavedState(this ActionsBuilder builder)
+    public static ActionsBuilder AeonRollbackToSavedState(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
     }
@@ -288,7 +288,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionApplyBuff(
+    public static ActionsBuilder ApplyBuff(
         this ActionsBuilder builder,
         bool? asChild = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
@@ -334,7 +334,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionArmorEnchantPool(
+    public static ActionsBuilder ArmorEnchantPool(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
         ContextDurationValue? durationValue = null,
@@ -368,7 +368,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionShieldArmorEnchantPool(
+    public static ActionsBuilder ShieldArmorEnchantPool(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
         ContextDurationValue? durationValue = null,
@@ -402,7 +402,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionWeaponEnchantPool(
+    public static ActionsBuilder WeaponEnchantPool(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
         ContextDurationValue? durationValue = null,
@@ -436,7 +436,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionShieldWeaponEnchantPool(
+    public static ActionsBuilder ShieldWeaponEnchantPool(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
         ContextDurationValue? durationValue = null,
@@ -470,7 +470,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionAttackWithWeapon(
+    public static ActionsBuilder AttackWithWeapon(
         this ActionsBuilder builder,
         StatType? stat = null,
         Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weaponRef = null)
@@ -488,7 +488,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionBatteringBlast"/>
     /// </summary>
-    public static ActionsBuilder ContextActionBatteringBlast(
+    public static ActionsBuilder BatteringBlast(
         this ActionsBuilder builder,
         bool? remove = null)
     {
@@ -500,7 +500,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionBreakFree"/>
     /// </summary>
-    public static ActionsBuilder ContextActionBreakFree(
+    public static ActionsBuilder BreakFree(
         this ActionsBuilder builder,
         ActionsBuilder? failure = null,
         ActionsBuilder? success = null,
@@ -526,7 +526,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionBreathOfLife"/>
     /// </summary>
-    public static ActionsBuilder ContextActionBreathOfLife(
+    public static ActionsBuilder BreathOfLife(
         this ActionsBuilder builder,
         ContextDiceValue? value = null)
     {
@@ -542,7 +542,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionBreathOfMoney"/>
     /// </summary>
-    public static ActionsBuilder ContextActionBreathOfMoney(
+    public static ActionsBuilder BreathOfMoney(
         this ActionsBuilder builder,
         ContextValue? maxCoins = null,
         ContextValue? minCoins = null)
@@ -575,7 +575,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionCastSpell(
+    public static ActionsBuilder CastSpell(
         this ActionsBuilder builder,
         bool? castByTarget = null,
         ContextValue? dC = null,
@@ -609,7 +609,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionChangeSharedValue"/>
     /// </summary>
-    public static ActionsBuilder ContextActionChangeSharedValue(
+    public static ActionsBuilder ChangeSharedValue(
         this ActionsBuilder builder,
         ContextValue? addValue = null,
         ContextValue? multiplyValue = null,
@@ -652,7 +652,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionClearSummonPool(
+    public static ActionsBuilder ClearSummonPool(
         this ActionsBuilder builder,
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
@@ -668,7 +668,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionCombatManeuver"/>
     /// </summary>
-    public static ActionsBuilder ContextActionCombatManeuver(
+    public static ActionsBuilder CombatManeuver(
         this ActionsBuilder builder,
         bool? batteringBlast = null,
         bool? ignoreConcealment = null,
@@ -702,7 +702,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionCombatManeuverCustom"/>
     /// </summary>
-    public static ActionsBuilder ContextActionCombatManeuverCustom(
+    public static ActionsBuilder CombatManeuverCustom(
         this ActionsBuilder builder,
         ActionsBuilder? failure = null,
         ActionsBuilder? success = null,
@@ -726,7 +726,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionConditionalSaved"/>
     /// </summary>
-    public static ActionsBuilder ContextActionConditionalSaved(
+    public static ActionsBuilder ConditionalSaved(
         this ActionsBuilder builder,
         ActionsBuilder? failed = null,
         ActionsBuilder? succeed = null)
@@ -748,7 +748,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDealDamage"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDealDamage(
+    public static ActionsBuilder DealDamage(
         this ActionsBuilder builder,
         StatType? abilityType = null,
         bool? alreadyHalved = null,
@@ -812,7 +812,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDealWeaponDamage"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDealWeaponDamage(
+    public static ActionsBuilder DealWeaponDamage(
         this ActionsBuilder builder,
         bool? canBeRanged = null,
         bool? ignoreAttackRoll = null)
@@ -826,7 +826,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDetachFromSpawner"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDetachFromSpawner(this ActionsBuilder builder)
+    public static ActionsBuilder DetachFromSpawner(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
     }
@@ -834,7 +834,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDetectSecretDoors"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDetectSecretDoors(this ActionsBuilder builder)
+    public static ActionsBuilder DetectSecretDoors(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDetectSecretDoors>());
     }
@@ -842,7 +842,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDevourBySwarm"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDevourBySwarm(this ActionsBuilder builder)
+    public static ActionsBuilder DevourBySwarm(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDevourBySwarm>());
     }
@@ -850,7 +850,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDisarm"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDisarm(this ActionsBuilder builder)
+    public static ActionsBuilder Disarm(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDisarm>());
     }
@@ -858,7 +858,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDismissAreaEffect"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDismissAreaEffect(this ActionsBuilder builder)
+    public static ActionsBuilder DismissAreaEffect(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismissAreaEffect>());
     }
@@ -866,7 +866,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDismount"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDismount(this ActionsBuilder builder)
+    public static ActionsBuilder Dismount(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDismount>());
     }
@@ -874,7 +874,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDispelMagic"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDispelMagic(
+    public static ActionsBuilder DispelMagic(
         this ActionsBuilder builder,
         ContextActionDispelMagic.BuffType? buffType = null,
         int? checkBonus = null,
@@ -948,7 +948,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionDropItems"/>
     /// </summary>
-    public static ActionsBuilder ContextActionDropItems(this ActionsBuilder builder)
+    public static ActionsBuilder DropItems(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionDropItems>());
     }
@@ -967,7 +967,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionEnchantWornItem(
+    public static ActionsBuilder EnchantWornItem(
         this ActionsBuilder builder,
         ContextDurationValue? durationValue = null,
         Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantment = null,
@@ -1005,7 +1005,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionFinishObjective(
+    public static ActionsBuilder FinishObjective(
         this ActionsBuilder builder,
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
@@ -1021,7 +1021,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionForEachSwallowedUnit"/>
     /// </summary>
-    public static ActionsBuilder ContextActionForEachSwallowedUnit(
+    public static ActionsBuilder ForEachSwallowedUnit(
         this ActionsBuilder builder,
         ActionsBuilder? action = null)
     {
@@ -1037,7 +1037,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionGiveExperience"/>
     /// </summary>
-    public static ActionsBuilder ContextActionGiveExperience(this ActionsBuilder builder)
+    public static ActionsBuilder GiveExperience(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionGiveExperience>());
     }
@@ -1067,7 +1067,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionGrapple(
+    public static ActionsBuilder Grapple(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? casterBuff = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
@@ -1089,7 +1089,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionHealEnergyDrain"/>
     /// </summary>
-    public static ActionsBuilder ContextActionHealEnergyDrain(
+    public static ActionsBuilder HealEnergyDrain(
         this ActionsBuilder builder,
         EnergyDrainHealType? permanentNegativeLevelsHeal = null,
         EnergyDrainHealType? temporaryNegativeLevelsHeal = null)
@@ -1103,7 +1103,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionHealStatDamage"/>
     /// </summary>
-    public static ActionsBuilder ContextActionHealStatDamage(
+    public static ActionsBuilder HealStatDamage(
         this ActionsBuilder builder,
         bool? healDrain = null,
         ContextActionHealStatDamage.StatDamageHealType? healType = null,
@@ -1129,7 +1129,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionHealTarget"/>
     /// </summary>
-    public static ActionsBuilder ContextActionHealTarget(
+    public static ActionsBuilder HealTarget(
         this ActionsBuilder builder,
         ContextDiceValue? value = null)
     {
@@ -1145,7 +1145,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionHideInPlainSight"/>
     /// </summary>
-    public static ActionsBuilder ContextActionHideInPlainSight(this ActionsBuilder builder)
+    public static ActionsBuilder HideInPlainSight(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionHideInPlainSight>());
     }
@@ -1153,7 +1153,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionKill"/>
     /// </summary>
-    public static ActionsBuilder ContextActionKill(
+    public static ActionsBuilder Kill(
         this ActionsBuilder builder,
         UnitState.DismemberType? dismember = null)
     {
@@ -1165,7 +1165,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionKnockdownTarget"/>
     /// </summary>
-    public static ActionsBuilder ContextActionKnockdownTarget(this ActionsBuilder builder)
+    public static ActionsBuilder KnockdownTarget(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionKnockdownTarget>());
     }
@@ -1173,7 +1173,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionMakeKnowledgeCheck"/>
     /// </summary>
-    public static ActionsBuilder ContextActionMakeKnowledgeCheck(
+    public static ActionsBuilder MakeKnowledgeCheck(
         this ActionsBuilder builder,
         ActionsBuilder? failActions = null,
         ActionsBuilder? successActions = null)
@@ -1195,7 +1195,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionMarkForceDismemberOwner"/>
     /// </summary>
-    public static ActionsBuilder ContextActionMarkForceDismemberOwner(
+    public static ActionsBuilder MarkForceDismemberOwner(
         this ActionsBuilder builder,
         UnitState.DismemberType? forceDismemberType = null)
     {
@@ -1207,7 +1207,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionMeleeAttack"/>
     /// </summary>
-    public static ActionsBuilder ContextActionMeleeAttack(
+    public static ActionsBuilder MeleeAttack(
         this ActionsBuilder builder,
         bool? autoCritConfirmation = null,
         bool? autoCritThreat = null,
@@ -1231,7 +1231,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionMount"/>
     /// </summary>
-    public static ActionsBuilder ContextActionMount(this ActionsBuilder builder)
+    public static ActionsBuilder Mount(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionMount>());
     }
@@ -1239,7 +1239,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionOnContextCaster"/>
     /// </summary>
-    public static ActionsBuilder ContextActionOnContextCaster(
+    public static ActionsBuilder OnContextCaster(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null)
     {
@@ -1255,7 +1255,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionOnOwner"/>
     /// </summary>
-    public static ActionsBuilder ContextActionOnOwner(
+    public static ActionsBuilder OnOwner(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null)
     {
@@ -1271,7 +1271,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionOnRandomAreaTarget"/>
     /// </summary>
-    public static ActionsBuilder ContextActionOnRandomAreaTarget(
+    public static ActionsBuilder OnRandomAreaTarget(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         bool? onEnemies = null)
@@ -1300,7 +1300,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionOnRandomTargetsAround(
+    public static ActionsBuilder OnRandomTargetsAround(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? filterNoFact = null,
@@ -1328,7 +1328,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionOnSwarmTargets"/>
     /// </summary>
-    public static ActionsBuilder ContextActionOnSwarmTargets(
+    public static ActionsBuilder OnSwarmTargets(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null)
     {
@@ -1344,7 +1344,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionPrintHDRestrictionToCombatLog"/>
     /// </summary>
-    public static ActionsBuilder ContextActionPrintHDRestrictionToCombatLog(
+    public static ActionsBuilder PrintHDRestrictionToCombatLog(
         this ActionsBuilder builder,
         ContextValue? hitDice = null)
     {
@@ -1371,7 +1371,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionProjectileFx(
+    public static ActionsBuilder ProjectileFx(
         this ActionsBuilder builder,
         Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null)
     {
@@ -1387,7 +1387,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionProvokeAttackFromCaster"/>
     /// </summary>
-    public static ActionsBuilder ContextActionProvokeAttackFromCaster(this ActionsBuilder builder)
+    public static ActionsBuilder ProvokeAttackFromCaster(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionProvokeAttackFromCaster>());
     }
@@ -1395,7 +1395,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionProvokeAttackOfOpportunity"/>
     /// </summary>
-    public static ActionsBuilder ContextActionProvokeAttackOfOpportunity(
+    public static ActionsBuilder ProvokeAttackOfOpportunity(
         this ActionsBuilder builder,
         bool? applyToCaster = null)
     {
@@ -1407,7 +1407,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionPush"/>
     /// </summary>
-    public static ActionsBuilder ContextActionPush(
+    public static ActionsBuilder Push(
         this ActionsBuilder builder,
         ContextValue? distance = null,
         bool? provokeAttackOfOpportunity = null)
@@ -1425,7 +1425,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRandomize"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRandomize(
+    public static ActionsBuilder Randomize(
         this ActionsBuilder builder,
         ContextActionRandomize.ActionWrapper[]? actions = null)
     {
@@ -1442,7 +1442,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRangedAttack"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRangedAttack(
+    public static ActionsBuilder RangedAttack(
         this ActionsBuilder builder,
         bool? autoCritConfirmation = null,
         bool? autoCritThreat = null,
@@ -1477,7 +1477,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionRecoverItemCharges(
+    public static ActionsBuilder RecoverItemCharges(
         this ActionsBuilder builder,
         int? chargesRecoverCount = null,
         Blueprint<BlueprintItemEquipment, BlueprintItemEquipmentReference>? item = null)
@@ -1506,7 +1506,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionReduceBuffDuration(
+    public static ActionsBuilder ReduceBuffDuration(
         this ActionsBuilder builder,
         ContextDurationValue? durationValue = null,
         bool? increase = null,
@@ -1540,7 +1540,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionRemoveBuff(
+    public static ActionsBuilder RemoveBuff(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         bool? onlyFromCaster = null,
@@ -1562,7 +1562,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRemoveBuffsByDescriptor"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRemoveBuffsByDescriptor(
+    public static ActionsBuilder RemoveBuffsByDescriptor(
         this ActionsBuilder builder,
         bool? notSelf = null,
         SpellDescriptorWrapper? spellDescriptor = null)
@@ -1587,7 +1587,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionRemoveBuffSingleStack(
+    public static ActionsBuilder RemoveBuffSingleStack(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
@@ -1603,7 +1603,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionReduceDebilitatingBuffsDuration"/>
     /// </summary>
-    public static ActionsBuilder ContextActionReduceDebilitatingBuffsDuration(
+    public static ActionsBuilder ReduceDebilitatingBuffsDuration(
         this ActionsBuilder builder,
         StatsAdjustmentsType? statsAdjustmentsType = null)
     {
@@ -1615,7 +1615,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRemoveDeathDoor"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRemoveDeathDoor(this ActionsBuilder builder)
+    public static ActionsBuilder RemoveDeathDoor(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveDeathDoor>());
     }
@@ -1623,7 +1623,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRemoveSelf"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRemoveSelf(this ActionsBuilder builder)
+    public static ActionsBuilder RemoveSelf(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRemoveSelf>());
     }
@@ -1631,7 +1631,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionRepeatedActions"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRepeatedActions(
+    public static ActionsBuilder RepeatedActions(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         ContextDiceValue? value = null)
@@ -1664,7 +1664,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionRestoreSpells(
+    public static ActionsBuilder RestoreSpells(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
@@ -1691,7 +1691,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionResurrect(
+    public static ActionsBuilder Resurrect(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? customResurrectionBuff = null,
         bool? fullRestore = null,
@@ -1711,7 +1711,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSavingThrow"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSavingThrow(
+    public static ActionsBuilder SavingThrow(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         ContextActionSavingThrow.ConditionalDCIncrease[]? conditionalDCIncrease = null,
@@ -1745,7 +1745,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSelectByValue"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSelectByValue(
+    public static ActionsBuilder SelectByValue(
         this ActionsBuilder builder,
         ContextActionSelectByValue.SelectionType? type = null,
         ContextActionSelectByValue.ValueAndAction[]? variants = null)
@@ -1763,7 +1763,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSkillCheck"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSkillCheck(
+    public static ActionsBuilder SkillCheck(
         this ActionsBuilder builder,
         bool? calculateDCDifference = null,
         ContextActionSkillCheck.ConditionalDCIncrease[]? conditionalDCIncrease = null,
@@ -1815,7 +1815,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionsOnPet"/>
     /// </summary>
-    public static ActionsBuilder ContextActionsOnPet(
+    public static ActionsBuilder sOnPet(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         bool? allPets = null,
@@ -1846,7 +1846,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSpawnAreaEffect(
+    public static ActionsBuilder SpawnAreaEffect(
         this ActionsBuilder builder,
         Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>? areaEffect = null,
         ContextDurationValue? durationValue = null,
@@ -1889,7 +1889,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSpawnControllableProjectile(
+    public static ActionsBuilder SpawnControllableProjectile(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? associatedCasterBuff = null,
         Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference>? controllableProjectile = null)
@@ -1933,7 +1933,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSpawnMonster(
+    public static ActionsBuilder SpawnMonster(
         this ActionsBuilder builder,
         ActionsBuilder? afterSpawn = null,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
@@ -1993,7 +1993,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSpawnUnlinkedMonster(
+    public static ActionsBuilder SpawnUnlinkedMonster(
         this ActionsBuilder builder,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
     {
@@ -2009,7 +2009,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSpendAttackOfOpportunity"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSpendAttackOfOpportunity(this ActionsBuilder builder)
+    public static ActionsBuilder SpendAttackOfOpportunity(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
     }
@@ -2017,7 +2017,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionStealBuffs"/>
     /// </summary>
-    public static ActionsBuilder ContextActionStealBuffs(
+    public static ActionsBuilder StealBuffs(
         this ActionsBuilder builder,
         SpellDescriptorWrapper? descriptor = null)
     {
@@ -2040,7 +2040,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSwallowWhole(
+    public static ActionsBuilder SwallowWhole(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
@@ -2056,7 +2056,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionSwarmTarget"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSwarmTarget(
+    public static ActionsBuilder SwarmTarget(
         this ActionsBuilder builder,
         bool? remove = null)
     {
@@ -2068,7 +2068,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionTranslocate"/>
     /// </summary>
-    public static ActionsBuilder ContextActionTranslocate(this ActionsBuilder builder)
+    public static ActionsBuilder Translocate(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionTranslocate>());
     }
@@ -2076,7 +2076,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <summary>
     /// Adds <see cref="ContextActionUnsummon"/>
     /// </summary>
-    public static ActionsBuilder ContextActionUnsummon(this ActionsBuilder builder)
+    public static ActionsBuilder Unsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
     }

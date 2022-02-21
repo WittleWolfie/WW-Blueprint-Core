@@ -45,7 +45,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderKingdomEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="BlockTacticalCell"/>
@@ -93,7 +93,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
-    public static ActionsBuilder ContextActionAddCrusadeResource(
+    public static ActionsBuilder AddCrusadeResource(
         this ActionsBuilder builder,
         KingdomResourcesAmount? resourcesAmount = null)
     {
@@ -116,7 +116,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionArmyRemoveFacts(
+    public static ActionsBuilder ArmyRemoveFacts(
         this ActionsBuilder builder,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? factsToRemove = null)
     {
@@ -132,7 +132,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionRestoreLeaderAction"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRestoreLeaderAction(this ActionsBuilder builder)
+    public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
     }
@@ -140,7 +140,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionStopUnit"/>
     /// </summary>
-    public static ActionsBuilder ContextActionStopUnit(this ActionsBuilder builder)
+    public static ActionsBuilder StopUnit(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionStopUnit>());
     }
@@ -535,7 +535,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
       }
-      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;;
+      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None; ;
       element.Faction = ArmyFaction.Demons;
       return builder.Add(element);
     }
@@ -2830,7 +2830,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionSquadUnitsKill"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSquadUnitsKill(
+    public static ActionsBuilder SquadUnitsKill(
         this ActionsBuilder builder,
         ContextDiceValue? count = null,
         float? floatCount = null,
@@ -2872,7 +2872,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ContextActionSummonTacticalSquad(
+    public static ActionsBuilder SummonTacticalSquad(
         this ActionsBuilder builder,
         ActionsBuilder? afterSpawn = null,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
@@ -2906,7 +2906,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
     /// </summary>
-    public static ActionsBuilder ContextActionTacticalCombatDealDamage(
+    public static ActionsBuilder TacticalCombatDealDamage(
         this ActionsBuilder builder,
         DamageTypeDescription? damageType = null,
         DiceType? diceType = null,
@@ -2935,7 +2935,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatHealTarget"/>
     /// </summary>
-    public static ActionsBuilder ContextActionTacticalCombatHealTarget(
+    public static ActionsBuilder TacticalCombatHealTarget(
         this ActionsBuilder builder,
         DiceType? diceType = null,
         ContextValue? rollsCount = null)

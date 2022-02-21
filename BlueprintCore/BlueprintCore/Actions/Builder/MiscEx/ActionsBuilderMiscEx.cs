@@ -23,7 +23,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderMiscEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="ActionAchievementIncrementCounter"/>
@@ -39,7 +39,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ActionAchievementIncrementCounter(
+    public static ActionsBuilder AchievementIncrementCounter(
         this ActionsBuilder builder,
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
@@ -66,7 +66,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ActionAchievementUnlock(
+    public static ActionsBuilder AchievementUnlock(
         this ActionsBuilder builder,
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
