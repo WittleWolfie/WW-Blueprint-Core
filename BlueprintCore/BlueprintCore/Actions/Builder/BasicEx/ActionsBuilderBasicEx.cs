@@ -509,14 +509,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder AdvanceUnitLevel(
         this ActionsBuilder builder,
-        IntEvaluator? level = null,
-        UnitEvaluator? unit = null)
+        IntEvaluator level,
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<AdvanceUnitLevel>();
       builder.Validate(level);
-      element.Level = level ?? element.Level;
+      element.Level = level;
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -525,13 +525,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder DestroyUnit(
         this ActionsBuilder builder,
-        bool? fadeOut = null,
-        UnitEvaluator? target = null)
+        UnitEvaluator target,
+        bool? fadeOut = null)
     {
       var element = ElementTool.Create<DestroyUnit>();
-      element.FadeOut = fadeOut ?? element.FadeOut;
       builder.Validate(target);
-      element.Target = target ?? element.Target;
+      element.Target = target;
+      element.FadeOut = fadeOut ?? element.FadeOut;
       return builder.Add(element);
     }
 
@@ -540,14 +540,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder CombineToGroup(
         this ActionsBuilder builder,
-        UnitEvaluator? groupHolder = null,
-        UnitEvaluator? targetUnit = null)
+        UnitEvaluator groupHolder,
+        UnitEvaluator targetUnit)
     {
       var element = ElementTool.Create<CombineToGroup>();
       builder.Validate(groupHolder);
-      element.GroupHolder = groupHolder ?? element.GroupHolder;
+      element.GroupHolder = groupHolder;
       builder.Validate(targetUnit);
-      element.TargetUnit = targetUnit ?? element.TargetUnit;
+      element.TargetUnit = targetUnit;
       return builder.Add(element);
     }
 
@@ -556,12 +556,20 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder ClearUnitReturnPosition(
         this ActionsBuilder builder,
-        UnitEvaluator? unit = null)
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<ClearUnitReturnPosition>();
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearUnitReturnPosition"/>
+    /// </summary>
+    public static ActionsBuilder ClearAllUnitReturnPosition(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearUnitReturnPosition>());
     }
 
     /// <summary>
@@ -580,17 +588,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </param>
     public static ActionsBuilder AddUnitToSummonPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
-        UnitEvaluator? unit = null)
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<AddUnitToSummonPool>();
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
-      if (element.m_SummonPool is null)
-      {
-        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
-      }
+      element.m_SummonPool = summonPool.Reference;
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -610,17 +614,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </param>
     public static ActionsBuilder DeleteUnitFromSummonPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
-        UnitEvaluator? unit = null)
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        UnitEvaluator unit)
     {
       var element = ElementTool.Create<DeleteUnitFromSummonPool>();
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
-      if (element.m_SummonPool is null)
-      {
-        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
-      }
+      element.m_SummonPool = summonPool.Reference;
       builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
+      element.Unit = unit;
       return builder.Add(element);
     }
 

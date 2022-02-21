@@ -356,6 +356,38 @@ namespace BlueprintCoreGen.CodeGen.Override
                     }
                 })))
         },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AdvanceUnitLevel
+        {
+          typeof(AdvanceUnitLevel),
+          new MethodOverrideList(new MethodOverride().RequireFields("Unit", "Level"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyUnit
+        {
+          typeof(DestroyUnit),
+          new MethodOverrideList(new MethodOverride().RequireFields("Target"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.CombineToGroup
+        {
+          typeof(CombineToGroup),
+          new MethodOverrideList(new MethodOverride().RequireFields("TargetUnit", "GroupHolder"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.ClearUnitReturnPosition
+        {
+          typeof(ClearUnitReturnPosition),
+          new MethodOverrideList(
+            new MethodOverride().RequireFields("Unit"),
+            new MethodOverride().UseName("ClearAllUnitReturnPosition").IgnoreFields("Unit"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddUnitToSummonPool
+        {
+          typeof(AddUnitToSummonPool),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_SummonPool", "Unit"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.DeleteUnitFromSummonPool
+        {
+          typeof(DeleteUnitFromSummonPool),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_SummonPool", "Unit"))
+        },
 
         //**** ActionsBuilderKingdomEx ****//
 
