@@ -389,6 +389,39 @@ namespace BlueprintCoreGen.CodeGen.Override
           new MethodOverrideList(new MethodOverride().RequireFields("m_SummonPool", "Unit"))
         },
 
+        //**** ActionsBuilderContextEx ****//
+
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAddFeature
+        {
+          typeof(ContextActionAddFeature),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_PermanentFeature"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAddLocustClone
+        {
+          typeof(ContextActionAddLocustClone),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_CloneFeature"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff
+        {
+          typeof(ContextActionApplyBuff),
+          new MethodOverrideList(
+            new MethodOverride()
+              .UseName("ApplyBuffPermanent")
+              .RequireFields("m_Buff")
+              .IgnoreFields("DurationSeconds", "DurationValue")
+              .SetConstantFields(("UseDurationSeconds", "false"), ("Permanent", "true")),
+            new MethodOverride()
+              .UseName("ApplyBuffWithDurationSeconds")
+              .RequireFields("m_Buff", "DurationSeconds")
+              .IgnoreFields("DurationValue")
+              .SetConstantFields(("UseDurationSeconds", "true"), ("Permanent", "false")),
+            new MethodOverride()
+              .UseName("ApplyBuff")
+              .RequireFields("m_Buff", "DurationValue")
+              .IgnoreFields("DurationSeconds")
+              .SetConstantFields(("UseDurationSeconds", "false"), ("Permanent", "false")))
+        },
+
         //**** ActionsBuilderKingdomEx ****//
 
         // Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy

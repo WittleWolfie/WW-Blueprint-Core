@@ -223,15 +223,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder AddFeature(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? permanentFeature = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> permanentFeature,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
     {
       var element = ElementTool.Create<ContextActionAddFeature>();
-      element.m_PermanentFeature = permanentFeature.Reference ?? element.m_PermanentFeature;
-      if (element.m_PermanentFeature is null)
-      {
-        element.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
+      element.m_PermanentFeature = permanentFeature.Reference;
       element.m_SetRankFrom = setRankFrom.Reference ?? element.m_SetRankFrom;
       if (element.m_SetRankFrom is null)
       {
@@ -256,14 +252,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder AddLocustClone(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? cloneFeature = null)
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> cloneFeature)
     {
       var element = ElementTool.Create<ContextActionAddLocustClone>();
-      element.m_CloneFeature = cloneFeature.Reference ?? element.m_CloneFeature;
-      if (element.m_CloneFeature is null)
-      {
-        element.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
+      element.m_CloneFeature = cloneFeature.Reference;
       return builder.Add(element);
     }
 
@@ -289,35 +281,99 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ApplyBuff(
+    public static ActionsBuilder ApplyBuffPermanent(
         this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
         bool? asChild = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
-        float? durationSeconds = null,
-        ContextDurationValue? durationValue = null,
         bool? isFromSpell = null,
         bool? isNotDispelable = null,
-        bool? permanent = null,
         bool? sameDuration = null,
-        bool? toCaster = null,
-        bool? useDurationSeconds = null)
+        bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionApplyBuff>();
+      element.m_Buff = buff.Reference;
       element.AsChild = asChild ?? element.AsChild;
-      element.m_Buff = buff.Reference ?? element.m_Buff;
-      if (element.m_Buff is null)
-      {
-        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      element.DurationSeconds = durationSeconds ?? element.DurationSeconds;
-      builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
       element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
       element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
-      element.Permanent = permanent ?? element.Permanent;
       element.SameDuration = sameDuration ?? element.SameDuration;
       element.ToCaster = toCaster ?? element.ToCaster;
-      element.UseDurationSeconds = useDurationSeconds ?? element.UseDurationSeconds;
+      element.Permanent = true;
+      element.UseDurationSeconds = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionApplyBuff"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ApplyBuffWithDurationSeconds(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        float durationSeconds,
+        bool? asChild = null,
+        bool? isFromSpell = null,
+        bool? isNotDispelable = null,
+        bool? sameDuration = null,
+        bool? toCaster = null)
+    {
+      var element = ElementTool.Create<ContextActionApplyBuff>();
+      element.m_Buff = buff.Reference;
+      element.DurationSeconds = durationSeconds;
+      element.AsChild = asChild ?? element.AsChild;
+      element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+      element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+      element.SameDuration = sameDuration ?? element.SameDuration;
+      element.ToCaster = toCaster ?? element.ToCaster;
+      element.Permanent = false;
+      element.UseDurationSeconds = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionApplyBuff"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ApplyBuff(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        ContextDurationValue durationValue,
+        bool? asChild = null,
+        bool? isFromSpell = null,
+        bool? isNotDispelable = null,
+        bool? sameDuration = null,
+        bool? toCaster = null)
+    {
+      var element = ElementTool.Create<ContextActionApplyBuff>();
+      element.m_Buff = buff.Reference;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.AsChild = asChild ?? element.AsChild;
+      element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+      element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+      element.SameDuration = sameDuration ?? element.SameDuration;
+      element.ToCaster = toCaster ?? element.ToCaster;
+      element.Permanent = false;
+      element.UseDurationSeconds = false;
       return builder.Add(element);
     }
 

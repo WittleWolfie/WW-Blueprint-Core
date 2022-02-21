@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
@@ -29,77 +30,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
   {
-    /// <summary>
-    /// Adds <see cref="ContextActionAddFeature"/>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(ContextActionAddFeature))]
-    public static ActionsBuilder AddFeature(this ActionsBuilder builder, string feature)
-    {
-      var addFeature = ElementTool.Create<ContextActionAddFeature>();
-      addFeature.m_PermanentFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return builder.Add(addFeature);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAddLocustClone"/>
-    /// </summary>
-    /// 
-    /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(ContextActionAddLocustClone))]
-    public static ActionsBuilder AddLocustClone(this ActionsBuilder builder, string feature)
-    {
-      var addClone = ElementTool.Create<ContextActionAddLocustClone>();
-      addClone.m_CloneFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(feature);
-      return builder.Add(addClone);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAeonRollbackToSavedState"/>
-    /// </summary>
-    [Implements(typeof(ContextActionAeonRollbackToSavedState))]
-    public static ActionsBuilder AeonRollbackState(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionApplyBuff"/>
-    /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionApplyBuff))]
-    public static ActionsBuilder ApplyBuff(
-        this ActionsBuilder builder,
-        string buff,
-        bool useDurationSeconds = false,
-        float durationSeconds = 0f,
-        ContextDurationValue? duration = null,
-        bool permanent = false,
-        bool isFromSpell = false,
-        bool dispellable = true,
-        bool toCaster = false,
-        bool asChild = true,
-        bool sameDuration = false)
-    {
-      if (!useDurationSeconds && duration == null && !permanent)
-      {
-        throw new InvalidOperationException("Missing duration.");
-      }
-      var applyBuff = ElementTool.Create<ContextActionApplyBuff>();
-      applyBuff.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      applyBuff.UseDurationSeconds = useDurationSeconds;
-      applyBuff.DurationSeconds = durationSeconds;
-      applyBuff.DurationValue = duration;
-      applyBuff.Permanent = permanent;
-      applyBuff.IsFromSpell = isFromSpell;
-      applyBuff.IsNotDispelable = !dispellable;
-      applyBuff.ToCaster = toCaster;
-      applyBuff.AsChild = asChild;
-      applyBuff.SameDuration = sameDuration;
-      return builder.Add(applyBuff);
-    }
 
     // Default GUIDs for ArmorEnchantPool and ShieldArmorEnchantPool
     private const string PlusOneArmor = "1d9b60d57afb45c4f9bb0a3c21bb3b98";
