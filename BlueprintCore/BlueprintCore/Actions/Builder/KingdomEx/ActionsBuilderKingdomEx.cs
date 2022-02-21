@@ -38,6 +38,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.KingdomEx
 {
   /// <summary>

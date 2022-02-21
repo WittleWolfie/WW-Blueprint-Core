@@ -32,6 +32,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
   /// <summary>
@@ -39,7 +40,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="ContextActionResetAlignment"/>

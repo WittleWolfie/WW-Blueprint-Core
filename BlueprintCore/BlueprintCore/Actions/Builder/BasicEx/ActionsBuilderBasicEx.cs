@@ -23,6 +23,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace BlueprintCore.Actions.Builder.BasicEx
 {
   /// <summary>

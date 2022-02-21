@@ -87,7 +87,7 @@ namespace BlueprintCoreGen.CodeGen
 
         var sortedImports = Imports.ToList();
         sortedImports.Sort();
-        Text.Insert(0, string.Join('\n', sortedImports) + "\n");
+        Text.Insert(0, string.Join('\n', sortedImports) + "\n\n");
         Text.Insert(0, "//***** AUTO-GENERATED - DO NOT EDIT *****//\n\n");
 
         return Text.ToString();

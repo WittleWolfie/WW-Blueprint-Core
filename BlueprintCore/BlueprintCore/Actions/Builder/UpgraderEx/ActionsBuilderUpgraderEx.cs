@@ -15,6 +15,7 @@ using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.UpgraderEx
 {
   /// <summary>
@@ -22,7 +23,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderUpgraderEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="AddFactIfEtudePlaying"/>

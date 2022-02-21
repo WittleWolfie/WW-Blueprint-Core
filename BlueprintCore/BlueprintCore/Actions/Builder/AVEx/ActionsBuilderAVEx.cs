@@ -12,6 +12,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Actions;
+
 namespace BlueprintCore.Actions.Builder.AVEx
 {
   /// <summary>

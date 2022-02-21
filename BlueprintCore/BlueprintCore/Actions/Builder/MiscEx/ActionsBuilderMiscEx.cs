@@ -16,6 +16,7 @@ using Kingmaker.Tutorial.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.MiscEx
 {
   /// <summary>
@@ -23,7 +24,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderMiscEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="ActionAchievementIncrementCounter"/>

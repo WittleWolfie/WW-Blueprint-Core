@@ -19,6 +19,7 @@ using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.StoryEx
 {
   /// <summary>
@@ -26,14 +27,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderStoryEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="AlignmentSelector"/>
     /// </summary>
     public static ActionsBuilder AlignmentSelector(
         this ActionsBuilder builder,
-        Dictionary<Alignment, AlignmentSelector.ActionAndCondition>? actionsByAlignment = null,
+        Dictionary<Alignment,AlignmentSelector.ActionAndCondition>? actionsByAlignment = null,
         AlignmentSelector.ActionAndCondition? chaoticEvil = null,
         AlignmentSelector.ActionAndCondition? chaoticGood = null,
         AlignmentSelector.ActionAndCondition? chaoticNeutral = null,

@@ -16,6 +16,7 @@ using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace BlueprintCore.Actions.Builder.AreaEx
 {
   /// <summary>
