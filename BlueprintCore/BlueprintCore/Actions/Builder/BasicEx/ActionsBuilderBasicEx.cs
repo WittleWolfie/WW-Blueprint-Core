@@ -7,6 +7,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -21,6 +22,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -306,6 +308,199 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       }
       element.Silent = silent ?? element.Silent;
       element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveItemToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? identify = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is BlueprintItemEquipmentHand)
+      {
+        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
+      }
+      else if (bp is BlueprintItemEquipment)
+      {
+        throw new InvalidOperationException("Item is equipment. Use GiveEquipmentToPlayer.");
+      }
+      element.Identify = identify ?? element.Identify;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveEquipmentToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? equip = null,
+        UnitEvaluator? equipOn = null,
+        bool? errorIfDidNotEquip = null,
+        bool? identify = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is BlueprintItemEquipmentHand)
+      {
+        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
+      }
+      else if (bp is not BlueprintItemEquipment)
+      {
+        throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
+      }
+      element.Equip = equip ?? element.Equip;
+      builder.Validate(equipOn);
+      element.EquipOn = equipOn ?? element.EquipOn;
+      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
+      element.Identify = identify ?? element.Identify;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveHandSlotItemToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? equip = null,
+        UnitEvaluator? equipOn = null,
+        bool? errorIfDidNotEquip = null,
+        bool? identify = null,
+        int? preferredWeaponSet = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is not BlueprintItemEquipmentHand)
+      {
+        if (bp is BlueprintItemEquipment)
+        {
+          throw new InvalidOperationException("Item does not fit in hand slot. Use GiveEquipmentToPlayer.");
+        }
+        else
+        {
+          throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
+        }
+      }
+      element.Equip = equip ?? element.Equip;
+      builder.Validate(equipOn);
+      element.EquipOn = equipOn ?? element.EquipOn;
+      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
+      element.Identify = identify ?? element.Identify;
+      element.PreferredWeaponSet = preferredWeaponSet ?? element.PreferredWeaponSet;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
       return builder.Add(element);
     }
 

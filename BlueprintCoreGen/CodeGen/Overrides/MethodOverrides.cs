@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -95,6 +96,30 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// </summary>
   public class MethodOverrides
   {
+    private static readonly string[] AddItemToPlayerRemarks =
+      new[]
+      {
+        "<remarks>",
+        "<list type=\"bullet\">",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
+        "  </description>",
+        "</item>",
+        "</list>",
+        "</remarks>"
+      };
+
     public static readonly Dictionary<Type, MethodOverrideList> BuilderMethods =
       new()
       {
@@ -255,11 +280,81 @@ namespace BlueprintCoreGen.CodeGen.Override
               .OverrideFields(("ItemsCollection", new RequiredFieldParam { ParamName = "toCollection" })))
         },
 
-        // TODO: Finish overrides for AddItemToPlayer
         // Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer
         {
           typeof(AddItemToPlayer),
-          new MethodOverrideList()
+          new MethodOverrideList(
+            new MethodOverride()
+              .UseName("GiveItemToPlayer")
+              .AddRemarks(AddItemToPlayerRemarks)
+              .IgnoreFields("Equip", "EquipOn", "ErrorIfDidNotEquip", "PreferredWeaponSet")
+              .OverrideFields(
+                ("m_ItemToGive",
+                new RequiredFieldParam
+                {
+                  Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
+                  ExtraAssignmentFmtLines =
+                    new()
+                    {
+                      "var bp = {1}.Instance;",
+                      "if (bp is BlueprintItemEquipmentHand)",
+                      "{{",
+                      "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
+                      "}}",
+                      "else if (bp is BlueprintItemEquipment)",
+                      "{{",
+                      "  throw new InvalidOperationException(\"Item is equipment. Use GiveEquipmentToPlayer.\");",
+                      "}}",
+                    }
+                })),
+            new MethodOverride()
+              .UseName("GiveEquipmentToPlayer")
+              .AddRemarks(AddItemToPlayerRemarks.ToArray())
+              .IgnoreFields("PreferredWeaponSet")
+              .OverrideFields(
+                ("m_ItemToGive",
+                new RequiredFieldParam
+                {
+                  Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
+                  ExtraAssignmentFmtLines =
+                    new()
+                    {
+                      "var bp = {1}.Instance;",
+                      "if (bp is BlueprintItemEquipmentHand)",
+                      "{{",
+                      "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
+                      "}}",
+                      "else if (bp is not BlueprintItemEquipment)",
+                      "{{",
+                      "  throw new InvalidOperationException(\"Item is not equipment. Use GiveItemToPlayer.\");",
+                      "}}",
+                    }
+                })),
+            new MethodOverride()
+              .UseName("GiveHandSlotItemToPlayer")
+              .AddRemarks(AddItemToPlayerRemarks.ToArray())
+              .OverrideFields(
+                ("m_ItemToGive",
+                new RequiredFieldParam
+                {
+                  Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
+                  ExtraAssignmentFmtLines =
+                    new()
+                    {
+                      "var bp = {1}.Instance;",
+                      "if (bp is not BlueprintItemEquipmentHand)",
+                      "{{",
+                      "  if (bp is BlueprintItemEquipment)",
+                      "  {{",
+                      "    throw new InvalidOperationException(\"Item does not fit in hand slot. Use GiveEquipmentToPlayer.\");",
+                      "  }}",
+                      "  else",
+                      "  {{",
+                      "    throw new InvalidOperationException(\"Item is not equipment. Use GiveItemToPlayer.\");",
+                      "  }}",
+                      "}}"
+                    }
+                })))
         },
 
         //**** ActionsBuilderKingdomEx ****//
@@ -335,30 +430,6 @@ namespace BlueprintCoreGen.CodeGen.Override
                     ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
                   })))
         },
-      };
-
-    private static readonly List<string> ItemActionRemarks =
-      new()
-      {
-        "<remarks>",
-        "<list type=\"bullet\">",
-        "<item>",
-        "  <description>",
-        "    If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
-        "  </description>",
-        "</item>",
-        "<item>",
-        "  <description>",
-        "    If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
-        "  </description>",
-        "</item>",
-        "<item>",
-        "  <description>",
-        "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
-        "  </description>",
-        "</item>",
-        "</list>",
-        "</remarks>"
       };
   }
 }

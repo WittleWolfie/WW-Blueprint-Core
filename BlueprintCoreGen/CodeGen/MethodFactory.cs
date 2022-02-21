@@ -65,7 +65,7 @@ namespace BlueprintCoreGen.CodeGen
       if(methodOverride is not null && methodOverride.Remarks.Any())
       {
         method.AddLine($"///");
-        methodOverride.Remarks.ForEach(line => method.AddLine(line));
+        methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
       }
 
       // Parameter comments
