@@ -19,17 +19,17 @@ namespace BlueprintCore.Actions.Builder.AVEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAVEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
-    public static ActionsBuilder ContextActionPlaySound(
+    public static ActionsBuilder PlaySound(
         this ActionsBuilder builder,
-        string? soundName = null)
+        string soundName)
     {
       var element = ElementTool.Create<ContextActionPlaySound>();
-      element.SoundName = soundName ?? element.SoundName;
+      element.SoundName = soundName;
       return builder.Add(element);
     }
 
@@ -38,10 +38,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </summary>
     public static ActionsBuilder AddDialogNotification(
         this ActionsBuilder builder,
-        LocalizedString? text = null)
+        LocalizedString text)
     {
       var element = ElementTool.Create<AddDialogNotification>();
-      element.Text = text ?? element.Text;
+      element.Text = text;
       if (element.Text is null)
       {
         element.Text = Constants.Empty.String;
@@ -67,11 +67,11 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </summary>
     public static ActionsBuilder ChangeBookEventImage(
         this ActionsBuilder builder,
-        SpriteLink? image = null)
+        SpriteLink image)
     {
       var element = ElementTool.Create<ChangeBookEventImage>();
       builder.Validate(image);
-      element.m_Image = image ?? element.m_Image;
+      element.m_Image = image;
       return builder.Add(element);
     }
 
@@ -86,17 +86,17 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
-    public static ActionsBuilder ContextActionRunAnimationClip(
+    public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
-        AnimationClipWrapperLink? clipWrapper = null,
-        ExecutionMode? mode = null,
+        AnimationClipWrapperLink clipWrapper,
+        ExecutionMode mode = ExecutionMode.Interrupted,
         float? transitionIn = null,
         float? transitionOut = null)
     {
       var element = ElementTool.Create<ContextActionRunAnimationClip>();
       builder.Validate(clipWrapper);
-      element.ClipWrapper = clipWrapper ?? element.ClipWrapper;
-      element.Mode = mode ?? element.Mode;
+      element.ClipWrapper = clipWrapper;
+      element.Mode = mode;
       element.TransitionIn = transitionIn ?? element.TransitionIn;
       element.TransitionOut = transitionOut ?? element.TransitionOut;
       return builder.Add(element);
@@ -105,21 +105,21 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
-    public static ActionsBuilder ContextActionShowBark(
+    public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
+        LocalizedString whatToBark,
         bool? barkDurationByText = null,
         bool? showWhileUnconscious = null,
-        LocalizedString? whatToBark = null,
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ContextActionShowBark>();
-      element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
-      element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
-      element.WhatToBark = whatToBark ?? element.WhatToBark;
+      element.WhatToBark = whatToBark;
       if (element.WhatToBark is null)
       {
         element.WhatToBark = Constants.Empty.String;
       }
+      element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
+      element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
       builder.Validate(whatToBarkShared);
       element.WhatToBarkShared = whatToBarkShared ?? element.WhatToBarkShared;
       return builder.Add(element);
@@ -128,12 +128,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
-    public static ActionsBuilder ContextActionSpawnFx(
+    public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
-        PrefabLink? prefabLink = null)
+        PrefabLink prefabLink)
     {
       var element = ElementTool.Create<ContextActionSpawnFx>();
-      element.PrefabLink = prefabLink ?? element.PrefabLink;
+      element.PrefabLink = prefabLink;
       if (element.PrefabLink is null)
       {
         element.PrefabLink = Constants.Empty.PrefabLink;

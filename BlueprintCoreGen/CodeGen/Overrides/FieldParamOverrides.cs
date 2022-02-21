@@ -58,6 +58,15 @@ namespace BlueprintCoreGen.CodeGen.Override
     }
   }
 
+  public class DefaultFieldParam : FieldParamOverride
+  {
+    public DefaultFieldParam(string defaultValue) : base()
+    {
+      IsNullable = false;
+      DefaultValue = defaultValue;
+    }
+  }
+
   /// <summary>
   /// Overrides a field to make it required (no default value).
   /// </summary>

@@ -1,5 +1,7 @@
-﻿using Kingmaker.Designers.EventConditionActionSystem.Actions;
+﻿using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +58,13 @@ namespace BlueprintCoreGen.CodeGen.Override
       return this;
     }
 
+    public MethodOverride SetDefaultFields(params (string name, string value)[] defaultFields)
+    {
+      defaultFields.ToList().ForEach(
+          field => FieldOverridesByName.Add(field.name, new DefaultFieldParam(field.value)));
+      return this;
+    }
+
     public MethodOverride OverrideFields(params (string name, FieldParamOverride overrideValue)[] overrideFields)
     {
       overrideFields.ToList().ForEach(field => FieldOverridesByName.Add(field.name, field.overrideValue));
@@ -71,9 +80,14 @@ namespace BlueprintCoreGen.CodeGen.Override
     /// <summary>
     /// If true, the default generated method is skipped and only Methods are generated.
     /// </summary>
-    public bool ReplaceDefault = false;
+    public bool ReplaceDefault = true;
 
     public List<MethodOverride> Methods = new();
+
+    public MethodOverrideList(params MethodOverride[] methods)
+    {
+      Methods = methods.ToList();
+    }
   }
 
   /// <summary>
@@ -89,84 +103,67 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.Dungeons.Actions.ActionCreateImportedCompanion
         {
           typeof(ActionCreateImportedCompanion),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().UseName("CreateImportedCompanion").RequireFields("Index") }
-          }
-        },
-        // Kingmaker.Dungeons.Actions.ActionEnterToDungeon
-        {
-          typeof(ActionEnterToDungeon),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().UseName("TeleportToLastDungeonStageEntrance") }
-          }
-        },
-        // Kingmaker.Dungeons.Actions.ActionGoDeeperIntoDungeon
-        {
-          typeof(ActionGoDeeperIntoDungeon),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().UseName("EnterNextDungeonStage") }
-          }
-        },
-        // Kingmaker.Dungeons.Actions.ActionIncreaseDungeonStage
-        {
-          typeof(ActionIncreaseDungeonStage),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().UseName("IncrementDungeonStage") }
-          }
+          new MethodOverrideList(new MethodOverride().RequireFields("Index"))
         },
 
         // Kingmaker.Designers.EventConditionActionSystem.Actions.AreaEntranceChange
         {
           typeof(AreaEntranceChange),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods =
-              new() { new MethodOverride().UseName("ChangeAreaEntrance").RequireFields("m_Location", "m_NewEntrance") }
-          }
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Location", "m_NewEntrance"))
         },
         // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName
         {
           typeof(ChangeCurrentAreaName),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods =
-              new()
-              {
-                new MethodOverride().RequireFields("NewName").IgnoreFields("RestoreDefault"),
-                new MethodOverride()
-                  .UseName("ResetCurrentAreaName")
-                  .IgnoreFields("NewName")
-                  .SetConstantFields(("RestoreDefault", "true"))
-              }
-          }
+          new MethodOverrideList(
+            new MethodOverride().RequireFields("NewName").IgnoreFields("RestoreDefault"),
+            new MethodOverride()
+              .UseName("ResetCurrentAreaName")
+              .IgnoreFields("NewName")
+              .SetConstantFields(("RestoreDefault", "true")))
         },
         // Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter
         {
           typeof(AddCampingEncounter),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().RequireFields("m_Encounter") }
-          }
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Encounter"))
         },
         // Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject
         {
           typeof(DestroyMapObject),
-          new MethodOverrideList
-          {
-            ReplaceDefault = true,
-            Methods = new() { new MethodOverride().RequireFields("MapObject") }
-          }
+          new MethodOverrideList(new MethodOverride().RequireFields("MapObject"))
+        },
+
+        //**** ActionsBuilderAVEx ****//
+
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeBookEventImage
+        {
+          typeof(ChangeBookEventImage),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Image"))
+        },
+        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification
+        {
+          typeof(AddDialogNotification),
+          new MethodOverrideList(new MethodOverride().RequireFields("Text"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRunAnimationClip
+        {
+          typeof(ContextActionRunAnimationClip),
+          new MethodOverrideList(
+            new MethodOverride().RequireFields("ClipWrapper").SetDefaultFields(("Mode", "ExecutionMode.Interrupted")))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionShowBark
+        {
+          typeof(ContextActionShowBark),
+          new MethodOverrideList(new MethodOverride().RequireFields("WhatToBark"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnFx
+        {
+          typeof(ContextActionSpawnFx),
+          new MethodOverrideList(new MethodOverride().RequireFields("PrefabLink"))
+        },
+        // Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionPlaySound
+        {
+          typeof(ContextActionPlaySound),
+          new MethodOverrideList(new MethodOverride().RequireFields("SoundName"))
         },
 
         //**** ActionsBuilderKingdomEx ****//
