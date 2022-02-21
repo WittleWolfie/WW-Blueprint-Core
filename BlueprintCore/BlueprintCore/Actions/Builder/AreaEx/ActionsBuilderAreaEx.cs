@@ -23,7 +23,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAreaEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="CapitalExit"/>
@@ -114,7 +114,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder ChangeAreaEntrance(
+    public static ActionsBuilder AreaEntranceChange(
         this ActionsBuilder builder,
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
         Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
@@ -863,7 +863,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionEnterToDungeon"/>
     /// </summary>
-    public static ActionsBuilder TeleportToLastDungeonStageEntrance(
+    public static ActionsBuilder EnterToDungeon(
         this ActionsBuilder builder,
         int? firstStage = null)
     {
@@ -875,7 +875,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionGoDeeperIntoDungeon"/>
     /// </summary>
-    public static ActionsBuilder EnterNextDungeonStage(this ActionsBuilder builder)
+    public static ActionsBuilder GoDeeperIntoDungeon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionGoDeeperIntoDungeon>());
     }
@@ -883,7 +883,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <summary>
     /// Adds <see cref="ActionIncreaseDungeonStage"/>
     /// </summary>
-    public static ActionsBuilder IncrementDungeonStage(this ActionsBuilder builder)
+    public static ActionsBuilder IncreaseDungeonStage(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ActionIncreaseDungeonStage>());
     }
