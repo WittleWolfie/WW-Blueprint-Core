@@ -76,6 +76,7 @@ namespace BlueprintCoreGen.CodeGen.Override
     {
       IsNullable = false;
       DefaultValue = "";
+      AssignmentIfNullRhs = "";
     }
   }
 

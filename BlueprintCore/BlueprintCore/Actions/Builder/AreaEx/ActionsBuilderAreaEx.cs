@@ -23,7 +23,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAreaEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="CapitalExit"/>
@@ -82,10 +82,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<AddCampingEncounter>();
       element.m_Encounter = encounter.Reference;
-      if (element.m_Encounter is null)
-      {
-        element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(null);
-      }
       return builder.Add(element);
     }
 
@@ -121,15 +117,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<AreaEntranceChange>();
       element.m_Location = location.Reference;
-      if (element.m_Location is null)
-      {
-        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
       element.m_NewEntrance = newEntrance.Reference;
-      if (element.m_NewEntrance is null)
-      {
-        element.m_NewEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
-      }
       return builder.Add(element);
     }
 
@@ -189,10 +177,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<ChangeCurrentAreaName>();
       element.NewName = newName;
-      if (element.NewName is null)
-      {
-        element.NewName = Constants.Empty.String;
-      }
       return builder.Add(element);
     }
 

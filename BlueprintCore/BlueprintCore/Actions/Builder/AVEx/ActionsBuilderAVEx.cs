@@ -19,7 +19,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAVEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="ContextActionPlaySound"/>
@@ -42,10 +42,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<AddDialogNotification>();
       element.Text = text;
-      if (element.Text is null)
-      {
-        element.Text = Constants.Empty.String;
-      }
       return builder.Add(element);
     }
 
@@ -114,10 +110,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<ContextActionShowBark>();
       element.WhatToBark = whatToBark;
-      if (element.WhatToBark is null)
-      {
-        element.WhatToBark = Constants.Empty.String;
-      }
       element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
       element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
       builder.Validate(whatToBarkShared);
@@ -134,10 +126,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<ContextActionSpawnFx>();
       element.PrefabLink = prefabLink;
-      if (element.PrefabLink is null)
-      {
-        element.PrefabLink = Constants.Empty.PrefabLink;
-      }
       return builder.Add(element);
     }
 

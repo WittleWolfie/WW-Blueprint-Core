@@ -45,7 +45,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderKingdomEx
-  {
+{
 
     /// <summary>
     /// Adds <see cref="BlockTacticalCell"/>
@@ -434,15 +434,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var element = ElementTool.Create<CreateArmy>();
       element.Preset = army.Reference;
-      if (element.Preset is null)
-      {
-        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
-      }
       element.Location = location.Reference;
-      if (element.Location is null)
-      {
-        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
       element.m_ApplyRecruitIncrease = applyRecruitIncrease ?? element.m_ApplyRecruitIncrease;
       element.m_ArmySpeed = armySpeed ?? element.m_ArmySpeed;
       element.ArmyLeader = leader.Reference ?? element.ArmyLeader;
@@ -514,15 +506,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var element = ElementTool.Create<CreateArmy>();
       element.Preset = army.Reference;
-      if (element.Preset is null)
-      {
-        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
-      }
       element.Location = location.Reference;
-      if (element.Location is null)
-      {
-        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
       element.m_ArmySpeed = armySpeed ?? element.m_ArmySpeed;
       element.m_CompleteActions = completeActions.Reference ?? element.m_CompleteActions;
       if (element.m_CompleteActions is null)
@@ -535,7 +519,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
       }
-      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None; ;
+      element.m_MoveTarget = targetNearestEnemy ? TravelLogicType.NearestEnemy : TravelLogicType.None;;
       element.Faction = ArmyFaction.Demons;
       return builder.Add(element);
     }
@@ -609,20 +593,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var element = ElementTool.Create<CreateArmy>();
       element.Preset = army.Reference;
-      if (element.Preset is null)
-      {
-        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
-      }
       element.Location = spawnLocation.Reference;
-      if (element.Location is null)
-      {
-        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
       element.m_TargetLocation = targetLocation.Reference;
-      if (element.m_TargetLocation is null)
-      {
-        element.m_TargetLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
       element.m_CompleteActions = completeActions.Reference ?? element.m_CompleteActions;
       if (element.m_CompleteActions is null)
       {

@@ -54,10 +54,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<AttachBuff>();
       element.m_Buff = buff.Reference;
-      if (element.m_Buff is null)
-      {
-        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
       builder.Validate(duration);
       element.Duration = duration;
       builder.Validate(target);
@@ -78,10 +74,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<CreaturesAround>();
       element.Actions = actions.Build();
-      if (element.Actions is null)
-      {
-        element.Actions = Constants.Empty.Actions;
-      }
       builder.Validate(center);
       element.Center = center;
       builder.Validate(radius);
@@ -112,10 +104,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<AddFact>();
       element.m_Fact = fact.Reference;
-      if (element.m_Fact is null)
-      {
-        element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
       builder.Validate(unit);
       element.Unit = unit;
       return builder.Add(element);
@@ -268,10 +256,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       var element = ElementTool.Create<AddItemsToCollection>();
       foreach (var item in items) { builder.Validate(item); }
       element.Loot = items;
-      if (element.Loot is null)
-      {
-        element.Loot = new();
-      }
       builder.Validate(toCollection);
       element.ItemsCollection = toCollection;
       element.m_BlueprintLoot = blueprintLoot.Reference ?? element.m_BlueprintLoot;
@@ -310,10 +294,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<AddItemsToCollection>();
       element.m_BlueprintLoot = blueprintLoot.Reference;
-      if (element.m_BlueprintLoot is null)
-      {
-        element.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
-      }
       builder.Validate(toCollection);
       element.ItemsCollection = toCollection;
       element.Identify = identify ?? element.Identify;
