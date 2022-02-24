@@ -8,7 +8,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.Animation.Actions;
 using System.Runtime.Serialization;
 using Xunit;

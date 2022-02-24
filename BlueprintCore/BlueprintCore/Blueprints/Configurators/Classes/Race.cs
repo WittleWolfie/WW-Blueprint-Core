@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.View.Animation;
-using System;
 using System.Linq;
 
 #nullable enable

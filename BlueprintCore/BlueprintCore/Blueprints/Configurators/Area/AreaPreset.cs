@@ -6,7 +6,6 @@ using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Settings.Difficulty;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

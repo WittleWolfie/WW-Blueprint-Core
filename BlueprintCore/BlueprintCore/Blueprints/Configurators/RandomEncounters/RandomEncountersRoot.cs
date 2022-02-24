@@ -2,7 +2,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.View;
 using Kingmaker.RandomEncounters.Settings;
-using System;
 using System.Linq;
 
 #nullable enable
