@@ -603,6 +603,73 @@ namespace BlueprintCoreGen.CodeGen.Override
                       typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus5"))
                   .SetOperationFmt("{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;")))
         },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionShieldArmorEnchantPool
+        {
+          typeof(ContextActionShieldArmorEnchantPool),
+          new MethodOverrideList(
+            new MethodOverride()
+              .WithRemarks(
+                new Remarks()
+                  .AddParagraph(
+                    "The caster's shield is enchanted based on its available enhancement bonus.",
+                    "e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.")
+                  .AddExample("SacredArmorShieldEnchantSwitchAbility", "b0777d9974795a5489ff0efd735a4c2a"))
+              .RequireFields("EnchantPool", "DurationValue")
+              // Overridden by the manual extra parameter definitions
+              .IgnoreFields("m_DefaultEnchantments")
+              // Used for the default enchantment parameters
+              .AddImports(
+                typeof(BlueprintTool),
+                typeof(BlueprintItemEnchantment),
+                typeof(BlueprintItemEnchantmentReference),
+                typeof(ItemEnchantments))
+              .AddExtraParameters(
+                // +1 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus1",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus1"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"),
+                // +2 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus2",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus2"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"),
+                // +3 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus3",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus3"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"),
+                // +4 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus4",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus4"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"),
+                // +5 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus5",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus5"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;")))
+        },
 
         //**** ActionsBuilderKingdomEx ****//
 
