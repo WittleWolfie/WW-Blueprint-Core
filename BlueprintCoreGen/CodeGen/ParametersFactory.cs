@@ -216,7 +216,7 @@ namespace BlueprintCoreGen.CodeGen
     {
       if (blueprintType is not null)
       {
-        return GetBlueprintCommentFmt(blueprintType).Prepend("<param name=\"{0}\">").Append("</param>").ToList();
+        return GetBlueprintCommentFmt(blueprintType);
       }
       return new();
     }
@@ -428,7 +428,14 @@ namespace BlueprintCoreGen.CodeGen
 
       private List<string> GetComment()
       {
-        return CommentFmt.Select(line => string.Format(line, ParamName)).ToList();
+        if (CommentFmt.Any())
+        {
+          return CommentFmt.Prepend("<param name=\"{0}\">")
+            .Append("</param>")
+            .Select(line => string.Format(line, ParamName))
+            .ToList();
+        }
+        return CommentFmt;
       }
 
       private string GetDeclaration()

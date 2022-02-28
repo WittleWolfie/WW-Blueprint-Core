@@ -56,7 +56,8 @@ namespace BlueprintCoreGen.CodeGen.Override
     /// </summary>
     public ExtraParameter WithCommentFmt(params string[] linesFmt)
     {
-      Comment.AddRange(linesFmt.Select(line => string.Format(line, ParamName)));
+      Comment.AddRange(
+        linesFmt.Prepend("<param name=\"{0}\">").Append("</param>").Select(line => string.Format(line, ParamName)));
       return this;
     }
 
@@ -804,6 +805,44 @@ namespace BlueprintCoreGen.CodeGen.Override
                       typeof(BlueprintItemEnchantment), "Defaults to TemporaryEnhancementBonus5"))
                   .SetOperationFmt("{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;")))
         },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAttackWithWeapon
+        {
+          typeof(ContextActionAttackWithWeapon),
+          new MethodOverrideList(new MethodOverride().RequireFields("m_Stat", "m_WeaponRef"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionBreathOfLife
+        {
+          typeof(ContextActionBreathOfLife),
+          new MethodOverrideList(new MethodOverride().RequireFields("Value"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionBreathOfMoney
+        {
+          typeof(ContextActionBreathOfMoney),
+          new MethodOverrideList(new MethodOverride().RequireFields("MinCoins", "MaxCoins"))
+        },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionCastSpell
+        {
+          typeof(ContextActionCastSpell),
+          new MethodOverrideList(
+            new MethodOverride()
+              .RequireFields("m_Spell")
+              .IgnoreFields("OverrideDC", "OverrideSpellLevel")
+              .OverrideFields(
+                ("DC",
+                  new FieldParamOverride
+                  {
+                    ParamName = "overrideDC",
+                    CommentFmt = new() { "Overrides the default spell DC" },
+                    ExtraAssignmentFmtLines = new() { "{0}.OverrideDC = overrideDC is not null;" }
+                  }),
+                ("SpellLevel",
+                  new FieldParamOverride
+                  {
+                    ParamName = "overrideSpellLevel",
+                    CommentFmt = new() { "Overrides the default spell level" },
+                    ExtraAssignmentFmtLines = new() { "{0}.OverrideSpellLevel = overrideSpellLevel is not null;" }
+                  })))
+        },
 
         //**** ActionsBuilderKingdomEx ****//
 
@@ -882,12 +921,7 @@ namespace BlueprintCoreGen.CodeGen.Override
 
     private static string[] GetBlueprintCommentFmtWithDefault(Type blueprintType, string defaultComment)
     {
-      return ParametersFactory.GetBlueprintCommentFmt(blueprintType)
-        .Prepend("<param name=\"{0}\">")
-        .Append("")
-        .Append(defaultComment)
-        .Append("</param>")
-        .ToArray();
+      return ParametersFactory.GetBlueprintCommentFmt(blueprintType).Append("").Append(defaultComment).ToArray();
     }
   }
 }

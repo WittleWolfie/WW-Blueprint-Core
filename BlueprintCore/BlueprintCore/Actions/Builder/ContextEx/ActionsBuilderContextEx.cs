@@ -826,16 +826,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder AttackWithWeapon(
         this ActionsBuilder builder,
-        StatType? stat = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weaponRef = null)
+        StatType stat,
+        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference> weaponRef)
     {
       var element = ElementTool.Create<ContextActionAttackWithWeapon>();
-      element.m_Stat = stat ?? element.m_Stat;
-      element.m_WeaponRef = weaponRef.Reference ?? element.m_WeaponRef;
-      if (element.m_WeaponRef is null)
-      {
-        element.m_WeaponRef = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
-      }
+      element.m_Stat = stat;
+      element.m_WeaponRef = weaponRef.Reference;
       return builder.Add(element);
     }
 
@@ -882,14 +878,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     public static ActionsBuilder BreathOfLife(
         this ActionsBuilder builder,
-        ContextDiceValue? value = null)
+        ContextDiceValue value)
     {
       var element = ElementTool.Create<ContextActionBreathOfLife>();
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = Constants.Empty.DiceValue;
-      }
+      element.Value = value;
       return builder.Add(element);
     }
 
@@ -898,20 +890,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     public static ActionsBuilder BreathOfMoney(
         this ActionsBuilder builder,
-        ContextValue? maxCoins = null,
-        ContextValue? minCoins = null)
+        ContextValue maxCoins,
+        ContextValue minCoins)
     {
       var element = ElementTool.Create<ContextActionBreathOfMoney>();
-      element.MaxCoins = maxCoins ?? element.MaxCoins;
-      if (element.MaxCoins is null)
-      {
-        element.MaxCoins = ContextValues.Constant(0);
-      }
-      element.MinCoins = minCoins ?? element.MinCoins;
-      if (element.MinCoins is null)
-      {
-        element.MinCoins = ContextValues.Constant(0);
-      }
+      element.MaxCoins = maxCoins;
+      element.MinCoins = minCoins;
       return builder.Add(element);
     }
 
@@ -929,30 +913,32 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
+    ///
+    /// <param name="overrideDC">
+    /// Overrides the default spell DC
+    /// </param>
+    ///
+    /// <param name="overrideSpellLevel">
+    /// Overrides the default spell level
+    /// </param>
     public static ActionsBuilder CastSpell(
         this ActionsBuilder builder,
+        Blueprint<BlueprintAbility, BlueprintAbilityReference> spell,
         bool? castByTarget = null,
-        ContextValue? dC = null,
-        bool? overrideDC = null,
-        bool? overrideSpellLevel = null,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
-        ContextValue? spellLevel = null)
+        ContextValue? overrideDC = null,
+        ContextValue? overrideSpellLevel = null)
     {
       var element = ElementTool.Create<ContextActionCastSpell>();
+      element.m_Spell = spell.Reference;
       element.CastByTarget = castByTarget ?? element.CastByTarget;
-      element.DC = dC ?? element.DC;
+      element.DC = overrideDC ?? element.DC;
+      element.OverrideDC = overrideDC is not null;
       if (element.DC is null)
       {
         element.DC = ContextValues.Constant(0);
       }
-      element.OverrideDC = overrideDC ?? element.OverrideDC;
-      element.OverrideSpellLevel = overrideSpellLevel ?? element.OverrideSpellLevel;
-      element.m_Spell = spell.Reference ?? element.m_Spell;
-      if (element.m_Spell is null)
-      {
-        element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
-      }
-      element.SpellLevel = spellLevel ?? element.SpellLevel;
+      element.SpellLevel = overrideSpellLevel ?? element.SpellLevel;
+      element.OverrideSpellLevel = overrideSpellLevel is not null;
       if (element.SpellLevel is null)
       {
         element.SpellLevel = ContextValues.Constant(0);
