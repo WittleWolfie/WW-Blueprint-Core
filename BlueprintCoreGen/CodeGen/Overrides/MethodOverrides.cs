@@ -1,4 +1,8 @@
-﻿using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
+﻿using BlueprintCore.Blueprints;
+using BlueprintCore.Utils;
+using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
@@ -9,6 +13,112 @@ using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen.Override
 {
+  /// <summary>
+  /// Represents an extra parameter applied to a method as an override.
+  /// </summary>
+  public class ExtraParameter : IParameterInternal
+  {
+    public bool SkipDeclaration => false;
+
+    public List<Type> Imports => new();
+
+    public List<string> Comment { get; } = new();
+
+    public bool Required => string.IsNullOrEmpty(DefaultValue);
+
+    public string Declaration => Required ? $"{Type} {ParamName}" : $"{Type}? {ParamName} = {DefaultValue}";
+
+    public string ParamName { get; private set; }
+
+    private readonly string? DefaultValue;
+    private readonly string Type;
+
+    /// <summary>
+    /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
+    /// validation function.
+    /// </summary>
+    private List<string> OperationFmt = new();
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return OperationFmt.Select(line => string.Format(line, objectName, ParamName, validateFunction)).ToList();
+    }
+
+    public ExtraParameter(string paramName, string type, string? defaultValue = null)
+    {
+      ParamName = paramName;
+      Type = type;
+      DefaultValue = defaultValue;
+    }
+
+    /// <summary>
+    /// Adds comment format lines where {0} is the parameter name.
+    /// </summary>
+    public ExtraParameter WithCommentFmt(params string[] linesFmt)
+    {
+      Comment.AddRange(linesFmt.Select(line => string.Format(line, ParamName)));
+      return this;
+    }
+
+    public ExtraParameter SetOperationFmt(params string[] lines)
+    {
+      OperationFmt = lines.ToList();
+      return this;
+    }
+  }
+
+  /// <summary>
+  /// Helper class to build method remarks.
+  /// </summary>
+  public class Remarks
+  {
+    private List<List<string>> Paragraphs = new();
+    private List<(string blueprintName, string blueprintGuid)> Examples = new();
+
+    public Remarks AddParagraph(params string[] lines)
+    {
+      Paragraphs.Add(lines.ToList());
+      return this;
+    }
+
+    public Remarks AddExample(string blueprintName, string blueprintGuid)
+    {
+      Examples.Add((blueprintName, blueprintGuid));
+      return this;
+    }
+
+    public List<string> ToList()
+    {
+      List<string> result = new() { "<remarks>" };
+      Paragraphs.ForEach(
+        paragraph =>
+        {
+          result.Add("<para>");
+          paragraph.ForEach(line => result.Add(line));
+          result.Add("</para>");
+          result.Add("");
+        });
+
+      if (Examples.Any())
+      {
+        result.Add("<list type=\"bullet\">");
+        result.Add("<listheader>");
+        result.Add("  <term>Example Blueprints:</term>");
+        result.Add("</listheader>");
+        Examples.ForEach(
+          example =>
+          {
+            result.Add("<item>");
+            result.Add($"  <description>{example.blueprintName} - {example.blueprintGuid}</description>");
+            result.Add("</item>");
+          });
+        result.Add("</list>");
+      }
+      result.Add("</remarks>");
+      return result;
+    }
+  }
+
   /// <summary>
   /// Manual overrides for a method. 
   /// </summary>
@@ -22,15 +132,17 @@ namespace BlueprintCoreGen.CodeGen.Override
 
     public Dictionary<string, FieldParamOverride> FieldOverridesByName = new();
 
+    public List<ExtraParameter> ExtraParameters = new();
+
     public MethodOverride AddImports(params Type[] types)
     {
       Imports.AddRange(types);
       return this;
     }
 
-    public MethodOverride AddRemarks(params string[] remarkLines)
+    public MethodOverride WithRemarks(Remarks remarks)
     {
-      Remarks.AddRange(remarkLines);
+      Remarks = remarks.ToList();
       return this;
     }
 
@@ -71,6 +183,12 @@ namespace BlueprintCoreGen.CodeGen.Override
       overrideFields.ToList().ForEach(field => FieldOverridesByName.Add(field.name, field.overrideValue));
       return this;
     }
+
+    public MethodOverride AddExtraParameters(params ExtraParameter[] extraParameters)
+    {
+      ExtraParameters.AddRange(extraParameters);
+      return this;
+    }
   }
 
   /// <summary>
@@ -96,10 +214,9 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// </summary>
   public class MethodOverrides
   {
-    private static readonly string[] AddItemToPlayerRemarks =
-      new[]
-      {
-        "<remarks>",
+    private static readonly Remarks AddItemToPlayerRemarks =
+      new Remarks()
+        .AddParagraph(
         "<list type=\"bullet\">",
         "<item>",
         "  <description>",
@@ -116,9 +233,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
         "  </description>",
         "</item>",
-        "</list>",
-        "</remarks>"
-      };
+        "</list>");
 
     public static readonly Dictionary<Type, MethodOverrideList> BuilderMethods =
       new()
@@ -286,7 +401,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           new MethodOverrideList(
             new MethodOverride()
               .UseName("GiveItemToPlayer")
-              .AddRemarks(AddItemToPlayerRemarks)
+              .WithRemarks(AddItemToPlayerRemarks)
               .IgnoreFields("Equip", "EquipOn", "ErrorIfDidNotEquip", "PreferredWeaponSet")
               .OverrideFields(
                 ("m_ItemToGive",
@@ -309,7 +424,7 @@ namespace BlueprintCoreGen.CodeGen.Override
                 })),
             new MethodOverride()
               .UseName("GiveEquipmentToPlayer")
-              .AddRemarks(AddItemToPlayerRemarks.ToArray())
+              .WithRemarks(AddItemToPlayerRemarks)
               .IgnoreFields("PreferredWeaponSet")
               .OverrideFields(
                 ("m_ItemToGive",
@@ -332,7 +447,7 @@ namespace BlueprintCoreGen.CodeGen.Override
                 })),
             new MethodOverride()
               .UseName("GiveHandSlotItemToPlayer")
-              .AddRemarks(AddItemToPlayerRemarks.ToArray())
+              .WithRemarks(AddItemToPlayerRemarks)
               .OverrideFields(
                 ("m_ItemToGive",
                 new RequiredFieldParam
@@ -421,6 +536,73 @@ namespace BlueprintCoreGen.CodeGen.Override
               .IgnoreFields("DurationSeconds")
               .SetConstantFields(("UseDurationSeconds", "false"), ("Permanent", "false")))
         },
+        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionArmorEnchantPool
+        {
+          typeof(ContextActionArmorEnchantPool),
+          new MethodOverrideList(
+            new MethodOverride()
+              .WithRemarks(
+                new Remarks()
+                  .AddParagraph(
+                    "The caster's armor is enchanted based on its available enhancement bonus.",
+                    "e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.")
+                  .AddExample("SacredArmorEnchantSwitchAbility", "66484ebb8d358db4692ef4445fa6ac35"))
+              .RequireFields("EnchantPool", "DurationValue")
+              // Overridden by the manual extra parameter definitions
+              .IgnoreFields("m_DefaultEnchantments")
+              // Used for the default enchantment parameters
+              .AddImports(
+                typeof(BlueprintTool),
+                typeof(BlueprintItemEnchantment),
+                typeof(BlueprintItemEnchantmentReference),
+                typeof(ItemEnchantments))
+              .AddExtraParameters(
+                // +1 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus1",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus1"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"),
+                // +2 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus2",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus2"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"),
+                // +3 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus3",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus3"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"),
+                // +4 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus4",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus4"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"),
+                // +5 Armor Bonus
+                new ExtraParameter(
+                    "enchantmentPlus5",
+                    "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+                    defaultValue: "null")
+                  .WithCommentFmt(
+                    GetBlueprintCommentFmtWithDefault(
+                      typeof(BlueprintItemEnchantment), "Defaults to TemporaryArmorEnhancementBonus5"))
+                  .SetOperationFmt("{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;")))
+        },
 
         //**** ActionsBuilderKingdomEx ****//
 
@@ -496,5 +678,15 @@ namespace BlueprintCoreGen.CodeGen.Override
                   })))
         },
       };
+
+    private static string[] GetBlueprintCommentFmtWithDefault(Type blueprintType, string defaultComment)
+    {
+      return ParametersFactory.GetBlueprintCommentFmt(blueprintType)
+        .Prepend("<param name=\"{0}\">")
+        .Append("")
+        .Append(defaultComment)
+        .Append("</param>")
+        .ToArray();
+    }
   }
 }

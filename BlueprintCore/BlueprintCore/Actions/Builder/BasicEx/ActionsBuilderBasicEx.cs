@@ -316,6 +316,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// <list type="bullet">
     /// <item>
     ///   <description>
@@ -333,6 +334,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   </description>
     /// </item>
     /// </list>
+    /// </para>
+    /// 
     /// </remarks>
     ///
     /// <param name="itemToGive">
@@ -374,6 +377,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// <list type="bullet">
     /// <item>
     ///   <description>
@@ -391,6 +395,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   </description>
     /// </item>
     /// </list>
+    /// </para>
+    /// 
     /// </remarks>
     ///
     /// <param name="itemToGive">
@@ -439,6 +445,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// <list type="bullet">
     /// <item>
     ///   <description>
@@ -456,6 +463,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   </description>
     /// </item>
     /// </list>
+    /// </para>
+    /// 
     /// </remarks>
     ///
     /// <param name="itemToGive">

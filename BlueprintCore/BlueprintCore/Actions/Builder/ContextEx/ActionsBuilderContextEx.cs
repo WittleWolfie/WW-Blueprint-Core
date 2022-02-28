@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
@@ -381,7 +382,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// Adds <see cref="ContextActionArmorEnchantPool"/>
     /// </summary>
     ///
-    /// <param name="defaultEnchantments">
+    /// <remarks>
+    /// <para>
+    /// The caster's armor is enchanted based on its available enhancement bonus.
+    /// e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
+    /// 
+    /// <list type="bullet">
+    /// <listheader>
+    ///   <term>Example Blueprints:</term>
+    /// </listheader>
+    /// <item>
+    ///   <description>SacredArmorEnchantSwitchAbility - 66484ebb8d358db4692ef4445fa6ac35</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantmentPlus1">
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -390,23 +407,81 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryArmorEnhancementBonus1
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus2">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryArmorEnhancementBonus2
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus3">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryArmorEnhancementBonus3
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus4">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryArmorEnhancementBonus4
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus5">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryArmorEnhancementBonus5
     /// </param>
     public static ActionsBuilder ArmorEnchantPool(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
-        ContextDurationValue? durationValue = null,
-        EnchantPoolType? enchantPool = null,
+        ContextDurationValue durationValue,
+        EnchantPoolType enchantPool,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionArmorEnchantPool>();
-      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
-      if (element.m_DefaultEnchantments is null)
-      {
-        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
-      }
       builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.DurationValue = durationValue;
+      element.EnchantPool = enchantPool;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }

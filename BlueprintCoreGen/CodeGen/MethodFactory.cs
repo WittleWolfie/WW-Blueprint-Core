@@ -44,16 +44,18 @@ namespace BlueprintCoreGen.CodeGen
     }
 
     private static IMethod CreateForBuilder(
-        Type elementType, string builderType, MethodOverride? methodOverride = null)
+      Type elementType, string builderType, MethodOverride? methodOverride = null)
     {
       var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
-      var fields = FieldFactory.CreateFieldParameters(elementType, methodOverride?.FieldOverridesByName);
+      var parameters =
+        ParametersFactory.CreateForConstructor(
+          elementType, methodOverride?.FieldOverridesByName, methodOverride?.ExtraParameters);
 
       // Imports
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
-      fields.ForEach(field => field.Imports.ForEach(import => method.AddImport(import)));
+      parameters.ForEach(param => param.Imports.ForEach(import => method.AddImport(import)));
       if (methodOverride is not null) { methodOverride.Imports.ForEach(import => method.AddImport(import)); }
 
       // Comment summary
@@ -70,7 +72,7 @@ namespace BlueprintCoreGen.CodeGen
 
       // Parameter comments
       var paramComments =
-          fields.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
+          parameters.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
       if (paramComments.Any())
       {
         paramComments.ForEach(
@@ -82,7 +84,7 @@ namespace BlueprintCoreGen.CodeGen
       }
 
       var methodName = methodOverride?.Name ?? GetMethodName(elementTypeName);
-      if (!fields.Any())
+      if (!parameters.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
         method.AddLine($"{{");
@@ -93,7 +95,7 @@ namespace BlueprintCoreGen.CodeGen
 
       // Declarations
       var declarations =
-          fields.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
+          parameters.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
       if (!declarations.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
@@ -109,7 +111,7 @@ namespace BlueprintCoreGen.CodeGen
 
       // Constructor & assignment
       method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
-      fields.SelectMany(field => field.GetAssignment("element", "builder.Validate"))
+      parameters.SelectMany(field => field.GetOperation("element", "builder.Validate"))
         .ToList()
         .ForEach(line => method.AddLine($"  {line}"));
 

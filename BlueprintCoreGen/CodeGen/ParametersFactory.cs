@@ -8,10 +8,10 @@ using System.Text;
 namespace BlueprintCoreGen.CodeGen
 {
   /// <summary>
-  /// Represents a field used as an input parameter in a constructor method. i.e. Field parameters in builder methods
-  /// and configurator component methods.
+  /// Represents a method input parameter in a constructor method. i.e. Parameters in builder methods and configurator
+  /// component methods.
   /// </summary>
-  public interface IFieldParameter
+  public interface IParameter
   {
     /// <summary>
     /// List of types to import.
@@ -29,39 +29,73 @@ namespace BlueprintCoreGen.CodeGen
     string Declaration { get; }
 
     /// <summary>
-    /// Returns a statement which assigns the parameter to the given object's field. The provided validation function
-    /// is called on the parameter before assignment.
+    /// Returns a statement which uses the parameter to operate on the object. Typically this is assigning the 
+    /// parameter value to a field in the object. The provided validation function is called on the parameter before
+    /// assignment.
     /// </summary>
-    List<string> GetAssignment(string objectName, string validateFunction);
+    List<string> GetOperation(string objectName, string validateFunction);
+  }
+
+  /// <summary>
+  /// Internal representation of a parameter used in the factory.
+  /// </summary>
+  internal interface IParameterInternal : IParameter
+  {
+    /// <summary>
+    /// If true the parameter should not be declared. This is typically used for constant inputs to a method.
+    /// </summary>
+    bool SkipDeclaration { get; }
+
+    /// <summary>
+    /// If true the parameter is required and should be included in method parameter lists before optional parameters.
+    /// </summary>
+    bool Required { get; }
+
+    /// <summary>
+    /// Name of the parameter
+    /// </summary>
+    string ParamName { get; }
   }
 
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
 
-  public static class FieldFactory
+  public static class ParametersFactory
   {
     /// <summary>
-    /// Returns an list of field parameters used to construct an object of the specified type. The list is ordered such
+    /// Returns an list of parameters used to construct an object of the specified type. The list is ordered such
     /// that optional parameters are at the end.
     /// </summary>
+    /// 
+    /// <remarks>
+    /// By default, will create a parameter for every field in the object. Overrides can be specified by type,  type
+    /// and field name, or by using the overridesByName param. Overrides are applied in that order, so type is the
+    /// lowest priority followed by type and field name followed by overridesByName.
+    /// </remarks>
     /// 
     /// <param name="overridesByName">
     /// Overrides the fields matching the provided names. Highest priority override, applied after type specific and
     /// type + name specific.
     /// </param>
-    public static List<IFieldParameter> CreateFieldParameters(
-        Type objectType, Dictionary<string, FieldParamOverride>? overridesByName)
+    /// <param name="extraParameters">
+    /// Adds extra parameters that do not map directly to a field.
+    /// </param>
+    public static List<IParameter> CreateForConstructor(
+      Type objectType, Dictionary<string, FieldParamOverride>? overridesByName, List<ExtraParameter>? extraParameters)
     {
       return
-          objectType.GetFields()
-              .Where(fieldInfo => !ShouldIgnore(fieldInfo))
-              .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, overridesByName))
-              .Where(field => !field.Ignore)
-              .OrderBy(field => !field.SkipDeclaration ? 0 : 1)
-              .ThenBy(field => string.IsNullOrEmpty(field.DefaultValue) ? 0 : 1)
-              .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
-              .Select(field => field as IFieldParameter)
-              .ToList();
+        objectType.GetFields()
+          .Where(fieldInfo => !ShouldIgnore(fieldInfo))
+          .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, overridesByName))
+          .Where(fieldParam => !fieldParam.Ignore)
+          .Select(fieldParam => fieldParam as IParameterInternal)
+          .Concat(
+            extraParameters?.Select(extraParam => extraParam as IParameterInternal) ?? new List<IParameterInternal>())
+          .OrderBy(param => !param.SkipDeclaration ? 0 : 1)
+          .ThenBy(param => param.Required ? 0 : 1)
+          .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
+          .Select(field => field as IParameter)
+          .ToList();
     }
 
     private static bool ShouldIgnore(FieldInfo info)
@@ -182,22 +216,26 @@ namespace BlueprintCoreGen.CodeGen
     {
       if (blueprintType is not null)
       {
-        return
-            new()
-            {
-              $"<param name=\"{{0}}\">",
-              $"Blueprint of type {TypeTool.GetName(blueprintType)}. You can pass in the blueprint using:",
-              $"<list type =\"bullet\">",
-              $"  <item><term>A blueprint instance</term></item>",
-              $"  <item><term>A blueprint reference</term></item>",
-              $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
-              $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
-              $"</list>",
-              $"See <see cref=\"BlueprintCore.Utils.Blueprint\">Blueprint</see> for more details.",
-              $"</param>"
-            };
+        return GetBlueprintCommentFmt(blueprintType).Prepend("<param name=\"{0}\">").Append("</param>").ToList();
       }
       return new();
+    }
+
+    // Also used by MethodOverrides
+    public static List<string> GetBlueprintCommentFmt(Type blueprintType)
+    {
+      return
+        new()
+        {
+          $"Blueprint of type {TypeTool.GetName(blueprintType)}. You can pass in the blueprint using:",
+          $"<list type =\"bullet\">",
+          $"  <item><term>A blueprint instance</term></item>",
+          $"  <item><term>A blueprint reference</term></item>",
+          $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
+          $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
+          $"</list>",
+          $"See <see cref=\"BlueprintCore.Utils.Blueprint\">Blueprint</see> for more details.",
+        };
     }
 
     public static string GetDefaultValue()
@@ -285,7 +323,7 @@ namespace BlueprintCoreGen.CodeGen
       return "";
     }
 
-    private class FieldParameter : IFieldParameter
+    private class FieldParameter : IParameterInternal
     {
       /// <summary>
       /// If true the parameter should be left out
@@ -295,7 +333,7 @@ namespace BlueprintCoreGen.CodeGen
       /// <summary>
       /// If true the declaration should be left out
       /// </summary>
-      public bool SkipDeclaration = false;
+      public bool SkipDeclaration { get; private set; }
 
       /// <summary>
       /// If true appends `?` to the type name
@@ -319,6 +357,8 @@ namespace BlueprintCoreGen.CodeGen
       /// Default value for optional parameters
       /// </summary>
       public string? DefaultValue { get; private set; }
+
+      public bool Required => string.IsNullOrEmpty(DefaultValue);
 
       /// <summary>
       /// Validation format string where {0} is the validation function and {1} is the parameter name
@@ -352,6 +392,8 @@ namespace BlueprintCoreGen.CodeGen
           string assignmentRhsFmt,
           string assignmentIfNullRhs)
       {
+        SkipDeclaration = false;
+
         FieldName = fieldName;
         ParamName = paramName;
         TypeName = typeName;
@@ -399,7 +441,7 @@ namespace BlueprintCoreGen.CodeGen
             : $"{declaration} = {DefaultValue}";
       }
 
-      public List<string> GetAssignment(string objectName, string validateFunction)
+      public List<string> GetOperation(string objectName, string validateFunction)
       {
         List<string> assignment = new();
         assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
